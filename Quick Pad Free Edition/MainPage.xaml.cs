@@ -492,6 +492,7 @@ SaveWork()
             Ad1.Visibility = Visibility.Collapsed;
             CommandBar2.Margin = new Thickness(0, 0, 0, 0);
             TQuick.Visibility = Visibility.Collapsed;
+            Cut.Visibility = Visibility.Collapsed;
 
             //make text smaller size if user did not do so on their own and if they did not type anything yet.
             Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
@@ -516,6 +517,7 @@ SaveWork()
                 Text1.Margin = new Thickness(0, 81, 0, 0);
                 CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                Cut.Visibility = Visibility.Visible;
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
                 TQuick.Visibility = Visibility.Visible;
             }
@@ -532,6 +534,7 @@ SaveWork()
                 CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 Ad1.Visibility = Visibility.Visible;
+                Cut.Visibility = Visibility.Visible;
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
                 TQuick.Visibility = Visibility.Visible;
             }
