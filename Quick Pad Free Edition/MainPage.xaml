@@ -1,0 +1,506 @@
+﻿<Page
+    x:Class="Quick_Pad_Free_Edition.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Quick_Pad_Free_Edition"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:UI="using:Microsoft.Advertising.WinRT.UI"
+    xmlns:adduplex="using:AdDuplex"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+
+    mc:Ignorable="d">
+    <Page.Resources>
+        <Style x:Key="RichEditBox" TargetType="RichEditBox">
+            <Setter Property="MinWidth" Value="{ThemeResource TextControlThemeMinWidth}"/>
+            <Setter Property="MinHeight" Value="{ThemeResource TextControlThemeMinHeight}"/>
+            <Setter Property="Foreground" Value="{ThemeResource TextControlForeground}"/>
+            <Setter Property="Background" Value="{ThemeResource TextControlBackground}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource TextControlBorderBrush}"/>
+            <Setter Property="SelectionHighlightColor" Value="{ThemeResource TextControlSelectionHighlightColor}"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource TextControlBorderThemeThickness}"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False"/>
+            <Setter Property="Padding" Value="{ThemeResource TextControlThemePadding}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RichEditBox">
+                        <Grid>
+                            <Grid.Resources>
+                                <Style x:Name="DeleteButtonStyle" TargetType="Button">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid x:Name="ButtonLayoutGrid" BorderBrush="{ThemeResource TextControlButtonBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{ThemeResource TextControlButtonBackground}">
+                                                    <VisualStateManager.VisualStateGroups>
+                                                        <VisualStateGroup x:Name="CommonStates">
+                                                            <VisualState x:Name="Normal"/>
+                                                            <VisualState x:Name="PointerOver">
+                                                                <Storyboard>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="ButtonLayoutGrid">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlButtonBackgroundPointerOver}"/>
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ButtonLayoutGrid">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlButtonBorderBrushPointerOver}"/>
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="GlyphElement">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlButtonForegroundPointerOver}"/>
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                            <VisualState x:Name="Pressed">
+                                                                <Storyboard>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="ButtonLayoutGrid">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlButtonBackgroundPressed}"/>
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="ButtonLayoutGrid">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlButtonBorderBrushPressed}"/>
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                    <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="GlyphElement">
+                                                                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlButtonForegroundPressed}"/>
+                                                                    </ObjectAnimationUsingKeyFrames>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                            <VisualState x:Name="Disabled">
+                                                                <Storyboard>
+                                                                    <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="ButtonLayoutGrid"/>
+                                                                </Storyboard>
+                                                            </VisualState>
+                                                        </VisualStateGroup>
+                                                    </VisualStateManager.VisualStateGroups>
+                                                    <TextBlock x:Name="GlyphElement" AutomationProperties.AccessibilityView="Raw" Foreground="{ThemeResource TextControlButtonForeground}" FontStyle="Normal" FontSize="12" FontFamily="{ThemeResource SymbolThemeFontFamily}" HorizontalAlignment="Center" Text="&#xE10A;" VerticalAlignment="Center"/>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </Grid.Resources>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Disabled">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="HeaderContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlHeaderForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="BorderElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlBackgroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="BorderElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlBorderBrushDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="PlaceholderTextContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlPlaceholderForegroundDisabled}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="BorderElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlBorderBrushPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <!--<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="BorderElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlBackgroundPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>-->
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="PlaceholderTextContentPresenter">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlPlaceholderForegroundPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Foreground" Storyboard.TargetName="ContentElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlForegroundPointerOver}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Focused">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="BorderElement">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource TextControlBorderBrushFocused}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="ButtonStates">
+                                    <VisualState x:Name="ButtonVisible">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Visibility" Storyboard.TargetName="DeleteButton">
+                                                <DiscreteObjectKeyFrame KeyTime="0">
+                                                    <DiscreteObjectKeyFrame.Value>
+                                                        <Visibility>Visible</Visibility>
+                                                    </DiscreteObjectKeyFrame.Value>
+                                                </DiscreteObjectKeyFrame>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="ButtonCollapsed"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Border x:Name="BorderElement" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="1"/>
+                            <ContentPresenter x:Name="HeaderContentPresenter" Grid.ColumnSpan="2" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Foreground="{ThemeResource TextControlHeaderForeground}" FontWeight="Normal" Margin="0,0,0,8" Grid.Row="0" TextWrapping="{TemplateBinding TextWrapping}" Visibility="Collapsed" x:DeferLoadStrategy="Lazy"/>
+                            <ScrollViewer x:Name="ContentElement" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" IsTabStop="False" IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}" Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" Grid.Row="1" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="Disabled"/>
+                            <ContentPresenter x:Name="PlaceholderTextContentPresenter" Grid.ColumnSpan="2" Content="{TemplateBinding PlaceholderText}" Foreground="{ThemeResource TextControlPlaceholderForeground}" IsHitTestVisible="False" Margin="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}" Grid.Row="1" TextWrapping="{TemplateBinding TextWrapping}"/>
+                            <Button x:Name="DeleteButton" AutomationProperties.AccessibilityView="Raw" BorderThickness="{TemplateBinding BorderThickness}" Grid.Column="1" FontSize="{TemplateBinding FontSize}" IsTabStop="False" Margin="{ThemeResource HelperButtonThemePadding}" MinWidth="34" Grid.Row="1" Style="{StaticResource DeleteButtonStyle}" Visibility="Collapsed" VerticalAlignment="Stretch"/>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+    <Page.Background>
+        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="#CCE4DECD"/>
+    </Page.Background>
+
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,0,0" HorizontalAlignment="Stretch">
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="30"/>
+            <RowDefinition Height="48"/>
+        </Grid.RowDefinitions>
+        <Button x:Name="ResetNewUser" Visibility="Collapsed" Content="reset if you are a new user"  HorizontalAlignment="Center" Canvas.ZIndex="1"/>
+
+        <controls:DropShadowPanel x:Name="Shadow1" Margin="0,33,0,0" Grid.RowSpan="1" VerticalAlignment="Top"
+                                  Canvas.ZIndex="75"
+                                  ShadowOpacity="0.2"
+                                  OffsetX="0"
+                                  OffsetY="2.54"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Stretch">
+
+            <Frame x:Name="FrameTop" Content="" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="48" Grid.RowSpan="1" Margin="0,0,0,0"/>
+        </controls:DropShadowPanel>
+
+        <CommandBar x:Name="CommandBar1"  Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,420,0"  DefaultLabelPosition="Right" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="48"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+                <AppBarButton x:Name="CmdNew" Icon="Delete" Click="CmdNew_Click" ToolTipService.ToolTip="Clear"/>
+                <AppBarButton x:Name="CmdOpen" Icon="OpenFile" Click="CmdOpen_Click" ToolTipService.ToolTip="Open (Ctrl+O)">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator 
+                          Modifiers="Control" 
+                           Key="O" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:Name="CmdSave"  Icon="Save" Click="CmdSave_Click" ToolTipService.ToolTip="Save (Ctrl+S)">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator 
+                          Modifiers="Control" 
+                           Key="S" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+            <AppBarButton x:Name="CmdShare" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the selected text."/>
+                <AppBarSeparator/>
+                <AppBarButton x:Name="Bold" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Bold (Ctrl+B)"/>
+                <AppBarButton x:Name="Italic" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Italic (Ctrl+I)"/>
+                <AppBarButton x:Name="Underline" Click="Underline_Click_1" Icon="Underline" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Underline (Ctrl+U)"/>
+                <AppBarButton x:Name="Strikethrough" ToolTipService.ToolTip="Strikethrough" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Click="Strikethrough_Click">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI" Margin="0, -5, 0, 0"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Name="BulletList" Visibility="Visible" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Toggle Bullets"/>
+            <AppBarSeparator/>
+                <AppBarButton x:Name="Left" Click="Left_Click" Icon="AlignLeft" ToolTipService.ToolTip="Align left (Ctrl+L)"/>
+                <AppBarButton x:Name="Center" Click="Center_Click" Icon="AlignCenter" ToolTipService.ToolTip="Align center (Ctrl+E)"/>
+                <AppBarButton x:Name="Right" Click="Right_Click" Icon="AlignRight" ToolTipService.ToolTip="Align right (Ctrl+R)"/>
+                <AppBarButton x:Name="Justify" Click="Justify_Click" ToolTipService.ToolTip="Justify text (Ctrl+J)" Icon="GlobalNavigationButton" Background="{x:Null}" />
+                <AppBarSeparator />
+                <AppBarButton x:Name="SizeUp" Click="SizeUp_Click" Icon="FontIncrease" ToolTipService.ToolTip="Size Up" />
+                <AppBarButton x:Name="SizeDown" Click="SizeDown_Click" Icon="FontDecrease" ToolTipService.ToolTip="Size Down" />
+            </CommandBar>
+
+        <CommandBar x:Name="CommandBar2"  Canvas.ZIndex="75" IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="48" Background="{x:Null}" Margin="0,33,0,0">
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click"/>
+                <AppBarButton x:Name="CmdAbout" Icon="Globe" Label="About" Click="CmdAbout_Click"/>
+                <AppBarButton x:Name="CmdSettings" Icon="Setting" Label="Settings" Visibility="Visible" Click="CmdSettings_Click" ToolTipService.ToolTip="Settings"/>
+            </CommandBar.SecondaryCommands>
+            <AppBarButton x:Name="CmdUndo" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)"/>
+            <AppBarButton x:Name="CmdRedo" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click" ToolTipService.ToolTip="Redo (Ctrl+Y)"/>
+            <AppBarSeparator x:Name="ASep1"/>
+            <AppBarToggleButton x:Name="CompactOverlay" Content="On Top" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Checked="CompactOverlay_Checked" Unchecked="CompactOverlay_Unchecked"/>
+            <AppBarButton x:Name="Copy" Icon="Copy" Click="Copy_Click" ToolTipService.ToolTip="Copy (Ctrl+C)"/>
+            <AppBarButton x:Name="Paste" Icon="Paste" Click="Paste_Click" ToolTipService.ToolTip="Paste (Ctrl+V)"/>
+            <AppBarButton x:Name="Cut" Icon="Cut" Click="Cut_Click" ToolTipService.ToolTip="Cut (Ctrl+X)"/>
+            <AppBarButton x:Name="NewWindows" Visibility="Collapsed" Icon="Add" Click="NewWindows_Click" ToolTipService.ToolTip="Add note"/>
+        </CommandBar>
+        <RichEditBox  x:Name="Text1" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,81,0,90" Style="{StaticResource RichEditBox}" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  RequestedTheme="Default" FontSize="24">
+        </RichEditBox>
+
+        <ContentDialog x:Name="AboutDialog" Background="{ThemeResource SystemControlAcrylicElementBrush}"
+           Opened="AboutDialog_Opened" PrimaryButtonText="Ok">
+
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid>
+                    <TextBlock Text="About" FontSize="24"/>
+                    <TextBlock Text="Developed by ATec Solution" Margin="0,37,0,-37"/>
+                </Grid>
+            </StackPanel>
+        </ContentDialog>
+
+        <ContentDialog x:Name="Settings" Background="{ThemeResource SystemControlAcrylicElementBrush}"
+           Opened="Settings_Opened">
+            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid>
+                    <RadioButton x:Name="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,45,0,0" VerticalAlignment="Top" Width="242" Click="Light_Click" Grid.RowSpan="2"/>
+                    <RadioButton x:Name="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,85,0,0" VerticalAlignment="Top" Width="242" Click="Dark_Click"/>
+                    <RadioButton x:Name="SystemDefult" Content="System Defult" HorizontalAlignment="Left" Height="38" Margin="0,125,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefult_Click" Grid.RowSpan="1"/>
+                    <TextBlock HorizontalAlignment="Left" Height="33" Margin="0,10,0,0" Text="Theme" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontSize="22"/>
+                    <TextBlock HorizontalAlignment="Left" Height="33" Margin="0,168,0,0" Text="Other" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontSize="22"/>
+                    <TextBlock Text="Launch Mode" Margin="0,202,23,87" TextWrapping="Wrap"/>
+                    <ToggleSwitch x:Name="LaunchModeSwitch" OnContent="On Top" OffContent="Regular" Toggled="LaunchModeSwitch_Toggled" HorizontalAlignment="Left" Margin="0,227,0,0" VerticalAlignment="Top" />
+                    <Button x:Name="Feedback"  Content="Send Feedback" Click="Feedback_Click" HorizontalAlignment="Left" Margin="0,277,0,0" VerticalAlignment="Top"/>
+                    <CommandBar x:Name="CmdSettingsBack" IsOpen="False"  DefaultLabelPosition="Right" HorizontalAlignment="Right" Background="{x:Null}" VerticalAlignment="Top">
+                        <AppBarButton x:Name="CmdBack" Icon="Back" Click="CmdBack_Click" Background="{x:Null}" />
+                    </CommandBar>
+                </Grid>
+            </StackPanel>
+        </ContentDialog>
+
+        <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom"
+                                  Canvas.ZIndex="10"
+                                  ShadowOpacity="0.2"
+                                  OffsetX="0"
+                                  OffsetY="-1"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Stretch">
+
+            <Frame x:Name="FrameBottom" Content="" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="48" Grid.RowSpan="1" Margin="0,0,0,0"/>
+        </controls:DropShadowPanel>
+        
+        <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75"  IsOpen="False" DefaultLabelPosition="Right" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom" Height="48" FlowDirection="LeftToRight" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+            <CommandBar.Content>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                    <ComboBox VerticalAlignment="Center" MinHeight="48" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="199" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                        <ComboBoxItem Content="Arial"  />
+                        <ComboBoxItem Content="Calibri"  />
+                        <ComboBoxItem Content="Cambria" />
+                        <ComboBoxItem Content="Cambria Math"  />
+                        <ComboBoxItem Content="Comic Sans MS"  />
+                        <ComboBoxItem Content="Courier New" />
+                        <ComboBoxItem Content="Ebrima"/>
+                        <ComboBoxItem Content="Gadugi" />
+                        <ComboBoxItem Content="Georgia" />
+                        <ComboBoxItem Content="Leelawadee UI"  />
+                        <ComboBoxItem Content="Lucida Console"/>
+                        <ComboBoxItem Content="Malgun Gothic"/>
+                        <ComboBoxItem Content="Microsoft Himalaya" />
+                        <ComboBoxItem Content="Microsoft JhengHei"/>
+                        <ComboBoxItem Content="Myanmar Text" />
+                        <ComboBoxItem Content="Nirmala UI" />
+                        <ComboBoxItem Content="Segoe MDL2 Assets"/>
+                        <ComboBoxItem Content="Segoe Print" />
+                        <ComboBoxItem Content="Segoe UI" />
+                        <ComboBoxItem Content="Segoe UI Emoji" />
+                        <ComboBoxItem Content="Segoe UI Historic"/>
+                        <ComboBoxItem Content="Segoe UI Symbol" />
+                        <ComboBoxItem Content="Times New Roman" />
+                        <ComboBoxItem Content="Trebuchet MS" />
+                        <ComboBoxItem Content="Verdana"/>
+                        <ComboBoxItem Content="Webdings" />
+                        <ComboBoxItem Content="Wingdings"/>
+                        <ComboBoxItem Content="Yu Gothic" />
+                    </ComboBox>
+                </StackPanel>
+            </CommandBar.Content>
+            <AppBarButton x:Name="RemoveAd" Visibility="Visible" Content="Remove Ads" ToolTipService.ToolTip="Remove ads from Quick Pad" Click="RemoveAd_Click"/>
+            <AppBarButton x:Name="TextColor" Icon="FontColor" ToolTipService.ToolTip="Font Color"  Click="TextColor_Click">
+                <AppBarButton.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem x:Name="Black" Text="Black" Click="Black_Click" />
+                        <MenuFlyoutItem x:Name="White" Text="White" Click="White_Click" />
+                        <MenuFlyoutItem x:Name="Yellow" Text="Yellow" Click="Yellow_Click" />
+                        <MenuFlyoutItem x:Name="Blue" Text="Blue" Click="Blue_Click" />
+                        <MenuFlyoutItem x:Name="Pink" Text="Pink" Click="Pink_Click" />
+                        <MenuFlyoutItem x:Name="Orange" Text="Orange" Click="Orange_Click" />
+                        <MenuFlyoutItem x:Name="Green" Text="Green" Click="Green_Click" />
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarToggleButton x:Name="Emoji" Icon="Emoji2" Checked="Emoji_Checked" Unchecked="Emoji_Unchecked"/>
+        </CommandBar>
+        <!--<UI:AdControl x:Name="Ad1" ApplicationId="9pdlwqhtlsv3"
+        AdUnitId="1100035049"
+        HorizontalAlignment="Center"
+        Height="90"
+        VerticalAlignment="Bottom"
+        Width="728"/>-->
+        <adduplex:AdControl x:Name="Ad1" AdUnitId="213707" 
+        AppKey="87402fe6-ab2d-4c00-a7a5-c573e1af10d4"
+        HorizontalAlignment="Center"
+        Height="90"
+        VerticalAlignment="Bottom"
+        Width="728"/>
+        <controls:DropShadowPanel x:Name="Emoji2" Margin="0,0,0,0" Grid.RowSpan="1" VerticalAlignment="Bottom"
+                                  Canvas.ZIndex="75"
+                                  ShadowOpacity=".2"
+                                  OffsetX="0"
+                                  OffsetY="0"
+                                  HorizontalAlignment="Right"
+                                  Visibility="Collapsed"
+                                  HorizontalContentAlignment="Stretch" Width="265" Height="193">
+
+
+            <Frame x:Name="EmojiPanel" Visibility="Visible" HorizontalAlignment="Right" Height="191" VerticalAlignment="Bottom" Width="263" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="#FFA7A2A2" BorderThickness=".5,.5,0,0" Margin="0,0,1,1">
+                <StackPanel HorizontalAlignment="Stretch" Margin="-1.333,-0.333,0.666,0" VerticalAlignment="Stretch">
+                    <Pivot HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch">
+                        <PivotItem Header="🙂">
+                            <GridView  Visibility="Visible" LostFocus="EmojiPanel_LostFocus" BorderThickness=".5" Height="148" Margin="0,0,-16,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Button x:Name="E1" Content="😀" Click="E1_Click" Width="40" Height="40"/>
+                                <Button x:Name="E2" Content="😁" Click="E2_Click" Width="40" Height="40"/>
+                                <Button x:Name="E3" Content="😂" Click="E3_Click" Width="40" Height="40"/>
+                                <Button x:Name="E4" Content="🤣" Click="E4_Click" Width="40" Height="40"/>
+                                <Button x:Name="E5" Content="😃" Click="E5_Click" Width="40" Height="40"/>
+                                <Button x:Name="E6" Content="😄" Click="E6_Click" Width="40" Height="40"/>
+                                <Button x:Name="E7" Content="😅" Click="E7_Click" Width="40" Height="40"/>
+                                <Button x:Name="E8" Content="😆" Click="E8_Click" Width="40" Height="40"/>
+                                <Button x:Name="E9" Content="😉" Click="E9_Click" Width="40" Height="40"/>
+                                <Button x:Name="E10" Content="😊" Click="E10_Click" Width="40" Height="40"/>
+                                <Button x:Name="E11" Content="😋" Click="E11_Click" Width="40" Height="40"/>
+                                <Button x:Name="E12" Content="😎" Click="E12_Click" Width="40" Height="40"/>
+                                <Button x:Name="E13" Content="😍" Click="E13_Click" Width="40" Height="40"/>
+                                <Button x:Name="E14" Content="😘" Click="E14_Click" Width="40" Height="40"/>
+                                <Button x:Name="E15" Content="🥰" Click="E15_Click" Width="40" Height="40"/>
+                                <Button x:Name="E16" Content="😗" Click="E16_Click" Width="40" Height="40"/>
+                                <Button x:Name="E17" Content="😙" Click="E17_Click" Width="40" Height="40"/>
+                                <Button x:Name="E18" Content="😚" Click="E18_Click" Width="40" Height="40"/>
+                                <Button x:Name="E19" Content="☺" Click="E19_Click" Width="40" Height="40"/>
+                                <Button x:Name="E20" Content="🙂" Click="E20_Click" Width="40" Height="40"/>
+                                <Button x:Name="E21" Content="🤗" Click="E21_Click" Width="40" Height="40"/>
+                                <Button x:Name="E22" Content="🤩" Click="E22_Click" Width="40" Height="40"/>
+                                <Button x:Name="E23" Content="🤔" Click="E23_Click" Width="40" Height="40"/>
+                                <Button x:Name="E24" Content="🤨" Click="E24_Click" Width="40" Height="40"/>
+                                <Button x:Name="E25" Content="😐" Click="E25_Click" Width="40" Height="40"/>
+                                <Button x:Name="E26" Content="😑" Click="E26_Click" Width="40" Height="40"/>
+                                <Button x:Name="E27" Content="😶" Click="E27_Click" Width="40" Height="40"/>
+                                <Button x:Name="E28" Content="🙄" Click="E28_Click" Width="40" Height="40"/>
+                                <Button x:Name="E29" Content="😏" Click="E29_Click" Width="40" Height="40"/>
+                                <Button x:Name="E30" Content="😣" Click="E30_Click" Width="40" Height="40"/>
+                                <Button x:Name="E31" Content="😥" Click="E31_Click" Width="40" Height="40"/>
+                                <Button x:Name="E32" Content="😮" Click="E32_Click" Width="40" Height="40"/>
+                                <Button x:Name="E33" Content="🤐" Click="E33_Click" Width="40" Height="40"/>
+                                <Button x:Name="E34" Content="😯" Click="E34_Click" Width="40" Height="40"/>
+                                <Button x:Name="E35" Content="😪" Click="E35_Click" Width="40" Height="40"/>
+                                <Button x:Name="E36" Content="😫" Click="E36_Click" Width="40" Height="40"/>
+                                <Button x:Name="E37" Content="😴" Click="E37_Click" Width="40" Height="40"/>
+                                <Button x:Name="E38" Content="😌" Click="E38_Click" Width="40" Height="40"/>
+                                <Button x:Name="E39" Content="😛" Click="E39_Click" Width="40" Height="40"/>
+                                <Button x:Name="E40" Content="😜" Click="E40_Click" Width="40" Height="40"/>
+                                <Button x:Name="E41" Content="😝" Click="E41_Click" Width="40" Height="40"/>
+                                <Button x:Name="E42" Content="🤤" Click="E42_Click" Width="40" Height="40"/>
+                                <Button x:Name="E43" Content="😒" Click="E43_Click" Width="40" Height="40"/>
+                            </GridView>
+                        </PivotItem>
+                        <PivotItem Header=";-)">
+                            <GridView  Visibility="Visible" BorderThickness=".5" HorizontalAlignment="Center" Height="148" VerticalAlignment="Center" Width="238">
+                                <Button x:Name="K1" Content=";)" Click="K1_Click" Width="70" Height="40"/>
+                                <Button x:Name="K2" Content="^_~" Click="K2_Click" Width="70" Height="40"/>
+                                <Button x:Name="K3" Content=";-)" Click="K3_Click" Width="70" Height="40"/>
+                                <Button x:Name="K4" Content=":)" Click="K4_Click" Width="70" Height="40"/>
+                                <Button x:Name="K5" Content="^_^" Click="K5_Click" Width="70" Height="40"/>
+                                <Button x:Name="K6" Content=":-)" Click="K6_Click" Width="70" Height="40"/>
+                                <Button x:Name="K7" Content=":D" Click="K7_Click" Width="70" Height="40"/>
+                                <Button x:Name="K8" Content="^0^" Click="K8_Click" Width="70" Height="40"/>
+                                <Button x:Name="K9" Content=":-D" Click="K9_Click"  Width="70" Height="40"/>
+                                <Button x:Name="K11" Content=":P" Click="K11_Click" Width="70" Height="40"/>
+                                <Button x:Name="K12" Content=":-P" Click="K12_Click"  Width="70" Height="40"/>
+                                <Button x:Name="K13" Content=";P" Click="K13_Click"  Width="70" Height="40"/>
+                                <Button x:Name="K14" Content=":(" Click="K14_Click"  Width="70" Height="40"/>
+                                <Button x:Name="K15" Content=":-(" Click="K15_Click"  Width="70" Height="40"/>
+                                <Button x:Name="K16" Content="U_U" Click="K16_Click"  Width="70" Height="40"/>
+                                <Button x:Name="K17" Content=":[" Click="K17_Click"  Width="70" Height="40"/>
+                                <Button x:Name="K18" Content=">:(" Click="K18_Click"  Width="70" Height="40"/>
+                                <Button x:Name="K19" Content="&gt;&quot;&lt;" Click="K19_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K20" Content="):" Click="K20_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K21" Content=":-O" Click="K21_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K22" Content="O.O" Click="K22_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K23" Content=":-()" Click="K23_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K24" Content="~_~" Click="K24_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K25" Content="^o^" Click="K25_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K26" Content=":-S" Click="K26_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K27" Content="&lt;3" Click="K27_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K28" Content="^3^" Click="K28_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K29" Content=":-x" Click="K29_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K30" Content=":/" Click="K30_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K31" Content="X_X" Click="K31_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K32" Content="=/" Click="K32_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K33" Content=";(" Click="K33_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K34" Content="T_T" Click="K34_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K35" Content=";[" Click="K35_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K36" Content="+_+" Click="K36_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K37" Content="O_O" Click="K37_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K38" Content=":O" Click="K38_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K39" Content="¬_¬" Click="K39_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K40" Content=";_;" Click="K40_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K41" Content="=.=" Click="K41_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K42" Content=";]" Click="K42_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K43" Content="^_+" Click="K43_Click"   Width="70" Height="40"/>
+                                <Button x:Name="K44" Content=";O)" Click="K44_Click"   Width="70" Height="40"/>
+
+                            </GridView>
+
+                        </PivotItem>
+
+                        <PivotItem Header="Ω" HorizontalAlignment="Left" Margin="10,0,0,0" Width="252" VerticalAlignment="Stretch">
+                            <GridView  Visibility="Visible" BorderThickness=".5" HorizontalAlignment="Center" Height="148" VerticalAlignment="Center" Width="256" Margin="0,0,0,0">
+                                <Button x:Name="S1" Content="(" Click="S1_Click"  Width="40" Height="40"/>
+                                <Button x:Name="S2" Content="[" Click="S2_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S3" Content="{}{" Click="S3_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S4" Content=")" Click="S4_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S5" Content="]" Click="S5_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S6" Content="{}}" Click="S6_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S7" Content="&lt;" Click="S7_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S8" Content="‹" Click="S8_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S9" Content="«" Click="S9_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S10" Content=">" Click="S10_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S11" Content="›" Click="S11_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S12" Content="»" Click="S12_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S13" Content="⁅" Click="S13_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S14" Content="⁽" Click="S14_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S15" Content="©" Click="S15_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S16" Content="⁆" Click="S16_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S17" Content="⁾" Click="S17_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S18" Content="®" Click="S18_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S19" Content="|" Click="S19_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S20" Content="¦" Click="S20_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S21" Content="℗" Click="S21_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S22" Content="+" Click="S22_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S23" Content="-" Click="S23_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S24" Content="™" Click="S24_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S25" Content="×" Click="S25_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S26" Content="÷" Click="S26_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S27" Content="°" Click="S27_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S28" Content="=" Click="S28_Click"  Width="40" Height="40"/>
+                                <Button x:Name="S29" Content="–" Click="S29_Click"    Width="40" Height="40"/>
+                                <Button x:Name="S30" Content="℃" Click="S30_Click"    Width="40" Height="40"/>
+                                <Button x:Name="S31" Content="'" Click="S31_Click"    Width="40" Height="40"/>
+                                <Button x:Name="S32" Content="—" Click="S32_Click"    Width="40" Height="40"/>
+                                <Button x:Name="S33" Content="℉" Click="S33_Click"   Width="40" Height="40"/>
+                                <Button x:Name="S34" Content="'" Click="S34_Click"    Width="40" Height="40"/>
+                                <Button x:Name="S35" Content="&quot;" Click="S35_Click"   Width="40" Height="40"/>
+                            </GridView>
+                        </PivotItem>
+
+                    </Pivot>
+                </StackPanel>
+            </Frame>
+        </controls:DropShadowPanel>
+        <Grid x:Name="Title" Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch" Margin="0,0,0,0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="TQuick" Text="Quick Pad"
+                           Style="{ThemeResource CaptionTextBlockStyle}"
+                           VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
