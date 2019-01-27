@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Services.Store.Engagement;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -143,6 +144,18 @@ namespace Quick_Pad_Free_Edition
                 App.Current.Exit();
             }
         };
+
+
+            //check for push notifications
+            CheckPushNotifications();
+
+        }
+
+        public async void CheckPushNotifications()
+        {
+             //check for push notifications
+            StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
+            await engagementManager.RegisterNotificationChannelAsync();
         }
 
         private StoreContext storeContext = StoreContext.GetDefault();
