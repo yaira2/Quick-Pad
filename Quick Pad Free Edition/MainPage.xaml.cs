@@ -40,6 +40,7 @@ namespace Quick_Pad_Free_Edition
         string UpdateFile;
         string AdRemove;
         private StoreContext context = null;
+        private bool _isPageLoaded = false;
         public MainPage()
         {
             InitializeComponent();
@@ -149,6 +150,28 @@ namespace Quick_Pad_Free_Edition
             //check for push notifications
             CheckPushNotifications();
 
+            this.Loaded += MainPage_Loaded;
+            this.LayoutUpdated += MainPage_LayoutUpdated;
+        }
+
+        // Methods
+        // Stuff for putting the focus on the content
+        private void MainPage_LayoutUpdated(object sender, object e)
+        {
+            if (_isPageLoaded == true)
+            {
+                // Set focus on the main content so the user can start typing right away
+
+                Text1.Focus(FocusState.Programmatic);
+
+                _isPageLoaded = false;
+            }
+        }
+
+        private void MainPage_Loaded(object sender, RoutedEventArgs e)
+
+        {
+            _isPageLoaded = true;
         }
 
         public async void CheckPushNotifications()
