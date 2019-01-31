@@ -2,18 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.ApplicationModel.Store;
-using Windows.ApplicationModel.UserActivities;
 using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.Services.Store;
 using Windows.Storage;
-using Windows.Storage.Provider;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
@@ -21,10 +15,7 @@ using Windows.UI.Text;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -56,8 +47,24 @@ namespace Quick_Pad_Free_Edition
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
-            //get some theme settings in
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            //check if the setting is to launch in compact overlay mode
+            String launchValue = localSettings.Values["LaunchMode"] as string;
+
+            if (launchValue == "OnTop")
+            {
+                //launch compact overlay mode
+                CompactOverlay.IsChecked = true;
+
+                LaunchModeSwitch.IsOn = true;
+            }
+            else
+            {
+                LaunchModeSwitch.IsOn = false;
+            }
+
+            //get some theme settings in
             String localValue = localSettings.Values["Theme"] as string;
 
             if (localValue == "Light")
@@ -96,23 +103,7 @@ namespace Quick_Pad_Free_Edition
             {
                 localSettings.Values["NewUser"] = "0";
             }
-
-            //check if the setting is to launch in compact overlay mode
-            String launchValue = localSettings.Values["LaunchMode"] as string;
-
-            if (launchValue == "OnTop")
-            {
-                //launch compact overlay mode
-                CompactOverlay.IsChecked = true;
-
-                LaunchModeSwitch.IsOn = true;
-            }
-            else
-            {
-                LaunchModeSwitch.IsOn = false;
-            }
-
-           
+         
 
             Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
         async (sender, args) =>
@@ -371,21 +362,14 @@ SaveWork()
             Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
             if (file != null)
             {
-                // Prevent updates to the remote version of the file until we 
-                // finish making changes and call CompleteUpdatesAsync.
-                // Windows.Storage.CachedFileManager.DeferUpdates(file);
-                // write to file
-
-                ///////////////////////////////
-                //Windows.Storage.Streams.IRandomAccessStream randAccStream = await file.OpenAsync(Windows.Storage.FileAccessMode.ReadWrite);
-
-                // Text1.Document.SaveToStream(Windows.UI.Text.TextGetOptions.FormatRtf, randAccStream);
-                //////////////////////////////
+                //get the text to save
                 Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
 
+                //update title bar
                 UpdateFile = file.DisplayName;
                 TQuick.Text = UpdateFile;
 
+                //write the text to the file
                 await FileIO.WriteTextAsync(file, value);
 
                 // Let Windows know that we're finished changing the file so the 
@@ -393,6 +377,7 @@ SaveWork()
                 Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
                 if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
                 {
+                    //let user know if there was an error saving the file
                     Windows.UI.Popups.MessageDialog errorBox =
                         new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
                     await errorBox.ShowAsync();
@@ -402,21 +387,26 @@ SaveWork()
 
         public async void CmdSave_Click(object sender, RoutedEventArgs e)
         {
+            //call the function to save
             await SaveWork();
         }
 
         private void CmdUndo_Click(object sender, RoutedEventArgs e)
         {
+            //undo changes the user did to the text
             Text1.Document.Undo();
         }
 
         private void CmdRedo_Click(object sender, RoutedEventArgs e)
         {
+            //redo changes the user did to the text
             Text1.Document.Redo();
         }
 
         private void Bold_Click(object sender, RoutedEventArgs e)
         {
+            //set the selected text to be bold if not already
+            //if the text is already bold it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
             if (selectedText != null)
             {
@@ -428,6 +418,8 @@ SaveWork()
 
         private void Italic_Click(object sender, RoutedEventArgs e)
         {
+            //set the selected text to be in italics if not already
+            //if the text is already in italics it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
             if (selectedText != null)
             {
@@ -439,6 +431,8 @@ SaveWork()
 
         private void Underline_Click_1(object sender, RoutedEventArgs e)
         {
+            //set the selected text to be underlined if not already
+            //if the text is already underlined it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
             if (selectedText != null)
             {
@@ -464,10 +458,10 @@ SaveWork()
                 //if there is nothing to paste then dont paste anything since it wil crash
                 if (text == "")
                 {
-
                 }
                 else
                 {
+                    //paste the text from the clipboard
                     Text1.Document.Selection.TypeText(text);
                 }
               
@@ -476,6 +470,7 @@ SaveWork()
 
         private void Copy_Click(object sender, RoutedEventArgs e)
         {
+            //send the selected text to the clipboard
             DataPackage dataPackage = new DataPackage();
             dataPackage.RequestedOperation = DataPackageOperation.Copy;
             dataPackage.SetText(Text1.Document.Selection.Text);
@@ -484,6 +479,7 @@ SaveWork()
 
         private void Cut_Click(object sender, RoutedEventArgs e)
         {
+            //deletes the selected text but sends it to the clipboard to be pasted somewhere else
             DataPackage dataPackage = new DataPackage();
             dataPackage.SetText(Text1.Document.Selection.Text);
             Text1.Document.Selection.Text = "";
@@ -492,18 +488,22 @@ SaveWork()
 
         private async void CmdAbout_Click(object sender, RoutedEventArgs e)
         {
+            //shows the about dialog
             ContentDialogResult result = await AboutDialog.ShowAsync();
         }
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
         {
+            //makes the selected text font size bigger
             Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size + 2;
         }
 
         private void SizeDown_Click(object sender, RoutedEventArgs e)
         {
+            //checks if the font size is too small
             if (Text1.Document.Selection.CharacterFormat.Size > 4)
             {
+                //make the selected text font size smaller
                 Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size - 2;
 
             }
@@ -532,7 +532,6 @@ SaveWork()
 
             //make text smaller size if user did not do so on their own and if they did not type anything yet.
             Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-
             if (string.IsNullOrEmpty(value) && Text1.FontSize == 24)
             {
                 Text1.FontSize = 18;
@@ -577,6 +576,7 @@ SaveWork()
         private void Emoji_Checked(object sender, RoutedEventArgs e)
         {
             Emoji2.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            E1.Focus(FocusState.Programmatic);
         }
 
         private void Emoji_Unchecked(object sender, RoutedEventArgs e)
