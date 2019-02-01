@@ -24,7 +24,7 @@
             <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Auto"/>
             <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Hidden"/>
-            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Hidden"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False"/>
             <Setter Property="Padding" Value="{ThemeResource TextControlThemePadding}"/>
             <Setter Property="Template">

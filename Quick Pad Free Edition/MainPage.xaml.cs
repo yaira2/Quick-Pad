@@ -42,6 +42,7 @@ namespace Quick_Pad_Free_Edition
             UpdateFile = "New Document";
             TQuick.Text = UpdateFile;
 
+            //extent grid in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
@@ -103,7 +104,6 @@ namespace Quick_Pad_Free_Edition
             {
                 localSettings.Values["NewUser"] = "0";
             }
-         
 
             Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
         async (sender, args) =>
@@ -137,7 +137,6 @@ namespace Quick_Pad_Free_Edition
             }
         };
 
-
             //check for push notifications
             CheckPushNotifications();
 
@@ -145,16 +144,13 @@ namespace Quick_Pad_Free_Edition
             this.LayoutUpdated += MainPage_LayoutUpdated;
         }
 
-        // Methods
         // Stuff for putting the focus on the content
         private void MainPage_LayoutUpdated(object sender, object e)
         {
             if (_isPageLoaded == true)
             {
                 // Set focus on the main content so the user can start typing right away
-
                 Text1.Focus(FocusState.Programmatic);
-
                 _isPageLoaded = false;
             }
         }
@@ -178,7 +174,6 @@ namespace Quick_Pad_Free_Edition
         private string StoreId = "9PMFXLSMJ8RL";
         public async void CheckIfPaidForNoAds()
         {
-
             StoreAppLicense appLicense = await storeContext.GetAppLicenseAsync();
 
             // Check if the customer has the rights to the subscription.
@@ -257,27 +252,47 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdSettings_Click(object sender, RoutedEventArgs e)
         {
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("OpenedSettings");
+
             ContentDialogResult result = await Settings.ShowAsync();
         }
 
         private void Justify_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.ParagraphFormat.Alignment = Windows.UI.Text.ParagraphAlignment.Justify;
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Justify Align");
         }
 
         private void Right_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Right;
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Right Align");
         }
 
         private void Center_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Center;
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Center Align");
         }
 
         private void Left_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Left;
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Left Align");
         }
 
         private async void CmdNew_Click(object sender, RoutedEventArgs e)
@@ -395,12 +410,20 @@ SaveWork()
         {
             //undo changes the user did to the text
             Text1.Document.Undo();
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Undo");
         }
 
         private void CmdRedo_Click(object sender, RoutedEventArgs e)
         {
             //redo changes the user did to the text
             Text1.Document.Redo();
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Redo");
         }
 
         private void Bold_Click(object sender, RoutedEventArgs e)
@@ -414,6 +437,10 @@ SaveWork()
                 charFormatting.Bold = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Bold");
         }
 
         private void Italic_Click(object sender, RoutedEventArgs e)
@@ -427,6 +454,10 @@ SaveWork()
                 charFormatting.Italic = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Italic");
         }
 
         private void Underline_Click_1(object sender, RoutedEventArgs e)
@@ -447,6 +478,10 @@ SaveWork()
                 }
                 selectedText.CharacterFormat = charFormatting;
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Underline");
         }
 
         private async void Paste_Click(object sender, RoutedEventArgs e)
@@ -464,8 +499,11 @@ SaveWork()
                     //paste the text from the clipboard
                     Text1.Document.Selection.TypeText(text);
                 }
-              
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Paste");
         }
 
         private void Copy_Click(object sender, RoutedEventArgs e)
@@ -475,6 +513,10 @@ SaveWork()
             dataPackage.RequestedOperation = DataPackageOperation.Copy;
             dataPackage.SetText(Text1.Document.Selection.Text);
             Clipboard.SetContent(dataPackage);
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Copy");
         }
 
         private void Cut_Click(object sender, RoutedEventArgs e)
@@ -484,18 +526,36 @@ SaveWork()
             dataPackage.SetText(Text1.Document.Selection.Text);
             Text1.Document.Selection.Text = "";
             Clipboard.SetContent(dataPackage);
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Cut");
         }
 
         private async void CmdAbout_Click(object sender, RoutedEventArgs e)
         {
             //shows the about dialog
             ContentDialogResult result = await AboutDialog.ShowAsync();
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Opened About");
         }
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
         {
-            //makes the selected text font size bigger
-            Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size + 2;
+            try
+            {
+                //makes the selected text font size bigger
+                Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size + 2;
+            }
+            catch (Exception)
+            {
+            }
+           
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Size Up");
         }
 
         private void SizeDown_Click(object sender, RoutedEventArgs e)
@@ -505,8 +565,11 @@ SaveWork()
             {
                 //make the selected text font size smaller
                 Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size - 2;
-
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Size Down");
         }
 
         private async void CompactOverlay_Checked(object sender, RoutedEventArgs e)
@@ -536,6 +599,10 @@ SaveWork()
             {
                 Text1.FontSize = 18;
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Compact Overlay");
         }
 
         private async void CompactOverlay_Unchecked(object sender, RoutedEventArgs e)
@@ -577,6 +644,10 @@ SaveWork()
         {
             Emoji2.Visibility = Windows.UI.Xaml.Visibility.Visible;
             E1.Focus(FocusState.Programmatic);
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("EmojiPanel");
         }
 
         private void Emoji_Unchecked(object sender, RoutedEventArgs e)
@@ -879,6 +950,10 @@ SaveWork()
         {
             Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
             Windows.ApplicationModel.DataTransfer.DataTransferManager.GetForCurrentView().DataRequested += MainPage_DataRequested;
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Shared Text");
         }
 
         void MainPage_DataRequested(Windows.ApplicationModel.DataTransfer.DataTransferManager sender, Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs args)
@@ -898,7 +973,6 @@ SaveWork()
 
         private void Text1_TextChanged(object sender, RoutedEventArgs e)
         {
-            
             if (Text1.Document.CanUndo() == true)
             {
                 CmdUndo.IsEnabled = true;
@@ -916,7 +990,6 @@ SaveWork()
             {
                 CmdRedo.IsEnabled = false;
             }
-
         }
 
         private async void CmdReview_Click(object sender, RoutedEventArgs e)
@@ -926,8 +999,6 @@ SaveWork()
 
         private async void RemoveAd_Click(object sender, RoutedEventArgs e)
         {
-            // bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://pdp/?productid=9PLQRS34KSGP"));
-
             if (context == null)
             {
                 context = StoreContext.GetDefault();
@@ -977,6 +1048,10 @@ SaveWork()
                 charFormatting.Strikethrough = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Strikethrough");
         }
 
         private void BulletList_Click(object sender, RoutedEventArgs e)
@@ -989,6 +1064,10 @@ SaveWork()
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Bullet List");
         }
 
         private void White_Click(object sender, RoutedEventArgs e)
@@ -1038,6 +1117,10 @@ SaveWork()
                     localSettings.Values["LaunchMode"] = "Regular";
                 }
             }
+
+            //Let me know know user used this feature
+            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
+            logger.Log("Open On Top Setting");
         }
 
         private void Settings_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
@@ -1057,7 +1140,6 @@ SaveWork()
 
         private void K1_Click(object sender, RoutedEventArgs e)
         {
-
             Text1.Document.Selection.TypeText(";)");
         }
 
