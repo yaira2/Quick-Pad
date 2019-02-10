@@ -842,6 +842,12 @@ SaveWork()
         {
             Text1.Document.Selection.TypeText("😪");
         }
+        
+        public void EmojiSub(object sender, RoutedEventArgs e)
+        {
+            string objname = ((Button)sender).Content.ToString();
+            Text1.Document.Selection.TypeText(objname);
+        }
 
         private void TextColor_Click(object sender, RoutedEventArgs e)
         {
