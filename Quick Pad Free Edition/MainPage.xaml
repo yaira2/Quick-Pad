@@ -213,8 +213,12 @@
             <AppBarButton x:Name="Left" Width="52" Click="Left_Click" Icon="AlignLeft" ToolTipService.ToolTip="Align left (Ctrl+L)"/>
             <AppBarButton x:Name="Center" Width="52" Click="Center_Click" Icon="AlignCenter" ToolTipService.ToolTip="Align center (Ctrl+E)"/>
             <AppBarButton x:Name="Right" Width="52" Click="Right_Click" Icon="AlignRight" ToolTipService.ToolTip="Align right (Ctrl+R)"/>
-            <AppBarButton x:Name="Justify" Width="52" Click="Justify_Click" ToolTipService.ToolTip="Justify text (Ctrl+J)" Icon="GlobalNavigationButton" Background="{x:Null}" />
-                <AppBarSeparator />
+            <AppBarButton x:Name="Justify" Width="52" Click="Justify_Click" ToolTipService.ToolTip="Justify text (Ctrl+J)" Background="{x:Null}" >
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/justify align.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarSeparator />
             <AppBarButton x:Name="SizeUp" Width="52" Click="SizeUp_Click" Icon="FontIncrease" ToolTipService.ToolTip="Size Up" />
             <AppBarButton x:Name="SizeDown" Width="52" Click="SizeDown_Click" Icon="FontDecrease" ToolTipService.ToolTip="Size Down" />
             </CommandBar>
@@ -490,7 +494,17 @@
                                 <Button x:Name="K42" Content=";]" Click="K42_Click"   Width="70" Height="40"/>
                                 <Button x:Name="K43" Content="^_+" Click="K43_Click"   Width="70" Height="40"/>
                                 <Button x:Name="K44" Content=";O)" Click="K44_Click"   Width="70" Height="40"/>
-
+                                <Button x:Name="K45" Content=":-]" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K46" Content="^.^" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K47" Content="=)" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K48" Content=":O)" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K49" Content=":-3" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K50" Content="=D" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K51" Content=":|" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K52" Content="-.-" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K53" Content="&gt;_&lt;" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K54" Content=":O(" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K55" Content="*_*" Click="EmojiSub"   Width="70" Height="40"/>
                             </GridView>
 
                         </PivotItem>
