@@ -141,6 +141,7 @@
   <ItemGroup>
     <Content Include="1080.png" />
     <Content Include="Assets\appbar.text.strikethrough.png" />
+    <Content Include="Assets\justify align.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />

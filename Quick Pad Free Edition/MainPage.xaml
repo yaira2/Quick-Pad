@@ -213,8 +213,12 @@
             <AppBarButton x:Name="Left" Width="52" Click="Left_Click" Icon="AlignLeft" ToolTipService.ToolTip="Align left (Ctrl+L)"/>
             <AppBarButton x:Name="Center" Width="52" Click="Center_Click" Icon="AlignCenter" ToolTipService.ToolTip="Align center (Ctrl+E)"/>
             <AppBarButton x:Name="Right" Width="52" Click="Right_Click" Icon="AlignRight" ToolTipService.ToolTip="Align right (Ctrl+R)"/>
-            <AppBarButton x:Name="Justify" Width="52" Click="Justify_Click" ToolTipService.ToolTip="Justify text (Ctrl+J)" Icon="GlobalNavigationButton" Background="{x:Null}" />
-                <AppBarSeparator />
+            <AppBarButton x:Name="Justify" Width="52" Click="Justify_Click" ToolTipService.ToolTip="Justify text (Ctrl+J)" Background="{x:Null}" >
+                <AppBarButton.Icon>
+                    <BitmapIcon UriSource="/Assets/justify align.png"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarSeparator />
             <AppBarButton x:Name="SizeUp" Width="52" Click="SizeUp_Click" Icon="FontIncrease" ToolTipService.ToolTip="Size Up" />
             <AppBarButton x:Name="SizeDown" Width="52" Click="SizeDown_Click" Icon="FontDecrease" ToolTipService.ToolTip="Size Down" />
             </CommandBar>
