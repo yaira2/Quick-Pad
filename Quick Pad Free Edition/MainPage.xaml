@@ -590,6 +590,67 @@
                                 <Button x:Name="S44" Content="*" Click="EmojiSub"   Width="40" Height="40"/>
                                 <Button x:Name="S45" Content="⁕" Click="EmojiSub"   Width="40" Height="40"/>
                                 <Button x:Name="S46" Content="§" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S47" Content="⁎" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S48" Content="′" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S49" Content="‵" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S50" Content="•" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S51" Content="·" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S52" Content="․" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S53" Content="⁞" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S54" Content="⁛" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S55" Content="⁑" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S56" Content="″" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S57" Content="‶" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S58" Content="‣" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S59" Content="‥" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S60" Content="⁚" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S61" Content="⁖" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S62" Content="⁙" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S63" Content="⁂" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S64" Content="‴" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S65" Content="‷" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S66" Content="⁗" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S67" Content="…" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S68" Content="⁝" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S69" Content="⁘" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S70" Content="⁏;" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S71" Content="!" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S72" Content="¡" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S73" Content="‼" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S74" Content="%" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S75" Content="⁔" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S76" Content="⁀" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S77" Content="¨" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S78" Content=":" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S79" Content="?" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S80" Content="¿" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S81" Content="⁈" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S82" Content="‰" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S83" Content="‿" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S84" Content="⁐" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S85" Content="¶" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S86" Content="_" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S87" Content="&amp;" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S88" Content="‽" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S89" Content="⁇" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S90" Content="‱" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S91" Content="⁒" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S92" Content="⁁" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S93" Content="‸" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S94" Content="`" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S95" Content="'" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S96" Content="^" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S97" Content="⁊" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S98" Content="ª" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S99" Content="⁌" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S100" Content="⁍" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S101" Content="⁋" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S102" Content="¯" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S103" Content="~" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S104" Content="⁓" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S105" Content="º" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S106" Content="‖" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S107" Content="⁜" Click="EmojiSub"   Width="40" Height="40"/>
                             </GridView>
                         </PivotItem>
 
