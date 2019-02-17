@@ -538,6 +538,28 @@
                                 <Button x:Name="K53" Content="&gt;_&lt;" Click="EmojiSub"   Width="70" Height="40"/>
                                 <Button x:Name="K54" Content=":O(" Click="EmojiSub"   Width="70" Height="40"/>
                                 <Button x:Name="K55" Content="*_*" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K56" Content="=[" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K57" Content="8-)" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K58" Content="^^;" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K59" Content=":-*" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K60" Content="B-)" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K61" Content="=_=" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K62" Content="-0-" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K63" Content=":S" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K64" Content="$_$" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K65" Content=":-$" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K66" Content="&gt;.&lt;" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K67" Content="-_-" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K68" Content="&gt; &lt;" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K69" Content=":]" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K70" Content="^^" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K71" Content="=]" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K72" Content=";D" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K73" Content="^_-" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K74" Content="=P" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K75" Content=":'(" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K76" Content="Y.Y" Click="EmojiSub"   Width="70" Height="40"/>
+                                <Button x:Name="K77" Content="=(" Click="EmojiSub"   Width="70" Height="40"/>
                             </GridView>
 
                         </PivotItem>
