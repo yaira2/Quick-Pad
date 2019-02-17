@@ -84,6 +84,25 @@ namespace Quick_Pad_Free_Edition
                 SystemDefult.IsChecked = true;
             }
 
+            //make the minimize, maximize and close button visible in light theme
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                titleBar.ButtonForegroundColor = Colors.White;
+            }
+            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
+            {
+                titleBar.ButtonForegroundColor = Colors.Black;
+            }
+
+            if (this.RequestedTheme == ElementTheme.Dark)
+            {
+                titleBar.ButtonForegroundColor = Colors.White;
+            }
+            else if (this.RequestedTheme == ElementTheme.Light)
+            {
+                titleBar.ButtonForegroundColor = Colors.Black;
+            }
+
             CheckIfPaidForNoAds();
 
             //check if it is a new user
@@ -1091,6 +1110,10 @@ SaveWork()
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["Theme"] = "Light";
             this.RequestedTheme = ElementTheme.Light;
+
+            //Make the minimize, maxamize and close button visible
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonForegroundColor = Colors.Black;
         }
 
         private void Dark_Click(object sender, RoutedEventArgs e)
@@ -1098,6 +1121,10 @@ SaveWork()
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["Theme"] = "Dark";
             this.RequestedTheme = ElementTheme.Dark;
+
+            //Make the minimize, maxamize and close button visible
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonForegroundColor = Colors.White;
         }
 
         private void SystemDefult_Click(object sender, RoutedEventArgs e)
@@ -1105,6 +1132,27 @@ SaveWork()
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["Theme"] = "System Defult";
             this.RequestedTheme = ElementTheme.Default;
+
+            //Make the minimize, maxamize and close button visible
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                titleBar.ButtonForegroundColor = Colors.White;
+            }
+            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
+            {
+                titleBar.ButtonForegroundColor = Colors.Black;
+            }
+
+            if (this.RequestedTheme == ElementTheme.Dark)
+            {
+                titleBar.ButtonForegroundColor = Colors.White;
+            }
+            else if (this.RequestedTheme == ElementTheme.Light)
+            {
+                titleBar.ButtonForegroundColor = Colors.Black;
+            }
         }
 
         private void LaunchModeSwitch_Toggled(object sender, RoutedEventArgs e)
