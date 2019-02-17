@@ -50,20 +50,8 @@ namespace Quick_Pad_Free_Edition
 
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-            //check if the setting is to launch in compact overlay mode
-            String launchValue = localSettings.Values["LaunchMode"] as string;
-
-            if (launchValue == "OnTop")
-            {
-                //launch compact overlay mode
-                CompactOverlay.IsChecked = true;
-
-                LaunchModeSwitch.IsOn = true;
-            }
-            else
-            {
-                LaunchModeSwitch.IsOn = false;
-            }
+            //check if app should be on top
+            OnTopCheck();
 
             //get some theme settings in
             String localValue = localSettings.Values["Theme"] as string;
@@ -103,6 +91,7 @@ namespace Quick_Pad_Free_Edition
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
 
+            //Remove ads for a paid user
             CheckIfPaidForNoAds();
 
             //check if it is a new user
@@ -124,11 +113,14 @@ namespace Quick_Pad_Free_Edition
                 localSettings.Values["NewUser"] = "0";
             }
 
+
+            //ask user if they want to save before closing the app
             Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
         async (sender, args) =>
         {
             if (TQuick.Text == UpdateFile)
             {
+                //close if file is up to date already
                 App.Current.Exit();
             };
             args.Handled = true;
@@ -161,6 +153,26 @@ namespace Quick_Pad_Free_Edition
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
+        }
+
+        public void OnTopCheck()
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            //check if the setting is to launch in compact overlay mode
+            String launchValue = localSettings.Values["LaunchMode"] as string;
+
+            if (launchValue == "OnTop")
+            {
+                //launch compact overlay mode
+                CompactOverlay.IsChecked = true;
+
+                LaunchModeSwitch.IsOn = true;
+            }
+            else
+            {
+                LaunchModeSwitch.IsOn = false;
+            }
         }
 
         // Stuff for putting the focus on the content
