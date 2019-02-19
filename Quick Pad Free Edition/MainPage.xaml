@@ -259,7 +259,7 @@
                 <Grid>
                     <RadioButton x:Name="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,45,0,0" VerticalAlignment="Top" Width="242" Click="Light_Click" Grid.RowSpan="2"/>
                     <RadioButton x:Name="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,85,0,0" VerticalAlignment="Top" Width="242" Click="Dark_Click"/>
-                    <RadioButton x:Name="SystemDefult" Content="System Defult" HorizontalAlignment="Left" Height="38" Margin="0,125,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefult_Click" Grid.RowSpan="1"/>
+                    <RadioButton x:Name="SystemDefault" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,125,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefault_Click" Grid.RowSpan="1"/>
                     <TextBlock HorizontalAlignment="Left" Height="33" Margin="0,10,0,0" Text="Theme" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontSize="22"/>
                     <TextBlock HorizontalAlignment="Left" Height="33" Margin="0,168,0,0" Text="Other" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontSize="22"/>
                     <TextBlock Text="Launch Mode" Margin="0,202,23,87" TextWrapping="Wrap"/>

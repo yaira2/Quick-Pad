@@ -35,10 +35,12 @@ namespace Quick_Pad_Free_Edition
         public MainPage()
         {
             InitializeComponent();
+            //stuff for compact overlay
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(900, 900);
 
-            //defualt filee name is "New Document"
+            //Default file name is "New Document"
+            //Displays file name on title bar
             UpdateFile = "New Document";
             TQuick.Text = UpdateFile;
 
@@ -48,9 +50,10 @@ namespace Quick_Pad_Free_Edition
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
+            //lets us know where app setting are
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-            //check if app should be on top
+            //call method to check setting if app should be open on top of other windows
             OnTopCheck();
 
             //get some theme settings in
@@ -59,17 +62,17 @@ namespace Quick_Pad_Free_Edition
             if (localValue == "Light")
             {
                 this.RequestedTheme = ElementTheme.Light;
-                Light.IsChecked = true;
+                Light.IsChecked = true; //select the light theme option in the settings panel
             }
             if (localValue == "Dark")
             {
                 this.RequestedTheme = ElementTheme.Dark;
-                Dark.IsChecked = true;
+                Dark.IsChecked = true; //select the dark theme option in the settings panel
             }
-            if (localValue == "System Defult")
+            if (localValue == "System Default")
             {
                 this.RequestedTheme = ElementTheme.Default;
-                SystemDefult.IsChecked = true;
+                SystemDefault.IsChecked = true; //select the default theme option in the settings panel
             }
 
             //make the minimize, maximize and close button visible in light theme
@@ -91,28 +94,27 @@ namespace Quick_Pad_Free_Edition
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
 
-            //Remove ads for a paid user
+            //Call method to remove ads for a paid user
             CheckIfPaidForNoAds();
 
             //check if it is a new user
             String NewUser = localSettings.Values["NewUser"] as string;
             if (NewUser == "1")
             {
-                localSettings.Values["NewUser"] = "2";
-                NewUserFeedbackAsync();
+                localSettings.Values["NewUser"] = "2"; //third time using the app
+                NewUserFeedbackAsync(); //call method that asks user to review the app
             }
             else
             {
                 if (NewUser == "0")
                 {
-                    localSettings.Values["NewUser"] = "1";
+                    localSettings.Values["NewUser"] = "1"; //second time using the app
                 }
             }
             if (NewUser != "0" && NewUser != "1" && NewUser != "2")
             {
-                localSettings.Values["NewUser"] = "0";
+                localSettings.Values["NewUser"] = "0"; //first time using the app
             }
-
 
             //ask user if they want to save before closing the app
             Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
@@ -125,6 +127,7 @@ namespace Quick_Pad_Free_Edition
             };
             args.Handled = true;
 
+            //popup dialog to ask user if they want to save their work
             ContentDialog deleteFileDialog = new ContentDialog
             {
                 Title = "Save your work?",
@@ -135,28 +138,30 @@ namespace Quick_Pad_Free_Edition
 
             ContentDialogResult result = await deleteFileDialog.ShowAsync();
 
-            // Delete the file if the user clicked the primary button.
-            /// Otherwise, do nothing.
+            //Save file if user clicks yes.
+            /// Otherwise, exit without saving.
             if (result == ContentDialogResult.Primary)
             {
-                await SaveWork();
-                App.Current.Exit();
+                await SaveWork(); //shows save dialog box
+                App.Current.Exit(); //then closes
             }
             else
             {
-                App.Current.Exit();
+                App.Current.Exit(); //closes without saving
             }
         };
 
             //check for push notifications
             CheckPushNotifications();
 
+            //code needed to focus on text box on app launch
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
         }
 
         public void OnTopCheck()
         {
+            //let app know where settings are stored
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
             //check if the setting is to launch in compact overlay mode
@@ -166,12 +171,11 @@ namespace Quick_Pad_Free_Edition
             {
                 //launch compact overlay mode
                 CompactOverlay.IsChecked = true;
-
-                LaunchModeSwitch.IsOn = true;
+                LaunchModeSwitch.IsOn = true; //toggle the launch compact overlay mode switch in the settings panel.
             }
             else
             {
-                LaunchModeSwitch.IsOn = false;
+                LaunchModeSwitch.IsOn = false; //keep launch compact overlay mode switch off in settings panel.
             }
         }
 
@@ -180,21 +184,19 @@ namespace Quick_Pad_Free_Edition
         {
             if (_isPageLoaded == true)
             {
-                // Set focus on the main content so the user can start typing right away
-                Text1.Focus(FocusState.Programmatic);
+                Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
                 _isPageLoaded = false;
             }
         }
 
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
-
         {
             _isPageLoaded = true;
         }
 
         public async void CheckPushNotifications()
         {
-             //check for push notifications
+             //regisiter for push notifications
             StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
             await engagementManager.RegisterNotificationChannelAsync();
         }
@@ -391,9 +393,7 @@ namespace Quick_Pad_Free_Edition
 
         }
 
-        public async 
-        Task
-SaveWork()
+        public async Task SaveWork()
         {
             Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
 
@@ -860,7 +860,7 @@ SaveWork()
             }
         }
 
-    private void Strikethrough_Click(object sender, RoutedEventArgs e)
+        private void Strikethrough_Click(object sender, RoutedEventArgs e)
         {
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
             if (selectedText != null)
@@ -923,10 +923,10 @@ SaveWork()
             titleBar.ButtonForegroundColor = Colors.White;
         }
 
-        private void SystemDefult_Click(object sender, RoutedEventArgs e)
+        private void SystemDefault_Click(object sender, RoutedEventArgs e)
         {
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-            localSettings.Values["Theme"] = "System Defult";
+            localSettings.Values["Theme"] = "System Default";
             this.RequestedTheme = ElementTheme.Default;
 
             //Make the minimize, maxamize and close button visible
@@ -990,7 +990,7 @@ SaveWork()
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            TQuick.Text = "*" + UpdateFile;
+            TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
         }
 
         private async void Feedback_Click(object sender, RoutedEventArgs e)
