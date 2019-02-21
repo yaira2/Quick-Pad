@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Timers;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
@@ -34,9 +36,15 @@ namespace Quick_Pad_Free_Edition
         string AdRemove;
         private StoreContext context = null;
         private bool _isPageLoaded = false;
+        public System.Timers.Timer timer = new System.Timers.Timer(10000);
         public MainPage()
         {
             InitializeComponent();
+
+            timer.Enabled = true;
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
+            timer.AutoReset = true;
+
             //stuff for compact overlay
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(900, 900);
@@ -159,6 +167,33 @@ namespace Quick_Pad_Free_Edition
             //code needed to focus on text box on app launch
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
+        }
+
+        public void send(object source, System.Timers.ElapsedEventArgs e)
+        {
+            //timer for auto save
+            #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            async () =>
+                {
+                    if (TQuick.Text != UpdateFile)
+                    {
+                        try
+                        {
+                            //tries to update file if it exsits and is not read only
+                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                            await PathIO.WriteTextAsync(FullFilePath, value);
+                            //update title bar to indicate file is up to date
+                            TQuick.Text = UpdateFile;
+                        }
+
+                        catch (Exception)
+                        {
+
+                        }
+                    }
+                });
+        #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
         public void OnTopCheck()
