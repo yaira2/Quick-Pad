@@ -30,6 +30,7 @@ namespace Quick_Pad_Free_Edition
     {
 
         string UpdateFile;
+        String FullFilePath;
         string AdRemove;
         private StoreContext context = null;
         private bool _isPageLoaded = false;
@@ -275,6 +276,7 @@ namespace Quick_Pad_Free_Edition
 
             UpdateFile = file.DisplayName;
             TQuick.Text = UpdateFile;
+            FullFilePath = file.Path;
 
             Windows.Storage.Streams.IRandomAccessStream randAccStream =
          await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
@@ -354,6 +356,7 @@ namespace Quick_Pad_Free_Edition
             }
             UpdateFile = "New Document";
             TQuick.Text = UpdateFile;
+            FullFilePath = "";
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
@@ -375,6 +378,7 @@ namespace Quick_Pad_Free_Edition
 
                     UpdateFile = file.DisplayName;
                     TQuick.Text = UpdateFile;
+                    FullFilePath = file.Path;
 
                     // Load the file into the Document property of the RichEditBox.
                     Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
@@ -398,14 +402,19 @@ namespace Quick_Pad_Free_Edition
         {
                 try
                 {
-                FileStream fs = new FileStream("C:\\Users\\explo\\OneDrive\\Desktop\\test1.txt", FileMode.Open, FileAccess.Write);
-                StreamWriter sw = new StreamWriter(fs);
-                sw.WriteLine("Hello World");
-                sw.Dispose();
-                fs.Dispose();
-                }
+                //FileStream fs = new FileStream("C:\\Users\\explo\\OneDrive\\Desktop\\test1.rtf", FileMode.Open, FileAccess.Write);
+                //StreamWriter sw = new StreamWriter(fs);
+                //sw.WriteLine("Hello World");
+                //sw.Dispose();
+                //fs.Dispose();
+                // Example #2: Write one string to a text file.
+                Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                await PathIO.WriteTextAsync(FullFilePath, value);
+                //update title bar
 
-                catch (Exception)
+            }
+
+            catch (Exception)
 
                 {
                     Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
@@ -427,13 +436,14 @@ namespace Quick_Pad_Free_Edition
                         //update title bar
                         UpdateFile = file.DisplayName;
                         TQuick.Text = UpdateFile;
+                        FullFilePath = file.Path;
 
                         //write the text to the file
                         await FileIO.WriteTextAsync(file, value);
 
-                        // Let Windows know that we're finished changing the file so the 
-                        // other app can update the remote version of the file.
-                        Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                    // Let Windows know that we're finished changing the file so the 
+                    // other app can update the remote version of the file.
+                    Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
                         if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
                         {
                             //let user know if there was an error saving the file
