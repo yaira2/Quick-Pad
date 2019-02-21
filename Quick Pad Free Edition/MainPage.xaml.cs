@@ -40,11 +40,6 @@ namespace Quick_Pad_Free_Edition
         public MainPage()
         {
             InitializeComponent();
-
-            timer.Enabled = true;
-            timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
-            timer.AutoReset = true;
-
             //stuff for compact overlay
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(900, 900);
@@ -62,6 +57,22 @@ namespace Quick_Pad_Free_Edition
 
             //lets us know where app setting are
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            //check if auto save is on or off
+            String launchValue = localSettings.Values["AutoSave"] as string;
+            if (launchValue == "On")
+            {
+                AutoSaveSwitch.IsOn = true; //turn auto save switch on in settings panel.
+
+                //start auto save timer
+                timer.Enabled = true;
+                timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
+                timer.AutoReset = true;
+            }
+            else
+            {
+                AutoSaveSwitch.IsOn = false; //keep auto save switch off in settings panel.
+            }
 
             //call method to check setting if app should be open on top of other windows
             OnTopCheck();
@@ -1051,6 +1062,24 @@ namespace Quick_Pad_Free_Edition
         {
             var launcher = Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.GetDefault();
             await launcher.LaunchAsync();
+        }
+
+        private void AutoSaveSwitch_Toggled(object sender, RoutedEventArgs e)
+        {
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                    localSettings.Values["AutoSave"] = "On";
+                }
+                else
+                {
+                    ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+                    localSettings.Values["AutoSave"] = "Off";
+                }
+            }
         }
     }
 }

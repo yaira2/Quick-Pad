@@ -183,23 +183,23 @@
         </controls:DropShadowPanel>
 
         <CommandBar x:Name="CommandBar1"  Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,410,0" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="48"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
-                <AppBarButton x:Name="CmdNew" Width="52" Icon="Delete" Click="CmdNew_Click" ToolTipService.ToolTip="Clear"/>
+            <AppBarButton x:Name="CmdNew" Width="52" Icon="Delete" Click="CmdNew_Click" ToolTipService.ToolTip="Clear"/>
             <AppBarButton x:Name="CmdOpen" Width="52" Icon="OpenFile" Click="CmdOpen_Click" ToolTipService.ToolTip="Open (Ctrl+O)">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator 
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator 
                           Modifiers="Control" 
                            Key="O" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
             <AppBarButton x:Name="CmdSave"  Width="52" Icon="Save" Click="CmdSave_Click" ToolTipService.ToolTip="Save (Ctrl+S)">
-                    <AppBarButton.KeyboardAccelerators>
-                        <KeyboardAccelerator 
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator 
                           Modifiers="Control" 
                            Key="S" />
-                    </AppBarButton.KeyboardAccelerators>
-                </AppBarButton>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
             <AppBarButton x:Name="CmdShare" Width="52" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the selected text."/>
-                <AppBarSeparator/>
+            <AppBarSeparator/>
             <AppBarButton x:Name="Bold" Width="52" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Bold (Ctrl+B)"/>
             <AppBarButton x:Name="Italic" Width="52" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Italic (Ctrl+I)"/>
             <AppBarButton x:Name="Underline" Width="52" Click="Underline_Click_1" Icon="Underline" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Underline (Ctrl+U)"/>
@@ -221,7 +221,7 @@
             <AppBarSeparator />
             <AppBarButton x:Name="SizeUp" Width="52" Click="SizeUp_Click" Icon="FontIncrease" ToolTipService.ToolTip="Size Up" />
             <AppBarButton x:Name="SizeDown" Width="52" Click="SizeDown_Click" Icon="FontDecrease" ToolTipService.ToolTip="Size Down" />
-            </CommandBar>
+        </CommandBar>
 
         <CommandBar x:Name="CommandBar2"  Canvas.ZIndex="75" IsOpen="False"  HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="48" Background="{x:Null}" Margin="0,33,0,0">
             <CommandBar.SecondaryCommands>
@@ -238,7 +238,7 @@
             <AppBarButton x:Name="Cut" Width="52" Icon="Cut" Click="Cut_Click" ToolTipService.ToolTip="Cut (Ctrl+X)"/>
             <AppBarButton x:Name="NewWindows" Width="52" Visibility="Collapsed" Icon="Add" Click="NewWindows_Click" ToolTipService.ToolTip="Add note"/>
         </CommandBar>
-        
+
         <RichEditBox  x:Name="Text1" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,81,0,90" Style="{StaticResource RichEditBox}" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  RequestedTheme="Default" FontSize="24">
         </RichEditBox>
 
@@ -264,7 +264,9 @@
                     <TextBlock HorizontalAlignment="Left" Height="33" Margin="0,168,0,0" Text="Other" TextWrapping="Wrap" VerticalAlignment="Top" Width="164" FontSize="22"/>
                     <TextBlock Text="Launch Mode" Margin="0,202,23,87" TextWrapping="Wrap"/>
                     <ToggleSwitch x:Name="LaunchModeSwitch" OnContent="On Top" OffContent="Regular" Toggled="LaunchModeSwitch_Toggled" HorizontalAlignment="Left" Margin="0,227,0,0" VerticalAlignment="Top" />
-                    <Button x:Name="Feedback"  Content="Send Feedback" Click="Feedback_Click" HorizontalAlignment="Left" Margin="0,277,0,0" VerticalAlignment="Top"/>
+                    <TextBlock Text="Auto Save" Margin="0,277,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                    <ToggleSwitch x:Name="AutoSaveSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,302,0,0" VerticalAlignment="Top" />
+                    <Button x:Name="Feedback"  Content="Send Feedback" Click="Feedback_Click" HorizontalAlignment="Left" Margin="0,354,0,0" VerticalAlignment="Top"/>
                     <CommandBar x:Name="CmdSettingsBack" IsOpen="False"  DefaultLabelPosition="Right" HorizontalAlignment="Right" Background="{x:Null}" VerticalAlignment="Top">
                         <AppBarButton x:Name="CmdBack" Icon="Back" Click="CmdBack_Click" Background="{x:Null}" />
                     </CommandBar>
@@ -282,7 +284,7 @@
 
             <Frame x:Name="FrameBottom" Content="" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="48" Grid.RowSpan="1" Margin="0,0,0,0"/>
         </controls:DropShadowPanel>
-        
+
         <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75"  IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom" Height="48" FlowDirection="LeftToRight" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
