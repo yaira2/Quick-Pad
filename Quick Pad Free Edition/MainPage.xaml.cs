@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
@@ -395,41 +396,54 @@ namespace Quick_Pad_Free_Edition
 
         public async Task SaveWork()
         {
-            Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
-
-            savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-
-            // Dropdown of file types the user can save the file as
-            savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-
-            // Default file name if the user does not type one in or select a file to replace
-            savePicker.SuggestedFileName = UpdateFile;
-
-            Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-            if (file != null)
-            {
-                //get the text to save
-                Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-
-                //update title bar
-                UpdateFile = file.DisplayName;
-                TQuick.Text = UpdateFile;
-
-                //write the text to the file
-                await FileIO.WriteTextAsync(file, value);
-
-                // Let Windows know that we're finished changing the file so the 
-                // other app can update the remote version of the file.
-                Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
+                try
                 {
-                    //let user know if there was an error saving the file
-                    Windows.UI.Popups.MessageDialog errorBox =
-                        new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
-                    await errorBox.ShowAsync();
+                FileStream fs = new FileStream("C:\\Users\\explo\\OneDrive\\Desktop\\test1.txt", FileMode.Open, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs);
+                sw.WriteLine("Hello World");
+                sw.Dispose();
+                fs.Dispose();
+                }
+
+                catch (Exception)
+
+                {
+                    Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
+
+                    savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+
+                    // Dropdown of file types the user can save the file as
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+
+                    // Default file name if the user does not type one in or select a file to replace
+                    savePicker.SuggestedFileName = UpdateFile;
+
+                    Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+                    if (file != null)
+                    {
+                        //get the text to save
+                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+
+                        //update title bar
+                        UpdateFile = file.DisplayName;
+                        TQuick.Text = UpdateFile;
+
+                        //write the text to the file
+                        await FileIO.WriteTextAsync(file, value);
+
+                        // Let Windows know that we're finished changing the file so the 
+                        // other app can update the remote version of the file.
+                        Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                        if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
+                        {
+                            //let user know if there was an error saving the file
+                            Windows.UI.Popups.MessageDialog errorBox =
+                                new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
+                            await errorBox.ShowAsync();
+                        }
+                    }
                 }
             }
-        }
 
         public async void CmdSave_Click(object sender, RoutedEventArgs e)
         {
