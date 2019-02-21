@@ -402,16 +402,11 @@ namespace Quick_Pad_Free_Edition
         {
                 try
                 {
-                //FileStream fs = new FileStream("C:\\Users\\explo\\OneDrive\\Desktop\\test1.rtf", FileMode.Open, FileAccess.Write);
-                //StreamWriter sw = new StreamWriter(fs);
-                //sw.WriteLine("Hello World");
-                //sw.Dispose();
-                //fs.Dispose();
-                // Example #2: Write one string to a text file.
+                //tries to update file if it exsits and is not read only
                 Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
                 await PathIO.WriteTextAsync(FullFilePath, value);
-                //update title bar
-
+                //update title bar to indicate file is up to date
+                TQuick.Text = UpdateFile;
             }
 
             catch (Exception)
