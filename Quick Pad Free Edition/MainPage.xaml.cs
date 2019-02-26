@@ -767,8 +767,9 @@ namespace Quick_Pad_Free_Edition
         
         public void EmojiSub(object sender, RoutedEventArgs e)
         {
-            string objname = ((Button)sender).Content.ToString();
-            Text1.Document.Selection.TypeText(objname);
+            string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
+            Text1.Document.Selection.TypeText(objname); //add it to the text box
+            TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
         }
 
         private void TextColor_Click(object sender, RoutedEventArgs e)
