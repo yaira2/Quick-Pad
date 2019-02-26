@@ -32,12 +32,12 @@ namespace Quick_Pad_Free_Edition
     {
 
         string UpdateFile;
-        String FullFilePath;
-        string AdRemove;
+        String FullFilePath; //this is the opened files full path
+        string AdRemove; //string indicates if the user paid to remove ads
         private StoreContext context = null;
         private bool _isPageLoaded = false;
-        Int64 LastFontSize;
-        public System.Timers.Timer timer = new System.Timers.Timer(10000);
+        Int64 LastFontSize; //this value is the last selected characters font size
+        public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timers interval
         public MainPage()
         {
             InitializeComponent();
@@ -401,9 +401,9 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
             }
-            UpdateFile = "New Document";
-            TQuick.Text = UpdateFile;
-            FullFilePath = "";
+            UpdateFile = "New Document"; //reset the value of the friendly file name
+            TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
+            FullFilePath = ""; //clear the path of the open file since there is none
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
@@ -412,7 +412,7 @@ namespace Quick_Pad_Free_Edition
                 new Windows.Storage.Pickers.FileOpenPicker();
             open.SuggestedStartLocation =
                 Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-            open.FileTypeFilter.Add(".rtf");
+            open.FileTypeFilter.Add(".rtf"); //add file types that can be opened to the file picker
 
             Windows.Storage.StorageFile file = await open.PickSingleFileAsync();
 
@@ -826,8 +826,8 @@ namespace Quick_Pad_Free_Edition
 
         private void Text1_GotFocus(object sender, RoutedEventArgs e)
         {
-            Emoji.IsChecked = false;
-            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size);
+            Emoji.IsChecked = false; //hide emoji panel if open 
+            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
         }
 
         private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)

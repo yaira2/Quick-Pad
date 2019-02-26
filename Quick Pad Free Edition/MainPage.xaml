@@ -482,6 +482,36 @@
                                 <Button x:Name="E118" Content="🙊" Click="EmojiSub" Width="40" Height="40"/>
                                 <Button x:Name="E119" Content="🐵" Click="EmojiSub" Width="40" Height="40"/>
                                 <Button x:Name="E120" Content="🐶" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E121" Content="🐺" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E122" Content="🐱" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E123" Content="🦁" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E124" Content="🐯" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E125" Content="🦒" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E126" Content="🦊" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E127" Content="🦝" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E128" Content="🐮" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E129" Content="🐷" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E130" Content="🐗" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E131" Content="🐭" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E132" Content="🐹" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E133" Content="🐰" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E134" Content="🐻" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E135" Content="🐨" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E136" Content="🐼" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E137" Content="🐸" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E138" Content="🦓" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E139" Content="🐴" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E140" Content="🦄" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E141" Content="🐔" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E142" Content="🐲" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E143" Content="🐾" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E144" Content="🐒" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E145" Content="🦍" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E146" Content="🦧" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E147" Content="🦮" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E148" Content="🐕‍🦺" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E149" Content="🐩" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E150" Content="🐕" Click="EmojiSub" Width="40" Height="40"/>
                             </GridView>
                         </PivotItem>
                         <PivotItem Header=";-)">
