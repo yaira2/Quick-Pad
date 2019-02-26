@@ -36,6 +36,7 @@ namespace Quick_Pad_Free_Edition
         string AdRemove;
         private StoreContext context = null;
         private bool _isPageLoaded = false;
+        Int64 LastFontSize;
         public System.Timers.Timer timer = new System.Timers.Timer(10000);
         public MainPage()
         {
@@ -647,6 +648,7 @@ namespace Quick_Pad_Free_Edition
             }
             catch (Exception)
             {
+                Text1.Document.Selection.CharacterFormat.Size = LastFontSize;
             }
            
             //Let me know know user used this feature
@@ -825,6 +827,7 @@ namespace Quick_Pad_Free_Edition
         private void Text1_GotFocus(object sender, RoutedEventArgs e)
         {
             Emoji.IsChecked = false;
+            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size);
         }
 
         private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)
