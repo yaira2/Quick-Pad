@@ -35,6 +35,7 @@ namespace Quick_Pad_Free_Edition
         String FullFilePath; //this is the opened files full path
         string AdRemove; //string indicates if the user paid to remove ads
         private StoreContext context = null;
+        string key; //future access list
         private bool _isPageLoaded = false;
         Int64 LastFontSize; //this value is the last selected characters font size
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timers interval
@@ -328,6 +329,8 @@ namespace Quick_Pad_Free_Edition
             Windows.Storage.Streams.IRandomAccessStream randAccStream =
          await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
 
+            key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
+
             // Load the file into the Document property of the RichEditBox.
             Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
 
@@ -426,6 +429,8 @@ namespace Quick_Pad_Free_Edition
                     UpdateFile = file.DisplayName;
                     TQuick.Text = UpdateFile;
                     FullFilePath = file.Path;
+
+                    key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     // Load the file into the Document property of the RichEditBox.
                     Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
