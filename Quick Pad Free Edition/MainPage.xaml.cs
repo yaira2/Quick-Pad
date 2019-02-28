@@ -485,8 +485,10 @@ namespace Quick_Pad_Free_Edition
                         TQuick.Text = UpdateFile;
                         FullFilePath = file.Path;
 
-                        //write the text to the file
-                        await FileIO.WriteTextAsync(file, value);
+                    key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
+
+                    //write the text to the file
+                    await FileIO.WriteTextAsync(file, value);
 
                     // Let Windows know that we're finished changing the file so the 
                     // other app can update the remote version of the file.
