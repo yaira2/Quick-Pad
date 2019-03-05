@@ -53,7 +53,7 @@ namespace Quick_Pad_Free_Edition
             UpdateFile = "New Document";
             TQuick.Text = UpdateFile;
 
-            //extent grid in to the title bar
+            //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
