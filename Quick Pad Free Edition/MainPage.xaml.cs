@@ -1,4 +1,4 @@
-﻿using Microsoft.Services.Store.Engagement;
+using Microsoft.Services.Store.Engagement;
 using System;
 using System.Collections.Generic;
 using System.IO;
