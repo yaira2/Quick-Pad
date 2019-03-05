@@ -20,6 +20,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -86,11 +88,17 @@ namespace Quick_Pad_Free_Edition
             {
                 this.RequestedTheme = ElementTheme.Light;
                 Light.IsChecked = true; //select the light theme option in the settings panel
+
+                //log even in app center
+                Analytics.TrackEvent("Loaded app in light theme");
             }
             if (localValue == "Dark")
             {
                 this.RequestedTheme = ElementTheme.Dark;
                 Dark.IsChecked = true; //select the dark theme option in the settings panel
+
+                //log even in app center
+                Analytics.TrackEvent("Loaded app in dark theme");
             }
             if (localValue == "System Default")
             {
@@ -222,6 +230,9 @@ namespace Quick_Pad_Free_Edition
                 //launch compact overlay mode
                 CompactOverlay.IsChecked = true;
                 LaunchModeSwitch.IsOn = true; //toggle the launch compact overlay mode switch in the settings panel.
+
+                //log even in app center
+                Analytics.TrackEvent("Loaded app in compact overlay mode");
             }
             else
             {
@@ -407,6 +418,9 @@ namespace Quick_Pad_Free_Edition
             UpdateFile = "New Document"; //reset the value of the friendly file name
             TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
             FullFilePath = ""; //clear the path of the open file since there is none
+
+            //log even in app center
+            Analytics.TrackEvent("New Document Created");
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
@@ -434,6 +448,9 @@ namespace Quick_Pad_Free_Edition
 
                     // Load the file into the Document property of the RichEditBox.
                     Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+
+                    //log even in app center
+                    Analytics.TrackEvent("Document Opened With File Picker");
                 }
                 catch (Exception)
                 {
@@ -708,6 +725,9 @@ namespace Quick_Pad_Free_Edition
             //Let me know know user used this feature
             StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
             logger.Log("Compact Overlay");
+
+            //log even in app center
+            Analytics.TrackEvent("Compact Overlay");
         }
 
         private async void CompactOverlay_Unchecked(object sender, RoutedEventArgs e)
@@ -753,6 +773,9 @@ namespace Quick_Pad_Free_Edition
             //Let me know know user used this feature
             StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
             logger.Log("EmojiPanel");
+
+            //log even in app center
+            Analytics.TrackEvent("User opened emoji panel");
         }
 
         private void Emoji_Unchecked(object sender, RoutedEventArgs e)
@@ -777,6 +800,9 @@ namespace Quick_Pad_Free_Edition
             string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
             Text1.Document.Selection.TypeText(objname); //add it to the text box
             TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
+
+            //log even in app center
+            Analytics.TrackEvent("User inserted an emoji");
         }
 
         private void TextColor_Click(object sender, RoutedEventArgs e)
@@ -892,6 +918,9 @@ namespace Quick_Pad_Free_Edition
         private async void CmdReview_Click(object sender, RoutedEventArgs e)
         {
             bool doReview = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9PDLWQHTLSV3"));
+
+            //log even in app center
+            Analytics.TrackEvent("User clicked on review");
         }
 
         private async void RemoveAd_Click(object sender, RoutedEventArgs e)
@@ -934,6 +963,9 @@ namespace Quick_Pad_Free_Edition
                     await Erordialog.ShowAsync();
                     break;
             }
+
+            //log even in app center
+            Analytics.TrackEvent("User pressed remove ads");
         }
 
         private void Strikethrough_Click(object sender, RoutedEventArgs e)
@@ -1073,6 +1105,9 @@ namespace Quick_Pad_Free_Edition
         {
             var launcher = Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.GetDefault();
             await launcher.LaunchAsync();
+
+            //log even in app center
+            Analytics.TrackEvent("User pressed feedback");
         }
 
         private void AutoSaveSwitch_Toggled(object sender, RoutedEventArgs e)

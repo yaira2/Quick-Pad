@@ -210,6 +210,9 @@
     <PackageReference Include="AdDuplexWin10">
       <Version>10.2.0.6</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>1.13.2</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.1.9</Version>
     </PackageReference>
