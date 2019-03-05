@@ -22,6 +22,9 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
+using Windows.UI.Xaml.Documents;
+using Windows.UI.Xaml.Printing;
+using Microsoft.Toolkit.Uwp.Helpers;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -47,6 +50,23 @@ namespace Quick_Pad_Free_Edition
             //stuff for compact overlay
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(900, 900);
+
+            //get printer stuff
+            PrintDocument = new PrintDocument();
+            printDocumentSource = printDocument.DocumentSource;
+            printDocument.Paginate += CreatePrintPreviewPages;
+            printDocument.GetPreviewPage += GetPrintPreviewPage;
+            printDocument.AddPages += AddPrintPages;
+
+            PrintManager printMan = PrintManager.GetForCurrentView();
+            printMan.PrintTaskRequested += PrintTaskRequested;
+
+            // Initialize common helper class and register for printing
+            PrintHelper = new PrintHelper(this);
+            printHelper.RegisterForPrinting();
+
+            // Initialize print content for this scenario
+            printHelper.PreparePrintContent(new PageToPrint());
 
             //Default file name is "New Document"
             //Displays file name on title bar
@@ -1126,6 +1146,18 @@ namespace Quick_Pad_Free_Edition
                     localSettings.Values["AutoSave"] = "Off";
                 }
             }
+        }
+
+        private void CmdPrint_Click(object sender, RoutedEventArgs e)
+        {
+            //make sure the richtextblock that will have the text to print be the same as the actual richeditbox
+            Run run = new Run();
+            Text1.Document.GetText(TextGetOptions.UseCrlf, out var value); //TODO get the text formated properly
+            run.Text = value;
+            Paragraph paragraph = new Paragraph();
+            paragraph.Inlines.Add(run);
+            TextToPrint.Blocks.Clear();
+            TextToPrint.Blocks.Add(paragraph);
         }
     }
 }

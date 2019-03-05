@@ -198,6 +198,13 @@
                            Key="S" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
+            <AppBarButton x:Name="CmdPrint"  Width="52" Icon="Print" Click="CmdPrint_Click" ToolTipService.ToolTip="Save (Ctrl+P)">
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator 
+                          Modifiers="Control" 
+                           Key="P" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
             <AppBarButton x:Name="CmdShare" Width="52" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the selected text."/>
             <AppBarSeparator/>
             <AppBarButton x:Name="Bold" Width="52" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Bold (Ctrl+B)"/>
@@ -241,6 +248,8 @@
 
         <RichEditBox  x:Name="Text1" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,81,0,90" Style="{StaticResource RichEditBox}" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  RequestedTheme="Default" FontSize="24">
         </RichEditBox>
+
+        <RichTextBlock x:Name="TextToPrint" Margin="0,81,0,90" Visibility="Collapsed"/>
 
         <ContentDialog x:Name="AboutDialog" Background="{ThemeResource SystemControlAcrylicElementBrush}"
            Opened="AboutDialog_Opened" PrimaryButtonText="Ok">
