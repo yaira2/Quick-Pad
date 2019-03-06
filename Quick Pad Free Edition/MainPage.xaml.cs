@@ -167,6 +167,7 @@ namespace Quick_Pad_Free_Edition
                 CloseButtonText = "No"
             };
 
+            Settings.Hide();
             ContentDialogResult result = await deleteFileDialog.ShowAsync();
 
             //Save file if user clicks yes.
