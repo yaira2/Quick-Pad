@@ -169,6 +169,7 @@ namespace Quick_Pad_Free_Edition
 
             Settings.Hide(); //close the settings dialog so the app does not hang
             AboutDialog.Hide(); //close the about dialog so the app does not hang
+
             ContentDialogResult result = await deleteFileDialog.ShowAsync();
 
             //Save file if user clicks yes.
