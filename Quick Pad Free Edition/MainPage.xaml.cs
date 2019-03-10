@@ -59,6 +59,7 @@ namespace Quick_Pad_Free_Edition
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
+            //add all installed fonts to the font box
             string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
             foreach (string font in fonts)
             {
