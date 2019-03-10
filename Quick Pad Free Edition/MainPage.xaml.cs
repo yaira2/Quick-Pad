@@ -59,6 +59,12 @@ namespace Quick_Pad_Free_Edition
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
+            string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
+            foreach (string font in fonts)
+            {
+                Fonts.Items.Add(string.Format(font));
+            }
+
             //lets us know where app setting are
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
@@ -793,9 +799,8 @@ namespace Quick_Pad_Free_Edition
 
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string myfont;
-            myfont = ((ComboBoxItem)Fonts.SelectedItem).Content.ToString();
-            Text1.Document.Selection.CharacterFormat.Name = myfont;
+            var selectedFont = e.AddedItems[0].ToString();
+            Text1.Document.Selection.CharacterFormat.Name = selectedFont;
         }
         
         public void EmojiSub(object sender, RoutedEventArgs e)

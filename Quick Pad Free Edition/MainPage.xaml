@@ -298,36 +298,7 @@
         <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75"  IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom" Height="48" FlowDirection="LeftToRight" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
-                    <ComboBox VerticalAlignment="Center" MinHeight="48" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="199" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                        <ComboBoxItem Content="Arial"  />
-                        <ComboBoxItem Content="Calibri"  />
-                        <ComboBoxItem Content="Cambria" />
-                        <ComboBoxItem Content="Cambria Math"  />
-                        <ComboBoxItem Content="Comic Sans MS"  />
-                        <ComboBoxItem Content="Courier New" />
-                        <ComboBoxItem Content="Ebrima"/>
-                        <ComboBoxItem Content="Gadugi" />
-                        <ComboBoxItem Content="Georgia" />
-                        <ComboBoxItem Content="Leelawadee UI"  />
-                        <ComboBoxItem Content="Lucida Console"/>
-                        <ComboBoxItem Content="Malgun Gothic"/>
-                        <ComboBoxItem Content="Microsoft Himalaya" />
-                        <ComboBoxItem Content="Microsoft JhengHei"/>
-                        <ComboBoxItem Content="Myanmar Text" />
-                        <ComboBoxItem Content="Nirmala UI" />
-                        <ComboBoxItem Content="Segoe MDL2 Assets"/>
-                        <ComboBoxItem Content="Segoe Print" />
-                        <ComboBoxItem Content="Segoe UI" />
-                        <ComboBoxItem Content="Segoe UI Emoji" />
-                        <ComboBoxItem Content="Segoe UI Historic"/>
-                        <ComboBoxItem Content="Segoe UI Symbol" />
-                        <ComboBoxItem Content="Times New Roman" />
-                        <ComboBoxItem Content="Trebuchet MS" />
-                        <ComboBoxItem Content="Verdana"/>
-                        <ComboBoxItem Content="Webdings" />
-                        <ComboBoxItem Content="Wingdings"/>
-                        <ComboBoxItem Content="Yu Gothic" />
-                    </ComboBox>
+                    <ComboBox VerticalAlignment="Center" MinHeight="48" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="199" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
                 </StackPanel>
             </CommandBar.Content>
             <AppBarButton x:Name="RemoveAd" Width="100" Visibility="Visible" Content="Remove Ads" ToolTipService.ToolTip="Remove ads from Quick Pad" Click="RemoveAd_Click"/>
