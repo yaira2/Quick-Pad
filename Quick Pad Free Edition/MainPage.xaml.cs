@@ -87,6 +87,7 @@ namespace Quick_Pad_Free_Edition
 
             //call method to check setting if app should be open on top of other windows
             OnTopCheck();
+            CheckToolbarOptions(); //check which buttons to show in toolbar
 
             //get some theme settings in
             String localValue = localSettings.Values["Theme"] as string;
@@ -247,6 +248,41 @@ namespace Quick_Pad_Free_Edition
             else
             {
                 LaunchModeSwitch.IsOn = false; //keep launch compact overlay mode switch off in settings panel.
+            }
+        }
+
+        //check which buttons to show in toolbar
+        public void CheckToolbarOptions()
+        {
+            //let app know where settings are stored
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            //check if bullet list option should show
+            String ShowBulletsSetting = localSettings.Values["ShowBullets"] as string;
+
+            if (ShowBulletsSetting == "No")
+            {
+                //hide bullets
+                ShowBullets.IsOn = false; //toggle the show bullets option in the settings panel.
+                BulletList.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ShowBullets.IsOn = true; //toggle the show bullets option in the settings panel.
+            }
+
+            //check if strikethrough option should show
+            String ShowST = localSettings.Values["ShowStrikethroughOption"] as string;
+
+            if (ShowST == "No")
+            {
+                //hide bullets
+                ShowStrikethrough.IsOn = false; //toggle the show bullets option in the settings panel.
+                Strikethrough.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ShowStrikethrough.IsOn = true; //toggle the show bullets option in the settings panel.
             }
         }
 
@@ -1133,6 +1169,46 @@ namespace Quick_Pad_Free_Edition
                 {
                     ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
                     localSettings.Values["AutoSave"] = "Off";
+                }
+            }
+        }
+
+        private void ShowBullets_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["ShowBullets"] = "Yes";
+                    BulletList.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    localSettings.Values["ShowBullets"] = "No";
+                    BulletList.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void ShowStrikethrough_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["ShowStrikethroughOption"] = "Yes";
+                    Strikethrough.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    localSettings.Values["ShowStrikethroughOption"] = "No";
+                    Strikethrough.Visibility = Visibility.Collapsed;
                 }
             }
         }
