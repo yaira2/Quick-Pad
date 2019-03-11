@@ -257,7 +257,21 @@ namespace Quick_Pad_Free_Edition
             //let app know where settings are stored
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
 
-            //check if bullet list option should show
+            //check if the share option should show
+            String ShowS = localSettings.Values["ShowShare"] as string;
+
+            if (ShowS == "No")
+            {
+                //hide share option
+                ShowShare.IsOn = false; //toggle the show share option in the settings panel.
+                CmdShare.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                ShowStrikethrough.IsOn = true; //toggle the show share option in the settings panel.
+            }
+
+            //check if the bullet list option should show
             String ShowBulletsSetting = localSettings.Values["ShowBullets"] as string;
 
             if (ShowBulletsSetting == "No")
@@ -276,13 +290,13 @@ namespace Quick_Pad_Free_Edition
 
             if (ShowST == "No")
             {
-                //hide bullets
-                ShowStrikethrough.IsOn = false; //toggle the show bullets option in the settings panel.
+                //hide ShowStrikethroughOption
+                ShowStrikethrough.IsOn = false; //toggle the show ShowStrikethroughOption option in the settings panel.
                 Strikethrough.Visibility = Visibility.Collapsed;
             }
             else
             {
-                ShowStrikethrough.IsOn = true; //toggle the show bullets option in the settings panel.
+                ShowStrikethrough.IsOn = true; //toggle the show ShowStrikethroughOption option in the settings panel.
             }
         }
 
@@ -1209,6 +1223,26 @@ namespace Quick_Pad_Free_Edition
                 {
                     localSettings.Values["ShowStrikethroughOption"] = "No";
                     Strikethrough.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void ShowShare_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["ShowShare"] = "Yes";
+                    CmdShare.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    localSettings.Values["ShowShare"] = "No";
+                    CmdShare.Visibility = Visibility.Collapsed;
                 }
             }
         }
