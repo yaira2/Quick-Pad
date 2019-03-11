@@ -71,7 +71,11 @@ namespace Quick_Pad_Free_Edition
 
             //check if auto save is on or off
             String launchValue = localSettings.Values["AutoSave"] as string;
-            if (launchValue == "On")
+            if (launchValue == "Off")
+            {
+                AutoSaveSwitch.IsOn = false; //keep auto save switch off in settings panel.
+            }
+            else
             {
                 AutoSaveSwitch.IsOn = true; //turn auto save switch on in settings panel.
 
@@ -79,10 +83,6 @@ namespace Quick_Pad_Free_Edition
                 timer.Enabled = true;
                 timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
                 timer.AutoReset = true;
-            }
-            else
-            {
-                AutoSaveSwitch.IsOn = false; //keep auto save switch off in settings panel.
             }
 
             //call method to check setting if app should be open on top of other windows
@@ -268,7 +268,7 @@ namespace Quick_Pad_Free_Edition
             }
             else
             {
-                ShowStrikethrough.IsOn = true; //toggle the show share option in the settings panel.
+                ShowShare.IsOn = true; //toggle the show share option in the settings panel.
             }
 
             //check if the bullet list option should show

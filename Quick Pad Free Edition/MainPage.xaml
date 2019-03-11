@@ -274,14 +274,14 @@
                             <Grid Height="180">
                                 <RadioButton x:Name="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,5,0,0" VerticalAlignment="Top" Width="242" Click="Light_Click" Grid.RowSpan="2"/>
                                 <RadioButton x:Name="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,50,0,0" VerticalAlignment="Top" Width="242" Click="Dark_Click"/>
-                                <RadioButton x:Name="SystemDefault" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,90,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefault_Click" Grid.RowSpan="1"/>
+                                <RadioButton x:Name="SystemDefault" IsChecked="True" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,90,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefault_Click" Grid.RowSpan="1"/>
                             </Grid>
                         </PivotItem>
                         <PivotItem Header="Toolbar">
                             <Grid Height="180">
-                                <ToggleSwitch x:Name="ShowShare" OnContent="Show share option"  OffContent="Hide share option" Toggled="ShowShare_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                                <ToggleSwitch x:Name="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Toggled="ShowBullets_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0"/>
-                                <ToggleSwitch x:Name="ShowStrikethrough" OnContent="Show strikethrough option"  OffContent="Hide strikethrough option" Toggled="ShowStrikethrough_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,90,0,0"/>
+                                <ToggleSwitch x:Name="ShowShare" OnContent="Show share option" IsOn="True"  OffContent="Hide share option" Toggled="ShowShare_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                                <ToggleSwitch x:Name="ShowStrikethrough" OnContent="Show strikethrough option" IsOn="True" OffContent="Hide strikethrough option" Toggled="ShowStrikethrough_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0"/>
+                                <ToggleSwitch x:Name="ShowBullets" OnContent="Show bullet list" IsOn="True"  OffContent="Hide bullet list" Toggled="ShowBullets_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,90,0,0"/>
                             </Grid>
                         </PivotItem>
                     </Pivot>
