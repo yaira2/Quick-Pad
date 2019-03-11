@@ -1066,6 +1066,7 @@ namespace Quick_Pad_Free_Edition
         private void CmdBack_Click(object sender, RoutedEventArgs e)
         {
             Settings.Hide();
+            //todo reset focus back to first item in pivot control in the settings panel
         }
 
         private void Light_Click(object sender, RoutedEventArgs e)
