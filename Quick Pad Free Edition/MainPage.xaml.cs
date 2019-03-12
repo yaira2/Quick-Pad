@@ -1278,7 +1278,6 @@ namespace Quick_Pad_Free_Edition
             catch (Exception)
             {
 
-                throw;
             }
         }
 
