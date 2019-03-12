@@ -1,11 +1,8 @@
+using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
 using System;
 using System.Collections.Generic;
-using System.IO;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using System.Timers;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
@@ -20,8 +17,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -32,14 +27,13 @@ namespace Quick_Pad_Free_Edition
     /// </summary>
     public sealed partial class MainPage : Page
     {
-
-        string UpdateFile;
-        String FullFilePath; //this is the opened files full path
-        string AdRemove; //string indicates if the user paid to remove ads
+        private string UpdateFile = "New Document"; //Default file name is "New Document"
+        private String FullFilePath; //this is the opened files full path
+        private string AdRemove; //string indicates if the user paid to remove ads
         private StoreContext context = null;
-        string key; //future access list
+        private string key; //future access list
         private bool _isPageLoaded = false;
-        Int64 LastFontSize; //this value is the last selected characters font size
+        private Int64 LastFontSize; //this value is the last selected characters font size
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timers interval
         public MainPage()
         {
@@ -48,10 +42,7 @@ namespace Quick_Pad_Free_Edition
             NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(900, 900);
 
-            //Default file name is "New Document"
-            //Displays file name on title bar
-            UpdateFile = "New Document";
-            TQuick.Text = UpdateFile;
+            TQuick.Text = UpdateFile; //Displays file name on title bar
 
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
@@ -66,8 +57,7 @@ namespace Quick_Pad_Free_Edition
                 Fonts.Items.Add(string.Format(font));
             }
 
-            //lets us know where app setting are
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
 
             //check if auto save is on or off
             String launchValue = localSettings.Values["AutoSave"] as string;
@@ -85,30 +75,26 @@ namespace Quick_Pad_Free_Edition
                 timer.AutoReset = true;
             }
 
-            //call method to check setting if app should be open on top of other windows
-            OnTopCheck();
+            OnTopCheck(); //call method to check setting if app should be open on top of other windows
             CheckToolbarOptions(); //check which buttons to show in toolbar
+            CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
 
             //get some theme settings in
             String localValue = localSettings.Values["Theme"] as string;
-
-            if (localValue == "Light")
+            if (localValue == "Light") //light theme is on
             {
                 this.RequestedTheme = ElementTheme.Light;
                 Light.IsChecked = true; //select the light theme option in the settings panel
-
-                //log even in app center
-                Analytics.TrackEvent("Loaded app in light theme");
+                Analytics.TrackEvent("Loaded app in light theme");  //log even in app center
             }
-            if (localValue == "Dark")
+            if (localValue == "Dark") //dark theme is on
             {
                 this.RequestedTheme = ElementTheme.Dark;
                 Dark.IsChecked = true; //select the dark theme option in the settings panel
 
-                //log even in app center
-                Analytics.TrackEvent("Loaded app in dark theme");
+                Analytics.TrackEvent("Loaded app in dark theme"); //log even in app center
             }
-            if (localValue == "System Default")
+            if (localValue == "System Default") //default theme is on
             {
                 this.RequestedTheme = ElementTheme.Default;
                 SystemDefault.IsChecked = true; //select the default theme option in the settings panel
@@ -132,9 +118,6 @@ namespace Quick_Pad_Free_Edition
             {
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
-
-            //Call method to remove ads for a paid user
-            CheckIfPaidForNoAds();
 
             //check if it is a new user
             String NewUser = localSettings.Values["NewUser"] as string;
@@ -204,7 +187,7 @@ namespace Quick_Pad_Free_Edition
         public void send(object source, System.Timers.ElapsedEventArgs e)
         {
             //timer for auto save
-            #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             async () =>
                 {
@@ -225,7 +208,7 @@ namespace Quick_Pad_Free_Edition
                         }
                     }
                 });
-        #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
         public void OnTopCheck()
@@ -252,7 +235,7 @@ namespace Quick_Pad_Free_Edition
         }
 
         //check which buttons to show in toolbar
-        public void CheckToolbarOptions()
+        private void CheckToolbarOptions()
         {
             //let app know where settings are stored
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
@@ -264,7 +247,7 @@ namespace Quick_Pad_Free_Edition
             {
                 //hide share option
                 ShowShare.IsOn = false; //toggle the show share option in the settings panel.
-                CmdShare.Visibility = Visibility.Collapsed;
+                CmdShare.Visibility = Visibility.Collapsed; //hide share button
             }
             else
             {
@@ -278,7 +261,7 @@ namespace Quick_Pad_Free_Edition
             {
                 //hide bullets
                 ShowBullets.IsOn = false; //toggle the show bullets option in the settings panel.
-                BulletList.Visibility = Visibility.Collapsed;
+                BulletList.Visibility = Visibility.Collapsed; //hid bullet option
             }
             else
             {
@@ -292,7 +275,7 @@ namespace Quick_Pad_Free_Edition
             {
                 //hide ShowStrikethroughOption
                 ShowStrikethrough.IsOn = false; //toggle the show ShowStrikethroughOption option in the settings panel.
-                Strikethrough.Visibility = Visibility.Collapsed;
+                Strikethrough.Visibility = Visibility.Collapsed; //hide strikethrough option
             }
             else
             {
@@ -317,20 +300,20 @@ namespace Quick_Pad_Free_Edition
 
         public async void CheckPushNotifications()
         {
-             //regisiter for push notifications
+            //regisiter for push notifications
             StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
             await engagementManager.RegisterNotificationChannelAsync();
         }
 
         private StoreContext storeContext = StoreContext.GetDefault();
-        
+
         // Assign this variable to the Store ID of your subscription add-on.
         private string StoreId = "9PMFXLSMJ8RL";
         public async void CheckIfPaidForNoAds()
         {
             StoreAppLicense appLicense = await storeContext.GetAppLicenseAsync();
 
-            // Check if the customer has the rights to the subscription.
+            // Check if the customer has the rights to the subscription, in this case it is not a subscription but a one time iap to remove ads
             foreach (var addOnLicense in appLicense.AddOnLicenses)
             {
                 StoreLicense license = addOnLicense.Value;
@@ -338,10 +321,10 @@ namespace Quick_Pad_Free_Edition
                 {
                     if (license.IsActive)
                     {
-                        AdRemove = "Paid";
-                        Ad1.Visibility = Visibility.Collapsed;
-                        RemoveAd.Visibility = Visibility.Collapsed;
-                        Text1.Margin = new Thickness(0, 81, 0, 0);
+                        AdRemove = "Paid"; //set a value that shows the user paid to remove ads thhat can be used at other times in the app
+                        Ad1.Visibility = Visibility.Collapsed; //hide the ad
+                        RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
+                        Text1.Margin = new Thickness(0, 81, 0, 0); //fix text margin to take up space where ad used to be
                     }
                 }
             }
@@ -349,7 +332,7 @@ namespace Quick_Pad_Free_Edition
 
         public async void NewUserFeedbackAsync()
         {
-            ContentDialog deleteFileDialog = new ContentDialog
+            ContentDialog deleteFileDialog = new ContentDialog //brings up a content dialog
             {
                 Title = "Enjoy using Quick Pad?",
                 Content = "Would you like to review Quick Pad?",
@@ -357,7 +340,7 @@ namespace Quick_Pad_Free_Edition
                 CloseButtonText = "No"
             };
 
-            ContentDialogResult result = await deleteFileDialog.ShowAsync();
+            ContentDialogResult result = await deleteFileDialog.ShowAsync(); //get the results if the user clicked to review or not
 
             // Delete the file if the user clicked the primary button.
             /// Otherwise, do nothing.
@@ -383,7 +366,7 @@ namespace Quick_Pad_Free_Edition
                     var fileArgs = args as Windows.ApplicationModel.Activation.FileActivatedEventArgs;
                     string strFilePath = fileArgs.Files[0].Path;
                     var file = (StorageFile)fileArgs.Files[0];
-                    await LoadFasFile(file);
+                    await LoadFasFile(file); //call method to open the file the app was launched from
                 }
             }
         }
@@ -529,8 +512,8 @@ namespace Quick_Pad_Free_Edition
 
         public async Task SaveWork()
         {
-                try
-                {
+            try
+            {
                 //tries to update file if it exsits and is not read only
                 Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
                 await PathIO.WriteTextAsync(FullFilePath, value);
@@ -540,27 +523,27 @@ namespace Quick_Pad_Free_Edition
 
             catch (Exception)
 
+            {
+                Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
+
+                savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+
+                // Dropdown of file types the user can save the file as
+                savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+
+                // Default file name if the user does not type one in or select a file to replace
+                savePicker.SuggestedFileName = UpdateFile;
+
+                Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+                if (file != null)
                 {
-                    Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
+                    //get the text to save
+                    Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
 
-                    savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-
-                    // Dropdown of file types the user can save the file as
-                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-
-                    // Default file name if the user does not type one in or select a file to replace
-                    savePicker.SuggestedFileName = UpdateFile;
-
-                    Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-                    if (file != null)
-                    {
-                        //get the text to save
-                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-
-                        //update title bar
-                        UpdateFile = file.DisplayName;
-                        TQuick.Text = UpdateFile;
-                        FullFilePath = file.Path;
+                    //update title bar
+                    UpdateFile = file.DisplayName;
+                    TQuick.Text = UpdateFile;
+                    FullFilePath = file.Path;
 
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
@@ -570,16 +553,16 @@ namespace Quick_Pad_Free_Edition
                     // Let Windows know that we're finished changing the file so the 
                     // other app can update the remote version of the file.
                     Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                        if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
-                        {
-                            //let user know if there was an error saving the file
-                            Windows.UI.Popups.MessageDialog errorBox =
-                                new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
-                            await errorBox.ShowAsync();
-                        }
+                    if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
+                    {
+                        //let user know if there was an error saving the file
+                        Windows.UI.Popups.MessageDialog errorBox =
+                            new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
+                        await errorBox.ShowAsync();
                     }
                 }
             }
+        }
 
         public async void CmdSave_Click(object sender, RoutedEventArgs e)
         {
@@ -734,7 +717,7 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.CharacterFormat.Size = LastFontSize;
             }
-           
+
             //Let me know know user used this feature
             StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
             logger.Log("Size Up");
@@ -845,7 +828,7 @@ namespace Quick_Pad_Free_Edition
 
         private void EmojiPanel_LostFocus(object sender, RoutedEventArgs e)
         {
-            
+
         }
 
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -853,7 +836,7 @@ namespace Quick_Pad_Free_Edition
             var selectedFont = e.AddedItems[0].ToString();
             Text1.Document.Selection.CharacterFormat.Name = selectedFont;
         }
-        
+
         public void EmojiSub(object sender, RoutedEventArgs e)
         {
             string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
@@ -938,7 +921,7 @@ namespace Quick_Pad_Free_Edition
             logger.Log("Shared Text");
         }
 
-        void MainPage_DataRequested(Windows.ApplicationModel.DataTransfer.DataTransferManager sender, Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs args)
+        private void MainPage_DataRequested(Windows.ApplicationModel.DataTransfer.DataTransferManager sender, Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs args)
         {
             Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
 
