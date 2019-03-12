@@ -444,7 +444,8 @@ namespace Quick_Pad_Free_Edition
                 Title = "Save your work?",
                 Content = "Would you like to save your work?",
                 PrimaryButtonText = "Yes",
-                CloseButtonText = "No"
+                SecondaryButtonText = "No",
+                CloseButtonText = "Cancel"
             };
 
             ContentDialogResult result = await deleteFileDialog.ShowAsync();
@@ -455,17 +456,25 @@ namespace Quick_Pad_Free_Edition
             {
                 await SaveWork();
                 Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
+
+                UpdateFile = "New Document"; //reset the value of the friendly file name
+                TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
+                FullFilePath = ""; //clear the path of the open file since there is none
+
+                //log even in app center
+                Analytics.TrackEvent("New Document Created");
             }
-            else
+            if (result == ContentDialogResult.Secondary)
             {
                 Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
-            }
-            UpdateFile = "New Document"; //reset the value of the friendly file name
-            TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
-            FullFilePath = ""; //clear the path of the open file since there is none
 
-            //log even in app center
-            Analytics.TrackEvent("New Document Created");
+                UpdateFile = "New Document"; //reset the value of the friendly file name
+                TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
+                FullFilePath = ""; //clear the path of the open file since there is none
+
+                //log even in app center
+                Analytics.TrackEvent("New Document Created");
+            }
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
