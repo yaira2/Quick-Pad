@@ -166,6 +166,7 @@ namespace Quick_Pad_Free_Edition
 
             //Save file if user clicks yes.
             /// Otherwise, exit without saving.
+            /// If user pressed cancel it wont do anything
             if (result == ContentDialogResult.Primary)
             {
                 await SaveWork(); //shows save dialog box
