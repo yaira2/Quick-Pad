@@ -1232,5 +1232,46 @@ namespace Quick_Pad_Free_Edition
                 }
             }
         }
+
+        private void Text1_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Copy;
+        }
+        
+        private async void Text1_Drop(object sender, DragEventArgs e)
+        {
+            //load rich text files droped in from file explorer
+            try
+            {
+                if (e.DataView.Contains(StandardDataFormats.StorageItems))
+                {
+                    var items = await e.DataView.GetStorageItemsAsync();
+                    if (items.Count > 0)
+                    {
+                        var storageFile = items[0] as StorageFile;
+                        var read = await FileIO.ReadTextAsync(storageFile);
+                        // Text1.Document.Selection.Text = read;
+
+                        UpdateFile = storageFile.DisplayName;
+                        TQuick.Text = UpdateFile;
+                        FullFilePath = storageFile.Path;
+
+                        Windows.Storage.Streams.IRandomAccessStream randAccStream =
+                     await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+
+                        key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
+
+                        // Load the file into the Document property of the RichEditBox.
+                        Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
     }
 }
