@@ -155,8 +155,9 @@ namespace Quick_Pad_Free_Edition
                 Title = "Save your work?",
                 Content = "Would you like to save your work?",
                 PrimaryButtonText = "Yes",
-                CloseButtonText = "No"
-            };
+                SecondaryButtonText="No",
+                CloseButtonText = "Cancel"
+        };
 
             Settings.Hide(); //close the settings dialog so the app does not hang
             AboutDialog.Hide(); //close the about dialog so the app does not hang
@@ -170,9 +171,9 @@ namespace Quick_Pad_Free_Edition
                 await SaveWork(); //shows save dialog box
                 App.Current.Exit(); //then closes
             }
-            else
+            if (result == ContentDialogResult.Secondary)
             {
-                App.Current.Exit(); //closes without saving
+                App.Current.Exit(); //then closes
             }
         };
 
