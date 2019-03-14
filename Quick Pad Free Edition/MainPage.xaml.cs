@@ -1261,10 +1261,6 @@ namespace Quick_Pad_Free_Edition
                         var read = await FileIO.ReadTextAsync(storageFile);
                         // Text1.Document.Selection.Text = read;
 
-                        UpdateFile = storageFile.DisplayName;
-                        TQuick.Text = UpdateFile;
-                        FullFilePath = storageFile.Path;
-
                         Windows.Storage.Streams.IRandomAccessStream randAccStream =
                      await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
 
@@ -1272,6 +1268,10 @@ namespace Quick_Pad_Free_Edition
 
                         if (storageFile.FileType == ".rtf")
                         {
+                            UpdateFile = storageFile.DisplayName;
+                            TQuick.Text = UpdateFile;
+                            FullFilePath = storageFile.Path;
+
                             Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                         }
                     }
