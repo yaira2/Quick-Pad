@@ -1270,11 +1270,6 @@ namespace Quick_Pad_Free_Edition
 
                         key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
 
-                        // Load the file into the Document property of the RichEditBox.
-                        if (storageFile.FileType==".txt")
-                        {
-                            Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(storageFile));
-                        }
                         if (storageFile.FileType == ".rtf")
                         {
                             Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
