@@ -40,6 +40,7 @@
             <uap:EditFlags OpenIsSafe="true" />
             <uap:SupportedFileTypes>
               <uap:FileType>.rtf</uap:FileType>
+              <uap:FileType>.txt</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>

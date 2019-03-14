@@ -2,6 +2,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
@@ -388,8 +389,14 @@ namespace Quick_Pad_Free_Edition
             key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
             // Load the file into the Document property of the RichEditBox.
-            Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-
+            if (file.FileType == ".txt")
+            {
+                Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
+            }
+            if (file.FileType == ".rtf")
+            {
+                Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+            }
         }
 
         private async void CmdSettings_Click(object sender, RoutedEventArgs e)
@@ -484,6 +491,7 @@ namespace Quick_Pad_Free_Edition
             open.SuggestedStartLocation =
                 Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
             open.FileTypeFilter.Add(".rtf"); //add file types that can be opened to the file picker
+            open.FileTypeFilter.Add(".txt"); //add file types that can be opened to the file picker
 
             Windows.Storage.StorageFile file = await open.PickSingleFileAsync();
 
@@ -501,7 +509,14 @@ namespace Quick_Pad_Free_Edition
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     // Load the file into the Document property of the RichEditBox.
-                    Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                    if (file.FileType == ".txt")
+                    {
+                        Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
+                    }
+                    if (file.FileType == ".rtf")
+                    {
+                        Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                    }
 
                     //log even in app center
                     Analytics.TrackEvent("Document Opened With File Picker");
@@ -525,11 +540,25 @@ namespace Quick_Pad_Free_Edition
         {
             try
             {
-                //tries to update file if it exsits and is not read only
-                Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                await PathIO.WriteTextAsync(FullFilePath, value);
-                //update title bar to indicate file is up to date
-                TQuick.Text = UpdateFile;
+                var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
+
+                if (result == ".txt")
+                {
+                    //tries to update file if it exsits and is not read only
+                    //fix it that it saves it as plain text
+                    Text1.Document.GetText(TextGetOptions.None, out var value);
+                    await PathIO.WriteTextAsync(FullFilePath, value);
+                    //update title bar to indicate file is up to date
+                    TQuick.Text = UpdateFile;
+                }
+                if (result == ".rtf")
+                {
+                    //tries to update file if it exsits and is not read only
+                    Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                    await PathIO.WriteTextAsync(FullFilePath, value);
+                    //update title bar to indicate file is up to date
+                    TQuick.Text = UpdateFile;
+                }
             }
 
             catch (Exception)
@@ -541,6 +570,7 @@ namespace Quick_Pad_Free_Edition
 
                 // Dropdown of file types the user can save the file as
                 savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+                savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
 
                 // Default file name if the user does not type one in or select a file to replace
                 savePicker.SuggestedFileName = UpdateFile;
@@ -548,9 +578,6 @@ namespace Quick_Pad_Free_Edition
                 Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
                 if (file != null)
                 {
-                    //get the text to save
-                    Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-
                     //update title bar
                     UpdateFile = file.DisplayName;
                     TQuick.Text = UpdateFile;
@@ -558,8 +585,26 @@ namespace Quick_Pad_Free_Edition
 
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
-                    //write the text to the file
-                    await FileIO.WriteTextAsync(file, value);
+                    //save as plain text for text file
+                    if (file.FileType == ".txt")
+                    {
+                        //get the text to save
+                        Text1.Document.GetText(TextGetOptions.None, out var value);
+
+                        //write the text to the file
+                        await FileIO.WriteTextAsync(file, value);
+                    }
+                    //save as rich text for rich text file
+                    if (file.FileType == ".rtf")
+                    {
+                        //get the text to save
+                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+
+                        //write the text to the file
+                        await FileIO.WriteTextAsync(file, value);
+                    }
+
+
 
                     // Let Windows know that we're finished changing the file so the 
                     // other app can update the remote version of the file.
@@ -1265,6 +1310,15 @@ namespace Quick_Pad_Free_Edition
                      await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
 
                         key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
+
+                        if (storageFile.FileType == ".txt")
+                        {
+                            UpdateFile = storageFile.DisplayName;
+                            TQuick.Text = UpdateFile;
+                            FullFilePath = storageFile.Path;
+
+                            Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(storageFile));
+                        }
 
                         if (storageFile.FileType == ".rtf")
                         {
