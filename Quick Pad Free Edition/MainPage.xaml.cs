@@ -200,7 +200,7 @@ namespace Quick_Pad_Free_Edition
                         {
                             var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
 
-                            if (result == ".txt")
+                            if ((result == ".txt")|| (result == ".bat"))
                             {
                                 //tries to update file if it exsits and is not read only
                                 //todo fix it that it saves it as plain text, might work if instead of PathIO, FileIO is used but,
@@ -405,7 +405,7 @@ namespace Quick_Pad_Free_Edition
             key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
             // Load the file into the Document property of the RichEditBox.
-            if (file.FileType == ".txt")
+            if ((file.FileType == ".txt") || (file.FileType==".bat"))
             {
                 Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
             }
@@ -508,6 +508,7 @@ namespace Quick_Pad_Free_Edition
                 Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
             open.FileTypeFilter.Add(".rtf"); //add file types that can be opened to the file picker
             open.FileTypeFilter.Add(".txt"); //add file types that can be opened to the file picker
+            open.FileTypeFilter.Add(".bat"); //add file types that can be opened to the file picker
 
             Windows.Storage.StorageFile file = await open.PickSingleFileAsync();
 
@@ -525,7 +526,7 @@ namespace Quick_Pad_Free_Edition
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     // Load the file into the Document property of the RichEditBox.
-                    if (file.FileType == ".txt")
+                    if ((file.FileType == ".txt") || (file.FileType==".bat"))
                     {
                         Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
                     }
@@ -558,7 +559,7 @@ namespace Quick_Pad_Free_Edition
             {
                 var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
 
-                if (result == ".txt")
+                if ((result == ".txt")||(result==".bat"))
                 {
                     //tries to update file if it exsits and is not read only
                     //todo fix it that it saves it as plain text, might work if instead of PathIO, FileIO is used but,
@@ -588,6 +589,7 @@ namespace Quick_Pad_Free_Edition
                 // Dropdown of file types the user can save the file as
                 savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
                 savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
+                savePicker.FileTypeChoices.Add("Batch File", new List<string>() { ".bat" });
 
                 // Default file name if the user does not type one in or select a file to replace
                 savePicker.SuggestedFileName = UpdateFile;
@@ -603,7 +605,7 @@ namespace Quick_Pad_Free_Edition
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     //save as plain text for text file
-                    if (file.FileType == ".txt")
+                    if ((file.FileType == ".txt")||(file.FileType == ".bat"))
                     {
                         //get the text to save
                         Text1.Document.GetText(TextGetOptions.None, out var value);
@@ -1328,7 +1330,7 @@ namespace Quick_Pad_Free_Edition
 
                         key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
 
-                        if (storageFile.FileType == ".txt")
+                        if ((storageFile.FileType == ".txt") || (storageFile.FileType == ".bat"))
                         {
                             UpdateFile = storageFile.DisplayName;
                             TQuick.Text = UpdateFile;
