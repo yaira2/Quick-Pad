@@ -198,11 +198,27 @@ namespace Quick_Pad_Free_Edition
                     {
                         try
                         {
-                            //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                            await PathIO.WriteTextAsync(FullFilePath, value);
+                            var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
+
+                            if (result == ".txt")
+                            {
+                                //tries to update file if it exsits and is not read only
+                                //todo fix it that it saves it as plain text, might work if instead of PathIO, FileIO is used but,
+                                //I need to figure out a way to convert a string to storage file
+                                Text1.Document.GetText(TextGetOptions.None, out var value);
+                                await PathIO.WriteTextAsync(FullFilePath, value);
+                                //update title bar to indicate file is up to date
+                                TQuick.Text = UpdateFile;
+                            }
+                            if (result == ".rtf")
+                            {
+                                //tries to update file if it exsits and is not read only
+                                Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                                await PathIO.WriteTextAsync(FullFilePath, value);
+                                //update title bar to indicate file is up to date
+                                TQuick.Text = UpdateFile;
+                            }
                             //update title bar to indicate file is up to date
-                            TQuick.Text = UpdateFile;
                         }
 
                         catch (Exception)
@@ -545,7 +561,8 @@ namespace Quick_Pad_Free_Edition
                 if (result == ".txt")
                 {
                     //tries to update file if it exsits and is not read only
-                    //fix it that it saves it as plain text
+                    //todo fix it that it saves it as plain text, might work if instead of PathIO, FileIO is used but,
+                    //I need to figure out a way to convert a string to storage file
                     Text1.Document.GetText(TextGetOptions.None, out var value);
                     await PathIO.WriteTextAsync(FullFilePath, value);
                     //update title bar to indicate file is up to date
