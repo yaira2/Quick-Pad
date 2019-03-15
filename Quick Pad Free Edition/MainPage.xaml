@@ -198,7 +198,7 @@
                            Key="S" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:Name="CmdShare" Width="52" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the selected text."/>
+            <AppBarButton x:Name="CmdShare" Width="52" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the file you are working on."/>
             <AppBarSeparator/>
             <AppBarButton x:Name="Bold" Width="52" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Bold (Ctrl+B)"/>
             <AppBarButton x:Name="Italic" Width="52" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Italic (Ctrl+I)"/>
