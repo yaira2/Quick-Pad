@@ -368,6 +368,9 @@ namespace Quick_Pad_Free_Edition
             if (result == ContentDialogResult.Primary)
             {
                 bool doReview = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9PDLWQHTLSV3"));
+
+                //log even in app center
+                Analytics.TrackEvent("Pressed review from popup in app");
             }
             else
             {
@@ -419,47 +422,27 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdSettings_Click(object sender, RoutedEventArgs e)
         {
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("OpenedSettings");
-
             ContentDialogResult result = await Settings.ShowAsync();
         }
 
         private void Justify_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.ParagraphFormat.Alignment = Windows.UI.Text.ParagraphAlignment.Justify;
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Justify Align");
         }
 
         private void Right_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Right;
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Right Align");
         }
 
         private void Center_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Center;
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Center Align");
         }
 
         private void Left_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Left;
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Left Align");
         }
 
         private async void CmdNew_Click(object sender, RoutedEventArgs e)
@@ -651,20 +634,12 @@ namespace Quick_Pad_Free_Edition
         {
             //undo changes the user did to the text
             Text1.Document.Undo();
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Undo");
         }
 
         private void CmdRedo_Click(object sender, RoutedEventArgs e)
         {
             //redo changes the user did to the text
             Text1.Document.Redo();
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Redo");
         }
 
         private void Bold_Click(object sender, RoutedEventArgs e)
@@ -678,10 +653,6 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Bold = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Bold");
         }
 
         private void Italic_Click(object sender, RoutedEventArgs e)
@@ -695,10 +666,6 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Italic = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Italic");
         }
 
         private void Underline_Click_1(object sender, RoutedEventArgs e)
@@ -719,10 +686,6 @@ namespace Quick_Pad_Free_Edition
                 }
                 selectedText.CharacterFormat = charFormatting;
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Underline");
         }
 
         private async void Paste_Click(object sender, RoutedEventArgs e)
@@ -741,10 +704,6 @@ namespace Quick_Pad_Free_Edition
                     Text1.Document.Selection.TypeText(text);
                 }
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Paste");
         }
 
         private void Copy_Click(object sender, RoutedEventArgs e)
@@ -754,10 +713,6 @@ namespace Quick_Pad_Free_Edition
             dataPackage.RequestedOperation = DataPackageOperation.Copy;
             dataPackage.SetText(Text1.Document.Selection.Text);
             Clipboard.SetContent(dataPackage);
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Copy");
         }
 
         private void Cut_Click(object sender, RoutedEventArgs e)
@@ -767,10 +722,6 @@ namespace Quick_Pad_Free_Edition
             dataPackage.SetText(Text1.Document.Selection.Text);
             Text1.Document.Selection.Text = "";
             Clipboard.SetContent(dataPackage);
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Cut");
         }
 
         private async void CmdAbout_Click(object sender, RoutedEventArgs e)
@@ -778,9 +729,8 @@ namespace Quick_Pad_Free_Edition
             //shows the about dialog
             ContentDialogResult result = await AboutDialog.ShowAsync();
 
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Opened About");
+            //log even in app center
+            Analytics.TrackEvent("Opened about dialog");
         }
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
@@ -794,10 +744,6 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.CharacterFormat.Size = LastFontSize;
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Size Up");
         }
 
         private void SizeDown_Click(object sender, RoutedEventArgs e)
@@ -808,10 +754,6 @@ namespace Quick_Pad_Free_Edition
                 //make the selected text font size smaller
                 Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size - 2;
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Size Down");
         }
 
         private async void CompactOverlay_Checked(object sender, RoutedEventArgs e)
@@ -841,10 +783,6 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.FontSize = 18;
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Compact Overlay");
 
             //log even in app center
             Analytics.TrackEvent("Compact Overlay");
@@ -889,10 +827,6 @@ namespace Quick_Pad_Free_Edition
         {
             Emoji2.Visibility = Windows.UI.Xaml.Visibility.Visible;
             E1.Focus(FocusState.Programmatic);
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("EmojiPanel");
 
             //log even in app center
             Analytics.TrackEvent("User opened emoji panel");
@@ -993,9 +927,8 @@ namespace Quick_Pad_Free_Edition
             Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
             Windows.ApplicationModel.DataTransfer.DataTransferManager.GetForCurrentView().DataRequested += MainPage_DataRequested;
 
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Shared Text");
+            //log even in app center
+            Analytics.TrackEvent("Shared file");
         }
 
         private void MainPage_DataRequested(Windows.ApplicationModel.DataTransfer.DataTransferManager sender, Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs args)
@@ -1073,6 +1006,9 @@ namespace Quick_Pad_Free_Edition
                     RemoveAd.Visibility = Visibility.Collapsed;
                     Text1.Margin = new Thickness(0, 81, 0, 0);
 
+                    //log even in app center
+                    Analytics.TrackEvent("User removed ad");
+
                     var dialog = new MessageDialog("The purchase was successful, thank you for being a Quick Pad user!");
                     await dialog.ShowAsync();
                     break;
@@ -1096,10 +1032,6 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Strikethrough = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Strikethrough");
         }
 
         private void BulletList_Click(object sender, RoutedEventArgs e)
@@ -1112,10 +1044,6 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Bullet List");
         }
 
         private void White_Click(object sender, RoutedEventArgs e)
@@ -1195,10 +1123,6 @@ namespace Quick_Pad_Free_Edition
                     localSettings.Values["LaunchMode"] = "Regular";
                 }
             }
-
-            //Let me know know user used this feature
-            StoreServicesCustomEventLogger logger = StoreServicesCustomEventLogger.GetDefault();
-            logger.Log("Open On Top Setting");
         }
 
         private void Settings_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
