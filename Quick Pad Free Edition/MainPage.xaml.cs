@@ -42,7 +42,7 @@ namespace Quick_Pad_Free_Edition
         {
             InitializeComponent();
             //stuff for compact overlay
-            NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
+            //NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(900, 900);
 
             TQuick.Text = UpdateFile; //Displays file name on title bar
@@ -848,6 +848,7 @@ namespace Quick_Pad_Free_Edition
         private void Emoji_Unchecked(object sender, RoutedEventArgs e)
         {
             Emoji2.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            EmojiPivot.SelectedIndex = 0; //Set focus to first item in pivot control in the emoji panel
         }
 
         private void EmojiPanel_LostFocus(object sender, RoutedEventArgs e)
@@ -1067,7 +1068,7 @@ namespace Quick_Pad_Free_Edition
         private void CmdBack_Click(object sender, RoutedEventArgs e)
         {
             Settings.Hide();
-            //todo reset focus back to first item in pivot control in the settings panel
+            SettingsPivot.SelectedIndex = 0; //Set focus to first item in pivot control in the settings panel
         }
 
         private void Light_Click(object sender, RoutedEventArgs e)

@@ -110,8 +110,8 @@
                     <CommandBar x:Name="CmdSettingsBack"  IsOpen="False"  DefaultLabelPosition="Right" HorizontalAlignment="Right" Background="{x:Null}" VerticalAlignment="Top" Canvas.ZIndex="100">
                         <AppBarButton x:Name="CmdBack"  Icon="Back" Click="CmdBack_Click" Background="{x:Null}" />
                     </CommandBar>
-                    <Pivot x:Name="SettingsPivot"  Title="Settings"  Width="Auto" Margin="0,0,0,0">
-                    <PivotItem Header="General">
+                    <Pivot x:Name="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
+                    <PivotItem Header="General" x:Name="SettingsTab1">
                             <Grid Height="250">
                             <TextBlock Text="Launch Mode" Margin="0,10,23,87" TextWrapping="Wrap"/>
                             <ToggleSwitch x:Name="LaunchModeSwitch" OnContent="On Top" OffContent="Regular" Toggled="LaunchModeSwitch_Toggled" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" />
@@ -122,14 +122,14 @@
                             <Button x:Name="Feedback"  Style="{StaticResource ButtonStyle1}"  Content="Send Feedback" Click="Feedback_Click" HorizontalAlignment="Left" Margin="0,210,0,0" VerticalAlignment="Top"/>
                         </Grid>
                     </PivotItem>
-                        <PivotItem Header="Theme">
+                        <PivotItem Header="Theme" x:Name="SettingsTab2">
                             <Grid Height="250">
                                 <RadioButton x:Name="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,5,0,0" VerticalAlignment="Top" Width="242" Click="Light_Click" Grid.RowSpan="2"/>
                                 <RadioButton x:Name="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,50,0,0" VerticalAlignment="Top" Width="242" Click="Dark_Click"/>
                                 <RadioButton x:Name="SystemDefault" IsChecked="True" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,90,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefault_Click" Grid.RowSpan="1"/>
                             </Grid>
                         </PivotItem>
-                        <PivotItem Header="Toolbar">
+                        <PivotItem Header="Toolbar" x:Name="SettingsTab3">
                             <Grid Height="250">
                                 <ToggleSwitch x:Name="ShowShare" OnContent="Show share option" OffContent="Hide share option" Toggled="ShowShare_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
                                 <ToggleSwitch x:Name="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Toggled="ShowStrikethrough_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0"/>
@@ -200,7 +200,7 @@
 
             <Frame x:Name="EmojiPanel" Visibility="Visible" HorizontalAlignment="Right" Height="191" VerticalAlignment="Bottom" Width="263" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="#FFA7A2A2" BorderThickness=".5,.5,0,0" Margin="0,0,1,1">
                 <StackPanel HorizontalAlignment="Stretch" Margin="-1.333,-0.333,0.666,0" VerticalAlignment="Stretch">
-                    <Pivot HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch">
+                    <Pivot x:Name="EmojiPivot"  HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch">
                         <PivotItem Header="🙂">
                             <GridView  Visibility="Visible" LostFocus="EmojiPanel_LostFocus" BorderThickness=".5" Height="148" Margin="0,0,-16,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <Button x:Name="E1" Content="😀" Click="EmojiSub" Width="40" Height="40"/>
