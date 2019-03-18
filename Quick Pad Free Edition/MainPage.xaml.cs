@@ -78,7 +78,20 @@ namespace Quick_Pad_Free_Edition
                 timer.AutoReset = true;
             }
 
-            OnTopCheck(); //call method to check setting if app should be open on top of other windows
+            //check if word wrap is on or off
+            String WordWrapSetting = localSettings.Values["WordWrap"] as string;
+            if (WordWrapSetting == "No")
+            {
+                WordWrap.IsOn = false; //keep word wrap switch off in settings panel.
+                Text1.TextWrapping = TextWrapping.NoWrap; //turn off word wrap
+            }
+            else
+            {
+                WordWrap.IsOn = true; //turn word wrap switch on in settings panel.
+                Text1.TextWrapping = TextWrapping.Wrap; //turn on word wrap
+            }
+
+                OnTopCheck(); //call method to check setting if app should be open on top of other windows
             CheckToolbarOptions(); //check which buttons to show in toolbar
             CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
 
@@ -1282,5 +1295,24 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        private void WordWrap_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["WordWrap"] = "Yes";
+                    Text1.TextWrapping = TextWrapping.Wrap;
+                }
+                else
+                {
+                    localSettings.Values["WordWrap"] = "No";
+                    Text1.TextWrapping = TextWrapping.NoWrap;
+                }
+            }
+        }
     }
 }
