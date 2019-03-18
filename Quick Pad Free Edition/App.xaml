@@ -4,4 +4,12 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Quick_Pad_Free_Edition">
 
+    <Application.Resources>
+        <ResourceDictionary >
+            <ResourceDictionary.MergedDictionaries >
+                <ResourceDictionary Source="/Styles/RichEditBox.xaml"/>
+                <ResourceDictionary Source="/Styles/ButtonStyle1.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
