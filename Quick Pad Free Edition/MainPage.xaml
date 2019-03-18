@@ -353,7 +353,7 @@
                             </GridView>
                         </PivotItem>
                         <PivotItem Header=";-)">
-                            <GridView  Visibility="Visible" BorderThickness=".5" HorizontalAlignment="Center" Height="148" VerticalAlignment="Center" Width="238">
+                            <GridView  Visibility="Visible" BorderThickness=".5" Height="148" Margin="0,0,-16,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                                 <Button x:Name="K1" Content=";)" Click="EmojiSub" Width="70" Height="40"/>
                                 <Button x:Name="K2" Content="^_~" Click="EmojiSub" Width="70" Height="40"/>
                                 <Button x:Name="K3" Content=";-)" Click="EmojiSub" Width="70" Height="40"/>
