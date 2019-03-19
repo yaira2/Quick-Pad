@@ -315,6 +315,20 @@ namespace Quick_Pad_Free_Edition
             {
                 ShowStrikethrough.IsOn = true; //toggle the show ShowStrikethroughOption option in the settings panel.
             }
+
+            //check if the share option should show
+            String ShowAl = localSettings.Values["ShowAlignLeft"] as string;
+
+            if (ShowAl == "No")
+            {
+                //hide share option
+                ShowAlignLeft.IsOn = false; //toggle the show share option in the settings panel.
+                Left.Visibility = Visibility.Collapsed; //hide share button
+            }
+            else
+            {
+                ShowAlignLeft.IsOn = true; //toggle the show share option in the settings panel.
+            }
         }
 
         // Stuff for putting the focus on the content
@@ -1316,5 +1330,24 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        private void ShowAlignLeft_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["ShowAlignLeft"] = "Yes";
+                    Left.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    localSettings.Values["ShowAlignLeft"] = "No";
+                    Left.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
     }
 }
