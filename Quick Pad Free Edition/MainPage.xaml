@@ -90,7 +90,7 @@
             <AppBarButton x:Name="NewWindows" Width="52" Visibility="Collapsed" Icon="Add" Click="NewWindows_Click" ToolTipService.ToolTip="Add note"/>
         </CommandBar>
 
-        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" DragOver="Text1_DragOver"  KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,81,0,90" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  RequestedTheme="Default" FontSize="24"  Style="{StaticResource RichEditBox}"/>
+        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" DragOver="Text1_DragOver" SelectionChanged="Text1_SelectionChanged" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,81,0,90" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  RequestedTheme="Default" FontSize="24"  Style="{StaticResource RichEditBox}"/>
 
         <ContentDialog x:Name="AboutDialog" Background="{ThemeResource SystemControlAcrylicElementBrush}"
            Opened="AboutDialog_Opened" PrimaryButtonText="Ok">
@@ -166,7 +166,7 @@
         <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75"  IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom" Height="48" FlowDirection="LeftToRight" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <CommandBar.Content>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
-                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="48" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="199" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
+                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="48" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="199" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
                 </StackPanel>
             </CommandBar.Content>
             <AppBarButton x:Name="RemoveAd" Width="100" Visibility="Visible" Content="Remove Ads" ToolTipService.ToolTip="Remove ads from Quick Pad" Click="RemoveAd_Click"/>

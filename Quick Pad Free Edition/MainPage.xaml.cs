@@ -1493,5 +1493,9 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            Fonts.SelectedItem = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
+        }
     }
 }
