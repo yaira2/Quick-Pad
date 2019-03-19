@@ -38,6 +38,7 @@ namespace Quick_Pad_Free_Edition
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timers interval
+        private string DCFont; //Value if font should change or not
         public MainPage()
         {
             InitializeComponent();
@@ -919,8 +920,15 @@ namespace Quick_Pad_Free_Edition
 
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var selectedFont = e.AddedItems[0].ToString();
-            Text1.Document.Selection.CharacterFormat.Name = selectedFont;
+            if (DCFont == "Yes")
+            {
+                DCFont = "No";
+            }
+            else
+            {
+                var selectedFont = e.AddedItems[0].ToString();
+                Text1.Document.Selection.CharacterFormat.Name = selectedFont;
+            }
         }
 
         public void EmojiSub(object sender, RoutedEventArgs e)
@@ -1496,6 +1504,7 @@ namespace Quick_Pad_Free_Edition
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
             Fonts.SelectedItem = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
+            DCFont = "Yes"; //makes sure the font does not change
         }
     }
 }
