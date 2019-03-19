@@ -343,6 +343,34 @@ namespace Quick_Pad_Free_Edition
             {
                 ShowAlignCenter.IsOn = true; //toggle the option in the settings panel.
             }
+
+            //check if the right align option should show
+            String ShowAR = localSettings.Values["ShowAlignRight"] as string;
+
+            if (ShowAR == "No")
+            {
+                //hide option
+                ShowAlignRight.IsOn = false; //toggle the option in the settings panel.
+                Right.Visibility = Visibility.Collapsed; //hide the button
+            }
+            else
+            {
+                ShowAlignRight.IsOn = true; //toggle the option in the settings panel.
+            }
+
+            //check if the justify align option should show
+            String ShowAJ = localSettings.Values["ShowAlignJustify"] as string;
+
+            if (ShowAJ == "No")
+            {
+                //hide option
+                ShowAlignJustify.IsOn = false; //toggle the option in the settings panel.
+                Justify.Visibility = Visibility.Collapsed; //hide the button
+            }
+            else
+            {
+                ShowAlignJustify.IsOn = true; //toggle the option in the settings panel.
+            }
         }
 
         // Stuff for putting the focus on the content
@@ -1380,6 +1408,46 @@ namespace Quick_Pad_Free_Edition
                 {
                     localSettings.Values["ShowAlignCenter"] = "No";
                     Center.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void ShowAlignRight_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["ShowAlignRight"] = "Yes";
+                    Right.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    localSettings.Values["ShowAlignRight"] = "No";
+                    Right.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void ShowAlignJustify_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["ShowAlignJustify"] = "Yes";
+                    Justify.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    localSettings.Values["ShowAlignJustify"] = "No";
+                    Justify.Visibility = Visibility.Collapsed;
                 }
             }
         }
