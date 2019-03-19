@@ -371,6 +371,11 @@ namespace Quick_Pad_Free_Edition
             {
                 ShowAlignJustify.IsOn = true; //toggle the option in the settings panel.
             }
+
+            if (ShowAl == "No" && ShowAC == "No" && ShowAR == "No" && ShowAJ == "No")
+            {
+                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
+            }
         }
 
         // Stuff for putting the focus on the content
@@ -1390,6 +1395,15 @@ namespace Quick_Pad_Free_Edition
                     Left.Visibility = Visibility.Collapsed;
                 }
             }
+
+            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
+            {
+                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
+            }
+            else
+            {
+                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
+            }
         }
 
         private void ShowAlignCenter_Toggled(object sender, RoutedEventArgs e)
@@ -1409,6 +1423,15 @@ namespace Quick_Pad_Free_Edition
                     localSettings.Values["ShowAlignCenter"] = "No";
                     Center.Visibility = Visibility.Collapsed;
                 }
+            }
+
+            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
+            {
+                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
+            }
+            else
+            {
+                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
             }
         }
 
@@ -1430,6 +1453,15 @@ namespace Quick_Pad_Free_Edition
                     Right.Visibility = Visibility.Collapsed;
                 }
             }
+
+            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
+            {
+                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
+            }
+            else
+            {
+                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
+            }
         }
 
         private void ShowAlignJustify_Toggled(object sender, RoutedEventArgs e)
@@ -1450,6 +1482,16 @@ namespace Quick_Pad_Free_Edition
                     Justify.Visibility = Visibility.Collapsed;
                 }
             }
+
+            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
+            {
+                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
+            }
+            else
+            {
+                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
+            }
         }
+
     }
 }
