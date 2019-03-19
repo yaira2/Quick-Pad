@@ -42,7 +42,7 @@ namespace Quick_Pad_Free_Edition
         {
             InitializeComponent();
             //stuff for compact overlay
-            //NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
+            NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
             ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(900, 900);
 
             TQuick.Text = UpdateFile; //Displays file name on title bar
@@ -1315,5 +1315,6 @@ namespace Quick_Pad_Free_Edition
                 }
             }
         }
+
     }
 }
