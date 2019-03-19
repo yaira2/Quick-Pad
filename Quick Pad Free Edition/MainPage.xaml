@@ -134,11 +134,12 @@
                         </PivotItem>
                         <PivotItem Header="Toolbar" x:Name="SettingsTab3">
                             <ScrollViewer x:Name="SettingsTab2SV"  Height="200">
-                                <Grid Height="200">
+                                <Grid Height="250">
                                 <ToggleSwitch x:Name="ShowShare" OnContent="Show share option" OffContent="Hide share option" Toggled="ShowShare_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
                                 <ToggleSwitch x:Name="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Toggled="ShowStrikethrough_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,50,0,0"/>
                                 <ToggleSwitch x:Name="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Toggled="ShowBullets_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,95,0,0"/>
                                 <ToggleSwitch x:Name="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Toggled="ShowAlignLeft_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,140,0,0"/>
+                                <ToggleSwitch x:Name="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Toggled="ShowAlignCenter_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,195,0,0"/>
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>

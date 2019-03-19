@@ -316,18 +316,32 @@ namespace Quick_Pad_Free_Edition
                 ShowStrikethrough.IsOn = true; //toggle the show ShowStrikethroughOption option in the settings panel.
             }
 
-            //check if the share option should show
+            //check if the left align option should show
             String ShowAl = localSettings.Values["ShowAlignLeft"] as string;
 
             if (ShowAl == "No")
             {
-                //hide share option
-                ShowAlignLeft.IsOn = false; //toggle the show share option in the settings panel.
-                Left.Visibility = Visibility.Collapsed; //hide share button
+                //hide option
+                ShowAlignLeft.IsOn = false; //toggle the option in the settings panel.
+                Left.Visibility = Visibility.Collapsed; //hide the button
             }
             else
             {
-                ShowAlignLeft.IsOn = true; //toggle the show share option in the settings panel.
+                ShowAlignLeft.IsOn = true; //toggle the option in the settings panel.
+            }
+
+            //check if the center align option should show
+            String ShowAC = localSettings.Values["ShowAlignCenter"] as string;
+
+            if (ShowAC == "No")
+            {
+                //hide option
+                ShowAlignCenter.IsOn = false; //toggle the option in the settings panel.
+                Center.Visibility = Visibility.Collapsed; //hide the button
+            }
+            else
+            {
+                ShowAlignCenter.IsOn = true; //toggle the option in the settings panel.
             }
         }
 
@@ -1346,6 +1360,26 @@ namespace Quick_Pad_Free_Edition
                 {
                     localSettings.Values["ShowAlignLeft"] = "No";
                     Left.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
+
+        private void ShowAlignCenter_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["ShowAlignCenter"] = "Yes";
+                    Center.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    localSettings.Values["ShowAlignCenter"] = "No";
+                    Center.Visibility = Visibility.Collapsed;
                 }
             }
         }
