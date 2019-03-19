@@ -1141,7 +1141,7 @@ namespace Quick_Pad_Free_Edition
 
         private void Settings_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
         {
-
+            SettingsPivot.SelectedItem = SettingsTab1; //Set focus to first item in pivot control in the settings panel
         }
 
         private void AboutDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
