@@ -1393,14 +1393,7 @@ namespace Quick_Pad_Free_Edition
                 }
             }
 
-            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
-            {
-                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
-            }
-            else
-            {
-                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
-            }
+            AlignCheck();
         }
 
         private void ShowAlignCenter_Toggled(object sender, RoutedEventArgs e)
@@ -1422,14 +1415,7 @@ namespace Quick_Pad_Free_Edition
                 }
             }
 
-            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
-            {
-                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
-            }
-            else
-            {
-                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
-            }
+            AlignCheck();
         }
 
         private void ShowAlignRight_Toggled(object sender, RoutedEventArgs e)
@@ -1451,14 +1437,7 @@ namespace Quick_Pad_Free_Edition
                 }
             }
 
-            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
-            {
-                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
-            }
-            else
-            {
-                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
-            }
+            AlignCheck();
         }
 
         private void ShowAlignJustify_Toggled(object sender, RoutedEventArgs e)
@@ -1480,6 +1459,16 @@ namespace Quick_Pad_Free_Edition
                 }
             }
 
+            AlignCheck();
+        }
+
+        private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            //todo update font box to show the selected characters font
+        }
+
+        public void AlignCheck()
+        {
             if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
             {
                 AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
@@ -1488,11 +1477,6 @@ namespace Quick_Pad_Free_Edition
             {
                 AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
             }
-        }
-
-        private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-            //todo update font box to show the selected characters font
         }
     }
 }
