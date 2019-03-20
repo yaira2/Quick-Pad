@@ -114,25 +114,5 @@ namespace Quick_Pad_Free_Edition
             deferral.Complete();
         }
 
-        //ask user to confirm closing the app.
-        //private async void App_CloseRequested(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
-        //{
-        //    var deferral = e.GetDeferral();
-        //    var dialog = new MessageDialog("Do you want to exit?", "Exit");
-        //    var confirmCommand = new UICommand("Yes");
-        //    var cancelCommand = new UICommand("No");
-        //    dialog.Commands.Add(confirmCommand);
-        //    dialog.Commands.Add(cancelCommand);
-        //    if (await dialog.ShowAsync() == cancelCommand)
-        //    {
-
-                
-
-        //        //cancel close by handling the event
-        //        e.Handled = true;
-
-        //    }
-        //    deferral.Complete();
-        //}
     }
 }
