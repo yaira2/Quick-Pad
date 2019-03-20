@@ -2,11 +2,9 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.Data.Pdf;
 using Windows.Foundation;
 using Windows.Services.Store;
 using Windows.Storage;
@@ -19,7 +17,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
-using Windows.UI.Xaml.Printing;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -91,7 +88,7 @@ namespace Quick_Pad_Free_Edition
                 Text1.TextWrapping = TextWrapping.Wrap; //turn on word wrap
             }
 
-                OnTopCheck(); //call method to check setting if app should be open on top of other windows
+            OnTopCheck(); //call method to check setting if app should be open on top of other windows
             CheckToolbarOptions(); //check which buttons to show in toolbar
             CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
 
@@ -171,9 +168,9 @@ namespace Quick_Pad_Free_Edition
                 Title = "Save your work?",
                 Content = "Would you like to save your work?",
                 PrimaryButtonText = "Yes",
-                SecondaryButtonText="No",
+                SecondaryButtonText = "No",
                 CloseButtonText = "Cancel"
-        };
+            };
 
             Settings.Hide(); //close the settings dialog so the app does not hang
             AboutDialog.Hide(); //close the about dialog so the app does not hang
@@ -215,7 +212,7 @@ namespace Quick_Pad_Free_Edition
                         {
                             var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
 
-                            if ((result == ".txt")|| (result == ".bat"))
+                            if ((result == ".txt") || (result == ".bat"))
                             {
                                 //tries to update file if it exsits and is not read only
                                 //todo fix it that it saves it as plain text, might work if instead of PathIO, FileIO is used but,
@@ -484,7 +481,7 @@ namespace Quick_Pad_Free_Edition
             key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
             // Load the file into the Document property of the RichEditBox.
-            if ((file.FileType == ".txt") || (file.FileType==".bat"))
+            if ((file.FileType == ".txt") || (file.FileType == ".bat"))
             {
                 Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
             }
@@ -585,7 +582,7 @@ namespace Quick_Pad_Free_Edition
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     // Load the file into the Document property of the RichEditBox.
-                    if ((file.FileType == ".txt") || (file.FileType==".bat"))
+                    if ((file.FileType == ".txt") || (file.FileType == ".bat"))
                     {
                         Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
                     }
@@ -618,7 +615,7 @@ namespace Quick_Pad_Free_Edition
             {
                 var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
 
-                if ((result == ".txt")||(result==".bat"))
+                if ((result == ".txt") || (result == ".bat"))
                 {
                     //tries to update file if it exsits and is not read only
                     //todo fix it that it saves it as plain text, might work if instead of PathIO, FileIO is used but,
@@ -664,7 +661,7 @@ namespace Quick_Pad_Free_Edition
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     //save as plain text for text file
-                    if ((file.FileType == ".txt")||(file.FileType == ".bat"))
+                    if ((file.FileType == ".txt") || (file.FileType == ".bat"))
                     {
                         //get the text to save
                         Text1.Document.GetText(TextGetOptions.None, out var value);
@@ -1311,7 +1308,7 @@ namespace Quick_Pad_Free_Edition
         {
             e.AcceptedOperation = DataPackageOperation.Copy;
         }
-        
+
         private async void Text1_Drop(object sender, DragEventArgs e)
         {
             //load rich text files droped in from file explorer
@@ -1493,5 +1490,9 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            //todo update font box to show the selected characters font
+        }
     }
 }
