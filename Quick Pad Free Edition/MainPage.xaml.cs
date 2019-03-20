@@ -914,12 +914,6 @@ namespace Quick_Pad_Free_Edition
 
         }
 
-        private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedFont = e.AddedItems[0].ToString();
-            Text1.Document.Selection.CharacterFormat.Name = selectedFont;
-        }
-
         public void EmojiSub(object sender, RoutedEventArgs e)
         {
             string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
@@ -1478,5 +1472,12 @@ namespace Quick_Pad_Free_Edition
                 AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
             }
         }
+
+        private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedFont = e.AddedItems[0].ToString();
+            Text1.Document.Selection.CharacterFormat.Name = selectedFont;
+        }
+
     }
 }
