@@ -139,7 +139,6 @@
     <None Include="Quick Pad Free Edition_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="1080.png" />
     <Content Include="Assets\appbar.text.strikethrough.png" />
     <Content Include="Assets\justify align.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
@@ -187,7 +186,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <None Include="Package.StoreAssociation.xml" />
-    <Content Include="Modern Logo.png" />
+    <Content Include="Logo.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

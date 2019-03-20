@@ -35,7 +35,7 @@
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="quickpad">
             <uap:DisplayName>Quick Pad</uap:DisplayName>
-            <uap:Logo>1080.png</uap:Logo>
+            <uap:Logo>Logo.png</uap:Logo>
             <uap:InfoTip>quick pad</uap:InfoTip>
             <uap:EditFlags OpenIsSafe="true" />
             <uap:SupportedFileTypes>
