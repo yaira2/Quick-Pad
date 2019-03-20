@@ -98,7 +98,8 @@
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Grid>
                     <TextBlock Text="About" FontSize="24"/>
-                    <TextBlock Text="Developed by ATec Solution" Margin="0,37,0,-37"/>
+                    <TextBlock Text="Developed by Yair Aichenbaum" Margin="0,37,0,-37"/>
+                    <TextBlock Text="Icon desgined by James Arney" Margin="0,60,0,-37"/>
                 </Grid>
             </StackPanel>
         </ContentDialog>
