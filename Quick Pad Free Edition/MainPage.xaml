@@ -166,9 +166,12 @@
 
         <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75"  IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom" Height="48" FlowDirection="LeftToRight" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <CommandBar.Content>
-                <StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+                <Canvas Width="199" Height="48">
+                    <Frame x:Name="FontBoxFrame" Width="197" Height="46" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
+                    <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Segoe UI" Canvas.Left="10" Canvas.Top="13" Canvas.ZIndex="100"/>
+                    <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="170" Canvas.Top="16" Canvas.ZIndex="100"/>
                     <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="48" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="199" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
-                </StackPanel>
+                </Canvas>
             </CommandBar.Content>
             <AppBarButton x:Name="RemoveAd" Width="100" Visibility="Visible" Content="Remove Ads" ToolTipService.ToolTip="Remove ads from Quick Pad" Click="RemoveAd_Click"/>
             <AppBarButton x:Name="TextColor" Width="52" Icon="FontColor" ToolTipService.ToolTip="Font Color"  Click="TextColor_Click">

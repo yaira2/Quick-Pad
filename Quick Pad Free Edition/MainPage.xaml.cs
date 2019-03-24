@@ -16,6 +16,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -1458,7 +1459,7 @@ namespace Quick_Pad_Free_Edition
 
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            //todo update font box to show the selected characters font
+            FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
         }
 
         public void AlignCheck()
@@ -1479,5 +1480,19 @@ namespace Quick_Pad_Free_Edition
             Text1.Document.Selection.CharacterFormat.Name = selectedFont;
         }
 
+        private void Frame_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            Fonts.IsDropDownOpen = true; //open the font combo box
+        }
+
+        private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
+        {
+            FontBoxFrame.Background = new SolidColorBrush(Colors.White);
+        }
+
+        private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
+        {
+            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
+        }
     }
 }
