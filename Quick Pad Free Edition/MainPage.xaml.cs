@@ -1133,6 +1133,8 @@ namespace Quick_Pad_Free_Edition
             //Make the minimize, maxamize and close button visible
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonForegroundColor = Colors.Black;
+
+            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
         private void Dark_Click(object sender, RoutedEventArgs e)
@@ -1144,6 +1146,8 @@ namespace Quick_Pad_Free_Edition
             //Make the minimize, maxamize and close button visible
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonForegroundColor = Colors.White;
+
+            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
         private void SystemDefault_Click(object sender, RoutedEventArgs e)
@@ -1172,6 +1176,8 @@ namespace Quick_Pad_Free_Edition
             {
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
+
+            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
         private void LaunchModeSwitch_Toggled(object sender, RoutedEventArgs e)
@@ -1487,7 +1493,24 @@ namespace Quick_Pad_Free_Edition
 
         private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
-            FontBoxFrame.Background = new SolidColorBrush(Colors.White);
+            //Change color of the font combo box when hovering over it
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                FontBoxFrame.Background = new SolidColorBrush(Colors.Black);
+            }
+            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
+            {
+                FontBoxFrame.Background = new SolidColorBrush(Colors.White);
+            }
+
+            if (this.RequestedTheme == ElementTheme.Dark)
+            {
+                FontBoxFrame.Background = new SolidColorBrush(Colors.Black);
+            }
+            else if (this.RequestedTheme == ElementTheme.Light)
+            {
+                FontBoxFrame.Background = new SolidColorBrush(Colors.White);
+            }
         }
 
         private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
