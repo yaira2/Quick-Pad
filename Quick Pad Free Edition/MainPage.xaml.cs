@@ -51,6 +51,8 @@ namespace Quick_Pad_Free_Edition
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
+            OnTopCheck(); //call method to check setting if app should be open on top of other windows
+
             //add all installed fonts to the font box
             string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
             foreach (string font in fonts)
@@ -89,7 +91,6 @@ namespace Quick_Pad_Free_Edition
                 Text1.TextWrapping = TextWrapping.Wrap; //turn on word wrap
             }
 
-            OnTopCheck(); //call method to check setting if app should be open on top of other windows
             CheckToolbarOptions(); //check which buttons to show in toolbar
             CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
 
