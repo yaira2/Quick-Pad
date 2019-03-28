@@ -134,23 +134,17 @@ namespace Quick_Pad_Free_Edition
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
 
-            //check if it is a new user
+            //check how many times the app was run
             String NewUser = localSettings.Values["NewUser"] as string;
-            if (NewUser == "1")
+            if (NewUser == "1") //second time using the app
             {
-                localSettings.Values["NewUser"] = "2"; //third time using the app
-                NewUserFeedbackAsync(); //call method that asks user to review the app
+                localSettings.Values["NewUser"] = "2";
+                NewUserFeedbackAsync(); //call method that asks user if they want to review the app
             }
-            else
+
+            if (NewUser != "1" && NewUser != "2") //first time using the app
             {
-                if (NewUser == "0")
-                {
-                    localSettings.Values["NewUser"] = "1"; //second time using the app
-                }
-            }
-            if (NewUser != "0" && NewUser != "1" && NewUser != "2")
-            {
-                localSettings.Values["NewUser"] = "0"; //first time using the app
+                localSettings.Values["NewUser"] = "1";
             }
 
             //ask user if they want to save before closing the app
@@ -159,13 +153,12 @@ namespace Quick_Pad_Free_Edition
         {
             if (TQuick.Text == UpdateFile)
             {
-                //close if file is up to date already
-                App.Current.Exit();
+                App.Current.Exit();  //close if file is up to date already
+
             };
             args.Handled = true;
 
-            //popup dialog to ask user if they want to save their work
-            ContentDialog deleteFileDialog = new ContentDialog
+            ContentDialog deleteFileDialog = new ContentDialog //popup dialog to ask user if they want to save their work
             {
                 Title = "Save your work?",
                 Content = "Would you like to save your work?",
@@ -179,9 +172,6 @@ namespace Quick_Pad_Free_Edition
 
             ContentDialogResult result = await deleteFileDialog.ShowAsync();
 
-            //Save file if user clicks yes.
-            /// Otherwise, exit without saving.
-            /// If user pressed cancel it wont do anything
             if (result == ContentDialogResult.Primary)
             {
                 await SaveWork(); //shows save dialog box
@@ -189,12 +179,11 @@ namespace Quick_Pad_Free_Edition
             }
             if (result == ContentDialogResult.Secondary)
             {
-                App.Current.Exit(); //then closes
+                App.Current.Exit();
             }
         };
 
-            //check for push notifications
-            CheckPushNotifications();
+            CheckPushNotifications(); //check for push notifications
 
             //code needed to focus on text box on app launch
             this.Loaded += MainPage_Loaded;
@@ -217,28 +206,20 @@ namespace Quick_Pad_Free_Edition
                             if ((result == ".txt") || (result == ".bat"))
                             {
                                 //tries to update file if it exsits and is not read only
-                                //todo fix it that it saves it as plain text, might work if instead of PathIO, FileIO is used but,
-                                //I need to figure out a way to convert a string to storage file
                                 Text1.Document.GetText(TextGetOptions.None, out var value);
                                 await PathIO.WriteTextAsync(FullFilePath, value);
-                                //update title bar to indicate file is up to date
-                                TQuick.Text = UpdateFile;
+                                TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
                             }
                             if (result == ".rtf")
                             {
                                 //tries to update file if it exsits and is not read only
                                 Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
                                 await PathIO.WriteTextAsync(FullFilePath, value);
-                                //update title bar to indicate file is up to date
-                                TQuick.Text = UpdateFile;
+                                TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
                             }
-                            //update title bar to indicate file is up to date
                         }
 
-                        catch (Exception)
-                        {
-
-                        }
+                        catch (Exception) { }
                     }
                 });
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
@@ -246,20 +227,16 @@ namespace Quick_Pad_Free_Edition
 
         public void OnTopCheck()
         {
-            //let app know where settings are stored
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             //check if the setting is to launch in compact overlay mode
+
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //let app know where settings are stored
             String launchValue = localSettings.Values["LaunchMode"] as string;
 
             if (launchValue == "OnTop")
             {
-                //launch compact overlay mode
-                CompactOverlay.IsChecked = true;
+                CompactOverlay.IsChecked = true; //launch compact overlay mode
                 LaunchModeSwitch.IsOn = true; //toggle the launch compact overlay mode switch in the settings panel.
-
-                //log even in app center
-                Analytics.TrackEvent("Loaded app in compact overlay mode");
+                Analytics.TrackEvent("Loaded app in compact overlay mode"); //log even in app center
             }
             else
             {
@@ -270,15 +247,13 @@ namespace Quick_Pad_Free_Edition
         //check which buttons to show in toolbar
         private void CheckToolbarOptions()
         {
-            //let app know where settings are stored
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //let app know where settings are stored
 
             //check if the share option should show
             String ShowS = localSettings.Values["ShowShare"] as string;
 
             if (ShowS == "No")
             {
-                //hide share option
                 ShowShare.IsOn = false; //toggle the show share option in the settings panel.
                 CmdShare.Visibility = Visibility.Collapsed; //hide share button
             }
@@ -292,7 +267,6 @@ namespace Quick_Pad_Free_Edition
 
             if (ShowBulletsSetting == "No")
             {
-                //hide bullets
                 ShowBullets.IsOn = false; //toggle the show bullets option in the settings panel.
                 BulletList.Visibility = Visibility.Collapsed; //hid bullet option
             }
@@ -428,8 +402,8 @@ namespace Quick_Pad_Free_Edition
         {
             ContentDialog deleteFileDialog = new ContentDialog //brings up a content dialog
             {
-                Title = "Enjoy using Quick Pad?",
-                Content = "Would you like to review Quick Pad?",
+                Title = "Do you enjoy using Quick Pad?",
+                Content = "Please leave a review for Quick Pad in the Microsoft Store.",
                 PrimaryButtonText = "Review",
                 CloseButtonText = "No"
             };
@@ -444,11 +418,6 @@ namespace Quick_Pad_Free_Edition
 
                 //log even in app center
                 Analytics.TrackEvent("Pressed review from popup in app");
-            }
-            else
-            {
-                // The user clicked the CLoseButton, pressed ESC, Gamepad B, or the system back button.
-                // Do nothing.
             }
         }
 
@@ -593,8 +562,7 @@ namespace Quick_Pad_Free_Edition
                         Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                     }
 
-                    //log even in app center
-                    Analytics.TrackEvent("Document Opened With File Picker");
+                    Analytics.TrackEvent("Document Opened With File Picker"); //log even in app center
                 }
                 catch (Exception)
                 {
@@ -604,7 +572,6 @@ namespace Quick_Pad_Free_Edition
                         Content = "Sorry, I couldn't open the file.",
                         PrimaryButtonText = "Ok"
                     };
-
                     await errorDialog.ShowAsync();
                 }
             }
@@ -620,8 +587,6 @@ namespace Quick_Pad_Free_Edition
                 if ((result == ".txt") || (result == ".bat"))
                 {
                     //tries to update file if it exsits and is not read only
-                    //todo fix it that it saves it as plain text, might work if instead of PathIO, FileIO is used but,
-                    //I need to figure out a way to convert a string to storage file
                     Text1.Document.GetText(TextGetOptions.None, out var value);
                     await PathIO.WriteTextAsync(FullFilePath, value);
                     //update title bar to indicate file is up to date
@@ -681,8 +646,6 @@ namespace Quick_Pad_Free_Edition
                         await FileIO.WriteTextAsync(file, value);
                     }
 
-
-
                     // Let Windows know that we're finished changing the file so the 
                     // other app can update the remote version of the file.
                     Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
@@ -699,20 +662,17 @@ namespace Quick_Pad_Free_Edition
 
         public async void CmdSave_Click(object sender, RoutedEventArgs e)
         {
-            //call the function to save
-            await SaveWork();
+            await SaveWork(); //call the function to save
         }
 
         private void CmdUndo_Click(object sender, RoutedEventArgs e)
         {
-            //undo changes the user did to the text
-            Text1.Document.Undo();
+            Text1.Document.Undo(); //undo changes the user did to the text
         }
 
         private void CmdRedo_Click(object sender, RoutedEventArgs e)
         {
-            //redo changes the user did to the text
-            Text1.Document.Redo();
+            Text1.Document.Redo(); //redo changes the user did to the text
         }
 
         private void Bold_Click(object sender, RoutedEventArgs e)
@@ -985,11 +945,6 @@ namespace Quick_Pad_Free_Edition
             LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
         }
 
-        private void Grid_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-
-        }
-
         private void CmdShare_Click(object sender, RoutedEventArgs e)
         {
             Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
@@ -1038,9 +993,8 @@ namespace Quick_Pad_Free_Edition
         private async void CmdReview_Click(object sender, RoutedEventArgs e)
         {
             bool doReview = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9PDLWQHTLSV3"));
-
-            //log even in app center
-            Analytics.TrackEvent("User clicked on review");
+                       
+            Analytics.TrackEvent("User clicked on review"); //log even in app center
         }
 
         private async void RemoveAd_Click(object sender, RoutedEventArgs e)
@@ -1073,9 +1027,8 @@ namespace Quick_Pad_Free_Edition
                     Ad1.Visibility = Visibility.Collapsed;
                     RemoveAd.Visibility = Visibility.Collapsed;
                     Text1.Margin = new Thickness(0, 81, 0, 0);
-
-                    //log even in app center
-                    Analytics.TrackEvent("User removed ad");
+                                       
+                    Analytics.TrackEvent("User removed ad"); //log even in app center
 
                     var dialog = new MessageDialog("The purchase was successful, thank you for being a Quick Pad user!");
                     await dialog.ShowAsync();
@@ -1086,9 +1039,8 @@ namespace Quick_Pad_Free_Edition
                     await Erordialog.ShowAsync();
                     break;
             }
-
-            //log even in app center
-            Analytics.TrackEvent("User pressed remove ads");
+                       
+            Analytics.TrackEvent("User pressed remove ads"); //log even in app center
         }
 
         private void Strikethrough_Click(object sender, RoutedEventArgs e)
@@ -1147,7 +1099,6 @@ namespace Quick_Pad_Free_Edition
             //Make the minimize, maxamize and close button visible
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonForegroundColor = Colors.White;
-
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
@@ -1204,15 +1155,7 @@ namespace Quick_Pad_Free_Edition
             SettingsPivot.SelectedItem = SettingsTab1; //Set focus to first item in pivot control in the settings panel
         }
 
-        private void AboutDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
-        {
-
-        }
-
-        private void Text1_GotFocus_1(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void AboutDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args) { }
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
@@ -1350,10 +1293,7 @@ namespace Quick_Pad_Free_Edition
                     }
                 }
             }
-            catch (Exception)
-            {
-
-            }
+            catch (Exception) {}
         }
 
         private void WordWrap_Toggled(object sender, RoutedEventArgs e)
