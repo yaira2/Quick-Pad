@@ -108,8 +108,8 @@
            Opened="Settings_Opened">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Grid Width="450">
-                    <CommandBar x:Name="CmdSettingsBack"  IsOpen="False"  DefaultLabelPosition="Right" HorizontalAlignment="Right" Background="{x:Null}" VerticalAlignment="Top" Canvas.ZIndex="100">
-                        <AppBarButton x:Name="CmdBack"  Icon="Back" Click="CmdBack_Click" Background="{x:Null}" />
+                    <CommandBar x:Name="CmdSettingsBack" Canvas.ZIndex="100" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="48" Background="{x:Null}" Margin="0,0,0,0">
+                        <AppBarButton x:Name="CmdBack" Width="52" Icon="Back" Click="CmdBack_Click"/>
                     </CommandBar>
                     <Pivot x:Name="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
                         <PivotItem Header="General" x:Name="SettingsTab1">
