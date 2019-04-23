@@ -92,7 +92,12 @@ namespace Quick_Pad_Free_Edition
             }
 
             CheckToolbarOptions(); //check which buttons to show in toolbar
+
             CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
+            if (AdRemove == "Paid")
+            {
+                removeAds(); //remove ads
+            }
 
             //get some theme settings in
             String localValue = localSettings.Values["Theme"] as string;
@@ -389,13 +394,17 @@ namespace Quick_Pad_Free_Edition
                 {
                     if (license.IsActive)
                     {
-                        AdRemove = "Paid"; //set a value that shows the user paid to remove ads thhat can be used at other times in the app
-                        Ad1.Visibility = Visibility.Collapsed; //hide the ad
-                        RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
-                        Text1.Margin = new Thickness(0, 81, 0, 0); //fix text margin to take up space where ad used to be
+                        AdRemove = "Paid"; //set a value that shows the user paid to remove ads thhat can be used at other times in the app                   
                     }
                 }
             }
+        }
+
+        public void removeAds() //hide ads
+        {
+            Ad1.Visibility = Visibility.Collapsed; //hide the ad
+            RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
+            Text1.Margin = new Thickness(0, 81, 0, 0); //fix text margin to take up space where ad used to be
         }
 
         public async void NewUserFeedbackAsync()
