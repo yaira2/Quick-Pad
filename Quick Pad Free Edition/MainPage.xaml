@@ -90,7 +90,7 @@
             <AppBarButton x:Name="NewWindows" Width="52" Visibility="Collapsed" Icon="Add" Click="NewWindows_Click" ToolTipService.ToolTip="Add note"/>
         </CommandBar>
 
-        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver"  KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,81,0,90" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch"  RequestedTheme="Default" FontSize="24"  Style="{StaticResource RichEditBox}"/>
+        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver"  KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,81,0,90" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
 
         <ContentDialog x:Name="AboutDialog" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
            Opened="AboutDialog_Opened" PrimaryButtonText="Ok">

@@ -822,9 +822,9 @@ namespace Quick_Pad_Free_Edition
 
             //make text smaller size if user did not do so on their own and if they did not type anything yet.
             Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-            if (string.IsNullOrEmpty(value) && Text1.FontSize == 24)
+            if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
             {
-                Text1.FontSize = 18;
+                Text1.FontSize = 16;
             }
 
             //log even in app center
@@ -946,7 +946,6 @@ namespace Quick_Pad_Free_Edition
                 newViewId = ApplicationView.GetForCurrentView().Id;
             });
             bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
-
         }
 
         private void Text1_GotFocus(object sender, RoutedEventArgs e)
@@ -1116,29 +1115,8 @@ namespace Quick_Pad_Free_Edition
         {
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["Theme"] = "System Default";
-            this.RequestedTheme = ElementTheme.Default;
-
-            //Make the minimize, maxamize and close button visible
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
-
-            if (this.RequestedTheme == ElementTheme.Dark)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            else if (this.RequestedTheme == ElementTheme.Light)
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
-
+            RequestedTheme = ElementTheme.Default;
+            CheckTheme(); //update the theme
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
@@ -1300,6 +1278,9 @@ namespace Quick_Pad_Free_Edition
 
                             Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                         }
+
+                        //log even in app center
+                        Analytics.TrackEvent("Droped file in to Quick Pad");
                     }
                 }
             }
