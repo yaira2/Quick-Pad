@@ -92,52 +92,8 @@ namespace Quick_Pad_Free_Edition
             }
 
             CheckToolbarOptions(); //check which buttons to show in toolbar
-
             CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
-            if (AdRemove == "Paid")
-            {
-                removeAds(); //remove ads
-            }
-
-            //get some theme settings in
-            String localValue = localSettings.Values["Theme"] as string;
-            if (localValue == "Light") //light theme is on
-            {
-                this.RequestedTheme = ElementTheme.Light;
-                Light.IsChecked = true; //select the light theme option in the settings panel
-                Analytics.TrackEvent("Loaded app in light theme");  //log even in app center
-            }
-            if (localValue == "Dark") //dark theme is on
-            {
-                this.RequestedTheme = ElementTheme.Dark;
-                Dark.IsChecked = true; //select the dark theme option in the settings panel
-
-                Analytics.TrackEvent("Loaded app in dark theme"); //log even in app center
-            }
-            if (localValue == "System Default") //default theme is on
-            {
-                this.RequestedTheme = ElementTheme.Default;
-                SystemDefault.IsChecked = true; //select the default theme option in the settings panel
-            }
-
-            //make the minimize, maximize and close button visible in light theme
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
-
-            if (this.RequestedTheme == ElementTheme.Dark)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            else if (this.RequestedTheme == ElementTheme.Light)
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
+            CheckTheme(); //check the theme
 
             //check how many times the app was run
             String NewUser = localSettings.Values["NewUser"] as string;
@@ -146,7 +102,6 @@ namespace Quick_Pad_Free_Edition
                 localSettings.Values["NewUser"] = "2";
                 NewUserFeedbackAsync(); //call method that asks user if they want to review the app
             }
-
             if (NewUser != "1" && NewUser != "2") //first time using the app
             {
                 localSettings.Values["NewUser"] = "1";
@@ -246,6 +201,53 @@ namespace Quick_Pad_Free_Edition
             else
             {
                 LaunchModeSwitch.IsOn = false; //keep launch compact overlay mode switch off in settings panel.
+            }
+        }
+
+        //check the theme
+        private void CheckTheme()
+        {
+            //get some theme settings in
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
+
+            String localValue = localSettings.Values["Theme"] as string;
+            if (localValue == "Light") //light theme is on
+            {
+                this.RequestedTheme = ElementTheme.Light;
+                Light.IsChecked = true; //select the light theme option in the settings panel
+                Analytics.TrackEvent("Loaded app in light theme");  //log even in app center
+            }
+            if (localValue == "Dark") //dark theme is on
+            {
+                this.RequestedTheme = ElementTheme.Dark;
+                Dark.IsChecked = true; //select the dark theme option in the settings panel
+
+                Analytics.TrackEvent("Loaded app in dark theme"); //log even in app center
+            }
+            if (localValue == "System Default") //default theme is on
+            {
+                this.RequestedTheme = ElementTheme.Default;
+                SystemDefault.IsChecked = true; //select the default theme option in the settings panel
+            }
+
+            //make the minimize, maximize and close button visible in light theme
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                titleBar.ButtonForegroundColor = Colors.White;
+            }
+            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
+            {
+                titleBar.ButtonForegroundColor = Colors.Black;
+            }
+
+            if (this.RequestedTheme == ElementTheme.Dark)
+            {
+                titleBar.ButtonForegroundColor = Colors.White;
+            }
+            else if (this.RequestedTheme == ElementTheme.Light)
+            {
+                titleBar.ButtonForegroundColor = Colors.Black;
             }
         }
 
@@ -379,13 +381,11 @@ namespace Quick_Pad_Free_Edition
         }
 
         private StoreContext storeContext = StoreContext.GetDefault();
-
         // Assign this variable to the Store ID of your subscription add-on.
         private string StoreId = "9PMFXLSMJ8RL";
         public async void CheckIfPaidForNoAds()
         {
             StoreAppLicense appLicense = await storeContext.GetAppLicenseAsync();
-
             // Check if the customer has the rights to the subscription, in this case it is not a subscription but a one time iap to remove ads
             foreach (var addOnLicense in appLicense.AddOnLicenses)
             {
@@ -395,12 +395,13 @@ namespace Quick_Pad_Free_Edition
                     if (license.IsActive)
                     {
                         AdRemove = "Paid"; //set a value that shows the user paid to remove ads thhat can be used at other times in the app                   
+                        RemoveAds(); //remove ads
                     }
                 }
             }
         }
 
-        public void removeAds() //hide ads
+        public void RemoveAds() //hide ads
         {
             Ad1.Visibility = Visibility.Collapsed; //hide the ad
             RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
