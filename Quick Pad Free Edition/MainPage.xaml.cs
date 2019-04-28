@@ -162,15 +162,14 @@ namespace Quick_Pad_Free_Edition
                         try
                         {
                             var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
-
-                            if ((result == ".txt") || (result == ".bat"))
+                            if ((result.ToLower() == ".txt") || (result.ToLower() == ".bat"))
                             {
                                 //tries to update file if it exsits and is not read only
                                 Text1.Document.GetText(TextGetOptions.None, out var value);
                                 await PathIO.WriteTextAsync(FullFilePath, value);
                                 TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
                             }
-                            if (result == ".rtf")
+                            if (result.ToLower() == ".rtf")
                             {
                                 //tries to update file if it exsits and is not read only
                                 Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
@@ -462,11 +461,11 @@ namespace Quick_Pad_Free_Edition
             key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
             // Load the file into the Document property of the RichEditBox.
-            if ((file.FileType == ".txt") || (file.FileType == ".bat"))
+            if ((file.FileType.ToLower() == ".txt") || (file.FileType.ToLower() == ".bat"))
             {
                 Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
             }
-            if (file.FileType == ".rtf")
+            if (file.FileType.ToLower() == ".rtf")
             {
                 Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
             }
@@ -563,11 +562,11 @@ namespace Quick_Pad_Free_Edition
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     // Load the file into the Document property of the RichEditBox.
-                    if ((file.FileType == ".txt") || (file.FileType == ".bat"))
+                    if ((file.FileType.ToLower() == ".txt") || (file.FileType.ToLower() == ".bat"))
                     {
                         Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
                     }
-                    if (file.FileType == ".rtf")
+                    if (file.FileType.ToLower() == ".rtf")
                     {
                         Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                     }
@@ -594,7 +593,7 @@ namespace Quick_Pad_Free_Edition
             {
                 var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
 
-                if ((result == ".txt") || (result == ".bat"))
+                if ((result.ToLower() == ".txt") || (result.ToLower() == ".bat"))
                 {
                     //tries to update file if it exsits and is not read only
                     Text1.Document.GetText(TextGetOptions.None, out var value);
@@ -602,7 +601,7 @@ namespace Quick_Pad_Free_Edition
                     //update title bar to indicate file is up to date
                     TQuick.Text = UpdateFile;
                 }
-                if (result == ".rtf")
+                if (result.ToLower() == ".rtf")
                 {
                     //tries to update file if it exsits and is not read only
                     Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
@@ -638,7 +637,7 @@ namespace Quick_Pad_Free_Edition
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     //save as plain text for text file
-                    if ((file.FileType == ".txt") || (file.FileType == ".bat"))
+                    if ((file.FileType.ToLower() == ".txt") || (file.FileType.ToLower() == ".bat"))
                     {
                         //get the text to save
                         Text1.Document.GetText(TextGetOptions.None, out var value);
@@ -647,7 +646,7 @@ namespace Quick_Pad_Free_Edition
                         await FileIO.WriteTextAsync(file, value);
                     }
                     //save as rich text for rich text file
-                    if (file.FileType == ".rtf")
+                    if (file.FileType.ToLower() == ".rtf")
                     {
                         //get the text to save
                         Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
@@ -1261,7 +1260,7 @@ namespace Quick_Pad_Free_Edition
 
                         key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
 
-                        if ((storageFile.FileType == ".txt") || (storageFile.FileType == ".bat"))
+                        if ((storageFile.FileType.ToLower() == ".txt") || (storageFile.FileType.ToLower() == ".bat"))
                         {
                             UpdateFile = storageFile.DisplayName;
                             TQuick.Text = UpdateFile;
@@ -1270,7 +1269,7 @@ namespace Quick_Pad_Free_Edition
                             Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(storageFile));
                         }
 
-                        if (storageFile.FileType == ".rtf")
+                        if (storageFile.FileType.ToLower() == ".rtf")
                         {
                             UpdateFile = storageFile.DisplayName;
                             TQuick.Text = UpdateFile;
