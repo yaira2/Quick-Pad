@@ -41,6 +41,8 @@
             <uap:SupportedFileTypes>
               <uap:FileType>.rtf</uap:FileType>
               <uap:FileType>.txt</uap:FileType>
+              <uap:FileType>.md</uap:FileType>
+              <uap:FileType>.html</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
