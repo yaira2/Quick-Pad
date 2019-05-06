@@ -544,7 +544,6 @@ namespace Quick_Pad_Free_Edition
                 Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
             open.FileTypeFilter.Add(".rtf"); //add file types that can be opened to the file picker
             open.FileTypeFilter.Add(".txt"); //add file types that can be opened to the file picker
-            open.FileTypeFilter.Add(".bat"); //add file types that can be opened to the file picker
             open.FileTypeFilter.Add("*"); //add file types that can be opened to the file picker
 
             Windows.Storage.StorageFile file = await open.PickSingleFileAsync();
@@ -622,7 +621,6 @@ namespace Quick_Pad_Free_Edition
                 // Dropdown of file types the user can save the file as
                 savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
                 savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
-                savePicker.FileTypeChoices.Add("Batch File", new List<string>() { ".bat" });
                 savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
