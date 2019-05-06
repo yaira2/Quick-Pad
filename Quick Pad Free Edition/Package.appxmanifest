@@ -43,6 +43,7 @@
               <uap:FileType>.txt</uap:FileType>
               <uap:FileType>.md</uap:FileType>
               <uap:FileType>.html</uap:FileType>
+              <uap:FileType>.css</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
