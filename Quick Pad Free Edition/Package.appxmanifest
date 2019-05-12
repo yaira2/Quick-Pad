@@ -44,6 +44,8 @@
               <uap:FileType>.md</uap:FileType>
               <uap:FileType>.html</uap:FileType>
               <uap:FileType>.css</uap:FileType>
+              <uap:FileType>.php</uap:FileType>
+              <uap:FileType>.xml</uap:FileType>
             </uap:SupportedFileTypes>
           </uap:FileTypeAssociation>
         </uap:Extension>
