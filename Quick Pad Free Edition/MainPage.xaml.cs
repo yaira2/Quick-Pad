@@ -424,7 +424,7 @@ namespace Quick_Pad_Free_Edition
             /// Otherwise, do nothing.
             if (result == ContentDialogResult.Primary)
             {
-                bool doReview = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9PDLWQHTLSV3"));
+                await ShowRatingReviewDialog(); //show the review dialog.
 
                 //log even in app center
                 Analytics.TrackEvent("Pressed review from popup in app");
@@ -1021,7 +1021,7 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdReview_Click(object sender, RoutedEventArgs e)
         {
-            await ShowRatingReviewDialog();
+            await ShowRatingReviewDialog(); //show the review dialog.
 
             Analytics.TrackEvent("User clicked on review"); //log even in app center
         }
