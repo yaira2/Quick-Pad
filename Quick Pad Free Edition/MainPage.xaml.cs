@@ -1,5 +1,6 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -998,10 +999,30 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        public async Task<bool> ShowRatingReviewDialog()
+        {
+            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(
+                StoreContext.GetDefault(), 16, String.Empty);
+
+            if (result.ExtendedError == null)
+            {
+                JObject jsonObject = JObject.Parse(result.Response);
+                if (jsonObject.SelectToken("status").ToString() == "success")
+                {
+                    // The customer rated or reviewed the app.
+                    return true;
+                }
+            }
+
+            // There was an error with the request, or the customer chose not to
+            // rate or review the app.
+            return false;
+        }
+
         private async void CmdReview_Click(object sender, RoutedEventArgs e)
         {
-            bool doReview = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9PDLWQHTLSV3"));
-                       
+            await ShowRatingReviewDialog();
+
             Analytics.TrackEvent("User clicked on review"); //log even in app center
         }
 
