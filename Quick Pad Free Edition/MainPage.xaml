@@ -115,14 +115,16 @@
                     <Pivot x:Name="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
                         <PivotItem Header="General" x:Name="SettingsTab1">
                             <ScrollViewer x:Name="SettingsTab1SV"  Height="200">
-                                <Grid Height="250">
+                                <Grid Height="320">
                                     <TextBlock Text="Launch Mode" Margin="0,10,23,87" TextWrapping="Wrap"/>
                                     <ToggleSwitch x:Name="LaunchModeSwitch" OnContent="On Top" OffContent="Regular" Toggled="LaunchModeSwitch_Toggled" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" />
                                     <TextBlock Text="Auto Save" Margin="0,75,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     <ToggleSwitch x:Name="AutoSaveSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" />
                                     <TextBlock Text="Word Wrap" Margin="0,140,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
                                     <ToggleSwitch x:Name="WordWrap" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" />
-                                    <Button x:Name="Feedback"  Style="{StaticResource ButtonStyle1}"  Content="Send Feedback" Click="Feedback_Click" HorizontalAlignment="Left" Margin="0,210,0,0" VerticalAlignment="Top"/>
+                                    <TextBlock Text="Spell Check" Margin="0,205,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <ToggleSwitch x:Name="SpellCheck" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,225,0,0" VerticalAlignment="Top" />
+                                    <Button x:Name="Feedback"  Style="{StaticResource ButtonStyle1}"  Content="Send Feedback" Click="Feedback_Click" HorizontalAlignment="Left" Margin="0,275,0,0" VerticalAlignment="Top"/>
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>

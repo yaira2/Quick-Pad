@@ -92,6 +92,19 @@ namespace Quick_Pad_Free_Edition
                 Text1.TextWrapping = TextWrapping.Wrap; //turn on word wrap
             }
 
+            //check if spell check is on or off
+            String spellchecksetting = localSettings.Values["SpellCheck"] as string;
+            if (spellchecksetting == "No")
+            {
+                SpellCheck.IsOn = false; //keep spell check switch off in settings panel.
+                Text1.IsSpellCheckEnabled = false; //turn spell check off
+            }
+            else
+            {
+                SpellCheck.IsOn = true; //turn spell check switch on in settings panel.
+                Text1.IsSpellCheckEnabled = true; //turn spell on
+            }
+
             CheckToolbarOptions(); //check which buttons to show in toolbar
             CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
             CheckTheme(); //check the theme
@@ -1468,6 +1481,26 @@ namespace Quick_Pad_Free_Edition
         private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
+        }
+
+        private void SpellCheck_Toggled(object sender, RoutedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+
+            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
+            if (toggleSwitch != null)
+            {
+                if (toggleSwitch.IsOn == true)
+                {
+                    localSettings.Values["SpellCheck"] = "Yes";
+                    Text1.IsSpellCheckEnabled = true;
+                }
+                else
+                {
+                    localSettings.Values["SpellCheck"] = "No";
+                    Text1.IsSpellCheckEnabled = false;
+                }
+            }
         }
     }
 }
