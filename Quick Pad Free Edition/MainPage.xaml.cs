@@ -418,7 +418,7 @@ namespace Quick_Pad_Free_Edition
         {
             Ad1.Visibility = Visibility.Collapsed; //hide the ad
             RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
-            Text1.Margin = new Thickness(0, 81, 0, 0); //fix text margin to take up space where ad used to be
+            Text1.Margin = new Thickness(0, 74, 0, 0); //fix text margin to take up space where ad used to be
         }
 
         public async void NewUserFeedbackAsync()
@@ -819,7 +819,6 @@ namespace Quick_Pad_Free_Edition
             bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
             ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(450, 200));
 
-            //specific to my app 
             Grid.SetRow(CommandBar2, 2);
             Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
@@ -855,7 +854,7 @@ namespace Quick_Pad_Free_Edition
                 CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
                 FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                Text1.Margin = new Thickness(0, 81, 0, 0);
+                Text1.Margin = new Thickness(0, 74, 0, 0);
                 CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
@@ -870,7 +869,7 @@ namespace Quick_Pad_Free_Edition
                 CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
                 FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                Text1.Margin = new Thickness(0, 81, 0, 90);
+                Text1.Margin = new Thickness(0, 74, 0, 90);
                 CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 Ad1.Visibility = Visibility.Visible;
@@ -1061,14 +1060,14 @@ namespace Quick_Pad_Free_Edition
                     AdRemove = "Paid";
                     Ad1.Visibility = Visibility.Collapsed;
                     RemoveAd.Visibility = Visibility.Collapsed;
-                    Text1.Margin = new Thickness(0, 81, 0, 0);
+                    Text1.Margin = new Thickness(0, 74, 0, 0);
                     break;
 
                 case StorePurchaseStatus.Succeeded:
                     AdRemove = "Paid";
                     Ad1.Visibility = Visibility.Collapsed;
                     RemoveAd.Visibility = Visibility.Collapsed;
-                    Text1.Margin = new Thickness(0, 81, 0, 0);
+                    Text1.Margin = new Thickness(0, 74, 0, 0);
                                        
                     Analytics.TrackEvent("User removed ad"); //log even in app center
 

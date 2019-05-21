@@ -17,7 +17,7 @@
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,0,0" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="30"/>
-            <RowDefinition Height="48"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Button x:Name="ResetNewUser" Visibility="Collapsed" Content="reset if you are a new user"  HorizontalAlignment="Center" Canvas.ZIndex="1"/>
 
@@ -29,10 +29,10 @@
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
 
-            <Frame x:Name="FrameTop" Content="" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="48" Grid.RowSpan="1" Margin="0,0,0,0"/>
+            <Frame x:Name="FrameTop" Content="" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
         </controls:DropShadowPanel>
 
-        <CommandBar x:Name="CommandBar1"  Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,410,0" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="48"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+        <CommandBar x:Name="CommandBar1"  Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,410,0" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="40"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <AppBarButton x:Name="CmdNew" Width="52" Icon="Delete" Click="CmdNew_Click" ToolTipService.ToolTip="New"/>
             <AppBarButton x:Name="CmdOpen" Width="52" Icon="OpenFile" Click="CmdOpen_Click" ToolTipService.ToolTip="Open (Ctrl+O)">
                 <AppBarButton.KeyboardAccelerators>
@@ -89,9 +89,7 @@
             <AppBarButton x:Name="NewWindows" Width="52" Visibility="Collapsed" Icon="Add" Click="NewWindows_Click" ToolTipService.ToolTip="Add note"/>
         </CommandBar>
 
-        <TextBox x:Name="FindBox" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,100,20,0" Width="150" Canvas.ZIndex="100" Visibility="Collapsed"/>
-
-        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver"  KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,81,0,90" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
+        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver"  KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,90" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
 
         <ContentDialog x:Name="AboutDialog" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
            Opened="AboutDialog_Opened" PrimaryButtonText="Ok">
@@ -109,7 +107,7 @@
            Opened="Settings_Opened">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Grid Width="450">
-                    <CommandBar x:Name="CmdSettingsBack" Canvas.ZIndex="100" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="48" Background="{x:Null}" Margin="0,0,0,0">
+                    <CommandBar x:Name="CmdSettingsBack" Canvas.ZIndex="100" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{x:Null}" Margin="0,0,0,0">
                         <AppBarButton x:Name="CmdBack" Width="52" Icon="Back" Click="CmdBack_Click"/>
                     </CommandBar>
                     <Pivot x:Name="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
@@ -164,16 +162,16 @@
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
 
-            <Frame x:Name="FrameBottom" Content="" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="48" Grid.RowSpan="1" Margin="0,0,0,0"/>
+            <Frame x:Name="FrameBottom" Content="" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
         </controls:DropShadowPanel>
 
-        <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75"  IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom" Height="48" FlowDirection="LeftToRight" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+        <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75"  IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom" Height="40" FlowDirection="LeftToRight" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <CommandBar.Content>
-                <Canvas Width="199" Height="48">
-                    <Frame x:Name="FontBoxFrame" Width="197" Height="46" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
-                    <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Segoe UI" Canvas.Left="10" Canvas.Top="13" Canvas.ZIndex="100"/>
-                    <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="170" Canvas.Top="16" Canvas.ZIndex="100"/>
-                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="48" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="199" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
+                <Canvas Width="169" Height="40">
+                    <Frame x:Name="FontBoxFrame" Width="167" Height="37" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
+                    <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Segoe UI" Canvas.Left="10" Canvas.Top="11" Canvas.ZIndex="100"/>
+                    <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="150" Canvas.Top="13" Canvas.ZIndex="100"/>
+                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
             <AppBarButton x:Name="RemoveAd" Width="100" Visibility="Visible" Content="Remove Ads" ToolTipService.ToolTip="Remove ads from Quick Pad" Click="RemoveAd_Click"/>
