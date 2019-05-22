@@ -32,7 +32,7 @@
             <Frame x:Name="FrameTop" Content="" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
         </controls:DropShadowPanel>
 
-        <CommandBar x:Name="CommandBar1"  Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,300,0" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="40"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
+        <CommandBar x:Name="CommandBar1"  Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,350,0" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="40"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <AppBarButton x:Name="CmdNew" Width="40" Icon="Delete" Click="CmdNew_Click" ToolTipService.ToolTip="New"/>
             <AppBarButton x:Name="CmdOpen" Width="40" Click="CmdOpen_Click" ToolTipService.ToolTip="Open (Ctrl+O)">
                 <AppBarButton.Icon>
@@ -53,9 +53,6 @@
             </AppBarButton>
             <AppBarButton x:Name="CmdShare" Width="40" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the file you are working on."/>
             <AppBarSeparator/>
-            <AppBarButton x:Name="CmdUndo" Width="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)"/>
-            <AppBarButton x:Name="CmdRedo" Width="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click" ToolTipService.ToolTip="Redo (Ctrl+Y)"/>
-            <AppBarSeparator x:Name="ASep1"/>
             <AppBarButton x:Name="Bold" Width="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Bold (Ctrl+B)"/>
             <AppBarButton x:Name="Italic" Width="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Italic (Ctrl+I)"/>
             <AppBarButton x:Name="Underline" Width="40" Click="Underline_Click_1" Icon="Underline" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Underline (Ctrl+U)"/>
@@ -85,6 +82,9 @@
                 <AppBarButton x:Name="CmdAbout" Icon="Globe" Label="About" Click="CmdAbout_Click" Width="Auto"/>
                 <AppBarButton x:Name="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click" ToolTipService.ToolTip="Settings"/>
             </CommandBar.SecondaryCommands>
+            <AppBarButton x:Name="CmdUndo" Width="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)"/>
+            <AppBarButton x:Name="CmdRedo" Width="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click" ToolTipService.ToolTip="Redo (Ctrl+Y)"/>
+            <AppBarSeparator x:Name="ASep1"/>
             <AppBarToggleButton x:Name="CompactOverlay" Content="On Top" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Checked="CompactOverlay_Checked" Unchecked="CompactOverlay_Unchecked"/>
             <AppBarButton x:Name="Copy" Width="40" Icon="Copy" Click="Copy_Click" ToolTipService.ToolTip="Copy (Ctrl+C)"/>
             <AppBarButton x:Name="Paste" Width="40" Icon="Paste" Click="Paste_Click" ToolTipService.ToolTip="Paste (Ctrl+V)"/>
