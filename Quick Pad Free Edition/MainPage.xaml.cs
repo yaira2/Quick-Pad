@@ -120,7 +120,6 @@ namespace Quick_Pad_Free_Edition
             if (NewUser != "1" && NewUser != "2") //first time using the app
             {
                 localSettings.Values["NewUser"] = "1";
-                localSettings.Values["DefaultFont"] = "Segoe UI";
             }
 
             //ask user if they want to save before closing the app
@@ -380,17 +379,39 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
 
-                //check what default font is
                 ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
-                String DefaultFonts = localSettings.Values["DefaultFont"] as string;
-                if (DefaultFonts != "Segoe UI")
+                                                                                                         
+                //check what default font is
+                try
                 {
-                    DefaultFont.PlaceholderText = DefaultFonts;
-                    Fonts.PlaceholderText = DefaultFonts;
-                    Fonts.SelectedItem = DefaultFonts;
-                    FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
-                    Text1.Document.Selection.CharacterFormat.Name = DefaultFonts;
+                    String DefaultFonts = localSettings.Values["DefaultFont"] as string;
+                    if (DefaultFonts != "Segoe UI")
+                    {
+                        DefaultFont.PlaceholderText = DefaultFonts;
+                        Fonts.PlaceholderText = DefaultFonts;
+                        Fonts.SelectedItem = DefaultFonts;
+                        FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
+                        Text1.Document.Selection.CharacterFormat.Name = DefaultFonts;
+                    }
                 }
+                catch (Exception)
+                {
+                    localSettings.Values["DefaultFont"] = "Segoe UI"; //set the default font size to Segoe UI
+                }
+
+                //check what default font size is and set it
+                    Int16 DefaultFontSizes = Convert.ToInt16(localSettings.Values["DefaultFontSize"]); //load the defualt font size
+
+                    if (DefaultFontSizes == 0)
+                    {
+                          localSettings.Values["DefaultFontSize"] = "18"; //set 18 as defualt font size
+                          Text1.Document.Selection.CharacterFormat.Size = 18; //set the font size
+                    }
+                    else
+                    { 
+                    DefaultFontSize.PlaceholderText = Convert.ToString(DefaultFontSizes); //set the selected font size placeholder text in settings to whatever the font size is meant to be
+                    Text1.Document.Selection.CharacterFormat.Size = DefaultFontSizes; //set the font size
+                    }
 
                 _isPageLoaded = false;
             }
@@ -1523,6 +1544,14 @@ namespace Quick_Pad_Free_Edition
 
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFont"] = selectedFont;
+        }
+
+        private void DefaultFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedFontSize = e.AddedItems[0];
+
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["DefaultFontSize"] = selectedFontSize;
         }
     }
 }
