@@ -59,6 +59,7 @@ namespace Quick_Pad_Free_Edition
             foreach (string font in fonts)
             {
                 Fonts.Items.Add(string.Format(font));
+                DefaultFont.Items.Add(string.Format(font));
             }
 
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
@@ -119,6 +120,7 @@ namespace Quick_Pad_Free_Edition
             if (NewUser != "1" && NewUser != "2") //first time using the app
             {
                 localSettings.Values["NewUser"] = "1";
+                localSettings.Values["DefaultFont"] = "Segoe UI";
             }
 
             //ask user if they want to save before closing the app
@@ -377,6 +379,19 @@ namespace Quick_Pad_Free_Edition
             if (_isPageLoaded == true)
             {
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
+
+                //check what default font is
+                ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
+                String DefaultFonts = localSettings.Values["DefaultFont"] as string;
+                if (DefaultFonts != "Segoe UI")
+                {
+                    DefaultFont.PlaceholderText = DefaultFonts;
+                    Fonts.PlaceholderText = DefaultFonts;
+                    Fonts.SelectedItem = DefaultFonts;
+                    FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
+                    Text1.Document.Selection.CharacterFormat.Name = DefaultFonts;
+                }
+
                 _isPageLoaded = false;
             }
         }
@@ -1500,6 +1515,14 @@ namespace Quick_Pad_Free_Edition
                     Text1.IsSpellCheckEnabled = false;
                 }
             }
+        }
+
+        private void DefaultFont_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selectedFont = e.AddedItems[0].ToString();
+
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["DefaultFont"] = selectedFont;
         }
     }
 }
