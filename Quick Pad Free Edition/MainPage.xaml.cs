@@ -122,6 +122,19 @@ namespace Quick_Pad_Free_Edition
                 localSettings.Values["NewUser"] = "1";
             }
 
+            //check if focus is on app or off the app
+            Window.Current.CoreWindow.Activated += (sender, args) =>
+            {
+                if (args.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
+                {
+                    CommandBar1.Focus(FocusState.Programmatic); // Set focus off the main content
+                }
+                else
+                {
+                    Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing or select text right away
+                }
+            };
+
             //ask user if they want to save before closing the app
             Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
         async (sender, args) =>
