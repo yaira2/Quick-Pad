@@ -1554,6 +1554,8 @@ namespace Quick_Pad_Free_Edition
 
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFontSize"] = selectedFontSize;
+
+            Text1.Document.Selection.CharacterFormat.Size = Convert.ToInt64(selectedFontSize); //make the change take affect right away
         }
     }
 }
