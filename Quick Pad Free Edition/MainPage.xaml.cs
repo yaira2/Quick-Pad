@@ -1544,6 +1544,8 @@ namespace Quick_Pad_Free_Edition
 
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFont"] = selectedFont;
+
+            Fonts.SelectedItem = selectedFont; //make the change take affect right away
         }
 
         private void DefaultFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
