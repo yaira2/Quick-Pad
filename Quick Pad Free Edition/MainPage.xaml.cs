@@ -1320,7 +1320,7 @@ namespace Quick_Pad_Free_Edition
 
         private async void Text1_Drop(object sender, DragEventArgs e)
         {
-            //Check if file is open and ask user if they want to save it when draging a file in to Quick Pad.
+            //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
             if (TQuick.Text != UpdateFile)
             {
                 ContentDialog deleteFileDialog = new ContentDialog
