@@ -1071,8 +1071,7 @@ namespace Quick_Pad_Free_Edition
                 }
             }
 
-            // There was an error with the request, or the customer chose not to
-            // rate or review the app.
+            // There was an error with the request, or the customer chose not to rate or review the app.
             return false;
         }
 
@@ -1321,6 +1320,32 @@ namespace Quick_Pad_Free_Edition
 
         private async void Text1_Drop(object sender, DragEventArgs e)
         {
+            //Check if file is open and ask user if they want to save it when draging a file in to Quick Pad.
+            if (TQuick.Text != UpdateFile)
+            {
+                ContentDialog deleteFileDialog = new ContentDialog
+                {
+                    Title = "Save your work?",
+                    Content = "Would you like to save your work?",
+                    PrimaryButtonText = "Yes",
+                    SecondaryButtonText = "No",
+                    CloseButtonText = "Cancel"
+                };
+
+                ContentDialogResult result = await deleteFileDialog.ShowAsync();
+
+                // Delete the file if the user clicked the primary button.
+                /// Otherwise, do nothing.
+                if (result == ContentDialogResult.Primary)
+                {
+                    await SaveWork();
+                }
+                if (result == ContentDialogResult.None)
+                {
+                    return;
+                }
+            }
+
             //load rich text files droped in from file explorer
             try
             {
