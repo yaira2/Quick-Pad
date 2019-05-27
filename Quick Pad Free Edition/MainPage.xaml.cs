@@ -513,6 +513,7 @@ namespace Quick_Pad_Free_Edition
             UpdateFile = file.DisplayName;
             TQuick.Text = UpdateFile;
             FullFilePath = file.Path;
+            SetTaskBarTitle(); //update the title in the taskbar
 
             Windows.Storage.Streams.IRandomAccessStream randAccStream =
          await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
@@ -530,6 +531,12 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        private void SetTaskBarTitle()
+        {
+            var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            appView.Title = UpdateFile;
+        }
+          
         private async void CmdSettings_Click(object sender, RoutedEventArgs e)
         {
             ContentDialogResult result = await Settings.ShowAsync();
@@ -578,6 +585,7 @@ namespace Quick_Pad_Free_Edition
                 UpdateFile = "New Document"; //reset the value of the friendly file name
                 TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
                 FullFilePath = ""; //clear the path of the open file since there is none
+                SetTaskBarTitle(); //update the title in the taskbar
 
                 //log even in app center
                 Analytics.TrackEvent("New Document Created");
@@ -589,6 +597,7 @@ namespace Quick_Pad_Free_Edition
                 UpdateFile = "New Document"; //reset the value of the friendly file name
                 TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
                 FullFilePath = ""; //clear the path of the open file since there is none
+                SetTaskBarTitle(); //update the title in the taskbar
 
                 //log even in app center
                 Analytics.TrackEvent("New Document Created");
@@ -617,6 +626,7 @@ namespace Quick_Pad_Free_Edition
                     UpdateFile = file.DisplayName;
                     TQuick.Text = UpdateFile;
                     FullFilePath = file.Path;
+                    SetTaskBarTitle(); //update the title in the taskbar
 
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
@@ -692,6 +702,7 @@ namespace Quick_Pad_Free_Edition
                     UpdateFile = file.DisplayName;
                     TQuick.Text = UpdateFile;
                     FullFilePath = file.Path;
+                    SetTaskBarTitle(); //update the title in the taskbar
 
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
@@ -1368,6 +1379,7 @@ namespace Quick_Pad_Free_Edition
                             UpdateFile = storageFile.DisplayName;
                             TQuick.Text = UpdateFile;
                             FullFilePath = storageFile.Path;
+                            SetTaskBarTitle(); //update the title in the taskbar
 
                             Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(storageFile));
                         }
@@ -1377,6 +1389,7 @@ namespace Quick_Pad_Free_Edition
                             UpdateFile = storageFile.DisplayName;
                             TQuick.Text = UpdateFile;
                             FullFilePath = storageFile.Path;
+                            SetTaskBarTitle(); //update the title in the taskbar
 
                             Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                         }
