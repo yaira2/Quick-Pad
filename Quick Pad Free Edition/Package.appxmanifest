@@ -36,8 +36,7 @@
           <uap:FileTypeAssociation Name="quickpad">
             <uap:DisplayName>Quick Pad</uap:DisplayName>
             <uap:Logo>Quick Pad Logo.png</uap:Logo>
-            <uap:InfoTip>quick pad</uap:InfoTip>
-            <uap:EditFlags OpenIsSafe="true" />
+            <uap:InfoTip>Quick Pad</uap:InfoTip>
             <uap:SupportedFileTypes>
               <uap:FileType>.rtf</uap:FileType>
               <uap:FileType>.txt</uap:FileType>
@@ -46,7 +45,9 @@
               <uap:FileType>.css</uap:FileType>
               <uap:FileType>.php</uap:FileType>
               <uap:FileType>.xml</uap:FileType>
+              <uap:FileType>.scss</uap:FileType>
             </uap:SupportedFileTypes>
+            <uap:EditFlags OpenIsSafe="true"/>
           </uap:FileTypeAssociation>
         </uap:Extension>
       </Extensions>
