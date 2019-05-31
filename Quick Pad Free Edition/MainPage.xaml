@@ -398,6 +398,7 @@
                                 <Button x:Name="E148" Content="🐕‍🦺" Click="EmojiSub" Width="40" Height="40"/>
                                 <Button x:Name="E149" Content="🐩" Click="EmojiSub" Width="40" Height="40"/>
                                 <Button x:Name="E150" Content="🐕" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E151" Content="🐈" Click="EmojiSub" Width="40" Height="40"/>
                             </GridView>
                         </PivotItem>
                         <PivotItem Header=";-)">
