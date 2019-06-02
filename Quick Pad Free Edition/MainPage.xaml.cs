@@ -708,12 +708,9 @@ namespace Quick_Pad_Free_Edition
 
                     //save as plain text for text file
                     if ((file.FileType.ToLower() != ".rtf"))
-                    {
-                        //get the text to save
-                        Text1.Document.GetText(TextGetOptions.None, out var value);
-
-                        //write the text to the file
-                        await FileIO.WriteTextAsync(file, value);
+                    {                     
+                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
+                        await FileIO.WriteTextAsync(file, value); //write the text to the file
                     }
                     //save as rich text for rich text file
                     if (file.FileType.ToLower() == ".rtf")
@@ -725,8 +722,7 @@ namespace Quick_Pad_Free_Edition
                         await FileIO.WriteTextAsync(file, value);
                     }
 
-                    // Let Windows know that we're finished changing the file so the 
-                    // other app can update the remote version of the file.
+                    // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
                     Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
                     if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
                     {
@@ -1064,8 +1060,7 @@ namespace Quick_Pad_Free_Edition
 
         public async Task<bool> ShowRatingReviewDialog()
         {
-            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(
-                StoreContext.GetDefault(), 16, String.Empty);
+            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
 
             if (result.ExtendedError == null)
             {
