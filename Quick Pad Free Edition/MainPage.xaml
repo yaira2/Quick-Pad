@@ -592,6 +592,18 @@
                                 <Button x:Name="S105" Content="º" Click="EmojiSub"   Width="40" Height="40"/>
                                 <Button x:Name="S106" Content="‖" Click="EmojiSub"   Width="40" Height="40"/>
                                 <Button x:Name="S107" Content="⁜" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S108" Content="¸" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S109" Content="‾" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S110" Content="±" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S111" Content="µ" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S112" Content="♪" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S113" Content="‗" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S114" Content="※" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S115" Content="$" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S116" Content="¤" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S117" Content="؋" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S118" Content="৻" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S119" Content="฿" Click="EmojiSub"   Width="40" Height="40"/>
                             </GridView>
                         </PivotItem>
 
