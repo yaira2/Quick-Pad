@@ -207,7 +207,7 @@
                 </Canvas>
             </CommandBar.Content>
             <AppBarButton x:Name="RemoveAd" Width="100" Visibility="Visible" Content="Remove Ads" ToolTipService.ToolTip="Remove ads from Quick Pad" Click="RemoveAd_Click"/>
-            <AppBarButton x:Name="TextColor" Width="40" Icon="FontColor" ToolTipService.ToolTip="Font Color"  Click="TextColor_Click">
+            <AppBarButton x:Name="TextColor" Width="40" Icon="FontColor" ToolTipService.ToolTip="Font Color">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
                         <MenuFlyoutItem x:Name="Black" Text="Black" Click="Black_Click" />

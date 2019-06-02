@@ -964,11 +964,6 @@ namespace Quick_Pad_Free_Edition
             Analytics.TrackEvent("User inserted an emoji");
         }
 
-        private void TextColor_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Yellow_Click(object sender, RoutedEventArgs e)
         {
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightYellow);
