@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4" xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" IgnorableNamespaces="uap mp rescap">
-  <Identity Name="49306atecsolution.QuickPad" Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7" Version="4.2.91.0" />
+  <Identity Name="49306atecsolution.QuickPad" Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7" Version="4.2.92.0" />
   <mp:PhoneIdentity PhoneProductId="49b17cef-a572-48c4-84e2-abb4c290d504" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Quick Pad</DisplayName>

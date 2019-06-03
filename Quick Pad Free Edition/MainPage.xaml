@@ -222,13 +222,13 @@
             </AppBarButton>
             <AppBarToggleButton x:Name="Emoji" Width="40" Icon="Emoji2" Checked="Emoji_Checked" Unchecked="Emoji_Unchecked"/>
         </CommandBar>
-        <!--<UI:AdControl x:Name="Ad1" ApplicationId="9pdlwqhtlsv3"
+        <UI:AdControl x:Name="Ad1" ApplicationId="9pdlwqhtlsv3"
         AdUnitId="1100035049"
         HorizontalAlignment="Center"
         Height="90"
         VerticalAlignment="Bottom"
-        Width="728"/>-->
-        <adduplex:AdControl x:Name="Ad1" AdUnitId="213707" 
+        Width="728" Canvas.ZIndex="1000"/>
+        <adduplex:AdControl x:Name="Ad" AdUnitId="213707" 
         AppKey="87402fe6-ab2d-4c00-a7a5-c573e1af10d4"
         HorizontalAlignment="Center"
         Height="90"

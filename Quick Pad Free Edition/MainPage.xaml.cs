@@ -439,8 +439,8 @@ namespace Quick_Pad_Free_Edition
         }
 
         private StoreContext storeContext = StoreContext.GetDefault();
-        // Assign this variable to the Store ID of your subscription add-on.
-        private string StoreId = "9PMFXLSMJ8RL";
+        private string StoreId = "9PMFXLSMJ8RL"; // Assign this variable to the Store ID of your subscription add-on.
+
         public async void CheckIfPaidForNoAds()
         {
             StoreAppLicense appLicense = await storeContext.GetAppLicenseAsync();
@@ -461,7 +461,9 @@ namespace Quick_Pad_Free_Edition
 
         public void RemoveAds() //hide ads
         {
+            Ad1.Suspend();
             Ad1.Visibility = Visibility.Collapsed; //hide the ad
+            Ad.Visibility = Visibility.Collapsed;
             RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
             Text1.Margin = new Thickness(0, 74, 0, 0); //fix text margin to take up space where ad used to be
         }
@@ -880,7 +882,9 @@ namespace Quick_Pad_Free_Edition
             Text1.Margin = new Thickness(0, 0, 0, 0);
             CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            Ad1.Suspend();
             Ad1.Visibility = Visibility.Collapsed;
+            Ad.Visibility = Visibility.Collapsed;
             CommandBar2.Margin = new Thickness(0, 0, 0, 0);
             TQuick.Visibility = Visibility.Collapsed;
 
@@ -925,6 +929,8 @@ namespace Quick_Pad_Free_Edition
                 CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 Ad1.Visibility = Visibility.Visible;
+                Ad1.Resume();
+                Ad.Visibility = Visibility.Visible;
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
                 TQuick.Visibility = Visibility.Visible;
             }
@@ -1103,14 +1109,18 @@ namespace Quick_Pad_Free_Edition
             {
                 case StorePurchaseStatus.AlreadyPurchased:
                     AdRemove = "Paid";
+                    Ad1.Suspend();
                     Ad1.Visibility = Visibility.Collapsed;
+                    Ad.Visibility = Visibility.Collapsed;
                     RemoveAd.Visibility = Visibility.Collapsed;
                     Text1.Margin = new Thickness(0, 74, 0, 0);
                     break;
 
                 case StorePurchaseStatus.Succeeded:
                     AdRemove = "Paid";
+                    Ad1.Suspend();
                     Ad1.Visibility = Visibility.Collapsed;
+                    Ad.Visibility = Visibility.Collapsed;
                     RemoveAd.Visibility = Visibility.Collapsed;
                     Text1.Margin = new Thickness(0, 74, 0, 0);
                                        
