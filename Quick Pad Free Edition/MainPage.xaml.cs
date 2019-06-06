@@ -36,6 +36,7 @@ namespace Quick_Pad_Free_Edition
         private string key; //future access list
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
+        private String SaveDialogValue;
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timers interval
         public MainPage()
         {
@@ -142,29 +143,19 @@ namespace Quick_Pad_Free_Edition
             };
             args.Handled = true;
 
-            ContentDialog deleteFileDialog = new ContentDialog //popup dialog to ask user if they want to save their work
-            {
-                Title = "Save your work?",
-                Content = "Would you like to save your work?",
-                PrimaryButtonText = "Yes",
-                SecondaryButtonText = "No",
-                CloseButtonText = "Cancel"
-            };
-
+            SaveDialog.Hide();
             Settings.Hide(); //close the settings dialog so the app does not hang
             AboutDialog.Hide(); //close the about dialog so the app does not hang
 
-            ContentDialogResult result = await deleteFileDialog.ShowAsync();
+            await SaveDialog.ShowAsync();
 
-            if (result == ContentDialogResult.Primary)
+            if (SaveDialogValue != "Cancel")
             {
-                await SaveWork(); //shows save dialog box
-                App.Current.Exit(); //then closes
+                 App.Current.Exit();
             }
-            if (result == ContentDialogResult.Secondary)
-            {
-                App.Current.Exit();
-            }
+
+            SaveDialogValue = ""; //reset save dialog 
+           
         };
 
             CheckPushNotifications(); //check for push notifications
@@ -180,31 +171,31 @@ namespace Quick_Pad_Free_Edition
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
             async () =>
+            {
+                if (TQuick.Text != UpdateFile)
                 {
-                    if (TQuick.Text != UpdateFile)
+                    try
                     {
-                        try
+                        var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
+                        if ((result.ToLower() != ".rtf"))
                         {
-                            var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
-                            if ((result.ToLower() != ".rtf"))
-                            {
-                                //tries to update file if it exsits and is not read only
-                                Text1.Document.GetText(TextGetOptions.None, out var value);
-                                await PathIO.WriteTextAsync(FullFilePath, value);
-                                TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                            }
-                            if (result.ToLower() == ".rtf")
-                            {
-                                //tries to update file if it exsits and is not read only
-                                Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                                await PathIO.WriteTextAsync(FullFilePath, value);
-                                TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                            }
+                            //tries to update file if it exsits and is not read only
+                            Text1.Document.GetText(TextGetOptions.None, out var value);
+                            await PathIO.WriteTextAsync(FullFilePath, value);
+                            TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
                         }
-
-                        catch (Exception) { }
+                        if (result.ToLower() == ".rtf")
+                        {
+                            //tries to update file if it exsits and is not read only
+                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                            await PathIO.WriteTextAsync(FullFilePath, value);
+                            TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
+                        }
                     }
-                });
+
+                    catch (Exception) { }
+                }
+            });
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
@@ -389,7 +380,7 @@ namespace Quick_Pad_Free_Edition
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
 
                 ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
-                                                                                                         
+
                 //check what default font is
                 try
                 {
@@ -409,18 +400,18 @@ namespace Quick_Pad_Free_Edition
                 }
 
                 //check what default font size is and set it
-                    Int16 DefaultFontSizes = Convert.ToInt16(localSettings.Values["DefaultFontSize"]); //load the defualt font size
+                Int16 DefaultFontSizes = Convert.ToInt16(localSettings.Values["DefaultFontSize"]); //load the defualt font size
 
-                    if (DefaultFontSizes == 0)
-                    {
-                          localSettings.Values["DefaultFontSize"] = "18"; //set 18 as defualt font size
-                          Text1.Document.Selection.CharacterFormat.Size = 18; //set the font size
-                    }
-                    else
-                    { 
+                if (DefaultFontSizes == 0)
+                {
+                    localSettings.Values["DefaultFontSize"] = "18"; //set 18 as defualt font size
+                    Text1.Document.Selection.CharacterFormat.Size = 18; //set the font size
+                }
+                else
+                {
                     DefaultFontSize.PlaceholderText = Convert.ToString(DefaultFontSizes); //set the selected font size placeholder text in settings to whatever the font size is meant to be
                     Text1.Document.Selection.CharacterFormat.Size = DefaultFontSizes; //set the font size
-                    }
+                }
 
                 _isPageLoaded = false;
             }
@@ -538,7 +529,7 @@ namespace Quick_Pad_Free_Edition
             var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
             appView.Title = UpdateFile;
         }
-          
+
         private async void CmdSettings_Click(object sender, RoutedEventArgs e)
         {
             ContentDialogResult result = await Settings.ShowAsync();
@@ -566,33 +557,26 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdNew_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialog deleteFileDialog = new ContentDialog
+            if (TQuick.Text != UpdateFile)
             {
-                Title = "Save your work?",
-                Content = "Would you like to save your work?",
-                PrimaryButtonText = "Yes",
-                SecondaryButtonText = "No",
-                CloseButtonText = "Cancel"
-            };
+                await SaveDialog.ShowAsync();
 
-            ContentDialogResult result = await deleteFileDialog.ShowAsync();
+                if (SaveDialogValue != "Cancel")
+                {
+                    Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
 
-            // Delete the file if the user clicked the primary button.
-            /// Otherwise, do nothing.
-            if (result == ContentDialogResult.Primary)
-            {
-                await SaveWork();
-                Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
+                    UpdateFile = "New Document"; //reset the value of the friendly file name
+                    TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
+                    FullFilePath = ""; //clear the path of the open file since there is none
+                    SetTaskBarTitle(); //update the title in the taskbar
 
-                UpdateFile = "New Document"; //reset the value of the friendly file name
-                TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
-                FullFilePath = ""; //clear the path of the open file since there is none
-                SetTaskBarTitle(); //update the title in the taskbar
+                    //log even in app center
+                    Analytics.TrackEvent("New Document Created");
+                }
 
-                //log even in app center
-                Analytics.TrackEvent("New Document Created");
+                SaveDialogValue = ""; //reset save dialog 
             }
-            if (result == ContentDialogResult.Secondary)
+            else
             {
                 Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
 
@@ -710,7 +694,7 @@ namespace Quick_Pad_Free_Edition
 
                     //save as plain text for text file
                     if ((file.FileType.ToLower() != ".rtf"))
-                    {                     
+                    {
                         Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
                         await FileIO.WriteTextAsync(file, value); //write the text to the file
                     }
@@ -1123,7 +1107,7 @@ namespace Quick_Pad_Free_Edition
                     Ad.Visibility = Visibility.Collapsed;
                     RemoveAd.Visibility = Visibility.Collapsed;
                     Text1.Margin = new Thickness(0, 74, 0, 0);
-                                       
+
                     Analytics.TrackEvent("User removed ad"); //log even in app center
 
                     var dialog = new MessageDialog("The purchase was successful, thank you for being a Quick Pad user!");
@@ -1135,7 +1119,7 @@ namespace Quick_Pad_Free_Edition
                     await Erordialog.ShowAsync();
                     break;
             }
-                       
+
             Analytics.TrackEvent("User pressed remove ads"); //log even in app center
         }
 
@@ -1334,25 +1318,10 @@ namespace Quick_Pad_Free_Edition
             //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
             if (TQuick.Text != UpdateFile)
             {
-                ContentDialog deleteFileDialog = new ContentDialog
+                await SaveDialog.ShowAsync();
+                if (SaveDialogValue=="Cancel")
                 {
-                    Title = "Save your work?",
-                    Content = "Would you like to save your work?",
-                    PrimaryButtonText = "Yes",
-                    SecondaryButtonText = "No",
-                    CloseButtonText = "Cancel"
-                };
-
-                ContentDialogResult result = await deleteFileDialog.ShowAsync();
-
-                // Delete the file if the user clicked the primary button.
-                /// Otherwise, do nothing.
-                if (result == ContentDialogResult.Primary)
-                {
-                    await SaveWork();
-                }
-                if (result == ContentDialogResult.None)
-                {
+                    SaveDialogValue = ""; //reset save dialog 
                     return;
                 }
             }
@@ -1399,7 +1368,7 @@ namespace Quick_Pad_Free_Edition
                     }
                 }
             }
-            catch (Exception) {}
+            catch (Exception) { }
         }
 
         private void WordWrap_Toggled(object sender, RoutedEventArgs e)
@@ -1603,6 +1572,23 @@ namespace Quick_Pad_Free_Edition
             localSettings.Values["DefaultFontSize"] = selectedFontSize;
 
             Text1.Document.Selection.CharacterFormat.Size = Convert.ToInt64(selectedFontSize); //make the change take affect right away
+        }
+
+        private async void SaveDialogYes_Click(object sender, RoutedEventArgs e)
+        {
+            await SaveWork();
+            SaveDialog.Hide();
+        }
+
+        private void SaveDialogNo_Click(object sender, RoutedEventArgs e)
+        {
+            SaveDialog.Hide();
+        }
+
+        private void SaveDialogCancel_Click(object sender, RoutedEventArgs e)
+        {
+            SaveDialogValue = "Cancel";
+            SaveDialog.Hide();
         }
     }
 }
