@@ -129,7 +129,7 @@
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                 <Grid Width="450">
                     <CommandBar x:Name="CmdSettingsBack" Canvas.ZIndex="100" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{x:Null}" Margin="0,0,0,0">
-                        <AppBarButton x:Name="CmdBack" Windows10version1809:CornerRadius="2" Width="52" Icon="Back" Click="CmdBack_Click"/>
+                        <AppBarButton x:Name="CmdBack" Windows10version1809:CornerRadius="2" Width="40" Icon="Clear" Click="CmdBack_Click"/>
                     </CommandBar>
                     <Pivot x:Name="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
                         <PivotItem Header="General" x:Name="SettingsTab1">
