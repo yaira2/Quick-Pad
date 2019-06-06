@@ -110,8 +110,7 @@
             </StackPanel>
         </ContentDialog>
 
-        <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
-           Canvas.ZIndex="99">
+        <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
 
             <StackPanel HorizontalAlignment="Stretch" Height="120" VerticalAlignment="Stretch">
                 <Grid>
@@ -177,6 +176,16 @@
                                     <x:String>36</x:String>
                                     <x:String>48</x:String>
                                     <x:String>72</x:String>
+                                </ComboBox>
+                                <TextBlock Text="Default Font Color" Margin="0,135,0,0" TextWrapping="Wrap"/>
+                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" SelectionChanged="DefaultFontColor_SelectionChanged" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                    <x:String>Black</x:String>
+                                    <x:String>White</x:String>
+                                    <x:String>SkyBlue</x:String>
+                                    <x:String>LightGreen</x:String>
+                                    <x:String>LightPink</x:String>
+                                    <x:String>LightYellow</x:String>
+                                    <x:String>LightSalmon</x:String>
                                 </ComboBox>
                             </Grid>
                         </PivotItem>

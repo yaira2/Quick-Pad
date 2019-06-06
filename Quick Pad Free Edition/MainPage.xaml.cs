@@ -17,6 +17,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
@@ -1589,6 +1590,11 @@ namespace Quick_Pad_Free_Edition
         {
             SaveDialogValue = "Cancel";
             SaveDialog.Hide();
+        }
+
+        private void DefaultFontColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);          
         }
     }
 }
