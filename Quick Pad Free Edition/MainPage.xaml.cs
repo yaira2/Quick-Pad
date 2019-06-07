@@ -400,6 +400,24 @@ namespace Quick_Pad_Free_Edition
                     localSettings.Values["DefaultFont"] = "Segoe UI"; //set the default font size to Segoe UI
                 }
 
+                //check what default font color is
+                try
+                {
+                    String DefaultFontColors = localSettings.Values["DefaultFontColor"] as string;
+                    if (DefaultFontColors != "")
+                    {
+                        DefaultFontColor.SelectedItem = DefaultFontColors;
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
+                    }
+                }
+                catch (Exception) //no setting was found
+                {
+                    if (this.RequestedTheme == ElementTheme.Dark || App.Current.RequestedTheme == ApplicationTheme.Dark)
+                    {
+                        DefaultFontColor.PlaceholderText = "White";
+                    }
+                }
+
                 //check what default font size is and set it
                 Int16 DefaultFontSizes = Convert.ToInt16(localSettings.Values["DefaultFontSize"]); //load the defualt font size
 
@@ -1594,6 +1612,9 @@ namespace Quick_Pad_Free_Edition
 
         private void DefaultFontColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["DefaultFontColor"] = DefaultFontColor.SelectedValue;
+
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);          
         }
     }
