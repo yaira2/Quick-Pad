@@ -4,7 +4,7 @@
   <mp:PhoneIdentity PhoneProductId="864e8d88-2781-47a9-9aab-7d4b5bd26da9" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Quick Pad</DisplayName>
-    <PublisherDisplayName>ATec Solution</PublisherDisplayName>
+    <PublisherDisplayName>Yair A</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
   <Dependencies>
