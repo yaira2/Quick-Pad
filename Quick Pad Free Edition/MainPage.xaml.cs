@@ -380,6 +380,7 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
 
+                //let app know where setting are saved
                 ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
 
                 //check what default font is
@@ -808,13 +809,9 @@ namespace Quick_Pad_Free_Edition
             {
                 string text = await dataPackageView.GetTextAsync();
                 //if there is nothing to paste then dont paste anything since it wil crash
-                if (text == "")
+                if (text != "")
                 {
-                }
-                else
-                {
-                    //paste the text from the clipboard
-                    Text1.Document.Selection.TypeText(text);
+                    Text1.Document.Selection.TypeText(text); //paste the text from the clipboard
                 }
             }
         }
@@ -839,11 +836,7 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdAbout_Click(object sender, RoutedEventArgs e)
         {
-            //shows the about dialog
-            ContentDialogResult result = await AboutDialog.ShowAsync();
-
-            //log even in app center
-            Analytics.TrackEvent("Opened about dialog");
+            ContentDialogResult result = await AboutDialog.ShowAsync(); //shows the about dialog
         }
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
