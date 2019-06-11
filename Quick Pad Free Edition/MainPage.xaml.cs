@@ -1617,6 +1617,7 @@ namespace Quick_Pad_Free_Edition
         private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
         {
             Text1.SetValue(Canvas.ZIndexProperty, 99);
+            CommandBar2.Visibility = Visibility.Collapsed;
             Shadow2.Visibility = Visibility.Collapsed;
             Shadow1.Visibility = Visibility.Collapsed;
             Text1.Margin = new Thickness(0, 33, 0, 0);
@@ -1630,6 +1631,7 @@ namespace Quick_Pad_Free_Edition
         private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
         {
             Text1.SetValue(Canvas.ZIndexProperty, 1);
+            CommandBar2.Visibility = Visibility.Visible;
             Shadow2.Visibility = Visibility.Visible;
             Shadow1.Visibility = Visibility.Visible;
             Text1.Margin = new Thickness(0, 74, 0, 40);
