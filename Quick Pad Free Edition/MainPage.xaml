@@ -261,7 +261,7 @@
         VerticalAlignment="Bottom"
         Width="728" Margin="0,0,0,40"/>
         <controls:DropShadowPanel x:Name="Emoji2" Margin="0,0,0,40" Grid.RowSpan="1" VerticalAlignment="Bottom"
-                                  Canvas.ZIndex="75"
+                                  Canvas.ZIndex="1000"
                                   ShadowOpacity=".3"
                                   OffsetX="0"
                                   OffsetY="0"
