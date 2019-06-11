@@ -476,7 +476,7 @@ namespace Quick_Pad_Free_Edition
             Ad1.Visibility = Visibility.Collapsed; //hide the ad
             Ad.Visibility = Visibility.Collapsed;
             RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
-            Text1.Margin = new Thickness(0, 74, 0, 0); //fix text margin to take up space where ad used to be
+            Text1.Margin = new Thickness(0, 74, 0, 40); //fix text margin to take up space where ad used to be
         }
 
         public async void NewUserFeedbackAsync()
@@ -877,6 +877,7 @@ namespace Quick_Pad_Free_Edition
             FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Text1.Margin = new Thickness(0, 0, 0, 0);
             CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Ad1.Suspend();
             Ad1.Visibility = Visibility.Collapsed;
@@ -906,8 +907,9 @@ namespace Quick_Pad_Free_Edition
                 CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
                 FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                Text1.Margin = new Thickness(0, 74, 0, 0);
+                Text1.Margin = new Thickness(0, 74, 0, 40);
                 CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
                 TQuick.Visibility = Visibility.Visible;
@@ -921,8 +923,9 @@ namespace Quick_Pad_Free_Edition
                 CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
                 FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                Text1.Margin = new Thickness(0, 74, 0, 90);
+                Text1.Margin = new Thickness(0, 74, 0, 130);
                 CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 Ad1.Visibility = Visibility.Visible;
                 Ad1.Resume();
@@ -1109,7 +1112,7 @@ namespace Quick_Pad_Free_Edition
                     Ad1.Visibility = Visibility.Collapsed;
                     Ad.Visibility = Visibility.Collapsed;
                     RemoveAd.Visibility = Visibility.Collapsed;
-                    Text1.Margin = new Thickness(0, 74, 0, 0);
+                    Text1.Margin = new Thickness(0, 74, 0, 40);
                     break;
 
                 case StorePurchaseStatus.Succeeded:
@@ -1118,7 +1121,7 @@ namespace Quick_Pad_Free_Edition
                     Ad1.Visibility = Visibility.Collapsed;
                     Ad.Visibility = Visibility.Collapsed;
                     RemoveAd.Visibility = Visibility.Collapsed;
-                    Text1.Margin = new Thickness(0, 74, 0, 0);
+                    Text1.Margin = new Thickness(0, 74, 0, 40);
 
                     Analytics.TrackEvent("User removed ad"); //log even in app center
 
@@ -1609,6 +1612,36 @@ namespace Quick_Pad_Free_Edition
             localSettings.Values["DefaultFontColor"] = DefaultFontColor.SelectedValue;
 
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);          
+        }
+
+        private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
+        {
+            Text1.SetValue(Canvas.ZIndexProperty, 99);
+            Shadow2.Visibility = Visibility.Collapsed;
+            Shadow1.Visibility = Visibility.Collapsed;
+            Text1.Margin = new Thickness(0, 33, 0, 0);
+            CloseFocusMode.Visibility = Visibility.Visible;
+
+            Ad1.Suspend();
+            Ad1.Visibility = Visibility.Collapsed;
+            Ad.Visibility = Visibility.Collapsed;
+        }
+
+        private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
+        {
+            Text1.SetValue(Canvas.ZIndexProperty, 1);
+            Shadow2.Visibility = Visibility.Visible;
+            Shadow1.Visibility = Visibility.Visible;
+            Text1.Margin = new Thickness(0, 74, 0, 40);
+            CloseFocusMode.Visibility = Visibility.Collapsed;
+
+            if (AdRemove != "Paid")
+            {
+                Ad1.Resume();
+                Ad1.Visibility = Visibility.Visible;
+                Ad.Visibility = Visibility.Visible;
+                Text1.Margin = new Thickness(0, 74, 0, 130);
+            }
         }
     }
 }
