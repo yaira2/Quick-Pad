@@ -44,9 +44,6 @@ namespace Quick_Pad_Free_Edition
         public MainPage()
         {
             InitializeComponent();
-            //stuff for compact overlay
-            NavigationCacheMode = Windows.UI.Xaml.Navigation.NavigationCacheMode.Enabled;
-            ApplicationView.PreferredLaunchViewSize = new Windows.Foundation.Size(900, 900);
 
             TQuick.Text = UpdateFile; //Displays file name on title bar
 
@@ -216,9 +213,8 @@ namespace Quick_Pad_Free_Edition
 
             if (launchValue == "Focus Mode")
             {
-                LaunchOptions.SelectedValue = "Focus Mode";
-
                 SwitchToFocusMode();
+                LaunchOptions.SelectedValue = "Focus Mode";
             }
 
             if (launchValue == "Default")
@@ -384,8 +380,6 @@ namespace Quick_Pad_Free_Edition
         // Stuff for putting the focus on the content
         private void MainPage_LayoutUpdated(object sender, object e)
         {
-            LaunchCheck(); //call method to check what mode the app should launch in
-
             if (_isPageLoaded == true)
             {
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
@@ -478,6 +472,7 @@ namespace Quick_Pad_Free_Edition
                     }
                 }
             }
+            LaunchCheck(); //call method to check what mode the app should launch in
         }
 
         public void RemoveAds() //hide ads
@@ -1592,11 +1587,11 @@ namespace Quick_Pad_Free_Edition
 
         private void SwitchToFocusMode()
         {
-            Text1.SetValue(Canvas.ZIndexProperty, 100);
+            Text1.SetValue(Canvas.ZIndexProperty, 90);
+            Text1.Margin = new Thickness(0, 33, 0, 0);
             CommandBar2.Visibility = Visibility.Collapsed;
             Shadow2.Visibility = Visibility.Collapsed;
             Shadow1.Visibility = Visibility.Collapsed;
-            Text1.Margin = new Thickness(0, 33, 0, 0);
             CloseFocusMode.Visibility = Visibility.Visible;
 
             Ad1.Suspend();
@@ -1610,11 +1605,11 @@ namespace Quick_Pad_Free_Edition
 
         private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
         {
-            Text1.SetValue(Canvas.ZIndexProperty, 1);
+            Text1.Margin = new Thickness(0, 74, 0, 40);
+            Text1.SetValue(Canvas.ZIndexProperty, 0);
             CommandBar2.Visibility = Visibility.Visible;
             Shadow2.Visibility = Visibility.Visible;
             Shadow1.Visibility = Visibility.Visible;
-            Text1.Margin = new Thickness(0, 74, 0, 40);
             CloseFocusMode.Visibility = Visibility.Collapsed;
 
             if (AdRemove != "Paid")
