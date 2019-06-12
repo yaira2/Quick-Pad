@@ -390,8 +390,6 @@ namespace Quick_Pad_Free_Edition
                 //let app know where setting are saved
                 ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
 
-                LaunchCheck(); //call method to check what mode the app should launch in
-
                 //check what default font is
                 try
                 {
@@ -449,6 +447,8 @@ namespace Quick_Pad_Free_Edition
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             _isPageLoaded = true;
+
+            LaunchCheck(); //call method to check what mode the app should launch in
         }
 
         public async void CheckPushNotifications()
