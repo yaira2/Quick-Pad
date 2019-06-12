@@ -56,8 +56,6 @@ namespace Quick_Pad_Free_Edition
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
-            OnTopCheck(); //call method to check setting if app should be open on top of other windows
-
             //add all installed fonts to the font box
             string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
             foreach (string font in fonts)
@@ -203,22 +201,28 @@ namespace Quick_Pad_Free_Edition
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
-        public void OnTopCheck()
+        public void LaunchCheck()
         {
-            //check if the setting is to launch in compact overlay mode
+            //check what mode to launch the app in
 
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //let app know where settings are stored
             String launchValue = localSettings.Values["LaunchMode"] as string;
 
-            if (launchValue == "OnTop")
+            if (launchValue == "On Top")
             {
                 CompactOverlay.IsChecked = true; //launch compact overlay mode
-                LaunchModeSwitch.IsOn = true; //toggle the launch compact overlay mode switch in the settings panel.
-                Analytics.TrackEvent("Loaded app in compact overlay mode"); //log even in app center
+                LaunchOptions.SelectedValue = "On Top";
             }
-            else
+
+            if (launchValue == "Focus Mode")
             {
-                LaunchModeSwitch.IsOn = false; //keep launch compact overlay mode switch off in settings panel.
+                SwitchToFocusMode();
+                LaunchOptions.SelectedValue = "Focus Mode";
+            }
+
+            if (launchValue == "Default")
+            {
+                LaunchOptions.SelectedValue = "Default";
             }
         }
 
@@ -385,6 +389,8 @@ namespace Quick_Pad_Free_Edition
 
                 //let app know where setting are saved
                 ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
+
+                LaunchCheck(); //call method to check what mode the app should launch in
 
                 //check what default font is
                 try
@@ -1204,24 +1210,6 @@ namespace Quick_Pad_Free_Edition
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
-        private void LaunchModeSwitch_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-                    localSettings.Values["LaunchMode"] = "OnTop";
-                }
-                else
-                {
-                    ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-                    localSettings.Values["LaunchMode"] = "Regular";
-                }
-            }
-        }
-
         private void Settings_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
         {
             SettingsPivot.SelectedItem = SettingsTab1; //Set focus to first item in pivot control in the settings panel
@@ -1601,7 +1589,7 @@ namespace Quick_Pad_Free_Edition
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);          
         }
 
-        private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
+        private void SwitchToFocusMode()
         {
             Text1.SetValue(Canvas.ZIndexProperty, 99);
             CommandBar2.Visibility = Visibility.Collapsed;
@@ -1613,6 +1601,10 @@ namespace Quick_Pad_Free_Edition
             Ad1.Suspend();
             Ad1.Visibility = Visibility.Collapsed;
             Ad.Visibility = Visibility.Collapsed;
+        }
+        private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchToFocusMode();
         }
 
         private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
@@ -1631,6 +1623,12 @@ namespace Quick_Pad_Free_Edition
                 Ad.Visibility = Visibility.Visible;
                 Text1.Margin = new Thickness(0, 74, 0, 130);
             }
+        }
+
+        private void LaunchOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+             localSettings.Values["LaunchMode"] = LaunchOptions.SelectedValue;
         }
     }
 }

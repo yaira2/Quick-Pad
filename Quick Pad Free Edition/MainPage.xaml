@@ -124,15 +124,19 @@
                         </Pivot.HeaderTemplate>
                         <PivotItem Header="General" x:Name="SettingsTab1">
                             <ScrollViewer x:Name="SettingsTab1SV"  Height="200">
-                                <Grid Height="320">
-                                    <TextBlock Text="Auto Save" Margin="0,10,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="AutoSaveSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,30,0,0" VerticalAlignment="Top" />
-                                    <TextBlock Text="Word Wrap" Margin="0,75,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
-                                    <ToggleSwitch x:Name="WordWrap" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" />
-                                    <TextBlock Text="Spell Check" Margin="0,140,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="SpellCheck" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" />
-                                    <TextBlock Text="Launch Mode" Margin="0,205,23,87" TextWrapping="Wrap" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="LaunchModeSwitch" OnContent="On Top" OffContent="Regular" Toggled="LaunchModeSwitch_Toggled" HorizontalAlignment="Left" Margin="0,225,0,0" VerticalAlignment="Top" />
+                                <Grid Height="270">
+                                    <TextBlock Text="Launch Mode" Margin="0,10,23,87" TextWrapping="Wrap"/>
+                                    <ComboBox Margin="0,35,0,0" PlaceholderText="Default" SelectionChanged="LaunchOptions_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                        <x:String>Default</x:String>
+                                        <x:String>On Top</x:String>
+                                        <x:String>Focus Mode</x:String>
+                                    </ComboBox>
+                                    <TextBlock Text="Auto Save" Margin="0,75,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="AutoSaveSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" />
+                                    <TextBlock Text="Word Wrap" Margin="0,140,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <ToggleSwitch x:Name="WordWrap" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,160,0,0" VerticalAlignment="Top" />
+                                    <TextBlock Text="Spell Check" Margin="0,205,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+                                    <ToggleSwitch x:Name="SpellCheck" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,225,0,0" VerticalAlignment="Top" />
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>
