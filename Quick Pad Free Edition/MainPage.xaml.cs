@@ -216,8 +216,9 @@ namespace Quick_Pad_Free_Edition
 
             if (launchValue == "Focus Mode")
             {
-                SwitchToFocusMode();
                 LaunchOptions.SelectedValue = "Focus Mode";
+
+                SwitchToFocusMode();
             }
 
             if (launchValue == "Default")
@@ -383,6 +384,8 @@ namespace Quick_Pad_Free_Edition
         // Stuff for putting the focus on the content
         private void MainPage_LayoutUpdated(object sender, object e)
         {
+            LaunchCheck(); //call method to check what mode the app should launch in
+
             if (_isPageLoaded == true)
             {
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
@@ -447,8 +450,6 @@ namespace Quick_Pad_Free_Edition
         private void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             _isPageLoaded = true;
-
-            LaunchCheck(); //call method to check what mode the app should launch in
         }
 
         public async void CheckPushNotifications()
@@ -1591,7 +1592,7 @@ namespace Quick_Pad_Free_Edition
 
         private void SwitchToFocusMode()
         {
-            Text1.SetValue(Canvas.ZIndexProperty, 99);
+            Text1.SetValue(Canvas.ZIndexProperty, 100);
             CommandBar2.Visibility = Visibility.Collapsed;
             Shadow2.Visibility = Visibility.Collapsed;
             Shadow1.Visibility = Visibility.Collapsed;
