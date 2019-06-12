@@ -82,11 +82,6 @@
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="CmdFocusMode" Click="CmdFocusMode_Click"  Icon="Caption" Label="Focus Mode" Width="Auto"/>
                 <AppBarButton x:Name="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
-                <AppBarButton x:Name="CmdAbout" Label="About" Click="CmdAbout_Click" Width="Auto">
-                    <AppBarButton.Icon>
-                        <FontIcon Glyph="&#xE946;"/>
-                    </AppBarButton.Icon>
-                </AppBarButton>
                 <AppBarButton x:Name="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click" ToolTipService.ToolTip="Settings"/>
             </CommandBar.SecondaryCommands>
             <AppBarButton x:Name="CmdUndo" Label="Undo"  Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)"/>
@@ -100,18 +95,6 @@
         </CommandBar>
 
         <RichEditBox  x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver"  KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,130" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
-
-        <ContentDialog x:Name="AboutDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
-           Opened="AboutDialog_Opened" PrimaryButtonText="Ok">
-
-            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Grid>
-                    <TextBlock Text="About" FontSize="24"/>
-                    <TextBlock Text="Developed by Yair Aichenbaum" Margin="0,37,0,-37"/>
-                    <TextBlock Text="Icon desgin by James Arney" Margin="0,60,0,-37"/>
-                </Grid>
-            </StackPanel>
-        </ContentDialog>
 
         <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
 
@@ -134,6 +117,11 @@
                         <AppBarButton x:Name="CmdBack" Windows10version1809:CornerRadius="2" Width="40" Icon="Clear" Click="CmdBack_Click"/>
                     </CommandBar>
                     <Pivot x:Name="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
+                        <Pivot.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding}" FontSize="20" FontFamily="Segoe UI"/>
+                            </DataTemplate>
+                        </Pivot.HeaderTemplate>
                         <PivotItem Header="General" x:Name="SettingsTab1">
                             <ScrollViewer x:Name="SettingsTab1SV"  Height="200">
                                 <Grid Height="320">
@@ -202,6 +190,18 @@
                                     <ToggleSwitch x:Name="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Toggled="ShowAlignCenter_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,185,0,0"/>
                                     <ToggleSwitch x:Name="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Toggled="ShowAlignRight_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,230,0,0"/>
                                     <ToggleSwitch x:Name="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Toggled="ShowAlignJustify_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,275,0,0"/>
+                                </Grid>
+                            </ScrollViewer>
+                        </PivotItem>
+                        <PivotItem Header="About" x:Name="SettingsTab5">
+                            <ScrollViewer x:Name="SettingsTab3SV"  Height="200">
+                                <Grid Height="200">
+                                    <TextBlock Text="Version number" x:Name="VersionNumber" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="11"/>
+                                    <TextBlock Text="Developed by Yair Aichenbaum" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="Icon desgin by James Arney" Margin="0,65,0,0" HorizontalAlignment="Center"/>
+                                    <HyperlinkButton Content="Email support" Margin="0,90,0,0" FontSize="13" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="mailto:atechelp@outlook.om"/>
+                                    <HyperlinkButton Content="Rate and review" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="13" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
+                                    <HyperlinkButton Content="Contribute to the developer" Margin="0,140,0,0" FontSize="13" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>

@@ -3,7 +3,9 @@ using Microsoft.Services.Store.Engagement;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
@@ -112,6 +114,8 @@ namespace Quick_Pad_Free_Edition
             CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
             CheckTheme(); //check the theme
 
+            VersionNumber.Text = string.Format("Version: {0}.{1}.{2}.{3}", Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
+
             //check how many times the app was run
             String NewUser = localSettings.Values["NewUser"] as string;
             if (NewUser == "1") //second time using the app
@@ -146,7 +150,6 @@ namespace Quick_Pad_Free_Edition
 
             SaveDialog.Hide();
             Settings.Hide(); //close the settings dialog so the app does not hang
-            AboutDialog.Hide(); //close the about dialog so the app does not hang
 
             await SaveDialog.ShowAsync();
 
@@ -834,11 +837,6 @@ namespace Quick_Pad_Free_Edition
             Clipboard.SetContent(dataPackage);
         }
 
-        private async void CmdAbout_Click(object sender, RoutedEventArgs e)
-        {
-            ContentDialogResult result = await AboutDialog.ShowAsync(); //shows the about dialog
-        }
-
         private void SizeUp_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -1228,8 +1226,6 @@ namespace Quick_Pad_Free_Edition
         {
             SettingsPivot.SelectedItem = SettingsTab1; //Set focus to first item in pivot control in the settings panel
         }
-
-        private void AboutDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args) { }
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
