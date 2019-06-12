@@ -1232,15 +1232,6 @@ namespace Quick_Pad_Free_Edition
             TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
         }
 
-        private async void Feedback_Click(object sender, RoutedEventArgs e)
-        {
-            var launcher = Microsoft.Services.Store.Engagement.StoreServicesFeedbackLauncher.GetDefault();
-            await launcher.LaunchAsync();
-
-            //log even in app center
-            Analytics.TrackEvent("User pressed feedback");
-        }
-
         private void AutoSaveSwitch_Toggled(object sender, RoutedEventArgs e)
         {
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
