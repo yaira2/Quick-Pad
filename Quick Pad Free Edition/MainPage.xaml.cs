@@ -40,6 +40,7 @@ namespace Quick_Pad_Free_Edition
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
         private String SaveDialogValue;
+        private string DefaultFileExt;
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timers interval
         public MainPage()
         {
@@ -62,6 +63,12 @@ namespace Quick_Pad_Free_Edition
             }
 
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
+
+            DefaultFileExt = localSettings.Values["DefaultFileType"] as string; //get the default file type
+            if (DefaultFileExt == ".txt")
+            {
+                DefaultFileType.SelectedValue = ".txt";
+            }
 
             //check if auto save is on or off
             String launchValue = localSettings.Values["AutoSave"] as string;
@@ -702,6 +709,15 @@ namespace Quick_Pad_Free_Edition
                 savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
                 savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
                 savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
+
+                //check if default file type is .txt
+                if (DefaultFileExt == ".txt")
+                {
+                    savePicker.FileTypeChoices.Clear();
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".txt" });
+                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".rtf" });
+                    savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
+                }
 
                 // Default file name if the user does not type one in or select a file to replace
                 savePicker.SuggestedFileName = UpdateFile;
@@ -1625,6 +1641,14 @@ namespace Quick_Pad_Free_Edition
         {
              ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
              localSettings.Values["LaunchMode"] = LaunchOptions.SelectedValue;
+        }
+
+        private void DefaultFileType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["DefaultFileType"] = DefaultFileType.SelectedValue;
+
+            DefaultFileExt = Convert.ToString(DefaultFileType.SelectedValue); //update the default file type right away
         }
     }
 }
