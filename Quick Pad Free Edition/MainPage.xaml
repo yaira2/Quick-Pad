@@ -131,17 +131,17 @@
                                         <x:String>On Top</x:String>
                                         <x:String>Focus Mode</x:String>
                                     </ComboBox>
-                                    <TextBlock Text="Auto Save" Margin="0,80,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="AutoSaveSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,100,0,0" VerticalAlignment="Top" />
-                                    <TextBlock Text="Word Wrap" Margin="0,145,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="WordWrap" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,165,0,0" VerticalAlignment="Top" />
-                                    <TextBlock Text="Spell Check" Margin="0,210,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="SpellCheck" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,230,0,0" VerticalAlignment="Top" />
-                                    <TextBlock Text="Default File Type" Margin="0,275,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
-                                    <ComboBox Margin="0,305,0,0" PlaceholderText=".rtf" SelectionChanged="DefaultFileType_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                    <TextBlock Text="Default File Type" Margin="0,80,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
+                                    <ComboBox Margin="0,105,0,0" PlaceholderText=".rtf" SelectionChanged="DefaultFileType_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                         <x:String>.rtf</x:String>
                                         <x:String>.txt</x:String>
                                     </ComboBox>
+                                    <TextBlock Text="Auto Save" Margin="0,150,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="AutoSaveSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
+                                    <TextBlock Text="Word Wrap" Margin="0,215,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="WordWrap" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
+                                    <TextBlock Text="Spell Check" Margin="0,280,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="SpellCheck" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" />
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>
