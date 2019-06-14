@@ -714,8 +714,8 @@ namespace Quick_Pad_Free_Edition
                 if (DefaultFileExt == ".txt")
                 {
                     savePicker.FileTypeChoices.Clear();
-                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".txt" });
-                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".rtf" });
+                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
                     savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
                 }
 
