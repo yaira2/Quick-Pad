@@ -11,6 +11,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Services.Store;
 using Windows.Storage;
+using Windows.System;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
@@ -1230,6 +1231,16 @@ namespace Quick_Pad_Free_Edition
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
+
+            if (e.Key == VirtualKey.Tab)
+            {
+                RichEditBox richEditBox = sender as RichEditBox;
+                if (richEditBox != null)
+                {
+                    richEditBox.Document.Selection.TypeText("\t");
+                    e.Handled = true;
+                }
+            }
         }
 
         private void AutoSaveSwitch_Toggled(object sender, RoutedEventArgs e)
