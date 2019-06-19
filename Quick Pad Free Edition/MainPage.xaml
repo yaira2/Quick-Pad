@@ -203,7 +203,7 @@
                         </PivotItem>
                         <PivotItem Header="About" x:Name="SettingsTab5">
                             <ScrollViewer x:Name="SettingsTab3SV"  Height="200">
-                                <Grid Height="200">
+                                <Grid Height="169">
                                     <TextBlock Text="Version number" x:Name="VersionNumber" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="11"/>
                                     <TextBlock Text="Developed by Yair Aichenbaum" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
                                     <TextBlock Text="Icon desgin by James Arney" Margin="0,65,0,0" HorizontalAlignment="Center"/>
