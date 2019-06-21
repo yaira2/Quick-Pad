@@ -533,27 +533,34 @@ namespace Quick_Pad_Free_Edition
 
         private async Task LoadFasFile(StorageFile file)
         {
-            var read = await FileIO.ReadTextAsync(file);
-            // Text1.Document.Selection.Text = read;
-
-            UpdateFile = file.DisplayName;
-            TQuick.Text = UpdateFile;
-            FullFilePath = file.Path;
-            SetTaskBarTitle(); //update the title in the taskbar
-
-            Windows.Storage.Streams.IRandomAccessStream randAccStream =
-         await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-
-            key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
-
-            // Load the file into the Document property of the RichEditBox.
-            if ((file.FileType.ToLower() != ".rtf"))
+            try
             {
-                Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
+                var read = await FileIO.ReadTextAsync(file);
+                // Text1.Document.Selection.Text = read;
+
+                UpdateFile = file.DisplayName;
+                TQuick.Text = UpdateFile;
+                FullFilePath = file.Path;
+                SetTaskBarTitle(); //update the title in the taskbar
+
+                Windows.Storage.Streams.IRandomAccessStream randAccStream =
+             await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+
+                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
+
+                // Load the file into the Document property of the RichEditBox.
+                if ((file.FileType.ToLower() != ".rtf"))
+                {
+                    Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
+                }
+                if (file.FileType.ToLower() == ".rtf")
+                {
+                    Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                }
             }
-            if (file.FileType.ToLower() == ".rtf")
+            catch (Exception)
             {
-                Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                throw;
             }
         }
 
