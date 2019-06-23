@@ -206,7 +206,7 @@
                                     <TextBlock Text="Version number" x:Name="VersionNumber" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe UI"/>
                                     <TextBlock Text="Developed by Yair Aichenbaum" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
                                     <TextBlock Text="Icon desgin by James Arney" Margin="0,65,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
-                                    <HyperlinkButton Content="Email support" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="mailto:atechelp@outlook.om"/>
+                                <HyperlinkButton Content="Send Feedback" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
                                     <HyperlinkButton Content="Rate and review" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
                                     <HyperlinkButton Content="Contribute to the developer" Margin="0,140,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
                                 </Grid>
