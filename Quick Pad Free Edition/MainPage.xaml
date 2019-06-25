@@ -32,7 +32,7 @@
             <Frame x:Name="FrameTop" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
         </controls:DropShadowPanel>
 
-        <Button x:Name="CloseFocusMode" ToolTipService.ToolTip="Exit focus mode" Click="CloseFocusMode_Click" Visibility="Collapsed" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="0,50,30,0" Canvas.ZIndex="1000" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2,2,2,2"/>
+        <Button x:Name="CloseFocusMode" ToolTipService.ToolTip="Exit focus mode" Click="CloseFocusMode_Click" Visibility="Collapsed" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="0,50,30,0" Canvas.ZIndex="1500" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2"/>
 
         <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,360,0" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="40"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <AppBarButton x:Name="CmdNew" Label="New" Width="Auto" MinWidth="40" Icon="Delete" Click="CmdNew_Click" ToolTipService.ToolTip="New"/>

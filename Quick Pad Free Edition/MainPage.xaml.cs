@@ -890,6 +890,7 @@ namespace Quick_Pad_Free_Edition
             Text1.Margin = new Thickness(0, 0, 0, 0);
             CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+            CmdFocusMode.IsEnabled = false;
             CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             Ad1.Suspend();
             Ad1.Visibility = Visibility.Collapsed;
@@ -911,40 +912,31 @@ namespace Quick_Pad_Free_Edition
         private async void CompactOverlay_Unchecked(object sender, RoutedEventArgs e)
         {
             if (AdRemove == "Paid")
-            {
-                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
-                Grid.SetRow(CommandBar2, 0);
-                Title.Visibility = Visibility.Visible;
-                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
-                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            {            
                 Text1.Margin = new Thickness(0, 74, 0, 40);
-                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
-                TQuick.Visibility = Visibility.Visible;
             }
             else
             {
-                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
-                Grid.SetRow(CommandBar2, 0);
-                Title.Visibility = Visibility.Visible;
-                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
-                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 Text1.Margin = new Thickness(0, 74, 0, 130);
-                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 Ad1.Visibility = Visibility.Visible;
                 Ad1.Resume();
                 Ad.Visibility = Visibility.Visible;
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
-                TQuick.Visibility = Visibility.Visible;
             }
+
+            bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
+            Grid.SetRow(CommandBar2, 0);
+            Title.Visibility = Visibility.Visible;
+            Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
+            FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
+            TQuick.Visibility = Visibility.Visible;
+            CmdFocusMode.IsEnabled = true;
         }
 
         private void Emoji_Checked(object sender, RoutedEventArgs e)
