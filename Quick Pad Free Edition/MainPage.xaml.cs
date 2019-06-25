@@ -1,5 +1,6 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
+using Microsoft.Toolkit.Uwp.Helpers;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -282,19 +283,6 @@ namespace Quick_Pad_Free_Edition
         private void CheckToolbarOptions()
         {
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //let app know where settings are stored
-
-            //check if the share option should show
-            String ShowS = localSettings.Values["ShowShare"] as string;
-
-            if (ShowS == "No")
-            {
-                ShowShare.IsOn = false; //toggle the show share option in the settings panel.
-                CmdShare.Visibility = Visibility.Collapsed; //hide share button
-            }
-            else
-            {
-                ShowShare.IsOn = true; //toggle the show share option in the settings panel.
-            }
 
             //check if the bullet list option should show
             String ShowBulletsSetting = localSettings.Values["ShowBullets"] as string;
@@ -1304,26 +1292,6 @@ namespace Quick_Pad_Free_Edition
                 {
                     localSettings.Values["ShowStrikethroughOption"] = "No";
                     Strikethrough.Visibility = Visibility.Collapsed;
-                }
-            }
-        }
-
-        private void ShowShare_Toggled(object sender, RoutedEventArgs e)
-        {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowShare"] = "Yes";
-                    CmdShare.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowShare"] = "No";
-                    CmdShare.Visibility = Visibility.Collapsed;
                 }
             }
         }
