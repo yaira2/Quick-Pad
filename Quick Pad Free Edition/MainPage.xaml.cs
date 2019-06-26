@@ -433,6 +433,8 @@ namespace Quick_Pad_Free_Edition
                     Text1.Document.Selection.CharacterFormat.Size = DefaultFontSizes; //set the font size
                 }
 
+                TQuick.Text = UpdateFile; //add star to title bar to indicate unsaved file
+
                 _isPageLoaded = false;
             }
         }
@@ -526,13 +528,8 @@ namespace Quick_Pad_Free_Edition
                 var read = await FileIO.ReadTextAsync(file);
                 // Text1.Document.Selection.Text = read;
 
-                UpdateFile = file.DisplayName;
-                TQuick.Text = UpdateFile;
-                FullFilePath = file.Path;
-                SetTaskBarTitle(); //update the title in the taskbar
-
                 Windows.Storage.Streams.IRandomAccessStream randAccStream =
-             await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
 
                 key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
@@ -545,6 +542,11 @@ namespace Quick_Pad_Free_Edition
                 {
                     Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                 }
+
+                UpdateFile = file.DisplayName;
+                TQuick.Text = UpdateFile;
+                FullFilePath = file.Path;
+                SetTaskBarTitle(); //update the title in the taskbar
             }
             catch (Exception)
             {
@@ -598,8 +600,6 @@ namespace Quick_Pad_Free_Edition
                     FullFilePath = ""; //clear the path of the open file since there is none
                     SetTaskBarTitle(); //update the title in the taskbar
 
-                    //log even in app center
-                    Analytics.TrackEvent("New Document Created");
                 }
 
                 SaveDialogValue = ""; //reset save dialog 
@@ -612,9 +612,6 @@ namespace Quick_Pad_Free_Edition
                 TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
                 FullFilePath = ""; //clear the path of the open file since there is none
                 SetTaskBarTitle(); //update the title in the taskbar
-
-                //log even in app center
-                Analytics.TrackEvent("New Document Created");
             }
         }
 
@@ -637,11 +634,6 @@ namespace Quick_Pad_Free_Edition
                     Windows.Storage.Streams.IRandomAccessStream randAccStream =
                 await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
 
-                    UpdateFile = file.DisplayName;
-                    TQuick.Text = UpdateFile;
-                    FullFilePath = file.Path;
-                    SetTaskBarTitle(); //update the title in the taskbar
-
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     // Load the file into the Document property of the RichEditBox.
@@ -654,7 +646,10 @@ namespace Quick_Pad_Free_Edition
                         Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                     }
 
-                    Analytics.TrackEvent("Document Opened With File Picker"); //log even in app center
+                    UpdateFile = file.DisplayName;
+                    TQuick.Text = UpdateFile;
+                    FullFilePath = file.Path;
+                    SetTaskBarTitle(); //update the title in the taskbar
                 }
                 catch (Exception)
                 {
@@ -963,7 +958,6 @@ namespace Quick_Pad_Free_Edition
         {
             string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
             Text1.Document.Selection.TypeText(objname); //add it to the text box
-            TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
 
             //log even in app center
             Analytics.TrackEvent("User inserted an emoji");
@@ -1048,8 +1042,6 @@ namespace Quick_Pad_Free_Edition
             {
                 CmdRedo.IsEnabled = false;
             }
-
-            TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
         }
 
         public async Task<bool> ShowRatingReviewDialog()
@@ -1299,32 +1291,25 @@ namespace Quick_Pad_Free_Edition
                     {
                         var storageFile = items[0] as StorageFile;
                         var read = await FileIO.ReadTextAsync(storageFile);
-                        // Text1.Document.Selection.Text = read;
 
-                        Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                     await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                        Windows.Storage.Streams.IRandomAccessStream randAccStream = await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
 
                         key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
 
                         if ((storageFile.FileType.ToLower() != ".rtf"))
                         {
-                            UpdateFile = storageFile.DisplayName;
-                            TQuick.Text = UpdateFile;
-                            FullFilePath = storageFile.Path;
-                            SetTaskBarTitle(); //update the title in the taskbar
-
                             Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(storageFile));
                         }
 
                         if (storageFile.FileType.ToLower() == ".rtf")
                         {
-                            UpdateFile = storageFile.DisplayName;
-                            TQuick.Text = UpdateFile;
-                            FullFilePath = storageFile.Path;
-                            SetTaskBarTitle(); //update the title in the taskbar
-
                             Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                         }
+
+                        UpdateFile = storageFile.DisplayName;
+                        TQuick.Text = UpdateFile;
+                        FullFilePath = storageFile.Path;
+                        SetTaskBarTitle(); //update the title in the taskbar
 
                         //log even in app center
                         Analytics.TrackEvent("Droped file in to Quick Pad");
@@ -1610,6 +1595,11 @@ namespace Quick_Pad_Free_Edition
             localSettings.Values["DefaultFileType"] = DefaultFileType.SelectedValue;
 
             DefaultFileExt = Convert.ToString(DefaultFileType.SelectedValue); //update the default file type right away
+        }
+
+        private void Text1_TextChanging(RichEditBox sender, RichEditBoxTextChangingEventArgs args)
+        {
+            TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
         }
     }
 }
