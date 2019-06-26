@@ -226,10 +226,7 @@ namespace Quick_Pad_Free_Edition
                 LaunchOptions.SelectedValue = "Focus Mode";
             }
 
-            if (launchValue == "Default")
-            {
-                LaunchOptions.SelectedValue = "Default";
-            }
+            if (launchValue == "Default") LaunchOptions.SelectedValue = "Default";
         }
 
         //check the theme
