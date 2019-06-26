@@ -87,7 +87,11 @@
             <AppBarButton x:Name="CmdUndo" Label="Undo"  Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)"/>
             <AppBarButton x:Name="CmdRedo" Label="Redo"  Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click" ToolTipService.ToolTip="Redo (Ctrl+Y)"/>
             <AppBarSeparator x:Name="ASep1"/>
-            <AppBarToggleButton x:Name="CompactOverlay" Content="On Top" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Checked="CompactOverlay_Checked" Unchecked="CompactOverlay_Unchecked"/>
+            <AppBarToggleButton x:Name="CompactOverlay" Content="On Top" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Checked="CompactOverlay_Checked" Unchecked="CompactOverlay_Unchecked">
+                <AppBarToggleButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                </AppBarToggleButton.KeyboardAccelerators>
+            </AppBarToggleButton>
             <AppBarButton x:Name="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click" ToolTipService.ToolTip="Copy (Ctrl+C)"/>
             <AppBarButton x:Name="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click" ToolTipService.ToolTip="Paste (Ctrl+V)"/>
             <AppBarButton x:Name="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click" ToolTipService.ToolTip="Cut (Ctrl+X)"/>
