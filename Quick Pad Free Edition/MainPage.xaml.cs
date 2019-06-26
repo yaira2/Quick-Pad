@@ -148,12 +148,12 @@ namespace Quick_Pad_Free_Edition
             if (TQuick.Text == UpdateFile)
             {
                 App.Current.Exit();  //close if file is up to date already
-
             };
             args.Handled = true;
 
+            //close dialogs so the app does not hang
             SaveDialog.Hide();
-            Settings.Hide(); //close the settings dialog so the app does not hang
+            Settings.Hide();
 
             await SaveDialog.ShowAsync();
 
