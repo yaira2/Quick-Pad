@@ -999,23 +999,6 @@ namespace Quick_Pad_Free_Edition
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.Black);
         }
 
-        private async void NewWindows_Click(object sender, RoutedEventArgs e)
-        {
-            CoreApplicationView newView = CoreApplication.CreateNewView();
-            int newViewId = 0;
-            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
-            {
-                Frame frame = new Frame();
-                frame.Navigate(typeof(MainPage), null);
-                Window.Current.Content = frame;
-                // You have to activate the window in order to show it later.
-                Window.Current.Activate();
-
-                newViewId = ApplicationView.GetForCurrentView().Id;
-            });
-            bool viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(newViewId);
-        }
-
         private void Text1_GotFocus(object sender, RoutedEventArgs e)
         {
             Emoji.IsChecked = false; //hide emoji panel if open 
@@ -1065,6 +1048,8 @@ namespace Quick_Pad_Free_Edition
             {
                 CmdRedo.IsEnabled = false;
             }
+
+            TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
         }
 
         public async Task<bool> ShowRatingReviewDialog()
@@ -1217,8 +1202,6 @@ namespace Quick_Pad_Free_Edition
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
-
             if (e.Key == VirtualKey.Tab)
             {
                 RichEditBox richEditBox = sender as RichEditBox;
