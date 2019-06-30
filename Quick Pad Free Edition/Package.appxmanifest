@@ -47,6 +47,8 @@
               <uap:FileType>.php</uap:FileType>
               <uap:FileType>.xml</uap:FileType>
               <uap:FileType>.scss</uap:FileType>
+              <uap:FileType>.ini</uap:FileType>
+              <uap:FileType>.gitignore</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:EditFlags OpenIsSafe="true"/>
           </uap:FileTypeAssociation>
