@@ -618,10 +618,8 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
         {
-            Windows.Storage.Pickers.FileOpenPicker open =
-                new Windows.Storage.Pickers.FileOpenPicker();
-            open.SuggestedStartLocation =
-                Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+            Windows.Storage.Pickers.FileOpenPicker open = new Windows.Storage.Pickers.FileOpenPicker();
+            open.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
             open.FileTypeFilter.Add(".rtf"); //add file types that can be opened to the file picker
             open.FileTypeFilter.Add(".txt"); //add file types that can be opened to the file picker
             open.FileTypeFilter.Add("*"); //add file types that can be opened to the file picker
