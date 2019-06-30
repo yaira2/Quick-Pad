@@ -1259,12 +1259,12 @@ namespace Quick_Pad_Free_Edition
                 await SaveDialog.ShowAsync();
                 if (SaveDialogValue=="Cancel")
                 {
-                    SaveDialogValue = ""; //reset save dialog 
+                    SaveDialogValue = ""; //reset save dialog value
                     return;
                 }
             }
 
-            //load rich text files droped in from file explorer
+            //load rich text files dropped in from file explorer
             try
             {
                 if (e.DataView.Contains(StandardDataFormats.StorageItems))
@@ -1538,7 +1538,6 @@ namespace Quick_Pad_Free_Edition
             Shadow2.Visibility = Visibility.Collapsed;
             Shadow1.Visibility = Visibility.Collapsed;
             CloseFocusMode.Visibility = Visibility.Visible;
-
             HideAds();
         }
         private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
@@ -1585,7 +1584,6 @@ namespace Quick_Pad_Free_Edition
         {
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFileType"] = DefaultFileType.SelectedValue;
-
             DefaultFileExt = Convert.ToString(DefaultFileType.SelectedValue); //update the default file type right away
         }
 
