@@ -48,13 +48,14 @@ namespace Quick_Pad_Free_Edition
         {
             InitializeComponent();
 
-            TQuick.Text = UpdateFile; //Displays file name on title bar
-
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
+            TQuick.Text = UpdateFile; //Displays file name on title bar
 
             //add all installed fonts to the font box
             string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
@@ -869,9 +870,7 @@ namespace Quick_Pad_Free_Edition
         private async void CompactOverlay_Checked(object sender, RoutedEventArgs e)
         {
             ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            //compactOptions.CustomSize = new Windows.Foundation.Size(426, 300);
             bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
-            ApplicationView.GetForCurrentView().SetPreferredMinSize(new Size(450, 200));
 
             Grid.SetRow(CommandBar2, 2);
             Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
