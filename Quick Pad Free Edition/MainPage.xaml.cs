@@ -386,7 +386,7 @@ namespace Quick_Pad_Free_Edition
                 //let app know where setting are saved
                 ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
 
-                //check what default font is
+                //check what the default font is
                 try
                 {
                     String DefaultFonts = localSettings.Values["DefaultFont"] as string;
@@ -476,11 +476,9 @@ namespace Quick_Pad_Free_Edition
             LaunchCheck(); //call method to check what mode the app should launch in
         }
 
-        public void RemoveAds() //hide ads
+        public void RemoveAds() //hide ads, this is different then HideAds since it hides the button to remove the ads too
         {
-            Ad1.Suspend();
-            Ad1.Visibility = Visibility.Collapsed; //hide the ad
-            Ad.Visibility = Visibility.Collapsed;
+            HideAds();
             RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
             Text1.Margin = new Thickness(0, 74, 0, 40); //fix text margin to take up space where ad used to be
         }
@@ -888,9 +886,7 @@ namespace Quick_Pad_Free_Edition
             CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             CmdFocusMode.IsEnabled = false;
             CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            Ad1.Suspend();
-            Ad1.Visibility = Visibility.Collapsed;
-            Ad.Visibility = Visibility.Collapsed;
+            HideAds();
             CommandBar2.Margin = new Thickness(0, 0, 0, 0);
             TQuick.Visibility = Visibility.Collapsed;
 
@@ -915,10 +911,8 @@ namespace Quick_Pad_Free_Edition
             else
             {
                 Text1.Margin = new Thickness(0, 74, 0, 130);
-                Ad1.Visibility = Visibility.Visible;
-                Ad1.Resume();
-                Ad.Visibility = Visibility.Visible;
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
+                ShowAds();
             }
 
             bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
@@ -1087,18 +1081,14 @@ namespace Quick_Pad_Free_Edition
             {
                 case StorePurchaseStatus.AlreadyPurchased:
                     AdRemove = "Paid";
-                    Ad1.Suspend();
-                    Ad1.Visibility = Visibility.Collapsed;
-                    Ad.Visibility = Visibility.Collapsed;
+                    HideAds();
                     RemoveAd.Visibility = Visibility.Collapsed;
                     Text1.Margin = new Thickness(0, 74, 0, 40);
                     break;
 
                 case StorePurchaseStatus.Succeeded:
                     AdRemove = "Paid";
-                    Ad1.Suspend();
-                    Ad1.Visibility = Visibility.Collapsed;
-                    Ad.Visibility = Visibility.Collapsed;
+                    HideAds();
                     RemoveAd.Visibility = Visibility.Collapsed;
                     Text1.Margin = new Thickness(0, 74, 0, 40);
 
@@ -1554,13 +1544,24 @@ namespace Quick_Pad_Free_Edition
             Shadow1.Visibility = Visibility.Collapsed;
             CloseFocusMode.Visibility = Visibility.Visible;
 
-            Ad1.Suspend();
-            Ad1.Visibility = Visibility.Collapsed;
-            Ad.Visibility = Visibility.Collapsed;
+            HideAds();
         }
         private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
         {
             SwitchToFocusMode();
+        }
+
+        private void HideAds()
+        {
+            Ad1.Suspend();
+            Ad1.Visibility = Visibility.Collapsed;
+            Ad.Visibility = Visibility.Collapsed;
+        }
+        private void ShowAds()
+        {
+            Ad1.Visibility = Visibility.Visible;
+            Ad1.Resume();
+            Ad.Visibility = Visibility.Visible;
         }
 
         private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
@@ -1574,9 +1575,7 @@ namespace Quick_Pad_Free_Edition
 
             if (AdRemove != "Paid")
             {
-                Ad1.Resume();
-                Ad1.Visibility = Visibility.Visible;
-                Ad.Visibility = Visibility.Visible;
+                ShowAds();
                 Text1.Margin = new Thickness(0, 74, 0, 130);
             }
         }
