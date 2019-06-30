@@ -41,9 +41,9 @@ namespace Quick_Pad_Free_Edition
         private string key; //future access list
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
-        private String SaveDialogValue;
-        private string DefaultFileExt;
-        public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timers interval
+        private String SaveDialogValue; //this is to know if the user clicks cancel when asked if they want to save
+        private string DefaultFileExt; //this is to check the default file extension choosen in the save file dialog
+        public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
         public MainPage()
         {
             InitializeComponent();
@@ -57,81 +57,13 @@ namespace Quick_Pad_Free_Edition
 
             TQuick.Text = UpdateFile; //Displays file name on title bar
 
-            //add all installed fonts to the font box
-            string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
-            foreach (string font in fonts)
-            {
-                Fonts.Items.Add(string.Format(font));
-                DefaultFont.Items.Add(string.Format(font));
-            }
-
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
-
-            DefaultFileExt = localSettings.Values["DefaultFileType"] as string; //get the default file type
-            if (DefaultFileExt == ".txt")
-            {
-                DefaultFileType.SelectedValue = ".txt";
-            }
-
-            //check if auto save is on or off
-            String launchValue = localSettings.Values["AutoSave"] as string;
-            if (launchValue == "Off")
-            {
-                AutoSaveSwitch.IsOn = false; //keep auto save switch off in settings panel.
-            }
-            else
-            {
-                AutoSaveSwitch.IsOn = true; //turn auto save switch on in settings panel.
-
-                //start auto save timer
-                timer.Enabled = true;
-                timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
-                timer.AutoReset = true;
-            }
-
-            //check if word wrap is on or off
-            String WordWrapSetting = localSettings.Values["WordWrap"] as string;
-            if (WordWrapSetting == "No")
-            {
-                WordWrap.IsOn = false; //keep word wrap switch off in settings panel.
-                Text1.TextWrapping = TextWrapping.NoWrap; //turn off word wrap
-            }
-            else
-            {
-                WordWrap.IsOn = true; //turn word wrap switch on in settings panel.
-                Text1.TextWrapping = TextWrapping.Wrap; //turn on word wrap
-            }
-
-            //check if spell check is on or off
-            String spellchecksetting = localSettings.Values["SpellCheck"] as string;
-            if (spellchecksetting == "No")
-            {
-                SpellCheck.IsOn = false; //keep spell check switch off in settings panel.
-                Text1.IsSpellCheckEnabled = false; //turn spell check off
-            }
-            else
-            {
-                SpellCheck.IsOn = true; //turn spell check switch on in settings panel.
-                Text1.IsSpellCheckEnabled = true; //turn spell on
-            }
-
+            LoadSettings();
+            LoadFonts();
             CheckToolbarOptions(); //check which buttons to show in toolbar
             CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
             CheckTheme(); //check the theme
 
             VersionNumber.Text = string.Format("Version: {0}.{1}.{2}.{3}", Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
-
-            //check how many times the app was run
-            String NewUser = localSettings.Values["NewUser"] as string;
-            if (NewUser == "1") //second time using the app
-            {
-                localSettings.Values["NewUser"] = "2";
-                NewUserFeedbackAsync(); //call method that asks user if they want to review the app
-            }
-            if (NewUser != "1" && NewUser != "2") //first time using the app
-            {
-                localSettings.Values["NewUser"] = "1";
-            }
 
             //check if focus is on app or off the app
             Window.Current.CoreWindow.Activated += (sender, args) =>
@@ -143,33 +75,31 @@ namespace Quick_Pad_Free_Edition
             };
 
             //ask user if they want to save before closing the app
-            Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested +=
-        async (sender, args) =>
-        {
-            if (TQuick.Text == UpdateFile)
+            Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, args) =>
             {
-                App.Current.Exit();  //close if file is up to date already
+                if (TQuick.Text == UpdateFile)
+                    {
+                        App.Current.Exit();  //close if file is up to date already
+                    };
+
+                    args.Handled = true;
+
+                    //close dialogs so the app does not hang
+                    SaveDialog.Hide();
+                    Settings.Hide();
+
+                await SaveDialog.ShowAsync();
+
+                if (SaveDialogValue != "Cancel")
+                    {
+                        App.Current.Exit();
+                    }
+
+                SaveDialogValue = ""; //reset save dialog    
             };
-            args.Handled = true;
-
-            //close dialogs so the app does not hang
-            SaveDialog.Hide();
-            Settings.Hide();
-
-            await SaveDialog.ShowAsync();
-
-            if (SaveDialogValue != "Cancel")
-            {
-                 App.Current.Exit();
-            }
-
-            SaveDialogValue = ""; //reset save dialog 
-           
-        };
 
             CheckPushNotifications(); //check for push notifications
 
-            //code needed to focus on text box on app launch
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
         }
@@ -230,8 +160,83 @@ namespace Quick_Pad_Free_Edition
             if (launchValue == "Default") LaunchOptions.SelectedValue = "Default";
         }
 
-        //check the theme
-        private void CheckTheme()
+        private void LoadSettings()
+        {
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
+
+            DefaultFileExt = localSettings.Values["DefaultFileType"] as string; //get the default file type
+            if (DefaultFileExt == ".txt")
+            {
+                DefaultFileType.SelectedValue = ".txt";
+            }
+
+            //check if auto save is on or off
+            String launchValue = localSettings.Values["AutoSave"] as string;
+            if (launchValue == "Off")
+            {
+                AutoSaveSwitch.IsOn = false; //keep auto save switch off in settings panel.
+            }
+            else
+            {
+                AutoSaveSwitch.IsOn = true; //turn auto save switch on in settings panel.
+
+                //start auto save timer
+                timer.Enabled = true;
+                timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
+                timer.AutoReset = true;
+            }
+
+            //check if word wrap is on or off
+            String WordWrapSetting = localSettings.Values["WordWrap"] as string;
+            if (WordWrapSetting == "No")
+            {
+                WordWrap.IsOn = false; //keep word wrap switch off in settings panel.
+                Text1.TextWrapping = TextWrapping.NoWrap; //turn off word wrap
+            }
+            else
+            {
+                WordWrap.IsOn = true; //turn word wrap switch on in settings panel.
+                Text1.TextWrapping = TextWrapping.Wrap; //turn on word wrap
+            }
+
+            //check if spell check is on or off
+            String spellchecksetting = localSettings.Values["SpellCheck"] as string;
+            if (spellchecksetting == "No")
+            {
+                SpellCheck.IsOn = false; //keep spell check switch off in settings panel.
+                Text1.IsSpellCheckEnabled = false; //turn spell check off
+            }
+            else
+            {
+                SpellCheck.IsOn = true; //turn spell check switch on in settings panel.
+                Text1.IsSpellCheckEnabled = true; //turn spell on
+            }
+
+            //check how many times the app was run
+            String NewUser = localSettings.Values["NewUser"] as string;
+            if (NewUser == "1") //second time using the app
+            {
+                localSettings.Values["NewUser"] = "2";
+                NewUserFeedbackAsync(); //call method that asks user if they want to review the app
+            }
+            if (NewUser != "1" && NewUser != "2") //first time using the app
+            {
+                localSettings.Values["NewUser"] = "1";
+            }
+        }
+
+        private void LoadFonts()
+        {
+            //add all installed fonts to the font box
+            string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
+            foreach (string font in fonts)
+            {
+                Fonts.Items.Add(string.Format(font));
+                DefaultFont.Items.Add(string.Format(font));
+            }
+        }
+
+            private void CheckTheme()
         {
             //get some theme settings in
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
