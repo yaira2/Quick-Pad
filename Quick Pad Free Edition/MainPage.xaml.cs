@@ -1004,9 +1004,6 @@ namespace Quick_Pad_Free_Edition
         {
             Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
             Windows.ApplicationModel.DataTransfer.DataTransferManager.GetForCurrentView().DataRequested += MainPage_DataRequested;
-
-            //log even in app center
-            Analytics.TrackEvent("Shared file");
         }
 
         private void MainPage_DataRequested(Windows.ApplicationModel.DataTransfer.DataTransferManager sender, Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs args)
