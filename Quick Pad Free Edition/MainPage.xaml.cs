@@ -620,9 +620,9 @@ namespace Quick_Pad_Free_Edition
         {
             Windows.Storage.Pickers.FileOpenPicker open = new Windows.Storage.Pickers.FileOpenPicker();
             open.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-            open.FileTypeFilter.Add(".rtf"); //add file types that can be opened to the file picker
-            open.FileTypeFilter.Add(".txt"); //add file types that can be opened to the file picker
-            open.FileTypeFilter.Add("*"); //add file types that can be opened to the file picker
+            open.FileTypeFilter.Add(".rtf"); //add file type to the file picker
+            open.FileTypeFilter.Add(".txt"); //add file type to the file picker
+            open.FileTypeFilter.Add("*"); //add wild card so more file types can be opened
 
             Windows.Storage.StorageFile file = await open.PickSingleFileAsync();
 
@@ -630,12 +630,9 @@ namespace Quick_Pad_Free_Edition
             {
                 try
                 {
-                    Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-
+                    Windows.Storage.Streams.IRandomAccessStream randAccStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
-                    // Load the file into the Document property of the RichEditBox.
                     if ((file.FileType.ToLower() != ".rtf"))
                     {
                         Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
