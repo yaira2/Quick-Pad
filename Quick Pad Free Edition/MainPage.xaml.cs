@@ -29,9 +29,6 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Quick_Pad_Free_Edition
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class MainPage : Page
     {
         private string UpdateFile = "New Document"; //Default file name is "New Document"
