@@ -823,7 +823,7 @@ namespace Quick_Pad_Free_Edition
             if (dataPackageView.Contains(StandardDataFormats.Text))
             {
                 string text = await dataPackageView.GetTextAsync();
-                //if there is nothing to paste then dont paste anything since it wil crash
+                //if there is nothing to paste then dont paste anything since it will crash
                 if (text != "")
                 {
                     Text1.Document.Selection.TypeText(text); //paste the text from the clipboard
