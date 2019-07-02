@@ -82,7 +82,6 @@ namespace Quick_Pad_Free_Edition
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
-               // SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += App_CloseRequested;
 
                 // Ensure the current window is active
                 Window.Current.Activate();
