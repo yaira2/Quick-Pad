@@ -49,6 +49,33 @@
               <uap:FileType>.scss</uap:FileType>
               <uap:FileType>.ini</uap:FileType>
               <uap:FileType>.gitignore</uap:FileType>
+              <uap:FileType>.cfg</uap:FileType>
+              <uap:FileType>.config</uap:FileType>
+              <uap:FileType>.cnf</uap:FileType>
+              <uap:FileType>.conf</uap:FileType>
+              <uap:FileType>.log</uap:FileType>
+              <uap:FileType>.json</uap:FileType>
+              <uap:FileType>.yml</uap:FileType>
+              <uap:FileType>.yaml</uap:FileType>
+              <uap:FileType>.htm</uap:FileType>
+              <uap:FileType>.asp</uap:FileType>
+              <uap:FileType>.aspx</uap:FileType>
+              <uap:FileType>.jsp</uap:FileType>
+              <uap:FileType>.jspx</uap:FileType>
+              <uap:FileType>.cmake</uap:FileType>
+              <uap:FileType>.bash</uap:FileType>
+              <uap:FileType>.sh</uap:FileType>
+              <uap:FileType>.cpp</uap:FileType>
+              <uap:FileType>.hpp</uap:FileType>
+              <uap:FileType>.cc</uap:FileType>
+              <uap:FileType>.py</uap:FileType>
+              <uap:FileType>.mm</uap:FileType>
+              <uap:FileType>.rb</uap:FileType>
+              <uap:FileType>.vb</uap:FileType>
+              <uap:FileType>.java</uap:FileType>
+              <uap:FileType>.js</uap:FileType>
+              <uap:FileType>.ts</uap:FileType>
+              <uap:FileType>.lua</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:EditFlags OpenIsSafe="true"/>
           </uap:FileTypeAssociation>
