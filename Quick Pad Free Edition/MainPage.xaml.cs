@@ -69,22 +69,22 @@ namespace Quick_Pad_Free_Edition
             Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, args) =>
             {
                 if (TQuick.Text == UpdateFile)
-                    {
-                        App.Current.Exit();  //close if file is already up to date
+                {
+                    App.Current.Exit();  //close if file is already up to date
                 };
 
-                    args.Handled = true;
+                args.Handled = true;
 
-                    //close dialogs so the app does not hang
-                    SaveDialog.Hide();
-                    Settings.Hide();
+                //close dialogs so the app does not hang
+                SaveDialog.Hide();
+                Settings.Hide();
 
                 await SaveDialog.ShowAsync();
 
                 if (SaveDialogValue != "Cancel")
-                    {
-                        App.Current.Exit();
-                    }
+                {
+                    App.Current.Exit();
+                }
 
                 SaveDialogValue = ""; //reset save dialog    
             };
@@ -221,7 +221,7 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-            private void CheckTheme()
+        private void CheckTheme()
         {
             //get some theme settings in
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
@@ -881,7 +881,7 @@ namespace Quick_Pad_Free_Edition
         private async void CompactOverlay_Unchecked(object sender, RoutedEventArgs e)
         {
             if (AdRemove == "Paid")
-            {            
+            {
                 Text1.Margin = new Thickness(0, 74, 0, 40);
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
             }
@@ -1239,7 +1239,7 @@ namespace Quick_Pad_Free_Edition
             if (TQuick.Text != UpdateFile)
             {
                 await SaveDialog.ShowAsync();
-                if (SaveDialogValue=="Cancel")
+                if (SaveDialogValue == "Cancel")
                 {
                     SaveDialogValue = ""; //reset save dialog value
                     return;
@@ -1509,7 +1509,7 @@ namespace Quick_Pad_Free_Edition
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFontColor"] = DefaultFontColor.SelectedValue;
 
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);          
+            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
         }
 
         private void SwitchToFocusMode()
@@ -1558,8 +1558,8 @@ namespace Quick_Pad_Free_Edition
 
         private void LaunchOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-             localSettings.Values["LaunchMode"] = LaunchOptions.SelectedValue;
+            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+            localSettings.Values["LaunchMode"] = LaunchOptions.SelectedValue;
         }
 
         private void DefaultFileType_SelectionChanged(object sender, SelectionChangedEventArgs e)
