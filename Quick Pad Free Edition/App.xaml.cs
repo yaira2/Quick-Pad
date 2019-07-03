@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace Quick_Pad_Free_Edition
 {
@@ -34,7 +35,7 @@ namespace Quick_Pad_Free_Edition
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
-            AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics)); //send analytics to app center
+            AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes)); //send analytics to app center
         }
 
         protected override void OnFileActivated(FileActivatedEventArgs args)

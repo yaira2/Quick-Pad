@@ -70,10 +70,10 @@ namespace Quick_Pad_Free_Edition
             {
                 if (TQuick.Text == UpdateFile)
                 {
-                    App.Current.Exit();  //close if file is already up to date
-                };
+                    Application.Current.Exit();
+                }
 
-                args.Handled = true;
+                args.Handled = false;
 
                 //close dialogs so the app does not hang
                 SaveDialog.Hide();
@@ -83,7 +83,7 @@ namespace Quick_Pad_Free_Edition
 
                 if (SaveDialogValue != "Cancel")
                 {
-                    App.Current.Exit();
+                    Application.Current.Exit();
                 }
 
                 SaveDialogValue = ""; //reset save dialog    
