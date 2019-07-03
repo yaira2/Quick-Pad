@@ -66,14 +66,14 @@ namespace Quick_Pad_Free_Edition
             };
 
             //ask user if they want to save before closing the app
-            Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, args) =>
+            Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, e) =>
             {
+                var deferral = e.GetDeferral();
+
                 if (TQuick.Text == UpdateFile)
                 {
-                    Application.Current.Exit();
+                    deferral.Complete();
                 }
-
-                args.Handled = false;
 
                 //close dialogs so the app does not hang
                 SaveDialog.Hide();
@@ -83,7 +83,13 @@ namespace Quick_Pad_Free_Edition
 
                 if (SaveDialogValue != "Cancel")
                 {
-                    Application.Current.Exit();
+                    deferral.Complete();
+                }
+
+                if (SaveDialogValue== "Cancel")
+                {
+                    e.Handled = true;
+                    deferral.Complete();
                 }
 
                 SaveDialogValue = ""; //reset save dialog    
