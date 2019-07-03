@@ -1,15 +1,12 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
-using Microsoft.Toolkit.Uwp.Helpers;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Reflection;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.Foundation;
 using Windows.Services.Store;
 using Windows.Storage;
 using Windows.System;
@@ -24,8 +21,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace Quick_Pad_Free_Edition
 {
@@ -48,7 +43,6 @@ namespace Quick_Pad_Free_Edition
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
@@ -76,8 +70,8 @@ namespace Quick_Pad_Free_Edition
             {
                 if (TQuick.Text == UpdateFile)
                     {
-                        App.Current.Exit();  //close if file is up to date already
-                    };
+                        App.Current.Exit();  //close if file is already up to date
+                };
 
                     args.Handled = true;
 
@@ -105,8 +99,7 @@ namespace Quick_Pad_Free_Edition
         {
             //timer for auto save
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
-            async () =>
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
                 if (TQuick.Text != UpdateFile)
                 {
@@ -128,7 +121,6 @@ namespace Quick_Pad_Free_Edition
                             TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
                         }
                     }
-
                     catch (Exception) { }
                 }
             });
@@ -138,7 +130,6 @@ namespace Quick_Pad_Free_Edition
         public void LaunchCheck()
         {
             //check what mode to launch the app in
-
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //let app know where settings are stored
             String launchValue = localSettings.Values["LaunchMode"] as string;
 
@@ -162,10 +153,7 @@ namespace Quick_Pad_Free_Edition
             ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
 
             DefaultFileExt = localSettings.Values["DefaultFileType"] as string; //get the default file type
-            if (DefaultFileExt == ".txt")
-            {
-                DefaultFileType.SelectedValue = ".txt";
-            }
+            if (DefaultFileExt == ".txt") DefaultFileType.SelectedValue = ".txt";
 
             //check if auto save is on or off
             String launchValue = localSettings.Values["AutoSave"] as string;
@@ -485,15 +473,13 @@ namespace Quick_Pad_Free_Edition
             ContentDialog deleteFileDialog = new ContentDialog //brings up a content dialog
             {
                 Title = "Do you enjoy using Quick Pad?",
-                Content = "Please leave a review for Quick Pad in the Microsoft Store.",
-                PrimaryButtonText = "Review",
+                Content = "Please consider leaving a review for Quick Pad in the store.",
+                PrimaryButtonText = "Yes",
                 CloseButtonText = "No"
             };
 
             ContentDialogResult result = await deleteFileDialog.ShowAsync(); //get the results if the user clicked to review or not
 
-            // Delete the file if the user clicked the primary button.
-            /// Otherwise, do nothing.
             if (result == ContentDialogResult.Primary)
             {
                 await ShowRatingReviewDialog(); //show the review dialog.
@@ -524,7 +510,6 @@ namespace Quick_Pad_Free_Edition
             try
             {
                 var read = await FileIO.ReadTextAsync(file);
-                // Text1.Document.Selection.Text = read;
 
                 Windows.Storage.Streams.IRandomAccessStream randAccStream =
                 await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
