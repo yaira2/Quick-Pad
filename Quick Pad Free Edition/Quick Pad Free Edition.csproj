@@ -7,8 +7,8 @@
     <ProjectGuid>{4BBB13C2-9744-4B55-8119-91D77083C132}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Quick_Pad_Free_Edition</RootNamespace>
-    <AssemblyName>Quick Pad Free Edition</AssemblyName>
+    <RootNamespace>QuickPad</RootNamespace>
+    <AssemblyName>QuickPad</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
