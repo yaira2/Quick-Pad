@@ -33,6 +33,7 @@ namespace Quick_Pad_Free_Edition
         private string key; //future access list
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
+        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private String SaveDialogValue; //this is to know if the user clicks cancel when asked if they want to save
         private string DefaultFileExt; //this is to check the default file extension choosen in the save file dialog
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
@@ -136,7 +137,6 @@ namespace Quick_Pad_Free_Edition
         public void LaunchCheck()
         {
             //check what mode to launch the app in
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //let app know where settings are stored
             String launchValue = localSettings.Values["LaunchMode"] as string;
 
             if (launchValue == "On Top")
@@ -156,8 +156,6 @@ namespace Quick_Pad_Free_Edition
 
         private void LoadSettings()
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
-
             DefaultFileExt = localSettings.Values["DefaultFileType"] as string; //get the default file type
             if (DefaultFileExt == ".txt") DefaultFileType.SelectedValue = ".txt";
 
@@ -231,7 +229,6 @@ namespace Quick_Pad_Free_Edition
         {
             //get some theme settings in
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
 
             String localValue = localSettings.Values["Theme"] as string;
             if (localValue == "Light") //light theme is on
@@ -276,8 +273,6 @@ namespace Quick_Pad_Free_Edition
         //check which buttons to show in toolbar
         private void CheckToolbarOptions()
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //let app know where settings are stored
-
             //check if the bullet list option should show
             String ShowBulletsSetting = localSettings.Values["ShowBullets"] as string;
 
@@ -373,9 +368,6 @@ namespace Quick_Pad_Free_Edition
             if (_isPageLoaded == true)
             {
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
-
-                //let app know where setting are saved
-                ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings; //lets us know where app setting are
 
                 //check what the default font is
                 try
@@ -1118,7 +1110,6 @@ namespace Quick_Pad_Free_Edition
 
         private void Light_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["Theme"] = "Light";
             this.RequestedTheme = ElementTheme.Light;
 
@@ -1131,7 +1122,6 @@ namespace Quick_Pad_Free_Edition
 
         private void Dark_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["Theme"] = "Dark";
             this.RequestedTheme = ElementTheme.Dark;
 
@@ -1143,7 +1133,6 @@ namespace Quick_Pad_Free_Edition
 
         private void SystemDefault_Click(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["Theme"] = "System Default";
             RequestedTheme = ElementTheme.Default;
             CheckTheme(); //update the theme
@@ -1175,12 +1164,12 @@ namespace Quick_Pad_Free_Edition
             {
                 if (toggleSwitch.IsOn == true)
                 {
-                    ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        
                     localSettings.Values["AutoSave"] = "On";
                 }
                 else
                 {
-                    ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
+        
                     localSettings.Values["AutoSave"] = "Off";
                 }
             }
@@ -1188,8 +1177,6 @@ namespace Quick_Pad_Free_Edition
 
         private void ShowBullets_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
@@ -1208,8 +1195,6 @@ namespace Quick_Pad_Free_Edition
 
         private void ShowStrikethrough_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
@@ -1284,8 +1269,6 @@ namespace Quick_Pad_Free_Edition
 
         private void WordWrap_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
@@ -1304,8 +1287,6 @@ namespace Quick_Pad_Free_Edition
 
         private void ShowAlignLeft_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
@@ -1326,8 +1307,6 @@ namespace Quick_Pad_Free_Edition
 
         private void ShowAlignCenter_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
@@ -1348,8 +1327,6 @@ namespace Quick_Pad_Free_Edition
 
         private void ShowAlignRight_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
@@ -1370,8 +1347,6 @@ namespace Quick_Pad_Free_Edition
 
         private void ShowAlignJustify_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
@@ -1447,8 +1422,6 @@ namespace Quick_Pad_Free_Edition
 
         private void SpellCheck_Toggled(object sender, RoutedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
             if (toggleSwitch != null)
             {
@@ -1468,20 +1441,14 @@ namespace Quick_Pad_Free_Edition
         private void DefaultFont_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedFont = e.AddedItems[0].ToString();
-
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFont"] = selectedFont;
-
             Fonts.SelectedItem = selectedFont; //make the change take affect right away
         }
 
         private void DefaultFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var selectedFontSize = e.AddedItems[0];
-
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFontSize"] = selectedFontSize;
-
             Text1.Document.Selection.CharacterFormat.Size = Convert.ToInt64(selectedFontSize); //make the change take affect right away
         }
 
@@ -1504,9 +1471,7 @@ namespace Quick_Pad_Free_Edition
 
         private void DefaultFontColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFontColor"] = DefaultFontColor.SelectedValue;
-
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
         }
 
@@ -1556,13 +1521,11 @@ namespace Quick_Pad_Free_Edition
 
         private void LaunchOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["LaunchMode"] = LaunchOptions.SelectedValue;
         }
 
         private void DefaultFileType_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
             localSettings.Values["DefaultFileType"] = DefaultFileType.SelectedValue;
             DefaultFileExt = Convert.ToString(DefaultFileType.SelectedValue); //update the default file type right away
         }
