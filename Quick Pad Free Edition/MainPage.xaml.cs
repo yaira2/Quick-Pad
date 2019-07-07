@@ -427,7 +427,7 @@ namespace Quick_Pad_Free_Edition
                     Text1.Document.Selection.CharacterFormat.Size = DefaultFontSizes; //set the font size
                 }
 
-                TQuick.Text = UpdateFile; //add star to title bar to indicate unsaved file
+                TQuick.Text = UpdateFile; //update title bar
 
                 _isPageLoaded = false;
             }
@@ -588,20 +588,11 @@ namespace Quick_Pad_Free_Edition
                     TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
                     FullFilePath = ""; //clear the path of the open file since there is none
                     SetTaskBarTitle(); //update the title in the taskbar
-
                 }
 
                 SaveDialogValue = ""; //reset save dialog 
             }
-            else
-            {
-                Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
-
-                UpdateFile = "New Document"; //reset the value of the friendly file name
-                TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
-                FullFilePath = ""; //clear the path of the open file since there is none
-                SetTaskBarTitle(); //update the title in the taskbar
-            }
+            
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
@@ -1007,6 +998,7 @@ namespace Quick_Pad_Free_Edition
             else
             {
                 CmdUndo.IsEnabled = false;
+                TQuick.Text = UpdateFile; //update title bar since no changes have been made
             }
             /////
             if (Text1.Document.CanRedo() == true)
