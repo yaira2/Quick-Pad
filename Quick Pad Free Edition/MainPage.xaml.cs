@@ -761,7 +761,7 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-        private void Underline_Click_1(object sender, RoutedEventArgs e)
+        private void Underline_Click(object sender, RoutedEventArgs e)
         {
             //set the selected text to be underlined if not already
             //if the text is already underlined it will make it regular

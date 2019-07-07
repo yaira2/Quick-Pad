@@ -56,7 +56,7 @@
             <AppBarSeparator/>
             <AppBarButton x:Name="Bold" Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Bold (Ctrl+B)"/>
             <AppBarButton x:Name="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Italic (Ctrl+I)"/>
-            <AppBarButton x:Name="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click_1" Icon="Underline" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Underline (Ctrl+U)"/>
+            <AppBarButton x:Name="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Underline (Ctrl+U)"/>
             <AppBarButton x:Name="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" ToolTipService.ToolTip="Strikethrough" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Click="Strikethrough_Click">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
