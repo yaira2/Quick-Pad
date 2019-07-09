@@ -584,7 +584,17 @@ namespace Quick_Pad_Free_Edition
 
                 SaveDialogValue = ""; //reset save dialog 
             }
-            
+
+            if (TQuick.Text == UpdateFile)
+            {
+                Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
+
+                UpdateFile = "New Document"; //reset the value of the friendly file name
+                TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
+                FullFilePath = ""; //clear the path of the open file since there is none
+                SetTaskBarTitle(); //update the title in the taskbar
+            }
+
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
