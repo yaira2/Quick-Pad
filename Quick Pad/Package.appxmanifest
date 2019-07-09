@@ -49,7 +49,7 @@
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="quickpad">
             <uap:DisplayName>Quick Pad</uap:DisplayName>
-            <uap:Logo>Quick Pad Logo.png</uap:Logo>
+            <uap:Logo>Assets\Quick Pad.png</uap:Logo>
             <uap:InfoTip>Quick Pad</uap:InfoTip>
             <uap:SupportedFileTypes>
               <uap:FileType>.rtf</uap:FileType>
