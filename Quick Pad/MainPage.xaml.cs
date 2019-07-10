@@ -529,10 +529,7 @@ namespace Quick_Pad_Free_Edition
                 FullFilePath = file.Path;
                 SetTaskBarTitle(); //update the title in the taskbar
             }
-            catch (Exception)
-            {
-                throw;
-            }
+            catch (Exception){}
         }
 
         private void SetTaskBarTitle()
