@@ -248,20 +248,11 @@ namespace Quick_Pad_Free_Edition
             }
 
             //make the minimize, maximize and close button visible in light theme
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark || this.RequestedTheme == ElementTheme.Dark)
             {
                 titleBar.ButtonForegroundColor = Colors.White;
             }
-            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
-
-            if (this.RequestedTheme == ElementTheme.Dark)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            else if (this.RequestedTheme == ElementTheme.Light)
+            if (App.Current.RequestedTheme == ApplicationTheme.Light || this.RequestedTheme == ElementTheme.Light)
             {
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
