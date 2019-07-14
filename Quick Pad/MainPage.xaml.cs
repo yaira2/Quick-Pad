@@ -612,16 +612,14 @@ namespace Quick_Pad_Free_Edition
                     //tries to update file if it exsits and is not read only
                     Text1.Document.GetText(TextGetOptions.None, out var value);
                     await PathIO.WriteTextAsync(FullFilePath, value);
-                    //update title bar to indicate file is up to date
-                    TQuick.Text = UpdateFile;
+                    TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
                 }
                 if (result.ToLower() == ".rtf")
                 {
                     //tries to update file if it exsits and is not read only
                     Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
                     await PathIO.WriteTextAsync(FullFilePath, value);
-                    //update title bar to indicate file is up to date
-                    TQuick.Text = UpdateFile;
+                    TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
                 }
             }
 
@@ -669,11 +667,8 @@ namespace Quick_Pad_Free_Edition
                     //save as rich text for rich text file
                     if (file.FileType.ToLower() == ".rtf")
                     {
-                        //get the text to save
-                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-
-                        //write the text to the file
-                        await FileIO.WriteTextAsync(file, value);
+                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
+                        await FileIO.WriteTextAsync(file, value); //write the text to the file
                     }
 
                     // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
@@ -681,8 +676,7 @@ namespace Quick_Pad_Free_Edition
                     if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
                     {
                         //let user know if there was an error saving the file
-                        Windows.UI.Popups.MessageDialog errorBox =
-                            new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
+                        Windows.UI.Popups.MessageDialog errorBox = new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
                         await errorBox.ShowAsync();
                     }
                 }
@@ -868,18 +862,14 @@ namespace Quick_Pad_Free_Edition
             EmojiPivot.SelectedIndex = 0; //Set focus to first item in pivot control in the emoji panel
         }
 
-        private void EmojiPanel_LostFocus(object sender, RoutedEventArgs e)
-        {
-
-        }
+        private void EmojiPanel_LostFocus(object sender, RoutedEventArgs e){}
 
         public void EmojiSub(object sender, RoutedEventArgs e)
         {
             string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
-            Text1.Document.Selection.TypeText(objname); //add it to the text box
+            Text1.Document.Selection.TypeText(objname); //insert emoji in the text box
 
-            //log even in app center
-            Analytics.TrackEvent("User inserted an emoji");
+            Analytics.TrackEvent("User inserted an emoji"); //log event in app center
         }
 
         private void Yellow_Click(object sender, RoutedEventArgs e)
