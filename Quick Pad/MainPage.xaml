@@ -97,7 +97,7 @@
             <AppBarButton x:Name="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click" ToolTipService.ToolTip="Cut (Ctrl+X)"/>
         </CommandBar>
 
-        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,130" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
+        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
 
         <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
 
@@ -240,7 +240,6 @@
                     <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
-            <AppBarButton x:Name="RemoveAd" Width="100" Visibility="Visible" Content="Remove Ads" ToolTipService.ToolTip="Remove ads from Quick Pad" Click="RemoveAd_Click"/>
             <AppBarButton x:Name="TextColor" Width="40" Icon="FontColor" ToolTipService.ToolTip="Font Color">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
@@ -256,18 +255,7 @@
             </AppBarButton>
             <AppBarToggleButton x:Name="Emoji" Width="40" Icon="Emoji2" Checked="Emoji_Checked" Unchecked="Emoji_Unchecked"/>
         </CommandBar>
-        <UI:AdControl x:Name="Ad1" ApplicationId="9pdlwqhtlsv3"
-        AdUnitId="1100035049"
-        HorizontalAlignment="Center"
-        Height="90"
-        VerticalAlignment="Bottom"
-        Width="728" Canvas.ZIndex="1000" Margin="0,0,0,40"/>
-        <adduplex:AdControl x:Name="Ad" AdUnitId="213707" 
-        AppKey="87402fe6-ab2d-4c00-a7a5-c573e1af10d4"
-        HorizontalAlignment="Center"
-        Height="90"
-        VerticalAlignment="Bottom"
-        Width="728" Margin="0,0,0,40"/>
+       
         <controls:DropShadowPanel x:Name="Emoji2" Margin="0,0,0,40" Grid.RowSpan="1" VerticalAlignment="Bottom"
                                   Canvas.ZIndex="1000"
                                   ShadowOpacity=".3"

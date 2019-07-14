@@ -28,8 +28,6 @@ namespace Quick_Pad_Free_Edition
     {
         private string UpdateFile = "New Document"; //Default file name is "New Document"
         private String FullFilePath; //this is the opened files full path
-        private string AdRemove; //string indicates if the user paid to remove ads
-        private StoreContext context = null;
         private string key; //future access list
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
@@ -52,7 +50,6 @@ namespace Quick_Pad_Free_Edition
             LoadSettings();
             LoadFonts();
             CheckToolbarOptions(); //check which buttons to show in toolbar
-            CheckIfPaidForNoAds(); //Call method to remove ads for a paid user
             CheckTheme(); //check the theme
 
             VersionNumber.Text = string.Format("Version: {0}.{1}.{2}.{3}", Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
@@ -419,6 +416,8 @@ namespace Quick_Pad_Free_Edition
                     Text1.Document.Selection.CharacterFormat.Size = DefaultFontSizes; //set the font size
                 }
 
+                LaunchCheck(); //call method to check what mode the app should launch in
+
                 TQuick.Text = UpdateFile; //update title bar
 
                 _isPageLoaded = false;
@@ -437,34 +436,6 @@ namespace Quick_Pad_Free_Edition
             await engagementManager.RegisterNotificationChannelAsync();
         }
 
-        private StoreContext storeContext = StoreContext.GetDefault();
-        private string StoreId = "9PMFXLSMJ8RL"; // Assign this variable to the Store ID of your subscription add-on.
-
-        public async void CheckIfPaidForNoAds()
-        {
-            StoreAppLicense appLicense = await storeContext.GetAppLicenseAsync();
-            // Check if the customer has the rights to the subscription, in this case it is not a subscription but a one time iap to remove ads
-            foreach (var addOnLicense in appLicense.AddOnLicenses)
-            {
-                StoreLicense license = addOnLicense.Value;
-                if (license.SkuStoreId.StartsWith(StoreId))
-                {
-                    if (license.IsActive)
-                    {
-                        AdRemove = "Paid"; //set a value that shows the user paid to remove ads thhat can be used at other times in the app                   
-                        RemoveAds(); //remove ads
-                    }
-                }
-            }
-            LaunchCheck(); //call method to check what mode the app should launch in
-        }
-
-        public void RemoveAds() //hide ads, this is different then HideAds since it hides the button to remove the ads too
-        {
-            HideAds();
-            RemoveAd.Visibility = Visibility.Collapsed; //hide the remove ad button since they already paid
-            Text1.Margin = new Thickness(0, 74, 0, 40); //fix text margin to take up space where ad used to be
-        }
 
         public async void NewUserFeedbackAsync()
         {
@@ -859,7 +830,6 @@ namespace Quick_Pad_Free_Edition
             CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             CmdFocusMode.IsEnabled = false;
             CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            HideAds();
             CommandBar2.Margin = new Thickness(0, 0, 0, 0);
             TQuick.Visibility = Visibility.Collapsed;
 
@@ -876,18 +846,6 @@ namespace Quick_Pad_Free_Edition
 
         private async void CompactOverlay_Unchecked(object sender, RoutedEventArgs e)
         {
-            if (AdRemove == "Paid")
-            {
-                Text1.Margin = new Thickness(0, 74, 0, 40);
-                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
-            }
-            else
-            {
-                Text1.Margin = new Thickness(0, 74, 0, 130);
-                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
-                ShowAds();
-            }
-
             bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
             Grid.SetRow(CommandBar2, 0);
             Title.Visibility = Visibility.Visible;
@@ -900,6 +858,8 @@ namespace Quick_Pad_Free_Edition
             CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
             TQuick.Visibility = Visibility.Visible;
             CmdFocusMode.IsEnabled = true;
+            Text1.Margin = new Thickness(0, 74, 0, 40);
+            CommandBar2.Margin = new Thickness(0, 33, 0, 0);
         }
 
         private void Emoji_Checked(object sender, RoutedEventArgs e)
@@ -1033,52 +993,6 @@ namespace Quick_Pad_Free_Edition
             await ShowRatingReviewDialog(); //show the review dialog.
 
             Analytics.TrackEvent("User clicked on review"); //log even in app center
-        }
-
-        private async void RemoveAd_Click(object sender, RoutedEventArgs e)
-        {
-            if (context == null)
-            {
-                context = StoreContext.GetDefault();
-            }
-
-            StorePurchaseResult result = await context.RequestPurchaseAsync("9PMFXLSMJ8RL");
-
-            // Capture the error message for the operation, if any.
-            string extendedError = string.Empty;
-            if (result.ExtendedError != null)
-            {
-                extendedError = result.ExtendedError.Message;
-            }
-
-            switch (result.Status)
-            {
-                case StorePurchaseStatus.AlreadyPurchased:
-                    AdRemove = "Paid";
-                    HideAds();
-                    RemoveAd.Visibility = Visibility.Collapsed;
-                    Text1.Margin = new Thickness(0, 74, 0, 40);
-                    break;
-
-                case StorePurchaseStatus.Succeeded:
-                    AdRemove = "Paid";
-                    HideAds();
-                    RemoveAd.Visibility = Visibility.Collapsed;
-                    Text1.Margin = new Thickness(0, 74, 0, 40);
-
-                    Analytics.TrackEvent("User removed ad"); //log even in app center
-
-                    var dialog = new MessageDialog("The purchase was successful, thank you for being a Quick Pad user!");
-                    await dialog.ShowAsync();
-                    break;
-
-                default:
-                    var Erordialog = new MessageDialog("The purchase was unsuccessful due to an unknown error.");
-                    await Erordialog.ShowAsync();
-                    break;
-            }
-
-            Analytics.TrackEvent("User pressed remove ads"); //log even in app center
         }
 
         private void Strikethrough_Click(object sender, RoutedEventArgs e)
@@ -1490,40 +1404,21 @@ namespace Quick_Pad_Free_Edition
             Shadow2.Visibility = Visibility.Collapsed;
             Shadow1.Visibility = Visibility.Collapsed;
             CloseFocusMode.Visibility = Visibility.Visible;
-            HideAds();
         }
         private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
         {
             SwitchToFocusMode();
         }
 
-        private void HideAds()
-        {
-            Ad1.Suspend();
-            Ad1.Visibility = Visibility.Collapsed;
-            Ad.Visibility = Visibility.Collapsed;
-        }
-        private void ShowAds()
-        {
-            Ad1.Visibility = Visibility.Visible;
-            Ad1.Resume();
-            Ad.Visibility = Visibility.Visible;
-        }
-
+      
         private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
         {
-            Text1.Margin = new Thickness(0, 74, 0, 40);
             Text1.SetValue(Canvas.ZIndexProperty, 0);
             CommandBar2.Visibility = Visibility.Visible;
             Shadow2.Visibility = Visibility.Visible;
             Shadow1.Visibility = Visibility.Visible;
             CloseFocusMode.Visibility = Visibility.Collapsed;
-
-            if (AdRemove != "Paid")
-            {
-                ShowAds();
-                Text1.Margin = new Thickness(0, 74, 0, 130);
-            }
+            Text1.Margin = new Thickness(0, 74, 0, 40);
         }
 
         private void LaunchOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
