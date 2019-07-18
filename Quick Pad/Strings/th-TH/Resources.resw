@@ -240,4 +240,61 @@
   <data name="VersionFormat" xml:space="preserve">
     <value>เวอร์ชั่น: {0}.{1}.{2}.{3}</value>
   </data>
+  <data name="FontColorBlack.Content" xml:space="preserve">
+    <value>ดำ</value>
+  </data>
+  <data name="FontColorLightGreen.Content" xml:space="preserve">
+    <value>เขียว</value>
+  </data>
+  <data name="FontColorLightPink.Content" xml:space="preserve">
+    <value>ชมพู</value>
+  </data>
+  <data name="FontColorLightSalmon.Content" xml:space="preserve">
+    <value>ส้ม</value>
+  </data>
+  <data name="FontColorLightYellow.Content" xml:space="preserve">
+    <value>เหลือง</value>
+  </data>
+  <data name="FontColorSkyBlue.Content" xml:space="preserve">
+    <value>ฟ้า</value>
+  </data>
+  <data name="FontColorWhite.Content" xml:space="preserve">
+    <value>ขาว</value>
+  </data>
+  <data name="LaunchModeDefault.Content" xml:space="preserve">
+    <value>ปกติ</value>
+  </data>
+  <data name="LaunchModeFocus.Content" xml:space="preserve">
+    <value>เน้นพิมพ์</value>
+  </data>
+  <data name="LaunchModeOnTop.Content" xml:space="preserve">
+    <value>ทับแอปอื่น</value>
+  </data>
+  <data name="TextColorBlack.Text" xml:space="preserve">
+    <value>ดำ</value>
+  </data>
+  <data name="TextColorBlue.Text" xml:space="preserve">
+    <value>ฟ้า</value>
+  </data>
+  <data name="TextColorGreen.Text" xml:space="preserve">
+    <value>เขียว</value>
+  </data>
+  <data name="TextColorOrange.Text" xml:space="preserve">
+    <value>ส้ม</value>
+  </data>
+  <data name="TextColorPink.Text" xml:space="preserve">
+    <value>ชมพู</value>
+  </data>
+  <data name="TextColorWhite.Text" xml:space="preserve">
+    <value>ขาว</value>
+  </data>
+  <data name="TextColorYellow.Text" xml:space="preserve">
+    <value>เหลือง</value>
+  </data>
+  <data name="DefaultFontColorCombobox.PlaceholderText" xml:space="preserve">
+    <value>ดำ</value>
+  </data>
+  <data name="GeneralLaunchModeCombobox.PlaceholderText" xml:space="preserve">
+    <value>ปกติ</value>
+  </data>
 </root>

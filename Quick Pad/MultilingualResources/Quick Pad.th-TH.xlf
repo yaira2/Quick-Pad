@@ -310,6 +310,82 @@
           <source>Version: {0}.{1}.{2}.{3}</source>
           <target state="translated">เวอร์ชั่น: {0}.{1}.{2}.{3}</target>
         </trans-unit>
+        <trans-unit id="FontColorBlack.Content" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="translated">ดำ</target>
+        </trans-unit>
+        <trans-unit id="FontColorLightGreen.Content" translate="yes" xml:space="preserve">
+          <source>Green</source>
+          <target state="translated">เขียว</target>
+        </trans-unit>
+        <trans-unit id="FontColorLightPink.Content" translate="yes" xml:space="preserve">
+          <source>Pink</source>
+          <target state="translated">ชมพู</target>
+        </trans-unit>
+        <trans-unit id="FontColorLightSalmon.Content" translate="yes" xml:space="preserve">
+          <source>Orange</source>
+          <target state="translated">ส้ม</target>
+        </trans-unit>
+        <trans-unit id="FontColorLightYellow.Content" translate="yes" xml:space="preserve">
+          <source>Yellow</source>
+          <target state="translated">เหลือง</target>
+        </trans-unit>
+        <trans-unit id="FontColorSkyBlue.Content" translate="yes" xml:space="preserve">
+          <source>Blue</source>
+          <target state="translated">ฟ้า</target>
+        </trans-unit>
+        <trans-unit id="FontColorWhite.Content" translate="yes" xml:space="preserve">
+          <source>White</source>
+          <target state="translated">ขาว</target>
+        </trans-unit>
+        <trans-unit id="LaunchModeDefault.Content" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="translated">ปกติ</target>
+        </trans-unit>
+        <trans-unit id="LaunchModeFocus.Content" translate="yes" xml:space="preserve">
+          <source>Focus</source>
+          <target state="translated">เน้นพิมพ์</target>
+        </trans-unit>
+        <trans-unit id="LaunchModeOnTop.Content" translate="yes" xml:space="preserve">
+          <source>On Top</source>
+          <target state="translated">ทับแอปอื่น</target>
+        </trans-unit>
+        <trans-unit id="TextColorBlack.Text" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="translated">ดำ</target>
+        </trans-unit>
+        <trans-unit id="TextColorBlue.Text" translate="yes" xml:space="preserve">
+          <source>Blue</source>
+          <target state="translated">ฟ้า</target>
+        </trans-unit>
+        <trans-unit id="TextColorGreen.Text" translate="yes" xml:space="preserve">
+          <source>Green</source>
+          <target state="translated">เขียว</target>
+        </trans-unit>
+        <trans-unit id="TextColorOrange.Text" translate="yes" xml:space="preserve">
+          <source>Orange</source>
+          <target state="translated">ส้ม</target>
+        </trans-unit>
+        <trans-unit id="TextColorPink.Text" translate="yes" xml:space="preserve">
+          <source>Pink</source>
+          <target state="translated">ชมพู</target>
+        </trans-unit>
+        <trans-unit id="TextColorWhite.Text" translate="yes" xml:space="preserve">
+          <source>White</source>
+          <target state="translated">ขาว</target>
+        </trans-unit>
+        <trans-unit id="TextColorYellow.Text" translate="yes" xml:space="preserve">
+          <source>Yellow</source>
+          <target state="translated">เหลือง</target>
+        </trans-unit>
+        <trans-unit id="DefaultFontColorCombobox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="translated">ดำ</target>
+        </trans-unit>
+        <trans-unit id="GeneralLaunchModeCombobox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="translated">ปกติ</target>
+        </trans-unit>
       </group>
     </body>
   </file>

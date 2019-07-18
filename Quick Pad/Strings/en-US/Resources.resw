@@ -180,6 +180,9 @@
   <data name="DefaultFontColor.Text" xml:space="preserve">
     <value>Default Font Color</value>
   </data>
+  <data name="DefaultFontColorCombobox.PlaceholderText" xml:space="preserve">
+    <value>Black</value>
+  </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
     <value>Default Font Size</value>
   </data>
@@ -195,6 +198,27 @@
   <data name="ErrorDialogTitle" xml:space="preserve">
     <value>File open error</value>
   </data>
+  <data name="FontColorBlack.Content" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="FontColorLightGreen.Content" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="FontColorLightPink.Content" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="FontColorLightSalmon.Content" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="FontColorLightYellow.Content" xml:space="preserve">
+    <value>Yellow</value>
+  </data>
+  <data name="FontColorSkyBlue.Content" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="FontColorWhite.Content" xml:space="preserve">
+    <value>White</value>
+  </data>
   <data name="GeneralAutoSave.Text" xml:space="preserve">
     <value>Auto Save</value>
   </data>
@@ -203,6 +227,9 @@
   </data>
   <data name="GeneralLaunchMode.Text" xml:space="preserve">
     <value>Launch Mode</value>
+  </data>
+  <data name="GeneralLaunchModeCombobox.PlaceholderText" xml:space="preserve">
+    <value>Default</value>
   </data>
   <data name="GeneralToggleSwitch.OffContent" xml:space="preserve">
     <value>Off</value>
@@ -218,6 +245,15 @@
   </data>
   <data name="Justify.Label" xml:space="preserve">
     <value>Justify</value>
+  </data>
+  <data name="LaunchModeDefault.Content" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="LaunchModeFocus.Content" xml:space="preserve">
+    <value>Focus</value>
+  </data>
+  <data name="LaunchModeOnTop.Content" xml:space="preserve">
+    <value>On Top</value>
   </data>
   <data name="Left.Label" xml:space="preserve">
     <value>Left</value>
@@ -335,6 +371,27 @@
   </data>
   <data name="SystemDefault.Content" xml:space="preserve">
     <value>System Default</value>
+  </data>
+  <data name="TextColorBlack.Text" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="TextColorBlue.Text" xml:space="preserve">
+    <value>Blue</value>
+  </data>
+  <data name="TextColorGreen.Text" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="TextColorOrange.Text" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="TextColorPink.Text" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="TextColorWhite.Text" xml:space="preserve">
+    <value>White</value>
+  </data>
+  <data name="TextColorYellow.Text" xml:space="preserve">
+    <value>Yellow</value>
   </data>
   <data name="Underline.Label" xml:space="preserve">
     <value>Underline</value>

@@ -133,10 +133,10 @@
                             <ScrollViewer x:Name="SettingsTab1SV" Height="200">
                                 <Grid Height="340">
                                     <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode" Margin="0,10,23,87" TextWrapping="Wrap"/>
-                                    <ComboBox Margin="0,35,0,0" x:Uid="GeneralLaunchMode" PlaceholderText="Default" SelectionChanged="LaunchOptions_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                                        <x:String>Default</x:String>
-                                        <x:String>On Top</x:String>
-                                        <x:String>Focus Mode</x:String>
+                                    <ComboBox Margin="0,35,0,0" x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectionChanged="LaunchOptions_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                        <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
+                                        <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
+                                        <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
                                     </ComboBox>
                                     <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type" Margin="0,80,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
                                     <ComboBox Margin="0,105,0,0" PlaceholderText=".rtf" SelectionChanged="DefaultFileType_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
@@ -184,14 +184,14 @@
                                     <x:String>72</x:String>
                                 </ComboBox>
                                 <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color" Margin="0,135,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" SelectionChanged="DefaultFontColor_SelectionChanged" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
-                                    <x:String>Black</x:String>
-                                    <x:String>White</x:String>
-                                    <x:String>SkyBlue</x:String>
-                                    <x:String>LightGreen</x:String>
-                                    <x:String>LightPink</x:String>
-                                    <x:String>LightYellow</x:String>
-                                    <x:String>LightSalmon</x:String>
+                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" SelectionChanged="DefaultFontColor_SelectionChanged" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                    <ComboBoxItem Content="Black" Tag="Black" x:Uid="FontColorBlack" x:Name="FontColorBlack"/>
+                                    <ComboBoxItem Content="White" Tag="White" x:Uid="FontColorWhite" x:Name="FontColorWhite"/>
+                                    <ComboBoxItem Content="SkyBlue" Tag="SkyBlue" x:Uid="FontColorSkyBlue" x:Name="FontColorSkyBlue"/>
+                                    <ComboBoxItem Content="LightGreen" Tag="LightGreen" x:Uid="FontColorLightGreen" x:Name="FontColorLightGreen"/>
+                                    <ComboBoxItem Content="LightPink" Tag="LightPink" x:Uid="FontColorLightPink" x:Name="FontColorLightPink"/>
+                                    <ComboBoxItem Content="LightYellow" Tag="LightYellow" x:Uid="FontColorLightYellow" x:Name="FontColorLightYellow"/>
+                                    <ComboBoxItem Content="LightSalmon" Tag="LightSalmon" x:Uid="FontColorLightSalmon" x:Name="FontColorLightSalmon"/>
                                 </ComboBox>
                             </Grid>
                         </PivotItem>
@@ -247,13 +247,13 @@
             <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor" ToolTipService.ToolTip="Font Color">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem x:Name="Black" Text="Black" Click="Black_Click" />
-                        <MenuFlyoutItem x:Name="White" Text="White" Click="White_Click" />
-                        <MenuFlyoutItem x:Name="Yellow" Text="Yellow" Click="Yellow_Click" />
-                        <MenuFlyoutItem x:Name="Blue" Text="Blue" Click="Blue_Click" />
-                        <MenuFlyoutItem x:Name="Pink" Text="Pink" Click="Pink_Click" />
-                        <MenuFlyoutItem x:Name="Orange" Text="Orange" Click="Orange_Click" />
-                        <MenuFlyoutItem x:Name="Green" Text="Green" Click="Green_Click" />
+                        <MenuFlyoutItem x:Name="Black" x:Uid="TextColorBlack" Text="Black" Click="Black_Click" />
+                        <MenuFlyoutItem x:Name="White" x:Uid="TextColorWhite" Text="White" Click="White_Click" />
+                        <MenuFlyoutItem x:Name="Yellow" x:Uid="TextColorYellow" Text="Yellow" Click="Yellow_Click" />
+                        <MenuFlyoutItem x:Name="Blue" x:Uid="TextColorBlue" Text="Blue" Click="Blue_Click" />
+                        <MenuFlyoutItem x:Name="Pink" x:Uid="TextColorPink" Text="Pink" Click="Pink_Click" />
+                        <MenuFlyoutItem x:Name="Orange" x:Uid="TextColorOrange" Text="Orange" Click="Orange_Click" />
+                        <MenuFlyoutItem x:Name="Green" x:Uid="TextColorGreen" Text="Green" Click="Green_Click" />
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>

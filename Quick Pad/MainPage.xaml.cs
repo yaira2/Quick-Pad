@@ -143,16 +143,16 @@ namespace Quick_Pad_Free_Edition
             if (launchValue == "On Top")
             {
                 CompactOverlay.IsChecked = true; //launch compact overlay mode
-                LaunchOptions.SelectedValue = "On Top";
+                LaunchOptions.SelectedValue = LaunchModeOnTop;
             }
 
             if (launchValue == "Focus Mode")
             {
                 SwitchToFocusMode();
-                LaunchOptions.SelectedValue = "Focus Mode";
+                LaunchOptions.SelectedValue = LaunchModeFocus;
             }
 
-            if (launchValue == "Default") LaunchOptions.SelectedValue = "Default";
+            if (launchValue == "Default") LaunchOptions.SelectedValue = LaunchModeDefault;
         }
 
         private void LoadSettings()
@@ -1378,8 +1378,8 @@ namespace Quick_Pad_Free_Edition
 
         private void DefaultFontColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            localSettings.Values["DefaultFontColor"] = DefaultFontColor.SelectedValue;
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
+            localSettings.Values["DefaultFontColor"] = (DefaultFontColor.SelectedValue as ComboBoxItem).Tag;
+            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), (DefaultFontColor.SelectedValue as ComboBoxItem).Tag);
         }
 
         private void SwitchToFocusMode()
@@ -1409,7 +1409,7 @@ namespace Quick_Pad_Free_Edition
 
         private void LaunchOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            localSettings.Values["LaunchMode"] = LaunchOptions.SelectedValue;
+            localSettings.Values["LaunchMode"] = (LaunchOptions.SelectedValue as ComboBoxItem).Tag;
         }
 
         private void DefaultFileType_SelectionChanged(object sender, SelectionChangedEventArgs e)
