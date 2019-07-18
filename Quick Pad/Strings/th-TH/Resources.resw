@@ -126,20 +126,11 @@
   <data name="Bold.Label" xml:space="preserve">
     <value>ตัวหนา</value>
   </data>
-  <data name="Bold.TooltipService.Tooltip" xml:space="preserve">
-    <value>ตัวหนา (Ctrl+B)</value>
-  </data>
   <data name="BulletList.Label" xml:space="preserve">
     <value>สัญลักษณ์หัวข้อ</value>
   </data>
-  <data name="BulletList.TooltipService.Tooltip" xml:space="preserve">
-    <value>เปิดใช้สัญลักษณ์หัวข้อ</value>
-  </data>
   <data name="Center.Label" xml:space="preserve">
     <value>กลาง</value>
-  </data>
-  <data name="Center.TooltipService.Tooltip" xml:space="preserve">
-    <value>จัดกลาง (Ctrl+E)</value>
   </data>
   <data name="CmdFocusMode" xml:space="preserve">
     <value>เปิดโหมดเน้นพิมพ์</value>
@@ -147,47 +138,26 @@
   <data name="CmdNew.Label" xml:space="preserve">
     <value>เริ่มใหม่</value>
   </data>
-  <data name="CmdNew.TooltipService.Tooltip" xml:space="preserve">
-    <value>เริ่มใหม่</value>
-  </data>
   <data name="CmdOpen.Label" xml:space="preserve">
     <value>เปิด</value>
-  </data>
-  <data name="CmdOpen.TooltipService.Tooltip" xml:space="preserve">
-    <value>เปิด (Ctrl+O)</value>
   </data>
   <data name="CmdRedo.Label" xml:space="preserve">
     <value>ทำซ้ำ</value>
   </data>
-  <data name="CmdRedo.TooltipService.Tooltip" xml:space="preserve">
-    <value>ทำซ้ำ (Ctrl+Y)</value>
-  </data>
-  <data name="CmdReview" xml:space="preserve">
+  <data name="CmdReview.Label" xml:space="preserve">
     <value>รีวิว</value>
   </data>
   <data name="CmdSave.Label" xml:space="preserve">
     <value>บันทึก</value>
   </data>
-  <data name="CmdSave.TooltipService.Tooltip" xml:space="preserve">
-    <value>บันทึก (Ctrl+S)</value>
-  </data>
-  <data name="CmdSettings" xml:space="preserve">
+  <data name="CmdSettings.Label" xml:space="preserve">
     <value>ตั้งค่า</value>
   </data>
-  <data name="CmdSettings.ToolTipService.ToolTip" xml:space="preserve">
-    <value>ตั้งค่า</value>
-  </data>
-  <data name="CmdShare" xml:space="preserve">
+  <data name="CmdShare.Label" xml:space="preserve">
     <value>แบ่งปัน</value>
-  </data>
-  <data name="CmdShare.ToolTipService.ToolTip" xml:space="preserve">
-    <value>ส่งไฟล์นี้ให้เพื่อนของคุณ</value>
   </data>
   <data name="CmdUndo.Label" xml:space="preserve">
     <value>เลิกทำ</value>
-  </data>
-  <data name="CmdUndo.TooltipService.Tooltip" xml:space="preserve">
-    <value>เลิกทำ (Ctrl+Z)</value>
   </data>
   <data name="CompactOverlay.Content" xml:space="preserve">
     <value>ทับแอพอื่น</value>
@@ -198,14 +168,8 @@
   <data name="Copy.Label" xml:space="preserve">
     <value>คัดลอก</value>
   </data>
-  <data name="Copy.TooltipService.Tooltip" xml:space="preserve">
-    <value>คัดลอก (Ctrl+C)</value>
-  </data>
   <data name="Cut.Label" xml:space="preserve">
     <value>ตัด</value>
-  </data>
-  <data name="Cut.TooltipService.Tooltip" xml:space="preserve">
-    <value>ตัด (Ctrl+C)</value>
   </data>
   <data name="Dark.Content" xml:space="preserve">
     <value>สีเข้ม</value>
@@ -243,20 +207,11 @@
   <data name="Italic.Label" xml:space="preserve">
     <value>ตัวเอียง</value>
   </data>
-  <data name="Italic.TooltipService.Tooltip" xml:space="preserve">
-    <value>ตัวเอียง (Ctrl+I)</value>
-  </data>
   <data name="Justify.Label" xml:space="preserve">
     <value>เต็มแนว</value>
   </data>
-  <data name="Justify.TooltipService.Tooltip" xml:space="preserve">
-    <value>จัดเต็มแนว (Ctrl+J)</value>
-  </data>
   <data name="Left.Label" xml:space="preserve">
     <value>ซ้าย</value>
-  </data>
-  <data name="Left.TooltipService.Tooltip" xml:space="preserve">
-    <value>จัดชิดซ้าย (Ctrl+L)</value>
   </data>
   <data name="Light.Content" xml:space="preserve">
     <value>สีสว่าง</value>
@@ -264,17 +219,11 @@
   <data name="Paste.Label" xml:space="preserve">
     <value>วาง</value>
   </data>
-  <data name="Paste.TooltipService.Tooltip" xml:space="preserve">
-    <value>วาง (Ctrl+P)</value>
-  </data>
   <data name="RateAndReview.Content" xml:space="preserve">
     <value>ให้คะแนนและรีวิว</value>
   </data>
   <data name="Right.Label" xml:space="preserve">
     <value>ซ้าย</value>
-  </data>
-  <data name="Right.TooltipService.Tooltip" xml:space="preserve">
-    <value>จัดชิดซ้าย (Ctrl+R)</value>
   </data>
   <data name="SaveDialog.Text" xml:space="preserve">
     <value>คุณต้องการบันทึกการเปลี่ยนแปลงที่พิมพ์ไปไหม?</value>
@@ -348,13 +297,7 @@
   <data name="SizeDown.Label" xml:space="preserve">
     <value>ย่อขนาด</value>
   </data>
-  <data name="SizeDown.TooltipService.Tooltip" xml:space="preserve">
-    <value>ย่อขนาด</value>
-  </data>
   <data name="SizeUp.Label" xml:space="preserve">
-    <value>ขยายขนาด</value>
-  </data>
-  <data name="SizeUp.TooltipService.Tooltip" xml:space="preserve">
     <value>ขยายขนาด</value>
   </data>
   <data name="SpellCheck.Text" xml:space="preserve">
@@ -363,20 +306,11 @@
   <data name="Strikethrough.Label" xml:space="preserve">
     <value>ขีดฆ่า</value>
   </data>
-  <data name="Strikethrough.TooltipService.Tooltip" xml:space="preserve">
-    <value>ขีดฆ่า</value>
-  </data>
   <data name="SystemDefault.Content" xml:space="preserve">
     <value>ตามสีระบบ</value>
   </data>
-  <data name="TextColor.ToolTipService.ToolTip" xml:space="preserve">
-    <value>สีฟอนต์</value>
-  </data>
   <data name="Underline.Label" xml:space="preserve">
     <value>ขีดเส้นใต้</value>
-  </data>
-  <data name="Underline.TooltipService.Tooltip" xml:space="preserve">
-    <value>ขีดเส้นใต้ (Ctrl+U)</value>
   </data>
   <data name="WordWrap.Text" xml:space="preserve">
     <value>ตัดคำ</value>

@@ -83,10 +83,10 @@
 
         <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False"  HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,33,0,0">
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="CmdFocusMode" Click="CmdFocusMode_Click"  Icon="Caption" Label="Focus Mode" Width="Auto"/>
-                <AppBarButton x:Name="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the file you are working on."/>
-                <AppBarButton x:Name="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
-                <AppBarButton x:Name="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click" ToolTipService.ToolTip="Settings"/>
+                <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="CmdFocusMode_Click"  Icon="Caption" Label="Focus Mode" Width="Auto"/>
+                <AppBarButton x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the file you are working on."/>
+                <AppBarButton x:Name="CmdReview" x:Uid="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
+                <AppBarButton x:Name="CmdSettings" x:Uid="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click" ToolTipService.ToolTip="Settings"/>
             </CommandBar.SecondaryCommands>
             <AppBarButton x:Name="CmdUndo" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)"/>
             <AppBarButton x:Name="CmdRedo" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click" ToolTipService.ToolTip="Redo (Ctrl+Y)"/>
