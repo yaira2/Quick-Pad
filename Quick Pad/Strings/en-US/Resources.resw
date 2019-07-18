@@ -132,7 +132,7 @@
   <data name="Center.Label" xml:space="preserve">
     <value>Center</value>
   </data>
-  <data name="CmdFocusMode" xml:space="preserve">
+  <data name="CmdFocusMode.Label" xml:space="preserve">
     <value>Focus Mode</value>
   </data>
   <data name="CmdNew.Label" xml:space="preserve">

@@ -22,13 +22,10 @@
     <value>ตัวหนา</value>
   </data>
   <data name="BulletList.Label" xml:space="preserve">
-    <value>สัญลักษณ์หัวข้อ</value>
+    <value>สัญลักษณ์หัวข้อย่อย</value>
   </data>
   <data name="Center.Label" xml:space="preserve">
     <value>กึ่งกลาง</value>
-  </data>
-  <data name="CmdFocusMode" xml:space="preserve">
-    <value>เปิดโหมดเน้นพิมพ์</value>
   </data>
   <data name="CmdNew.Label" xml:space="preserve">
     <value>เริ่มใหม่</value>
@@ -85,7 +82,7 @@
     <value>บันทึกอัตโนมัติ</value>
   </data>
   <data name="GeneralDefaultType.Text" xml:space="preserve">
-    <value>ชนิดไฟล์เริ่มต้น</value>
+    <value>ฃนิดไฟล์เริ่มต้น</value>
   </data>
   <data name="GeneralLaunchMode.Text" xml:space="preserve">
     <value>เริ่มแอปในโหมด</value>
@@ -209,5 +206,8 @@
   </data>
   <data name="WordWrap.Text" xml:space="preserve">
     <value>ตัดคำ</value>
+  </data>
+  <data name="CmdFocusMode.Label" xml:space="preserve">
+    <value>เปิดโหมดเน้นพิมพ์</value>
   </data>
 </root>

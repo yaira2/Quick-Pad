@@ -26,10 +26,6 @@
           <source>Center</source>
           <target state="translated" state-qualifier="tm-suggestion">กึ่งกลาง</target>
         </trans-unit>
-        <trans-unit id="CmdFocusMode" translate="yes" xml:space="preserve">
-          <source>Focus Mode</source>
-          <target state="translated">โหมดเน้นพิมพ์</target>
-        </trans-unit>
         <trans-unit id="CmdNew.Label" translate="yes" xml:space="preserve">
           <source>New</source>
           <target state="translated">เริ่มใหม่</target>
@@ -80,7 +76,7 @@
         </trans-unit>
         <trans-unit id="Dark.Content" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="translated">สีมืด</target>
+          <target state="translated">มืด</target>
         </trans-unit>
         <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
           <source>Default Font</source>
@@ -104,11 +100,11 @@
         </trans-unit>
         <trans-unit id="GeneralDefaultType.Text" translate="yes" xml:space="preserve">
           <source>Default File Type</source>
-          <target state="translated">รูปแบบไฟล์เริ่มต้น</target>
+          <target state="translated">ฃนิดไฟล์เริ่มต้น</target>
         </trans-unit>
         <trans-unit id="GeneralLaunchMode.Text" translate="yes" xml:space="preserve">
           <source>Launch Mode</source>
-          <target state="translated">โหมดแอปเริ่มต้น</target>
+          <target state="translated">เริ่มแอปในโหมด</target>
         </trans-unit>
         <trans-unit id="GeneralToggleSwitch.OffContent" translate="yes" xml:space="preserve">
           <source>Off</source>
@@ -136,7 +132,7 @@
         </trans-unit>
         <trans-unit id="Light.Content" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="translated">สีสว่าง</target>
+          <target state="translated">สว่าง</target>
         </trans-unit>
         <trans-unit id="Paste.Label" translate="yes" xml:space="preserve">
           <source>Paste</source>
@@ -212,11 +208,11 @@
         </trans-unit>
         <trans-unit id="ShowAlignLeft.OffContent" translate="yes" xml:space="preserve">
           <source>Hide align left</source>
-          <target state="translated">ซ่อนปุ่มจัดชิดขวา</target>
+          <target state="translated">ซ่อนปุ่มจัดชิดซ้าย</target>
         </trans-unit>
         <trans-unit id="ShowAlignLeft.OnContent" translate="yes" xml:space="preserve">
           <source>Show align left</source>
-          <target state="translated">แสดงปุ่มจัดชิดขวา</target>
+          <target state="translated">แสดงปุ่มจัดชิดซ้าย</target>
         </trans-unit>
         <trans-unit id="ShowAlignRight.OffContent" translate="yes" xml:space="preserve">
           <source>Hide align right</source>
@@ -269,6 +265,10 @@
         <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
           <target state="translated" state-qualifier="tm-suggestion">ตัดคำ</target>
+        </trans-unit>
+        <trans-unit id="CmdFocusMode.Label" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="translated">เปิดโหมดเน้นพิมพ์</target>
         </trans-unit>
       </group>
     </body>
