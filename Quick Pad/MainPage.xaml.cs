@@ -3,10 +3,12 @@ using Microsoft.Services.Store.Engagement;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.Resources;
 using Windows.Services.Store;
 using Windows.Storage;
 using Windows.System;
@@ -26,7 +28,9 @@ namespace Quick_Pad_Free_Edition
 {
     public sealed partial class MainPage : Page
     {
-        private string UpdateFile = "New Document"; //Default file name is "New Document"
+        public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
+        private string DefaultFilename => textResource.GetString("NewDocument");
+        private string UpdateFile; //Default file name is "New Document"
         private String FullFilePath; //this is the opened files full path
         private string key; //future access list
         private bool _isPageLoaded = false;
@@ -45,6 +49,7 @@ namespace Quick_Pad_Free_Edition
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
+            UpdateFile = DefaultFilename;
             TQuick.Text = UpdateFile; //Displays file name on title bar
 
             LoadSettings();
@@ -52,7 +57,7 @@ namespace Quick_Pad_Free_Edition
             CheckToolbarOptions(); //check which buttons to show in toolbar
             CheckTheme(); //check the theme
 
-            VersionNumber.Text = string.Format("Version: {0}.{1}.{2}.{3}", Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
+            VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
             //check if focus is on app or off the app
             Window.Current.CoreWindow.Activated += (sender, args) =>
@@ -139,16 +144,16 @@ namespace Quick_Pad_Free_Edition
             if (launchValue == "On Top")
             {
                 CompactOverlay.IsChecked = true; //launch compact overlay mode
-                LaunchOptions.SelectedValue = "On Top";
+                LaunchOptions.SelectedValue = LaunchModeOnTop;
             }
 
             if (launchValue == "Focus Mode")
             {
                 SwitchToFocusMode();
-                LaunchOptions.SelectedValue = "Focus Mode";
+                LaunchOptions.SelectedValue = LaunchModeFocus;
             }
 
-            if (launchValue == "Default") LaunchOptions.SelectedValue = "Default";
+            if (launchValue == "Default") LaunchOptions.SelectedValue = LaunchModeDefault;
         }
 
         private void LoadSettings()
@@ -381,16 +386,16 @@ namespace Quick_Pad_Free_Edition
                     String DefaultFontColors = localSettings.Values["DefaultFontColor"] as string;
                     if (DefaultFontColors != "")
                     {
-                        DefaultFontColor.SelectedItem = DefaultFontColors;
-                        Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
+                        ComboBoxItem comboboxItem = (ComboBoxItem)DefaultFontColor.Items.ToList().First(i => ((ComboBoxItem)i).Tag.ToString() == DefaultFontColors);
+                        DefaultFontColor.SelectedItem = comboboxItem;
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), comboboxItem.Tag);
                     }
                 }
                 catch (Exception) //no setting was found
                 {
-                    if (this.RequestedTheme == ElementTheme.Dark || App.Current.RequestedTheme == ApplicationTheme.Dark)
-                    {
-                        DefaultFontColor.PlaceholderText = "White";
-                    }
+                    DefaultFontColor.Text = RequestedTheme == ElementTheme.Dark ?
+                        textResource.GetString("PlaceholderWhite") :
+                        textResource.GetString("PlaceholderBlack");
                 }
 
                 //check what default font size is and set it
@@ -432,10 +437,10 @@ namespace Quick_Pad_Free_Edition
         {
             ContentDialog deleteFileDialog = new ContentDialog //brings up a content dialog
             {
-                Title = "Do you enjoy using Quick Pad?",
-                Content = "Please consider leaving a review for Quick Pad in the store.",
-                PrimaryButtonText = "Yes",
-                CloseButtonText = "No"
+                Title = textResource.GetString("NewUserFeedbackTitle"),//"Do you enjoy using Quick Pad?",
+                Content = textResource.GetString("NewUserFeedbackContent"),//"Please consider leaving a review for Quick Pad in the store.",
+                PrimaryButtonText = textResource.GetString("NewUserFeedbackYes"),//"Yes",
+                CloseButtonText = textResource.GetString("NewUserFeedbackNo"),//"No"
             };
 
             ContentDialogResult result = await deleteFileDialog.ShowAsync(); //get the results if the user clicked to review or not
@@ -535,7 +540,7 @@ namespace Quick_Pad_Free_Edition
                 {
                     Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
 
-                    UpdateFile = "New Document"; //reset the value of the friendly file name
+                    UpdateFile = DefaultFilename; //reset the value of the friendly file name
                     TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
                     FullFilePath = ""; //clear the path of the open file since there is none
                     SetTaskBarTitle(); //update the title in the taskbar
@@ -548,7 +553,7 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
 
-                UpdateFile = "New Document"; //reset the value of the friendly file name
+                UpdateFile = DefaultFilename; //reset the value of the friendly file name
                 TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
                 FullFilePath = ""; //clear the path of the open file since there is none
                 SetTaskBarTitle(); //update the title in the taskbar
@@ -925,7 +930,8 @@ namespace Quick_Pad_Free_Edition
             }
             else
             {
-                args.Request.FailWithDisplayText("Nothing to share, type something in order to share it.");
+                //"Nothing to share, type something in order to share it."
+                args.Request.FailWithDisplayText(textResource.GetString("NothingToShare"));
             }
         }
 
@@ -1373,8 +1379,8 @@ namespace Quick_Pad_Free_Edition
 
         private void DefaultFontColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            localSettings.Values["DefaultFontColor"] = DefaultFontColor.SelectedValue;
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
+            localSettings.Values["DefaultFontColor"] = (DefaultFontColor.SelectedValue as ComboBoxItem).Tag;
+            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), (DefaultFontColor.SelectedValue as ComboBoxItem).Tag);
         }
 
         private void SwitchToFocusMode()
@@ -1404,7 +1410,7 @@ namespace Quick_Pad_Free_Edition
 
         private void LaunchOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            localSettings.Values["LaunchMode"] = LaunchOptions.SelectedValue;
+            localSettings.Values["LaunchMode"] = (LaunchOptions.SelectedValue as ComboBoxItem).Tag;
         }
 
         private void DefaultFileType_SelectionChanged(object sender, SelectionChangedEventArgs e)

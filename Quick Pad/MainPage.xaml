@@ -2,7 +2,6 @@
     x:Class="Quick_Pad_Free_Edition.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Quick_Pad_Free_Edition"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
@@ -30,15 +29,25 @@
             <Frame x:Name="FrameTop" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
         </controls:DropShadowPanel>
 
-        <Button x:Name="CloseFocusMode" ToolTipService.ToolTip="Exit focus mode" Click="CloseFocusMode_Click" Visibility="Collapsed" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="0,50,30,0" Canvas.ZIndex="1500" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2"/>
+        <Button x:Name="CloseFocusMode" Click="CloseFocusMode_Click" Visibility="Collapsed" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="0,50,30,0" Canvas.ZIndex="1500" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2">
+            <ToolTipService.ToolTip>
+                <TextBlock Text="Exit focus mode" x:Uid="ExitFocusMode"/>
+            </ToolTipService.ToolTip>
+        </Button>
 
         <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,360,0" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="40"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
-            <AppBarButton x:Name="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click" ToolTipService.ToolTip="New">
+            <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="New" x:Uid="CmdNewTooltip"/>
+                </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xE7C3;"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="CmdOpen" Label="Open"  Width="Auto" MinWidth="40" Click="CmdOpen_Click" ToolTipService.ToolTip="Open (Ctrl+O)">
+            <AppBarButton x:Name="CmdOpen" x:Uid="CmdOpen" Label="Open"  Width="Auto" MinWidth="40" Click="CmdOpen_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Open (Ctrl+O)" x:Uid="CmdOpenTooltip"/>
+                </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xF12B;"/>
                 </AppBarButton.Icon>
@@ -48,7 +57,10 @@
                            Key="O" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:Name="CmdSave" Label="Save" Width="Auto" MinWidth="40" Icon="Save" Click="CmdSave_Click" ToolTipService.ToolTip="Save (Ctrl+S)" LabelPosition="Collapsed">
+            <AppBarButton x:Name="CmdSave" x:Uid="CmdSave" Label="Save" Width="Auto" MinWidth="40" Icon="Save" Click="CmdSave_Click" LabelPosition="Collapsed">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Save (Ctrl+S)" x:Uid="CmdSaveTooltip"/>
+                </ToolTipService.ToolTip>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator 
                           Modifiers="Control" 
@@ -56,47 +68,117 @@
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarSeparator/>
-            <AppBarButton x:Name="Bold" Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Bold (Ctrl+B)"/>
-            <AppBarButton x:Name="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Italic (Ctrl+I)"/>
-            <AppBarButton x:Name="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Underline (Ctrl+U)"/>
-            <AppBarButton x:Name="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" ToolTipService.ToolTip="Strikethrough" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Click="Strikethrough_Click">
+            <AppBarButton x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Bold (Ctrl+B)" x:Uid="BoldTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="Italic" x:Uid="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Italic (Ctrl+I)" x:Uid="ItalicTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="Underline" x:Uid="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Underline (Ctrl+U)" x:Uid="UnderlineTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="Strikethrough" x:Uid="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Click="Strikethrough_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
+                </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="BulletList" Label="Bullets"  Width="Auto" MinWidth="40" Visibility="Visible" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Toggle Bullets"/>
+            <AppBarButton x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="Visible" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Toggle Bullets" x:Uid="BuTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
             <AppBarSeparator/>
-            <AppBarButton x:Name="Left" Label="Left" Width="Auto" MinWidth="40" Click="Left_Click" Icon="AlignLeft" ToolTipService.ToolTip="Align left (Ctrl+L)"/>
-            <AppBarButton x:Name="Center" Label="Center" Width="Auto" MinWidth="40" Click="Center_Click" Icon="AlignCenter" ToolTipService.ToolTip="Align center (Ctrl+E)"/>
-            <AppBarButton x:Name="Right" Label="Right"  Width="Auto" MinWidth="40" Click="Right_Click" Icon="AlignRight" ToolTipService.ToolTip="Align right (Ctrl+R)"/>
-            <AppBarButton x:Name="Justify" Label="Justify"  Width="Auto" MinWidth="40" Click="Justify_Click" ToolTipService.ToolTip="Justify text (Ctrl+J)" Background="{x:Null}" >
+            <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Click="Left_Click" Icon="AlignLeft">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Align left (Ctrl+L)" x:Uid="LeftTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Click="Center_Click" Icon="AlignCenter">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Align center (Ctrl+E)" x:Uid="CenterTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Click="Right_Click" Icon="AlignRight">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Click="Justify_Click" Background="{x:Null}" >
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
+                </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/justify align.png"/>
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator x:Name="AlignSeparator" />
-            <AppBarButton x:Name="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease" ToolTipService.ToolTip="Size Up" />
-            <AppBarButton x:Name="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease" ToolTipService.ToolTip="Size Down" />
+            <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Size Up" x:Uid="SizeUpTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="SizeDown" x:Uid="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Size Down" x:Uid="SizeDownTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
         </CommandBar>
 
         <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False"  HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,33,0,0">
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="CmdFocusMode" Click="CmdFocusMode_Click"  Icon="Caption" Label="Focus Mode" Width="Auto"/>
-                <AppBarButton x:Name="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the file you are working on."/>
-                <AppBarButton x:Name="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
-                <AppBarButton x:Name="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click" ToolTipService.ToolTip="Settings"/>
+                <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="CmdFocusMode_Click"  Icon="Caption" Label="Focus Mode" Width="Auto"/>
+                <AppBarButton x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" >
+                    <ToolTipService.ToolTip>
+                        <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
+                    </ToolTipService.ToolTip>
+                </AppBarButton>
+                <AppBarButton x:Name="CmdReview" x:Uid="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
+                <AppBarButton x:Name="CmdSettings" x:Uid="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click">
+                    <ToolTipService.ToolTip>
+                        <TextBlock Text="Settings" x:Uid="CmdSettingsTooltip"/>
+                    </ToolTipService.ToolTip>
+                </AppBarButton>
             </CommandBar.SecondaryCommands>
-            <AppBarButton x:Name="CmdUndo" Label="Undo"  Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)"/>
-            <AppBarButton x:Name="CmdRedo" Label="Redo"  Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click" ToolTipService.ToolTip="Redo (Ctrl+Y)"/>
+            <AppBarButton x:Name="CmdUndo" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Undo (Ctrl+Z)" x:Uid="CmdUndoTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="CmdRedo" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Redo (Ctrl+Y)" x:Uid="CmdRedoTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
             <AppBarSeparator x:Name="ASep1"/>
-            <AppBarToggleButton x:Name="CompactOverlay" Content="On Top" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Checked="CompactOverlay_Checked" Unchecked="CompactOverlay_Unchecked">
+            <AppBarToggleButton x:Name="CompactOverlay" x:Uid="CompactOverlay" Content="On Top" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Checked="CompactOverlay_Checked" Unchecked="CompactOverlay_Unchecked">
                 <AppBarToggleButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
                 </AppBarToggleButton.KeyboardAccelerators>
             </AppBarToggleButton>
-            <AppBarButton x:Name="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click" ToolTipService.ToolTip="Copy (Ctrl+C)"/>
-            <AppBarButton x:Name="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click" ToolTipService.ToolTip="Paste (Ctrl+V)"/>
-            <AppBarButton x:Name="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click" ToolTipService.ToolTip="Cut (Ctrl+X)"/>
+            <AppBarButton x:Name="Copy" x:Uid="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Copy (Ctrl+C)" x:Uid="CopyTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="Paste" x:Uid="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Paste (Ctrl+V)" x:Uid="PasteTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Name="Cut" x:Uid="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Cut (Ctrl+X)" x:Uid="CutTooltip"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
         </CommandBar>
 
         <RichEditBox  x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
@@ -106,10 +188,10 @@
             <StackPanel HorizontalAlignment="Stretch" Height="120" VerticalAlignment="Stretch">
                 <Grid>
                     <TextBlock Text="Quick Pad" FontSize="24"/>
-                    <TextBlock Text="Would you like to save your changes?" Margin="0,37,0,0"/>
-                    <Button Content="Yes" x:Name="SaveDialogYes" Click="SaveDialogYes_Click" Windows10version1809:CornerRadius="2" Margin="-167,85,0,0" Width="80" HorizontalAlignment="Center"/>
-                    <Button Content="No" x:Name="SaveDialogNo" Click="SaveDialogNo_Click" Windows10version1809:CornerRadius="2" Margin="0,85,0,0" Width="80" HorizontalAlignment="Center"/>
-                    <Button Content="Cancel" x:Name="SaveDialogCancel" Click="SaveDialogCancel_Click"  Windows10version1809:CornerRadius="2" Margin="168,85,0,0" Width="80" HorizontalAlignment="Center"/>
+                    <TextBlock x:Uid="SaveDialog" Text="Would you like to save your changes?" Margin="0,37,0,0"/>
+                    <Button Content="Yes" x:Name="SaveDialogYes" x:Uid="SaveDialogYes" Click="SaveDialogYes_Click" Windows10version1809:CornerRadius="2" Margin="-167,85,0,0" Width="80" HorizontalAlignment="Center"/>
+                    <Button Content="No" x:Name="SaveDialogNo" x:Uid="SaveDialogNo" Click="SaveDialogNo_Click" Windows10version1809:CornerRadius="2" Margin="0,85,0,0" Width="80" HorizontalAlignment="Center"/>
+                    <Button Content="Cancel" x:Name="SaveDialogCancel" x:Uid="SaveDialogCancel" Click="SaveDialogCancel_Click"  Windows10version1809:CornerRadius="2" Margin="168,85,0,0" Width="80" HorizontalAlignment="Center"/>
                 </Grid>
             </StackPanel>
         </ContentDialog>
@@ -121,48 +203,48 @@
                     <CommandBar x:Name="CmdSettingsBack" Canvas.ZIndex="100" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{x:Null}" Margin="0,0,0,0">
                         <AppBarButton x:Name="CmdBack" Windows10version1809:CornerRadius="2" Width="40" Icon="Clear" Click="CmdBack_Click"/>
                     </CommandBar>
-                    <Pivot x:Name="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
+                    <Pivot x:Name="SettingsPivot" x:Uid="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
                         <Pivot.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding}" FontSize="20" FontFamily="Segoe UI"/>
                             </DataTemplate>
                         </Pivot.HeaderTemplate>
-                        <PivotItem Header="General" x:Name="SettingsTab1">
-                            <ScrollViewer x:Name="SettingsTab1SV"  Height="200">
+                        <PivotItem Header="General" x:Name="SettingsTab1" x:Uid="SettingsTab1">
+                            <ScrollViewer x:Name="SettingsTab1SV" Height="200">
                                 <Grid Height="340">
-                                    <TextBlock Text="Launch Mode" Margin="0,10,23,87" TextWrapping="Wrap"/>
-                                    <ComboBox Margin="0,35,0,0" PlaceholderText="Default" SelectionChanged="LaunchOptions_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                                        <x:String>Default</x:String>
-                                        <x:String>On Top</x:String>
-                                        <x:String>Focus Mode</x:String>
+                                    <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode" Margin="0,10,23,87" TextWrapping="Wrap"/>
+                                    <ComboBox Margin="0,35,0,0" x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectionChanged="LaunchOptions_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                        <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
+                                        <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
+                                        <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
                                     </ComboBox>
-                                    <TextBlock Text="Default File Type" Margin="0,80,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
+                                    <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type" Margin="0,80,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
                                     <ComboBox Margin="0,105,0,0" PlaceholderText=".rtf" SelectionChanged="DefaultFileType_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                         <x:String>.rtf</x:String>
                                         <x:String>.txt</x:String>
                                     </ComboBox>
-                                    <TextBlock Text="Auto Save" Margin="0,150,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="AutoSaveSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
-                                    <TextBlock Text="Word Wrap" Margin="0,215,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="WordWrap" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
-                                    <TextBlock Text="Spell Check" Margin="0,280,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="SpellCheck" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" />
+                                    <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save" Margin="0,150,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
+                                    <TextBlock x:Uid="WordWrap" Text="Word Wrap" Margin="0,215,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="WordWrap" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
+                                    <TextBlock x:Uid="SpellCheck" Text="Spell Check" Margin="0,280,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" />
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>
-                        <PivotItem Header="Theme" x:Name="SettingsTab2">
+                        <PivotItem Header="Theme" x:Name="SettingsTab2" x:Uid="SettingsTab2">
                             <Grid Height="200">
-                                <TextBlock Text="App Theme" Margin="0,5,0,0" TextWrapping="Wrap" FontSize="18"/>
-                                <RadioButton x:Name="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,40,0,0" VerticalAlignment="Top" Width="242" Click="Light_Click" Grid.RowSpan="2"/>
-                                <RadioButton x:Name="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,80,0,0" VerticalAlignment="Top" Width="242" Click="Dark_Click"/>
-                                <RadioButton x:Name="SystemDefault" IsChecked="True" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,120,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefault_Click" Grid.RowSpan="1"/>
+                                <TextBlock x:Uid="AppTheme" Text="App Theme" Margin="0,5,0,0" TextWrapping="Wrap" FontSize="18"/>
+                                <RadioButton x:Name="Light" x:Uid="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,40,0,0" VerticalAlignment="Top" Width="242" Click="Light_Click" Grid.RowSpan="2"/>
+                                <RadioButton x:Name="Dark" x:Uid="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,80,0,0" VerticalAlignment="Top" Width="242" Click="Dark_Click"/>
+                                <RadioButton x:Name="SystemDefault" x:Uid="SystemDefault" IsChecked="True" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,120,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefault_Click" Grid.RowSpan="1"/>
                             </Grid>
                         </PivotItem>
-                        <PivotItem Header="Font" x:Name="SettingsTab3">
+                        <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
                             <Grid Height="200">
-                                <TextBlock Text="Default Font" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                                <TextBlock x:Uid="DefaultFont" Text="Default Font" Margin="0,5,0,0" TextWrapping="Wrap"/>
                                 <ComboBox Margin="0,30,0,0" Windows10version1809:CornerRadius="2" SelectionChanged="DefaultFont_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" x:Name="DefaultFont" PlaceholderText="Segoe UI" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
-                                <TextBlock Text="Default Font Size" Margin="0,70,0,0" TextWrapping="Wrap"/>
+                                <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" Margin="0,70,0,0" TextWrapping="Wrap"/>
                                 <ComboBox Margin="0,95,0,0" Windows10version1809:CornerRadius="2" x:Name="DefaultFontSize" SelectionChanged="DefaultFontSize_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" Width="69" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <x:String>4</x:String>
                                     <x:String>6</x:String>
@@ -181,39 +263,39 @@
                                     <x:String>48</x:String>
                                     <x:String>72</x:String>
                                 </ComboBox>
-                                <TextBlock Text="Default Font Color" Margin="0,135,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" SelectionChanged="DefaultFontColor_SelectionChanged" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
-                                    <x:String>Black</x:String>
-                                    <x:String>White</x:String>
-                                    <x:String>SkyBlue</x:String>
-                                    <x:String>LightGreen</x:String>
-                                    <x:String>LightPink</x:String>
-                                    <x:String>LightYellow</x:String>
-                                    <x:String>LightSalmon</x:String>
+                                <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color" Margin="0,135,0,0" TextWrapping="Wrap"/>
+                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" SelectionChanged="DefaultFontColor_SelectionChanged" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                    <ComboBoxItem Content="Black" Tag="Black" x:Uid="FontColorBlack" x:Name="FontColorBlack"/>
+                                    <ComboBoxItem Content="White" Tag="White" x:Uid="FontColorWhite" x:Name="FontColorWhite"/>
+                                    <ComboBoxItem Content="SkyBlue" Tag="SkyBlue" x:Uid="FontColorSkyBlue" x:Name="FontColorSkyBlue"/>
+                                    <ComboBoxItem Content="LightGreen" Tag="LightGreen" x:Uid="FontColorLightGreen" x:Name="FontColorLightGreen"/>
+                                    <ComboBoxItem Content="LightPink" Tag="LightPink" x:Uid="FontColorLightPink" x:Name="FontColorLightPink"/>
+                                    <ComboBoxItem Content="LightYellow" Tag="LightYellow" x:Uid="FontColorLightYellow" x:Name="FontColorLightYellow"/>
+                                    <ComboBoxItem Content="LightSalmon" Tag="LightSalmon" x:Uid="FontColorLightSalmon" x:Name="FontColorLightSalmon"/>
                                 </ComboBox>
                             </Grid>
                         </PivotItem>
-                        <PivotItem Header="Toolbar" x:Name="SettingsTab4">
+                        <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
                             <ScrollViewer x:Name="SettingsTab2SV"  Height="200">
                                 <Grid Height="275">
-                                    <ToggleSwitch x:Name="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Toggled="ShowStrikethrough_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                                    <ToggleSwitch x:Name="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Toggled="ShowBullets_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 50,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Toggled="ShowAlignLeft_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,95,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Toggled="ShowAlignCenter_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,140,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Toggled="ShowAlignRight_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,185,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Toggled="ShowAlignJustify_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,230,0,0"/>
+                                    <ToggleSwitch x:Name="ShowStrikethrough" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Toggled="ShowStrikethrough_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                                    <ToggleSwitch x:Name="ShowBullets" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Toggled="ShowBullets_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 50,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignLeft" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Toggled="ShowAlignLeft_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,95,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignCenter" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Toggled="ShowAlignCenter_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,140,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignRight" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Toggled="ShowAlignRight_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,185,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignJustify" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Toggled="ShowAlignJustify_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,230,0,0"/>
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>
-                        <PivotItem Header="About" x:Name="SettingsTab5">
+                        <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
                             <Grid Height="200">
                                     <TextBlock Text="Version number" x:Name="VersionNumber" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe UI"/>
-                                    <TextBlock Text="Developed by Yair Aichenbaum" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Icon desgin by James Arney" Margin="0,65,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
-                                <HyperlinkButton Content="Send Feedback" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
-                                    <HyperlinkButton Content="Rate and review" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
-                                    <HyperlinkButton Content="Contribute to the developer" Margin="0,140,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
-                                </Grid>
+                                    <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" Margin="0,65,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+                                    <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
+                                    <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
+                                    <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" Margin="0,140,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
+                            </Grid>
                         </PivotItem>
                     </Pivot>
                     <Grid>
@@ -242,16 +324,19 @@
                     <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
-            <AppBarButton x:Name="TextColor" Width="40" Icon="FontColor" ToolTipService.ToolTip="Font Color">
+            <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor">
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Font Color" x:Uid="TextColorTooltip"/>
+                </ToolTipService.ToolTip>
                 <AppBarButton.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem x:Name="Black" Text="Black" Click="Black_Click" />
-                        <MenuFlyoutItem x:Name="White" Text="White" Click="White_Click" />
-                        <MenuFlyoutItem x:Name="Yellow" Text="Yellow" Click="Yellow_Click" />
-                        <MenuFlyoutItem x:Name="Blue" Text="Blue" Click="Blue_Click" />
-                        <MenuFlyoutItem x:Name="Pink" Text="Pink" Click="Pink_Click" />
-                        <MenuFlyoutItem x:Name="Orange" Text="Orange" Click="Orange_Click" />
-                        <MenuFlyoutItem x:Name="Green" Text="Green" Click="Green_Click" />
+                        <MenuFlyoutItem x:Name="Black" x:Uid="TextColorBlack" Text="Black" Click="Black_Click" />
+                        <MenuFlyoutItem x:Name="White" x:Uid="TextColorWhite" Text="White" Click="White_Click" />
+                        <MenuFlyoutItem x:Name="Yellow" x:Uid="TextColorYellow" Text="Yellow" Click="Yellow_Click" />
+                        <MenuFlyoutItem x:Name="Blue" x:Uid="TextColorBlue" Text="Blue" Click="Blue_Click" />
+                        <MenuFlyoutItem x:Name="Pink" x:Uid="TextColorPink" Text="Pink" Click="Pink_Click" />
+                        <MenuFlyoutItem x:Name="Orange" x:Uid="TextColorOrange" Text="Orange" Click="Orange_Click" />
+                        <MenuFlyoutItem x:Name="Green" x:Uid="TextColorGreen" Text="Green" Click="Green_Click" />
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
