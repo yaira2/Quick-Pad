@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTheme.Text" xml:space="preserve">
+    <value>ธีมของแอป</value>
+  </data>
+  <data name="AutoSaveSwitch.Text" xml:space="preserve">
+    <value>บันทึกอัตโนมัติ</value>
+  </data>
+  <data name="Bold.Label" xml:space="preserve">
+    <value>ตัวหนา</value>
+  </data>
+  <data name="Bold.TooltipService.Tooltip" xml:space="preserve">
+    <value>ตัวหนา (Ctrl+B)</value>
+  </data>
+  <data name="BulletList.Label" xml:space="preserve">
+    <value>สัญลักษณ์หัวข้อ</value>
+  </data>
+  <data name="BulletList.TooltipService.Tooltip" xml:space="preserve">
+    <value>เปิดใช้สัญลักษณ์หัวข้อ</value>
+  </data>
+  <data name="Center.Label" xml:space="preserve">
+    <value>กลาง</value>
+  </data>
+  <data name="Center.TooltipService.Tooltip" xml:space="preserve">
+    <value>จัดกลาง (Ctrl+E)</value>
+  </data>
+  <data name="CmdFocusMode" xml:space="preserve">
+    <value>เปิดโหมดเน้นพิมพ์</value>
+  </data>
+  <data name="CmdNew.Label" xml:space="preserve">
+    <value>เริ่มใหม่</value>
+  </data>
+  <data name="CmdNew.TooltipService.Tooltip" xml:space="preserve">
+    <value>เริ่มใหม่</value>
+  </data>
+  <data name="CmdOpen.Label" xml:space="preserve">
+    <value>เปิด</value>
+  </data>
+  <data name="CmdOpen.TooltipService.Tooltip" xml:space="preserve">
+    <value>เปิด (Ctrl+O)</value>
+  </data>
+  <data name="CmdRedo.Label" xml:space="preserve">
+    <value>ทำซ้ำ</value>
+  </data>
+  <data name="CmdRedo.TooltipService.Tooltip" xml:space="preserve">
+    <value>ทำซ้ำ (Ctrl+Y)</value>
+  </data>
+  <data name="CmdReview" xml:space="preserve">
+    <value>รีวิว</value>
+  </data>
+  <data name="CmdSave.Label" xml:space="preserve">
+    <value>บันทึก</value>
+  </data>
+  <data name="CmdSave.TooltipService.Tooltip" xml:space="preserve">
+    <value>บันทึก (Ctrl+S)</value>
+  </data>
+  <data name="CmdSettings" xml:space="preserve">
+    <value>ตั้งค่า</value>
+  </data>
+  <data name="CmdSettings.ToolTipService.ToolTip" xml:space="preserve">
+    <value>ตั้งค่า</value>
+  </data>
+  <data name="CmdShare" xml:space="preserve">
+    <value>แบ่งปัน</value>
+  </data>
+  <data name="CmdShare.ToolTipService.ToolTip" xml:space="preserve">
+    <value>ส่งไฟล์นี้ให้เพื่อนของคุณ</value>
+  </data>
+  <data name="CmdUndo.Label" xml:space="preserve">
+    <value>เลิกทำ</value>
+  </data>
+  <data name="CmdUndo.TooltipService.Tooltip" xml:space="preserve">
+    <value>เลิกทำ (Ctrl+Z)</value>
+  </data>
+  <data name="CompactOverlay.Content" xml:space="preserve">
+    <value>ทับแอพอื่น</value>
+  </data>
+  <data name="Contribute.Content" xml:space="preserve">
+    <value>บริจาค ช่วยเหลือนักพัฒนา</value>
+  </data>
+  <data name="Copy.Label" xml:space="preserve">
+    <value>คัดลอก</value>
+  </data>
+  <data name="Copy.TooltipService.Tooltip" xml:space="preserve">
+    <value>คัดลอก (Ctrl+C)</value>
+  </data>
+  <data name="Cut.Label" xml:space="preserve">
+    <value>ตัด</value>
+  </data>
+  <data name="Cut.TooltipService.Tooltip" xml:space="preserve">
+    <value>ตัด (Ctrl+C)</value>
+  </data>
+  <data name="Dark.Content" xml:space="preserve">
+    <value>สีเข้ม</value>
+  </data>
+  <data name="DefaultFont.Text" xml:space="preserve">
+    <value>ฟอนต์เริ่มต้น</value>
+  </data>
+  <data name="DefaultFontColor.Text" xml:space="preserve">
+    <value>สีฟอนต์เริ่มต้น</value>
+  </data>
+  <data name="DefaultFontSize.Text" xml:space="preserve">
+    <value>ขนาดฟอนต์เริ่มต้น</value>
+  </data>
+  <data name="DevelopedBy.Text" xml:space="preserve">
+    <value>สร้างและพัฒนาโดย Yair Aichenbaum</value>
+  </data>
+  <data name="GeneralAutoSave.Text" xml:space="preserve">
+    <value>บันทึกอัตโนมัติ</value>
+  </data>
+  <data name="GeneralDefaultType.Text" xml:space="preserve">
+    <value>ชนิดไฟล์เริ่มต้น</value>
+  </data>
+  <data name="GeneralLaunchMode.Text" xml:space="preserve">
+    <value>เริ่มแอปในโหมด</value>
+  </data>
+  <data name="GeneralToggleSwitch.OffContent" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="GeneralToggleSwitch.OnContent" xml:space="preserve">
+    <value>เปิด</value>
+  </data>
+  <data name="IconDesignBy.Text" xml:space="preserve">
+    <value>ออกแบบไอคอนโดย by James Arney</value>
+  </data>
+  <data name="Italic.Label" xml:space="preserve">
+    <value>ตัวเอียง</value>
+  </data>
+  <data name="Italic.TooltipService.Tooltip" xml:space="preserve">
+    <value>ตัวเอียง (Ctrl+I)</value>
+  </data>
+  <data name="Justify.Label" xml:space="preserve">
+    <value>เต็มแนว</value>
+  </data>
+  <data name="Justify.TooltipService.Tooltip" xml:space="preserve">
+    <value>จัดเต็มแนว (Ctrl+J)</value>
+  </data>
+  <data name="Left.Label" xml:space="preserve">
+    <value>ซ้าย</value>
+  </data>
+  <data name="Left.TooltipService.Tooltip" xml:space="preserve">
+    <value>จัดชิดซ้าย (Ctrl+L)</value>
+  </data>
+  <data name="Light.Content" xml:space="preserve">
+    <value>สีสว่าง</value>
+  </data>
+  <data name="Paste.Label" xml:space="preserve">
+    <value>วาง</value>
+  </data>
+  <data name="Paste.TooltipService.Tooltip" xml:space="preserve">
+    <value>วาง (Ctrl+P)</value>
+  </data>
+  <data name="RateAndReview.Content" xml:space="preserve">
+    <value>ให้คะแนนและรีวิว</value>
+  </data>
+  <data name="Right.Label" xml:space="preserve">
+    <value>ซ้าย</value>
+  </data>
+  <data name="Right.TooltipService.Tooltip" xml:space="preserve">
+    <value>จัดชิดซ้าย (Ctrl+R)</value>
+  </data>
+  <data name="SaveDialog.Text" xml:space="preserve">
+    <value>คุณต้องการบันทึกการเปลี่ยนแปลงที่พิมพ์ไปไหม?</value>
+  </data>
+  <data name="SaveDialogCancel.Content" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="SaveDialogNo.Content" xml:space="preserve">
+    <value>ไม่บันทึก</value>
+  </data>
+  <data name="SaveDialogYes.Content" xml:space="preserve">
+    <value>บันทึก</value>
+  </data>
+  <data name="SendFeedback.Content" xml:space="preserve">
+    <value>ส่งคำติชม</value>
+  </data>
+  <data name="SettingsPivot.Title" xml:space="preserve">
+    <value>การตั้งค่า</value>
+  </data>
+  <data name="SettingsTab1.Header" xml:space="preserve">
+    <value>ทั่วไป</value>
+  </data>
+  <data name="SettingsTab2.Header" xml:space="preserve">
+    <value>ธีม</value>
+  </data>
+  <data name="SettingsTab3.Header" xml:space="preserve">
+    <value>ฟอนต์</value>
+  </data>
+  <data name="SettingsTab4.Header" xml:space="preserve">
+    <value>แถบเครื่องมือ</value>
+  </data>
+  <data name="SettingsTab5.Header" xml:space="preserve">
+    <value>เกี่ยวกับ</value>
+  </data>
+  <data name="ShowAlignCenter.OffContent" xml:space="preserve">
+    <value>ซ่อนปุ่มจัดกลาง</value>
+  </data>
+  <data name="ShowAlignCenter.OnContent" xml:space="preserve">
+    <value>แสดงปุ่มจัดกลาง</value>
+  </data>
+  <data name="ShowAlignJustify.OffContent" xml:space="preserve">
+    <value>ซ่อนปุ่มจัดเต็มแนว</value>
+  </data>
+  <data name="ShowAlignJustify.OnContent" xml:space="preserve">
+    <value>แสดงปุ่มจัดเต็มแนว</value>
+  </data>
+  <data name="ShowAlignLeft.OffContent" xml:space="preserve">
+    <value>ซ่อนปุ่มจัดชิดซ้าย</value>
+  </data>
+  <data name="ShowAlignLeft.OnContent" xml:space="preserve">
+    <value>แสดงปุ่มจัดชิดซ้าย</value>
+  </data>
+  <data name="ShowAlignRight.OffContent" xml:space="preserve">
+    <value>ซ่อนปุ่มจัดชิดขวา</value>
+  </data>
+  <data name="ShowAlignRight.OnContent" xml:space="preserve">
+    <value>แสดงปุ่มจัดชิดขวา</value>
+  </data>
+  <data name="ShowBullets.OffContent" xml:space="preserve">
+    <value>ซ่อนปุ่มสัญลักษณ์หัวข้อ</value>
+  </data>
+  <data name="ShowBullets.OnContent" xml:space="preserve">
+    <value>แสดงปุ่มสัญลักษณ์หัวข้อ</value>
+  </data>
+  <data name="ShowStrikethrough.OffContent" xml:space="preserve">
+    <value>ซ่อนปุ่มขีดทับ</value>
+  </data>
+  <data name="ShowStrikethrough.OnContent" xml:space="preserve">
+    <value>แสดงปุ่มขีดทับ</value>
+  </data>
+  <data name="SizeDown.Label" xml:space="preserve">
+    <value>ย่อขนาด</value>
+  </data>
+  <data name="SizeDown.TooltipService.Tooltip" xml:space="preserve">
+    <value>ย่อขนาด</value>
+  </data>
+  <data name="SizeUp.Label" xml:space="preserve">
+    <value>ขยายขนาด</value>
+  </data>
+  <data name="SizeUp.TooltipService.Tooltip" xml:space="preserve">
+    <value>ขยายขนาด</value>
+  </data>
+  <data name="SpellCheck.Text" xml:space="preserve">
+    <value>เช็คคำผิด</value>
+  </data>
+  <data name="Strikethrough.Label" xml:space="preserve">
+    <value>ขีดฆ่า</value>
+  </data>
+  <data name="Strikethrough.TooltipService.Tooltip" xml:space="preserve">
+    <value>ขีดฆ่า</value>
+  </data>
+  <data name="SystemDefault.Content" xml:space="preserve">
+    <value>ตามสีระบบ</value>
+  </data>
+  <data name="TextColor.ToolTipService.ToolTip" xml:space="preserve">
+    <value>สีฟอนต์</value>
+  </data>
+  <data name="Underline.Label" xml:space="preserve">
+    <value>ขีดเส้นใต้</value>
+  </data>
+  <data name="Underline.TooltipService.Tooltip" xml:space="preserve">
+    <value>ขีดเส้นใต้ (Ctrl+U)</value>
+  </data>
+  <data name="WordWrap.Text" xml:space="preserve">
+    <value>ตัดคำ</value>
+  </data>
+</root>
