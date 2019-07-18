@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="th-TH" original="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6914.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="AppTheme.Text" translate="yes" xml:space="preserve">
+          <source>App theme</source>
+          <target state="translated">ธีมของแอป</target>
+        </trans-unit>
+        <trans-unit id="AutoSaveSwitch.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save</source>
+          <target state="translated">บันทึกอัตโนมัติ</target>
+        </trans-unit>
+        <trans-unit id="Bold.Label" translate="yes" xml:space="preserve">
+          <source>Bold</source>
+          <target state="translated" state-qualifier="tm-suggestion">ตัวหนา</target>
+        </trans-unit>
+        <trans-unit id="BulletList.Label" translate="yes" xml:space="preserve">
+          <source>Bullets</source>
+          <target state="translated">สัญลักษณ์หัวข้อย่อย</target>
+        </trans-unit>
+        <trans-unit id="Center.Label" translate="yes" xml:space="preserve">
+          <source>Center</source>
+          <target state="translated" state-qualifier="tm-suggestion">กึ่งกลาง</target>
+        </trans-unit>
+        <trans-unit id="CmdFocusMode" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="translated">โหมดเน้นพิมพ์</target>
+        </trans-unit>
+        <trans-unit id="CmdNew.Label" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="translated">เริ่มใหม่</target>
+        </trans-unit>
+        <trans-unit id="CmdOpen.Label" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="translated" state-qualifier="tm-suggestion">เปิด</target>
+        </trans-unit>
+        <trans-unit id="CmdRedo.Label" translate="yes" xml:space="preserve">
+          <source>Redo</source>
+          <target state="translated" state-qualifier="tm-suggestion">ทำซ้ำ</target>
+        </trans-unit>
+        <trans-unit id="CmdReview.Label" translate="yes" xml:space="preserve">
+          <source>Review</source>
+          <target state="translated">รีวิว</target>
+        </trans-unit>
+        <trans-unit id="CmdSave.Label" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated" state-qualifier="tm-suggestion">บันทึก</target>
+        </trans-unit>
+        <trans-unit id="CmdSettings.Label" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">ตั้งค่า</target>
+        </trans-unit>
+        <trans-unit id="CmdShare.Label" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="translated" state-qualifier="tm-suggestion">แชร์</target>
+        </trans-unit>
+        <trans-unit id="CmdUndo.Label" translate="yes" xml:space="preserve">
+          <source>Undo</source>
+          <target state="translated" state-qualifier="tm-suggestion">เลิกทำ</target>
+        </trans-unit>
+        <trans-unit id="CompactOverlay.Content" translate="yes" xml:space="preserve">
+          <source>On Top</source>
+          <target state="translated">ทับแอปอื่น</target>
+        </trans-unit>
+        <trans-unit id="Contribute.Content" translate="yes" xml:space="preserve">
+          <source>Contribute to the developer</source>
+          <target state="translated">บริจาคช่วยเหลือนักพัฒนา</target>
+        </trans-unit>
+        <trans-unit id="Copy.Label" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated" state-qualifier="tm-suggestion">คัดลอก</target>
+        </trans-unit>
+        <trans-unit id="Cut.Label" translate="yes" xml:space="preserve">
+          <source>Cut</source>
+          <target state="translated" state-qualifier="tm-suggestion">ตัด</target>
+        </trans-unit>
+        <trans-unit id="Dark.Content" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="translated">สีมืด</target>
+        </trans-unit>
+        <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
+          <source>Default Font</source>
+          <target state="translated" state-qualifier="tm-suggestion">ฟอนต์เริ่มต้น</target>
+        </trans-unit>
+        <trans-unit id="DefaultFontColor.Text" translate="yes" xml:space="preserve">
+          <source>Default Font Color</source>
+          <target state="translated" state-qualifier="tm-suggestion">สีฟอนต์เริ่มต้น</target>
+        </trans-unit>
+        <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
+          <source>Default Font Size</source>
+          <target state="translated">ขนาดฟอนต์เริ่มต้น</target>
+        </trans-unit>
+        <trans-unit id="DevelopedBy.Text" translate="yes" xml:space="preserve">
+          <source>Developed by Yair Aichenbaum</source>
+          <target state="translated">สร้างและพัฒนาโดย Yair Aichenbaum</target>
+        </trans-unit>
+        <trans-unit id="GeneralAutoSave.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save</source>
+          <target state="translated">บันทึกอัตโนมัติ</target>
+        </trans-unit>
+        <trans-unit id="GeneralDefaultType.Text" translate="yes" xml:space="preserve">
+          <source>Default File Type</source>
+          <target state="translated">รูปแบบไฟล์เริ่มต้น</target>
+        </trans-unit>
+        <trans-unit id="GeneralLaunchMode.Text" translate="yes" xml:space="preserve">
+          <source>Launch Mode</source>
+          <target state="translated">โหมดแอปเริ่มต้น</target>
+        </trans-unit>
+        <trans-unit id="GeneralToggleSwitch.OffContent" translate="yes" xml:space="preserve">
+          <source>Off</source>
+          <target state="translated" state-qualifier="tm-suggestion">ปิด</target>
+        </trans-unit>
+        <trans-unit id="GeneralToggleSwitch.OnContent" translate="yes" xml:space="preserve">
+          <source>On</source>
+          <target state="translated" state-qualifier="tm-suggestion">เปิด</target>
+        </trans-unit>
+        <trans-unit id="IconDesignBy.Text" translate="yes" xml:space="preserve">
+          <source>Icon design by James Arney</source>
+          <target state="translated">ออกแบบไอคอนแอปโดย James Arney</target>
+        </trans-unit>
+        <trans-unit id="Italic.Label" translate="yes" xml:space="preserve">
+          <source>Italic</source>
+          <target state="translated" state-qualifier="tm-suggestion">ตัวเอียง</target>
+        </trans-unit>
+        <trans-unit id="Justify.Label" translate="yes" xml:space="preserve">
+          <source>Justify</source>
+          <target state="translated" state-qualifier="tm-suggestion">เต็มแนว</target>
+        </trans-unit>
+        <trans-unit id="Left.Label" translate="yes" xml:space="preserve">
+          <source>Left</source>
+          <target state="translated" state-qualifier="tm-suggestion">ซ้าย</target>
+        </trans-unit>
+        <trans-unit id="Light.Content" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="translated">สีสว่าง</target>
+        </trans-unit>
+        <trans-unit id="Paste.Label" translate="yes" xml:space="preserve">
+          <source>Paste</source>
+          <target state="translated" state-qualifier="tm-suggestion">วาง</target>
+        </trans-unit>
+        <trans-unit id="RateAndReview.Content" translate="yes" xml:space="preserve">
+          <source>Rate and review</source>
+          <target state="translated" state-qualifier="tm-suggestion">ให้คะแนนและวิจารณ์</target>
+        </trans-unit>
+        <trans-unit id="Right.Label" translate="yes" xml:space="preserve">
+          <source>Right</source>
+          <target state="translated" state-qualifier="tm-suggestion">ขวา</target>
+        </trans-unit>
+        <trans-unit id="SaveDialog.Text" translate="yes" xml:space="preserve">
+          <source>Would you like to save your changes?</source>
+          <target state="translated" state-qualifier="tm-suggestion">คุณต้องการบันทึกการเปลี่ยนแปลงของคุณหรือไม่</target>
+        </trans-unit>
+        <trans-unit id="SaveDialogCancel.Content" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated" state-qualifier="tm-suggestion">ยกเลิก</target>
+        </trans-unit>
+        <trans-unit id="SaveDialogNo.Content" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated" state-qualifier="tm-suggestion">ไม่ใช่</target>
+        </trans-unit>
+        <trans-unit id="SaveDialogYes.Content" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated" state-qualifier="tm-suggestion">ใช่</target>
+        </trans-unit>
+        <trans-unit id="SendFeedback.Content" translate="yes" xml:space="preserve">
+          <source>Send Feedback</source>
+          <target state="translated" state-qualifier="tm-suggestion">ส่งคำติชม</target>
+        </trans-unit>
+        <trans-unit id="SettingsPivot.Title" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่า</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab1.Header" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated" state-qualifier="tm-suggestion">ทั่วไป</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab2.Header" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated" state-qualifier="tm-suggestion">ธีม</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab3.Header" translate="yes" xml:space="preserve">
+          <source>Font</source>
+          <target state="translated" state-qualifier="tm-suggestion">แบบอักษร</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab4.Header" translate="yes" xml:space="preserve">
+          <source>Toolbar</source>
+          <target state="translated" state-qualifier="tm-suggestion">แถบเครื่องมือ</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab5.Header" translate="yes" xml:space="preserve">
+          <source>About</source>
+          <target state="translated" state-qualifier="tm-suggestion">เกี่ยวกับ</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignCenter.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide align center</source>
+          <target state="translated">ซ่อนปุ่มจัดกลาง</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignCenter.OnContent" translate="yes" xml:space="preserve">
+          <source>Show align center</source>
+          <target state="translated">แสดงปุ่มจัดกลาง</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignJustify.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide align justify</source>
+          <target state="translated">ซ่อนปุ่มจัดเต็มแนว</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignJustify.OnContent" translate="yes" xml:space="preserve">
+          <source>Show align justify</source>
+          <target state="translated">แสดงปุ่มจัดเต็มแนว</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignLeft.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide align left</source>
+          <target state="translated">ซ่อนปุ่มจัดชิดขวา</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignLeft.OnContent" translate="yes" xml:space="preserve">
+          <source>Show align left</source>
+          <target state="translated">แสดงปุ่มจัดชิดขวา</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignRight.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide align right</source>
+          <target state="translated">ซ่อนปุ่มจัดชิดขวา</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignRight.OnContent" translate="yes" xml:space="preserve">
+          <source>Show align right</source>
+          <target state="translated">แสดงปุ่มจัดชิดขวา</target>
+        </trans-unit>
+        <trans-unit id="ShowBullets.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide bullet list</source>
+          <target state="translated">ซ่อนปุ่มสัญลักษณ์หัวข้อ</target>
+        </trans-unit>
+        <trans-unit id="ShowBullets.OnContent" translate="yes" xml:space="preserve">
+          <source>Show bullet list</source>
+          <target state="translated">แสดงปุ่มสัญลักษณ์หัวข้อ</target>
+        </trans-unit>
+        <trans-unit id="ShowStrikethrough.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide strikethrough option</source>
+          <target state="translated">ซ่อนปุ่มขีดทับ</target>
+        </trans-unit>
+        <trans-unit id="ShowStrikethrough.OnContent" translate="yes" xml:space="preserve">
+          <source>Show strikethrough option</source>
+          <target state="translated">แสดงปุ่มขีดทับ</target>
+        </trans-unit>
+        <trans-unit id="SizeDown.Label" translate="yes" xml:space="preserve">
+          <source>Size Down</source>
+          <target state="translated">ย่อขนาด</target>
+        </trans-unit>
+        <trans-unit id="SizeUp.Label" translate="yes" xml:space="preserve">
+          <source>Size Up</source>
+          <target state="translated">ขยายขนาด</target>
+        </trans-unit>
+        <trans-unit id="SpellCheck.Text" translate="yes" xml:space="preserve">
+          <source>Spell Check</source>
+          <target state="translated">เช็คคำผิด</target>
+        </trans-unit>
+        <trans-unit id="Strikethrough.Label" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="translated" state-qualifier="tm-suggestion">ขีดทับ</target>
+        </trans-unit>
+        <trans-unit id="SystemDefault.Content" translate="yes" xml:space="preserve">
+          <source>System Default</source>
+          <target state="translated" state-qualifier="tm-suggestion">ค่าเริ่มต้นระบบ</target>
+        </trans-unit>
+        <trans-unit id="Underline.Label" translate="yes" xml:space="preserve">
+          <source>Underline</source>
+          <target state="translated" state-qualifier="tm-suggestion">ขีดเส้นใต้</target>
+        </trans-unit>
+        <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
+          <source>Word Wrap</source>
+          <target state="translated" state-qualifier="tm-suggestion">ตัดคำ</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
