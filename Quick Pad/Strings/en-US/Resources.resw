@@ -123,6 +123,9 @@
   <data name="AutoSaveSwitch.Text" xml:space="preserve">
     <value>Auto Save</value>
   </data>
+  <data name="BlackPlaceholder" xml:space="preserve">
+    <value>Black</value>
+  </data>
   <data name="Bold.Label" xml:space="preserve">
     <value>Bold</value>
   </data>
@@ -467,6 +470,9 @@
   </data>
   <data name="VersionFormat" xml:space="preserve">
     <value>Version: {0}.{1}.{2}.{3}</value>
+  </data>
+  <data name="WhitePlaceholder" xml:space="preserve">
+    <value>White</value>
   </data>
   <data name="WordWrap.Text" xml:space="preserve">
     <value>Word Wrap</value>

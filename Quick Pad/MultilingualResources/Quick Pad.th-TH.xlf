@@ -478,6 +478,14 @@
           <source>Justify text (Ctrl+J)</source>
           <target state="translated">จัดกลาง (Ctrl+J)</target>
         </trans-unit>
+        <trans-unit id="BlackPlaceholder" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="new">Black</target>
+        </trans-unit>
+        <trans-unit id="WhitePlaceholder" translate="yes" xml:space="preserve">
+          <source>White</source>
+          <target state="new">White</target>
+        </trans-unit>
       </group>
     </body>
   </file>

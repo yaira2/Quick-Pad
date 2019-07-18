@@ -3,6 +3,7 @@ using Microsoft.Services.Store.Engagement;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
@@ -385,16 +386,16 @@ namespace Quick_Pad_Free_Edition
                     String DefaultFontColors = localSettings.Values["DefaultFontColor"] as string;
                     if (DefaultFontColors != "")
                     {
-                        DefaultFontColor.SelectedItem = DefaultFontColors;
-                        Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
+                        ComboBoxItem comboboxItem = (ComboBoxItem)DefaultFontColor.Items.ToList().First(i => ((ComboBoxItem)i).Tag.ToString() == DefaultFontColors);
+                        DefaultFontColor.SelectedItem = comboboxItem;
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), comboboxItem.Tag);
                     }
                 }
                 catch (Exception) //no setting was found
                 {
-                    if (this.RequestedTheme == ElementTheme.Dark || App.Current.RequestedTheme == ApplicationTheme.Dark)
-                    {
-                        DefaultFontColor.PlaceholderText = "White";
-                    }
+                    DefaultFontColor.Text = RequestedTheme == ElementTheme.Dark ?
+                        textResource.GetString("PlaceholderWhite") :
+                        textResource.GetString("PlaceholderBlack");
                 }
 
                 //check what default font size is and set it
