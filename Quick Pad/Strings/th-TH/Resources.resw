@@ -363,4 +363,7 @@
   <data name="UnderlineTooltip.Text" xml:space="preserve">
     <value>ขีดเส้นใต้ (Ctrl+U)</value>
   </data>
+  <data name="JustifyTooltip.Text" xml:space="preserve">
+    <value>จัดกลาง (Ctrl+J)</value>
+  </data>
 </root>
