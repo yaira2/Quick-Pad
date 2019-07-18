@@ -106,7 +106,7 @@
     <value>ซ้าย</value>
   </data>
   <data name="Light.Content" xml:space="preserve">
-    <value>สีสว่าง</value>
+    <value>สว่าง</value>
   </data>
   <data name="Paste.Label" xml:space="preserve">
     <value>วาง</value>
@@ -209,5 +209,35 @@
   </data>
   <data name="CmdFocusMode.Label" xml:space="preserve">
     <value>เปิดโหมดเน้นพิมพ์</value>
+  </data>
+  <data name="ErrorDialogContent" xml:space="preserve">
+    <value>ไม่สามารถเปิดไฟล์นี้ได้</value>
+  </data>
+  <data name="ErrorDialogOk" xml:space="preserve">
+    <value>ตกลง</value>
+  </data>
+  <data name="ErrorDialogTitle" xml:space="preserve">
+    <value>เกิดข้อผิดพลาด</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>เอกสารใหม่</value>
+  </data>
+  <data name="NewUserFeedbackContent" xml:space="preserve">
+    <value>กรุณาส่งข้อคิดเห็นหรือคำวิจารณ์ให้กับแอปของเราใน Store</value>
+  </data>
+  <data name="NewUserFeedbackNo" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="NewUserFeedbackTitle" xml:space="preserve">
+    <value>คุณรู้สึกยังไงบ้างกับแอป Quick Pad?</value>
+  </data>
+  <data name="NewUserFeedbackYes" xml:space="preserve">
+    <value>ตกลง</value>
+  </data>
+  <data name="NothingToShare" xml:space="preserve">
+    <value>ไม่มีอะไรจะแชร์ กรุณาพิมพ์อะไรสักอย่างเพื่อจะแชร์</value>
+  </data>
+  <data name="VersionFormat" xml:space="preserve">
+    <value>เวอร์ชั่น: {0}.{1}.{2}.{3}</value>
   </data>
 </root>

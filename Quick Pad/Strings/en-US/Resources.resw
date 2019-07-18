@@ -186,6 +186,15 @@
   <data name="DevelopedBy.Text" xml:space="preserve">
     <value>Developed by Yair Aichenbaum</value>
   </data>
+  <data name="ErrorDialogContent" xml:space="preserve">
+    <value>Sorry, Quick Pad couldn't open the file.</value>
+  </data>
+  <data name="ErrorDialogOk" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="ErrorDialogTitle" xml:space="preserve">
+    <value>File open error</value>
+  </data>
   <data name="GeneralAutoSave.Text" xml:space="preserve">
     <value>Auto Save</value>
   </data>
@@ -215,6 +224,24 @@
   </data>
   <data name="Light.Content" xml:space="preserve">
     <value>Light</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>New Document</value>
+  </data>
+  <data name="NewUserFeedbackContent" xml:space="preserve">
+    <value>Please consider leaving a review for Quick Pad in the store.</value>
+  </data>
+  <data name="NewUserFeedbackNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NewUserFeedbackTitle" xml:space="preserve">
+    <value>Do you enjoy using Quick Pad?</value>
+  </data>
+  <data name="NewUserFeedbackYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="NothingToShare" xml:space="preserve">
+    <value>Nothing to share, type something in order to share it.</value>
   </data>
   <data name="Paste.Label" xml:space="preserve">
     <value>Paste</value>
@@ -311,6 +338,9 @@
   </data>
   <data name="Underline.Label" xml:space="preserve">
     <value>Underline</value>
+  </data>
+  <data name="VersionFormat" xml:space="preserve">
+    <value>Version: {0}.{1}.{2}.{3}</value>
   </data>
   <data name="WordWrap.Text" xml:space="preserve">
     <value>Word Wrap</value>

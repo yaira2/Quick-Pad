@@ -270,6 +270,46 @@
           <source>Focus Mode</source>
           <target state="translated">เปิดโหมดเน้นพิมพ์</target>
         </trans-unit>
+        <trans-unit id="ErrorDialogContent" translate="yes" xml:space="preserve">
+          <source>Sorry, Quick Pad couldn't open the file.</source>
+          <target state="translated">ไม่สามารถเปิดไฟล์นี้ได้</target>
+        </trans-unit>
+        <trans-unit id="ErrorDialogOk" translate="yes" xml:space="preserve">
+          <source>Ok</source>
+          <target state="translated">ตกลง</target>
+        </trans-unit>
+        <trans-unit id="ErrorDialogTitle" translate="yes" xml:space="preserve">
+          <source>File open error</source>
+          <target state="translated">เกิดข้อผิดพลาด</target>
+        </trans-unit>
+        <trans-unit id="NewDocument" translate="yes" xml:space="preserve">
+          <source>New Document</source>
+          <target state="translated">เอกสารใหม่</target>
+        </trans-unit>
+        <trans-unit id="NewUserFeedbackContent" translate="yes" xml:space="preserve">
+          <source>Please consider leaving a review for Quick Pad in the store.</source>
+          <target state="translated">กรุณาส่งข้อคิดเห็นหรือคำวิจารณ์ให้กับแอปของเราใน Store</target>
+        </trans-unit>
+        <trans-unit id="NewUserFeedbackNo" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated">ปิด</target>
+        </trans-unit>
+        <trans-unit id="NewUserFeedbackTitle" translate="yes" xml:space="preserve">
+          <source>Do you enjoy using Quick Pad?</source>
+          <target state="translated">คุณรู้สึกยังไงบ้างกับแอป Quick Pad?</target>
+        </trans-unit>
+        <trans-unit id="NewUserFeedbackYes" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated">ตกลง</target>
+        </trans-unit>
+        <trans-unit id="NothingToShare" translate="yes" xml:space="preserve">
+          <source>Nothing to share, type something in order to share it.</source>
+          <target state="translated">ไม่มีอะไรจะแชร์ กรุณาพิมพ์อะไรสักอย่างเพื่อจะแชร์</target>
+        </trans-unit>
+        <trans-unit id="VersionFormat" translate="yes" xml:space="preserve">
+          <source>Version: {0}.{1}.{2}.{3}</source>
+          <target state="translated">เวอร์ชั่น: {0}.{1}.{2}.{3}</target>
+        </trans-unit>
       </group>
     </body>
   </file>
