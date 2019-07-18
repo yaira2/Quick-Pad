@@ -84,7 +84,7 @@
         </trans-unit>
         <trans-unit id="DefaultFontColor.Text" translate="yes" xml:space="preserve">
           <source>Default Font Color</source>
-          <target state="translated" state-qualifier="tm-suggestion">สีฟอนต์เริ่มต้น</target>
+          <target state="translated">สีตัวอักษรเริ่มต้น</target>
         </trans-unit>
         <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
@@ -385,6 +385,98 @@
         <trans-unit id="GeneralLaunchModeCombobox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Default</source>
           <target state="translated">ปกติ</target>
+        </trans-unit>
+        <trans-unit id="BoldTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Bold (Ctrl+B)</source>
+          <target state="translated">ตัวหนา (Ctrl+B)</target>
+        </trans-unit>
+        <trans-unit id="BulletListTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Toggle Bullets</source>
+          <target state="translated">เปิดใช้สัญลักษณ์หัวข้อ</target>
+        </trans-unit>
+        <trans-unit id="CenterTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Align center (Ctrl+E)</source>
+          <target state="translated">จัดกลาง (Ctrl+E)</target>
+        </trans-unit>
+        <trans-unit id="CmdNewTooltip.Text" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="translated">เริ่มใหม่</target>
+        </trans-unit>
+        <trans-unit id="CmdOpenTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Open (Ctrl+O)</source>
+          <target state="translated">เปิด (Ctrl+O)</target>
+        </trans-unit>
+        <trans-unit id="CmdRedoTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Redo (Ctrl+Y)</source>
+          <target state="translated">ทำซ้ำ (Ctrl+Y)</target>
+        </trans-unit>
+        <trans-unit id="CmdSaveTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Save (Ctrl+S)</source>
+          <target state="translated">บันทึก (Ctrl+S)</target>
+        </trans-unit>
+        <trans-unit id="CmdSettingsTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated">ตั้งค่า</target>
+        </trans-unit>
+        <trans-unit id="CmdShareTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Share the file you are working on.</source>
+          <target state="translated">ส่งไฟล์นี้ให้เพื่อนของคุณ</target>
+        </trans-unit>
+        <trans-unit id="CmdUndoTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Undo (Ctrl+Z)</source>
+          <target state="translated">เลิกทำ (Ctrl+Z)</target>
+        </trans-unit>
+        <trans-unit id="CopyTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Copy (Ctrl+C)</source>
+          <target state="translated">คัดลอก (Ctrl+C)</target>
+        </trans-unit>
+        <trans-unit id="CutTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Cut (Ctrl+X)</source>
+          <target state="translated">ตัด (Ctrl+X)</target>
+        </trans-unit>
+        <trans-unit id="ExitFocusMode.Text" translate="yes" xml:space="preserve">
+          <source>Exit Focus Mode</source>
+          <target state="translated">ออกจากโหมดเน้นพิมพ์</target>
+        </trans-unit>
+        <trans-unit id="ItalicTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Italic (Ctrl+I)</source>
+          <target state="translated">ตัวเอียง (Ctrl+I)</target>
+        </trans-unit>
+        <trans-unit id="LeftTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Align left (Ctrl+L)</source>
+          <target state="translated">จัดชิดซ้าย (Ctrl+L)</target>
+        </trans-unit>
+        <trans-unit id="PasteTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Paste (Ctrl+V)</source>
+          <target state="translated">วาง (Ctrl+V)</target>
+        </trans-unit>
+        <trans-unit id="RightTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Align right (Ctrl+R)</source>
+          <target state="translated">จัดชิดขวา (Ctrl+R)</target>
+        </trans-unit>
+        <trans-unit id="SizeDownTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Size Down</source>
+          <target state="translated">ย่อขนาด</target>
+        </trans-unit>
+        <trans-unit id="SizeUpTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Size Up</source>
+          <target state="translated">ขยายขนาด</target>
+        </trans-unit>
+        <trans-unit id="StrikethroughTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="translated">ขีดทับ</target>
+        </trans-unit>
+        <trans-unit id="TextColorTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Font Color</source>
+          <target state="translated">สีตัวอักษร</target>
+        </trans-unit>
+        <trans-unit id="UnderlineTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Underline (Ctrl+U)</source>
+          <target state="translated">ขีดเส้นใต้ (Ctrl+U)</target>
+        </trans-unit>
+        <trans-unit id="JustifyTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Justify text (Ctrl+J)</source>
+          <target state="translated">จัดกลาง (Ctrl+J)</target>
         </trans-unit>
       </group>
     </body>

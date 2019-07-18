@@ -70,7 +70,7 @@
     <value>ฟอนต์เริ่มต้น</value>
   </data>
   <data name="DefaultFontColor.Text" xml:space="preserve">
-    <value>สีฟอนต์เริ่มต้น</value>
+    <value>สีตัวอักษรเริ่มต้น</value>
   </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
     <value>ขนาดฟอนต์เริ่มต้น</value>
@@ -296,5 +296,71 @@
   </data>
   <data name="GeneralLaunchModeCombobox.PlaceholderText" xml:space="preserve">
     <value>ปกติ</value>
+  </data>
+  <data name="BoldTooltip.Text" xml:space="preserve">
+    <value>ตัวหนา (Ctrl+B)</value>
+  </data>
+  <data name="BulletListTooltip.Text" xml:space="preserve">
+    <value>เปิดใช้สัญลักษณ์หัวข้อ</value>
+  </data>
+  <data name="CenterTooltip.Text" xml:space="preserve">
+    <value>จัดกลาง (Ctrl+E)</value>
+  </data>
+  <data name="CmdNewTooltip.Text" xml:space="preserve">
+    <value>เริ่มใหม่</value>
+  </data>
+  <data name="CmdOpenTooltip.Text" xml:space="preserve">
+    <value>เปิด (Ctrl+O)</value>
+  </data>
+  <data name="CmdRedoTooltip.Text" xml:space="preserve">
+    <value>ทำซ้ำ (Ctrl+Y)</value>
+  </data>
+  <data name="CmdSaveTooltip.Text" xml:space="preserve">
+    <value>บันทึก (Ctrl+S)</value>
+  </data>
+  <data name="CmdSettingsTooltip.Text" xml:space="preserve">
+    <value>ตั้งค่า</value>
+  </data>
+  <data name="CmdShareTooltip.Text" xml:space="preserve">
+    <value>ส่งไฟล์นี้ให้เพื่อนของคุณ</value>
+  </data>
+  <data name="CmdUndoTooltip.Text" xml:space="preserve">
+    <value>เลิกทำ (Ctrl+Z)</value>
+  </data>
+  <data name="CopyTooltip.Text" xml:space="preserve">
+    <value>คัดลอก (Ctrl+C)</value>
+  </data>
+  <data name="CutTooltip.Text" xml:space="preserve">
+    <value>ตัด (Ctrl+X)</value>
+  </data>
+  <data name="ExitFocusMode.Text" xml:space="preserve">
+    <value>ออกจากโหมดเน้นพิมพ์</value>
+  </data>
+  <data name="ItalicTooltip.Text" xml:space="preserve">
+    <value>ตัวเอียง (Ctrl+I)</value>
+  </data>
+  <data name="LeftTooltip.Text" xml:space="preserve">
+    <value>จัดชิดซ้าย (Ctrl+L)</value>
+  </data>
+  <data name="PasteTooltip.Text" xml:space="preserve">
+    <value>วาง (Ctrl+V)</value>
+  </data>
+  <data name="RightTooltip.Text" xml:space="preserve">
+    <value>จัดชิดขวา (Ctrl+R)</value>
+  </data>
+  <data name="SizeDownTooltip.Text" xml:space="preserve">
+    <value>ย่อขนาด</value>
+  </data>
+  <data name="SizeUpTooltip.Text" xml:space="preserve">
+    <value>ขยายขนาด</value>
+  </data>
+  <data name="StrikethroughTooltip.Text" xml:space="preserve">
+    <value>ขีดทับ</value>
+  </data>
+  <data name="TextColorTooltip.Text" xml:space="preserve">
+    <value>สีตัวอักษร</value>
+  </data>
+  <data name="UnderlineTooltip.Text" xml:space="preserve">
+    <value>ขีดเส้นใต้ (Ctrl+U)</value>
   </data>
 </root>

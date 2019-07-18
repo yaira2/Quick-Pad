@@ -126,11 +126,20 @@
   <data name="Bold.Label" xml:space="preserve">
     <value>Bold</value>
   </data>
+  <data name="BoldTooltip.Text" xml:space="preserve">
+    <value>Bold (Ctrl+B)</value>
+  </data>
   <data name="BulletList.Label" xml:space="preserve">
     <value>Bullets</value>
   </data>
+  <data name="BulletListTooltip.Text" xml:space="preserve">
+    <value>Toggle Bullets</value>
+  </data>
   <data name="Center.Label" xml:space="preserve">
     <value>Center</value>
+  </data>
+  <data name="CenterTooltip.Text" xml:space="preserve">
+    <value>Align center (Ctrl+E)</value>
   </data>
   <data name="CmdFocusMode.Label" xml:space="preserve">
     <value>Focus Mode</value>
@@ -138,11 +147,20 @@
   <data name="CmdNew.Label" xml:space="preserve">
     <value>New</value>
   </data>
+  <data name="CmdNewTooltip.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
   <data name="CmdOpen.Label" xml:space="preserve">
     <value>Open</value>
   </data>
+  <data name="CmdOpenTooltip.Text" xml:space="preserve">
+    <value>Open (Ctrl+O)</value>
+  </data>
   <data name="CmdRedo.Label" xml:space="preserve">
     <value>Redo</value>
+  </data>
+  <data name="CmdRedoTooltip.Text" xml:space="preserve">
+    <value>Redo (Ctrl+Y)</value>
   </data>
   <data name="CmdReview.Label" xml:space="preserve">
     <value>Review</value>
@@ -150,14 +168,26 @@
   <data name="CmdSave.Label" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="CmdSaveTooltip.Text" xml:space="preserve">
+    <value>Save (Ctrl+S)</value>
+  </data>
   <data name="CmdSettings.Label" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="CmdSettingsTooltip.Text" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="CmdShare.Label" xml:space="preserve">
     <value>Share</value>
   </data>
+  <data name="CmdShareTooltip.Text" xml:space="preserve">
+    <value>Share the file you are working on.</value>
+  </data>
   <data name="CmdUndo.Label" xml:space="preserve">
     <value>Undo</value>
+  </data>
+  <data name="CmdUndoTooltip.Text" xml:space="preserve">
+    <value>Undo (Ctrl+Z)</value>
   </data>
   <data name="CompactOverlay.Content" xml:space="preserve">
     <value>On Top</value>
@@ -168,8 +198,14 @@
   <data name="Copy.Label" xml:space="preserve">
     <value>Copy</value>
   </data>
+  <data name="CopyTooltip.Text" xml:space="preserve">
+    <value>Copy (Ctrl+C)</value>
+  </data>
   <data name="Cut.Label" xml:space="preserve">
     <value>Cut</value>
+  </data>
+  <data name="CutTooltip.Text" xml:space="preserve">
+    <value>Cut (Ctrl+X)</value>
   </data>
   <data name="Dark.Content" xml:space="preserve">
     <value>Dark</value>
@@ -197,6 +233,9 @@
   </data>
   <data name="ErrorDialogTitle" xml:space="preserve">
     <value>File open error</value>
+  </data>
+  <data name="ExitFocusMode.Text" xml:space="preserve">
+    <value>Exit Focus Mode</value>
   </data>
   <data name="FontColorBlack.Content" xml:space="preserve">
     <value>Black</value>
@@ -243,8 +282,14 @@
   <data name="Italic.Label" xml:space="preserve">
     <value>Italic</value>
   </data>
+  <data name="ItalicTooltip.Text" xml:space="preserve">
+    <value>Italic (Ctrl+I)</value>
+  </data>
   <data name="Justify.Label" xml:space="preserve">
     <value>Justify</value>
+  </data>
+  <data name="JustifyTooltip.Text" xml:space="preserve">
+    <value>Justify text (Ctrl+J)</value>
   </data>
   <data name="LaunchModeDefault.Content" xml:space="preserve">
     <value>Default</value>
@@ -257,6 +302,9 @@
   </data>
   <data name="Left.Label" xml:space="preserve">
     <value>Left</value>
+  </data>
+  <data name="LeftTooltip.Text" xml:space="preserve">
+    <value>Align left (Ctrl+L)</value>
   </data>
   <data name="Light.Content" xml:space="preserve">
     <value>Light</value>
@@ -282,11 +330,17 @@
   <data name="Paste.Label" xml:space="preserve">
     <value>Paste</value>
   </data>
+  <data name="PasteTooltip.Text" xml:space="preserve">
+    <value>Paste (Ctrl+V)</value>
+  </data>
   <data name="RateAndReview.Content" xml:space="preserve">
     <value>Rate and review</value>
   </data>
   <data name="Right.Label" xml:space="preserve">
     <value>Right</value>
+  </data>
+  <data name="RightTooltip.Text" xml:space="preserve">
+    <value>Align right (Ctrl+R)</value>
   </data>
   <data name="SaveDialog.Text" xml:space="preserve">
     <value>Would you like to save your changes?</value>
@@ -360,13 +414,22 @@
   <data name="SizeDown.Label" xml:space="preserve">
     <value>Size Down</value>
   </data>
+  <data name="SizeDownTooltip.Text" xml:space="preserve">
+    <value>Size Down</value>
+  </data>
   <data name="SizeUp.Label" xml:space="preserve">
+    <value>Size Up</value>
+  </data>
+  <data name="SizeUpTooltip.Text" xml:space="preserve">
     <value>Size Up</value>
   </data>
   <data name="SpellCheck.Text" xml:space="preserve">
     <value>Spell Check</value>
   </data>
   <data name="Strikethrough.Label" xml:space="preserve">
+    <value>Strikethrough</value>
+  </data>
+  <data name="StrikethroughTooltip.Text" xml:space="preserve">
     <value>Strikethrough</value>
   </data>
   <data name="SystemDefault.Content" xml:space="preserve">
@@ -387,6 +450,9 @@
   <data name="TextColorPink.Text" xml:space="preserve">
     <value>Pink</value>
   </data>
+  <data name="TextColorTooltip.Text" xml:space="preserve">
+    <value>Font Color</value>
+  </data>
   <data name="TextColorWhite.Text" xml:space="preserve">
     <value>White</value>
   </data>
@@ -395,6 +461,9 @@
   </data>
   <data name="Underline.Label" xml:space="preserve">
     <value>Underline</value>
+  </data>
+  <data name="UnderlineTooltip.Text" xml:space="preserve">
+    <value>Underline (Ctrl+U)</value>
   </data>
   <data name="VersionFormat" xml:space="preserve">
     <value>Version: {0}.{1}.{2}.{3}</value>
