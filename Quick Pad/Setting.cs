@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Windows.Storage;
+using Windows.UI.Xaml;
 
 namespace QuickPad
 {
@@ -50,6 +51,19 @@ namespace QuickPad
                 //On and Off to boolean
                 conversion = localSettings.Values[propertyName] as string;
                 if (conversion == "On")
+                {
+                    previousSetting = true;
+                }
+                else
+                {
+                    previousSetting = false;
+                }
+            }
+            else if (propertyName == nameof(WordWrap))
+            {
+                //Yes and No to boolean
+                conversion = localSettings.Values[propertyName] as string;
+                if (conversion == "Yes")
                 {
                     previousSetting = true;
                 }
@@ -131,6 +145,13 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+
+        [DefaultValue(true)]
+        public bool WordWrap
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
         #endregion
     }
 
@@ -139,5 +160,17 @@ namespace QuickPad
         Default, //Full UI with toolbar
         OnTop, //Compact overlay
         Focus //Hide toolbar
+    }
+
+    public static class Convertor
+    {
+        public static TextWrapping BoolToTextWrap(bool input)
+        {
+            if (input)
+            {
+                return TextWrapping.Wrap;
+            }
+            return TextWrapping.NoWrap;
+        }
     }
 }

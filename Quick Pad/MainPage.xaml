@@ -6,6 +6,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:q="using:QuickPad"
     mc:Ignorable="d">
 
     <Page.Background>
@@ -181,7 +182,7 @@
             </AppBarButton>
         </CommandBar>
 
-        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
+        <RichEditBox x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18" TextWrapping="{x:Bind q:Convertor.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" Style="{StaticResource RichEditBox}"/>
 
         <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
 
@@ -226,7 +227,7 @@
                                     <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save" Margin="0,150,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
                                     <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
                                     <TextBlock x:Uid="WordWrap" Text="Word Wrap" Margin="0,215,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="WordWrap" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
+                                    <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.WordWrap, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
                                     <TextBlock x:Uid="SpellCheck" Text="Spell Check" Margin="0,280,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
                                     <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" />
                                 </Grid>

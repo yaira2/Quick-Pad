@@ -217,19 +217,6 @@ namespace Quick_Pad_Free_Edition
                 timer.AutoReset = true;
             }
 
-            //check if word wrap is on or off
-            String WordWrapSetting = localSettings.Values["WordWrap"] as string;
-            if (WordWrapSetting == "No")
-            {
-                WordWrap.IsOn = false; //keep word wrap switch off in settings panel.
-                Text1.TextWrapping = TextWrapping.NoWrap; //turn off word wrap
-            }
-            else
-            {
-                WordWrap.IsOn = true; //turn word wrap switch on in settings panel.
-                Text1.TextWrapping = TextWrapping.Wrap; //turn on word wrap
-            }
-
             //check if spell check is on or off
             String spellchecksetting = localSettings.Values["SpellCheck"] as string;
             if (spellchecksetting == "No")
@@ -1204,25 +1191,7 @@ namespace Quick_Pad_Free_Edition
             }
             catch (Exception) { }
         }
-
-        private void WordWrap_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["WordWrap"] = "Yes";
-                    Text1.TextWrapping = TextWrapping.Wrap;
-                }
-                else
-                {
-                    localSettings.Values["WordWrap"] = "No";
-                    Text1.TextWrapping = TextWrapping.NoWrap;
-                }
-            }
-        }
-
+        
         private void ShowAlignLeft_Toggled(object sender, RoutedEventArgs e)
         {
             ToggleSwitch toggleSwitch = sender as ToggleSwitch;
