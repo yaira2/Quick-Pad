@@ -224,7 +224,7 @@
                                         <x:String>.txt</x:String>
                                     </ComboBox>
                                     <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save" Margin="0,150,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
+                                    <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
                                     <TextBlock x:Uid="WordWrap" Text="Word Wrap" Margin="0,215,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
                                     <ToggleSwitch x:Name="WordWrap" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
                                     <TextBlock x:Uid="SpellCheck" Text="Spell Check" Margin="0,280,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>

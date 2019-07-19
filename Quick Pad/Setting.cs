@@ -45,10 +45,19 @@ namespace QuickPad
                     previousSetting = AvailableModes.Focus;
                 }
             }
-            //else if (propert)
-            //{
-
-            //}
+            else if (propertyName == nameof(AutoSave))
+            {
+                //On and Off to boolean
+                conversion = localSettings.Values[propertyName] as string;
+                if (conversion == "On")
+                {
+                    previousSetting = true;
+                }
+                else
+                {
+                    previousSetting = false;
+                }
+            }
             #endregion
 
             //Remove old setting
@@ -113,6 +122,13 @@ namespace QuickPad
         public string DefaultFileType
         {
             get => Get<string>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool AutoSave
+        {
+            get => Get<bool>();
             set => Set(value);
         }
         #endregion

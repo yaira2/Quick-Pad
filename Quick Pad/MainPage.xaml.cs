@@ -209,15 +209,8 @@ namespace Quick_Pad_Free_Edition
         private void LoadSettings()
         {
             //check if auto save is on or off
-            String launchValue = localSettings.Values["AutoSave"] as string;
-            if (launchValue == "Off")
+            if (QSetting.AutoSave)
             {
-                AutoSaveSwitch.IsOn = false; //keep auto save switch off in settings panel.
-            }
-            else
-            {
-                AutoSaveSwitch.IsOn = true; //turn auto save switch on in settings panel.
-
                 //start auto save timer
                 timer.Enabled = true;
                 timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
@@ -1116,24 +1109,6 @@ namespace Quick_Pad_Free_Edition
                 {
                     richEditBox.Document.Selection.TypeText("\t");
                     e.Handled = true;
-                }
-            }
-        }
-
-        private void AutoSaveSwitch_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-        
-                    localSettings.Values["AutoSave"] = "On";
-                }
-                else
-                {
-        
-                    localSettings.Values["AutoSave"] = "Off";
                 }
             }
         }
