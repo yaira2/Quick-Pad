@@ -72,6 +72,12 @@ namespace QuickPad
                     previousSetting = false;
                 }
             }
+            else if (propertyName == nameof(Theme))
+            {
+                //Theme string to ElementTheme
+                conversion = localSettings.Values[propertyName] as string;
+                previousSetting = (int)Enum.Parse(typeof(ElementTheme), conversion);
+            }
             #endregion
 
             //Remove old setting
@@ -159,6 +165,13 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+
+        [DefaultValue(ElementTheme.Default)]
+        public ElementTheme Theme
+        {
+            get => (ElementTheme)Get<int>();
+            set => Set((int)value);
+        }
         #endregion
     }
 
@@ -169,7 +182,7 @@ namespace QuickPad
         Focus //Hide toolbar
     }
 
-    public static class Convertor
+    public static class Converter
     {
         public static TextWrapping BoolToTextWrap(bool input)
         {
@@ -178,6 +191,18 @@ namespace QuickPad
                 return TextWrapping.Wrap;
             }
             return TextWrapping.NoWrap;
+        }
+
+        /// <summary>
+        /// Use to convert on XAML & x:Bind from ElementTheme and string to boolean
+        /// If the ElementTheme match string it will return true, otherwise false
+        /// </summary>
+        /// <param name="input">ThemeElement setting</param>
+        /// <param name="expect">Expected value in string</param>
+        public static bool ThemeToBool(ElementTheme input, string expect)
+        {
+            var convert = (ElementTheme)Enum.Parse(typeof(ElementTheme), expect);
+            return Equals(input, convert);
         }
     }
 }

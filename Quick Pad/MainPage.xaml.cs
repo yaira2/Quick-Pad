@@ -189,6 +189,13 @@ namespace Quick_Pad_Free_Edition
                 NotifyPropertyChanged(nameof(CompactOverlaySwitch));
             }
         }
+
+        public void SetTheme(object sender, RoutedEventArgs e)
+        {
+            QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
+            //Update system theme
+            CheckTheme();
+        }
         #endregion
 
         public void LaunchCheck()
@@ -245,27 +252,9 @@ namespace Quick_Pad_Free_Edition
         {
             //get some theme settings in
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-
-            String localValue = localSettings.Values["Theme"] as string;
-            if (localValue == "Light") //light theme is on
-            {
-                this.RequestedTheme = ElementTheme.Light;
-                Light.IsChecked = true; //select the light theme option in the settings panel
-                Analytics.TrackEvent("Loaded app in light theme");  //log even in app center
-            }
-            if (localValue == "Dark") //dark theme is on
-            {
-                this.RequestedTheme = ElementTheme.Dark;
-                Dark.IsChecked = true; //select the dark theme option in the settings panel
-
-                Analytics.TrackEvent("Loaded app in dark theme"); //log even in app center
-            }
-            if (localValue == "System Default") //default theme is on
-            {
-                this.RequestedTheme = ElementTheme.Default;
-                SystemDefault.IsChecked = true; //select the default theme option in the settings panel
-            }
-
+            this.RequestedTheme = QSetting.Theme;
+            Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme");
+            
             //make the minimize, maximize and close button visible in light theme
             if (App.Current.RequestedTheme == ApplicationTheme.Dark || this.RequestedTheme == ElementTheme.Dark)
             {

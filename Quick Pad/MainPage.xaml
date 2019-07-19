@@ -182,7 +182,7 @@
             </AppBarButton>
         </CommandBar>
 
-        <RichEditBox x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18" TextWrapping="{x:Bind q:Convertor.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}"/>
+        <RichEditBox x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}"/>
 
         <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
 
@@ -236,9 +236,9 @@
                         <PivotItem Header="Theme" x:Name="SettingsTab2" x:Uid="SettingsTab2">
                             <Grid Height="200">
                                 <TextBlock x:Uid="AppTheme" Text="App Theme" Margin="0,5,0,0" TextWrapping="Wrap" FontSize="18"/>
-                                <RadioButton x:Name="Light" x:Uid="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,40,0,0" VerticalAlignment="Top" Width="242" Click="Light_Click" Grid.RowSpan="2"/>
-                                <RadioButton x:Name="Dark" x:Uid="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,80,0,0" VerticalAlignment="Top" Width="242" Click="Dark_Click"/>
-                                <RadioButton x:Name="SystemDefault" x:Uid="SystemDefault" IsChecked="True" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,120,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefault_Click" Grid.RowSpan="1"/>
+                                <RadioButton x:Name="Light" Tag="Light" x:Uid="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,40,0,0" VerticalAlignment="Top" Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" Grid.RowSpan="2"/>
+                                <RadioButton x:Name="Dark" Tag="Dark" x:Uid="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,80,0,0" VerticalAlignment="Top" Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
+                                <RadioButton x:Name="SystemDefault" Tag="Default" x:Uid="SystemDefault" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,120,0,0" VerticalAlignment="Top"  Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" Grid.RowSpan="1"/>
                             </Grid>
                         </PivotItem>
                         <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
