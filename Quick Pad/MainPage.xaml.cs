@@ -393,9 +393,15 @@ namespace Quick_Pad_Free_Edition
                 }
                 catch (Exception) //no setting was found
                 {
-                    DefaultFontColor.Text = RequestedTheme == ElementTheme.Dark ?
-                        textResource.GetString("PlaceholderWhite") :
-                        textResource.GetString("PlaceholderBlack");
+
+                    if (this.RequestedTheme == ElementTheme.Dark || App.Current.RequestedTheme == ApplicationTheme.Dark)
+                    {
+                        DefaultFontColor.PlaceholderText = textResource.GetString("WhitePlaceholder");
+                    }
+                    if (this.RequestedTheme == ElementTheme.Light || App.Current.RequestedTheme == ApplicationTheme.Light)
+                    {
+                        DefaultFontColor.PlaceholderText = textResource.GetString("BlackPlaceholder");
+                    }
                 }
 
                 //check what default font size is and set it
