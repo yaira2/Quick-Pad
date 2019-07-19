@@ -59,7 +59,7 @@ namespace QuickPad
                     previousSetting = false;
                 }
             }
-            else if (propertyName == nameof(WordWrap))
+            else if (propertyName == nameof(WordWrap) || propertyName == nameof(SpellCheck))
             {
                 //Yes and No to boolean
                 conversion = localSettings.Values[propertyName] as string;
@@ -148,6 +148,13 @@ namespace QuickPad
 
         [DefaultValue(true)]
         public bool WordWrap
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool SpellCheck
         {
             get => Get<bool>();
             set => Set(value);

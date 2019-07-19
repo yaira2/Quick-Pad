@@ -217,19 +217,6 @@ namespace Quick_Pad_Free_Edition
                 timer.AutoReset = true;
             }
 
-            //check if spell check is on or off
-            String spellchecksetting = localSettings.Values["SpellCheck"] as string;
-            if (spellchecksetting == "No")
-            {
-                SpellCheck.IsOn = false; //keep spell check switch off in settings panel.
-                Text1.IsSpellCheckEnabled = false; //turn spell check off
-            }
-            else
-            {
-                SpellCheck.IsOn = true; //turn spell check switch on in settings panel.
-                Text1.IsSpellCheckEnabled = true; //turn spell on
-            }
-
             //check how many times the app was run
             String NewUser = localSettings.Values["NewUser"] as string;
             if (NewUser == "1") //second time using the app
@@ -1325,24 +1312,6 @@ namespace Quick_Pad_Free_Edition
         private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-        }
-
-        private void SpellCheck_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["SpellCheck"] = "Yes";
-                    Text1.IsSpellCheckEnabled = true;
-                }
-                else
-                {
-                    localSettings.Values["SpellCheck"] = "No";
-                    Text1.IsSpellCheckEnabled = false;
-                }
-            }
         }
 
         private void DefaultFont_SelectionChanged(object sender, SelectionChangedEventArgs e)
