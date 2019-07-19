@@ -1,9 +1,12 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
 using Newtonsoft.Json.Linq;
+using QuickPad;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Core;
@@ -26,9 +29,38 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Quick_Pad_Free_Edition
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
+        #region Notification overhead, no need to write it thousands times on set { }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Set property and also alert the UI if the value is changed
+        /// </summary>
+        /// <param name="value">New value</param>
+        public void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
+        {
+            if (!Equals(storage, value))
+            {
+                storage = value;
+                NotifyPropertyChanged(propertyName);
+            }
+        }
+
+        /// <summary>
+        /// Alert the UI there is a change in this property and need update
+        /// </summary>
+        /// <param name="name"></param>
+        public void NotifyPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        #endregion
+
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
+
+        public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
+
         private string DefaultFilename => textResource.GetString("NewDocument");
         private string UpdateFile; //Default file name is "New Document"
         private String FullFilePath; //this is the opened files full path
@@ -37,8 +69,8 @@ namespace Quick_Pad_Free_Edition
         private Int64 LastFontSize; //this value is the last selected characters font size
         ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private String SaveDialogValue; //this is to know if the user clicks cancel when asked if they want to save
-        private string DefaultFileExt; //this is to check the default file extension choosen in the save file dialog
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
+
         public MainPage()
         {
             InitializeComponent();
@@ -89,7 +121,7 @@ namespace Quick_Pad_Free_Edition
                     deferral.Complete();
                 }
 
-                if (SaveDialogValue== "Cancel")
+                if (SaveDialogValue == "Cancel")
                 {
                     e.Handled = true;
                     deferral.Complete();
@@ -136,31 +168,46 @@ namespace Quick_Pad_Free_Edition
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
+        #region Handle app settings
+        public bool CompactOverlaySwitch
+        {
+            get
+            {
+                return QSetting.LaunchMode == (int)AvailableModes.OnTop;
+            }
+            set
+            {
+                if (value)
+                {
+                    QSetting.LaunchMode = (int)AvailableModes.OnTop;
+                }
+                else
+                {
+                    QSetting.LaunchMode = (int)AvailableModes.Default;
+                }
+                SwitchCompactOverlayMode(value);
+                NotifyPropertyChanged(nameof(CompactOverlaySwitch));
+            }
+        }
+        #endregion
+
         public void LaunchCheck()
         {
             //check what mode to launch the app in
-            String launchValue = localSettings.Values["LaunchMode"] as string;
-
-            if (launchValue == "On Top")
+            switch ((AvailableModes)QSetting.LaunchMode)
             {
-                CompactOverlay.IsChecked = true; //launch compact overlay mode
-                LaunchOptions.SelectedValue = LaunchModeOnTop;
+                case AvailableModes.Focus:
+                    SwitchToFocusMode();
+                    break;
+                case AvailableModes.OnTop:
+                    //TODO:Launch compact overlay mode
+                    SwitchCompactOverlayMode(true);
+                    break;
             }
-
-            if (launchValue == "Focus Mode")
-            {
-                SwitchToFocusMode();
-                LaunchOptions.SelectedValue = LaunchModeFocus;
-            }
-
-            if (launchValue == "Default") LaunchOptions.SelectedValue = LaunchModeDefault;
         }
 
         private void LoadSettings()
         {
-            DefaultFileExt = localSettings.Values["DefaultFileType"] as string; //get the default file type
-            if (DefaultFileExt == ".txt") DefaultFileType.SelectedValue = ".txt";
-
             //check if auto save is on or off
             String launchValue = localSettings.Values["AutoSave"] as string;
             if (launchValue == "Off")
@@ -502,7 +549,7 @@ namespace Quick_Pad_Free_Edition
                 FullFilePath = file.Path;
                 SetTaskBarTitle(); //update the title in the taskbar
             }
-            catch (Exception){}
+            catch (Exception) { }
         }
 
         private void SetTaskBarTitle()
@@ -642,18 +689,18 @@ namespace Quick_Pad_Free_Edition
                 savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
 
                 // Dropdown of file types the user can save the file as
-                savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-                savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
-                savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
-
                 //check if default file type is .txt
-                if (DefaultFileExt == ".txt")
+                if (QSetting.DefaultFileType == ".txt")
                 {
-                    savePicker.FileTypeChoices.Clear();
                     savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
                     savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-                    savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
                 }
+                else if (QSetting.DefaultFileType == ".rtf")
+                {
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
+                }
+                savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
                 savePicker.SuggestedFileName = UpdateFile;
@@ -810,52 +857,54 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-        private async void CompactOverlay_Checked(object sender, RoutedEventArgs e)
+        public async void SwitchCompactOverlayMode(bool switching)
         {
-            ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
-
-            Grid.SetRow(CommandBar2, 2);
-            Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            Title.Visibility = Visibility.Collapsed;
-            CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
-            FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            Text1.Margin = new Thickness(0, 0, 0, 0);
-            CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            CmdFocusMode.IsEnabled = false;
-            CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            CommandBar2.Margin = new Thickness(0, 0, 0, 0);
-            TQuick.Visibility = Visibility.Collapsed;
-
-            //make text smaller size if user did not do so on their own and if they did not type anything yet.
-            Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-            if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
+            if (switching)
             {
-                Text1.FontSize = 16;
+                ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
+                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
+
+                Grid.SetRow(CommandBar2, 2);
+                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Title.Visibility = Visibility.Collapsed;
+                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
+                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Text1.Margin = new Thickness(0, 0, 0, 0);
+                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CmdFocusMode.IsEnabled = false;
+                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CommandBar2.Margin = new Thickness(0, 0, 0, 0);
+                TQuick.Visibility = Visibility.Collapsed;
+
+                //make text smaller size if user did not do so on their own and if they did not type anything yet.
+                Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
+                if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
+                {
+                    Text1.FontSize = 16;
+                }
+
+                //log even in app center
+                Analytics.TrackEvent("Compact Overlay");
             }
-
-            //log even in app center
-            Analytics.TrackEvent("Compact Overlay");
-        }
-
-        private async void CompactOverlay_Unchecked(object sender, RoutedEventArgs e)
-        {
-            bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
-            Grid.SetRow(CommandBar2, 0);
-            Title.Visibility = Visibility.Visible;
-            Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
-            FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            TQuick.Visibility = Visibility.Visible;
-            CmdFocusMode.IsEnabled = true;
-            Text1.Margin = new Thickness(0, 74, 0, 40);
-            CommandBar2.Margin = new Thickness(0, 33, 0, 0);
+            else
+            {
+                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
+                Grid.SetRow(CommandBar2, 0);
+                Title.Visibility = Visibility.Visible;
+                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
+                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                TQuick.Visibility = Visibility.Visible;
+                CmdFocusMode.IsEnabled = true;
+                Text1.Margin = new Thickness(0, 74, 0, 40);
+                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
+            }
         }
 
         private void Emoji_Checked(object sender, RoutedEventArgs e)
@@ -1412,17 +1461,6 @@ namespace Quick_Pad_Free_Edition
             Shadow1.Visibility = Visibility.Visible;
             CloseFocusMode.Visibility = Visibility.Collapsed;
             Text1.Margin = new Thickness(0, 74, 0, 40);
-        }
-
-        private void LaunchOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            localSettings.Values["LaunchMode"] = (LaunchOptions.SelectedValue as ComboBoxItem).Tag;
-        }
-
-        private void DefaultFileType_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            localSettings.Values["DefaultFileType"] = DefaultFileType.SelectedValue;
-            DefaultFileExt = Convert.ToString(DefaultFileType.SelectedValue); //update the default file type right away
         }
 
         private void Text1_TextChanging(RichEditBox sender, RichEditBoxTextChangingEventArgs args)
