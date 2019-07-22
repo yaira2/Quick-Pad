@@ -244,7 +244,7 @@
                         <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
                             <Grid Height="200">
                                 <TextBlock x:Uid="DefaultFont" Text="Default Font" Margin="0,5,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,30,0,0" Windows10version1809:CornerRadius="2" SelectionChanged="DefaultFont_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" x:Name="DefaultFont" PlaceholderText="Segoe UI" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
+                                <ComboBox Margin="0,30,0,0" SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" SelectionChanged="DefaultFont_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
                                 <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" Margin="0,70,0,0" TextWrapping="Wrap"/>
                                 <ComboBox Margin="0,95,0,0" Windows10version1809:CornerRadius="2" x:Name="DefaultFontSize" SelectionChanged="DefaultFontSize_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" Width="69" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <x:String>4</x:String>
@@ -322,7 +322,7 @@
                     <Frame x:Name="FontBoxFrame" Width="167" Height="37" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
                     <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Segoe UI" Canvas.Left="10" Canvas.Top="11" Canvas.ZIndex="100"/>
                     <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="145" Canvas.Top="13" Canvas.ZIndex="100"/>
-                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
+                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
             <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor">

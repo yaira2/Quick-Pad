@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 using QuickPad;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -230,15 +231,21 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        ObservableCollection<string> _fonts;
+        public ObservableCollection<string> AllFonts
+        {
+            get => _fonts;
+            set => Set(ref _fonts, value);
+        }
+        
         private void LoadFonts()
         {
-            //add all installed fonts to the font box
-            string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
-            foreach (string font in fonts)
-            {
-                Fonts.Items.Add(string.Format(font));
-                DefaultFont.Items.Add(string.Format(font));
-            }
+            //Load all fonts
+            List<string> fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies().ToList();
+            //Sort it in alphabet order
+            fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
+            //Put it on an observable list
+            AllFonts = new ObservableCollection<string>(fonts);
         }
 
         private void CheckTheme()
@@ -266,23 +273,11 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
 
-                //check what the default font is
-                try
-                {
-                    String DefaultFonts = localSettings.Values["DefaultFont"] as string;
-                    if (DefaultFonts != "Segoe UI")
-                    {
-                        DefaultFont.PlaceholderText = DefaultFonts;
-                        Fonts.PlaceholderText = DefaultFonts;
-                        Fonts.SelectedItem = DefaultFonts;
-                        FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
-                        Text1.Document.Selection.CharacterFormat.Name = DefaultFonts;
-                    }
-                }
-                catch (Exception)
-                {
-                    localSettings.Values["DefaultFont"] = "Segoe UI"; //set the default font size to Segoe UI
-                }
+                //set default font to UIs that still not depend on binding
+                Fonts.PlaceholderText = QSetting.DefaultFont;
+                Fonts.SelectedItem = QSetting.DefaultFont;
+                FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
+                Text1.Document.Selection.CharacterFormat.Name = QSetting.DefaultFont;
 
                 //check what default font color is
                 try

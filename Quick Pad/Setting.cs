@@ -236,6 +236,14 @@ namespace QuickPad
             set => Set(value);
         }
         #endregion
+
+        #region Font setting
+        public string DefaultFont
+        {
+            get => Get<string>();
+            set => Set(value);
+        }
+        #endregion
     }
 
     public enum AvailableModes
