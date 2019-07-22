@@ -117,19 +117,29 @@ namespace QuickPad
             return default(T);
         }
 
-        public void Set<T>(T value, [CallerMemberName]string propertyName = null)
+        /// <summary>
+        /// Set property to setting and after that send a notification to all property that bind to it
+        /// </summary>
+        /// <typeparam name="T">That property type</typeparam>
+        /// <param name="value">A new value of the setting</param>
+        /// <param name="propertyName">A name of the property that will update, 
+        /// don't have to send it as it automatically get a property name that send it</param>
+        /// <returns>Return a boolean, if the setting has been update and notified will return true, otherwise false</returns>
+        public bool Set<T>(T value, [CallerMemberName]string propertyName = null)
         {
             if (!localSettings.Values.ContainsKey(propertyName))
             {
                 localSettings.Values.Add(propertyName, value);
                 NotifyPropertyChanged(propertyName);
-                return;
+                return true;
             }
             if (!Equals(localSettings.Values[propertyName], value))
             {
                 localSettings.Values[propertyName] = value;
                 NotifyPropertyChanged(propertyName);
+                return true;
             }
+            return false;
         }
 
         public void NotifyPropertyChanged(string propertyName)
@@ -182,7 +192,14 @@ namespace QuickPad
         public ElementTheme Theme
         {
             get => (ElementTheme)Get<int>();
-            set => Set((int)value);
+            set
+            {
+                if (Set((int)value))
+                {
+                    //Send an event the theme has changed
+                    afterThemeChanged?.Invoke(value);
+                }
+            }
         }
 
         [DefaultValue(0)]
@@ -244,7 +261,13 @@ namespace QuickPad
             set => Set(value);
         }
         #endregion
+
+        #region Events when setting change
+        public themeChange afterThemeChanged { get; set; }
+        #endregion
     }
+
+    public delegate void themeChange(ElementTheme to);
 
     public enum AvailableModes
     {

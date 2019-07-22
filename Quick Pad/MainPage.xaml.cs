@@ -85,9 +85,13 @@ namespace Quick_Pad_Free_Edition
             UpdateFile = DefaultFilename;
             TQuick.Text = UpdateFile; //Displays file name on title bar
 
+            //Subscribe to events
+            QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
+            UpdateUIAccordingToNewTheme(QSetting.Theme);
+
+            //
             LoadSettings();
             LoadFonts();
-            CheckTheme(); //check the theme
 
             VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
@@ -134,6 +138,37 @@ namespace Quick_Pad_Free_Edition
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
+        }
+
+        private void UpdateUIAccordingToNewTheme(ElementTheme to)
+        {
+            //Is it dark theme or light theme? Just in case if it default, get a theme info from application
+            bool isDarkTheme = to == ElementTheme.Dark;
+            if (to == ElementTheme.Default)
+            {
+                isDarkTheme = App.Current.RequestedTheme == ApplicationTheme.Dark;
+            }
+            //Tell analytics what theme is selected
+            if (to == ElementTheme.Default)
+            {
+                Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme from a system, which is {(isDarkTheme ? "dark theme" : "light theme")}");
+            }
+            else
+            {
+                Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme");
+            }
+            //Make the minimize, maxamize and close button visible
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            if (isDarkTheme)
+            {
+                titleBar.ButtonForegroundColor = Colors.White;
+            }
+            else
+            {
+                titleBar.ButtonForegroundColor = Colors.Black;
+            }
+
+            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
         public void send(object source, System.Timers.ElapsedEventArgs e)
@@ -193,8 +228,6 @@ namespace Quick_Pad_Free_Edition
         public void SetTheme(object sender, RoutedEventArgs e)
         {
             QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
-            //Update system theme
-            CheckTheme();
         }
         #endregion
 
@@ -246,24 +279,6 @@ namespace Quick_Pad_Free_Edition
             fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
             //Put it on an observable list
             AllFonts = new ObservableCollection<string>(fonts);
-        }
-
-        private void CheckTheme()
-        {
-            //get some theme settings in
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            this.RequestedTheme = QSetting.Theme;
-            Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme");
-            
-            //make the minimize, maximize and close button visible in light theme
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark || this.RequestedTheme == ElementTheme.Dark)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            if (App.Current.RequestedTheme == ApplicationTheme.Light || this.RequestedTheme == ElementTheme.Light)
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
         }
 
         // Stuff for putting the focus on the content
@@ -336,8 +351,7 @@ namespace Quick_Pad_Free_Edition
             StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
             await engagementManager.RegisterNotificationChannelAsync();
         }
-
-
+        
         public async void NewUserFeedbackAsync()
         {
             ContentDialog deleteFileDialog = new ContentDialog //brings up a content dialog
@@ -921,37 +935,6 @@ namespace Quick_Pad_Free_Edition
         {
             Settings.Hide();
             SettingsPivot.SelectedIndex = 0; //Set focus to first item in pivot control in the settings panel
-        }
-
-        private void Light_Click(object sender, RoutedEventArgs e)
-        {
-            localSettings.Values["Theme"] = "Light";
-            this.RequestedTheme = ElementTheme.Light;
-
-            //Make the minimize, maxamize and close button visible
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            titleBar.ButtonForegroundColor = Colors.Black;
-
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-        }
-
-        private void Dark_Click(object sender, RoutedEventArgs e)
-        {
-            localSettings.Values["Theme"] = "Dark";
-            this.RequestedTheme = ElementTheme.Dark;
-
-            //Make the minimize, maxamize and close button visible
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            titleBar.ButtonForegroundColor = Colors.White;
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-        }
-
-        private void SystemDefault_Click(object sender, RoutedEventArgs e)
-        {
-            localSettings.Values["Theme"] = "System Default";
-            RequestedTheme = ElementTheme.Default;
-            CheckTheme(); //update the theme
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
         private void Settings_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
