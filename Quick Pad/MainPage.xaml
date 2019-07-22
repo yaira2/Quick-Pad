@@ -84,7 +84,7 @@
                     <TextBlock Text="Underline (Ctrl+U)" x:Uid="UnderlineTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="Strikethrough" x:Uid="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Click="Strikethrough_Click">
+            <AppBarButton x:Name="Strikethrough" x:Uid="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Click="Strikethrough_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
                 </ToolTipService.ToolTip>
@@ -92,28 +92,28 @@
                     <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="Visible" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
+            <AppBarButton x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Toggle Bullets" x:Uid="BuTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarSeparator/>
-            <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Click="Left_Click" Icon="AlignLeft">
+            <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click" Icon="AlignLeft">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align left (Ctrl+L)" x:Uid="LeftTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Click="Center_Click" Icon="AlignCenter">
+            <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Click="Center_Click" Icon="AlignCenter">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align center (Ctrl+E)" x:Uid="CenterTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Click="Right_Click" Icon="AlignRight">
+            <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Click="Right_Click" Icon="AlignRight">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Click="Justify_Click" Background="{x:Null}" >
+            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" >
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                 </ToolTipService.ToolTip>
@@ -121,7 +121,7 @@
                     <BitmapIcon UriSource="/Assets/justify align.png"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarSeparator x:Name="AlignSeparator" />
+            <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" />
             <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Size Up" x:Uid="SizeUpTooltip"/>
@@ -279,12 +279,12 @@
                         <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
                             <ScrollViewer x:Name="SettingsTab2SV"  Height="200">
                                 <Grid Height="275">
-                                    <ToggleSwitch x:Name="ShowStrikethrough" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Toggled="ShowStrikethrough_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                                    <ToggleSwitch x:Name="ShowBullets" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Toggled="ShowBullets_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 50,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignLeft" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Toggled="ShowAlignLeft_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,95,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignCenter" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Toggled="ShowAlignCenter_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,140,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignRight" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Toggled="ShowAlignRight_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,185,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignJustify" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Toggled="ShowAlignJustify_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,230,0,0"/>
+                                    <ToggleSwitch x:Name="ShowStrikethrough" IsOn="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                                    <ToggleSwitch x:Name="ShowBullets" IsOn="{x:Bind QSetting.ShowBullets, Mode=TwoWay}" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 50,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignLeft" IsOn="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,95,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignCenter" IsOn="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,140,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignRight" IsOn="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,185,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignJustify" IsOn="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,230,0,0"/>
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>

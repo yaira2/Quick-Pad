@@ -59,7 +59,14 @@ namespace QuickPad
                     previousSetting = false;
                 }
             }
-            else if (propertyName == nameof(WordWrap) || propertyName == nameof(SpellCheck))
+            else if (propertyName == nameof(WordWrap) || 
+                propertyName == nameof(SpellCheck) ||
+                propertyName == nameof(ShowBullets) ||
+                propertyName == nameof(ShowStrikethroughOption) ||
+                propertyName == nameof(ShowAlignLeft) ||
+                propertyName == nameof(ShowAlignCenter) ||
+                propertyName == nameof(ShowAlignRight) ||
+                propertyName == nameof(ShowAlignJustify))
             {
                 //Yes and No to boolean
                 conversion = localSettings.Values[propertyName] as string;
@@ -173,6 +180,50 @@ namespace QuickPad
             set => Set((int)value);
         }
         #endregion
+
+        #region Toolbar setting
+        [DefaultValue(true)]
+        public bool ShowBullets
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowStrikethroughOption
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowAlignLeft
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowAlignCenter
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowAlignRight
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowAlignJustify
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+        #endregion
     }
 
     public enum AvailableModes
@@ -203,6 +254,38 @@ namespace QuickPad
         {
             var convert = (ElementTheme)Enum.Parse(typeof(ElementTheme), expect);
             return Equals(input, convert);
+        }
+
+        /// <summary>
+        /// Use to convert on XAML & x:Bind from bool (or Boolean) to Visibility
+        /// </summary>
+        /// <param name="input">Any boolean input</param>
+        /// <returns>Visibility if true return Visible otherwise return Collapsed</returns>
+        public static Visibility BoolToVisibility(bool input)
+        {
+            if (input)
+            {
+                return Visibility.Visible;
+            }
+            return Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// A very specific converter use on XAML and x:Bind that only use on align button separator
+        /// By tying all visibility setting into one place and when all 4 is false it will return Visible
+        /// </summary>
+        /// <param name="left">Left align button</param>
+        /// <param name="center">Center align button</param>
+        /// <param name="right">Right align button</param>
+        /// <param name="justify">Justify align button</param>
+        /// <returns></returns>
+        public static Visibility HideIfNoAlignButtonShow(bool left, bool center, bool right, bool justify)
+        {
+            if (!left && !center && !right && !justify)
+            {
+                return Visibility.Collapsed;
+            }
+            return Visibility.Visible;
         }
     }
 }

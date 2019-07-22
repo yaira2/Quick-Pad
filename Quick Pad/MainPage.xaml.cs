@@ -86,7 +86,6 @@ namespace Quick_Pad_Free_Edition
 
             LoadSettings();
             LoadFonts();
-            CheckToolbarOptions(); //check which buttons to show in toolbar
             CheckTheme(); //check the theme
 
             VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
@@ -263,98 +262,6 @@ namespace Quick_Pad_Free_Edition
             if (App.Current.RequestedTheme == ApplicationTheme.Light || this.RequestedTheme == ElementTheme.Light)
             {
                 titleBar.ButtonForegroundColor = Colors.Black;
-            }
-        }
-
-        //check which buttons to show in toolbar
-        private void CheckToolbarOptions()
-        {
-            //check if the bullet list option should show
-            String ShowBulletsSetting = localSettings.Values["ShowBullets"] as string;
-
-            if (ShowBulletsSetting == "No")
-            {
-                ShowBullets.IsOn = false; //toggle the show bullets option in the settings panel.
-                BulletList.Visibility = Visibility.Collapsed; //hid bullet option
-            }
-            else
-            {
-                ShowBullets.IsOn = true; //toggle the show bullets option in the settings panel.
-            }
-
-            //check if strikethrough option should show
-            String ShowST = localSettings.Values["ShowStrikethroughOption"] as string;
-
-            if (ShowST == "No")
-            {
-                //hide ShowStrikethroughOption
-                ShowStrikethrough.IsOn = false; //toggle the show ShowStrikethroughOption option in the settings panel.
-                Strikethrough.Visibility = Visibility.Collapsed; //hide strikethrough option
-            }
-            else
-            {
-                ShowStrikethrough.IsOn = true; //toggle the show ShowStrikethroughOption option in the settings panel.
-            }
-
-            //check if the left align option should show
-            String ShowAl = localSettings.Values["ShowAlignLeft"] as string;
-
-            if (ShowAl == "No")
-            {
-                //hide option
-                ShowAlignLeft.IsOn = false; //toggle the option in the settings panel.
-                Left.Visibility = Visibility.Collapsed; //hide the button
-            }
-            else
-            {
-                ShowAlignLeft.IsOn = true; //toggle the option in the settings panel.
-            }
-
-            //check if the center align option should show
-            String ShowAC = localSettings.Values["ShowAlignCenter"] as string;
-
-            if (ShowAC == "No")
-            {
-                //hide option
-                ShowAlignCenter.IsOn = false; //toggle the option in the settings panel.
-                Center.Visibility = Visibility.Collapsed; //hide the button
-            }
-            else
-            {
-                ShowAlignCenter.IsOn = true; //toggle the option in the settings panel.
-            }
-
-            //check if the right align option should show
-            String ShowAR = localSettings.Values["ShowAlignRight"] as string;
-
-            if (ShowAR == "No")
-            {
-                //hide option
-                ShowAlignRight.IsOn = false; //toggle the option in the settings panel.
-                Right.Visibility = Visibility.Collapsed; //hide the button
-            }
-            else
-            {
-                ShowAlignRight.IsOn = true; //toggle the option in the settings panel.
-            }
-
-            //check if the justify align option should show
-            String ShowAJ = localSettings.Values["ShowAlignJustify"] as string;
-
-            if (ShowAJ == "No")
-            {
-                //hide option
-                ShowAlignJustify.IsOn = false; //toggle the option in the settings panel.
-                Justify.Visibility = Visibility.Collapsed; //hide the button
-            }
-            else
-            {
-                ShowAlignJustify.IsOn = true; //toggle the option in the settings panel.
-            }
-
-            if (ShowAl == "No" && ShowAC == "No" && ShowAR == "No" && ShowAJ == "No")
-            {
-                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
             }
         }
 
@@ -1076,42 +983,6 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-        private void ShowBullets_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowBullets"] = "Yes";
-                    BulletList.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowBullets"] = "No";
-                    BulletList.Visibility = Visibility.Collapsed;
-                }
-            }
-        }
-
-        private void ShowStrikethrough_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowStrikethroughOption"] = "Yes";
-                    Strikethrough.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowStrikethroughOption"] = "No";
-                    Strikethrough.Visibility = Visibility.Collapsed;
-                }
-            }
-        }
-
         private void Text1_DragOver(object sender, DragEventArgs e)
         {
             e.AcceptedOperation = DataPackageOperation.Copy;
@@ -1168,101 +1039,9 @@ namespace Quick_Pad_Free_Edition
             catch (Exception) { }
         }
         
-        private void ShowAlignLeft_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowAlignLeft"] = "Yes";
-                    Left.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowAlignLeft"] = "No";
-                    Left.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            AlignCheck();
-        }
-
-        private void ShowAlignCenter_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowAlignCenter"] = "Yes";
-                    Center.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowAlignCenter"] = "No";
-                    Center.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            AlignCheck();
-        }
-
-        private void ShowAlignRight_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowAlignRight"] = "Yes";
-                    Right.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowAlignRight"] = "No";
-                    Right.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            AlignCheck();
-        }
-
-        private void ShowAlignJustify_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowAlignJustify"] = "Yes";
-                    Justify.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowAlignJustify"] = "No";
-                    Justify.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            AlignCheck();
-        }
-
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
             FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
-        }
-
-        public void AlignCheck()
-        {
-            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
-            {
-                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
-            }
-            else
-            {
-                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
-            }
         }
 
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
