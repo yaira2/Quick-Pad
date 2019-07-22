@@ -223,16 +223,10 @@ namespace Quick_Pad_Free_Edition
                 timer.AutoReset = true;
             }
 
-            //check how many times the app was run
-            String NewUser = localSettings.Values["NewUser"] as string;
-            if (NewUser == "1") //second time using the app
+            QSetting.NewUser++;
+            if (QSetting.NewUser == 1)
             {
-                localSettings.Values["NewUser"] = "2";
                 NewUserFeedbackAsync(); //call method that asks user if they want to review the app
-            }
-            if (NewUser != "1" && NewUser != "2") //first time using the app
-            {
-                localSettings.Values["NewUser"] = "1";
             }
         }
 

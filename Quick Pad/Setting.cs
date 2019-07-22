@@ -59,7 +59,7 @@ namespace QuickPad
                     previousSetting = false;
                 }
             }
-            else if (propertyName == nameof(WordWrap) || 
+            else if (propertyName == nameof(WordWrap) ||
                 propertyName == nameof(SpellCheck) ||
                 propertyName == nameof(ShowBullets) ||
                 propertyName == nameof(ShowStrikethroughOption) ||
@@ -84,6 +84,11 @@ namespace QuickPad
                 //Theme string to ElementTheme
                 conversion = localSettings.Values[propertyName] as string;
                 previousSetting = (int)Enum.Parse(typeof(ElementTheme), conversion);
+            }
+            else if (propertyName == nameof(NewUser))
+            {
+                conversion = localSettings.Values[propertyName] as string;
+                previousSetting = int.Parse(conversion);
             }
             #endregion
 
@@ -178,6 +183,13 @@ namespace QuickPad
         {
             get => (ElementTheme)Get<int>();
             set => Set((int)value);
+        }
+
+        [DefaultValue(0)]
+        public int NewUser
+        {
+            get => Get<int>();
+            set => Set(value);
         }
         #endregion
 
