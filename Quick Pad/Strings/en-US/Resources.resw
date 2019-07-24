@@ -240,26 +240,26 @@
   <data name="ExitFocusMode.Text" xml:space="preserve">
     <value>Exit Focus Mode</value>
   </data>
-  <data name="FontColorBlack.Content" xml:space="preserve">
+  <data name="FontColorBlack" xml:space="preserve">
     <value>Black</value>
   </data>
-  <data name="FontColorLightGreen.Content" xml:space="preserve">
-    <value>Green</value>
-  </data>
-  <data name="FontColorLightPink.Content" xml:space="preserve">
-    <value>Pink</value>
-  </data>
-  <data name="FontColorLightSalmon.Content" xml:space="preserve">
-    <value>Orange</value>
-  </data>
-  <data name="FontColorLightYellow.Content" xml:space="preserve">
-    <value>Yellow</value>
-  </data>
-  <data name="FontColorSkyBlue.Content" xml:space="preserve">
+  <data name="FontColorBlue" xml:space="preserve">
     <value>Blue</value>
   </data>
-  <data name="FontColorWhite.Content" xml:space="preserve">
+  <data name="FontColorGreen" xml:space="preserve">
+    <value>Green</value>
+  </data>
+  <data name="FontColorOrange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="FontColorPink" xml:space="preserve">
+    <value>Pink</value>
+  </data>
+  <data name="FontColorWhite" xml:space="preserve">
     <value>White</value>
+  </data>
+  <data name="FontColorYellow" xml:space="preserve">
+    <value>Yellow</value>
   </data>
   <data name="GeneralAutoSave.Text" xml:space="preserve">
     <value>Auto Save</value>

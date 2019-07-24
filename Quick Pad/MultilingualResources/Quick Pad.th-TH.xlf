@@ -310,34 +310,6 @@
           <source>Version: {0}.{1}.{2}.{3}</source>
           <target state="translated">เวอร์ชั่น: {0}.{1}.{2}.{3}</target>
         </trans-unit>
-        <trans-unit id="FontColorBlack.Content" translate="yes" xml:space="preserve">
-          <source>Black</source>
-          <target state="translated">ดำ</target>
-        </trans-unit>
-        <trans-unit id="FontColorLightGreen.Content" translate="yes" xml:space="preserve">
-          <source>Green</source>
-          <target state="translated">เขียว</target>
-        </trans-unit>
-        <trans-unit id="FontColorLightPink.Content" translate="yes" xml:space="preserve">
-          <source>Pink</source>
-          <target state="translated">ชมพู</target>
-        </trans-unit>
-        <trans-unit id="FontColorLightSalmon.Content" translate="yes" xml:space="preserve">
-          <source>Orange</source>
-          <target state="translated">ส้ม</target>
-        </trans-unit>
-        <trans-unit id="FontColorLightYellow.Content" translate="yes" xml:space="preserve">
-          <source>Yellow</source>
-          <target state="translated">เหลือง</target>
-        </trans-unit>
-        <trans-unit id="FontColorSkyBlue.Content" translate="yes" xml:space="preserve">
-          <source>Blue</source>
-          <target state="translated">ฟ้า</target>
-        </trans-unit>
-        <trans-unit id="FontColorWhite.Content" translate="yes" xml:space="preserve">
-          <source>White</source>
-          <target state="translated">ขาว</target>
-        </trans-unit>
         <trans-unit id="LaunchModeDefault.Content" translate="yes" xml:space="preserve">
           <source>Default</source>
           <target state="translated">ปกติ</target>
@@ -480,11 +452,39 @@
         </trans-unit>
         <trans-unit id="BlackPlaceholder" translate="yes" xml:space="preserve">
           <source>Black</source>
-          <target state="new">Black</target>
+          <target state="translated">Black</target>
         </trans-unit>
         <trans-unit id="WhitePlaceholder" translate="yes" xml:space="preserve">
           <source>White</source>
-          <target state="new">White</target>
+          <target state="translated" state-qualifier="tm-suggestion">ขาว</target>
+        </trans-unit>
+        <trans-unit id="FontColorBlack" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="translated" state-qualifier="tm-suggestion">ดำ</target>
+        </trans-unit>
+        <trans-unit id="FontColorBlue" translate="yes" xml:space="preserve">
+          <source>Blue</source>
+          <target state="translated" state-qualifier="tm-suggestion">น้ำเงิน</target>
+        </trans-unit>
+        <trans-unit id="FontColorGreen" translate="yes" xml:space="preserve">
+          <source>Green</source>
+          <target state="translated" state-qualifier="tm-suggestion">เขียว</target>
+        </trans-unit>
+        <trans-unit id="FontColorOrange" translate="yes" xml:space="preserve">
+          <source>Orange</source>
+          <target state="translated" state-qualifier="tm-suggestion">ส้ม</target>
+        </trans-unit>
+        <trans-unit id="FontColorPink" translate="yes" xml:space="preserve">
+          <source>Pink</source>
+          <target state="translated" state-qualifier="tm-suggestion">ชมพู</target>
+        </trans-unit>
+        <trans-unit id="FontColorWhite" translate="yes" xml:space="preserve">
+          <source>White</source>
+          <target state="translated" state-qualifier="tm-suggestion">ขาว</target>
+        </trans-unit>
+        <trans-unit id="FontColorYellow" translate="yes" xml:space="preserve">
+          <source>Yellow</source>
+          <target state="translated" state-qualifier="tm-suggestion">เหลือง</target>
         </trans-unit>
       </group>
     </body>

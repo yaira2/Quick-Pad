@@ -68,7 +68,6 @@ namespace Quick_Pad_Free_Edition
         private string key; //future access list
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
-        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
         private String SaveDialogValue; //this is to know if the user clicks cancel when asked if they want to save
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
 
@@ -88,8 +87,10 @@ namespace Quick_Pad_Free_Edition
             //Subscribe to events
             QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
             UpdateUIAccordingToNewTheme(QSetting.Theme);
+            QSetting.afterFontSizeChanged += UpdateText1FontSize;
 
             //
+            CreateItems();
             LoadSettings();
             LoadFonts();
 
@@ -170,6 +171,18 @@ namespace Quick_Pad_Free_Edition
             }
 
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
+
+            //Update combobox items font color collection
+            
+            if (QSetting.DefaultFontColor == "Default")
+            {
+                Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+            }
+        }
+
+        private void UpdateText1FontSize(int to)
+        {
+            Text1.Document.Selection.CharacterFormat.Size = to; //set the font size
         }
 
         public void LaunchCheck()
@@ -185,6 +198,21 @@ namespace Quick_Pad_Free_Edition
                     SwitchCompactOverlayMode(true);
                     break;
             }
+        }
+
+        private void CreateItems()
+        {
+            FontColorCollections = new ObservableCollection<FontColorItem>
+            {
+                new FontColorItem(),
+                new FontColorItem("Black"),
+                new FontColorItem("White"),
+                new FontColorItem("Blue", "SkyBlue"),
+                new FontColorItem("Green", "LightGreen"),
+                new FontColorItem("Pink", "LightPink"),
+                new FontColorItem("Yellow", "LightYellow"),
+                new FontColorItem("Orange", "LightSalmon")
+            };
         }
 
         private void LoadSettings()
@@ -229,42 +257,17 @@ namespace Quick_Pad_Free_Edition
                 Text1.Document.Selection.CharacterFormat.Name = QSetting.DefaultFont;
 
                 //check what default font color is
-                try
-                {
-                    String DefaultFontColors = localSettings.Values["DefaultFontColor"] as string;
-                    if (DefaultFontColors != "")
-                    {
-                        ComboBoxItem comboboxItem = (ComboBoxItem)DefaultFontColor.Items.ToList().First(i => ((ComboBoxItem)i).Tag.ToString() == DefaultFontColors);
-                        DefaultFontColor.SelectedItem = comboboxItem;
-                        Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), comboboxItem.Tag);
-                    }
-                }
-                catch (Exception) //no setting was found
-                {
 
-                    if (this.RequestedTheme == ElementTheme.Dark || App.Current.RequestedTheme == ApplicationTheme.Dark)
-                    {
-                        DefaultFontColor.PlaceholderText = textResource.GetString("WhitePlaceholder");
-                    }
-                    if (this.RequestedTheme == ElementTheme.Light || App.Current.RequestedTheme == ApplicationTheme.Light)
-                    {
-                        DefaultFontColor.PlaceholderText = textResource.GetString("BlackPlaceholder");
-                    }
-                }
-
-                //check what default font size is and set it
-                Int16 DefaultFontSizes = Convert.ToInt16(localSettings.Values["DefaultFontSize"]); //load the defualt font size
-
-                if (DefaultFontSizes == 0)
+                if (QSetting.DefaultFontColor == "Default")
                 {
-                    localSettings.Values["DefaultFontSize"] = "18"; //set 18 as defualt font size
-                    Text1.Document.Selection.CharacterFormat.Size = 18; //set the font size
+                    SelectedDefaultFontColor = 0;
                 }
                 else
                 {
-                    DefaultFontSize.PlaceholderText = Convert.ToString(DefaultFontSizes); //set the selected font size placeholder text in settings to whatever the font size is meant to be
-                    Text1.Document.Selection.CharacterFormat.Size = DefaultFontSizes; //set the font size
+                    SelectedDefaultFontColor = FontColorCollections.IndexOf(FontColorCollections.First(i => i.TechnicalName == QSetting.DefaultFontColor));
                 }
+
+                Text1.Document.Selection.CharacterFormat.Size = QSetting.DefaultFontSize;
 
                 LaunchCheck(); //call method to check what mode the app should launch in
 
@@ -279,7 +282,6 @@ namespace Quick_Pad_Free_Edition
             _isPageLoaded = true;
         }
 
-        #endregion
         public void send(object source, System.Timers.ElapsedEventArgs e)
         {
             //timer for auto save
@@ -311,8 +313,9 @@ namespace Quick_Pad_Free_Edition
             });
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
+        #endregion
 
-        #region Handle app settings
+        #region Properties
         public bool CompactOverlaySwitch
         {
             get
@@ -334,14 +337,6 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-        public void SetTheme(object sender, RoutedEventArgs e)
-        {
-            QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
-        }
-        #endregion
-
-        #region Properties
-
         ObservableCollection<string> _fonts;
         public ObservableCollection<string> AllFonts
         {
@@ -349,6 +344,29 @@ namespace Quick_Pad_Free_Edition
             set => Set(ref _fonts, value);
         }
 
+        //Colors
+        ObservableCollection<FontColorItem> _fci;
+        public ObservableCollection<FontColorItem> FontColorCollections
+        {
+            get => _fci;
+            set => Set(ref _fci, value);
+        }
+
+        public int _fc_selection = -1;
+        public int SelectedDefaultFontColor
+        {
+            get => _fc_selection;
+            set
+            {
+                if (!Equals(_fc_selection, value))
+                {
+                    Set(ref _fc_selection, value);
+                    //Update setting
+                    QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
+                    Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
+                }
+            }
+        }
         #endregion
 
         #region Store service
@@ -533,6 +551,17 @@ namespace Quick_Pad_Free_Edition
         #endregion
 
         #region Command bar click
+        public void SetTheme(object sender, RoutedEventArgs e)
+        {
+            QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
+        }
+
+        private void SetFormatColor(object sender, RoutedEventArgs e)
+        {
+            string tag = (sender as FrameworkElement).Tag.ToString();
+            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), tag);
+        }
+
         private async void CmdSettings_Click(object sender, RoutedEventArgs e)
         {
             ContentDialogResult result = await Settings.ShowAsync();
@@ -775,42 +804,6 @@ namespace Quick_Pad_Free_Edition
             Analytics.TrackEvent("User inserted an emoji"); //log event in app center
         }
 
-        private void Yellow_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightYellow);
-        }
-
-        private void Blue_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.SkyBlue);
-        }
-
-        private void Pink_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightPink);
-        }
-
-        private void Orange_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightSalmon);
-        }
-
-        private void Green_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightGreen);
-        }
-
-        private void Black_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.Black);
-        }
-
-        private void Text1_GotFocus(object sender, RoutedEventArgs e)
-        {
-            Emoji.IsChecked = false; //hide emoji panel if open 
-            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
-        }
-
         private void CmdShare_Click(object sender, RoutedEventArgs e)
         {
             Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
@@ -830,28 +823,6 @@ namespace Quick_Pad_Free_Edition
             {
                 //"Nothing to share, type something in order to share it."
                 args.Request.FailWithDisplayText(textResource.GetString("NothingToShare"));
-            }
-        }
-
-        private void Text1_TextChanged(object sender, RoutedEventArgs e)
-        {
-            if (Text1.Document.CanUndo() == true)
-            {
-                CmdUndo.IsEnabled = true;
-            }
-            else
-            {
-                CmdUndo.IsEnabled = false;
-                TQuick.Text = UpdateFile; //update title bar since no changes have been made
-            }
-            /////
-            if (Text1.Document.CanRedo() == true)
-            {
-                CmdRedo.IsEnabled = true;
-            }
-            else
-            {
-                CmdRedo.IsEnabled = false;
             }
         }
 
@@ -884,12 +855,7 @@ namespace Quick_Pad_Free_Edition
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
             }
         }
-
-        private void White_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.White);
-        }
-
+        
         private void CmdBack_Click(object sender, RoutedEventArgs e)
         {
             Settings.Hide();
@@ -939,20 +905,6 @@ namespace Quick_Pad_Free_Edition
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
-        private void DefaultFont_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedFont = e.AddedItems[0].ToString();
-            localSettings.Values["DefaultFont"] = selectedFont;
-            Fonts.SelectedItem = selectedFont; //make the change take affect right away
-        }
-
-        private void DefaultFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var selectedFontSize = e.AddedItems[0];
-            localSettings.Values["DefaultFontSize"] = selectedFontSize;
-            Text1.Document.Selection.CharacterFormat.Size = Convert.ToInt64(selectedFontSize); //make the change take affect right away
-        }
-
         private async void SaveDialogYes_Click(object sender, RoutedEventArgs e)
         {
             await SaveWork();
@@ -970,11 +922,6 @@ namespace Quick_Pad_Free_Edition
             SaveDialog.Hide();
         }
 
-        private void DefaultFontColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            localSettings.Values["DefaultFontColor"] = (DefaultFontColor.SelectedValue as ComboBoxItem).Tag;
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), (DefaultFontColor.SelectedValue as ComboBoxItem).Tag);
-        }
         #endregion
 
         #region UI Mode change
@@ -1061,6 +1008,34 @@ namespace Quick_Pad_Free_Edition
         #endregion
 
         #region Textbox function
+        private void Text1_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Emoji.IsChecked = false; //hide emoji panel if open 
+            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
+        }
+
+        private void Text1_TextChanged(object sender, RoutedEventArgs e)
+        {
+            if (Text1.Document.CanUndo() == true)
+            {
+                CmdUndo.IsEnabled = true;
+            }
+            else
+            {
+                CmdUndo.IsEnabled = false;
+                TQuick.Text = UpdateFile; //update title bar since no changes have been made
+            }
+            /////
+            if (Text1.Document.CanRedo() == true)
+            {
+                CmdRedo.IsEnabled = true;
+            }
+            else
+            {
+                CmdRedo.IsEnabled = false;
+            }
+        }
+
         private void Text1_TextChanging(RichEditBox sender, RichEditBoxTextChangingEventArgs args)
         {
             TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
@@ -1141,5 +1116,84 @@ namespace Quick_Pad_Free_Edition
         }
 
         #endregion
+    }
+
+    public class FontColorItem : INotifyPropertyChanged
+    {
+        #region Notification overhead, no need to write it thousands times on set { }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Set property and also alert the UI if the value is changed
+        /// </summary>
+        /// <param name="value">New value</param>
+        public void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
+        {
+            if (!Equals(storage, value))
+            {
+                storage = value;
+                NotifyPropertyChanged(propertyName);
+            }
+        }
+
+        /// <summary>
+        /// Alert the UI there is a change in this property and need update
+        /// </summary>
+        /// <param name="name"></param>
+        public void NotifyPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        #endregion
+
+        string _name;
+        public string ColorName
+        {
+            get => _name;
+            set => Set(ref _name, value);
+        }
+
+        string _tname;
+        public string TechnicalName
+        {
+            get => _tname;
+            set => Set(ref _tname, value);
+        }
+
+        Color _ac;
+        public Color ActualColor
+        {
+            get => _ac;
+            set => Set(ref _ac, value);
+        }
+
+        public FontColorItem()
+        {
+            ColorName = "Default";
+            TechnicalName = "Default";
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                ActualColor = Colors.White;
+            }
+            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
+            {
+                ActualColor = Colors.Black;
+            }
+        }
+
+        public FontColorItem(string name)
+        {
+            ColorName = ResourceLoader.GetForCurrentView().GetString($"FontColor{name}");
+            TechnicalName = name;
+            ActualColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), name);
+        }
+        public FontColorItem(string name, string technical)
+        {
+            ColorName = ResourceLoader.GetForCurrentView().GetString($"FontColor{name}");
+            TechnicalName = technical;
+            ActualColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), technical);
+        }
+
+        public static FontColorItem Default => new FontColorItem();
     }
 }

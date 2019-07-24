@@ -7,6 +7,7 @@
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:q="using:QuickPad"
+    xmlns:qfe="using:Quick_Pad_Free_Edition"
     RequestedTheme="{x:Bind QSetting.Theme, Mode=OneWay}"
     mc:Ignorable="d">
 
@@ -183,7 +184,7 @@
             </AppBarButton>
         </CommandBar>
 
-        <RichEditBox x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}"/>
+        <RichEditBox x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}" FontSize="{x:Bind QSetting.DefaultFontSize, Mode=OneWay}"/>
 
         <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
 
@@ -245,35 +246,39 @@
                         <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
                             <Grid Height="200">
                                 <TextBlock x:Uid="DefaultFont" Text="Default Font" Margin="0,5,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,30,0,0" SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" SelectionChanged="DefaultFont_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
+                                <ComboBox Margin="0,30,0,0" SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
                                 <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" Margin="0,70,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,95,0,0" Windows10version1809:CornerRadius="2" x:Name="DefaultFontSize" SelectionChanged="DefaultFontSize_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" Width="69" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                                    <x:String>4</x:String>
-                                    <x:String>6</x:String>
-                                    <x:String>8</x:String>
-                                    <x:String>10</x:String>
-                                    <x:String>12</x:String>
-                                    <x:String>14</x:String>
-                                    <x:String>16</x:String>
-                                    <x:String>18</x:String>
-                                    <x:String>20</x:String>
-                                    <x:String>22</x:String>
-                                    <x:String>24</x:String>
-                                    <x:String>26</x:String>
-                                    <x:String>28</x:String>
-                                    <x:String>36</x:String>
-                                    <x:String>48</x:String>
-                                    <x:String>72</x:String>
+                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Margin="0,95,0,0" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" Width="69" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                    <x:Int32>4</x:Int32>
+                                    <x:Int32>6</x:Int32>
+                                    <x:Int32>8</x:Int32>
+                                    <x:Int32>10</x:Int32>
+                                    <x:Int32>12</x:Int32>
+                                    <x:Int32>14</x:Int32>
+                                    <x:Int32>16</x:Int32>
+                                    <x:Int32>18</x:Int32>
+                                    <x:Int32>20</x:Int32>
+                                    <x:Int32>22</x:Int32>
+                                    <x:Int32>24</x:Int32>
+                                    <x:Int32>26</x:Int32>
+                                    <x:Int32>28</x:Int32>
+                                    <x:Int32>36</x:Int32>
+                                    <x:Int32>48</x:Int32>
+                                    <x:Int32>72</x:Int32>
                                 </ComboBox>
                                 <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color" Margin="0,135,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" SelectionChanged="DefaultFontColor_SelectionChanged" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
-                                    <ComboBoxItem Content="Black" Tag="Black" x:Uid="FontColorBlack" x:Name="FontColorBlack"/>
-                                    <ComboBoxItem Content="White" Tag="White" x:Uid="FontColorWhite" x:Name="FontColorWhite"/>
-                                    <ComboBoxItem Content="SkyBlue" Tag="SkyBlue" x:Uid="FontColorSkyBlue" x:Name="FontColorSkyBlue"/>
-                                    <ComboBoxItem Content="LightGreen" Tag="LightGreen" x:Uid="FontColorLightGreen" x:Name="FontColorLightGreen"/>
-                                    <ComboBoxItem Content="LightPink" Tag="LightPink" x:Uid="FontColorLightPink" x:Name="FontColorLightPink"/>
-                                    <ComboBoxItem Content="LightYellow" Tag="LightYellow" x:Uid="FontColorLightYellow" x:Name="FontColorLightYellow"/>
-                                    <ComboBoxItem Content="LightSalmon" Tag="LightSalmon" x:Uid="FontColorLightSalmon" x:Name="FontColorLightSalmon"/>
+                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate x:DataType="qfe:FontColorItem">
+                                            <StackPanel Orientation="Horizontal">
+                                                <!--Default font color-->
+                                                <Rectangle Width="14" Height="14" Fill="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="{x:Bind q:Converter.IfStringMatchShow(TechnicalName, 'Default'), Mode=OneWay}" />
+                                                <!--Other font color-->
+                                                <Rectangle Width="14" Height="14" Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}" Visibility="{x:Bind q:Converter.IfStringMatchHide(TechnicalName, 'Default'), Mode=OneWay}" />
+                                                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
                                 </ComboBox>
                             </Grid>
                         </PivotItem>
@@ -332,13 +337,13 @@
                 </ToolTipService.ToolTip>
                 <AppBarButton.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem x:Name="Black" x:Uid="TextColorBlack" Text="Black" Click="Black_Click" />
-                        <MenuFlyoutItem x:Name="White" x:Uid="TextColorWhite" Text="White" Click="White_Click" />
-                        <MenuFlyoutItem x:Name="Yellow" x:Uid="TextColorYellow" Text="Yellow" Click="Yellow_Click" />
-                        <MenuFlyoutItem x:Name="Blue" x:Uid="TextColorBlue" Text="Blue" Click="Blue_Click" />
-                        <MenuFlyoutItem x:Name="Pink" x:Uid="TextColorPink" Text="Pink" Click="Pink_Click" />
-                        <MenuFlyoutItem x:Name="Orange" x:Uid="TextColorOrange" Text="Orange" Click="Orange_Click" />
-                        <MenuFlyoutItem x:Name="Green" x:Uid="TextColorGreen" Text="Green" Click="Green_Click" />
+                        <MenuFlyoutItem x:Name="Black" x:Uid="TextColorBlack" Tag="Black" Text="Black" Click="SetFormatColor" />
+                        <MenuFlyoutItem x:Name="White" x:Uid="TextColorWhite" Tag="White" Text="White" Click="SetFormatColor" />
+                        <MenuFlyoutItem x:Name="Yellow" x:Uid="TextColorYellow" Tag="LightYellow" Text="Yellow" Click="SetFormatColor" />
+                        <MenuFlyoutItem x:Name="Blue" x:Uid="TextColorBlue" Tag="SkyBlue" Text="Blue" Click="SetFormatColor" />
+                        <MenuFlyoutItem x:Name="Pink" x:Uid="TextColorPink" Tag="LightPink" Text="Pink" Click="SetFormatColor" />
+                        <MenuFlyoutItem x:Name="Orange" x:Uid="TextColorOrange" Tag="LightSalmon" Text="Orange" Click="SetFormatColor" />
+                        <MenuFlyoutItem x:Name="Green" x:Uid="TextColorGreen" Tag="LightGreen" Text="Green" Click="SetFormatColor" />
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>

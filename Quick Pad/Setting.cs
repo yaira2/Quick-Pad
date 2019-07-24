@@ -3,7 +3,9 @@ using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Windows.Storage;
+using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Media;
 
 namespace QuickPad
 {
@@ -85,7 +87,7 @@ namespace QuickPad
                 conversion = localSettings.Values[propertyName] as string;
                 previousSetting = (int)Enum.Parse(typeof(ElementTheme), conversion);
             }
-            else if (propertyName == nameof(NewUser))
+            else if (propertyName == nameof(NewUser) || propertyName == nameof(DefaultFontSize))
             {
                 conversion = localSettings.Values[propertyName] as string;
                 previousSetting = int.Parse(conversion);
@@ -260,14 +262,46 @@ namespace QuickPad
             get => Get<string>();
             set => Set(value);
         }
+
+        [DefaultValue("Default")]
+        public string DefaultFontColor
+        {
+            get => Get<string>();
+            set => Set(value);
+        }
+        
+        [DefaultValue(18)]
+        public int DefaultFontSize
+        {
+            get => Get<int>();
+            set
+            {
+                //Hard limit
+                if (value > short.MaxValue)
+                {
+                    value = short.MaxValue;
+                }
+                else if (value < 4)
+                {
+                    value = 4;
+                }
+
+                if (Set(value))
+                {
+                    afterFontSizeChanged?.Invoke(value);
+                }
+            }
+        }
         #endregion
 
         #region Events when setting change
         public themeChange afterThemeChanged { get; set; }
+        public fontsizeChange afterFontSizeChanged { get; set; }
         #endregion
     }
 
     public delegate void themeChange(ElementTheme to);
+    public delegate void fontsizeChange(int to);
 
     public enum AvailableModes
     {
@@ -329,6 +363,55 @@ namespace QuickPad
                 return Visibility.Collapsed;
             }
             return Visibility.Visible;
+        }
+
+        public static SolidColorBrush FromColorToBrush(Color input)
+        {
+            return new SolidColorBrush(input);
+        }
+
+        public static bool IfStringMatch(string input, string compare)
+        {
+            return Equals(input, compare);
+        }
+
+        public static Visibility IfStringMatchShow(string input, string compare)
+        {
+            if (IfStringMatch(input, compare))
+            {
+                return Visibility.Visible;
+            }
+            else
+            {
+                return Visibility.Collapsed;
+            }
+        }
+
+        public static Visibility IfStringMatchHide(string input, string compare)
+        {
+            if (IfStringMatch(input, compare))
+            {
+                return Visibility.Collapsed;
+            }
+            else
+            {
+                return Visibility.Visible;
+            }
+        }
+
+        public static string FromColorToHex(Color input)
+        {
+            return $"#{input.A.ToString("16")}{input.R.ToString("16")}{input.G.ToString("16")}{input.B.ToString("16")}";
+        }
+
+        public static Color FromHexToColor(string input)
+        {
+            input = input.Substring(1);
+            byte a = (byte)Convert.ToUInt32(input.Substring(0, 2), 16);
+            byte r = (byte)Convert.ToUInt32(input.Substring(2, 2), 16);
+            byte g = (byte)Convert.ToUInt32(input.Substring(4, 2), 16);
+            byte b = (byte)Convert.ToUInt32(input.Substring(6, 2), 16);
+            return Color.FromArgb(a, r, g, b);
         }
     }
 }
