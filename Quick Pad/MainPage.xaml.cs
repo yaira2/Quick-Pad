@@ -98,7 +98,7 @@ namespace Quick_Pad_Free_Edition
             {
                 var deferral = e.GetDeferral();
 
-                if (CurrentWorkingFile.Name == CurrentFilename)
+                if (!Changed && CurrentWorkingFile is null)
                 {
                     deferral.Complete();
                 }
@@ -109,18 +109,18 @@ namespace Quick_Pad_Free_Edition
 
                 await SaveDialog.ShowAsync();
 
-                if (SaveDialogValue != ContentDialogResult.Secondary)
+                if (SaveDialogValue != DialogResult.Cancel)
                 {
                     deferral.Complete();
                 }
 
-                if (SaveDialogValue == ContentDialogResult.Secondary)
+                if (SaveDialogValue == DialogResult.Cancel)
                 {
                     e.Handled = true;
                     deferral.Complete();
                 }
 
-                SaveDialogValue = ContentDialogResult.None; //reset save dialog    
+                SaveDialogValue = DialogResult.None; //reset save dialog    
             };
 
             CheckPushNotifications(); //check for push notifications
@@ -359,8 +359,7 @@ namespace Quick_Pad_Free_Edition
             {
                 if (_file_name is null)
                 {
-                    _file_name = $"{textResource.GetString("NewDocument")}{QSetting.NewFileAutoNumber}";
-                    QSetting.NewFileAutoNumber++;
+                    _file_name = textResource.GetString("NewDocument");
                 }
                 if (Changed)
                 {
@@ -402,16 +401,13 @@ namespace Quick_Pad_Free_Edition
         public StorageFile CurrentWorkingFile = null;
         private string key; //future access list
 
-
-        //private string DefaultFilename => textResource.GetString("NewDocument");
-        //private string UpdateFile; //Default file name is "New Document"
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
         /// <summary>
         /// this is to know if the user clicks cancel when asked if they want to save
-        /// Primary=OK | Secondary=Cancel
+        /// 
         /// </summary>
-        private ContentDialogResult SaveDialogValue = ContentDialogResult.None;
+        private DialogResult SaveDialogValue = DialogResult.None;
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
 
         #endregion
@@ -487,6 +483,7 @@ namespace Quick_Pad_Free_Edition
         #region Load/Save file
         public async Task LoadFileIntoTextBox()
         {
+            Text1.TextChanging -= Text1_TextChanging;
             if (CurrentWorkingFile.FileType == ".rtf")
             {
                 var read = await FileIO.ReadTextAsync(CurrentWorkingFile);
@@ -502,6 +499,7 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.SetText(TextSetOptions.None, await FileIO.ReadTextAsync(CurrentWorkingFile));
             }
+            Text1.TextChanging += Text1_TextChanging;
         }
 
         private async Task LoadFasFile(StorageFile inputFile)
@@ -547,7 +545,7 @@ namespace Quick_Pad_Free_Edition
                 savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
-                savePicker.SuggestedFileName = CurrentFilename;
+                savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
 
                 Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
                 if (file != null)
@@ -558,18 +556,10 @@ namespace Quick_Pad_Free_Edition
 
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
-                    //save as plain text for text file
-                    if ((file.FileType.ToLower() != ".rtf"))
-                    {
-                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
-                    }
-                    //save as rich text for rich text file
-                    if (file.FileType.ToLower() == ".rtf")
-                    {
-                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
-                    }
+                    //Decide how text will get export from RichTextBox
+                    TextGetOptions option = file.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None;
+                    Text1.Document.GetText(option, out string value);
+                    await FileIO.WriteTextAsync(file, value);
 
                     // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
                     Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
@@ -579,6 +569,7 @@ namespace Quick_Pad_Free_Edition
                         Windows.UI.Popups.MessageDialog errorBox = new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
                         await errorBox.ShowAsync();
                     }
+                    QSetting.NewFileAutoNumber++;
                 }
             }
         }
@@ -623,12 +614,12 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdNew_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentWorkingFile is null)
+            if (CurrentWorkingFile is null && Changed)
             {
                 //File has not been save yet ask use if they want to save
                 await SaveDialog.ShowAsync();
 
-                if (SaveDialogValue != ContentDialogResult.Secondary)
+                if (SaveDialogValue != DialogResult.Cancel)
                 {
                     Text1.Document.SetText(TextSetOptions.None, string.Empty);
 
@@ -927,17 +918,19 @@ namespace Quick_Pad_Free_Edition
         private async void SaveDialogYes_Click(object sender, RoutedEventArgs e)
         {
             await SaveWork();
+            SaveDialogValue = DialogResult.Yes;
             SaveDialog.Hide();
         }
 
         private void SaveDialogNo_Click(object sender, RoutedEventArgs e)
         {
+            SaveDialogValue = DialogResult.No;
             SaveDialog.Hide();
         }
 
         private void SaveDialogCancel_Click(object sender, RoutedEventArgs e)
         {
-            SaveDialogValue = ContentDialogResult.Secondary;
+            SaveDialogValue = DialogResult.Cancel;
             SaveDialog.Hide();
         }
 
@@ -1076,9 +1069,9 @@ namespace Quick_Pad_Free_Edition
             if (CurrentWorkingFile != null)
             {
                 await SaveDialog.ShowAsync();
-                if (SaveDialogValue == ContentDialogResult.Secondary)
+                if (SaveDialogValue == DialogResult.Cancel)
                 {
-                    SaveDialogValue = ContentDialogResult.None; //reset save dialog value
+                    SaveDialogValue = DialogResult.None; //reset save dialog value
                     return;
                 }
             }
@@ -1188,5 +1181,13 @@ namespace Quick_Pad_Free_Edition
         }
 
         public static FontColorItem Default => new FontColorItem();
+    }
+
+    public enum DialogResult
+    {
+        None,
+        Yes,
+        No,
+        Cancel
     }
 }
