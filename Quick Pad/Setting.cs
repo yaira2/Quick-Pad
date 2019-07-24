@@ -292,6 +292,13 @@ namespace QuickPad
                 }
             }
         }
+
+        [DefaultValue(1)]
+        public int NewFileAutoNumber
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
         #endregion
 
         #region Events when setting change
@@ -345,6 +352,21 @@ namespace QuickPad
                 return Visibility.Visible;
             }
             return Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// Use to convert on XAML & x:Bind from bool (or Boolean) to Visibility
+        /// But instead of true=visible, it opposite
+        /// </summary>
+        /// <param name="input">Any boolean input</param>
+        /// <returns></returns>
+        public static Visibility BoolToVisibilityInvert(bool input)
+        {
+            if (input)
+            {
+                return Visibility.Collapsed;
+            }
+            return Visibility.Visible;
         }
 
         /// <summary>

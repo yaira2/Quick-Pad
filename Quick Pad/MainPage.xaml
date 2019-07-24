@@ -733,9 +733,10 @@
         </controls:DropShadowPanel>
         <Grid x:Name="Title" Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch" Margin="0,0,0,0">
             <StackPanel Orientation="Horizontal">
-                <TextBlock x:Name="TQuick" Text="Quick Pad"
+                <TextBlock Text="{x:Bind CurrentFilename, Mode=OneWay}"
                            Style="{ThemeResource CaptionTextBlockStyle}"
-                           VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
+                           VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
+                           Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}"/>
             </StackPanel>
         </Grid>
     </Grid>
