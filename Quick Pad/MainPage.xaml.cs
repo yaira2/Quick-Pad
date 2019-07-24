@@ -61,7 +61,7 @@ namespace Quick_Pad_Free_Edition
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
-
+                
         private string DefaultFilename => textResource.GetString("NewDocument");
         private string UpdateFile; //Default file name is "New Document"
         private String FullFilePath; //this is the opened files full path
@@ -140,6 +140,7 @@ namespace Quick_Pad_Free_Edition
             this.LayoutUpdated += MainPage_LayoutUpdated;
         }
 
+        #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
         private void UpdateUIAccordingToNewTheme(ElementTheme to)
         {
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
@@ -170,66 +171,6 @@ namespace Quick_Pad_Free_Edition
 
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
-
-        public void send(object source, System.Timers.ElapsedEventArgs e)
-        {
-            //timer for auto save
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
-            {
-                if (TQuick.Text != UpdateFile)
-                {
-                    try
-                    {
-                        var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
-                        if ((result.ToLower() != ".rtf"))
-                        {
-                            //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.None, out var value);
-                            await PathIO.WriteTextAsync(FullFilePath, value);
-                            TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                        }
-                        if (result.ToLower() == ".rtf")
-                        {
-                            //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                            await PathIO.WriteTextAsync(FullFilePath, value);
-                            TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                        }
-                    }
-                    catch (Exception) { }
-                }
-            });
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-        }
-
-        #region Handle app settings
-        public bool CompactOverlaySwitch
-        {
-            get
-            {
-                return QSetting.LaunchMode == (int)AvailableModes.OnTop;
-            }
-            set
-            {
-                if (value)
-                {
-                    QSetting.LaunchMode = (int)AvailableModes.OnTop;
-                }
-                else
-                {
-                    QSetting.LaunchMode = (int)AvailableModes.Default;
-                }
-                SwitchCompactOverlayMode(value);
-                NotifyPropertyChanged(nameof(CompactOverlaySwitch));
-            }
-        }
-
-        public void SetTheme(object sender, RoutedEventArgs e)
-        {
-            QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
-        }
-        #endregion
 
         public void LaunchCheck()
         {
@@ -264,13 +205,6 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-        ObservableCollection<string> _fonts;
-        public ObservableCollection<string> AllFonts
-        {
-            get => _fonts;
-            set => Set(ref _fonts, value);
-        }
-        
         private void LoadFonts()
         {
             //Load all fonts
@@ -345,6 +279,79 @@ namespace Quick_Pad_Free_Edition
             _isPageLoaded = true;
         }
 
+        #endregion
+        public void send(object source, System.Timers.ElapsedEventArgs e)
+        {
+            //timer for auto save
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+            {
+                if (TQuick.Text != UpdateFile)
+                {
+                    try
+                    {
+                        var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
+                        if ((result.ToLower() != ".rtf"))
+                        {
+                            //tries to update file if it exsits and is not read only
+                            Text1.Document.GetText(TextGetOptions.None, out var value);
+                            await PathIO.WriteTextAsync(FullFilePath, value);
+                            TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
+                        }
+                        if (result.ToLower() == ".rtf")
+                        {
+                            //tries to update file if it exsits and is not read only
+                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                            await PathIO.WriteTextAsync(FullFilePath, value);
+                            TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
+                        }
+                    }
+                    catch (Exception) { }
+                }
+            });
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+        }
+
+        #region Handle app settings
+        public bool CompactOverlaySwitch
+        {
+            get
+            {
+                return QSetting.LaunchMode == (int)AvailableModes.OnTop;
+            }
+            set
+            {
+                if (value)
+                {
+                    QSetting.LaunchMode = (int)AvailableModes.OnTop;
+                }
+                else
+                {
+                    QSetting.LaunchMode = (int)AvailableModes.Default;
+                }
+                SwitchCompactOverlayMode(value);
+                NotifyPropertyChanged(nameof(CompactOverlaySwitch));
+            }
+        }
+
+        public void SetTheme(object sender, RoutedEventArgs e)
+        {
+            QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
+        }
+        #endregion
+
+        #region Properties
+
+        ObservableCollection<string> _fonts;
+        public ObservableCollection<string> AllFonts
+        {
+            get => _fonts;
+            set => Set(ref _fonts, value);
+        }
+
+        #endregion
+
+        #region Store service
         public async void CheckPushNotifications()
         {
             //regisiter for push notifications
@@ -373,6 +380,27 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        public async Task<bool> ShowRatingReviewDialog()
+        {
+            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
+
+            if (result.ExtendedError == null)
+            {
+                JObject jsonObject = JObject.Parse(result.Response);
+                if (jsonObject.SelectToken("status").ToString() == "success")
+                {
+                    // The customer rated or reviewed the app.
+                    return true;
+                }
+            }
+
+            // There was an error with the request, or the customer chose not to rate or review the app.
+            return false;
+        }
+
+        #endregion
+
+        #region Handling navigation
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -389,6 +417,9 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        #endregion
+
+        #region Load/Save file
         private async Task LoadFasFile(StorageFile file)
         {
             try
@@ -418,12 +449,90 @@ namespace Quick_Pad_Free_Edition
             catch (Exception) { }
         }
 
-        private void SetTaskBarTitle()
+        public async Task SaveWork()
         {
-            var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
-            appView.Title = UpdateFile;
-        }
+            try
+            {
+                var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
 
+                if ((result.ToLower() != ".rtf"))
+                {
+                    //tries to update file if it exsits and is not read only
+                    Text1.Document.GetText(TextGetOptions.None, out var value);
+                    await PathIO.WriteTextAsync(FullFilePath, value);
+                    TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
+                }
+                if (result.ToLower() == ".rtf")
+                {
+                    //tries to update file if it exsits and is not read only
+                    Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                    await PathIO.WriteTextAsync(FullFilePath, value);
+                    TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
+                }
+            }
+
+            catch (Exception)
+
+            {
+                Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
+
+                savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
+
+                // Dropdown of file types the user can save the file as
+                //check if default file type is .txt
+                if (QSetting.DefaultFileType == ".txt")
+                {
+                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+                }
+                else if (QSetting.DefaultFileType == ".rtf")
+                {
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
+                }
+                savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
+
+                // Default file name if the user does not type one in or select a file to replace
+                savePicker.SuggestedFileName = UpdateFile;
+
+                Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+                if (file != null)
+                {
+                    //update title bar
+                    UpdateFile = file.DisplayName;
+                    TQuick.Text = UpdateFile;
+                    FullFilePath = file.Path;
+                    SetTaskBarTitle(); //update the title in the taskbar
+
+                    key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
+
+                    //save as plain text for text file
+                    if ((file.FileType.ToLower() != ".rtf"))
+                    {
+                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
+                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                    }
+                    //save as rich text for rich text file
+                    if (file.FileType.ToLower() == ".rtf")
+                    {
+                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
+                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                    }
+
+                    // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
+                    Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                    if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
+                    {
+                        //let user know if there was an error saving the file
+                        Windows.UI.Popups.MessageDialog errorBox = new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
+                        await errorBox.ShowAsync();
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region Command bar click
         private async void CmdSettings_Click(object sender, RoutedEventArgs e)
         {
             ContentDialogResult result = await Settings.ShowAsync();
@@ -523,88 +632,6 @@ namespace Quick_Pad_Free_Edition
                 }
             }
 
-        }
-
-        public async Task SaveWork()
-        {
-            try
-            {
-                var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
-
-                if ((result.ToLower() != ".rtf"))
-                {
-                    //tries to update file if it exsits and is not read only
-                    Text1.Document.GetText(TextGetOptions.None, out var value);
-                    await PathIO.WriteTextAsync(FullFilePath, value);
-                    TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                }
-                if (result.ToLower() == ".rtf")
-                {
-                    //tries to update file if it exsits and is not read only
-                    Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                    await PathIO.WriteTextAsync(FullFilePath, value);
-                    TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                }
-            }
-
-            catch (Exception)
-
-            {
-                Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
-
-                savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-
-                // Dropdown of file types the user can save the file as
-                //check if default file type is .txt
-                if (QSetting.DefaultFileType == ".txt")
-                {
-                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
-                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-                }
-                else if (QSetting.DefaultFileType == ".rtf")
-                {
-                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
-                }
-                savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
-
-                // Default file name if the user does not type one in or select a file to replace
-                savePicker.SuggestedFileName = UpdateFile;
-
-                Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-                if (file != null)
-                {
-                    //update title bar
-                    UpdateFile = file.DisplayName;
-                    TQuick.Text = UpdateFile;
-                    FullFilePath = file.Path;
-                    SetTaskBarTitle(); //update the title in the taskbar
-
-                    key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
-
-                    //save as plain text for text file
-                    if ((file.FileType.ToLower() != ".rtf"))
-                    {
-                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
-                    }
-                    //save as rich text for rich text file
-                    if (file.FileType.ToLower() == ".rtf")
-                    {
-                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
-                    }
-
-                    // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
-                    Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                    if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
-                    {
-                        //let user know if there was an error saving the file
-                        Windows.UI.Popups.MessageDialog errorBox = new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
-                        await errorBox.ShowAsync();
-                    }
-                }
-            }
         }
 
         public async void CmdSave_Click(object sender, RoutedEventArgs e)
@@ -723,56 +750,6 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-        public async void SwitchCompactOverlayMode(bool switching)
-        {
-            if (switching)
-            {
-                ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
-
-                Grid.SetRow(CommandBar2, 2);
-                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                Title.Visibility = Visibility.Collapsed;
-                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
-                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                Text1.Margin = new Thickness(0, 0, 0, 0);
-                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CmdFocusMode.IsEnabled = false;
-                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CommandBar2.Margin = new Thickness(0, 0, 0, 0);
-                TQuick.Visibility = Visibility.Collapsed;
-
-                //make text smaller size if user did not do so on their own and if they did not type anything yet.
-                Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-                if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
-                {
-                    Text1.FontSize = 16;
-                }
-
-                //log even in app center
-                Analytics.TrackEvent("Compact Overlay");
-            }
-            else
-            {
-                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
-                Grid.SetRow(CommandBar2, 0);
-                Title.Visibility = Visibility.Visible;
-                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
-                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                TQuick.Visibility = Visibility.Visible;
-                CmdFocusMode.IsEnabled = true;
-                Text1.Margin = new Thickness(0, 74, 0, 40);
-                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
-            }
-        }
-
         private void Emoji_Checked(object sender, RoutedEventArgs e)
         {
             Emoji2.Visibility = Windows.UI.Xaml.Visibility.Visible;
@@ -878,24 +855,6 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-        public async Task<bool> ShowRatingReviewDialog()
-        {
-            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
-
-            if (result.ExtendedError == null)
-            {
-                JObject jsonObject = JObject.Parse(result.Response);
-                if (jsonObject.SelectToken("status").ToString() == "success")
-                {
-                    // The customer rated or reviewed the app.
-                    return true;
-                }
-            }
-
-            // There was an error with the request, or the customer chose not to rate or review the app.
-            return false;
-        }
-
         private async void CmdReview_Click(object sender, RoutedEventArgs e)
         {
             await ShowRatingReviewDialog(); //show the review dialog.
@@ -940,80 +899,6 @@ namespace Quick_Pad_Free_Edition
         private void Settings_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
         {
             SettingsPivot.SelectedItem = SettingsTab1; //Set focus to first item in pivot control in the settings panel
-        }
-
-        private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.Key == VirtualKey.Tab)
-            {
-                RichEditBox richEditBox = sender as RichEditBox;
-                if (richEditBox != null)
-                {
-                    richEditBox.Document.Selection.TypeText("\t");
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void Text1_DragOver(object sender, DragEventArgs e)
-        {
-            e.AcceptedOperation = DataPackageOperation.Copy;
-        }
-
-        private async void Text1_Drop(object sender, DragEventArgs e)
-        {
-            //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
-            if (TQuick.Text != UpdateFile)
-            {
-                await SaveDialog.ShowAsync();
-                if (SaveDialogValue == "Cancel")
-                {
-                    SaveDialogValue = ""; //reset save dialog value
-                    return;
-                }
-            }
-
-            //load rich text files dropped in from file explorer
-            try
-            {
-                if (e.DataView.Contains(StandardDataFormats.StorageItems))
-                {
-                    var items = await e.DataView.GetStorageItemsAsync();
-                    if (items.Count > 0)
-                    {
-                        var storageFile = items[0] as StorageFile;
-                        var read = await FileIO.ReadTextAsync(storageFile);
-
-                        Windows.Storage.Streams.IRandomAccessStream randAccStream = await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
-
-                        key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
-
-                        if ((storageFile.FileType.ToLower() != ".rtf"))
-                        {
-                            Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(storageFile));
-                        }
-
-                        if (storageFile.FileType.ToLower() == ".rtf")
-                        {
-                            Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-                        }
-
-                        UpdateFile = storageFile.DisplayName;
-                        TQuick.Text = UpdateFile;
-                        FullFilePath = storageFile.Path;
-                        SetTaskBarTitle(); //update the title in the taskbar
-
-                        //log even in app center
-                        Analytics.TrackEvent("Droped file in to Quick Pad");
-                    }
-                }
-            }
-            catch (Exception) { }
-        }
-        
-        private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-            FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
         }
 
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -1090,6 +975,64 @@ namespace Quick_Pad_Free_Edition
             localSettings.Values["DefaultFontColor"] = (DefaultFontColor.SelectedValue as ComboBoxItem).Tag;
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), (DefaultFontColor.SelectedValue as ComboBoxItem).Tag);
         }
+        #endregion
+
+        #region UI Mode change
+        public async void SwitchCompactOverlayMode(bool switching)
+        {
+            if (switching)
+            {
+                ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
+                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
+
+                Grid.SetRow(CommandBar2, 2);
+                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Title.Visibility = Visibility.Collapsed;
+                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
+                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Text1.Margin = new Thickness(0, 0, 0, 0);
+                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CmdFocusMode.IsEnabled = false;
+                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CommandBar2.Margin = new Thickness(0, 0, 0, 0);
+                TQuick.Visibility = Visibility.Collapsed;
+
+                //make text smaller size if user did not do so on their own and if they did not type anything yet.
+                Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
+                if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
+                {
+                    Text1.FontSize = 16;
+                }
+
+                //log even in app center
+                Analytics.TrackEvent("Compact Overlay");
+            }
+            else
+            {
+                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
+                Grid.SetRow(CommandBar2, 0);
+                Title.Visibility = Visibility.Visible;
+                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
+                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                TQuick.Visibility = Visibility.Visible;
+                CmdFocusMode.IsEnabled = true;
+                Text1.Margin = new Thickness(0, 74, 0, 40);
+                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
+            }
+        }
+
+        private void SetTaskBarTitle()
+        {
+            var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            appView.Title = UpdateFile;
+        }
 
         private void SwitchToFocusMode()
         {
@@ -1100,12 +1043,12 @@ namespace Quick_Pad_Free_Edition
             Shadow1.Visibility = Visibility.Collapsed;
             CloseFocusMode.Visibility = Visibility.Visible;
         }
+
         private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
         {
             SwitchToFocusMode();
         }
-
-      
+              
         private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
         {
             Text1.SetValue(Canvas.ZIndexProperty, 0);
@@ -1115,10 +1058,88 @@ namespace Quick_Pad_Free_Edition
             CloseFocusMode.Visibility = Visibility.Collapsed;
             Text1.Margin = new Thickness(0, 74, 0, 40);
         }
+        #endregion
 
+        #region Textbox function
         private void Text1_TextChanging(RichEditBox sender, RichEditBoxTextChangingEventArgs args)
         {
             TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
         }
+
+        private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Tab)
+            {
+                RichEditBox richEditBox = sender as RichEditBox;
+                if (richEditBox != null)
+                {
+                    richEditBox.Document.Selection.TypeText("\t");
+                    e.Handled = true;
+                }
+            }
+        }
+
+        private void Text1_DragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Copy;
+        }
+
+        private async void Text1_Drop(object sender, DragEventArgs e)
+        {
+            //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
+            if (TQuick.Text != UpdateFile)
+            {
+                await SaveDialog.ShowAsync();
+                if (SaveDialogValue == "Cancel")
+                {
+                    SaveDialogValue = ""; //reset save dialog value
+                    return;
+                }
+            }
+
+            //load rich text files dropped in from file explorer
+            try
+            {
+                if (e.DataView.Contains(StandardDataFormats.StorageItems))
+                {
+                    var items = await e.DataView.GetStorageItemsAsync();
+                    if (items.Count > 0)
+                    {
+                        var storageFile = items[0] as StorageFile;
+                        var read = await FileIO.ReadTextAsync(storageFile);
+
+                        Windows.Storage.Streams.IRandomAccessStream randAccStream = await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
+
+                        key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
+
+                        if ((storageFile.FileType.ToLower() != ".rtf"))
+                        {
+                            Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(storageFile));
+                        }
+
+                        if (storageFile.FileType.ToLower() == ".rtf")
+                        {
+                            Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                        }
+
+                        UpdateFile = storageFile.DisplayName;
+                        TQuick.Text = UpdateFile;
+                        FullFilePath = storageFile.Path;
+                        SetTaskBarTitle(); //update the title in the taskbar
+
+                        //log even in app center
+                        Analytics.TrackEvent("Droped file in to Quick Pad");
+                    }
+                }
+            }
+            catch (Exception) { }
+        }
+
+        private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
+        }
+
+        #endregion
     }
 }
