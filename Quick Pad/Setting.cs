@@ -85,7 +85,14 @@ namespace QuickPad
             {
                 //Theme string to ElementTheme
                 conversion = localSettings.Values[propertyName] as string;
-                previousSetting = (int)Enum.Parse(typeof(ElementTheme), conversion);
+                if (conversion.StartsWith("System"))
+                {
+                    previousSetting = (int)ElementTheme.Default;
+                }
+                else
+                {
+                    previousSetting = (int)Enum.Parse(typeof(ElementTheme), conversion);
+                }
             }
             else if (propertyName == nameof(NewUser) || propertyName == nameof(DefaultFontSize))
             {

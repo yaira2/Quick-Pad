@@ -215,7 +215,6 @@ namespace Quick_Pad_Free_Edition
             }
 
             QSetting.NewUser++;
-            Analytics.TrackEvent($"The app has been launch for the {QSetting.NewUser} time{(QSetting.NewUser > 1 ? "s" : "")}");
             if (QSetting.NewUser == 1)
             {
                 NewUserFeedbackAsync(); //call method that asks user if they want to review the app
