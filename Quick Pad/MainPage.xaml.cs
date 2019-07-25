@@ -98,8 +98,9 @@ namespace Quick_Pad_Free_Edition
             {
                 var deferral = e.GetDeferral();
 
-                if (!Changed && CurrentWorkingFile is null)
+                if (!Changed)
                 {
+                    //No change made, either new document or file saved
                     deferral.Complete();
                 }
 
@@ -520,6 +521,7 @@ namespace Quick_Pad_Free_Edition
                 //tries to update file if it exsits and is not read only
                 Text1.Document.GetText(option, out var value);
                 await FileIO.WriteTextAsync(CurrentWorkingFile, value);
+                Changed = false; //Change has been write into fike, mark document as no change has made
             }
             catch (Exception)
             {
@@ -552,6 +554,7 @@ namespace Quick_Pad_Free_Edition
                     //update title bar
                     CurrentWorkingFile = file;
                     CurrentFilename = file.DisplayName;
+                    Changed = false;//Change will be written to file mark as no chage made in document
 
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
