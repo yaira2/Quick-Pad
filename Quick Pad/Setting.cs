@@ -268,6 +268,7 @@ namespace QuickPad
 #endregion
 
 #region Font setting
+        [DefaultValue("Segoe UI")]
         public string DefaultFont
         {
             get => Get<string>();
