@@ -215,7 +215,7 @@ namespace Quick_Pad_Free_Edition
             }
 
             QSetting.NewUser++;
-            if (QSetting.NewUser == 1)
+            if (QSetting.NewUser == 2)
             {
                 NewUserFeedbackAsync(); //call method that asks user if they want to review the app
             }
