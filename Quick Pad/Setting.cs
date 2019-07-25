@@ -29,7 +29,7 @@ namespace QuickPad
             if (localSettings.Values[propertyName].GetType() == typeof(T))
                 return;
             object previousSetting = default;
-            string conversion = "";
+            string conversion;
 
             #region Setting conversion
             if (propertyName == nameof(LaunchMode))
@@ -123,7 +123,11 @@ namespace QuickPad
                     }
                 }
             }
+#if DEBUG
+            throw new Exception("This setting does not have default setting!");
+#else
             return default(T);
+#endif
         }
 
         /// <summary>
@@ -155,10 +159,10 @@ namespace QuickPad
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-        #endregion
-        ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
+#endregion
+        private ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
-        #region Settings
+#region Settings
         [DefaultValue((int)(AvailableModes.Default))]
         public int LaunchMode
         {
@@ -217,9 +221,9 @@ namespace QuickPad
             get => Get<int>();
             set => Set(value);
         }
-        #endregion
+#endregion
 
-        #region Toolbar setting
+#region Toolbar setting
         [DefaultValue(true)]
         public bool ShowBullets
         {
@@ -261,9 +265,9 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
-        #endregion
+#endregion
 
-        #region Font setting
+#region Font setting
         public string DefaultFont
         {
             get => Get<string>();
@@ -306,12 +310,12 @@ namespace QuickPad
             get => Get<int>();
             set => Set(value);
         }
-        #endregion
+#endregion
 
-        #region Events when setting change
+#region Events when setting change
         public themeChange afterThemeChanged { get; set; }
         public fontsizeChange afterFontSizeChanged { get; set; }
-        #endregion
+#endregion
     }
 
     public delegate void themeChange(ElementTheme to);
