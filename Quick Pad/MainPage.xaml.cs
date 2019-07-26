@@ -566,7 +566,7 @@ namespace Quick_Pad_Free_Edition
                 savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
-                savePicker.SuggestedFileName = $"{CurrentFilename}{QSetting.NewFileAutoNumber}";
+                savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
 
                 Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
                 if (file != null)
