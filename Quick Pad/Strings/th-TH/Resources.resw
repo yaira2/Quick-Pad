@@ -240,27 +240,6 @@
   <data name="VersionFormat" xml:space="preserve">
     <value>เวอร์ชั่น: {0}.{1}.{2}.{3}</value>
   </data>
-  <data name="FontColorBlack.Content" xml:space="preserve">
-    <value>ดำ</value>
-  </data>
-  <data name="FontColorLightGreen.Content" xml:space="preserve">
-    <value>เขียว</value>
-  </data>
-  <data name="FontColorLightPink.Content" xml:space="preserve">
-    <value>ชมพู</value>
-  </data>
-  <data name="FontColorLightSalmon.Content" xml:space="preserve">
-    <value>ส้ม</value>
-  </data>
-  <data name="FontColorLightYellow.Content" xml:space="preserve">
-    <value>เหลือง</value>
-  </data>
-  <data name="FontColorSkyBlue.Content" xml:space="preserve">
-    <value>ฟ้า</value>
-  </data>
-  <data name="FontColorWhite.Content" xml:space="preserve">
-    <value>ขาว</value>
-  </data>
   <data name="LaunchModeDefault.Content" xml:space="preserve">
     <value>ปกติ</value>
   </data>
@@ -365,5 +344,32 @@
   </data>
   <data name="JustifyTooltip.Text" xml:space="preserve">
     <value>จัดกลาง (Ctrl+J)</value>
+  </data>
+  <data name="BlackPlaceholder" xml:space="preserve">
+    <value>Black</value>
+  </data>
+  <data name="WhitePlaceholder" xml:space="preserve">
+    <value>ขาว</value>
+  </data>
+  <data name="FontColorBlack" xml:space="preserve">
+    <value>ดำ</value>
+  </data>
+  <data name="FontColorBlue" xml:space="preserve">
+    <value>น้ำเงิน</value>
+  </data>
+  <data name="FontColorGreen" xml:space="preserve">
+    <value>เขียว</value>
+  </data>
+  <data name="FontColorOrange" xml:space="preserve">
+    <value>ส้ม</value>
+  </data>
+  <data name="FontColorPink" xml:space="preserve">
+    <value>ชมพู</value>
+  </data>
+  <data name="FontColorWhite" xml:space="preserve">
+    <value>ขาว</value>
+  </data>
+  <data name="FontColorYellow" xml:space="preserve">
+    <value>เหลือง</value>
   </data>
 </root>
