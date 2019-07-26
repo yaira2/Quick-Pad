@@ -159,10 +159,10 @@ namespace QuickPad
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-#endregion
+        #endregion
         private ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
-#region Settings
+        #region Settings
         [DefaultValue((int)(AvailableModes.Default))]
         public int LaunchMode
         {
@@ -184,7 +184,13 @@ namespace QuickPad
         public bool AutoSave
         {
             get => Get<bool>();
-            set => Set(value);
+            set
+            {
+                if (Set(value))
+                {
+                    afterAutoSaveChanged?.Invoke(value);
+                }
+            }
         }
 
         [DefaultValue(true)]
@@ -221,9 +227,9 @@ namespace QuickPad
             get => Get<int>();
             set => Set(value);
         }
-#endregion
+        #endregion
 
-#region Toolbar setting
+        #region Toolbar setting
         [DefaultValue(true)]
         public bool ShowBullets
         {
@@ -265,9 +271,9 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
-#endregion
+        #endregion
 
-#region Font setting
+        #region Font setting
         [DefaultValue("Segoe UI")]
         public string DefaultFont
         {
@@ -281,7 +287,7 @@ namespace QuickPad
             get => Get<string>();
             set => Set(value);
         }
-        
+
         [DefaultValue(18)]
         public int DefaultFontSize
         {
@@ -311,14 +317,16 @@ namespace QuickPad
             get => Get<int>();
             set => Set(value);
         }
-#endregion
+        #endregion
 
-#region Events when setting change
+        #region Events when setting change
+        public autoSaveChange afterAutoSaveChanged { get; set; }
         public themeChange afterThemeChanged { get; set; }
         public fontsizeChange afterFontSizeChanged { get; set; }
 #endregion
     }
 
+    public delegate void autoSaveChange(bool to);
     public delegate void themeChange(ElementTheme to);
     public delegate void fontsizeChange(int to);
 

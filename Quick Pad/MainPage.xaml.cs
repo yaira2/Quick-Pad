@@ -76,7 +76,7 @@ namespace Quick_Pad_Free_Edition
             QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
             UpdateUIAccordingToNewTheme(QSetting.Theme);
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
-            
+            QSetting.afterAutoSaveChanged += UpdateAutoSave;            
             //
             CreateItems();
             LoadSettings();
@@ -128,6 +128,20 @@ namespace Quick_Pad_Free_Edition
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
+        }
+
+        private void UpdateAutoSave(bool to)
+        {
+            if (to)
+            {
+                timer.Enabled = true;
+                timer.Start();
+            }
+            else
+            {
+                timer.Enabled = false;
+                timer.Stop();
+            }
         }
 
         #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
@@ -207,12 +221,17 @@ namespace Quick_Pad_Free_Edition
         private void LoadSettings()
         {
             //check if auto save is on or off
+            //start auto save timer
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
+            timer.AutoReset = true;
             if (QSetting.AutoSave)
             {
-                //start auto save timer
                 timer.Enabled = true;
-                timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
-                timer.AutoReset = true;
+                timer.Start();
+            }
+            else
+            {
+                timer.Enabled = false;
             }
 
             QSetting.NewUser++;
@@ -275,24 +294,24 @@ namespace Quick_Pad_Free_Edition
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
             {
-                if (!(CurrentWorkingFile is null) && CurrentFilename != CurrentWorkingFile.Name)
+                if (CurrentWorkingFile != null)
                 {
                     try
                     {
-                        var result = System.IO.Path.GetFileNameWithoutExtension(CurrentWorkingFile.Path); //find out the file extension
+                        var result = CurrentWorkingFile.FileType; //find out the file extension
+                        if ((result.ToLower() != ".rtf"))
+                        {
+                            //tries to update file if it exsits and is not read only
+                            Text1.Document.GetText(TextGetOptions.None, out var value);
+                            await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                            Changed = false;
+                        }
                         if (result.ToLower() == ".rtf")
                         {
                             //tries to update file if it exsits and is not read only
                             Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                            await FileIO.WriteTextAsync(CurrentWorkingFile, value);
-                            Changed = false; //Mark document as saved
-                        }
-                        else
-                        {
-                            //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.None, out var value);
-                            await FileIO.WriteTextAsync(CurrentWorkingFile, value);
-                            Changed = false; //Mark document as saved
+                            await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                            Changed = false;
                         }
                     }
                     catch (Exception) { }
@@ -484,11 +503,9 @@ namespace Quick_Pad_Free_Edition
         public async Task LoadFileIntoTextBox()
         {
             Text1.TextChanging -= Text1_TextChanging;
-            if (CurrentWorkingFile.FileType == ".rtf")
+            if (CurrentWorkingFile.FileType.ToLower() == ".rtf")
             {
-                var read = await FileIO.ReadTextAsync(CurrentWorkingFile);
-
-                Windows.Storage.Streams.IRandomAccessStream randAccStream = await CurrentWorkingFile.OpenReadAsync();
+                Windows.Storage.Streams.IRandomAccessStream randAccStream = await CurrentWorkingFile.OpenAsync(FileAccessMode.Read);
 
                 key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile); //let file be accessed later
 
@@ -497,6 +514,8 @@ namespace Quick_Pad_Free_Edition
             }
             else
             {
+                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile); //let file be accessed later
+
                 Text1.Document.SetText(TextSetOptions.None, await FileIO.ReadTextAsync(CurrentWorkingFile));
             }
             Text1.TextChanging += Text1_TextChanging;
@@ -517,13 +536,15 @@ namespace Quick_Pad_Free_Edition
         {
             try
             {
-                TextGetOptions option = CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None;
-                //tries to update file if it exsits and is not read only
-                Text1.Document.GetText(option, out var value);
-                await FileIO.WriteTextAsync(CurrentWorkingFile, value);
-                Changed = false; //Change has been write into fike, mark document as no change has made
+                Text1.Document.GetText(
+                    CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None, 
+                    out var value);
+                await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                Changed = false;
             }
+
             catch (Exception)
+
             {
                 Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker
                 {
@@ -532,7 +553,6 @@ namespace Quick_Pad_Free_Edition
 
                 // Dropdown of file types the user can save the file as
                 //check if default file type is .txt
-
                 if (QSetting.DefaultFileType == ".txt")
                 {
                     savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
@@ -546,22 +566,30 @@ namespace Quick_Pad_Free_Edition
                 savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
-                savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
+                savePicker.SuggestedFileName = $"{CurrentFilename}{QSetting.NewFileAutoNumber}";
 
                 Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
                 if (file != null)
                 {
-                    //update title bar
+                    //Set the current working file
                     CurrentWorkingFile = file;
+                    //update title bar
                     CurrentFilename = file.DisplayName;
-                    Changed = false;//Change will be written to file mark as no chage made in document
-
+                    
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
-                    //Decide how text will get export from RichTextBox
-                    TextGetOptions option = file.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None;
-                    Text1.Document.GetText(option, out string value);
-                    await FileIO.WriteTextAsync(file, value);
+                    //save as plain text for text file
+                    if ((file.FileType.ToLower() != ".rtf"))
+                    {
+                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
+                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                    }
+                    //save as rich text for rich text file
+                    if (file.FileType.ToLower() == ".rtf")
+                    {
+                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
+                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                    }
 
                     // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
                     Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
@@ -571,6 +599,8 @@ namespace Quick_Pad_Free_Edition
                         Windows.UI.Popups.MessageDialog errorBox = new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
                         await errorBox.ShowAsync();
                     }
+
+                    //Increase new auto number, so next file will not get the same name
                     QSetting.NewFileAutoNumber++;
                 }
             }
@@ -657,8 +687,20 @@ namespace Quick_Pad_Free_Edition
             {
                 try
                 {
+                    Windows.Storage.Streams.IRandomAccessStream randAccStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                    key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
+
+                    if ((file.FileType.ToLower() != ".rtf"))
+                    {
+                        Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
+                    }
+                    if (file.FileType.ToLower() == ".rtf")
+                    {
+                        Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                    }
+
+                    //Set current file
                     CurrentWorkingFile = file;
-                    await LoadFileIntoTextBox();
                     CurrentFilename = CurrentWorkingFile.DisplayName;
                 }
                 catch (Exception)
@@ -672,7 +714,6 @@ namespace Quick_Pad_Free_Edition
                     await errorDialog.ShowAsync();
                 }
             }
-
         }
 
         public async void CmdSave_Click(object sender, RoutedEventArgs e)
@@ -1068,7 +1109,7 @@ namespace Quick_Pad_Free_Edition
         private async void Text1_Drop(object sender, DragEventArgs e)
         {
             //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
-            if (CurrentWorkingFile != null)
+            if (CurrentWorkingFile == null)
             {
                 await SaveDialog.ShowAsync();
                 if (SaveDialogValue == DialogResult.Cancel)
@@ -1076,6 +1117,11 @@ namespace Quick_Pad_Free_Edition
                     SaveDialogValue = DialogResult.None; //reset save dialog value
                     return;
                 }
+            }
+            if (CurrentWorkingFile != null && Changed)
+            {
+                //Save all the change before loading new file
+                await SaveWork();
             }
 
             //load rich text files dropped in from file explorer
