@@ -365,7 +365,7 @@
                     <Pivot x:Name="EmojiPivot"  HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch">
                         <PivotItem Header="🙂">
                             <GridView Visibility="Visible" LostFocus="EmojiPanel_LostFocus" BorderThickness=".5" Height="148" Margin="0,0,-16,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                <Button Content="😀" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E1" Content="😀" Click="EmojiSub" Width="40" Height="40"/>
                                 <Button Content="😁" Click="EmojiSub" Width="40" Height="40"/>
                                 <Button Content="😂" Click="EmojiSub" Width="40" Height="40"/>
                                 <Button Content="🤣" Click="EmojiSub" Width="40" Height="40"/>
