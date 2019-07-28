@@ -1,4 +1,4 @@
-    <Page
+<Page
     x:Class="Quick_Pad_Free_Edition.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -296,12 +296,12 @@
                         </PivotItem>
                         <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
                             <Grid Height="200">
-                                    <TextBlock Text="Version number" x:Name="VersionNumber" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe UI"/>
-                                    <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" Margin="0,65,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
-                                    <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
-                                    <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
-                                    <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" Margin="0,140,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
+                                <TextBlock Text="Version number" x:Name="VersionNumber" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe UI"/>
+                                <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" Margin="0,65,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+                                <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
+                                <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
+                                <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" Margin="0,140,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
                             </Grid>
                         </PivotItem>
                     </Pivot>
@@ -349,7 +349,7 @@
             </AppBarButton>
             <AppBarToggleButton x:Name="Emoji" Width="40" Icon="Emoji2" Checked="Emoji_Checked" Unchecked="Emoji_Unchecked"/>
         </CommandBar>
-       
+
         <controls:DropShadowPanel x:Name="Emoji2" Margin="0,0,0,40" Grid.RowSpan="1" VerticalAlignment="Bottom"
                                   Canvas.ZIndex="1000"
                                   ShadowOpacity=".3"
@@ -640,10 +640,10 @@
                                 <Button x:Name="S33" Content="÷" Click="EmojiSub"   Width="40" Height="40"/>
                                 <Button x:Name="S34" Content="–" Click="EmojiSub"    Width="40" Height="40"/>
                                 <Button x:Name="S35" Content="—" Click="EmojiSub"   Width="40" Height="40"/>
-                                <Button x:Name="S36" Content="“" Click="EmojiSub"   Width="40" Height="40"/>
-                                <Button x:Name="S37" Content="”" Click="EmojiSub"   Width="40" Height="40"/>
-                                <Button x:Name="S38" Content="„" Click="EmojiSub"   Width="40" Height="40"/>
-                                <Button x:Name="S39" Content="‟" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S36" Content=""" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S37" Content=""" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S38" Content=""" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S39" Content=""" Click="EmojiSub"   Width="40" Height="40"/>
                                 <Button x:Name="S40" Content="⁄" Click="EmojiSub"   Width="40" Height="40"/>
                                 <Button x:Name="S41" Content="°" Click="EmojiSub"   Width="40" Height="40"/>
                                 <Button x:Name="S42" Content="℃" Click="EmojiSub"   Width="40" Height="40"/>
