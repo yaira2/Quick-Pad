@@ -525,82 +525,82 @@
                         </PivotItem>
                         <PivotItem Header=";-)">
                             <GridView  Visibility="Visible" BorderThickness=".5" Height="148" Margin="0,0,-16,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                                <Button x:Name="K1" Content=";)" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K2" Content="^_~" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K3" Content=";-)" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K4" Content=":)" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K5" Content="^_^" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K6" Content=":-)" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K7" Content=":D" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K8" Content="^0^" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K9" Content=":-D" Click="EmojiSub"  Width="76" Height="40"/>
-                                <Button x:Name="K11" Content=":P" Click="EmojiSub" Width="76" Height="40"/>
-                                <Button x:Name="K12" Content=":-P" Click="EmojiSub"  Width="76" Height="40"/>
-                                <Button x:Name="K13" Content=";P" Click="EmojiSub"  Width="76" Height="40"/>
-                                <Button x:Name="K14" Content=":(" Click="EmojiSub"  Width="76" Height="40"/>
-                                <Button x:Name="K15" Content=":-(" Click="EmojiSub"  Width="76" Height="40"/>
-                                <Button x:Name="K16" Content="U_U" Click="EmojiSub"  Width="76" Height="40"/>
-                                <Button x:Name="K17" Content=":[" Click="EmojiSub"  Width="76" Height="40"/>
-                                <Button x:Name="K18" Content=">:(" Click="EmojiSub"  Width="76" Height="40"/>
-                                <Button x:Name="K19" Content="&gt;&quot;&lt;" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K20" Content="):" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K21" Content=":-O" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K22" Content="O.O" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K23" Content=":-()" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K24" Content="~_~" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K25" Content="^o^" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K26" Content=":-S" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K27" Content="&lt;3" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K28" Content="^3^" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K29" Content=":-x" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K30" Content=":/" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K31" Content="X_X" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K32" Content="=/" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K33" Content=";(" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K34" Content="T_T" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K35" Content=";[" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K36" Content="+_+" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K37" Content="O_O" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K38" Content=":O" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K39" Content="¬_¬" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K40" Content=";_;" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K41" Content="=.=" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K42" Content=";]" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K43" Content="^_+" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K44" Content=";O)" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K45" Content=":-]" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K46" Content="^.^" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K47" Content="=)" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K48" Content=":O)" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K49" Content=":-3" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K50" Content="=D" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K51" Content=":|" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K52" Content="-.-" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K53" Content="&gt;_&lt;" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K54" Content=":O(" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K55" Content="*_*" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K56" Content="=[" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K57" Content="8-)" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K58" Content="^^;" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K59" Content=":-*" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K60" Content="B-)" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K61" Content="=_=" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K62" Content="-0-" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K63" Content=":S" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K64" Content="$_$" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K65" Content=":-$" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K66" Content="&gt;.&lt;" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K67" Content="-_-" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K68" Content="&gt; &lt;" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K69" Content=":]" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K70" Content="^^" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K71" Content="=]" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K72" Content=";D" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K73" Content="^_-" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K74" Content="=P" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K75" Content=":'(" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K76" Content="Y.Y" Click="EmojiSub"   Width="76" Height="40"/>
-                                <Button x:Name="K77" Content="=(" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=";)" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content="^_~" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content=";-)" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content=":)" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content="^_^" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content=":-)" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content=":D" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content="^0^" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content=":-D" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button Content=":P" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button Content=":-P" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button Content=";P" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button Content=":(" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button Content=":-(" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button Content="U_U" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button Content=":[" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button Content=">:(" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button Content="&gt;&quot;&lt;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="):" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":-O" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="O.O" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":-()" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="~_~" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="^o^" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":-S" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="&lt;3" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="^3^" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":-x" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":/" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="X_X" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=/" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=";(" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="T_T" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=";[" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="+_+" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="O_O" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":O" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="¬_¬" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=";_;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=.=" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=";]" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="^_+" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=";O)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":-]" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="^.^" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":O)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":-3" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=D" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":|" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="-.-" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="&gt;_&lt;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":O(" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="*_*" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=[" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="8-)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="^^;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":-*" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="B-)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=_=" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="-0-" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":S" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="$_$" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":-$" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="&gt;.&lt;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="-_-" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="&gt; &lt;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":]" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="^^" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=]" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=";D" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="^_-" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=P" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content=":'(" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="Y.Y" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button Content="=(" Click="EmojiSub"   Width="76" Height="40"/>
                             </GridView>
                         </PivotItem>
                         <PivotItem Header="Ω" HorizontalAlignment="Left" Margin="10,0,0,0" Width="252" VerticalAlignment="Stretch">
