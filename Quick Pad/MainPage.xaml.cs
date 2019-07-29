@@ -836,9 +836,6 @@ namespace Quick_Pad_Free_Edition
         {
             Emoji2.Visibility = Windows.UI.Xaml.Visibility.Visible;
             E1.Focus(FocusState.Programmatic);
-
-            //log even in app center
-            Analytics.TrackEvent("User opened emoji panel");
         }
 
         private void Emoji_Unchecked(object sender, RoutedEventArgs e)
@@ -853,8 +850,6 @@ namespace Quick_Pad_Free_Edition
         {
             string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
             Text1.Document.Selection.TypeText(objname); //insert emoji in the text box
-
-            Analytics.TrackEvent("User inserted an emoji"); //log event in app center
         }
 
         private void CmdShare_Click(object sender, RoutedEventArgs e)
