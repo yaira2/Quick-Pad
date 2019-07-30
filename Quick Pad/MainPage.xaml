@@ -148,12 +148,12 @@
                     </ToolTipService.ToolTip>
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
-            <AppBarButton x:Name="CmdUndo" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click">
+            <AppBarButton x:Name="CmdUndo" IsEnabled="{x:Bind CanUndoText, Mode=OneWay}" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Undo (Ctrl+Z)" x:Uid="CmdUndoTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="CmdRedo" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click">
+            <AppBarButton x:Name="CmdRedo" IsEnabled="{x:Bind CanRedoText, Mode=OneWay}" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Redo (Ctrl+Y)" x:Uid="CmdRedoTooltip"/>
                 </ToolTipService.ToolTip>
@@ -181,7 +181,7 @@
             </AppBarButton>
         </CommandBar>
 
-        <RichEditBox x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}" FontSize="{x:Bind QSetting.DefaultFontSize, Mode=OneWay}"/>
+        <RichEditBox x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}" FontSize="{x:Bind QSetting.DefaultFontSize, Mode=OneWay}"/>
 
         <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
 
