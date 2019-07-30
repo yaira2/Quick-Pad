@@ -9,11 +9,8 @@
     xmlns:q="using:QuickPad"
     xmlns:qfe="using:Quick_Pad_Free_Edition"
     RequestedTheme="{x:Bind QSetting.Theme, Mode=OneWay}"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
-
-    <Page.Background>
-        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="#CCE4DECD"/>
-    </Page.Background>
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,0,0" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
