@@ -61,7 +61,7 @@ namespace Quick_Pad_Free_Edition
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
-        
+
         public MainPage()
         {
             InitializeComponent();
@@ -76,7 +76,7 @@ namespace Quick_Pad_Free_Edition
             QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
             UpdateUIAccordingToNewTheme(QSetting.Theme);
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
-            QSetting.afterAutoSaveChanged += UpdateAutoSave;            
+            QSetting.afterAutoSaveChanged += UpdateAutoSave;
             //
             CreateItems();
             LoadSettings();
@@ -176,7 +176,7 @@ namespace Quick_Pad_Free_Edition
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
 
             //Update combobox items font color collection
-            
+
             if (QSetting.DefaultFontColor == "Default")
             {
                 Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
@@ -389,13 +389,13 @@ namespace Quick_Pad_Free_Edition
 
             set
             {
-                if (value is null)
-                {
-                    value = textResource.GetString("NewDocument");
-                    Changed = false;
-                }
                 if (!Equals(_file_name, value))
                 {
+                    if (value is null)
+                    {
+                        value = textResource.GetString("NewDocument");
+                        _changed = false;
+                    }
                     Set(ref _file_name, value);
                 }
                 //Set Title bar
@@ -429,6 +429,29 @@ namespace Quick_Pad_Free_Edition
         private DialogResult SaveDialogValue = DialogResult.None;
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
 
+        bool _undo;
+        public bool CanUndoText
+        {
+            get => _undo;
+            set => Set(ref _undo, value);
+        }
+
+        bool _redo;
+        public bool CanRedoText
+        {
+            get => _redo;
+            set => Set(ref _redo, value);
+        }
+
+        int _clength;
+        /// <summary>
+        /// Store the length of text, can be use later on fo show on atatus bar?
+        /// </summary>
+        public int CurrentTextLength
+        {
+            get => _clength;
+            set => Set(ref _clength, value);
+        }
         #endregion
 
         #region Store service
@@ -502,7 +525,6 @@ namespace Quick_Pad_Free_Edition
         #region Load/Save file
         public async Task LoadFileIntoTextBox()
         {
-            Text1.TextChanging -= Text1_TextChanging;
             if (CurrentWorkingFile.FileType.ToLower() == ".rtf")
             {
                 Windows.Storage.Streams.IRandomAccessStream randAccStream = await CurrentWorkingFile.OpenAsync(FileAccessMode.Read);
@@ -518,7 +540,11 @@ namespace Quick_Pad_Free_Edition
 
                 Text1.Document.SetText(TextSetOptions.None, await FileIO.ReadTextAsync(CurrentWorkingFile));
             }
-            Text1.TextChanging += Text1_TextChanging;
+            //Cleaf undo/redo history
+            Text1.TextDocument.ClearUndoRedoHistory();
+            //Get a plain text length regardless of the format
+            Text1.Document.GetText(TextGetOptions.None, out string ext);
+            initialLoadedLength = ext.Length;
         }
 
         private async Task LoadFasFile(StorageFile inputFile)
@@ -540,7 +566,6 @@ namespace Quick_Pad_Free_Edition
                     CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None, 
                     out var value);
                 await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
-                Changed = false;
             }
 
             catch (Exception)
@@ -604,6 +629,10 @@ namespace Quick_Pad_Free_Edition
                     QSetting.NewFileAutoNumber++;
                 }
             }
+            //Get a plain text length regardless of the format
+            Text1.Document.GetText(TextGetOptions.None, out string ext);
+            initialLoadedLength = ext.Length;
+            Changed = false;
         }
         #endregion
 
@@ -671,6 +700,8 @@ namespace Quick_Pad_Free_Edition
                 //update the title bar to reflect it is a new document
                 CurrentFilename = null;
             }
+            //Clear undo and redo
+            Text1.TextDocument.ClearUndoRedoHistory();
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
@@ -702,6 +733,11 @@ namespace Quick_Pad_Free_Edition
                     //Set current file
                     CurrentWorkingFile = file;
                     CurrentFilename = CurrentWorkingFile.DisplayName;
+                    //Clear undo and redo, so the last undo will be the loaded text
+                    Text1.TextDocument.ClearUndoRedoHistory();
+                    //Get a text length
+                    Text1.Document.GetText(TextGetOptions.None, out string res);
+                    initialLoadedLength = res.Length;
                 }
                 catch (Exception)
                 {
@@ -1058,30 +1094,27 @@ namespace Quick_Pad_Free_Edition
 
         private void Text1_TextChanged(object sender, RoutedEventArgs e)
         {
-            if (Text1.Document.CanUndo() == true)
+            CanUndoText = Text1.Document.CanUndo();
+            CanRedoText = Text1.Document.CanRedo();
+            if (CurrentWorkingFile is null)
             {
-                CmdUndo.IsEnabled = true;
+                //File hasn't save, assume the first undo is blank text
+                Changed = CanUndoText;
             }
             else
             {
-                CmdUndo.IsEnabled = false;
-                Changed = false;
-            }
-            /////
-            if (Text1.Document.CanRedo() == true)
-            {
-                CmdRedo.IsEnabled = true;
-            }
-            else
-            {
-                CmdRedo.IsEnabled = false;
+                //Get a plain text length regardless of the format
+                Text1.Document.GetText(TextGetOptions.None, out string ext);
+                CurrentTextLength = ext.Length;
+                //Compare and aooly if it changed
+                Changed = !Equals(initialLoadedLength, CurrentTextLength);
             }
         }
-
-        private void Text1_TextChanging(RichEditBox sender, RichEditBoxTextChangingEventArgs args)
-        {
-            Changed = true; //Mark document as changed
-        }
+        /// <summary>
+        /// Temporary store the length of text when it loaded, 
+        /// if it didn't match the length of textbox=it changed
+        /// </summary>
+        private int initialLoadedLength;
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
@@ -1106,11 +1139,15 @@ namespace Quick_Pad_Free_Edition
             //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
             if (CurrentWorkingFile == null)
             {
-                await SaveDialog.ShowAsync();
-                if (SaveDialogValue == DialogResult.Cancel)
+                if (Changed)
                 {
-                    SaveDialogValue = DialogResult.None; //reset save dialog value
-                    return;
+                    //Only show save dialog when there are changed made
+                    await SaveDialog.ShowAsync();
+                    if (SaveDialogValue == DialogResult.Cancel)
+                    {
+                        SaveDialogValue = DialogResult.None; //reset save dialog value
+                        return;
+                    }
                 }
             }
             if (CurrentWorkingFile != null && Changed)
