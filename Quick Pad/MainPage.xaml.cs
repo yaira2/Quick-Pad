@@ -443,15 +443,6 @@ namespace Quick_Pad_Free_Edition
             set => Set(ref _redo, value);
         }
 
-        int _clength;
-        /// <summary>
-        /// Store the length of text, can be use later on fo show on atatus bar?
-        /// </summary>
-        public int CurrentTextLength
-        {
-            get => _clength;
-            set => Set(ref _clength, value);
-        }
         #endregion
 
         #region Store service
@@ -542,9 +533,9 @@ namespace Quick_Pad_Free_Edition
             }
             //Cleaf undo/redo history
             Text1.TextDocument.ClearUndoRedoHistory();
-            //Get a plain text length regardless of the format
+            //Get a plain text regardless of the format
             Text1.Document.GetText(TextGetOptions.None, out string ext);
-            initialLoadedLength = ext.Length;
+            initialLoadedContent = ext;
         }
 
         private async Task LoadFasFile(StorageFile inputFile)
@@ -629,9 +620,9 @@ namespace Quick_Pad_Free_Edition
                     QSetting.NewFileAutoNumber++;
                 }
             }
-            //Get a plain text length regardless of the format
+            //Get a plain text regardless of the format
             Text1.Document.GetText(TextGetOptions.None, out string ext);
-            initialLoadedLength = ext.Length;
+            initialLoadedContent = ext;
             Changed = false;
         }
         #endregion
@@ -737,7 +728,7 @@ namespace Quick_Pad_Free_Edition
                     Text1.TextDocument.ClearUndoRedoHistory();
                     //Get a text length
                     Text1.Document.GetText(TextGetOptions.None, out string res);
-                    initialLoadedLength = res.Length;
+                    initialLoadedContent = res;
                 }
                 catch (Exception)
                 {
@@ -1099,22 +1090,29 @@ namespace Quick_Pad_Free_Edition
             if (CurrentWorkingFile is null)
             {
                 //File hasn't save, assume the first undo is blank text
-                Changed = CanUndoText;
+                Text1.Document.GetText(TextGetOptions.None, out string ext);
+                if (string.IsNullOrEmpty(ext))
+                {
+                    Changed = false;
+                }
+                else
+                {
+                    Changed = CanUndoText;
+                }
             }
             else
             {
-                //Get a plain text length regardless of the format
+                //Get a plain text regardless of the format
                 Text1.Document.GetText(TextGetOptions.None, out string ext);
-                CurrentTextLength = ext.Length;
-                //Compare and aooly if it changed
-                Changed = !Equals(initialLoadedLength, CurrentTextLength);
+                //Compare and check if it changed
+                Changed = !Equals(initialLoadedContent, ext);
             }
         }
         /// <summary>
-        /// Temporary store the length of text when it loaded, 
-        /// if it didn't match the length of textbox=it changed
+        /// Temporary store the copy of text when it loaded, 
+        /// if it didn't match the textbox=it changed
         /// </summary>
-        private int initialLoadedLength;
+        private string initialLoadedContent;
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
