@@ -101,7 +101,17 @@ namespace Quick_Pad_Free_Edition
                 if (!Changed)
                 {
                     //No change made, either new document or file saved
-                    deferral.Complete();
+                    deferral.Complete();                   
+                }
+                else
+                {
+                    //In case if all the change is just nothing but format
+                    Text1.TextDocument.GetText(TextGetOptions.None, out string change);
+                    if (string.IsNullOrEmpty(change))
+                    {
+                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
+                        deferral.Complete();
+                    }
                 }
 
                 //close dialogs so the app does not hang
@@ -113,6 +123,8 @@ namespace Quick_Pad_Free_Edition
                 if (SaveDialogValue != DialogResult.Cancel)
                 {
                     deferral.Complete();
+                    //Save font size setting
+                    QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
                 }
 
                 if (SaveDialogValue == DialogResult.Cancel)
