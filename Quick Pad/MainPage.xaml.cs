@@ -760,6 +760,7 @@ namespace Quick_Pad_Free_Edition
 
         private void Bold_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be bold if not already
             //if the text is already bold it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -769,10 +770,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Bold = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void Italic_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be in italics if not already
             //if the text is already in italics it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -782,10 +785,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Italic = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void Underline_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be underlined if not already
             //if the text is already underlined it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -802,6 +807,7 @@ namespace Quick_Pad_Free_Edition
                 }
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private async void Paste_Click(object sender, RoutedEventArgs e)
@@ -838,6 +844,7 @@ namespace Quick_Pad_Free_Edition
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             try
             {
                 //makes the selected text font size bigger
@@ -847,16 +854,19 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.CharacterFormat.Size = LastFontSize;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void SizeDown_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //checks if the font size is too small
             if (Text1.Document.Selection.CharacterFormat.Size > 4)
             {
                 //make the selected text font size smaller
                 Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size - 2;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void Emoji_Checked(object sender, RoutedEventArgs e)
@@ -910,6 +920,7 @@ namespace Quick_Pad_Free_Edition
 
         private void Strikethrough_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
             if (selectedText != null)
             {
@@ -917,10 +928,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Strikethrough = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void BulletList_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             if (Text1.Document.Selection.ParagraphFormat.ListType == MarkerType.Bullet)
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.None;
@@ -929,6 +942,7 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
             }
+            Text1.Document.EndUndoGroup();
         }
         
         private void CmdBack_Click(object sender, RoutedEventArgs e)
@@ -944,8 +958,10 @@ namespace Quick_Pad_Free_Edition
 
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             var selectedFont = e.AddedItems[0].ToString();
             Text1.Document.Selection.CharacterFormat.Name = selectedFont;
+            Text1.Document.EndUndoGroup();
         }
 
         private void Frame_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -1124,6 +1140,11 @@ namespace Quick_Pad_Free_Edition
                     richEditBox.Document.Selection.TypeText("\t");
                     e.Handled = true;
                 }
+            }
+            else if (e.Key == VirtualKey.Space)
+            {
+                Text1.Document.EndUndoGroup();
+                Text1.Document.BeginUndoGroup();
             }
         }
 
