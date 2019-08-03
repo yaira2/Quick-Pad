@@ -376,32 +376,38 @@ namespace Quick_Pad_Free_Edition
         {
             get
             {
-                if (_file_name is null)
+                if (string.IsNullOrEmpty(_file_name))
                 {
-                    _file_name = textResource.GetString("NewDocument");
+                    if (Changed)
+                    {
+                        return $"*{textResource.GetString("NewDocument")}";
+                    }
+                    return textResource.GetString("NewDocument");
                 }
-                if (Changed)
+                else
                 {
-                    return $"*{_file_name}";
+                    if (Changed)
+                    {
+                        return $"*{_file_name}";
+                    }
                 }
                 return _file_name;
             }
-
             set
             {
                 if (!Equals(_file_name, value))
                 {
-                    if (value is null)
-                    {
-                        value = textResource.GetString("NewDocument");
-                        _changed = false;
-                    }
                     Set(ref _file_name, value);
+                    UpdateAppTitlebar();
                 }
-                //Set Title bar
-                var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
-                appView.Title = Changed ? $"*{value}" : value;
             }
+        }
+
+        void UpdateAppTitlebar()
+        {
+            //Set Title bar
+            var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            appView.Title = CurrentFilename;
         }
 
         bool _changed;
