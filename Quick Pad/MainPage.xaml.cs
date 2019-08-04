@@ -62,6 +62,7 @@ namespace Quick_Pad_Free_Edition
 
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
 
+        public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
         public MainPage()
         {
             InitializeComponent();
@@ -101,27 +102,43 @@ namespace Quick_Pad_Free_Edition
                 if (!Changed)
                 {
                     //No change made, either new document or file saved
-                    deferral.Complete();
+                    deferral.Complete();                   
+                }
+                else
+                {
+                    //In case if all the change is just nothing but format
+                    Text1.TextDocument.GetText(TextGetOptions.None, out string change);
+                    if (string.IsNullOrEmpty(change))
+                    {
+                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
+                        deferral.Complete();
+                    }
                 }
 
                 //close dialogs so the app does not hang
-                SaveDialog.Hide();
+                WantToSave.Hide();
                 Settings.Hide();
+                
+                await WantToSave.ShowAsync();
 
-                await SaveDialog.ShowAsync();
-
-                if (SaveDialogValue != DialogResult.Cancel)
+                switch (WantToSave.DialogResult)
                 {
-                    deferral.Complete();
+                    case DialogResult.Yes:
+                        await SaveWork();
+                        deferral.Complete();
+                        //Save font size setting
+                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
+                        break;
+                    case DialogResult.No:
+                        deferral.Complete();
+                        //Save font size setting
+                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
+                        break;
+                    case DialogResult.Cancel:
+                        e.Handled = true;
+                        deferral.Complete();
+                        break;
                 }
-
-                if (SaveDialogValue == DialogResult.Cancel)
-                {
-                    e.Handled = true;
-                    deferral.Complete();
-                }
-
-                SaveDialogValue = DialogResult.None; //reset save dialog    
             };
 
             CheckPushNotifications(); //check for push notifications
@@ -290,6 +307,13 @@ namespace Quick_Pad_Free_Edition
 
         public void send(object source, System.Timers.ElapsedEventArgs e)
         {
+            //Not sure if this is the cause but it might he..
+            if (QuickPad.Dialog.SaveChange.IsOpen)
+            {
+                //There are dialog asking to save change right now
+                //Abort
+                return;
+            }
             //timer for auto save
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
@@ -376,32 +400,38 @@ namespace Quick_Pad_Free_Edition
         {
             get
             {
-                if (_file_name is null)
+                if (string.IsNullOrEmpty(_file_name))
                 {
-                    _file_name = textResource.GetString("NewDocument");
+                    if (Changed)
+                    {
+                        return $"*{textResource.GetString("NewDocument")}";
+                    }
+                    return textResource.GetString("NewDocument");
                 }
-                if (Changed)
+                else
                 {
-                    return $"*{_file_name}";
+                    if (Changed)
+                    {
+                        return $"*{_file_name}";
+                    }
                 }
                 return _file_name;
             }
-
             set
             {
                 if (!Equals(_file_name, value))
                 {
-                    if (value is null)
-                    {
-                        value = textResource.GetString("NewDocument");
-                        _changed = false;
-                    }
                     Set(ref _file_name, value);
+                    UpdateAppTitlebar();
                 }
-                //Set Title bar
-                var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
-                appView.Title = Changed ? $"*{value}" : value;
             }
+        }
+
+        void UpdateAppTitlebar()
+        {
+            //Set Title bar
+            var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            appView.Title = CurrentFilename;
         }
 
         bool _changed;
@@ -422,11 +452,7 @@ namespace Quick_Pad_Free_Edition
 
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
-        /// <summary>
-        /// this is to know if the user clicks cancel when asked if they want to save
-        /// 
-        /// </summary>
-        private DialogResult SaveDialogValue = DialogResult.None;
+
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
 
         bool _undo;
@@ -443,15 +469,6 @@ namespace Quick_Pad_Free_Edition
             set => Set(ref _redo, value);
         }
 
-        int _clength;
-        /// <summary>
-        /// Store the length of text, can be use later on fo show on atatus bar?
-        /// </summary>
-        public int CurrentTextLength
-        {
-            get => _clength;
-            set => Set(ref _clength, value);
-        }
         #endregion
 
         #region Store service
@@ -542,9 +559,9 @@ namespace Quick_Pad_Free_Edition
             }
             //Cleaf undo/redo history
             Text1.TextDocument.ClearUndoRedoHistory();
-            //Get a plain text length regardless of the format
+            //Get a plain text regardless of the format
             Text1.Document.GetText(TextGetOptions.None, out string ext);
-            initialLoadedLength = ext.Length;
+            initialLoadedContent = ext;
         }
 
         private async Task LoadFasFile(StorageFile inputFile)
@@ -629,9 +646,9 @@ namespace Quick_Pad_Free_Edition
                     QSetting.NewFileAutoNumber++;
                 }
             }
-            //Get a plain text length regardless of the format
+            //Get a plain text regardless of the format
             Text1.Document.GetText(TextGetOptions.None, out string ext);
-            initialLoadedLength = ext.Length;
+            initialLoadedContent = ext;
             Changed = false;
         }
         #endregion
@@ -678,16 +695,23 @@ namespace Quick_Pad_Free_Edition
             if (CurrentWorkingFile is null && Changed)
             {
                 //File has not been save yet ask use if they want to save
-                await SaveDialog.ShowAsync();
-
-                if (SaveDialogValue != DialogResult.Cancel)
+                await WantToSave.ShowAsync();
+                
+                switch (WantToSave.DialogResult)
                 {
-                    Text1.Document.SetText(TextSetOptions.None, string.Empty);
-
-                    //reset the value of the friendly file name
-                    CurrentWorkingFile = null;
-                    //update the title bar to reflect it is a new document
-                    CurrentFilename = null;
+                    case DialogResult.Yes:
+                        //Save change
+                        await SaveWork();
+                        //Clear text
+                        Text1.Document.SetText(TextSetOptions.None, string.Empty);
+                        break;
+                    case DialogResult.No:
+                        //Clear text
+                        Text1.Document.SetText(TextSetOptions.None, string.Empty);
+                        break;
+                    case DialogResult.Cancel:
+                        //ABORT
+                        return;
                 }
             }
             else
@@ -695,11 +719,11 @@ namespace Quick_Pad_Free_Edition
                 //File have been saved! And no change has been made. Reset right away
                 Text1.Document.SetText(TextSetOptions.None, string.Empty);
 
-                //reset the value of the friendly file name
-                CurrentWorkingFile = null;
-                //update the title bar to reflect it is a new document
-                CurrentFilename = null;
             }
+            //reset the value of the friendly file name
+            CurrentWorkingFile = null;
+            //update the title bar to reflect it is a new document
+            CurrentFilename = null;
             //Clear undo and redo
             Text1.TextDocument.ClearUndoRedoHistory();
         }
@@ -737,7 +761,7 @@ namespace Quick_Pad_Free_Edition
                     Text1.TextDocument.ClearUndoRedoHistory();
                     //Get a text length
                     Text1.Document.GetText(TextGetOptions.None, out string res);
-                    initialLoadedLength = res.Length;
+                    initialLoadedContent = res;
                 }
                 catch (Exception)
                 {
@@ -769,6 +793,7 @@ namespace Quick_Pad_Free_Edition
 
         private void Bold_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be bold if not already
             //if the text is already bold it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -778,10 +803,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Bold = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void Italic_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be in italics if not already
             //if the text is already in italics it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -791,10 +818,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Italic = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void Underline_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be underlined if not already
             //if the text is already underlined it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -811,6 +840,7 @@ namespace Quick_Pad_Free_Edition
                 }
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private async void Paste_Click(object sender, RoutedEventArgs e)
@@ -847,6 +877,7 @@ namespace Quick_Pad_Free_Edition
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             try
             {
                 //makes the selected text font size bigger
@@ -856,16 +887,19 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.CharacterFormat.Size = LastFontSize;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void SizeDown_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //checks if the font size is too small
             if (Text1.Document.Selection.CharacterFormat.Size > 4)
             {
                 //make the selected text font size smaller
                 Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size - 2;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void Emoji_Checked(object sender, RoutedEventArgs e)
@@ -919,6 +953,7 @@ namespace Quick_Pad_Free_Edition
 
         private void Strikethrough_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
             if (selectedText != null)
             {
@@ -926,10 +961,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Strikethrough = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void BulletList_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             if (Text1.Document.Selection.ParagraphFormat.ListType == MarkerType.Bullet)
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.None;
@@ -938,6 +975,7 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
             }
+            Text1.Document.EndUndoGroup();
         }
         
         private void CmdBack_Click(object sender, RoutedEventArgs e)
@@ -953,8 +991,10 @@ namespace Quick_Pad_Free_Edition
 
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             var selectedFont = e.AddedItems[0].ToString();
             Text1.Document.Selection.CharacterFormat.Name = selectedFont;
+            Text1.Document.EndUndoGroup();
         }
 
         private void Frame_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -988,26 +1028,6 @@ namespace Quick_Pad_Free_Edition
         {
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
-
-        private async void SaveDialogYes_Click(object sender, RoutedEventArgs e)
-        {
-            await SaveWork();
-            SaveDialogValue = DialogResult.Yes;
-            SaveDialog.Hide();
-        }
-
-        private void SaveDialogNo_Click(object sender, RoutedEventArgs e)
-        {
-            SaveDialogValue = DialogResult.No;
-            SaveDialog.Hide();
-        }
-
-        private void SaveDialogCancel_Click(object sender, RoutedEventArgs e)
-        {
-            SaveDialogValue = DialogResult.Cancel;
-            SaveDialog.Hide();
-        }
-
         #endregion
 
         #region UI Mode change
@@ -1099,22 +1119,29 @@ namespace Quick_Pad_Free_Edition
             if (CurrentWorkingFile is null)
             {
                 //File hasn't save, assume the first undo is blank text
-                Changed = CanUndoText;
+                Text1.Document.GetText(TextGetOptions.None, out string ext);
+                if (string.IsNullOrEmpty(ext))
+                {
+                    Changed = false;
+                }
+                else
+                {
+                    Changed = CanUndoText;
+                }
             }
             else
             {
-                //Get a plain text length regardless of the format
+                //Get a plain text regardless of the format
                 Text1.Document.GetText(TextGetOptions.None, out string ext);
-                CurrentTextLength = ext.Length;
-                //Compare and aooly if it changed
-                Changed = !Equals(initialLoadedLength, CurrentTextLength);
+                //Compare and check if it changed
+                Changed = !Equals(initialLoadedContent, ext);
             }
         }
         /// <summary>
-        /// Temporary store the length of text when it loaded, 
-        /// if it didn't match the length of textbox=it changed
+        /// Temporary store the copy of text when it loaded, 
+        /// if it didn't match the textbox=it changed
         /// </summary>
-        private int initialLoadedLength;
+        private string initialLoadedContent;
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
@@ -1127,6 +1154,11 @@ namespace Quick_Pad_Free_Edition
                     e.Handled = true;
                 }
             }
+            else if (e.Key == VirtualKey.Space)
+            {
+                Text1.Document.EndUndoGroup();
+                Text1.Document.BeginUndoGroup();
+            }
         }
 
         private void Text1_DragOver(object sender, DragEventArgs e)
@@ -1137,25 +1169,23 @@ namespace Quick_Pad_Free_Edition
         private async void Text1_Drop(object sender, DragEventArgs e)
         {
             //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
-            if (CurrentWorkingFile == null)
+            if (Changed)
             {
-                if (Changed)
+                //Only show save dialog when there are changed made
+                await WantToSave.ShowAsync();
+                switch (WantToSave.DialogResult)
                 {
-                    //Only show save dialog when there are changed made
-                    await SaveDialog.ShowAsync();
-                    if (SaveDialogValue == DialogResult.Cancel)
-                    {
-                        SaveDialogValue = DialogResult.None; //reset save dialog value
+                    case DialogResult.Yes:
+                        await SaveWork();
+                        break;
+                    case DialogResult.Cancel:
                         return;
-                    }
                 }
             }
-            if (CurrentWorkingFile != null && Changed)
-            {
-                //Save all the change before loading new file
-                await SaveWork();
-            }
-
+            //At this point user totally want to open that dropped file
+            //Void the previous file
+            CurrentWorkingFile = null;
+            //
             //load rich text files dropped in from file explorer
             try
             {

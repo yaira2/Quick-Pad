@@ -183,19 +183,6 @@
 
         <RichEditBox x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}" FontSize="{x:Bind QSetting.DefaultFontSize, Mode=OneWay}"/>
 
-        <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
-
-            <StackPanel HorizontalAlignment="Stretch" Height="120" VerticalAlignment="Stretch">
-                <Grid>
-                    <TextBlock Text="Quick Pad" FontSize="24"/>
-                    <TextBlock x:Uid="SaveDialog" Text="Would you like to save your changes?" Margin="0,37,0,0"/>
-                    <Button Content="Yes" x:Name="SaveDialogYes" x:Uid="SaveDialogYes" Click="SaveDialogYes_Click" Windows10version1809:CornerRadius="2" Margin="-167,85,0,0" Width="80" HorizontalAlignment="Center"/>
-                    <Button Content="No" x:Name="SaveDialogNo" x:Uid="SaveDialogNo" Click="SaveDialogNo_Click" Windows10version1809:CornerRadius="2" Margin="0,85,0,0" Width="80" HorizontalAlignment="Center"/>
-                    <Button Content="Cancel" x:Name="SaveDialogCancel" x:Uid="SaveDialogCancel" Click="SaveDialogCancel_Click"  Windows10version1809:CornerRadius="2" Margin="168,85,0,0" Width="80" HorizontalAlignment="Center"/>
-                </Grid>
-            </StackPanel>
-        </ContentDialog>
-
         <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
            Opened="Settings_Opened">
             <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
