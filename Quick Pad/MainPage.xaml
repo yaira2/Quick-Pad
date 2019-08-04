@@ -8,6 +8,7 @@
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:q="using:QuickPad"
     xmlns:qfe="using:Quick_Pad_Free_Edition"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     RequestedTheme="{x:Bind QSetting.Theme, Mode=OneWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
@@ -136,6 +137,12 @@
         <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False"  HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,33,0,0">
             <CommandBar.SecondaryCommands>
                 <AppBarToggleButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
+                <AppBarToggleButton x:Name="CmdClassicMode" IsChecked="{x:Bind ClassicModeSwitch, Mode=TwoWay}" Label="Classic Mode" Width="Auto">
+                    <AppBarToggleButton.Icon>
+                        <FontIcon Glyph="&#xE8C5;" />
+                    </AppBarToggleButton.Icon>
+                </AppBarToggleButton>
+                <AppBarSeparator/>
                 <AppBarButton x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" >
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
@@ -145,6 +152,12 @@
                 <AppBarButton x:Name="CmdSettings" x:Uid="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click">
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Settings" x:Uid="CmdSettingsTooltip"/>
+                    </ToolTipService.ToolTip>
+                </AppBarButton>
+                <AppBarSeparator/>
+                <AppBarButton Icon="Cancel" Label="Exit" Width="Auto" Click="CmdExit_Click">
+                    <ToolTipService.ToolTip>
+                        <TextBlock Text="Exit the app"/>
                     </ToolTipService.ToolTip>
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
@@ -180,6 +193,162 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
         </CommandBar>
+        
+        <winui:MenuBar x:Name="CommandBarClassic" Canvas.ZIndex="75" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,33,0,0" Visibility="{x:Bind q:Converter.BoolToVisibility(ClassicModeSwitch), Mode=OneWay}">
+            <winui:MenuBarItem Title="File">
+                <MenuFlyoutItem Text="New" Click="CmdNew_Click">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE7C3;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Open" Click="CmdOpen_Click">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xF12B;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Save" Click="CmdSave_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Save"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Save as..." Click="CmdSaveAs_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Save"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Share" Click="CmdShare_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Share"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Exit" Click="CmdExit_Click">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE8BB;"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </winui:MenuBarItem>
+            <winui:MenuBarItem Title="Edit">
+                <MenuFlyoutItem Text="Undo" Click="CmdUndo_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Undo"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Redo" Click="CmdRedo_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Redo"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Cut" Click="Cut_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Cut"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Copy" Click="Copy_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Copy"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Paste" Click="Paste_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Paste"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </winui:MenuBarItem>
+            <winui:MenuBarItem Title="Format">
+                <ToggleMenuFlyoutItem Text="Word Wrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}"/>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Bold" Click="Bold_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Bold"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Italic" Click="Italic_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Italic"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Underline" Click="Underline_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Underline"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Strikethrough" Click="Strikethrough_Click">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Bullets" Click="BulletList_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Bullets"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Align leff" Click="Left_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="AlignLeft"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Align center" Click="Center_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="AlignCenter"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Align right" Click="Right_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="AlignRight"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Align justify" Click="Justify_Click">
+                    <MenuFlyoutItem.Icon>
+                        <BitmapIcon UriSource="/Assets/justify align.png"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Size up" Click="SizeUp_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="FontIncrease"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Size down" Click="SizeDown_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="FontDecrease"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </winui:MenuBarItem>
+            <winui:MenuBarItem Title="View">
+                <ToggleMenuFlyoutItem Text="Back to default mode" IsChecked="{x:Bind ClassicModeSwitch, Mode=TwoWay}">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Back"/>
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>
+                <ToggleMenuFlyoutItem Text="Focus Mode" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Caption"/>
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>
+                <ToggleMenuFlyoutItem Text="Overlay mode" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE158;" />
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>
+            </winui:MenuBarItem>
+            <winui:MenuBarItem Title="Help">
+                <MenuFlyoutItem Text="Setting" Click="CmdSettings_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Setting"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Rate and Review" Click="CmdReview_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="SolidStar"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </winui:MenuBarItem>
+        </winui:MenuBar>
 
         <RichEditBox x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}" FontSize="{x:Bind QSetting.DefaultFontSize, Mode=OneWay}"/>
 
