@@ -62,6 +62,7 @@ namespace Quick_Pad_Free_Edition
 
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
 
+        public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
         public MainPage()
         {
             InitializeComponent();
@@ -115,25 +116,29 @@ namespace Quick_Pad_Free_Edition
                 }
 
                 //close dialogs so the app does not hang
-                SaveDialog.Hide();
+                WantToSave.Hide();
                 Settings.Hide();
+                
+                await WantToSave.ShowAsync();
 
-                await SaveDialog.ShowAsync();
-
-                if (SaveDialogValue != DialogResult.Cancel)
+                switch (WantToSave.DialogResult)
                 {
-                    deferral.Complete();
-                    //Save font size setting
-                    QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
+                    case DialogResult.Yes:
+                        await SaveWork();
+                        deferral.Complete();
+                        //Save font size setting
+                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
+                        break;
+                    case DialogResult.No:
+                        deferral.Complete();
+                        //Save font size setting
+                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
+                        break;
+                    case DialogResult.Cancel:
+                        e.Handled = true;
+                        deferral.Complete();
+                        break;
                 }
-
-                if (SaveDialogValue == DialogResult.Cancel)
-                {
-                    e.Handled = true;
-                    deferral.Complete();
-                }
-
-                SaveDialogValue = DialogResult.None; //reset save dialog    
             };
 
             CheckPushNotifications(); //check for push notifications
@@ -302,6 +307,13 @@ namespace Quick_Pad_Free_Edition
 
         public void send(object source, System.Timers.ElapsedEventArgs e)
         {
+            //Not sure if this is the cause but it might he..
+            if (QuickPad.Dialog.SaveChange.IsOpen)
+            {
+                //There are dialog asking to save change right now
+                //Abort
+                return;
+            }
             //timer for auto save
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
             CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
@@ -440,11 +452,7 @@ namespace Quick_Pad_Free_Edition
 
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
-        /// <summary>
-        /// this is to know if the user clicks cancel when asked if they want to save
-        /// 
-        /// </summary>
-        private DialogResult SaveDialogValue = DialogResult.None;
+
         public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
 
         bool _undo;
@@ -687,16 +695,23 @@ namespace Quick_Pad_Free_Edition
             if (CurrentWorkingFile is null && Changed)
             {
                 //File has not been save yet ask use if they want to save
-                await SaveDialog.ShowAsync();
-
-                if (SaveDialogValue != DialogResult.Cancel)
+                await WantToSave.ShowAsync();
+                
+                switch (WantToSave.DialogResult)
                 {
-                    Text1.Document.SetText(TextSetOptions.None, string.Empty);
-
-                    //reset the value of the friendly file name
-                    CurrentWorkingFile = null;
-                    //update the title bar to reflect it is a new document
-                    CurrentFilename = null;
+                    case DialogResult.Yes:
+                        //Save change
+                        await SaveWork();
+                        //Clear text
+                        Text1.Document.SetText(TextSetOptions.None, string.Empty);
+                        break;
+                    case DialogResult.No:
+                        //Clear text
+                        Text1.Document.SetText(TextSetOptions.None, string.Empty);
+                        break;
+                    case DialogResult.Cancel:
+                        //ABORT
+                        return;
                 }
             }
             else
@@ -704,11 +719,11 @@ namespace Quick_Pad_Free_Edition
                 //File have been saved! And no change has been made. Reset right away
                 Text1.Document.SetText(TextSetOptions.None, string.Empty);
 
-                //reset the value of the friendly file name
-                CurrentWorkingFile = null;
-                //update the title bar to reflect it is a new document
-                CurrentFilename = null;
             }
+            //reset the value of the friendly file name
+            CurrentWorkingFile = null;
+            //update the title bar to reflect it is a new document
+            CurrentFilename = null;
             //Clear undo and redo
             Text1.TextDocument.ClearUndoRedoHistory();
         }
@@ -1013,26 +1028,6 @@ namespace Quick_Pad_Free_Edition
         {
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
-
-        private async void SaveDialogYes_Click(object sender, RoutedEventArgs e)
-        {
-            await SaveWork();
-            SaveDialogValue = DialogResult.Yes;
-            SaveDialog.Hide();
-        }
-
-        private void SaveDialogNo_Click(object sender, RoutedEventArgs e)
-        {
-            SaveDialogValue = DialogResult.No;
-            SaveDialog.Hide();
-        }
-
-        private void SaveDialogCancel_Click(object sender, RoutedEventArgs e)
-        {
-            SaveDialogValue = DialogResult.Cancel;
-            SaveDialog.Hide();
-        }
-
         #endregion
 
         #region UI Mode change
@@ -1174,25 +1169,23 @@ namespace Quick_Pad_Free_Edition
         private async void Text1_Drop(object sender, DragEventArgs e)
         {
             //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
-            if (CurrentWorkingFile == null)
+            if (Changed)
             {
-                if (Changed)
+                //Only show save dialog when there are changed made
+                await WantToSave.ShowAsync();
+                switch (WantToSave.DialogResult)
                 {
-                    //Only show save dialog when there are changed made
-                    await SaveDialog.ShowAsync();
-                    if (SaveDialogValue == DialogResult.Cancel)
-                    {
-                        SaveDialogValue = DialogResult.None; //reset save dialog value
+                    case DialogResult.Yes:
+                        await SaveWork();
+                        break;
+                    case DialogResult.Cancel:
                         return;
-                    }
                 }
             }
-            if (CurrentWorkingFile != null && Changed)
-            {
-                //Save all the change before loading new file
-                await SaveWork();
-            }
-
+            //At this point user totally want to open that dropped file
+            //Void the previous file
+            CurrentWorkingFile = null;
+            //
             //load rich text files dropped in from file explorer
             try
             {
