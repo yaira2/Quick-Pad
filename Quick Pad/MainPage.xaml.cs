@@ -214,6 +214,9 @@ namespace Quick_Pad_Free_Edition
                     //TODO:Launch compact overlay mode
                     SwitchCompactOverlayMode(true);
                     break;
+                case AvailableModes.Classic:
+                    SwitchClassicMode(true);
+                    break;
             }
         }
 
@@ -605,8 +608,10 @@ namespace Quick_Pad_Free_Edition
                 savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
-                string name = string.IsNullOrEmpty(_file_name) ? textResource.GetString("NewDocument") : _file_name;
-                savePicker.SuggestedFileName = $"{name}{QSetting.NewFileAutoNumber}";
+                if (_file_name == null)
+                    savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
+                else
+                    savePicker.SuggestedFileName = _file_name;
 
                 Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
                 if (file != null)
@@ -644,6 +649,11 @@ namespace Quick_Pad_Free_Edition
 
                     //Increase new auto number, so next file will not get the same name
                     QSetting.NewFileAutoNumber++;
+                }
+                else
+                {
+                    CurrentWorkingFile = temporaryForce;
+                    temporaryForce = null;
                 }
             }
             //Update the initial loaded content
@@ -779,6 +789,19 @@ namespace Quick_Pad_Free_Edition
         public async void CmdSave_Click(object sender, RoutedEventArgs e)
         {
             await SaveWork(); //call the function to save
+        }
+
+        private StorageFile temporaryForce = null;
+        public async void CmdSaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            temporaryForce = CurrentWorkingFile;
+            CurrentWorkingFile = null;
+            await SaveWork();
+        }
+
+        public void CmdExit_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Exit();
         }
 
         private void CmdUndo_Click(object sender, RoutedEventArgs e)
@@ -1069,6 +1092,24 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        bool? _classic = null;
+        public bool ClassicModeSwitch
+        {
+            get
+            {
+                if (_classic is null)
+                {
+                    _classic = QSetting.LaunchMode == (int)AvailableModes.Classic;
+                }
+                return _classic.Value;
+            }
+            set
+            {
+                Set(ref _classic, value);
+                SwitchClassicMode(value);
+            }
+        }
+
         public async void SwitchCompactOverlayMode(bool switching)
         {
             if (switching)
@@ -1136,6 +1177,20 @@ namespace Quick_Pad_Free_Edition
                 Shadow1.Visibility = Visibility.Visible;
                 CloseFocusMode.Visibility = Visibility.Collapsed;
                 Text1.Margin = new Thickness(0, 74, 0, 40);
+            }
+        }
+
+        public void SwitchClassicMode(bool switching)
+        {
+            if (switching)
+            {
+                CommandBar1.Visibility = Visibility.Collapsed;
+                CommandBar2.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                CommandBar1.Visibility = Visibility.Visible;
+                CommandBar2.Visibility = Visibility.Visible;
             }
         }
 

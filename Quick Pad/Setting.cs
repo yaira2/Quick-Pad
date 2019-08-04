@@ -334,7 +334,8 @@ namespace QuickPad
     {
         Default, //Full UI with toolbar
         OnTop, //Compact overlay
-        Focus //Hide toolbar
+        Focus, //Hide toolbar
+        Classic //Like a classic notepad
     }
 
     public static class Converter
