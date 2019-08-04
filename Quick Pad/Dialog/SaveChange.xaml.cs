@@ -54,7 +54,7 @@ namespace QuickPad.Dialog
 
         private void ContentDialog_Closed(ContentDialog sender, ContentDialogClosedEventArgs args)
         {
-            IsOpen = true;
+            IsOpen = false;
         }
     }
 }
