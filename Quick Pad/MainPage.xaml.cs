@@ -211,7 +211,7 @@ namespace Quick_Pad_Free_Edition
             switch ((AvailableModes)QSetting.LaunchMode)
             {
                 case AvailableModes.Focus:
-                    SwitchToFocusMode();
+                    SwitchFocusMode(true);
                     break;
                 case AvailableModes.OnTop:
                     //TODO:Launch compact overlay mode
@@ -345,25 +345,7 @@ namespace Quick_Pad_Free_Edition
         }
         #endregion
 
-        #region Properties
-        bool? _compact = null;
-        public bool CompactOverlaySwitch
-        {
-            get
-            {
-                if (_compact is null)
-                {
-                    _compact = QSetting.LaunchMode == (int)AvailableModes.OnTop;
-                }
-                return _compact.Value;
-            }
-            set
-            {
-                Set(ref _compact, value);
-                SwitchCompactOverlayMode(value);
-            }
-        }
-
+        #region Properties        
         ObservableCollection<string> _fonts;
         public ObservableCollection<string> AllFonts
         {
@@ -1031,6 +1013,42 @@ namespace Quick_Pad_Free_Edition
         #endregion
 
         #region UI Mode change
+        bool? _compact = null;
+        public bool CompactOverlaySwitch
+        {
+            get
+            {
+                if (_compact is null)
+                {
+                    _compact = QSetting.LaunchMode == (int)AvailableModes.OnTop;
+                }
+                return _compact.Value;
+            }
+            set
+            {
+                Set(ref _compact, value);
+                SwitchCompactOverlayMode(value);
+            }
+        }
+
+        bool? _focus = null;
+        public bool FocusModeSwitch
+        {
+            get
+            {
+                if (_focus is null)
+                {
+                    _focus = QSetting.LaunchMode == (int)AvailableModes.Focus;
+                }
+                return _focus.Value;
+            }
+            set
+            {
+                Set(ref _focus, value);
+                SwitchFocusMode(value);
+            }
+        }
+
         public async void SwitchCompactOverlayMode(bool switching)
         {
             if (switching)
@@ -1079,30 +1097,28 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
-        private void SwitchToFocusMode()
+        public void SwitchFocusMode(bool switching)
         {
-            Text1.SetValue(Canvas.ZIndexProperty, 90);
-            Text1.Margin = new Thickness(0, 33, 0, 0);
-            CommandBar2.Visibility = Visibility.Collapsed;
-            Shadow2.Visibility = Visibility.Collapsed;
-            Shadow1.Visibility = Visibility.Collapsed;
-            CloseFocusMode.Visibility = Visibility.Visible;
+            if (switching)
+            {
+                Text1.SetValue(Canvas.ZIndexProperty, 90);
+                Text1.Margin = new Thickness(0, 33, 0, 0);
+                CommandBar2.Visibility = Visibility.Collapsed;
+                Shadow2.Visibility = Visibility.Collapsed;
+                Shadow1.Visibility = Visibility.Collapsed;
+                CloseFocusMode.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Text1.SetValue(Canvas.ZIndexProperty, 0);
+                CommandBar2.Visibility = Visibility.Visible;
+                Shadow2.Visibility = Visibility.Visible;
+                Shadow1.Visibility = Visibility.Visible;
+                CloseFocusMode.Visibility = Visibility.Collapsed;
+                Text1.Margin = new Thickness(0, 74, 0, 40);
+            }
         }
 
-        private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
-        {
-            SwitchToFocusMode();
-        }
-              
-        private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.SetValue(Canvas.ZIndexProperty, 0);
-            CommandBar2.Visibility = Visibility.Visible;
-            Shadow2.Visibility = Visibility.Visible;
-            Shadow1.Visibility = Visibility.Visible;
-            CloseFocusMode.Visibility = Visibility.Collapsed;
-            Text1.Margin = new Thickness(0, 74, 0, 40);
-        }
         #endregion
 
         #region Textbox function
