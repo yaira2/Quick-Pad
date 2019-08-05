@@ -444,6 +444,7 @@ namespace Quick_Pad_Free_Edition
                 {
                     Set(ref _changed, value);
                     NotifyPropertyChanged(nameof(CurrentFilename));
+                    UpdateAppTitlebar();
                 }
             }
         }
@@ -583,6 +584,7 @@ namespace Quick_Pad_Free_Edition
                     CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None, 
                     out var value);
                 await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                Changed = false;
             }
 
             catch (Exception)
@@ -608,11 +610,14 @@ namespace Quick_Pad_Free_Edition
                 savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
-                savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
+                string name = string.IsNullOrEmpty(_file_name) ? textResource.GetString("NewDocument") : _file_name;
+                savePicker.SuggestedFileName = $"{name}{QSetting.NewFileAutoNumber}";
 
                 Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
                 if (file != null)
                 {
+                    //Change has been saved
+                    Changed = false;
                     //Set the current working file
                     CurrentWorkingFile = file;
                     //update title bar
@@ -649,7 +654,6 @@ namespace Quick_Pad_Free_Edition
             //Get a plain text regardless of the format
             Text1.Document.GetText(TextGetOptions.None, out string ext);
             initialLoadedContent = ext;
-            Changed = false;
         }
         #endregion
 
