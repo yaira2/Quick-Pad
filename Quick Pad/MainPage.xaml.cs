@@ -555,7 +555,7 @@ namespace Quick_Pad_Free_Edition
 
                 Text1.Document.SetText(TextSetOptions.None, await FileIO.ReadTextAsync(CurrentWorkingFile));
             }
-            //Cleaf undo/redo history
+            //Clear undo/redo history
             Text1.TextDocument.ClearUndoRedoHistory();
             //Get a plain text regardless of the format
             Text1.Document.GetText(TextGetOptions.None, out string ext);
@@ -648,8 +648,8 @@ namespace Quick_Pad_Free_Edition
                     QSetting.NewFileAutoNumber++;
                 }
             }
-            //Get a plain text regardless of the format
-            Text1.Document.GetText(TextGetOptions.None, out string ext);
+            //Get a formatted text to notice a change in format
+            Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
             initialLoadedContent = ext;
         }
         #endregion
@@ -719,7 +719,10 @@ namespace Quick_Pad_Free_Edition
             {
                 //File have been saved! And no change has been made. Reset right away
                 Text1.Document.SetText(TextSetOptions.None, string.Empty);
-
+            }
+            if (QSetting.DefaultFileType == ".rtf")
+            {
+                UpdateText1FontSize(QSetting.DefaultFontSize);
             }
             //reset the value of the friendly file name
             CurrentWorkingFile = null;
@@ -760,8 +763,8 @@ namespace Quick_Pad_Free_Edition
                     CurrentFilename = CurrentWorkingFile.DisplayName;
                     //Clear undo and redo, so the last undo will be the loaded text
                     Text1.TextDocument.ClearUndoRedoHistory();
-                    //Get a text length
-                    Text1.Document.GetText(TextGetOptions.None, out string res);
+                    //Get a formatted text to notice a change in format, this one is for guideline
+                    Text1.Document.GetText(TextGetOptions.FormatRtf, out string res);
                     initialLoadedContent = res;
                 }
                 catch (Exception)
@@ -1132,8 +1135,8 @@ namespace Quick_Pad_Free_Edition
             }
             else
             {
-                //Get a plain text regardless of the format
-                Text1.Document.GetText(TextGetOptions.None, out string ext);
+                //Get a formatted text to notice a change in format
+                Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
                 //Compare and check if it changed
                 Changed = !Equals(initialLoadedContent, ext);
             }
