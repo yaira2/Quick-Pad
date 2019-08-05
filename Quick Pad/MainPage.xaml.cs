@@ -77,6 +77,7 @@ namespace Quick_Pad_Free_Edition
             QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
             UpdateUIAccordingToNewTheme(QSetting.Theme);
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
+            UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
             //
             CreateItems();
@@ -126,13 +127,9 @@ namespace Quick_Pad_Free_Edition
                     case DialogResult.Yes:
                         await SaveWork();
                         deferral.Complete();
-                        //Save font size setting
-                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
                         break;
                     case DialogResult.No:
                         deferral.Complete();
-                        //Save font size setting
-                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
                         break;
                     case DialogResult.Cancel:
                         e.Handled = true;
