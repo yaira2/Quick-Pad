@@ -557,8 +557,8 @@ namespace Quick_Pad_Free_Edition
             }
             //Clear undo/redo history
             Text1.TextDocument.ClearUndoRedoHistory();
-            //Get a plain text regardless of the format
-            Text1.Document.GetText(TextGetOptions.None, out string ext);
+            //Get a formatted text to notice a change in format
+            Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
             initialLoadedContent = ext;
         }
 
