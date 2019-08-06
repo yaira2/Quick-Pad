@@ -325,15 +325,14 @@ namespace Quick_Pad_Free_Edition
                             //tries to update file if it exsits and is not read only
                             Text1.Document.GetText(TextGetOptions.None, out var value);
                             await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
-                            Changed = false;
                         }
                         if (result.ToLower() == ".rtf")
                         {
                             //tries to update file if it exsits and is not read only
                             Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
                             await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
-                            Changed = false;
                         }
+                        Changed = false;
                     }
                     catch (Exception) { }
                 }
@@ -445,6 +444,24 @@ namespace Quick_Pad_Free_Edition
                 }
             }
         }
+
+        public void CheckForChange()
+        {
+            //Get a formatted text to notice a change in format
+            Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
+            //
+            Changed = !Equals(initialLoadedContent, ext);
+        }
+
+        public void SetANewChange()
+        {
+            Text1.Document.GetText(TextGetOptions.FormatRtf, out string value);
+            //Set initial content
+            initialLoadedContent = value;
+            //Update changed
+            CheckForChange();
+        }
+        
         public StorageFile CurrentWorkingFile = null;
         private string key; //future access list
 
@@ -557,9 +574,8 @@ namespace Quick_Pad_Free_Edition
             }
             //Clear undo/redo history
             Text1.TextDocument.ClearUndoRedoHistory();
-            //Get a formatted text to notice a change in format
-            Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
-            initialLoadedContent = ext;
+            //Update the initial loaded content
+            SetANewChange();
         }
 
         private async Task LoadFasFile(StorageFile inputFile)
@@ -648,9 +664,8 @@ namespace Quick_Pad_Free_Edition
                     QSetting.NewFileAutoNumber++;
                 }
             }
-            //Get a formatted text to notice a change in format
-            Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
-            initialLoadedContent = ext;
+            //Update the initial loaded content
+            SetANewChange();
         }
         #endregion
 
@@ -763,9 +778,8 @@ namespace Quick_Pad_Free_Edition
                     CurrentFilename = CurrentWorkingFile.DisplayName;
                     //Clear undo and redo, so the last undo will be the loaded text
                     Text1.TextDocument.ClearUndoRedoHistory();
-                    //Get a formatted text to notice a change in format, this one is for guideline
-                    Text1.Document.GetText(TextGetOptions.FormatRtf, out string res);
-                    initialLoadedContent = res;
+                    //Update the initial loaded content
+                    SetANewChange();
                 }
                 catch (Exception)
                 {
@@ -787,12 +801,14 @@ namespace Quick_Pad_Free_Edition
 
         private void CmdUndo_Click(object sender, RoutedEventArgs e)
         {
-            Text1.Document.Undo(); //undo changes the user did to the text
+            Text1.Document.Undo(); //undo changes the user did to the text            
+            CheckForChange(); //Check fof a change in document
         }
 
         private void CmdRedo_Click(object sender, RoutedEventArgs e)
         {
-            Text1.Document.Redo(); //redo changes the user did to the text
+            Text1.Document.Redo(); //redo changes the user did to the text          
+            CheckForChange(); //Check fof a change in document
         }
 
         private void Bold_Click(object sender, RoutedEventArgs e)
@@ -1120,26 +1136,8 @@ namespace Quick_Pad_Free_Edition
         {
             CanUndoText = Text1.Document.CanUndo();
             CanRedoText = Text1.Document.CanRedo();
-            if (CurrentWorkingFile is null)
-            {
-                //File hasn't save, assume the first undo is blank text
-                Text1.Document.GetText(TextGetOptions.None, out string ext);
-                if (string.IsNullOrEmpty(ext))
-                {
-                    Changed = false;
-                }
-                else
-                {
-                    Changed = CanUndoText;
-                }
-            }
-            else
-            {
-                //Get a formatted text to notice a change in format
-                Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
-                //Compare and check if it changed
-                Changed = !Equals(initialLoadedContent, ext);
-            }
+
+            CheckForChange(); //Check fof a change in document
         }
         /// <summary>
         /// Temporary store the copy of text when it loaded, 
