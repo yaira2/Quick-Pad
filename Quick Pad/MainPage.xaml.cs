@@ -79,6 +79,9 @@ namespace Quick_Pad_Free_Edition
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
             UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
+            //Match the formatted text with the initial content
+            //As it technically not empty but contain format size text
+            SetANewChange();
             //
             CreateItems();
             LoadSettings();
