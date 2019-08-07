@@ -336,7 +336,7 @@
                 </ToggleMenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="Help">
-                <MenuFlyoutItem Text="Setting" Click="CmdSettings_Click">
+                <MenuFlyoutItem Text="Settings" Click="CmdSettings_Click">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Setting"/>
                     </MenuFlyoutItem.Icon>
