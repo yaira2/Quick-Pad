@@ -740,6 +740,10 @@ namespace Quick_Pad_Free_Edition
             CurrentFilename = null;
             //Clear undo and redo
             Text1.TextDocument.ClearUndoRedoHistory();
+            //Put up a default font size into a format
+            UpdateText1FontSize(QSetting.DefaultFontSize);
+            //Set new change
+            SetANewChange();
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
