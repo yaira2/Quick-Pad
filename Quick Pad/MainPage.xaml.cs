@@ -1123,6 +1123,8 @@ namespace Quick_Pad_Free_Edition
                 CmdFocusMode.IsEnabled = false;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 CommandBar2.Margin = new Thickness(0, 0, 0, 0);
+                CommandBar2.Visibility = Visibility.Visible;
+                CommandBarClassic.Visibility = Visibility.Collapsed;
 
                 //make text smaller size if user did not do so on their own and if they did not type anything yet.
                 Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
@@ -1149,6 +1151,12 @@ namespace Quick_Pad_Free_Edition
                 CmdFocusMode.IsEnabled = true;
                 Text1.Margin = new Thickness(0, 74, 0, 40);
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
+
+                if (CmdClassicMode.IsChecked == true)
+                {
+                    SwitchClassicMode(true);
+                    CommandBarClassic.Visibility = Visibility.Visible;
+                }
             }
         }
 
@@ -1167,10 +1175,17 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.SetValue(Canvas.ZIndexProperty, 0);
                 CommandBar2.Visibility = Visibility.Visible;
+                CommandBar1.Visibility = Visibility.Visible;
                 Shadow2.Visibility = Visibility.Visible;
                 Shadow1.Visibility = Visibility.Visible;
                 CloseFocusMode.Visibility = Visibility.Collapsed;
+                CommandBarClassic.Visibility = Visibility.Collapsed;
                 Text1.Margin = new Thickness(0, 74, 0, 40);
+            }
+            if (CmdClassicMode.IsChecked == true)
+            {
+                SwitchClassicMode(true);
+                CommandBarClassic.Visibility = Visibility.Visible;
             }
         }
 
