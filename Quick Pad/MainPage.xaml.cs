@@ -937,6 +937,7 @@ namespace Quick_Pad_Free_Edition
 
         private void Emoji_Clicked(object sender, RoutedEventArgs e)
         {
+            Text1.Focus(FocusState.Programmatic);
             CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
         }
 
