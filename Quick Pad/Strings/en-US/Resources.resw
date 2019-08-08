@@ -294,6 +294,9 @@
   <data name="JustifyTooltip.Text" xml:space="preserve">
     <value>Justify text (Ctrl+J)</value>
   </data>
+  <data name="LaunchModeClassic.Content" xml:space="preserve">
+    <value>Classic</value>
+  </data>
   <data name="LaunchModeDefault.Content" xml:space="preserve">
     <value>Default</value>
   </data>

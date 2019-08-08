@@ -372,4 +372,7 @@
   <data name="FontColorYellow" xml:space="preserve">
     <value>เหลือง</value>
   </data>
+  <data name="LaunchModeClassic.Content" xml:space="preserve">
+    <value>คลาสสิค</value>
+  </data>
 </root>

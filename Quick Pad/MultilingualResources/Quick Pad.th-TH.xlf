@@ -486,6 +486,10 @@
           <source>Yellow</source>
           <target state="translated" state-qualifier="tm-suggestion">เหลือง</target>
         </trans-unit>
+        <trans-unit id="LaunchModeClassic.Content" translate="yes" xml:space="preserve">
+          <source>Classic</source>
+          <target state="translated">คลาสสิค</target>
+        </trans-unit>
       </group>
     </body>
   </file>
