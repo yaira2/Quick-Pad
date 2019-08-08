@@ -136,13 +136,12 @@
 
         <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False"  HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,33,0,0">
             <CommandBar.SecondaryCommands>
-                <AppBarToggleButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
-                <AppBarToggleButton x:Name="CmdClassicMode" IsChecked="{x:Bind ClassicModeSwitch, Mode=TwoWay}" Label="Classic Mode" Width="Auto">
-                    <AppBarToggleButton.Icon>
+                <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind TurnOnFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
+                <AppBarButton x:Name="CmdClassicMode" Click="{x:Bind TurnOnClassicMode}" Label="Classic Mode" Width="Auto">
+                    <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE8C5;" />
-                    </AppBarToggleButton.Icon>
-                </AppBarToggleButton>
-                <AppBarSeparator/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
                 <AppBarButton x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" >
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
@@ -154,7 +153,6 @@
                         <TextBlock Text="Settings" x:Uid="CmdSettingsTooltip"/>
                     </ToolTipService.ToolTip>
                 </AppBarButton>
-                <AppBarSeparator/>
                 <AppBarButton Icon="Cancel" Label="Exit" Width="Auto" Click="CmdExit_Click">
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Exit the app"/>
