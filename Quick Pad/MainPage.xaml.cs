@@ -21,6 +21,7 @@ using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.Text;
 using Windows.UI.ViewManagement;
+using Windows.UI.ViewManagement.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -934,24 +935,9 @@ namespace Quick_Pad_Free_Edition
             Text1.Document.EndUndoGroup();
         }
 
-        private void Emoji_Checked(object sender, RoutedEventArgs e)
+        private void Emoji_Clicked(object sender, RoutedEventArgs e)
         {
-            Emoji2.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            E1.Focus(FocusState.Programmatic);
-        }
-
-        private void Emoji_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Emoji2.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            EmojiPivot.SelectedIndex = 0; //Set focus to first item in pivot control in the emoji panel
-        }
-
-        private void EmojiPanel_LostFocus(object sender, RoutedEventArgs e){}
-
-        public void EmojiSub(object sender, RoutedEventArgs e)
-        {
-            string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
-            Text1.Document.Selection.TypeText(objname); //insert emoji in the text box
+            CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
         }
 
         private void CmdShare_Click(object sender, RoutedEventArgs e)
@@ -1206,7 +1192,6 @@ namespace Quick_Pad_Free_Edition
         #region Textbox function
         private void Text1_GotFocus(object sender, RoutedEventArgs e)
         {
-            Emoji.IsChecked = false; //hide emoji panel if open 
             LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
         }
 
