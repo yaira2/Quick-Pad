@@ -297,6 +297,24 @@
   <data name="LaunchModeClassic.Content" xml:space="preserve">
     <value>Classic</value>
   </data>
+  <data name="LaunchInClassicMode" xml:space="preserve">
+    <value>Classic</value>
+  </data>
+  <data name="LaunchInClassicModeDesc" xml:space="preserve">
+    <value>Launch app into classic mode </value>
+  </data>
+  <data name="LaunchInFocusMode" xml:space="preserve">
+    <value>Focus</value>
+  </data>
+  <data name="LaunchInFocusModeDesc" xml:space="preserve">
+    <value>Launch app into focus mode </value>
+  </data>
+  <data name="LaunchInOnTopMode" xml:space="preserve">
+    <value>Overlay</value>
+  </data>
+  <data name="LaunchInOnTopModeDesc" xml:space="preserve">
+    <value>Launch app into on top mode</value>
+  </data>
   <data name="LaunchModeDefault.Content" xml:space="preserve">
     <value>Default</value>
   </data>

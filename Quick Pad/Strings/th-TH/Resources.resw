@@ -372,6 +372,24 @@
   <data name="FontColorYellow" xml:space="preserve">
     <value>เหลือง</value>
   </data>
+  <data name="LaunchInClassicMode" xml:space="preserve">
+    <value>คลาสสิค</value>
+  </data>
+  <data name="LaunchInClassicModeDesc" xml:space="preserve">
+    <value>เปิดแอปพร้อมกับเมนูแบบคลาสสิค</value>
+  </data>
+  <data name="LaunchInFocusMode" xml:space="preserve">
+    <value>เน้นพิมพ์</value>
+  </data>
+  <data name="LaunchInFocusModeDesc" xml:space="preserve">
+    <value>เปิดแอปแล้วซ่อนเมนูทุกอย่างเพื่อเน้นพิมพ์</value>
+  </data>
+  <data name="LaunchInOnTopMode" xml:space="preserve">
+    <value>ทับแอปอื่น</value>
+  </data>
+  <data name="LaunchInOnTopModeDesc" xml:space="preserve">
+    <value>เปิดแอปเป็นโหมดอยู่เหนือแอปอื่นๆ</value>
+  </data>
   <data name="LaunchModeClassic.Content" xml:space="preserve">
     <value>คลาสสิค</value>
   </data>

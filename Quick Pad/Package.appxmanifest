@@ -94,6 +94,12 @@
             <uap:EditFlags OpenIsSafe="true"/>
           </uap:FileTypeAssociation>
         </uap:Extension>
+         <uap:Extension Category="windows.protocol">
+            <uap:Protocol Name="quickpad">
+               <uap:Logo>Assets\Quick Pad.png</uap:Logo>
+               <uap:DisplayName>Quick Pad launch protocal URI</uap:DisplayName>
+            </uap:Protocol>
+         </uap:Extension>
       </Extensions>
     </Application>
   </Applications>
