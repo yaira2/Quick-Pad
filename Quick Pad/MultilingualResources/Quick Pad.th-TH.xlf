@@ -486,6 +486,30 @@
           <source>Yellow</source>
           <target state="translated" state-qualifier="tm-suggestion">เหลือง</target>
         </trans-unit>
+        <trans-unit id="LaunchInClassicMode" translate="yes" xml:space="preserve">
+          <source>Classic</source>
+          <target state="translated">คลาสสิค</target>
+        </trans-unit>
+        <trans-unit id="LaunchInClassicModeDesc" translate="yes" xml:space="preserve">
+          <source>Launch app into classic mode </source>
+          <target state="translated">เปิดแอปพร้อมกับเมนูแบบคลาสสิค</target>
+        </trans-unit>
+        <trans-unit id="LaunchInFocusMode" translate="yes" xml:space="preserve">
+          <source>Focus</source>
+          <target state="translated">เน้นพิมพ์</target>
+        </trans-unit>
+        <trans-unit id="LaunchInFocusModeDesc" translate="yes" xml:space="preserve">
+          <source>Launch app into focus mode </source>
+          <target state="translated">เปิดแอปแล้วซ่อนเมนูทุกอย่างเพื่อเน้นพิมพ์</target>
+        </trans-unit>
+        <trans-unit id="LaunchInOnTopMode" translate="yes" xml:space="preserve">
+          <source>Overlay</source>
+          <target state="translated">ทับแอปอื่น</target>
+        </trans-unit>
+        <trans-unit id="LaunchInOnTopModeDesc" translate="yes" xml:space="preserve">
+          <source>Launch app into on top mode</source>
+          <target state="translated">เปิดแอปเป็นโหมดอยู่เหนือแอปอื่นๆ</target>
+        </trans-unit>
         <trans-unit id="LaunchModeClassic.Content" translate="yes" xml:space="preserve">
           <source>Classic</source>
           <target state="translated">คลาสสิค</target>
