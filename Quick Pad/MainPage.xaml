@@ -44,6 +44,11 @@
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xE7C3;"/>
                 </AppBarButton.Icon>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="N" />
+                </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarButton x:Name="CmdOpen" x:Uid="CmdOpen" Label="Open"  Width="Auto" MinWidth="40" Click="CmdOpen_Click">
                 <ToolTipService.ToolTip>
@@ -198,21 +203,41 @@
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE7C3;"/>
                     </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="N" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Open" Click="CmdOpen_Click">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xF12B;"/>
                     </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="O" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Save" Click="CmdSave_Click">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Save"/>
                     </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="S" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Save as..." Click="CmdSaveAs_Click">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Save"/>
                     </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control, Shift" 
+                           Key="S" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Share" Click="CmdShare_Click">
