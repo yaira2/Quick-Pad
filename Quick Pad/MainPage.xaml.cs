@@ -1152,7 +1152,7 @@ namespace Quick_Pad_Free_Edition
                 Text1.Margin = new Thickness(0, 74, 0, 40);
                 CommandBar2.Margin = new Thickness(0, 33, 0, 0);
 
-                if (CmdClassicMode.IsChecked == true)
+                if (ClassicModeSwitch == true)
                 {
                     SwitchClassicMode(true);
                     CommandBarClassic.Visibility = Visibility.Visible;
@@ -1182,7 +1182,7 @@ namespace Quick_Pad_Free_Edition
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 Text1.Margin = new Thickness(0, 74, 0, 40);
             }
-            if (CmdClassicMode.IsChecked == true)
+            if (ClassicModeSwitch == true)
             {
                 SwitchClassicMode(true);
                 CommandBarClassic.Visibility = Visibility.Visible;
