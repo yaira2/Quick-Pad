@@ -1203,6 +1203,9 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        //Use for Click function
+        public void TurnOnFocusMode() => FocusModeSwitch = true;
+        public void TurnOnClassicMode() => ClassicModeSwitch = true;
         #endregion
 
         #region Textbox function
