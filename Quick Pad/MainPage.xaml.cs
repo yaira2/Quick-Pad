@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Resources;
@@ -279,19 +280,19 @@ namespace Quick_Pad_Free_Edition
             var all = await JumpList.LoadCurrentAsync();
 
             all.SystemGroupKind = JumpListSystemGroupKind.None;
-            if (all.Items != null)
+            if (all.Items != null && all.Items.Count == 3)
             {
-                //Jumplost already added, ABORT
+                //Jumplist already added, ABORT
                 return;
             }
             
-            var focus = JumpListItem.CreateWithArguments("quickpad:\\focus", "ms-resource:///Resources/LaunchInFocusMode");
+            var focus = JumpListItem.CreateWithArguments("quickpad://focus", "ms-resource:///Resources/LaunchInFocusMode");
             focus.Description = "ms-resource:///Resources/LaunchInFocusModeDesc";
             focus.Logo = new Uri("ms-appx:///Assets/jumplist/focus.png");
-            var overlay = JumpListItem.CreateWithArguments("quickpad:\\overlay", "ms-resource:///Resources/LaunchInOnTopMode");
+            var overlay = JumpListItem.CreateWithArguments("quickpad://overlay", "ms-resource:///Resources/LaunchInOnTopMode");
             overlay.Description = "ms-resource:///Resources/LaunchInOnTopModeDesc";
             overlay.Logo = new Uri("ms-appx:///Assets/jumplist/ontop.png");
-            var classic = JumpListItem.CreateWithArguments("quickpad:\\classic", "ms-resource:///Resources/LaunchInClassicMode");
+            var classic = JumpListItem.CreateWithArguments("quickpad://classic", "ms-resource:///Resources/LaunchInClassicMode");
             classic.Description = "ms-resource:///Resources/LaunchInClassicModeDesc";
             classic.Logo = new Uri("ms-appx:///Assets/jumplist/classic.png");
             all.Items.Add(focus);
@@ -384,7 +385,7 @@ namespace Quick_Pad_Free_Edition
         }
         #endregion
 
-        #region Properties        
+        #region Properties     
         ObservableCollection<string> _fonts;
         public ObservableCollection<string> AllFonts
         {
@@ -564,16 +565,31 @@ namespace Quick_Pad_Free_Edition
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var args = e.Parameter as Windows.ApplicationModel.Activation.IActivatedEventArgs;
-            if (args != null)
+            switch (e.Parameter)
             {
-                if (args.Kind == Windows.ApplicationModel.Activation.ActivationKind.File)
-                {
-                    var fileArgs = args as Windows.ApplicationModel.Activation.FileActivatedEventArgs;
-                    string strFilePath = fileArgs.Files[0].Path;
-                    var file = (StorageFile)fileArgs.Files[0];
-                    await LoadFasFile(file); //call method to open the file the app was launched from
-                }
+                case IActivatedEventArgs activated://File activated
+                    if (activated.Kind == Windows.ApplicationModel.Activation.ActivationKind.File)
+                    {
+                        var fileArgs = activated as Windows.ApplicationModel.Activation.FileActivatedEventArgs;
+                        string strFilePath = fileArgs.Files[0].Path;
+                        var file = (StorageFile)fileArgs.Files[0];
+                        await LoadFasFile(file); //call method to open the file the app was launched from
+                    }
+                    break;
+                case string parameter:
+                    if (parameter == "focus")
+                    {
+                        FocusModeSwitch = true;
+                    }
+                    else if (parameter == "overlay")
+                    {
+                        CompactOverlaySwitch = true;
+                    }
+                    else if (parameter == "classic")
+                    {
+                        ClassicModeSwitch = true;
+                    }
+                    break;
             }
         }
 
