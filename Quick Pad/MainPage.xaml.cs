@@ -18,7 +18,7 @@ using Windows.Storage;
 using Windows.System;
 using Windows.UI;
 using Windows.UI.Core;
-using Windows.UI.Popups;
+using Windows.UI.StartScreen;
 using Windows.UI.Text;
 using Windows.UI.ViewManagement;
 using Windows.UI.ViewManagement.Core;
@@ -143,6 +143,8 @@ namespace Quick_Pad_Free_Edition
             };
 
             CheckPushNotifications(); //check for push notifications
+
+            AddJumplists();
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
@@ -270,6 +272,40 @@ namespace Quick_Pad_Free_Edition
             fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
             //Put it on an observable list
             AllFonts = new ObservableCollection<string>(fonts);
+        }
+
+        private async void AddJumplists()
+        {
+            var all = await JumpList.LoadCurrentAsync();
+
+            all.SystemGroupKind = JumpListSystemGroupKind.None;
+            if (all.Items != null)
+            {
+                //Jumplost already added, ABORT
+                return;
+            }
+            
+            var focus = JumpListItem.CreateWithArguments("quickpad:\\focus", "ms-resource:///Resources/LaunchInFocusMode");
+            focus.Description = "ms-resource:///Resources/LaunchInFocusModeDesc";
+            focus.Logo = new Uri("ms-appx:///Assets/jumplist/focus.png");
+            var overlay = JumpListItem.CreateWithArguments("quickpad:\\overlay", "ms-resource:///Resources/LaunchInOnTopMode");
+            overlay.Description = "ms-resource:///Resources/LaunchInOnTopModeDesc";
+            overlay.Logo = new Uri("ms-appx:///Assets/jumplist/ontop.png");
+            var classic = JumpListItem.CreateWithArguments("quickpad:\\classic", "ms-resource:///Resources/LaunchInClassicMode");
+            classic.Description = "ms-resource:///Resources/LaunchInClassicModeDesc";
+            classic.Logo = new Uri("ms-appx:///Assets/jumplist/classic.png");
+            all.Items.Add(focus);
+            all.Items.Add(overlay);
+            all.Items.Add(classic);
+
+            try //There's quite a small chance that sometime it save and app can crash, better safe than sorry :/
+            {
+                await all.SaveAsync();
+            }
+            catch
+            {
+                return;
+            }
         }
 
         // Stuff for putting the focus on the content

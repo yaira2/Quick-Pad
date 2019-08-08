@@ -149,6 +149,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\appbar.text.strikethrough.png" />
+    <Content Include="Assets\jumplist\classic.png" />
+    <Content Include="Assets\jumplist\focus.png" />
+    <Content Include="Assets\jumplist\ontop.png" />
     <Content Include="Assets\justify align.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
