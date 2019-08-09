@@ -6,7 +6,7 @@
          xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities" 
          xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
       IgnorableNamespaces="uap uap5 mp rescap">
-  <Identity Name="49306atecsolution.QuickPad" Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7" Version="4.3.6.0" />
+  <Identity Name="49306atecsolution.QuickPad" Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7" Version="4.3.5.0" />
   <mp:PhoneIdentity PhoneProductId="864e8d88-2781-47a9-9aab-7d4b5bd26da9" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>Quick Pad</DisplayName>
@@ -94,12 +94,6 @@
             <uap:EditFlags OpenIsSafe="true"/>
           </uap:FileTypeAssociation>
         </uap:Extension>
-         <uap:Extension Category="windows.protocol">
-            <uap:Protocol Name="quickpad">
-               <uap:Logo>Assets\Quick Pad.png</uap:Logo>
-               <uap:DisplayName>Quick Pad launch protocal URI</uap:DisplayName>
-            </uap:Protocol>
-         </uap:Extension>
       </Extensions>
     </Application>
   </Applications>

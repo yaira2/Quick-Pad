@@ -69,14 +69,7 @@ namespace Quick_Pad_Free_Edition
             {
                 if (rootFrame.Content == null)
                 {
-                    if (!string.IsNullOrEmpty(e.Arguments))
-                    {
-                        rootFrame.Navigate(typeof(MainPage), GetParameterURI(e.Arguments));
-                    }
-                    else
-                    {
-                        rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                    }
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
                 Window.Current.Activate();
             }
@@ -86,7 +79,6 @@ namespace Quick_Pad_Free_Edition
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
-            string additionParameter = "";
             switch (args.Kind)
             {
                 case ActivationKind.CommandLineLaunch:
@@ -95,41 +87,18 @@ namespace Quick_Pad_Free_Edition
                     CommandLineActivationOperation operation = cmdLineArgs.Operation;
                     string cmdLineString = operation.Arguments;
                     string activationPath = operation.CurrentDirectoryPath;
+
+                    Frame rootFrame = Window.Current.Content as Frame;
+                    if (rootFrame == null)
+                    {
+                        rootFrame = new Frame();
+                        Window.Current.Content = rootFrame;
+                    }
+                    rootFrame.Navigate(typeof(MainPage));
+
+                    Window.Current.Activate();
                     break;
-                case ActivationKind.Protocol:
-                    ProtocolActivatedEventArgs uriArg = args as ProtocolActivatedEventArgs;
-                    additionParameter = GetParameterURI(uriArg.Uri.OriginalString);
-                    break;
             }
-            //Navigate
-            Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame == null)
-            {
-                rootFrame = new Frame();
-                Window.Current.Content = rootFrame;
-            }
-            rootFrame.Navigate(typeof(MainPage), additionParameter);
-
-            Window.Current.Activate();
-
-        }
-
-        #endregion
-
-        #region Extract URI
-
-        public string GetParameterURI(string fullURI)
-        {
-            string output = "";
-            if (fullURI.Contains("//"))
-            {
-                output = fullURI.Substring(fullURI.IndexOf("//"));
-                if (output.Contains("/"))
-                {
-                    output = output.Replace("/", string.Empty);
-                }
-            }
-            return output;
         }
 
         #endregion

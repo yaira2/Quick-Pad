@@ -2,16 +2,16 @@
     x:Class="Quick_Pad_Free_Edition.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Quick_Pad_Free_Edition"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    xmlns:q="using:QuickPad"
-    xmlns:qfe="using:Quick_Pad_Free_Edition"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    RequestedTheme="{x:Bind QSetting.Theme, Mode=OneWay}"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
+
+    <Page.Background>
+        <AcrylicBrush BackgroundSource="HostBackdrop" TintColor="#CCE4DECD"/>
+    </Page.Background>
 
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,0,0" HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
@@ -30,25 +30,15 @@
             <Frame x:Name="FrameTop" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
         </controls:DropShadowPanel>
 
-        <ToggleButton x:Name="CloseFocusMode" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(FocusModeSwitch), Mode=OneWay}" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="0,50,30,0" Canvas.ZIndex="1500" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2">
-            <ToolTipService.ToolTip>
-                <TextBlock Text="Exit focus mode" x:Uid="ExitFocusMode"/>
-            </ToolTipService.ToolTip>
-        </ToggleButton>
+        <Button x:Name="CloseFocusMode" ToolTipService.ToolTip="Exit focus mode" Click="CloseFocusMode_Click" Visibility="Collapsed" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="0,50,30,0" Canvas.ZIndex="1500" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2"/>
 
         <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False"  Margin="0,33,360,0" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="40"  Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
-            <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="New" x:Uid="CmdNewTooltip"/>
-                </ToolTipService.ToolTip>
+            <AppBarButton x:Name="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click" ToolTipService.ToolTip="New">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xE7C3;"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="CmdOpen" x:Uid="CmdOpen" Label="Open"  Width="Auto" MinWidth="40" Click="CmdOpen_Click">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Open (Ctrl+O)" x:Uid="CmdOpenTooltip"/>
-                </ToolTipService.ToolTip>
+            <AppBarButton x:Name="CmdOpen" Label="Open"  Width="Auto" MinWidth="40" Click="CmdOpen_Click" ToolTipService.ToolTip="Open (Ctrl+O)">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xF12B;"/>
                 </AppBarButton.Icon>
@@ -58,10 +48,7 @@
                            Key="O" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:Name="CmdSave" x:Uid="CmdSave" Label="Save" Width="Auto" MinWidth="40" Icon="Save" Click="CmdSave_Click" LabelPosition="Collapsed">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Save (Ctrl+S)" x:Uid="CmdSaveTooltip"/>
-                </ToolTipService.ToolTip>
+            <AppBarButton x:Name="CmdSave" Label="Save" Width="Auto" MinWidth="40" Icon="Save" Click="CmdSave_Click" ToolTipService.ToolTip="Save (Ctrl+S)" LabelPosition="Collapsed">
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator 
                           Modifiers="Control" 
@@ -69,286 +56,63 @@
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarSeparator/>
-            <AppBarButton x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Bold (Ctrl+B)" x:Uid="BoldTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Italic" x:Uid="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Italic (Ctrl+I)" x:Uid="ItalicTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Underline" x:Uid="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Underline (Ctrl+U)" x:Uid="UnderlineTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Strikethrough" x:Uid="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Click="Strikethrough_Click">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
-                </ToolTipService.ToolTip>
+            <AppBarButton x:Name="Bold" Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Bold (Ctrl+B)"/>
+            <AppBarButton x:Name="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Italic (Ctrl+I)"/>
+            <AppBarButton x:Name="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Underline (Ctrl+U)"/>
+            <AppBarButton x:Name="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" ToolTipService.ToolTip="Strikethrough" HorizontalAlignment="Stretch" Margin="0,0,0,0" VerticalAlignment="Center" Click="Strikethrough_Click">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Toggle Bullets" x:Uid="BuTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
+            <AppBarButton x:Name="BulletList" Label="Bullets"  Width="Auto" MinWidth="40" Visibility="Visible" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch" ToolTipService.ToolTip="Toggle Bullets"/>
             <AppBarSeparator/>
-            <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click" Icon="AlignLeft">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Align left (Ctrl+L)" x:Uid="LeftTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Click="Center_Click" Icon="AlignCenter">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Align center (Ctrl+E)" x:Uid="CenterTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Click="Right_Click" Icon="AlignRight">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" >
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
-                </ToolTipService.ToolTip>
+            <AppBarButton x:Name="Left" Label="Left" Width="Auto" MinWidth="40" Click="Left_Click" Icon="AlignLeft" ToolTipService.ToolTip="Align left (Ctrl+L)"/>
+            <AppBarButton x:Name="Center" Label="Center" Width="Auto" MinWidth="40" Click="Center_Click" Icon="AlignCenter" ToolTipService.ToolTip="Align center (Ctrl+E)"/>
+            <AppBarButton x:Name="Right" Label="Right"  Width="Auto" MinWidth="40" Click="Right_Click" Icon="AlignRight" ToolTipService.ToolTip="Align right (Ctrl+R)"/>
+            <AppBarButton x:Name="Justify" Label="Justify"  Width="Auto" MinWidth="40" Click="Justify_Click" ToolTipService.ToolTip="Justify text (Ctrl+J)" Background="{x:Null}" >
                 <AppBarButton.Icon>
                     <BitmapIcon UriSource="/Assets/justify align.png"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" />
-            <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Size Up" x:Uid="SizeUpTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="SizeDown" x:Uid="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Size Down" x:Uid="SizeDownTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
+            <AppBarSeparator x:Name="AlignSeparator" />
+            <AppBarButton x:Name="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease" ToolTipService.ToolTip="Size Up" />
+            <AppBarButton x:Name="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease" ToolTipService.ToolTip="Size Down" />
         </CommandBar>
 
         <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False"  HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,33,0,0">
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind TurnOnFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
-                <AppBarButton x:Name="CmdClassicMode" Click="{x:Bind TurnOnClassicMode}" Label="Classic Mode" Width="Auto">
-                    <AppBarButton.Icon>
-                        <FontIcon Glyph="&#xE8C5;" />
-                    </AppBarButton.Icon>
-                </AppBarButton>
-                <AppBarButton x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" >
-                    <ToolTipService.ToolTip>
-                        <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
-                    </ToolTipService.ToolTip>
-                </AppBarButton>
-                <AppBarButton x:Name="CmdReview" x:Uid="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
-                <AppBarButton x:Name="CmdSettings" x:Uid="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click">
-                    <ToolTipService.ToolTip>
-                        <TextBlock Text="Settings" x:Uid="CmdSettingsTooltip"/>
-                    </ToolTipService.ToolTip>
-                </AppBarButton>
-                <AppBarButton Icon="Cancel" Label="Exit" Width="Auto" Click="CmdExit_Click">
-                    <ToolTipService.ToolTip>
-                        <TextBlock Text="Exit the app"/>
-                    </ToolTipService.ToolTip>
-                </AppBarButton>
+                <AppBarButton x:Name="CmdFocusMode" Click="CmdFocusMode_Click"  Icon="Caption" Label="Focus Mode" Width="Auto"/>
+                <AppBarButton x:Name="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" ToolTipService.ToolTip="Share the file you are working on."/>
+                <AppBarButton x:Name="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
+                <AppBarButton x:Name="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click" ToolTipService.ToolTip="Settings"/>
             </CommandBar.SecondaryCommands>
-            <AppBarButton x:Name="CmdUndo" IsEnabled="{x:Bind CanUndoText, Mode=OneWay}" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Undo (Ctrl+Z)" x:Uid="CmdUndoTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="CmdRedo" IsEnabled="{x:Bind CanRedoText, Mode=OneWay}" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Redo (Ctrl+Y)" x:Uid="CmdRedoTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
+            <AppBarButton x:Name="CmdUndo" Label="Undo"  Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click" ToolTipService.ToolTip="Undo (Ctrl+Z)"/>
+            <AppBarButton x:Name="CmdRedo" Label="Redo"  Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click" ToolTipService.ToolTip="Redo (Ctrl+Y)"/>
             <AppBarSeparator x:Name="ASep1"/>
-            <AppBarToggleButton x:Name="CompactOverlay" x:Uid="CompactOverlay" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" Content="On Top" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center">
+            <AppBarToggleButton x:Name="CompactOverlay" Content="On Top" HorizontalAlignment="Center" Margin="0,0,0,0" VerticalAlignment="Center" Checked="CompactOverlay_Checked" Unchecked="CompactOverlay_Unchecked">
                 <AppBarToggleButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
                 </AppBarToggleButton.KeyboardAccelerators>
             </AppBarToggleButton>
-            <AppBarButton x:Name="Copy" x:Uid="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Copy (Ctrl+C)" x:Uid="CopyTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Paste" x:Uid="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Paste (Ctrl+V)" x:Uid="PasteTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Cut" x:Uid="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Cut (Ctrl+X)" x:Uid="CutTooltip"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
+            <AppBarButton x:Name="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click" ToolTipService.ToolTip="Copy (Ctrl+C)"/>
+            <AppBarButton x:Name="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click" ToolTipService.ToolTip="Paste (Ctrl+V)"/>
+            <AppBarButton x:Name="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click" ToolTipService.ToolTip="Cut (Ctrl+X)"/>
         </CommandBar>
-        
-        <winui:MenuBar x:Name="CommandBarClassic" Canvas.ZIndex="75" HorizontalAlignment="Left" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,33,0,0" Visibility="{x:Bind q:Converter.BoolToVisibility(ClassicModeSwitch), Mode=OneWay}">
-            <winui:MenuBarItem Title="File">
-                <MenuFlyoutItem Text="New" Click="CmdNew_Click">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE7C3;"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Open" Click="CmdOpen_Click">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xF12B;"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save" Click="CmdSave_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Save"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save as..." Click="CmdSaveAs_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Save"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Share" Click="CmdShare_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Share"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Exit" Click="CmdExit_Click">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE8BB;"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-            </winui:MenuBarItem>
-            <winui:MenuBarItem Title="Edit">
-                <MenuFlyoutItem Text="Undo" Click="CmdUndo_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Undo"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Redo" Click="CmdRedo_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Redo"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Cut" Click="Cut_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Cut"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Copy" Click="Copy_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Copy"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Paste" Click="Paste_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Paste"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-            </winui:MenuBarItem>
-            <winui:MenuBarItem Title="Format">
-                <ToggleMenuFlyoutItem Text="Word Wrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}"/>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Bold" Click="Bold_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Bold"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Italic" Click="Italic_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Italic"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Underline" Click="Underline_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Underline"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Strikethrough" Click="Strikethrough_Click">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Bullets" Click="BulletList_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Bullets"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Align leff" Click="Left_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignLeft"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align center" Click="Center_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignCenter"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align right" Click="Right_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignRight"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align justify" Click="Justify_Click">
-                    <MenuFlyoutItem.Icon>
-                        <BitmapIcon UriSource="/Assets/justify align.png"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Size up" Click="SizeUp_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="FontIncrease"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Size down" Click="SizeDown_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="FontDecrease"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-            </winui:MenuBarItem>
-            <winui:MenuBarItem Title="View">
-                <ToggleMenuFlyoutItem Text="Back to default mode" IsChecked="{x:Bind ClassicModeSwitch, Mode=TwoWay}">
-                    <ToggleMenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Back"/>
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
-                <ToggleMenuFlyoutItem Text="Focus Mode" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}">
-                    <ToggleMenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Caption"/>
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
-                <ToggleMenuFlyoutItem Text="Overlay mode" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}">
-                    <ToggleMenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE158;" />
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
-            </winui:MenuBarItem>
-            <winui:MenuBarItem Title="Help">
-                <MenuFlyoutItem Text="Settings" Click="CmdSettings_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Setting"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Rate and Review" Click="CmdReview_Click">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="SolidStar"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-            </winui:MenuBarItem>
-        </winui:MenuBar>
 
-        <RichEditBox x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}"/>
+        <RichEditBox  x:Name="Text1" Drop="Text1_Drop" TextChanging="Text1_TextChanging" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" FontSize="18"  Style="{StaticResource RichEditBox}"/>
+
+        <ContentDialog x:Name="SaveDialog" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}">
+
+            <StackPanel HorizontalAlignment="Stretch" Height="120" VerticalAlignment="Stretch">
+                <Grid>
+                    <TextBlock Text="Quick Pad" FontSize="24"/>
+                    <TextBlock Text="Would you like to save your changes?" Margin="0,37,0,0"/>
+                    <Button Content="Yes" x:Name="SaveDialogYes" Click="SaveDialogYes_Click" Windows10version1809:CornerRadius="2" Margin="-167,85,0,0" Width="80" HorizontalAlignment="Center"/>
+                    <Button Content="No" x:Name="SaveDialogNo" Click="SaveDialogNo_Click" Windows10version1809:CornerRadius="2" Margin="0,85,0,0" Width="80" HorizontalAlignment="Center"/>
+                    <Button Content="Cancel" x:Name="SaveDialogCancel" Click="SaveDialogCancel_Click"  Windows10version1809:CornerRadius="2" Margin="168,85,0,0" Width="80" HorizontalAlignment="Center"/>
+                </Grid>
+            </StackPanel>
+        </ContentDialog>
 
         <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
            Opened="Settings_Opened">
@@ -357,104 +121,99 @@
                     <CommandBar x:Name="CmdSettingsBack" Canvas.ZIndex="100" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{x:Null}" Margin="0,0,0,0">
                         <AppBarButton x:Name="CmdBack" Windows10version1809:CornerRadius="2" Width="40" Icon="Clear" Click="CmdBack_Click"/>
                     </CommandBar>
-                    <Pivot x:Name="SettingsPivot" x:Uid="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
+                    <Pivot x:Name="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
                         <Pivot.HeaderTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding}" FontSize="20" FontFamily="Segoe UI"/>
                             </DataTemplate>
                         </Pivot.HeaderTemplate>
-                        <PivotItem Header="General" x:Name="SettingsTab1" x:Uid="SettingsTab1">
-                            <ScrollViewer x:Name="SettingsTab1SV" Height="200">
+                        <PivotItem Header="General" x:Name="SettingsTab1">
+                            <ScrollViewer x:Name="SettingsTab1SV"  Height="200">
                                 <Grid Height="340">
-                                    <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode" Margin="0,10,23,87" TextWrapping="Wrap"/>
-                                    <ComboBox Margin="0,35,0,0" x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                                        <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
-                                        <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
-                                        <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
-                                        <ComboBoxItem Content="Classic Mode" Tag="Classic Mode" x:Uid="LaunchModeClassic" x:Name="LaunchModeClassic"/>
+                                    <TextBlock Text="Launch Mode" Margin="0,10,23,87" TextWrapping="Wrap"/>
+                                    <ComboBox Margin="0,35,0,0" PlaceholderText="Default" SelectionChanged="LaunchOptions_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                        <x:String>Default</x:String>
+                                        <x:String>On Top</x:String>
+                                        <x:String>Focus Mode</x:String>
                                     </ComboBox>
-                                    <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type" Margin="0,80,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
-                                    <ComboBox Margin="0,105,0,0" PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                    <TextBlock Text="Default File Type" Margin="0,80,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
+                                    <ComboBox Margin="0,105,0,0" PlaceholderText=".rtf" SelectionChanged="DefaultFileType_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                         <x:String>.rtf</x:String>
                                         <x:String>.txt</x:String>
                                     </ComboBox>
-                                    <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save" Margin="0,150,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
-                                    <TextBlock x:Uid="WordWrap" Text="Word Wrap" Margin="0,215,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.WordWrap, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
-                                    <TextBlock x:Uid="SpellCheck" Text="Spell Check" Margin="0,280,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" />
+                                    <TextBlock Text="Auto Save" Margin="0,150,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="AutoSaveSwitch" OnContent="On" OffContent="Off" Toggled="AutoSaveSwitch_Toggled" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
+                                    <TextBlock Text="Word Wrap" Margin="0,215,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="WordWrap" OnContent="On" OffContent="Off" Toggled="WordWrap_Toggled" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
+                                    <TextBlock Text="Spell Check" Margin="0,280,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
+                                    <ToggleSwitch x:Name="SpellCheck" OnContent="On" OffContent="Off" Toggled="SpellCheck_Toggled" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" />
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>
-                        <PivotItem Header="Theme" x:Name="SettingsTab2" x:Uid="SettingsTab2">
+                        <PivotItem Header="Theme" x:Name="SettingsTab2">
                             <Grid Height="200">
-                                <TextBlock x:Uid="AppTheme" Text="App Theme" Margin="0,5,0,0" TextWrapping="Wrap" FontSize="18"/>
-                                <RadioButton x:Name="Light" Tag="Light" x:Uid="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,40,0,0" VerticalAlignment="Top" Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" Grid.RowSpan="2"/>
-                                <RadioButton x:Name="Dark" Tag="Dark" x:Uid="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,80,0,0" VerticalAlignment="Top" Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
-                                <RadioButton x:Name="SystemDefault" Tag="Default" x:Uid="SystemDefault" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,120,0,0" VerticalAlignment="Top"  Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" Grid.RowSpan="1"/>
+                                <TextBlock Text="App Theme" Margin="0,5,0,0" TextWrapping="Wrap" FontSize="18"/>
+                                <RadioButton x:Name="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,40,0,0" VerticalAlignment="Top" Width="242" Click="Light_Click" Grid.RowSpan="2"/>
+                                <RadioButton x:Name="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,80,0,0" VerticalAlignment="Top" Width="242" Click="Dark_Click"/>
+                                <RadioButton x:Name="SystemDefault" IsChecked="True" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,120,0,0" VerticalAlignment="Top"  Width="242" Click="SystemDefault_Click" Grid.RowSpan="1"/>
                             </Grid>
                         </PivotItem>
-                        <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
+                        <PivotItem Header="Font" x:Name="SettingsTab3">
                             <Grid Height="200">
-                                <TextBlock x:Uid="DefaultFont" Text="Default Font" Margin="0,5,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,30,0,0" SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
-                                <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" Margin="0,70,0,0" TextWrapping="Wrap"/>
-                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Margin="0,95,0,0" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" Width="69" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                                    <x:Int32>4</x:Int32>
-                                    <x:Int32>6</x:Int32>
-                                    <x:Int32>8</x:Int32>
-                                    <x:Int32>10</x:Int32>
-                                    <x:Int32>12</x:Int32>
-                                    <x:Int32>14</x:Int32>
-                                    <x:Int32>16</x:Int32>
-                                    <x:Int32>18</x:Int32>
-                                    <x:Int32>20</x:Int32>
-                                    <x:Int32>22</x:Int32>
-                                    <x:Int32>24</x:Int32>
-                                    <x:Int32>26</x:Int32>
-                                    <x:Int32>28</x:Int32>
-                                    <x:Int32>36</x:Int32>
-                                    <x:Int32>48</x:Int32>
-                                    <x:Int32>72</x:Int32>
+                                <TextBlock Text="Default Font" Margin="0,5,0,0" TextWrapping="Wrap"/>
+                                <ComboBox Margin="0,30,0,0" Windows10version1809:CornerRadius="2" SelectionChanged="DefaultFont_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" x:Name="DefaultFont" PlaceholderText="Segoe UI" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
+                                <TextBlock Text="Default Font Size" Margin="0,70,0,0" TextWrapping="Wrap"/>
+                                <ComboBox Margin="0,95,0,0" Windows10version1809:CornerRadius="2" x:Name="DefaultFontSize" SelectionChanged="DefaultFontSize_SelectionChanged" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" Width="69" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                    <x:String>4</x:String>
+                                    <x:String>6</x:String>
+                                    <x:String>8</x:String>
+                                    <x:String>10</x:String>
+                                    <x:String>12</x:String>
+                                    <x:String>14</x:String>
+                                    <x:String>16</x:String>
+                                    <x:String>18</x:String>
+                                    <x:String>20</x:String>
+                                    <x:String>22</x:String>
+                                    <x:String>24</x:String>
+                                    <x:String>26</x:String>
+                                    <x:String>28</x:String>
+                                    <x:String>36</x:String>
+                                    <x:String>48</x:String>
+                                    <x:String>72</x:String>
                                 </ComboBox>
-                                <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color" Margin="0,135,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate x:DataType="qfe:FontColorItem">
-                                            <StackPanel Orientation="Horizontal">
-                                                <!--Default font color-->
-                                                <Rectangle Width="14" Height="14" Fill="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="{x:Bind q:Converter.IfStringMatchShow(TechnicalName, 'Default'), Mode=OneWay}" />
-                                                <!--Other font color-->
-                                                <Rectangle Width="14" Height="14" Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}" Visibility="{x:Bind q:Converter.IfStringMatchHide(TechnicalName, 'Default'), Mode=OneWay}" />
-                                                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
+                                <TextBlock Text="Default Font Color" Margin="0,135,0,0" TextWrapping="Wrap"/>
+                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" SelectionChanged="DefaultFontColor_SelectionChanged" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                    <x:String>Black</x:String>
+                                    <x:String>White</x:String>
+                                    <x:String>SkyBlue</x:String>
+                                    <x:String>LightGreen</x:String>
+                                    <x:String>LightPink</x:String>
+                                    <x:String>LightYellow</x:String>
+                                    <x:String>LightSalmon</x:String>
                                 </ComboBox>
                             </Grid>
                         </PivotItem>
-                        <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
+                        <PivotItem Header="Toolbar" x:Name="SettingsTab4">
                             <ScrollViewer x:Name="SettingsTab2SV"  Height="200">
                                 <Grid Height="275">
-                                    <ToggleSwitch x:Name="ShowStrikethrough" IsOn="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                                    <ToggleSwitch x:Name="ShowBullets" IsOn="{x:Bind QSetting.ShowBullets, Mode=TwoWay}" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 50,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignLeft" IsOn="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,95,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignCenter" IsOn="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,140,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignRight" IsOn="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,185,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignJustify" IsOn="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,230,0,0"/>
+                                    <ToggleSwitch x:Name="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Toggled="ShowStrikethrough_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
+                                    <ToggleSwitch x:Name="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Toggled="ShowBullets_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 50,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Toggled="ShowAlignLeft_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,95,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Toggled="ShowAlignCenter_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,140,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Toggled="ShowAlignRight_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,185,0,0"/>
+                                    <ToggleSwitch x:Name="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Toggled="ShowAlignJustify_Toggled" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,230,0,0"/>
                                 </Grid>
                             </ScrollViewer>
                         </PivotItem>
-                        <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
+                        <PivotItem Header="About" x:Name="SettingsTab5">
                             <Grid Height="200">
                                     <TextBlock Text="Version number" x:Name="VersionNumber" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe UI"/>
-                                    <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
-                                    <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" Margin="0,65,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
-                                    <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
-                                    <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
-                                    <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" Margin="0,140,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
-                            </Grid>
+                                    <TextBlock Text="Developed by Yair Aichenbaum" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
+                                    <TextBlock Text="Icon desgin by James Arney" Margin="0,65,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
+                                <HyperlinkButton Content="Send Feedback" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
+                                    <HyperlinkButton Content="Rate and review" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
+                                    <HyperlinkButton Content="Contribute to the developer" Margin="0,140,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
+                                </Grid>
                         </PivotItem>
                     </Pivot>
                     <Grid>
@@ -480,34 +239,411 @@
                     <Frame x:Name="FontBoxFrame" Width="167" Height="37" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
                     <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Segoe UI" Canvas.Left="10" Canvas.Top="11" Canvas.ZIndex="100"/>
                     <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="145" Canvas.Top="13" Canvas.ZIndex="100"/>
-                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
+                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
-            <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor">
-                <ToolTipService.ToolTip>
-                    <TextBlock Text="Font Color" x:Uid="TextColorTooltip"/>
-                </ToolTipService.ToolTip>
+            <AppBarButton x:Name="TextColor" Width="40" Icon="FontColor" ToolTipService.ToolTip="Font Color">
                 <AppBarButton.Flyout>
                     <MenuFlyout>
-                        <MenuFlyoutItem x:Name="Black" x:Uid="TextColorBlack" Tag="Black" Text="Black" Click="SetFormatColor" />
-                        <MenuFlyoutItem x:Name="White" x:Uid="TextColorWhite" Tag="White" Text="White" Click="SetFormatColor" />
-                        <MenuFlyoutItem x:Name="Yellow" x:Uid="TextColorYellow" Tag="LightYellow" Text="Yellow" Click="SetFormatColor" />
-                        <MenuFlyoutItem x:Name="Blue" x:Uid="TextColorBlue" Tag="SkyBlue" Text="Blue" Click="SetFormatColor" />
-                        <MenuFlyoutItem x:Name="Pink" x:Uid="TextColorPink" Tag="LightPink" Text="Pink" Click="SetFormatColor" />
-                        <MenuFlyoutItem x:Name="Orange" x:Uid="TextColorOrange" Tag="LightSalmon" Text="Orange" Click="SetFormatColor" />
-                        <MenuFlyoutItem x:Name="Green" x:Uid="TextColorGreen" Tag="LightGreen" Text="Green" Click="SetFormatColor" />
+                        <MenuFlyoutItem x:Name="Black" Text="Black" Click="Black_Click" />
+                        <MenuFlyoutItem x:Name="White" Text="White" Click="White_Click" />
+                        <MenuFlyoutItem x:Name="Yellow" Text="Yellow" Click="Yellow_Click" />
+                        <MenuFlyoutItem x:Name="Blue" Text="Blue" Click="Blue_Click" />
+                        <MenuFlyoutItem x:Name="Pink" Text="Pink" Click="Pink_Click" />
+                        <MenuFlyoutItem x:Name="Orange" Text="Orange" Click="Orange_Click" />
+                        <MenuFlyoutItem x:Name="Green" Text="Green" Click="Green_Click" />
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-            <AppBarButton x:Name="Emoji" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
+            <AppBarToggleButton x:Name="Emoji" Width="40" Icon="Emoji2" Checked="Emoji_Checked" Unchecked="Emoji_Unchecked"/>
         </CommandBar>
+       
+        <controls:DropShadowPanel x:Name="Emoji2" Margin="0,0,0,40" Grid.RowSpan="1" VerticalAlignment="Bottom"
+                                  Canvas.ZIndex="1000"
+                                  ShadowOpacity=".3"
+                                  OffsetX="0"
+                                  OffsetY="0"
+                                  HorizontalAlignment="Right"
+                                  Visibility="Collapsed"
+                                  HorizontalContentAlignment="Stretch" Width="265" Height="193">
 
+
+            <Frame x:Name="EmojiPanel" Visibility="Visible" HorizontalAlignment="Right" Height="191" VerticalAlignment="Bottom" Width="263" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="#FFA7A2A2" BorderThickness=".5,.5,0,0" Margin="0,0,1,1">
+                <StackPanel HorizontalAlignment="Stretch" Margin="-1.333,-0.333,0.666,0" VerticalAlignment="Stretch">
+                    <Pivot x:Name="EmojiPivot"  HorizontalAlignment="Stretch" Margin="0,0,-0.333,0" VerticalAlignment="Stretch">
+                        <PivotItem Header="🙂">
+                            <GridView Visibility="Visible" LostFocus="EmojiPanel_LostFocus" BorderThickness=".5" Height="148" Margin="0,0,-16,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Button x:Name="E1" Content="😀" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E2" Content="😁" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E3" Content="😂" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E4" Content="🤣" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E5" Content="😃" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E6" Content="😄" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E7" Content="😅" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E8" Content="😆" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E9" Content="😉" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E10" Content="😊" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E11" Content="😋" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E12" Content="😎" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E13" Content="😍" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E14" Content="😘" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E15" Content="🥰" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E16" Content="😗" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E17" Content="😙" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E18" Content="😚" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E19" Content="☺" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E20" Content="🙂" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E21" Content="🤗" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E22" Content="🤩" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E23" Content="🤔" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E24" Content="🤨" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E25" Content="😐" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E26" Content="😑" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E27" Content="😶" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E28" Content="🙄" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E29" Content="😏" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E30" Content="😣" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E31" Content="😥" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E32" Content="😮" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E33" Content="🤐" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E34" Content="😯" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E35" Content="😪" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E36" Content="😫" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E37" Content="😴" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E38" Content="😌" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E39" Content="😛" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E40" Content="😜" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E41" Content="😝" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E42" Content="🤤" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E43" Content="😒" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E44" Content="😓" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E45" Content="😔" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E46" Content="😕" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E47" Content="🙃" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E48" Content="🤑" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E49" Content="😲" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E50" Content="☹" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E51" Content="🙁" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E52" Content="😖" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E53" Content="😞" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E54" Content="😤" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E56" Content="😢" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E57" Content="😭" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E58" Content="😦" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E59" Content="😧" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E60" Content="😨" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E61" Content="😩" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E62" Content="🤯" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E63" Content="😬" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E64" Content="😰" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E65" Content="😱" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E66" Content="🥵" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E67" Content="🥶" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E68" Content="😳" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E69" Content="🤪" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E70" Content="😵" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E71" Content="🥴" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E72" Content="😠" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E73" Content="😡" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E74" Content="🤬" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E75" Content="😷" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E76" Content="🤒" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E77" Content="🤕" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E78" Content="🤢" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E79" Content="🤮" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E80" Content="🤧" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E81" Content="😇" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E82" Content="🥳" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E83" Content="🥺" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E84" Content="🤠" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E85" Content="🤡" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E86" Content="🤥" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E87" Content="🤫" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E88" Content="🤭" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E89" Content="🧐" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E90" Content="🤓" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E91" Content="😈" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E92" Content="👿" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E93" Content="👹" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E94" Content="👺" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E95" Content="💀" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E96" Content="☠" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E97" Content="👻" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E98" Content="👽" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E99" Content="👾" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E100" Content="🤖" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E101" Content="😺" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E102" Content="😸" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E103" Content="😹" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E104" Content="😻" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E105" Content="😼" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E106" Content="😽" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E107" Content="🙀" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E108" Content="😿" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E109" Content="😾" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E110" Content="🐱‍👤" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E111" Content="🐱‍🏍" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E112" Content="🐱‍💻" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E113" Content="🐱‍🐉" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E114" Content="🐱‍👓" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E115" Content="🐱‍🚀" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E116" Content="🙈" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E117" Content="🙉" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E118" Content="🙊" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E119" Content="🐵" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E120" Content="🐶" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E121" Content="🐺" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E122" Content="🐱" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E123" Content="🦁" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E124" Content="🐯" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E125" Content="🦒" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E126" Content="🦊" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E127" Content="🦝" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E128" Content="🐮" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E129" Content="🐷" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E130" Content="🐗" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E131" Content="🐭" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E132" Content="🐹" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E133" Content="🐰" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E134" Content="🐻" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E135" Content="🐨" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E136" Content="🐼" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E137" Content="🐸" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E138" Content="🦓" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E139" Content="🐴" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E140" Content="🦄" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E141" Content="🐔" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E142" Content="🐲" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E143" Content="🐾" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E144" Content="🐒" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E145" Content="🦍" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E146" Content="🦧" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E147" Content="🦮" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E148" Content="🐕‍🦺" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E149" Content="🐩" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E150" Content="🐕" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button x:Name="E151" Content="🐈" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button Content="🐅" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button Content="🐆" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button Content="🐎" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button Content="🦌" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button Content="🦏" Click="EmojiSub" Width="40" Height="40"/>
+                                <Button Content="🦛" Click="EmojiSub" Width="40" Height="40"/>
+                            </GridView>
+                        </PivotItem>
+                        <PivotItem Header=";-)">
+                            <GridView  Visibility="Visible" BorderThickness=".5" Height="148" Margin="0,0,-16,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <Button x:Name="K1" Content=";)" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K2" Content="^_~" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K3" Content=";-)" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K4" Content=":)" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K5" Content="^_^" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K6" Content=":-)" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K7" Content=":D" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K8" Content="^0^" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K9" Content=":-D" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button x:Name="K11" Content=":P" Click="EmojiSub" Width="76" Height="40"/>
+                                <Button x:Name="K12" Content=":-P" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button x:Name="K13" Content=";P" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button x:Name="K14" Content=":(" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button x:Name="K15" Content=":-(" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button x:Name="K16" Content="U_U" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button x:Name="K17" Content=":[" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button x:Name="K18" Content=">:(" Click="EmojiSub"  Width="76" Height="40"/>
+                                <Button x:Name="K19" Content="&gt;&quot;&lt;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K20" Content="):" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K21" Content=":-O" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K22" Content="O.O" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K23" Content=":-()" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K24" Content="~_~" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K25" Content="^o^" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K26" Content=":-S" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K27" Content="&lt;3" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K28" Content="^3^" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K29" Content=":-x" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K30" Content=":/" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K31" Content="X_X" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K32" Content="=/" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K33" Content=";(" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K34" Content="T_T" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K35" Content=";[" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K36" Content="+_+" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K37" Content="O_O" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K38" Content=":O" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K39" Content="¬_¬" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K40" Content=";_;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K41" Content="=.=" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K42" Content=";]" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K43" Content="^_+" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K44" Content=";O)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K45" Content=":-]" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K46" Content="^.^" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K47" Content="=)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K48" Content=":O)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K49" Content=":-3" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K50" Content="=D" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K51" Content=":|" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K52" Content="-.-" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K53" Content="&gt;_&lt;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K54" Content=":O(" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K55" Content="*_*" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K56" Content="=[" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K57" Content="8-)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K58" Content="^^;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K59" Content=":-*" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K60" Content="B-)" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K61" Content="=_=" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K62" Content="-0-" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K63" Content=":S" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K64" Content="$_$" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K65" Content=":-$" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K66" Content="&gt;.&lt;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K67" Content="-_-" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K68" Content="&gt; &lt;" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K69" Content=":]" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K70" Content="^^" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K71" Content="=]" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K72" Content=";D" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K73" Content="^_-" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K74" Content="=P" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K75" Content=":'(" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K76" Content="Y.Y" Click="EmojiSub"   Width="76" Height="40"/>
+                                <Button x:Name="K77" Content="=(" Click="EmojiSub"   Width="76" Height="40"/>
+                            </GridView>
+                        </PivotItem>
+                        <PivotItem Header="Ω" HorizontalAlignment="Left" Margin="10,0,0,0" Width="252" VerticalAlignment="Stretch">
+                            <GridView  Visibility="Visible" BorderThickness=".5" HorizontalAlignment="Center" Height="148" VerticalAlignment="Center" Width="256" Margin="0,0,0,0">
+                                <Button x:Name="S1" Content="(" Click="EmojiSub"  Width="40" Height="40"/>
+                                <Button x:Name="S2" Content=")" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S3" Content="&lt;" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S4" Content=">" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S5" Content="⁅" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S6" Content="⁆" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S7" Content="|" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S8" Content="+" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S9" Content="[" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S10" Content="]" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S11" Content="‹" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S12" Content="›" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S13" Content="⁽" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S14" Content="⁾" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S15" Content="¦" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S16" Content="-" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S17" Content="{}{" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S18" Content="}" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S19" Content="«" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S20" Content="»" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S21" Content="©" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S22" Content="®" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S23" Content="℗" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S24" Content="™" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S25" Content="×" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S26" Content="=" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S27" Content="'" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S28" Content="'" Click="EmojiSub"  Width="40" Height="40"/>
+                                <Button x:Name="S29" Content="'" Click="EmojiSub"    Width="40" Height="40"/>
+                                <Button x:Name="S30" Content="'" Click="EmojiSub"    Width="40" Height="40"/>
+                                <Button x:Name="S31" Content="'" Click="EmojiSub"    Width="40" Height="40"/>
+                                <Button x:Name="S32" Content="¬" Click="EmojiSub"    Width="40" Height="40"/>
+                                <Button x:Name="S33" Content="÷" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S34" Content="–" Click="EmojiSub"    Width="40" Height="40"/>
+                                <Button x:Name="S35" Content="—" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S36" Content="“" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S37" Content="”" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S38" Content="„" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S39" Content="‟" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S40" Content="⁄" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S41" Content="°" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S42" Content="℃" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S43" Content="℉" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S44" Content="*" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S45" Content="⁕" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S46" Content="§" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S47" Content="⁎" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S48" Content="′" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S49" Content="‵" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S50" Content="•" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S51" Content="·" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S52" Content="․" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S53" Content="⁞" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S54" Content="⁛" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S55" Content="⁑" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S56" Content="″" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S57" Content="‶" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S58" Content="‣" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S59" Content="‥" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S60" Content="⁚" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S61" Content="⁖" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S62" Content="⁙" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S63" Content="⁂" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S64" Content="‴" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S65" Content="‷" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S66" Content="⁗" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S67" Content="…" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S68" Content="⁝" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S69" Content="⁘" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S70" Content="⁏;" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S71" Content="!" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S72" Content="¡" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S73" Content="‼" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S74" Content="%" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S75" Content="⁔" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S76" Content="⁀" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S77" Content="¨" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S78" Content=":" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S79" Content="?" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S80" Content="¿" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S81" Content="⁈" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S82" Content="‰" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S83" Content="‿" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S84" Content="⁐" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S85" Content="¶" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S86" Content="_" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S87" Content="&amp;" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S88" Content="‽" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S89" Content="⁇" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S90" Content="‱" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S91" Content="⁒" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S92" Content="⁁" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S93" Content="‸" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S94" Content="`" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S95" Content="'" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S96" Content="^" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S97" Content="⁊" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S98" Content="ª" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S99" Content="⁌" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S100" Content="⁍" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S101" Content="⁋" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S102" Content="¯" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S103" Content="~" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S104" Content="⁓" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S105" Content="º" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S106" Content="‖" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S107" Content="⁜" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S108" Content="¸" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S109" Content="‾" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S110" Content="±" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S111" Content="µ" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S112" Content="♪" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S113" Content="‗" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S114" Content="※" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S115" Content="$" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S116" Content="¤" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S117" Content="؋" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S118" Content="৻" Click="EmojiSub"   Width="40" Height="40"/>
+                                <Button x:Name="S119" Content="฿" Click="EmojiSub"   Width="40" Height="40"/>
+                            </GridView>
+                        </PivotItem>
+
+                    </Pivot>
+                </StackPanel>
+            </Frame>
+        </controls:DropShadowPanel>
         <Grid x:Name="Title" Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch" Margin="0,0,0,0">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{x:Bind CurrentFilename, Mode=OneWay}"
+                <TextBlock x:Name="TQuick" Text="Quick Pad"
                            Style="{ThemeResource CaptionTextBlockStyle}"
-                           VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
-                           Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}"/>
+                           VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
             </StackPanel>
         </Grid>
     </Grid>
