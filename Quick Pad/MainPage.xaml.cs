@@ -1,20 +1,28 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
 using Newtonsoft.Json.Linq;
+using QuickPad;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.ApplicationModel.Resources;
 using Windows.Services.Store;
 using Windows.Storage;
 using Windows.System;
 using Windows.UI;
 using Windows.UI.Core;
-using Windows.UI.Popups;
+using Windows.UI.StartScreen;
 using Windows.UI.Text;
 using Windows.UI.ViewManagement;
+using Windows.UI.ViewManagement.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -24,17 +32,39 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Quick_Pad_Free_Edition
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
-        private string UpdateFile = "New Document"; //Default file name is "New Document"
-        private String FullFilePath; //this is the opened files full path
-        private string key; //future access list
-        private bool _isPageLoaded = false;
-        private Int64 LastFontSize; //this value is the last selected characters font size
-        ApplicationDataContainer localSettings = Windows.Storage.ApplicationData.Current.LocalSettings;
-        private String SaveDialogValue; //this is to know if the user clicks cancel when asked if they want to save
-        private string DefaultFileExt; //this is to check the default file extension choosen in the save file dialog
-        public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
+        #region Notification overhead, no need to write it thousands times on set { }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Set property and also alert the UI if the value is changed
+        /// </summary>
+        /// <param name="value">New value</param>
+        public void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
+        {
+            if (!Equals(storage, value))
+            {
+                storage = value;
+                NotifyPropertyChanged(propertyName);
+            }
+        }
+
+        /// <summary>
+        /// Alert the UI there is a change in this property and need update
+        /// </summary>
+        /// <param name="name"></param>
+        public void NotifyPropertyChanged(string name)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        #endregion
+
+        public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
+
+        public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
+
+        public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
         public MainPage()
         {
             InitializeComponent();
@@ -45,14 +75,21 @@ namespace Quick_Pad_Free_Edition
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
-            TQuick.Text = UpdateFile; //Displays file name on title bar
-
+            //Subscribe to events
+            QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
+            UpdateUIAccordingToNewTheme(QSetting.Theme);
+            QSetting.afterFontSizeChanged += UpdateText1FontSize;
+            UpdateText1FontSize(QSetting.DefaultFontSize);
+            QSetting.afterAutoSaveChanged += UpdateAutoSave;
+            //Match the formatted text with the initial content
+            //As it technically not empty but contain format size text
+            SetANewChange();
+            //
+            CreateItems();
             LoadSettings();
             LoadFonts();
-            CheckToolbarOptions(); //check which buttons to show in toolbar
-            CheckTheme(); //check the theme
 
-            VersionNumber.Text = string.Format("Version: {0}.{1}.{2}.{3}", Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
+            VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
             //check if focus is on app or off the app
             Window.Current.CoreWindow.Activated += (sender, args) =>
@@ -68,285 +105,207 @@ namespace Quick_Pad_Free_Edition
             {
                 var deferral = e.GetDeferral();
 
-                if (TQuick.Text == UpdateFile)
+                if (!Changed)
                 {
-                    deferral.Complete();
+                    //No change made, either new document or file saved
+                    deferral.Complete();                   
+                }
+                else
+                {
+                    //In case if all the change is just nothing but format
+                    Text1.TextDocument.GetText(TextGetOptions.None, out string change);
+                    if (string.IsNullOrEmpty(change))
+                    {
+                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
+                        deferral.Complete();
+                    }
                 }
 
                 //close dialogs so the app does not hang
-                SaveDialog.Hide();
+                WantToSave.Hide();
                 Settings.Hide();
+                
+                await WantToSave.ShowAsync();
 
-                await SaveDialog.ShowAsync();
-
-                if (SaveDialogValue != "Cancel")
+                switch (WantToSave.DialogResult)
                 {
-                    deferral.Complete();
+                    case DialogResult.Yes:
+                        await SaveWork();
+                        deferral.Complete();
+                        break;
+                    case DialogResult.No:
+                        deferral.Complete();
+                        break;
+                    case DialogResult.Cancel:
+                        e.Handled = true;
+                        deferral.Complete();
+                        break;
                 }
-
-                if (SaveDialogValue== "Cancel")
-                {
-                    e.Handled = true;
-                    deferral.Complete();
-                }
-
-                SaveDialogValue = ""; //reset save dialog    
             };
 
             CheckPushNotifications(); //check for push notifications
+
+            AddJumplists();
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
         }
 
-        public void send(object source, System.Timers.ElapsedEventArgs e)
+        private void UpdateAutoSave(bool to)
         {
-            //timer for auto save
-#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
-            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+            if (to)
             {
-                if (TQuick.Text != UpdateFile)
-                {
-                    try
-                    {
-                        var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
-                        if ((result.ToLower() != ".rtf"))
-                        {
-                            //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.None, out var value);
-                            await PathIO.WriteTextAsync(FullFilePath, value);
-                            TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                        }
-                        if (result.ToLower() == ".rtf")
-                        {
-                            //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                            await PathIO.WriteTextAsync(FullFilePath, value);
-                            TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                        }
-                    }
-                    catch (Exception) { }
-                }
-            });
-#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+                timer.Enabled = true;
+                timer.Start();
+            }
+            else
+            {
+                timer.Enabled = false;
+                timer.Stop();
+            }
+        }
+
+        #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
+        private void UpdateUIAccordingToNewTheme(ElementTheme to)
+        {
+            //Is it dark theme or light theme? Just in case if it default, get a theme info from application
+            bool isDarkTheme = to == ElementTheme.Dark;
+            if (to == ElementTheme.Default)
+            {
+                isDarkTheme = App.Current.RequestedTheme == ApplicationTheme.Dark;
+            }
+            //Tell analytics what theme is selected
+            if (to == ElementTheme.Default)
+            {
+                Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme from a system, which is {(isDarkTheme ? "dark theme" : "light theme")}");
+            }
+            else
+            {
+                Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme");
+            }
+            //Make the minimize, maxamize and close button visible
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            if (isDarkTheme)
+            {
+                titleBar.ButtonForegroundColor = Colors.White;
+            }
+            else
+            {
+                titleBar.ButtonForegroundColor = Colors.Black;
+            }
+
+            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
+
+            //Update combobox items font color collection
+
+            if (QSetting.DefaultFontColor == "Default")
+            {
+                Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+            }
+        }
+
+        private void UpdateText1FontSize(int to)
+        {
+            Text1.Document.Selection.CharacterFormat.Size = to; //set the font size
         }
 
         public void LaunchCheck()
         {
             //check what mode to launch the app in
-            String launchValue = localSettings.Values["LaunchMode"] as string;
-
-            if (launchValue == "On Top")
+            switch ((AvailableModes)QSetting.LaunchMode)
             {
-                CompactOverlay.IsChecked = true; //launch compact overlay mode
-                LaunchOptions.SelectedValue = "On Top";
+                case AvailableModes.Focus:
+                    SwitchFocusMode(true);
+                    break;
+                case AvailableModes.OnTop:
+                    //TODO:Launch compact overlay mode
+                    SwitchCompactOverlayMode(true);
+                    break;
+                case AvailableModes.Classic:
+                    SwitchClassicMode(true);
+                    break;
             }
+        }
 
-            if (launchValue == "Focus Mode")
+        private void CreateItems()
+        {
+            FontColorCollections = new ObservableCollection<FontColorItem>
             {
-                SwitchToFocusMode();
-                LaunchOptions.SelectedValue = "Focus Mode";
-            }
-
-            if (launchValue == "Default") LaunchOptions.SelectedValue = "Default";
+                new FontColorItem(),
+                new FontColorItem("Black"),
+                new FontColorItem("White"),
+                new FontColorItem("Blue", "SkyBlue"),
+                new FontColorItem("Green", "LightGreen"),
+                new FontColorItem("Pink", "LightPink"),
+                new FontColorItem("Yellow", "LightYellow"),
+                new FontColorItem("Orange", "LightSalmon")
+            };
         }
 
         private void LoadSettings()
         {
-            DefaultFileExt = localSettings.Values["DefaultFileType"] as string; //get the default file type
-            if (DefaultFileExt == ".txt") DefaultFileType.SelectedValue = ".txt";
-
             //check if auto save is on or off
-            String launchValue = localSettings.Values["AutoSave"] as string;
-            if (launchValue == "Off")
+            //start auto save timer
+            timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
+            timer.AutoReset = true;
+            if (QSetting.AutoSave)
             {
-                AutoSaveSwitch.IsOn = false; //keep auto save switch off in settings panel.
-            }
-            else
-            {
-                AutoSaveSwitch.IsOn = true; //turn auto save switch on in settings panel.
-
-                //start auto save timer
                 timer.Enabled = true;
-                timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
-                timer.AutoReset = true;
-            }
-
-            //check if word wrap is on or off
-            String WordWrapSetting = localSettings.Values["WordWrap"] as string;
-            if (WordWrapSetting == "No")
-            {
-                WordWrap.IsOn = false; //keep word wrap switch off in settings panel.
-                Text1.TextWrapping = TextWrapping.NoWrap; //turn off word wrap
+                timer.Start();
             }
             else
             {
-                WordWrap.IsOn = true; //turn word wrap switch on in settings panel.
-                Text1.TextWrapping = TextWrapping.Wrap; //turn on word wrap
+                timer.Enabled = false;
             }
 
-            //check if spell check is on or off
-            String spellchecksetting = localSettings.Values["SpellCheck"] as string;
-            if (spellchecksetting == "No")
+            QSetting.NewUser++;
+            if (QSetting.NewUser == 2)
             {
-                SpellCheck.IsOn = false; //keep spell check switch off in settings panel.
-                Text1.IsSpellCheckEnabled = false; //turn spell check off
-            }
-            else
-            {
-                SpellCheck.IsOn = true; //turn spell check switch on in settings panel.
-                Text1.IsSpellCheckEnabled = true; //turn spell on
-            }
-
-            //check how many times the app was run
-            String NewUser = localSettings.Values["NewUser"] as string;
-            if (NewUser == "1") //second time using the app
-            {
-                localSettings.Values["NewUser"] = "2";
                 NewUserFeedbackAsync(); //call method that asks user if they want to review the app
-            }
-            if (NewUser != "1" && NewUser != "2") //first time using the app
-            {
-                localSettings.Values["NewUser"] = "1";
             }
         }
 
         private void LoadFonts()
         {
-            //add all installed fonts to the font box
-            string[] fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies();
-            foreach (string font in fonts)
-            {
-                Fonts.Items.Add(string.Format(font));
-                DefaultFont.Items.Add(string.Format(font));
-            }
+            //Load all fonts
+            List<string> fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies().ToList();
+            //Sort it in alphabet order
+            fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
+            //Put it on an observable list
+            AllFonts = new ObservableCollection<string>(fonts);
         }
 
-        private void CheckTheme()
+        private async void AddJumplists()
         {
-            //get some theme settings in
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            var all = await JumpList.LoadCurrentAsync();
 
-            String localValue = localSettings.Values["Theme"] as string;
-            if (localValue == "Light") //light theme is on
+            all.SystemGroupKind = JumpListSystemGroupKind.None;
+            if (all.Items != null && all.Items.Count == 3)
             {
-                this.RequestedTheme = ElementTheme.Light;
-                Light.IsChecked = true; //select the light theme option in the settings panel
-                Analytics.TrackEvent("Loaded app in light theme");  //log even in app center
+                //Jumplist already added, ABORT
+                return;
             }
-            if (localValue == "Dark") //dark theme is on
-            {
-                this.RequestedTheme = ElementTheme.Dark;
-                Dark.IsChecked = true; //select the dark theme option in the settings panel
+            
+            var focus = JumpListItem.CreateWithArguments("quickpad://focus", "ms-resource:///Resources/LaunchInFocusMode");
+            focus.Description = "ms-resource:///Resources/LaunchInFocusModeDesc";
+            focus.Logo = new Uri("ms-appx:///Assets/jumplist/focus.png");
+            var overlay = JumpListItem.CreateWithArguments("quickpad://overlay", "ms-resource:///Resources/LaunchInOnTopMode");
+            overlay.Description = "ms-resource:///Resources/LaunchInOnTopModeDesc";
+            overlay.Logo = new Uri("ms-appx:///Assets/jumplist/ontop.png");
+            var classic = JumpListItem.CreateWithArguments("quickpad://classic", "ms-resource:///Resources/LaunchInClassicMode");
+            classic.Description = "ms-resource:///Resources/LaunchInClassicModeDesc";
+            classic.Logo = new Uri("ms-appx:///Assets/jumplist/classic.png");
+            all.Items.Add(focus);
+            all.Items.Add(overlay);
+            all.Items.Add(classic);
 
-                Analytics.TrackEvent("Loaded app in dark theme"); //log even in app center
-            }
-            if (localValue == "System Default") //default theme is on
+            try //There's quite a small chance that sometime it save and app can crash, better safe than sorry :/
             {
-                this.RequestedTheme = ElementTheme.Default;
-                SystemDefault.IsChecked = true; //select the default theme option in the settings panel
+                await all.SaveAsync();
             }
-
-            //make the minimize, maximize and close button visible in light theme
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark || this.RequestedTheme == ElementTheme.Dark)
+            catch
             {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            if (App.Current.RequestedTheme == ApplicationTheme.Light || this.RequestedTheme == ElementTheme.Light)
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
-        }
-
-        //check which buttons to show in toolbar
-        private void CheckToolbarOptions()
-        {
-            //check if the bullet list option should show
-            String ShowBulletsSetting = localSettings.Values["ShowBullets"] as string;
-
-            if (ShowBulletsSetting == "No")
-            {
-                ShowBullets.IsOn = false; //toggle the show bullets option in the settings panel.
-                BulletList.Visibility = Visibility.Collapsed; //hid bullet option
-            }
-            else
-            {
-                ShowBullets.IsOn = true; //toggle the show bullets option in the settings panel.
-            }
-
-            //check if strikethrough option should show
-            String ShowST = localSettings.Values["ShowStrikethroughOption"] as string;
-
-            if (ShowST == "No")
-            {
-                //hide ShowStrikethroughOption
-                ShowStrikethrough.IsOn = false; //toggle the show ShowStrikethroughOption option in the settings panel.
-                Strikethrough.Visibility = Visibility.Collapsed; //hide strikethrough option
-            }
-            else
-            {
-                ShowStrikethrough.IsOn = true; //toggle the show ShowStrikethroughOption option in the settings panel.
-            }
-
-            //check if the left align option should show
-            String ShowAl = localSettings.Values["ShowAlignLeft"] as string;
-
-            if (ShowAl == "No")
-            {
-                //hide option
-                ShowAlignLeft.IsOn = false; //toggle the option in the settings panel.
-                Left.Visibility = Visibility.Collapsed; //hide the button
-            }
-            else
-            {
-                ShowAlignLeft.IsOn = true; //toggle the option in the settings panel.
-            }
-
-            //check if the center align option should show
-            String ShowAC = localSettings.Values["ShowAlignCenter"] as string;
-
-            if (ShowAC == "No")
-            {
-                //hide option
-                ShowAlignCenter.IsOn = false; //toggle the option in the settings panel.
-                Center.Visibility = Visibility.Collapsed; //hide the button
-            }
-            else
-            {
-                ShowAlignCenter.IsOn = true; //toggle the option in the settings panel.
-            }
-
-            //check if the right align option should show
-            String ShowAR = localSettings.Values["ShowAlignRight"] as string;
-
-            if (ShowAR == "No")
-            {
-                //hide option
-                ShowAlignRight.IsOn = false; //toggle the option in the settings panel.
-                Right.Visibility = Visibility.Collapsed; //hide the button
-            }
-            else
-            {
-                ShowAlignRight.IsOn = true; //toggle the option in the settings panel.
-            }
-
-            //check if the justify align option should show
-            String ShowAJ = localSettings.Values["ShowAlignJustify"] as string;
-
-            if (ShowAJ == "No")
-            {
-                //hide option
-                ShowAlignJustify.IsOn = false; //toggle the option in the settings panel.
-                Justify.Visibility = Visibility.Collapsed; //hide the button
-            }
-            else
-            {
-                ShowAlignJustify.IsOn = true; //toggle the option in the settings panel.
-            }
-
-            if (ShowAl == "No" && ShowAC == "No" && ShowAR == "No" && ShowAJ == "No")
-            {
-                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
+                return;
             }
         }
 
@@ -357,59 +316,26 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
 
-                //check what the default font is
-                try
-                {
-                    String DefaultFonts = localSettings.Values["DefaultFont"] as string;
-                    if (DefaultFonts != "Segoe UI")
-                    {
-                        DefaultFont.PlaceholderText = DefaultFonts;
-                        Fonts.PlaceholderText = DefaultFonts;
-                        Fonts.SelectedItem = DefaultFonts;
-                        FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
-                        Text1.Document.Selection.CharacterFormat.Name = DefaultFonts;
-                    }
-                }
-                catch (Exception)
-                {
-                    localSettings.Values["DefaultFont"] = "Segoe UI"; //set the default font size to Segoe UI
-                }
+                //set default font to UIs that still not depend on binding
+                Fonts.PlaceholderText = QSetting.DefaultFont;
+                Fonts.SelectedItem = QSetting.DefaultFont;
+                FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
+                Text1.Document.Selection.CharacterFormat.Name = QSetting.DefaultFont;
 
                 //check what default font color is
-                try
-                {
-                    String DefaultFontColors = localSettings.Values["DefaultFontColor"] as string;
-                    if (DefaultFontColors != "")
-                    {
-                        DefaultFontColor.SelectedItem = DefaultFontColors;
-                        Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
-                    }
-                }
-                catch (Exception) //no setting was found
-                {
-                    if (this.RequestedTheme == ElementTheme.Dark || App.Current.RequestedTheme == ApplicationTheme.Dark)
-                    {
-                        DefaultFontColor.PlaceholderText = "White";
-                    }
-                }
 
-                //check what default font size is and set it
-                Int16 DefaultFontSizes = Convert.ToInt16(localSettings.Values["DefaultFontSize"]); //load the defualt font size
-
-                if (DefaultFontSizes == 0)
+                if (QSetting.DefaultFontColor == "Default")
                 {
-                    localSettings.Values["DefaultFontSize"] = "18"; //set 18 as defualt font size
-                    Text1.Document.Selection.CharacterFormat.Size = 18; //set the font size
+                    SelectedDefaultFontColor = 0;
                 }
                 else
                 {
-                    DefaultFontSize.PlaceholderText = Convert.ToString(DefaultFontSizes); //set the selected font size placeholder text in settings to whatever the font size is meant to be
-                    Text1.Document.Selection.CharacterFormat.Size = DefaultFontSizes; //set the font size
+                    SelectedDefaultFontColor = FontColorCollections.IndexOf(FontColorCollections.First(i => i.TechnicalName == QSetting.DefaultFontColor));
                 }
 
-                LaunchCheck(); //call method to check what mode the app should launch in
+                Text1.Document.Selection.CharacterFormat.Size = QSetting.DefaultFontSize;
 
-                TQuick.Text = UpdateFile; //update title bar
+                LaunchCheck(); //call method to check what mode the app should launch in
 
                 _isPageLoaded = false;
             }
@@ -420,22 +346,188 @@ namespace Quick_Pad_Free_Edition
             _isPageLoaded = true;
         }
 
+        public void send(object source, System.Timers.ElapsedEventArgs e)
+        {
+            //Not sure if this is the cause but it might he..
+            if (QuickPad.Dialog.SaveChange.IsOpen)
+            {
+                //There are dialog asking to save change right now
+                //Abort
+                return;
+            }
+            //timer for auto save
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+            CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, async () =>
+            {
+                if (CurrentWorkingFile != null)
+                {
+                    try
+                    {
+                        var result = CurrentWorkingFile.FileType; //find out the file extension
+                        if ((result.ToLower() != ".rtf"))
+                        {
+                            //tries to update file if it exsits and is not read only
+                            Text1.Document.GetText(TextGetOptions.None, out var value);
+                            await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                        }
+                        if (result.ToLower() == ".rtf")
+                        {
+                            //tries to update file if it exsits and is not read only
+                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                            await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                        }
+                        Changed = false;
+                    }
+                    catch (Exception) { }
+                }
+            });
+#pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+        }
+        #endregion
+
+        #region Properties     
+        ObservableCollection<string> _fonts;
+        public ObservableCollection<string> AllFonts
+        {
+            get => _fonts;
+            set => Set(ref _fonts, value);
+        }
+
+        //Colors
+        ObservableCollection<FontColorItem> _fci;
+        public ObservableCollection<FontColorItem> FontColorCollections
+        {
+            get => _fci;
+            set => Set(ref _fci, value);
+        }
+
+        public int _fc_selection = -1;
+        public int SelectedDefaultFontColor
+        {
+            get => _fc_selection;
+            set
+            {
+                if (!Equals(_fc_selection, value))
+                {
+                    Set(ref _fc_selection, value);
+                    //Update setting
+                    QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
+                    Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
+                }
+            }
+        }
+
+        string _file_name = null;
+        public string CurrentFilename
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_file_name))
+                {
+                    if (Changed)
+                    {
+                        return $"*{textResource.GetString("NewDocument")}";
+                    }
+                    return textResource.GetString("NewDocument");
+                }
+                else
+                {
+                    if (Changed)
+                    {
+                        return $"*{_file_name}";
+                    }
+                }
+                return _file_name;
+            }
+            set
+            {
+                if (!Equals(_file_name, value))
+                {
+                    Set(ref _file_name, value);
+                    UpdateAppTitlebar();
+                }
+            }
+        }
+
+        void UpdateAppTitlebar()
+        {
+            //Set Title bar
+            var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+            appView.Title = CurrentFilename;
+        }
+
+        bool _changed;
+        public bool Changed
+        {
+            get => _changed;
+            set
+            {
+                if (!Equals(_changed, value))
+                {
+                    Set(ref _changed, value);
+                    NotifyPropertyChanged(nameof(CurrentFilename));
+                    UpdateAppTitlebar();
+                }
+            }
+        }
+
+        public void CheckForChange()
+        {
+            //Get a formatted text to notice a change in format
+            Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
+            //
+            Changed = !Equals(initialLoadedContent, ext);
+        }
+
+        public void SetANewChange()
+        {
+            Text1.Document.GetText(TextGetOptions.FormatRtf, out string value);
+            //Set initial content
+            initialLoadedContent = value;
+            //Update changed
+            CheckForChange();
+        }
+        
+        public StorageFile CurrentWorkingFile = null;
+        private string key; //future access list
+
+        private bool _isPageLoaded = false;
+        private Int64 LastFontSize; //this value is the last selected characters font size
+
+        public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
+
+        bool _undo;
+        public bool CanUndoText
+        {
+            get => _undo;
+            set => Set(ref _undo, value);
+        }
+
+        bool _redo;
+        public bool CanRedoText
+        {
+            get => _redo;
+            set => Set(ref _redo, value);
+        }
+
+        #endregion
+
+        #region Store service
         public async void CheckPushNotifications()
         {
             //regisiter for push notifications
             StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
             await engagementManager.RegisterNotificationChannelAsync();
         }
-
-
+        
         public async void NewUserFeedbackAsync()
         {
             ContentDialog deleteFileDialog = new ContentDialog //brings up a content dialog
             {
-                Title = "Do you enjoy using Quick Pad?",
-                Content = "Please consider leaving a review for Quick Pad in the store.",
-                PrimaryButtonText = "Yes",
-                CloseButtonText = "No"
+                Title = textResource.GetString("NewUserFeedbackTitle"),//"Do you enjoy using Quick Pad?",
+                Content = textResource.GetString("NewUserFeedbackContent"),//"Please consider leaving a review for Quick Pad in the store.",
+                PrimaryButtonText = textResource.GetString("NewUserFeedbackYes"),//"Yes",
+                CloseButtonText = textResource.GetString("NewUserFeedbackNo"),//"No"
             };
 
             ContentDialogResult result = await deleteFileDialog.ShowAsync(); //get the results if the user clicked to review or not
@@ -449,55 +541,192 @@ namespace Quick_Pad_Free_Edition
             }
         }
 
+        public async Task<bool> ShowRatingReviewDialog()
+        {
+            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
+
+            if (result.ExtendedError == null)
+            {
+                JObject jsonObject = JObject.Parse(result.Response);
+                if (jsonObject.SelectToken("status").ToString() == "success")
+                {
+                    // The customer rated or reviewed the app.
+                    return true;
+                }
+            }
+
+            // There was an error with the request, or the customer chose not to rate or review the app.
+            return false;
+        }
+
+        #endregion
+
+        #region Handling navigation
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            var args = e.Parameter as Windows.ApplicationModel.Activation.IActivatedEventArgs;
-            if (args != null)
+            switch (e.Parameter)
             {
-                if (args.Kind == Windows.ApplicationModel.Activation.ActivationKind.File)
-                {
-                    var fileArgs = args as Windows.ApplicationModel.Activation.FileActivatedEventArgs;
-                    string strFilePath = fileArgs.Files[0].Path;
-                    var file = (StorageFile)fileArgs.Files[0];
-                    await LoadFasFile(file); //call method to open the file the app was launched from
-                }
+                case IActivatedEventArgs activated://File activated
+                    if (activated.Kind == Windows.ApplicationModel.Activation.ActivationKind.File)
+                    {
+                        var fileArgs = activated as Windows.ApplicationModel.Activation.FileActivatedEventArgs;
+                        string strFilePath = fileArgs.Files[0].Path;
+                        var file = (StorageFile)fileArgs.Files[0];
+                        await LoadFasFile(file); //call method to open the file the app was launched from
+                    }
+                    break;
+                case string parameter:
+                    if (parameter == "focus")
+                    {
+                        FocusModeSwitch = true;
+                    }
+                    else if (parameter == "overlay")
+                    {
+                        CompactOverlaySwitch = true;
+                    }
+                    else if (parameter == "classic")
+                    {
+                        ClassicModeSwitch = true;
+                    }
+                    break;
             }
         }
 
-        private async Task LoadFasFile(StorageFile file)
+        #endregion
+
+        #region Load/Save file
+        public async Task LoadFileIntoTextBox()
+        {
+            if (CurrentWorkingFile.FileType.ToLower() == ".rtf")
+            {
+                Windows.Storage.Streams.IRandomAccessStream randAccStream = await CurrentWorkingFile.OpenAsync(FileAccessMode.Read);
+
+                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile); //let file be accessed later
+
+                // Load the file into the Document property of the RichEditBox.
+                Text1.Document.LoadFromStream(TextSetOptions.FormatRtf, randAccStream);
+            }
+            else
+            {
+                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile); //let file be accessed later
+
+                Text1.Document.SetText(TextSetOptions.None, await FileIO.ReadTextAsync(CurrentWorkingFile));
+            }
+            //Clear undo/redo history
+            Text1.TextDocument.ClearUndoRedoHistory();
+            //Update the initial loaded content
+            SetANewChange();
+        }
+
+        private async Task LoadFasFile(StorageFile inputFile)
         {
             try
             {
-                var read = await FileIO.ReadTextAsync(file);
-
-                Windows.Storage.Streams.IRandomAccessStream randAccStream =
-                await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
-
-                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
-
-                // Load the file into the Document property of the RichEditBox.
-                if ((file.FileType.ToLower() != ".rtf"))
-                {
-                    Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
-                }
-                if (file.FileType.ToLower() == ".rtf")
-                {
-                    Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-                }
-
-                UpdateFile = file.DisplayName;
-                TQuick.Text = UpdateFile;
-                FullFilePath = file.Path;
-                SetTaskBarTitle(); //update the title in the taskbar
+                CurrentWorkingFile = inputFile;
+                await LoadFileIntoTextBox();
+                CurrentFilename = CurrentWorkingFile.DisplayName;
             }
-            catch (Exception){}
+            catch (Exception) { }
         }
 
-        private void SetTaskBarTitle()
+        public async Task SaveWork()
         {
-            var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
-            appView.Title = UpdateFile;
+            try
+            {
+                Text1.Document.GetText(
+                    CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None, 
+                    out var value);
+                await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                Changed = false;
+            }
+
+            catch (Exception)
+
+            {
+                Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker
+                {
+                    SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                };
+
+                // Dropdown of file types the user can save the file as
+                //check if default file type is .txt
+                if (QSetting.DefaultFileType == ".txt")
+                {
+                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+                }
+                else if (QSetting.DefaultFileType == ".rtf")
+                {
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
+                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
+                }
+                savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
+
+                // Default file name if the user does not type one in or select a file to replace
+                if (_file_name == null)
+                    savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
+                else
+                    savePicker.SuggestedFileName = _file_name;
+
+                Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
+                if (file != null)
+                {
+                    //Change has been saved
+                    Changed = false;
+                    //Set the current working file
+                    CurrentWorkingFile = file;
+                    //update title bar
+                    CurrentFilename = file.DisplayName;
+                    
+                    key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
+
+                    //save as plain text for text file
+                    if ((file.FileType.ToLower() != ".rtf"))
+                    {
+                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
+                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                    }
+                    //save as rich text for rich text file
+                    if (file.FileType.ToLower() == ".rtf")
+                    {
+                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
+                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                    }
+
+                    // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
+                    Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
+                    if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
+                    {
+                        //let user know if there was an error saving the file
+                        Windows.UI.Popups.MessageDialog errorBox = new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
+                        await errorBox.ShowAsync();
+                    }
+
+                    //Increase new auto number, so next file will not get the same name
+                    QSetting.NewFileAutoNumber++;
+                }
+                else
+                {
+                    CurrentWorkingFile = temporaryForce;
+                    temporaryForce = null;
+                }
+            }
+            //Update the initial loaded content
+            SetANewChange();
+        }
+        #endregion
+
+        #region Command bar click
+        public void SetTheme(object sender, RoutedEventArgs e)
+        {
+            QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
+        }
+
+        private void SetFormatColor(object sender, RoutedEventArgs e)
+        {
+            string tag = (sender as FrameworkElement).Tag.ToString();
+            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), tag);
         }
 
         private async void CmdSettings_Click(object sender, RoutedEventArgs e)
@@ -527,33 +756,47 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdNew_Click(object sender, RoutedEventArgs e)
         {
-            if (TQuick.Text != UpdateFile)
+            if (CurrentWorkingFile is null && Changed)
             {
-                await SaveDialog.ShowAsync();
-
-                if (SaveDialogValue != "Cancel")
+                //File has not been save yet ask use if they want to save
+                await WantToSave.ShowAsync();
+                
+                switch (WantToSave.DialogResult)
                 {
-                    Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
-
-                    UpdateFile = "New Document"; //reset the value of the friendly file name
-                    TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
-                    FullFilePath = ""; //clear the path of the open file since there is none
-                    SetTaskBarTitle(); //update the title in the taskbar
+                    case DialogResult.Yes:
+                        //Save change
+                        await SaveWork();
+                        //Clear text
+                        Text1.Document.SetText(TextSetOptions.None, string.Empty);
+                        break;
+                    case DialogResult.No:
+                        //Clear text
+                        Text1.Document.SetText(TextSetOptions.None, string.Empty);
+                        break;
+                    case DialogResult.Cancel:
+                        //ABORT
+                        return;
                 }
-
-                SaveDialogValue = ""; //reset save dialog 
             }
-
-            if (TQuick.Text == UpdateFile)
+            else
             {
-                Text1.Document.SetText(Windows.UI.Text.TextSetOptions.FormatRtf, string.Empty);
-
-                UpdateFile = "New Document"; //reset the value of the friendly file name
-                TQuick.Text = UpdateFile; //update the title bar to reflect it is a new document
-                FullFilePath = ""; //clear the path of the open file since there is none
-                SetTaskBarTitle(); //update the title in the taskbar
+                //File have been saved! And no change has been made. Reset right away
+                Text1.Document.SetText(TextSetOptions.None, string.Empty);
             }
-
+            if (QSetting.DefaultFileType == ".rtf")
+            {
+                UpdateText1FontSize(QSetting.DefaultFontSize);
+            }
+            //reset the value of the friendly file name
+            CurrentWorkingFile = null;
+            //update the title bar to reflect it is a new document
+            CurrentFilename = null;
+            //Clear undo and redo
+            Text1.TextDocument.ClearUndoRedoHistory();
+            //Put up a default font size into a format
+            UpdateText1FontSize(QSetting.DefaultFontSize);
+            //Set new change
+            SetANewChange();
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
@@ -582,10 +825,13 @@ namespace Quick_Pad_Free_Edition
                         Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
                     }
 
-                    UpdateFile = file.DisplayName;
-                    TQuick.Text = UpdateFile;
-                    FullFilePath = file.Path;
-                    SetTaskBarTitle(); //update the title in the taskbar
+                    //Set current file
+                    CurrentWorkingFile = file;
+                    CurrentFilename = CurrentWorkingFile.DisplayName;
+                    //Clear undo and redo, so the last undo will be the loaded text
+                    Text1.TextDocument.ClearUndoRedoHistory();
+                    //Update the initial loaded content
+                    SetANewChange();
                 }
                 catch (Exception)
                 {
@@ -598,89 +844,6 @@ namespace Quick_Pad_Free_Edition
                     await errorDialog.ShowAsync();
                 }
             }
-
-        }
-
-        public async Task SaveWork()
-        {
-            try
-            {
-                var result = FullFilePath.Substring(FullFilePath.Length - 4); //find out the file extension
-
-                if ((result.ToLower() != ".rtf"))
-                {
-                    //tries to update file if it exsits and is not read only
-                    Text1.Document.GetText(TextGetOptions.None, out var value);
-                    await PathIO.WriteTextAsync(FullFilePath, value);
-                    TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                }
-                if (result.ToLower() == ".rtf")
-                {
-                    //tries to update file if it exsits and is not read only
-                    Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                    await PathIO.WriteTextAsync(FullFilePath, value);
-                    TQuick.Text = UpdateFile; //update title bar to indicate file is up to date
-                }
-            }
-
-            catch (Exception)
-
-            {
-                Windows.Storage.Pickers.FileSavePicker savePicker = new Windows.Storage.Pickers.FileSavePicker();
-
-                savePicker.SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary;
-
-                // Dropdown of file types the user can save the file as
-                savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-                savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
-                savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
-
-                //check if default file type is .txt
-                if (DefaultFileExt == ".txt")
-                {
-                    savePicker.FileTypeChoices.Clear();
-                    savePicker.FileTypeChoices.Add("Text File", new List<string>() { ".txt" });
-                    savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-                    savePicker.FileTypeChoices.Add("All Files", new List<string>() { "." });
-                }
-
-                // Default file name if the user does not type one in or select a file to replace
-                savePicker.SuggestedFileName = UpdateFile;
-
-                Windows.Storage.StorageFile file = await savePicker.PickSaveFileAsync();
-                if (file != null)
-                {
-                    //update title bar
-                    UpdateFile = file.DisplayName;
-                    TQuick.Text = UpdateFile;
-                    FullFilePath = file.Path;
-                    SetTaskBarTitle(); //update the title in the taskbar
-
-                    key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
-
-                    //save as plain text for text file
-                    if ((file.FileType.ToLower() != ".rtf"))
-                    {
-                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
-                    }
-                    //save as rich text for rich text file
-                    if (file.FileType.ToLower() == ".rtf")
-                    {
-                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
-                    }
-
-                    // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
-                    Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
-                    if (status != Windows.Storage.Provider.FileUpdateStatus.Complete)
-                    {
-                        //let user know if there was an error saving the file
-                        Windows.UI.Popups.MessageDialog errorBox = new Windows.UI.Popups.MessageDialog("File " + file.Name + " couldn't be saved.");
-                        await errorBox.ShowAsync();
-                    }
-                }
-            }
         }
 
         public async void CmdSave_Click(object sender, RoutedEventArgs e)
@@ -688,18 +851,34 @@ namespace Quick_Pad_Free_Edition
             await SaveWork(); //call the function to save
         }
 
+        private StorageFile temporaryForce = null;
+        public async void CmdSaveAs_Click(object sender, RoutedEventArgs e)
+        {
+            temporaryForce = CurrentWorkingFile;
+            CurrentWorkingFile = null;
+            await SaveWork();
+        }
+
+        public void CmdExit_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Exit();
+        }
+
         private void CmdUndo_Click(object sender, RoutedEventArgs e)
         {
-            Text1.Document.Undo(); //undo changes the user did to the text
+            Text1.Document.Undo(); //undo changes the user did to the text            
+            CheckForChange(); //Check fof a change in document
         }
 
         private void CmdRedo_Click(object sender, RoutedEventArgs e)
         {
-            Text1.Document.Redo(); //redo changes the user did to the text
+            Text1.Document.Redo(); //redo changes the user did to the text          
+            CheckForChange(); //Check fof a change in document
         }
 
         private void Bold_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be bold if not already
             //if the text is already bold it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -709,10 +888,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Bold = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void Italic_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be in italics if not already
             //if the text is already in italics it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -722,10 +903,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Italic = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void Underline_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //set the selected text to be underlined if not already
             //if the text is already underlined it will make it regular
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
@@ -742,6 +925,7 @@ namespace Quick_Pad_Free_Edition
                 }
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private async void Paste_Click(object sender, RoutedEventArgs e)
@@ -778,6 +962,7 @@ namespace Quick_Pad_Free_Edition
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             try
             {
                 //makes the selected text font size bigger
@@ -787,125 +972,25 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.CharacterFormat.Size = LastFontSize;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void SizeDown_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             //checks if the font size is too small
             if (Text1.Document.Selection.CharacterFormat.Size > 4)
             {
                 //make the selected text font size smaller
                 Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size - 2;
             }
+            Text1.Document.EndUndoGroup();
         }
 
-        private async void CompactOverlay_Checked(object sender, RoutedEventArgs e)
+        private void Emoji_Clicked(object sender, RoutedEventArgs e)
         {
-            ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
-            bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
-
-            Grid.SetRow(CommandBar2, 2);
-            Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            Title.Visibility = Visibility.Collapsed;
-            CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
-            FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            Text1.Margin = new Thickness(0, 0, 0, 0);
-            CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            CmdFocusMode.IsEnabled = false;
-            CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            CommandBar2.Margin = new Thickness(0, 0, 0, 0);
-            TQuick.Visibility = Visibility.Collapsed;
-
-            //make text smaller size if user did not do so on their own and if they did not type anything yet.
-            Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-            if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
-            {
-                Text1.FontSize = 16;
-            }
-
-            //log even in app center
-            Analytics.TrackEvent("Compact Overlay");
-        }
-
-        private async void CompactOverlay_Unchecked(object sender, RoutedEventArgs e)
-        {
-            bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
-            Grid.SetRow(CommandBar2, 0);
-            Title.Visibility = Visibility.Visible;
-            Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
-            FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            TQuick.Visibility = Visibility.Visible;
-            CmdFocusMode.IsEnabled = true;
-            Text1.Margin = new Thickness(0, 74, 0, 40);
-            CommandBar2.Margin = new Thickness(0, 33, 0, 0);
-        }
-
-        private void Emoji_Checked(object sender, RoutedEventArgs e)
-        {
-            Emoji2.Visibility = Windows.UI.Xaml.Visibility.Visible;
-            E1.Focus(FocusState.Programmatic);
-
-            //log even in app center
-            Analytics.TrackEvent("User opened emoji panel");
-        }
-
-        private void Emoji_Unchecked(object sender, RoutedEventArgs e)
-        {
-            Emoji2.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-            EmojiPivot.SelectedIndex = 0; //Set focus to first item in pivot control in the emoji panel
-        }
-
-        private void EmojiPanel_LostFocus(object sender, RoutedEventArgs e){}
-
-        public void EmojiSub(object sender, RoutedEventArgs e)
-        {
-            string objname = ((Button)sender).Content.ToString(); //get emoji from button that was pressed
-            Text1.Document.Selection.TypeText(objname); //insert emoji in the text box
-
-            Analytics.TrackEvent("User inserted an emoji"); //log event in app center
-        }
-
-        private void Yellow_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightYellow);
-        }
-
-        private void Blue_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.SkyBlue);
-        }
-
-        private void Pink_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightPink);
-        }
-
-        private void Orange_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightSalmon);
-        }
-
-        private void Green_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.LightGreen);
-        }
-
-        private void Black_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.Black);
-        }
-
-        private void Text1_GotFocus(object sender, RoutedEventArgs e)
-        {
-            Emoji.IsChecked = false; //hide emoji panel if open 
-            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
+            Text1.Focus(FocusState.Programmatic);
+            CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
         }
 
         private void CmdShare_Click(object sender, RoutedEventArgs e)
@@ -925,48 +1010,9 @@ namespace Quick_Pad_Free_Edition
             }
             else
             {
-                args.Request.FailWithDisplayText("Nothing to share, type something in order to share it.");
+                //"Nothing to share, type something in order to share it."
+                args.Request.FailWithDisplayText(textResource.GetString("NothingToShare"));
             }
-        }
-
-        private void Text1_TextChanged(object sender, RoutedEventArgs e)
-        {
-            if (Text1.Document.CanUndo() == true)
-            {
-                CmdUndo.IsEnabled = true;
-            }
-            else
-            {
-                CmdUndo.IsEnabled = false;
-                TQuick.Text = UpdateFile; //update title bar since no changes have been made
-            }
-            /////
-            if (Text1.Document.CanRedo() == true)
-            {
-                CmdRedo.IsEnabled = true;
-            }
-            else
-            {
-                CmdRedo.IsEnabled = false;
-            }
-        }
-
-        public async Task<bool> ShowRatingReviewDialog()
-        {
-            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
-
-            if (result.ExtendedError == null)
-            {
-                JObject jsonObject = JObject.Parse(result.Response);
-                if (jsonObject.SelectToken("status").ToString() == "success")
-                {
-                    // The customer rated or reviewed the app.
-                    return true;
-                }
-            }
-
-            // There was an error with the request, or the customer chose not to rate or review the app.
-            return false;
         }
 
         private async void CmdReview_Click(object sender, RoutedEventArgs e)
@@ -978,6 +1024,7 @@ namespace Quick_Pad_Free_Edition
 
         private void Strikethrough_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             Windows.UI.Text.ITextSelection selectedText = Text1.Document.Selection;
             if (selectedText != null)
             {
@@ -985,10 +1032,12 @@ namespace Quick_Pad_Free_Edition
                 charFormatting.Strikethrough = Windows.UI.Text.FormatEffect.Toggle;
                 selectedText.CharacterFormat = charFormatting;
             }
+            Text1.Document.EndUndoGroup();
         }
 
         private void BulletList_Click(object sender, RoutedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             if (Text1.Document.Selection.ParagraphFormat.ListType == MarkerType.Bullet)
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.None;
@@ -997,48 +1046,13 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
             }
+            Text1.Document.EndUndoGroup();
         }
-
-        private void White_Click(object sender, RoutedEventArgs e)
-        {
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Windows.UI.Colors.White);
-        }
-
+        
         private void CmdBack_Click(object sender, RoutedEventArgs e)
         {
             Settings.Hide();
             SettingsPivot.SelectedIndex = 0; //Set focus to first item in pivot control in the settings panel
-        }
-
-        private void Light_Click(object sender, RoutedEventArgs e)
-        {
-            localSettings.Values["Theme"] = "Light";
-            this.RequestedTheme = ElementTheme.Light;
-
-            //Make the minimize, maxamize and close button visible
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            titleBar.ButtonForegroundColor = Colors.Black;
-
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-        }
-
-        private void Dark_Click(object sender, RoutedEventArgs e)
-        {
-            localSettings.Values["Theme"] = "Dark";
-            this.RequestedTheme = ElementTheme.Dark;
-
-            //Make the minimize, maxamize and close button visible
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            titleBar.ButtonForegroundColor = Colors.White;
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-        }
-
-        private void SystemDefault_Click(object sender, RoutedEventArgs e)
-        {
-            localSettings.Values["Theme"] = "System Default";
-            RequestedTheme = ElementTheme.Default;
-            CheckTheme(); //update the theme
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
         private void Settings_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
@@ -1046,248 +1060,12 @@ namespace Quick_Pad_Free_Edition
             SettingsPivot.SelectedItem = SettingsTab1; //Set focus to first item in pivot control in the settings panel
         }
 
-        private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
-        {
-            if (e.Key == VirtualKey.Tab)
-            {
-                RichEditBox richEditBox = sender as RichEditBox;
-                if (richEditBox != null)
-                {
-                    richEditBox.Document.Selection.TypeText("\t");
-                    e.Handled = true;
-                }
-            }
-        }
-
-        private void AutoSaveSwitch_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-        
-                    localSettings.Values["AutoSave"] = "On";
-                }
-                else
-                {
-        
-                    localSettings.Values["AutoSave"] = "Off";
-                }
-            }
-        }
-
-        private void ShowBullets_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowBullets"] = "Yes";
-                    BulletList.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowBullets"] = "No";
-                    BulletList.Visibility = Visibility.Collapsed;
-                }
-            }
-        }
-
-        private void ShowStrikethrough_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowStrikethroughOption"] = "Yes";
-                    Strikethrough.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowStrikethroughOption"] = "No";
-                    Strikethrough.Visibility = Visibility.Collapsed;
-                }
-            }
-        }
-
-        private void Text1_DragOver(object sender, DragEventArgs e)
-        {
-            e.AcceptedOperation = DataPackageOperation.Copy;
-        }
-
-        private async void Text1_Drop(object sender, DragEventArgs e)
-        {
-            //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
-            if (TQuick.Text != UpdateFile)
-            {
-                await SaveDialog.ShowAsync();
-                if (SaveDialogValue == "Cancel")
-                {
-                    SaveDialogValue = ""; //reset save dialog value
-                    return;
-                }
-            }
-
-            //load rich text files dropped in from file explorer
-            try
-            {
-                if (e.DataView.Contains(StandardDataFormats.StorageItems))
-                {
-                    var items = await e.DataView.GetStorageItemsAsync();
-                    if (items.Count > 0)
-                    {
-                        var storageFile = items[0] as StorageFile;
-                        var read = await FileIO.ReadTextAsync(storageFile);
-
-                        Windows.Storage.Streams.IRandomAccessStream randAccStream = await storageFile.OpenAsync(Windows.Storage.FileAccessMode.Read);
-
-                        key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(storageFile); //let file be accessed later
-
-                        if ((storageFile.FileType.ToLower() != ".rtf"))
-                        {
-                            Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(storageFile));
-                        }
-
-                        if (storageFile.FileType.ToLower() == ".rtf")
-                        {
-                            Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
-                        }
-
-                        UpdateFile = storageFile.DisplayName;
-                        TQuick.Text = UpdateFile;
-                        FullFilePath = storageFile.Path;
-                        SetTaskBarTitle(); //update the title in the taskbar
-
-                        //log even in app center
-                        Analytics.TrackEvent("Droped file in to Quick Pad");
-                    }
-                }
-            }
-            catch (Exception) { }
-        }
-
-        private void WordWrap_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["WordWrap"] = "Yes";
-                    Text1.TextWrapping = TextWrapping.Wrap;
-                }
-                else
-                {
-                    localSettings.Values["WordWrap"] = "No";
-                    Text1.TextWrapping = TextWrapping.NoWrap;
-                }
-            }
-        }
-
-        private void ShowAlignLeft_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowAlignLeft"] = "Yes";
-                    Left.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowAlignLeft"] = "No";
-                    Left.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            AlignCheck();
-        }
-
-        private void ShowAlignCenter_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowAlignCenter"] = "Yes";
-                    Center.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowAlignCenter"] = "No";
-                    Center.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            AlignCheck();
-        }
-
-        private void ShowAlignRight_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowAlignRight"] = "Yes";
-                    Right.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowAlignRight"] = "No";
-                    Right.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            AlignCheck();
-        }
-
-        private void ShowAlignJustify_Toggled(object sender, RoutedEventArgs e)
-        {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
-            {
-                if (toggleSwitch.IsOn == true)
-                {
-                    localSettings.Values["ShowAlignJustify"] = "Yes";
-                    Justify.Visibility = Visibility.Visible;
-                }
-                else
-                {
-                    localSettings.Values["ShowAlignJustify"] = "No";
-                    Justify.Visibility = Visibility.Collapsed;
-                }
-            }
-
-            AlignCheck();
-        }
-
-        private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
-        {
-            FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
-        }
-
-        public void AlignCheck()
-        {
-            if (Left.Visibility == Visibility.Collapsed && Center.Visibility == Visibility.Collapsed && Right.Visibility == Visibility.Collapsed && Justify.Visibility == Visibility.Collapsed)
-            {
-                AlignSeparator.Visibility = Visibility.Collapsed; //hide the separator if all the allignment buttons are hidden
-            }
-            else
-            {
-                AlignSeparator.Visibility = Visibility.Visible; //Show the separator if not all the allignment buttons are hidden
-            }
-        }
-
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Text1.Document.BeginUndoGroup();
             var selectedFont = e.AddedItems[0].ToString();
             Text1.Document.Selection.CharacterFormat.Name = selectedFont;
+            Text1.Document.EndUndoGroup();
         }
 
         private void Frame_PointerPressed(object sender, PointerRoutedEventArgs e)
@@ -1321,101 +1099,341 @@ namespace Quick_Pad_Free_Edition
         {
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
+        #endregion
 
-        private void SpellCheck_Toggled(object sender, RoutedEventArgs e)
+        #region UI Mode change
+        bool? _compact = null;
+        public bool CompactOverlaySwitch
         {
-            ToggleSwitch toggleSwitch = sender as ToggleSwitch;
-            if (toggleSwitch != null)
+            get
             {
-                if (toggleSwitch.IsOn == true)
+                if (_compact is null)
                 {
-                    localSettings.Values["SpellCheck"] = "Yes";
-                    Text1.IsSpellCheckEnabled = true;
+                    _compact = QSetting.LaunchMode == (int)AvailableModes.OnTop;
                 }
-                else
+                return _compact.Value;
+            }
+            set
+            {
+                Set(ref _compact, value);
+                SwitchCompactOverlayMode(value);
+            }
+        }
+
+        bool? _focus = null;
+        public bool FocusModeSwitch
+        {
+            get
+            {
+                if (_focus is null)
                 {
-                    localSettings.Values["SpellCheck"] = "No";
-                    Text1.IsSpellCheckEnabled = false;
+                    _focus = QSetting.LaunchMode == (int)AvailableModes.Focus;
+                }
+                return _focus.Value;
+            }
+            set
+            {
+                Set(ref _focus, value);
+                SwitchFocusMode(value);
+            }
+        }
+
+        bool? _classic = null;
+        public bool ClassicModeSwitch
+        {
+            get
+            {
+                if (_classic is null)
+                {
+                    _classic = QSetting.LaunchMode == (int)AvailableModes.Classic;
+                }
+                return _classic.Value;
+            }
+            set
+            {
+                Set(ref _classic, value);
+                SwitchClassicMode(value);
+            }
+        }
+
+        public async void SwitchCompactOverlayMode(bool switching)
+        {
+            if (switching)
+            {
+                ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
+                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
+
+                Grid.SetRow(CommandBar2, 2);
+                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Title.Visibility = Visibility.Collapsed;
+                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
+                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Text1.Margin = new Thickness(0, 0, 0, 0);
+                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CmdFocusMode.IsEnabled = false;
+                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                CommandBar2.Margin = new Thickness(0, 0, 0, 0);
+                CommandBar2.Visibility = Visibility.Visible;
+                CommandBarClassic.Visibility = Visibility.Collapsed;
+
+                //make text smaller size if user did not do so on their own and if they did not type anything yet.
+                Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
+                if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
+                {
+                    Text1.FontSize = 16;
+                }
+
+                //log even in app center
+                Analytics.TrackEvent("Compact Overlay");
+            }
+            else
+            {
+                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
+                Grid.SetRow(CommandBar2, 0);
+                Title.Visibility = Visibility.Visible;
+                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
+                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
+                CmdFocusMode.IsEnabled = true;
+                Text1.Margin = new Thickness(0, 74, 0, 40);
+                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
+
+                if (ClassicModeSwitch == true)
+                {
+                    SwitchClassicMode(true);
+                    CommandBarClassic.Visibility = Visibility.Visible;
                 }
             }
         }
 
-        private void DefaultFont_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void SwitchFocusMode(bool switching)
         {
-            var selectedFont = e.AddedItems[0].ToString();
-            localSettings.Values["DefaultFont"] = selectedFont;
-            Fonts.SelectedItem = selectedFont; //make the change take affect right away
+            if (switching)
+            {
+                Text1.SetValue(Canvas.ZIndexProperty, 90);
+                Text1.Margin = new Thickness(0, 33, 0, 0);
+                CommandBar2.Visibility = Visibility.Collapsed;
+                Shadow2.Visibility = Visibility.Collapsed;
+                Shadow1.Visibility = Visibility.Collapsed;
+                CloseFocusMode.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                Text1.SetValue(Canvas.ZIndexProperty, 0);
+                CommandBar2.Visibility = Visibility.Visible;
+                CommandBar1.Visibility = Visibility.Visible;
+                Shadow2.Visibility = Visibility.Visible;
+                Shadow1.Visibility = Visibility.Visible;
+                CloseFocusMode.Visibility = Visibility.Collapsed;
+                CommandBarClassic.Visibility = Visibility.Collapsed;
+                Text1.Margin = new Thickness(0, 74, 0, 40);
+            }
+            if (ClassicModeSwitch == true)
+            {
+                SwitchClassicMode(true);
+                CommandBarClassic.Visibility = Visibility.Visible;
+            }
         }
 
-        private void DefaultFontSize_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void SwitchClassicMode(bool switching)
         {
-            var selectedFontSize = e.AddedItems[0];
-            localSettings.Values["DefaultFontSize"] = selectedFontSize;
-            Text1.Document.Selection.CharacterFormat.Size = Convert.ToInt64(selectedFontSize); //make the change take affect right away
+            if (switching)
+            {
+                CommandBar1.Visibility = Visibility.Collapsed;
+                CommandBar2.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                CommandBar1.Visibility = Visibility.Visible;
+                CommandBar2.Visibility = Visibility.Visible;
+            }
         }
 
-        private async void SaveDialogYes_Click(object sender, RoutedEventArgs e)
+        //Use for Click function
+        public void TurnOnFocusMode() => FocusModeSwitch = true;
+        public void TurnOnClassicMode() => ClassicModeSwitch = true;
+        #endregion
+
+        #region Textbox function
+        private void Text1_GotFocus(object sender, RoutedEventArgs e)
         {
-            await SaveWork();
-            SaveDialog.Hide();
+            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
         }
 
-        private void SaveDialogNo_Click(object sender, RoutedEventArgs e)
+        private void Text1_TextChanged(object sender, RoutedEventArgs e)
         {
-            SaveDialog.Hide();
+            CanUndoText = Text1.Document.CanUndo();
+            CanRedoText = Text1.Document.CanRedo();
+
+            CheckForChange(); //Check fof a change in document
+        }
+        /// <summary>
+        /// Temporary store the copy of text when it loaded, 
+        /// if it didn't match the textbox=it changed
+        /// </summary>
+        private string initialLoadedContent;
+
+        private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == VirtualKey.Tab)
+            {
+                RichEditBox richEditBox = sender as RichEditBox;
+                if (richEditBox != null)
+                {
+                    richEditBox.Document.Selection.TypeText("\t");
+                    e.Handled = true;
+                }
+            }
+            else if (e.Key == VirtualKey.Space)
+            {
+                Text1.Document.EndUndoGroup();
+                Text1.Document.BeginUndoGroup();
+            }
         }
 
-        private void SaveDialogCancel_Click(object sender, RoutedEventArgs e)
+        private void Text1_DragOver(object sender, DragEventArgs e)
         {
-            SaveDialogValue = "Cancel";
-            SaveDialog.Hide();
+            e.AcceptedOperation = DataPackageOperation.Copy;
         }
 
-        private void DefaultFontColor_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void Text1_Drop(object sender, DragEventArgs e)
         {
-            localSettings.Values["DefaultFontColor"] = DefaultFontColor.SelectedValue;
-            Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), DefaultFontColor.SelectedValue);
+            //Check if file is open and ask user if they want to save it when dragging a file in to Quick Pad.
+            if (Changed)
+            {
+                //Only show save dialog when there are changed made
+                await WantToSave.ShowAsync();
+                switch (WantToSave.DialogResult)
+                {
+                    case DialogResult.Yes:
+                        await SaveWork();
+                        break;
+                    case DialogResult.Cancel:
+                        return;
+                }
+            }
+            //At this point user totally want to open that dropped file
+            //Void the previous file
+            CurrentWorkingFile = null;
+            //
+            //load rich text files dropped in from file explorer
+            try
+            {
+                if (e.DataView.Contains(StandardDataFormats.StorageItems))
+                {
+                    var items = await e.DataView.GetStorageItemsAsync();
+                    if (items.Count > 0)
+                    {
+                        CurrentWorkingFile = items[0] as StorageFile;
+                        await LoadFileIntoTextBox();
+                        CurrentFilename = CurrentWorkingFile.DisplayName;
+
+                        //log event in app center
+                        Analytics.TrackEvent("Droped file in to Quick Pad");
+                    }
+                }
+            }
+            catch (Exception) { }
         }
 
-        private void SwitchToFocusMode()
+        private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            Text1.SetValue(Canvas.ZIndexProperty, 90);
-            Text1.Margin = new Thickness(0, 33, 0, 0);
-            CommandBar2.Visibility = Visibility.Collapsed;
-            Shadow2.Visibility = Visibility.Collapsed;
-            Shadow1.Visibility = Visibility.Collapsed;
-            CloseFocusMode.Visibility = Visibility.Visible;
-        }
-        private void CmdFocusMode_Click(object sender, RoutedEventArgs e)
-        {
-            SwitchToFocusMode();
+            FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
         }
 
-      
-        private void CloseFocusMode_Click(object sender, RoutedEventArgs e)
+        #endregion
+    }
+
+    public class FontColorItem : INotifyPropertyChanged
+    {
+        #region Notification overhead, no need to write it thousands times on set { }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Set property and also alert the UI if the value is changed
+        /// </summary>
+        /// <param name="value">New value</param>
+        public void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
         {
-            Text1.SetValue(Canvas.ZIndexProperty, 0);
-            CommandBar2.Visibility = Visibility.Visible;
-            Shadow2.Visibility = Visibility.Visible;
-            Shadow1.Visibility = Visibility.Visible;
-            CloseFocusMode.Visibility = Visibility.Collapsed;
-            Text1.Margin = new Thickness(0, 74, 0, 40);
+            if (!Equals(storage, value))
+            {
+                storage = value;
+                NotifyPropertyChanged(propertyName);
+            }
         }
 
-        private void LaunchOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        /// <summary>
+        /// Alert the UI there is a change in this property and need update
+        /// </summary>
+        /// <param name="name"></param>
+        public void NotifyPropertyChanged(string name)
         {
-            localSettings.Values["LaunchMode"] = LaunchOptions.SelectedValue;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+        }
+        #endregion
+
+        string _name;
+        public string ColorName
+        {
+            get => _name;
+            set => Set(ref _name, value);
         }
 
-        private void DefaultFileType_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        string _tname;
+        public string TechnicalName
         {
-            localSettings.Values["DefaultFileType"] = DefaultFileType.SelectedValue;
-            DefaultFileExt = Convert.ToString(DefaultFileType.SelectedValue); //update the default file type right away
+            get => _tname;
+            set => Set(ref _tname, value);
         }
 
-        private void Text1_TextChanging(RichEditBox sender, RichEditBoxTextChangingEventArgs args)
+        Color _ac;
+        public Color ActualColor
         {
-            TQuick.Text = "*" + UpdateFile; //add star to title bar to indicate unsaved file
+            get => _ac;
+            set => Set(ref _ac, value);
         }
+
+        public FontColorItem()
+        {
+            ColorName = "Default";
+            TechnicalName = "Default";
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                ActualColor = Colors.White;
+            }
+            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
+            {
+                ActualColor = Colors.Black;
+            }
+        }
+
+        public FontColorItem(string name)
+        {
+            ColorName = ResourceLoader.GetForCurrentView().GetString($"FontColor{name}");
+            TechnicalName = name;
+            ActualColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), name);
+        }
+        public FontColorItem(string name, string technical)
+        {
+            ColorName = ResourceLoader.GetForCurrentView().GetString($"FontColor{name}");
+            TechnicalName = technical;
+            ActualColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), technical);
+        }
+
+        public static FontColorItem Default => new FontColorItem();
+    }
+
+    public enum DialogResult
+    {
+        None,
+        Yes,
+        No,
+        Cancel
     }
 }
