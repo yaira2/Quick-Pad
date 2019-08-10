@@ -32,7 +32,7 @@
             <Frame x:Name="FrameTop" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1"/>
         </controls:DropShadowPanel>
 
-        <ToggleButton x:Name="CloseFocusMode" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(FocusModeSwitch), Mode=OneWay}" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="5" Canvas.ZIndex="1500" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2" Grid.Row="1">
+        <ToggleButton x:Name="CloseFocusMode" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(FocusModeSwitch), Mode=OneWay}" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="0,10,10,0" Canvas.ZIndex="1500" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2" Grid.Row="1">
             <ToolTipService.ToolTip>
                 <TextBlock Text="Exit focus mode" x:Uid="ExitFocusMode"/>
             </ToolTipService.ToolTip>

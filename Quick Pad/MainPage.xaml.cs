@@ -1169,12 +1169,10 @@ namespace QuickPad
                 Title.Visibility = Visibility.Collapsed;
                 CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
                 FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                Text1.Margin = new Thickness(0, 0, 0, 0);
                 CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
                 CmdFocusMode.IsEnabled = false;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CommandBar2.Margin = new Thickness(0, 0, 0, 0);
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
 
@@ -1201,8 +1199,6 @@ namespace QuickPad
                 CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
                 CmdFocusMode.IsEnabled = true;
-                Text1.Margin = new Thickness(0, 74, 0, 40);
-                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
 
                 if (ClassicModeSwitch == true)
                 {
@@ -1217,7 +1213,7 @@ namespace QuickPad
             if (switching)
             {
                 Text1.SetValue(Canvas.ZIndexProperty, 90);
-                Text1.Margin = new Thickness(0, 33, 0, 0);
+                CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
                 Shadow2.Visibility = Visibility.Collapsed;
                 Shadow1.Visibility = Visibility.Collapsed;
@@ -1232,7 +1228,6 @@ namespace QuickPad
                 Shadow1.Visibility = Visibility.Visible;
                 CloseFocusMode.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
-                Text1.Margin = new Thickness(0, 74, 0, 40);
             }
             if (ClassicModeSwitch == true)
             {
