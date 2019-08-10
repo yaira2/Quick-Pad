@@ -395,8 +395,8 @@
                         </DataTemplate>
                     </Pivot.HeaderTemplate>
                     <PivotItem Header="General" x:Name="SettingsTab1" x:Uid="SettingsTab1">
-                        <ScrollViewer x:Name="SettingsTab1SV">
-                            <StackPanel Height="340">
+                        <ScrollViewer x:Name="SettingsTab1SV" Height="200">
+                            <StackPanel>
                                 <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
                                 <ComboBox x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1">
                                     <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
@@ -423,66 +423,73 @@
                         </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="Theme" x:Name="SettingsTab2" x:Uid="SettingsTab2">
-                        <StackPanel>
-                            <TextBlock x:Uid="AppTheme" Text="App Theme" TextWrapping="Wrap"/>
-                            <RadioButton x:Name="Light" 
+                        <ScrollViewer Height="200">
+                            <StackPanel>
+                                <TextBlock x:Uid="AppTheme" Text="App Theme" TextWrapping="Wrap"/>
+                                <RadioButton x:Name="Light" 
                                          Tag="Light" 
                                          x:Uid="Light" 
+                                         Margin="0,10,0,4"
                                          Content="Light" 
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" />
-                            <RadioButton x:Name="Dark" 
+                                <RadioButton x:Name="Dark" 
                                          Tag="Dark" 
                                          x:Uid="Dark" 
                                          Content="Dark"
+                                         Margin="0,10,0,4"
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
-                            <RadioButton x:Name="SystemDefault" 
+                                <RadioButton x:Name="SystemDefault" 
                                          Tag="Default" 
+                                         Margin="0,10,0,4"
                                          x:Uid="SystemDefault" 
                                          Content="System Default" 
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" />
-                        </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
-                        <StackPanel>
-                            <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
-                            <ComboBox SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" MinWidth="169" BorderThickness="1"/>
-                            <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
-                            <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
-                                <x:Int32>4</x:Int32>
-                                <x:Int32>6</x:Int32>
-                                <x:Int32>8</x:Int32>
-                                <x:Int32>10</x:Int32>
-                                <x:Int32>12</x:Int32>
-                                <x:Int32>14</x:Int32>
-                                <x:Int32>16</x:Int32>
-                                <x:Int32>18</x:Int32>
-                                <x:Int32>20</x:Int32>
-                                <x:Int32>22</x:Int32>
-                                <x:Int32>24</x:Int32>
-                                <x:Int32>26</x:Int32>
-                                <x:Int32>28</x:Int32>
-                                <x:Int32>36</x:Int32>
-                                <x:Int32>48</x:Int32>
-                                <x:Int32>72</x:Int32>
-                            </ComboBox>
-                            <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
-                            <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
-                                <ComboBox.ItemTemplate>
-                                    <DataTemplate x:DataType="q:FontColorItem">
-                                        <StackPanel Orientation="Horizontal">
-                                            <!--Default font color-->
-                                            <Rectangle Width="14" Height="14" Fill="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="{x:Bind q:Converter.IfStringMatchShow(TechnicalName, 'Default'), Mode=OneWay}" />
-                                            <!--Other font color-->
-                                            <Rectangle Width="14" Height="14" Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}" Visibility="{x:Bind q:Converter.IfStringMatchHide(TechnicalName, 'Default'), Mode=OneWay}" />
-                                            <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ComboBox.ItemTemplate>
-                            </ComboBox>
-                        </StackPanel>
+                        <ScrollViewer Height="200">
+                            <StackPanel>
+                                <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
+                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" MinWidth="169" BorderThickness="1"/>
+                                <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
+                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
+                                    <x:Int32>4</x:Int32>
+                                    <x:Int32>6</x:Int32>
+                                    <x:Int32>8</x:Int32>
+                                    <x:Int32>10</x:Int32>
+                                    <x:Int32>12</x:Int32>
+                                    <x:Int32>14</x:Int32>
+                                    <x:Int32>16</x:Int32>
+                                    <x:Int32>18</x:Int32>
+                                    <x:Int32>20</x:Int32>
+                                    <x:Int32>22</x:Int32>
+                                    <x:Int32>24</x:Int32>
+                                    <x:Int32>26</x:Int32>
+                                    <x:Int32>28</x:Int32>
+                                    <x:Int32>36</x:Int32>
+                                    <x:Int32>48</x:Int32>
+                                    <x:Int32>72</x:Int32>
+                                </ComboBox>
+                                <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
+                                <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate x:DataType="q:FontColorItem">
+                                            <StackPanel Orientation="Horizontal">
+                                                <!--Default font color-->
+                                                <Rectangle Width="14" Height="14" Fill="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="{x:Bind q:Converter.IfStringMatchShow(TechnicalName, 'Default'), Mode=OneWay}" />
+                                                <!--Other font color-->
+                                                <Rectangle Width="14" Height="14" Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}" Visibility="{x:Bind q:Converter.IfStringMatchHide(TechnicalName, 'Default'), Mode=OneWay}" />
+                                                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                            </StackPanel>
+                        </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
                         <ScrollViewer x:Name="SettingsTab2SV"  Height="200">
@@ -497,14 +504,16 @@
                         </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
-                        <StackPanel>
-                            <TextBlock Text="Version number" x:Name="VersionNumber" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" HorizontalAlignment="Center"/>
-                            <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" HorizontalAlignment="Center"/>
-                            <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
-                            <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" HorizontalAlignment="Center"/>
-                            <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
-                        </StackPanel>
+                        <ScrollViewer Height="200">
+                            <StackPanel>
+                                <TextBlock Text="Version number" x:Name="VersionNumber" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" HorizontalAlignment="Center"/>
+                                <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
+                                <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" HorizontalAlignment="Center"/>
+                                <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ScrollViewer>
                     </PivotItem>
                 </Pivot>
             </Grid>
