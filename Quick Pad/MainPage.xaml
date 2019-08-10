@@ -374,117 +374,140 @@
 
         <RichEditBox x:Name="Text1" Drop="Text1_Drop" SelectionChanged="Text1_SelectionChanged" DragOver="Text1_DragOver" KeyDown="Text1_KeyDown" TextChanged="Text1_TextChanged"  Margin="0,74,0,40" GotFocus="Text1_GotFocus" BorderThickness="0,0,0,0" MinHeight="0" MinWidth="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" RequestedTheme="Default" TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" Style="{StaticResource RichEditBox}"/>
 
-        <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
-           Opened="Settings_Opened">
-            <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                <Grid Width="450">
-                    <CommandBar x:Name="CmdSettingsBack" Canvas.ZIndex="100" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{x:Null}" Margin="0,0,0,0">
-                        <AppBarButton x:Name="CmdBack" Windows10version1809:CornerRadius="2" Width="40" Icon="Clear" Click="CmdBack_Click"/>
-                    </CommandBar>
-                    <Pivot x:Name="SettingsPivot" x:Uid="SettingsPivot" Title="Settings" Width="Auto" Margin="0,0,0,0">
-                        <Pivot.HeaderTemplate>
-                            <DataTemplate>
-                                <TextBlock Text="{Binding}" FontSize="20" FontFamily="Segoe UI"/>
-                            </DataTemplate>
-                        </Pivot.HeaderTemplate>
-                        <PivotItem Header="General" x:Name="SettingsTab1" x:Uid="SettingsTab1">
-                            <ScrollViewer x:Name="SettingsTab1SV" Height="200">
-                                <Grid Height="340">
-                                    <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode" Margin="0,10,23,87" TextWrapping="Wrap"/>
-                                    <ComboBox Margin="0,35,0,0" x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                                        <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
-                                        <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
-                                        <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
-                                        <ComboBoxItem Content="Classic Mode" Tag="Classic Mode" x:Uid="LaunchModeClassic" x:Name="LaunchModeClassic"/>
-                                    </ComboBox>
-                                    <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type" Margin="0,80,0,0" TextWrapping="Wrap" FontFamily="Segoe UI"/>
-                                    <ComboBox Margin="0,105,0,0" PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                                        <x:String>.rtf</x:String>
-                                        <x:String>.txt</x:String>
-                                    </ComboBox>
-                                    <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save" Margin="0,150,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" />
-                                    <TextBlock x:Uid="WordWrap" Text="Word Wrap" Margin="0,215,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.WordWrap, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,235,0,0" VerticalAlignment="Top" />
-                                    <TextBlock x:Uid="SpellCheck" Text="Spell Check" Margin="0,280,23,12" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontFamily="Segoe UI"/>
-                                    <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}" HorizontalAlignment="Left" Margin="0,300,0,0" VerticalAlignment="Top" />
-                                </Grid>
-                            </ScrollViewer>
-                        </PivotItem>
-                        <PivotItem Header="Theme" x:Name="SettingsTab2" x:Uid="SettingsTab2">
-                            <Grid Height="200">
-                                <TextBlock x:Uid="AppTheme" Text="App Theme" Margin="0,5,0,0" TextWrapping="Wrap" FontSize="18"/>
-                                <RadioButton x:Name="Light" Tag="Light" x:Uid="Light" Content="Light" HorizontalAlignment="Left" Height="38" Margin="0,40,0,0" VerticalAlignment="Top" Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" Grid.RowSpan="2"/>
-                                <RadioButton x:Name="Dark" Tag="Dark" x:Uid="Dark" Content="Dark" HorizontalAlignment="Left" Height="38" Margin="0,80,0,0" VerticalAlignment="Top" Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
-                                <RadioButton x:Name="SystemDefault" Tag="Default" x:Uid="SystemDefault" Content="System Default" HorizontalAlignment="Left" Height="38" Margin="0,120,0,0" VerticalAlignment="Top"  Width="242" Click="{x:Bind SetTheme}" IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" Grid.RowSpan="1"/>
-                            </Grid>
-                        </PivotItem>
-                        <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
-                            <Grid Height="200">
-                                <TextBlock x:Uid="DefaultFont" Text="Default Font" Margin="0,5,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,30,0,0" SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1"/>
-                                <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" Margin="0,70,0,0" TextWrapping="Wrap"/>
-                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Margin="0,95,0,0" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" Width="69" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
-                                    <x:Int32>4</x:Int32>
-                                    <x:Int32>6</x:Int32>
-                                    <x:Int32>8</x:Int32>
-                                    <x:Int32>10</x:Int32>
-                                    <x:Int32>12</x:Int32>
-                                    <x:Int32>14</x:Int32>
-                                    <x:Int32>16</x:Int32>
-                                    <x:Int32>18</x:Int32>
-                                    <x:Int32>20</x:Int32>
-                                    <x:Int32>22</x:Int32>
-                                    <x:Int32>24</x:Int32>
-                                    <x:Int32>26</x:Int32>
-                                    <x:Int32>28</x:Int32>
-                                    <x:Int32>36</x:Int32>
-                                    <x:Int32>48</x:Int32>
-                                    <x:Int32>72</x:Int32>
+        <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" Opened="Settings_Opened">
+            <ContentDialog.Resources>
+                <!--Force all textblock to have margin-->
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0,10,0,4"/>
+                    <Setter Property="TextWrapping" Value="Wrap"/>
+                    <Setter Property="FontFamily" Value="Segoe UI"/>
+                </Style>
+
+            </ContentDialog.Resources>
+            <Grid Width="450">
+                <CommandBar x:Name="CmdSettingsBack" Canvas.ZIndex="100" HorizontalAlignment="Right" Grid.RowSpan="1" VerticalAlignment="Top" Height="40" Background="{x:Null}" Margin="0,0,0,0">
+                    <AppBarButton x:Name="CmdBack" Windows10version1809:CornerRadius="2" Width="40" Icon="Clear" Click="CmdBack_Click"/>
+                </CommandBar>
+                <Pivot x:Name="SettingsPivot" x:Uid="SettingsPivot" Title="Settings">
+                    <Pivot.HeaderTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" FontSize="20" FontFamily="Segoe UI"/>
+                        </DataTemplate>
+                    </Pivot.HeaderTemplate>
+                    <PivotItem Header="General" x:Name="SettingsTab1" x:Uid="SettingsTab1">
+                        <ScrollViewer x:Name="SettingsTab1SV">
+                            <StackPanel Height="340">
+                                <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
+                                <ComboBox x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1">
+                                    <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
+                                    <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
+                                    <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
+                                    <ComboBoxItem Content="Classic Mode" Tag="Classic Mode" x:Uid="LaunchModeClassic" x:Name="LaunchModeClassic"/>
                                 </ComboBox>
-                                <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color" Margin="0,135,0,0" TextWrapping="Wrap"/>
-                                <ComboBox Margin="0,160,0,0" x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate x:DataType="q:FontColorItem">
-                                            <StackPanel Orientation="Horizontal">
-                                                <!--Default font color-->
-                                                <Rectangle Width="14" Height="14" Fill="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="{x:Bind q:Converter.IfStringMatchShow(TechnicalName, 'Default'), Mode=OneWay}" />
-                                                <!--Other font color-->
-                                                <Rectangle Width="14" Height="14" Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}" Visibility="{x:Bind q:Converter.IfStringMatchHide(TechnicalName, 'Default'), Mode=OneWay}" />
-                                                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
+                                
+                                <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
+                                <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                    <x:String>.rtf</x:String>
+                                    <x:String>.txt</x:String>
                                 </ComboBox>
-                            </Grid>
-                        </PivotItem>
-                        <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
-                            <ScrollViewer x:Name="SettingsTab2SV"  Height="200">
-                                <Grid Height="275">
-                                    <ToggleSwitch x:Name="ShowStrikethrough" IsOn="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,5,0,0"/>
-                                    <ToggleSwitch x:Name="ShowBullets" IsOn="{x:Bind QSetting.ShowBullets, Mode=TwoWay}" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0, 50,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignLeft" IsOn="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,95,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignCenter" IsOn="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,140,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignRight" IsOn="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,185,0,0"/>
-                                    <ToggleSwitch x:Name="ShowAlignJustify" IsOn="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,230,0,0"/>
-                                </Grid>
-                            </ScrollViewer>
-                        </PivotItem>
-                        <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
-                            <Grid Height="200">
-                                <TextBlock Text="Version number" x:Name="VersionNumber" Margin="0,15,0,0" HorizontalAlignment="Center" FontSize="14" FontFamily="Segoe UI"/>
-                                <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" Margin="0,40,0,0" FontFamily="Segoe UI" HorizontalAlignment="Center"/>
-                                <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" Margin="0,65,0,0" HorizontalAlignment="Center" FontFamily="Segoe UI"/>
-                                <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" Margin="0,90,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
-                                <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" Margin="0,115,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top"/>
-                                <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" Margin="0,140,0,0" FontSize="14" HorizontalAlignment="Center" FontFamily="Segoe UI" VerticalAlignment="Top" NavigateUri="http://paypal.me/yaichenbaum"/>
-                            </Grid>
-                        </PivotItem>
-                    </Pivot>
-                    <Grid>
-                    </Grid>
-                </Grid>
-            </StackPanel>
+                                
+                                <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save"/>
+                                <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
+                                
+                                <TextBlock x:Uid="WordWrap" Text="Word Wrap"/>
+                                <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.WordWrap, Mode=TwoWay}"/>
+                                
+                                <TextBlock x:Uid="SpellCheck" Text="Spell Check"/>
+                                <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </PivotItem>
+                    <PivotItem Header="Theme" x:Name="SettingsTab2" x:Uid="SettingsTab2">
+                        <StackPanel>
+                            <TextBlock x:Uid="AppTheme" Text="App Theme" TextWrapping="Wrap"/>
+                            <RadioButton x:Name="Light" 
+                                         Tag="Light" 
+                                         x:Uid="Light" 
+                                         Content="Light" 
+                                         Click="{x:Bind SetTheme}" 
+                                         IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" />
+                            <RadioButton x:Name="Dark" 
+                                         Tag="Dark" 
+                                         x:Uid="Dark" 
+                                         Content="Dark"
+                                         Click="{x:Bind SetTheme}" 
+                                         IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
+                            <RadioButton x:Name="SystemDefault" 
+                                         Tag="Default" 
+                                         x:Uid="SystemDefault" 
+                                         Content="System Default" 
+                                         Click="{x:Bind SetTheme}" 
+                                         IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" />
+                        </StackPanel>
+                    </PivotItem>
+                    <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
+                        <StackPanel>
+                            <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
+                            <ComboBox SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" MinWidth="169" BorderThickness="1"/>
+                            <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
+                            <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
+                                <x:Int32>4</x:Int32>
+                                <x:Int32>6</x:Int32>
+                                <x:Int32>8</x:Int32>
+                                <x:Int32>10</x:Int32>
+                                <x:Int32>12</x:Int32>
+                                <x:Int32>14</x:Int32>
+                                <x:Int32>16</x:Int32>
+                                <x:Int32>18</x:Int32>
+                                <x:Int32>20</x:Int32>
+                                <x:Int32>22</x:Int32>
+                                <x:Int32>24</x:Int32>
+                                <x:Int32>26</x:Int32>
+                                <x:Int32>28</x:Int32>
+                                <x:Int32>36</x:Int32>
+                                <x:Int32>48</x:Int32>
+                                <x:Int32>72</x:Int32>
+                            </ComboBox>
+                            <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
+                            <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                <ComboBox.ItemTemplate>
+                                    <DataTemplate x:DataType="q:FontColorItem">
+                                        <StackPanel Orientation="Horizontal">
+                                            <!--Default font color-->
+                                            <Rectangle Width="14" Height="14" Fill="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="{x:Bind q:Converter.IfStringMatchShow(TechnicalName, 'Default'), Mode=OneWay}" />
+                                            <!--Other font color-->
+                                            <Rectangle Width="14" Height="14" Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}" Visibility="{x:Bind q:Converter.IfStringMatchHide(TechnicalName, 'Default'), Mode=OneWay}" />
+                                            <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ComboBox.ItemTemplate>
+                            </ComboBox>
+                        </StackPanel>
+                    </PivotItem>
+                    <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
+                        <ScrollViewer x:Name="SettingsTab2SV"  Height="200">
+                            <StackPanel>
+                                <ToggleSwitch x:Name="ShowStrikethrough" IsOn="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Margin="0,10,0,4"/>
+                                <ToggleSwitch x:Name="ShowBullets" IsOn="{x:Bind QSetting.ShowBullets, Mode=TwoWay}" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Margin="0,10,0,4"/>
+                                <ToggleSwitch x:Name="ShowAlignLeft" IsOn="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Margin="0,10,0,4"/>
+                                <ToggleSwitch x:Name="ShowAlignCenter" IsOn="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Margin="0,10,0,4"/>
+                                <ToggleSwitch x:Name="ShowAlignRight" IsOn="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Margin="0,10,0,4"/>
+                                <ToggleSwitch x:Name="ShowAlignJustify" IsOn="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Margin="0,10,0,4"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </PivotItem>
+                    <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
+                        <StackPanel>
+                            <TextBlock Text="Version number" x:Name="VersionNumber" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" HorizontalAlignment="Center"/>
+                            <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" HorizontalAlignment="Center"/>
+                            <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
+                            <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" HorizontalAlignment="Center"/>
+                            <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </PivotItem>
+                </Pivot>
+            </Grid>
         </ContentDialog>
 
         <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom"
