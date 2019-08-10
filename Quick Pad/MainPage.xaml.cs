@@ -30,7 +30,7 @@ using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Quick_Pad_Free_Edition
+namespace QuickPad
 {
     public sealed partial class MainPage : Page, INotifyPropertyChanged
     {

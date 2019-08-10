@@ -20,7 +20,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 
-namespace Quick_Pad_Free_Edition
+namespace QuickPad
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
