@@ -298,38 +298,38 @@
                         <SymbolIcon Symbol="Underline"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Strikethrough" Click="Strikethrough_Click" x:Uid="ClassicFormatST">
+                <MenuFlyoutItem Text="Strikethrough" Click="Strikethrough_Click" x:Uid="ClassicFormatST" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption),Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Bullets" Click="BulletList_Click" x:Uid="ClassicFormatBullets">
+                <MenuFlyoutItem Text="Bullets" Click="BulletList_Click" x:Uid="ClassicFormatBullets" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets),Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Bullets"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Align leff" Click="Left_Click" x:Uid="ClassicFormatALeft">
+                <MenuFlyoutItem Text="Align leff" Click="Left_Click" x:Uid="ClassicFormatALeft" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft),Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="AlignLeft"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align center" Click="Center_Click" x:Uid="ClassicFormatACenter">
+                <MenuFlyoutItem Text="Align center" Click="Center_Click" x:Uid="ClassicFormatACenter" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter),Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="AlignCenter"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align right" Click="Right_Click" x:Uid="ClassicFormatARight">
+                <MenuFlyoutItem Text="Align right" Click="Right_Click" x:Uid="ClassicFormatARight" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight),Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="AlignRight"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align justify" Click="Justify_Click" x:Uid="ClassicFormatAJustify">
+                <MenuFlyoutItem Text="Align justify" Click="Justify_Click" x:Uid="ClassicFormatAJustify" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify),Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
                         <BitmapIcon UriSource="/Assets/justify align.png"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
+                <MenuFlyoutSeparator Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}"/>
                 <MenuFlyoutItem Text="Size up" Click="SizeUp_Click" x:Uid="ClassicFormatUp">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="FontIncrease"/>
