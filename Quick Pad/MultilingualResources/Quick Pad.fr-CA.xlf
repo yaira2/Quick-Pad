@@ -514,6 +514,142 @@
           <source>Word Wrap</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Retour automatique à la ligne</target>
         </trans-unit>
+        <trans-unit id="ClassicEdit.Title" translate="yes" xml:space="preserve">
+          <source>Edit</source>
+          <target state="new">Edit</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditCopy.Text" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="new">Copy</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditCut.Text" translate="yes" xml:space="preserve">
+          <source>Cut</source>
+          <target state="new">Cut</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditPaste.Text" translate="yes" xml:space="preserve">
+          <source>Paste</source>
+          <target state="new">Paste</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditRedo.Text" translate="yes" xml:space="preserve">
+          <source>Redo</source>
+          <target state="new">Redo</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditUndo.Text" translate="yes" xml:space="preserve">
+          <source>Undo</source>
+          <target state="new">Undo</target>
+        </trans-unit>
+        <trans-unit id="ClassicFile.Title" translate="yes" xml:space="preserve">
+          <source>File</source>
+          <target state="new">File</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileExit.Text" translate="yes" xml:space="preserve">
+          <source>Exit</source>
+          <target state="new">Exit</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileNew.Text" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="new">New</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileOpen.Text" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="new">Open</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileSave.Text" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileSaveAs.Text" translate="yes" xml:space="preserve">
+          <source>Save as...</source>
+          <target state="new">Save as...</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileShare.Text" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="new">Share</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormat.Title" translate="yes" xml:space="preserve">
+          <source>Format</source>
+          <target state="new">Format</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatACenter.Text" translate="yes" xml:space="preserve">
+          <source>Align center</source>
+          <target state="new">Align center</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatAJustify.Text" translate="yes" xml:space="preserve">
+          <source>Align justify</source>
+          <target state="new">Align justify</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatALeft.Text" translate="yes" xml:space="preserve">
+          <source>Align left</source>
+          <target state="new">Align left</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatARight.Text" translate="yes" xml:space="preserve">
+          <source>Align right</source>
+          <target state="new">Align right</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatBold.Text" translate="yes" xml:space="preserve">
+          <source>Bold</source>
+          <target state="new">Bold</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatBullets.Text" translate="yes" xml:space="preserve">
+          <source>Bullets</source>
+          <target state="new">Bullets</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatDown.Text" translate="yes" xml:space="preserve">
+          <source>Font Down</source>
+          <target state="new">Font Down</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatItalic.Text" translate="yes" xml:space="preserve">
+          <source>Italic</source>
+          <target state="new">Italic</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatST.Text" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="new">Strikethrough</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatUnderline.Text" translate="yes" xml:space="preserve">
+          <source>Underline</source>
+          <target state="new">Underline</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatUp.Text" translate="yes" xml:space="preserve">
+          <source>Font Up</source>
+          <target state="new">Font Up</target>
+        </trans-unit>
+        <trans-unit id="ClassicHelp.Title" translate="yes" xml:space="preserve">
+          <source>Help</source>
+          <target state="new">Help</target>
+        </trans-unit>
+        <trans-unit id="ClassicHelpRR.Text" translate="yes" xml:space="preserve">
+          <source>Rate and Review</source>
+          <target state="new">Rate and Review</target>
+        </trans-unit>
+        <trans-unit id="ClassicView.Title" translate="yes" xml:space="preserve">
+          <source>View</source>
+          <target state="new">View</target>
+        </trans-unit>
+        <trans-unit id="ClassicViewBack.Text" translate="yes" xml:space="preserve">
+          <source>Back to Default</source>
+          <target state="new">Back to Default</target>
+        </trans-unit>
+        <trans-unit id="ClassicViewFocus.Text" translate="yes" xml:space="preserve">
+          <source>Focus</source>
+          <target state="new">Focus</target>
+        </trans-unit>
+        <trans-unit id="ClassicViewOverlay.Text" translate="yes" xml:space="preserve">
+          <source>On Top</source>
+          <target state="new">On Top</target>
+        </trans-unit>
+        <trans-unit id="CmdClassicMode.Label" translate="yes" xml:space="preserve">
+          <source>Classic Mode</source>
+          <target state="new">Classic Mode</target>
+        </trans-unit>
+        <trans-unit id="CmdExit.Label" translate="yes" xml:space="preserve">
+          <source>Exit</source>
+          <target state="new">Exit</target>
+        </trans-unit>
+        <trans-unit id="CmdExitTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Exit the app</source>
+          <target state="new">Exit the app</target>
+        </trans-unit>
       </group>
     </body>
   </file>
