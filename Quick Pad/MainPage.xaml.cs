@@ -861,7 +861,7 @@ namespace QuickPad
 
         public async void CmdExit_Click(object sender, RoutedEventArgs e)
         {
-            if (Changed == false)
+            if (!Changed)
             {
                 App.Current.Exit();
                 return;
