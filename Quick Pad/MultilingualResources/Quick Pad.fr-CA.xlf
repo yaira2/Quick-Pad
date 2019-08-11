@@ -631,12 +631,12 @@
           <target state="new">Back to Default</target>
         </trans-unit>
         <trans-unit id="ClassicViewFocus.Text" translate="yes" xml:space="preserve">
-          <source>Focus</source>
-          <target state="new">Focus</target>
+          <source>Focus Mode</source>
+          <target state="new">Focus Mode</target>
         </trans-unit>
         <trans-unit id="ClassicViewOverlay.Text" translate="yes" xml:space="preserve">
-          <source>On Top</source>
-          <target state="new">On Top</target>
+          <source>On Top Mode</source>
+          <target state="new">On Top Mode</target>
         </trans-unit>
         <trans-unit id="CmdClassicMode.Label" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
