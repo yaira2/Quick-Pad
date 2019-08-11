@@ -498,4 +498,106 @@
   <data name="WordWrap.Text" xml:space="preserve">
     <value>Word Wrap</value>
   </data>
+  <data name="ClassicEdit.Title" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="ClassicEditCopy.Text" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="ClassicEditCut.Text" xml:space="preserve">
+    <value>Cut</value>
+  </data>
+  <data name="ClassicEditPaste.Text" xml:space="preserve">
+    <value>Paste</value>
+  </data>
+  <data name="ClassicEditRedo.Text" xml:space="preserve">
+    <value>Redo</value>
+  </data>
+  <data name="ClassicEditUndo.Text" xml:space="preserve">
+    <value>Undo</value>
+  </data>
+  <data name="ClassicFile.Title" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="ClassicFileExit.Text" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="ClassicFileNew.Text" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="ClassicFileOpen.Text" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="ClassicFileSave.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ClassicFileSaveAs.Text" xml:space="preserve">
+    <value>Save as...</value>
+  </data>
+  <data name="ClassicFileShare.Text" xml:space="preserve">
+    <value>Share</value>
+  </data>
+  <data name="ClassicFormat.Title" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="ClassicFormatACenter.Text" xml:space="preserve">
+    <value>Align center</value>
+  </data>
+  <data name="ClassicFormatAJustify.Text" xml:space="preserve">
+    <value>Align justify</value>
+  </data>
+  <data name="ClassicFormatALeft.Text" xml:space="preserve">
+    <value>Align left</value>
+  </data>
+  <data name="ClassicFormatARight.Text" xml:space="preserve">
+    <value>Align right</value>
+  </data>
+  <data name="ClassicFormatBold.Text" xml:space="preserve">
+    <value>Bold</value>
+  </data>
+  <data name="ClassicFormatBullets.Text" xml:space="preserve">
+    <value>Bullets</value>
+  </data>
+  <data name="ClassicFormatDown.Text" xml:space="preserve">
+    <value>Font Down</value>
+  </data>
+  <data name="ClassicFormatItalic.Text" xml:space="preserve">
+    <value>Italic</value>
+  </data>
+  <data name="ClassicFormatST.Text" xml:space="preserve">
+    <value>Strikethrough</value>
+  </data>
+  <data name="ClassicFormatUnderline.Text" xml:space="preserve">
+    <value>Underline</value>
+  </data>
+  <data name="ClassicFormatUp.Text" xml:space="preserve">
+    <value>Font Up</value>
+  </data>
+  <data name="ClassicHelp.Title" xml:space="preserve">
+    <value>Help</value>
+  </data>
+  <data name="ClassicHelpRR.Text" xml:space="preserve">
+    <value>Rate and Review</value>
+  </data>
+  <data name="ClassicView.Title" xml:space="preserve">
+    <value>View</value>
+  </data>
+  <data name="ClassicViewBack.Text" xml:space="preserve">
+    <value>Back to Default</value>
+  </data>
+  <data name="ClassicViewFocus.Text" xml:space="preserve">
+    <value>Focus</value>
+  </data>
+  <data name="ClassicViewOverlay.Text" xml:space="preserve">
+    <value>On Top</value>
+  </data>
+  <data name="CmdClassicMode.Label" xml:space="preserve">
+    <value>Classic Mode</value>
+  </data>
+  <data name="CmdExit.Label" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="CmdExitTooltip.Text" xml:space="preserve">
+    <value>Exit the app</value>
+  </data>
 </root>
