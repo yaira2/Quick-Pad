@@ -30,7 +30,7 @@ using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Quick_Pad_Free_Edition
+namespace QuickPad
 {
     public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
@@ -1172,20 +1172,21 @@ namespace Quick_Pad_Free_Edition
                 ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
 
-                Grid.SetRow(CommandBar2, 2);
-                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Shadow1.Visibility = Visibility.Collapsed;
+                CommandBar1.Visibility = Visibility.Collapsed;
                 Title.Visibility = Visibility.Collapsed;
-                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
-                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                Text1.Margin = new Thickness(0, 0, 0, 0);
-                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CmdFocusMode.IsEnabled = false;
-                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CommandBar2.Margin = new Thickness(0, 0, 0, 0);
-                CommandBar2.Visibility = Visibility.Visible;
+                FrameTop.Visibility = Visibility.Collapsed;
+                CmdSettings.Visibility = Visibility.Collapsed;
+                CmdFocusMode.Visibility = Visibility.Collapsed;
+                CmdClassicMode.Visibility = Visibility.Collapsed;
+                CommandBar3.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
+                Grid.SetRow(CommandBar2, 3);
+                CommandBar2.Visibility = Visibility.Visible;
+                CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
+                //
+                row0.Height = new GridLength(0);
+                row1.Height = new GridLength(0);            
 
                 //make text smaller size if user did not do so on their own and if they did not type anything yet.
                 Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
@@ -1200,18 +1201,20 @@ namespace Quick_Pad_Free_Edition
             else
             {
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
-                Grid.SetRow(CommandBar2, 0);
+
                 Title.Visibility = Visibility.Visible;
-                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
-                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdFocusMode.IsEnabled = true;
-                Text1.Margin = new Thickness(0, 74, 0, 40);
-                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
+                Shadow1.Visibility = Visibility.Visible;
+                CommandBar1.Visibility = Visibility.Visible;
+                CommandBar2.HorizontalAlignment = HorizontalAlignment.Right;
+                Grid.SetRow(CommandBar2, 1);
+                FrameTop.Visibility = Visibility.Visible;
+                CmdSettings.Visibility = Visibility.Visible;
+                CmdFocusMode.Visibility = Visibility.Visible;
+                CmdClassicMode.Visibility = Visibility.Collapsed;
+                CommandBar3.Visibility = Visibility.Visible;
+
+                row0.Height = new GridLength(1, GridUnitType.Auto);
+                row1.Height = new GridLength(1, GridUnitType.Auto);
 
                 if (ClassicModeSwitch == true)
                 {
@@ -1226,11 +1229,12 @@ namespace Quick_Pad_Free_Edition
             if (switching)
             {
                 Text1.SetValue(Canvas.ZIndexProperty, 90);
-                Text1.Margin = new Thickness(0, 33, 0, 0);
+                CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
                 Shadow2.Visibility = Visibility.Collapsed;
                 Shadow1.Visibility = Visibility.Collapsed;
-                CloseFocusMode.Visibility = Visibility.Visible;
+                row1.Height = new GridLength(0);
+                row3.Height = new GridLength(0);
             }
             else
             {
@@ -1239,9 +1243,9 @@ namespace Quick_Pad_Free_Edition
                 CommandBar1.Visibility = Visibility.Visible;
                 Shadow2.Visibility = Visibility.Visible;
                 Shadow1.Visibility = Visibility.Visible;
-                CloseFocusMode.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
-                Text1.Margin = new Thickness(0, 74, 0, 40);
+                row1.Height = new GridLength(1, GridUnitType.Auto);
+                row3.Height = new GridLength(1, GridUnitType.Auto);
             }
             if (ClassicModeSwitch == true)
             {
