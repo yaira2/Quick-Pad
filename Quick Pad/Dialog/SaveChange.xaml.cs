@@ -1,4 +1,4 @@
-﻿using Quick_Pad_Free_Edition;
+﻿using QuickPad;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
