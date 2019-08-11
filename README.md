@@ -27,3 +27,4 @@ Please head over to [Github Releases](https://github.com/UWPCommunity/Quick-Pad/
 * Code Contributors: [Toon Werawat](https://github.com/ray199)
 * Localization Contributors: 
     * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
+    * [fr-CA][French] [PhilLB1239](https://github.com/PhilLB1239)
