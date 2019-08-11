@@ -514,6 +514,142 @@
           <source>Classic</source>
           <target state="translated">คลาสสิค</target>
         </trans-unit>
+        <trans-unit id="ClassicEdit.Title" translate="yes" xml:space="preserve">
+          <source>Edit</source>
+          <target state="translated" state-qualifier="tm-suggestion">แก้ไข</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditCopy.Text" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated" state-qualifier="tm-suggestion">คัดลอก</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditCut.Text" translate="yes" xml:space="preserve">
+          <source>Cut</source>
+          <target state="translated" state-qualifier="tm-suggestion">ตัด</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditPaste.Text" translate="yes" xml:space="preserve">
+          <source>Paste</source>
+          <target state="translated" state-qualifier="tm-suggestion">วาง</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditRedo.Text" translate="yes" xml:space="preserve">
+          <source>Redo</source>
+          <target state="translated" state-qualifier="tm-suggestion">ทำซ้ำ</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditUndo.Text" translate="yes" xml:space="preserve">
+          <source>Undo</source>
+          <target state="translated" state-qualifier="tm-suggestion">เลิกทำ</target>
+        </trans-unit>
+        <trans-unit id="ClassicFile.Title" translate="yes" xml:space="preserve">
+          <source>File</source>
+          <target state="translated" state-qualifier="tm-suggestion">แฟ้ม</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileExit.Text" translate="yes" xml:space="preserve">
+          <source>Exit</source>
+          <target state="translated" state-qualifier="tm-suggestion">ออก</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileNew.Text" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="translated" state-qualifier="tm-suggestion">ใหม่</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileOpen.Text" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="translated" state-qualifier="tm-suggestion">เปิด</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileSave.Text" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated" state-qualifier="tm-suggestion">บันทึก</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileSaveAs.Text" translate="yes" xml:space="preserve">
+          <source>Save as...</source>
+          <target state="translated">บันทึกเป็น</target>
+        </trans-unit>
+        <trans-unit id="ClassicFileShare.Text" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="translated" state-qualifier="tm-suggestion">แชร์</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormat.Title" translate="yes" xml:space="preserve">
+          <source>Format</source>
+          <target state="translated">รูปแบบ</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatACenter.Text" translate="yes" xml:space="preserve">
+          <source>Align center</source>
+          <target state="translated" state-qualifier="tm-suggestion">จัดกึ่งกลาง</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatAJustify.Text" translate="yes" xml:space="preserve">
+          <source>Align justify</source>
+          <target state="translated">จัดเต็มแนว</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatALeft.Text" translate="yes" xml:space="preserve">
+          <source>Align left</source>
+          <target state="translated">จัดชิดซ้าย</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatARight.Text" translate="yes" xml:space="preserve">
+          <source>Align right</source>
+          <target state="translated" state-qualifier="tm-suggestion">จัดชิดขวา</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatBold.Text" translate="yes" xml:space="preserve">
+          <source>Bold</source>
+          <target state="translated" state-qualifier="tm-suggestion">ตัวหนา</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatBullets.Text" translate="yes" xml:space="preserve">
+          <source>Bullets</source>
+          <target state="translated" state-qualifier="tm-suggestion">สัญลักษณ์แสดงหัวข้อย่อย</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatDown.Text" translate="yes" xml:space="preserve">
+          <source>Font Down</source>
+          <target state="translated">ย่อขนาดตัวอักษร</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatItalic.Text" translate="yes" xml:space="preserve">
+          <source>Italic</source>
+          <target state="translated" state-qualifier="tm-suggestion">ตัวเอียง</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatST.Text" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="translated" state-qualifier="tm-suggestion">ขีดทับ</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatUnderline.Text" translate="yes" xml:space="preserve">
+          <source>Underline</source>
+          <target state="translated" state-qualifier="tm-suggestion">ขีดเส้นใต้</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatUp.Text" translate="yes" xml:space="preserve">
+          <source>Font Up</source>
+          <target state="translated">ขยายขนาดตัวอักษร</target>
+        </trans-unit>
+        <trans-unit id="ClassicHelp.Title" translate="yes" xml:space="preserve">
+          <source>Help</source>
+          <target state="translated">อื่นๆ</target>
+        </trans-unit>
+        <trans-unit id="ClassicHelpRR.Text" translate="yes" xml:space="preserve">
+          <source>Rate and Review</source>
+          <target state="translated" state-qualifier="tm-suggestion">ให้คะแนนและวิจารณ์</target>
+        </trans-unit>
+        <trans-unit id="ClassicViewBack.Text" translate="yes" xml:space="preserve">
+          <source>Back to Default</source>
+          <target state="translated">กลับไปมุมมองเดิม</target>
+        </trans-unit>
+        <trans-unit id="ClassicViewFocus.Text" translate="yes" xml:space="preserve">
+          <source>Focus</source>
+          <target state="translated">เน้นพิมพ์</target>
+        </trans-unit>
+        <trans-unit id="ClassicViewOverlay.Text" translate="yes" xml:space="preserve">
+          <source>On Top</source>
+          <target state="translated">ทับแอปอื่น</target>
+        </trans-unit>
+        <trans-unit id="ClassicView.Title" translate="yes" xml:space="preserve">
+          <source>View</source>
+          <target state="translated">มุมมอง</target>
+        </trans-unit>
+        <trans-unit id="CmdClassicMode.Label" translate="yes" xml:space="preserve">
+          <source>Classic Mode</source>
+          <target state="translated">เมนูคลาสสิค</target>
+        </trans-unit>
+        <trans-unit id="CmdExit.Label" translate="yes" xml:space="preserve">
+          <source>Exit</source>
+          <target state="translated">ออก</target>
+        </trans-unit>
+        <trans-unit id="CmdExitTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Exit the app</source>
+          <target state="translated">ปิดแอปไปทำอย่างอื่น</target>
+        </trans-unit>
       </group>
     </body>
   </file>
