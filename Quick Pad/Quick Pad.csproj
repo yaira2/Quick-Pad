@@ -208,6 +208,7 @@
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <PRIResource Include="Strings\fr-CA\Resources.resw" />
     <PRIResource Include="Strings\th-TH\Resources.resw" />
     <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
@@ -258,6 +259,7 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <XliffResource Include="MultilingualResources\Quick Pad.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.th-TH.xlf" />
   </ItemGroup>
   <ItemGroup />

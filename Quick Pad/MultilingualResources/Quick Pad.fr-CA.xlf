@@ -1,0 +1,520 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr-CA" original="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6914.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="AppTheme.Text" translate="yes" xml:space="preserve">
+          <source>App theme</source>
+          <target state="translated">Thème de l'application</target>
+        </trans-unit>
+        <trans-unit id="AutoSaveSwitch.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save</source>
+          <target state="translated">Sauvegarde automatique</target>
+        </trans-unit>
+        <trans-unit id="BlackPlaceholder" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="translated" state-qualifier="tm-suggestion">Noir</target>
+        </trans-unit>
+        <trans-unit id="Bold.Label" translate="yes" xml:space="preserve">
+          <source>Bold</source>
+          <target state="translated" state-qualifier="tm-suggestion">Gras</target>
+        </trans-unit>
+        <trans-unit id="BoldTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Bold (Ctrl+B)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Gras (Ctrl+B)</target>
+        </trans-unit>
+        <trans-unit id="BulletList.Label" translate="yes" xml:space="preserve">
+          <source>Bullets</source>
+          <target state="translated" state-qualifier="tm-suggestion">Puces</target>
+        </trans-unit>
+        <trans-unit id="BulletListTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Toggle Bullets</source>
+          <target state="translated">Basculer les puces</target>
+        </trans-unit>
+        <trans-unit id="Center.Label" translate="yes" xml:space="preserve">
+          <source>Center</source>
+          <target state="translated" state-qualifier="tm-suggestion">Centre</target>
+        </trans-unit>
+        <trans-unit id="CenterTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Align center (Ctrl+E)</source>
+          <target state="translated">Aligner au centre (Ctrl+E)</target>
+        </trans-unit>
+        <trans-unit id="CmdFocusMode.Label" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="translated">Mode focus</target>
+        </trans-unit>
+        <trans-unit id="CmdNew.Label" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="translated" state-qualifier="tm-suggestion">Nouveau</target>
+        </trans-unit>
+        <trans-unit id="CmdNewTooltip.Text" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="translated" state-qualifier="tm-suggestion">Nouveau</target>
+        </trans-unit>
+        <trans-unit id="CmdOpen.Label" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="translated" state-qualifier="tm-suggestion">Ouvrir</target>
+        </trans-unit>
+        <trans-unit id="CmdOpenTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Open (Ctrl+O)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Ouvrir (Ctrl+O)</target>
+        </trans-unit>
+        <trans-unit id="CmdRedo.Label" translate="yes" xml:space="preserve">
+          <source>Redo</source>
+          <target state="translated">Répéter</target>
+        </trans-unit>
+        <trans-unit id="CmdRedoTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Redo (Ctrl+Y)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Répéter (Ctrl+Y)</target>
+        </trans-unit>
+        <trans-unit id="CmdReview.Label" translate="yes" xml:space="preserve">
+          <source>Review</source>
+          <target state="translated" state-qualifier="tm-suggestion">Révision</target>
+        </trans-unit>
+        <trans-unit id="CmdSave.Label" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated" state-qualifier="tm-suggestion">Enregistrer</target>
+        </trans-unit>
+        <trans-unit id="CmdSaveTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Save (Ctrl+S)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Enregistrer (Ctrl+S)</target>
+        </trans-unit>
+        <trans-unit id="CmdSettings.Label" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated" state-qualifier="tm-suggestion">Paramètres</target>
+        </trans-unit>
+        <trans-unit id="CmdSettingsTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated" state-qualifier="tm-suggestion">Paramètres</target>
+        </trans-unit>
+        <trans-unit id="CmdShare.Label" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="translated" state-qualifier="tm-suggestion">Partager</target>
+        </trans-unit>
+        <trans-unit id="CmdShareTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Share the file you are working on.</source>
+          <target state="translated">Partager le fichier que vous êtes en train de travailler.</target>
+        </trans-unit>
+        <trans-unit id="CmdUndo.Label" translate="yes" xml:space="preserve">
+          <source>Undo</source>
+          <target state="translated" state-qualifier="tm-suggestion">Annuler</target>
+        </trans-unit>
+        <trans-unit id="CmdUndoTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Undo (Ctrl+Z)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Annuler (Ctrl+Z)</target>
+        </trans-unit>
+        <trans-unit id="CompactOverlay.Content" translate="yes" xml:space="preserve">
+          <source>On Top</source>
+          <target state="translated" state-qualifier="tm-suggestion">En haut</target>
+        </trans-unit>
+        <trans-unit id="Contribute.Content" translate="yes" xml:space="preserve">
+          <source>Contribute to the developer</source>
+          <target state="translated">Contribuer au développeur</target>
+        </trans-unit>
+        <trans-unit id="Copy.Label" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated" state-qualifier="tm-suggestion">Copier</target>
+        </trans-unit>
+        <trans-unit id="CopyTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Copy (Ctrl+C)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Copier (Ctrl+C)</target>
+        </trans-unit>
+        <trans-unit id="Cut.Label" translate="yes" xml:space="preserve">
+          <source>Cut</source>
+          <target state="translated" state-qualifier="tm-suggestion">Couper</target>
+        </trans-unit>
+        <trans-unit id="CutTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Cut (Ctrl+X)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Couper (Ctrl+X)</target>
+        </trans-unit>
+        <trans-unit id="Dark.Content" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="translated" state-qualifier="tm-suggestion">Sombre</target>
+        </trans-unit>
+        <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
+          <source>Default Font</source>
+          <target state="translated" state-qualifier="tm-suggestion">Police par défaut</target>
+        </trans-unit>
+        <trans-unit id="DefaultFontColor.Text" translate="yes" xml:space="preserve">
+          <source>Default Font Color</source>
+          <target state="translated">Couleur de police par défaut</target>
+        </trans-unit>
+        <trans-unit id="DefaultFontColorCombobox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="translated" state-qualifier="tm-suggestion">Noir</target>
+        </trans-unit>
+        <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
+          <source>Default Font Size</source>
+          <target state="translated" state-qualifier="tm-suggestion">Taille de police par défaut</target>
+        </trans-unit>
+        <trans-unit id="DevelopedBy.Text" translate="yes" xml:space="preserve">
+          <source>Developed by Yair Aichenbaum</source>
+          <target state="translated">Développé par Yair Aichenbaum</target>
+        </trans-unit>
+        <trans-unit id="ErrorDialogContent" translate="yes" xml:space="preserve">
+          <source>Sorry, Quick Pad couldn't open the file.</source>
+          <target state="translated">Désolé, Quick Pad ne peut pas ouvrir le fichier.</target>
+        </trans-unit>
+        <trans-unit id="ErrorDialogOk" translate="yes" xml:space="preserve">
+          <source>Ok</source>
+          <target state="translated" state-qualifier="tm-suggestion">OK</target>
+        </trans-unit>
+        <trans-unit id="ErrorDialogTitle" translate="yes" xml:space="preserve">
+          <source>File open error</source>
+          <target state="translated">Échec de l'ouverture du fichier</target>
+        </trans-unit>
+        <trans-unit id="ExitFocusMode.Text" translate="yes" xml:space="preserve">
+          <source>Exit Focus Mode</source>
+          <target state="translated">Fermer le mode focus</target>
+        </trans-unit>
+        <trans-unit id="FontColorBlack" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="translated" state-qualifier="tm-suggestion">Noir</target>
+        </trans-unit>
+        <trans-unit id="FontColorBlue" translate="yes" xml:space="preserve">
+          <source>Blue</source>
+          <target state="translated" state-qualifier="tm-suggestion">Bleu</target>
+        </trans-unit>
+        <trans-unit id="FontColorGreen" translate="yes" xml:space="preserve">
+          <source>Green</source>
+          <target state="translated" state-qualifier="tm-suggestion">Vert</target>
+        </trans-unit>
+        <trans-unit id="FontColorOrange" translate="yes" xml:space="preserve">
+          <source>Orange</source>
+          <target state="translated" state-qualifier="tm-suggestion">Orange</target>
+        </trans-unit>
+        <trans-unit id="FontColorPink" translate="yes" xml:space="preserve">
+          <source>Pink</source>
+          <target state="translated" state-qualifier="tm-suggestion">Rose</target>
+        </trans-unit>
+        <trans-unit id="FontColorWhite" translate="yes" xml:space="preserve">
+          <source>White</source>
+          <target state="translated" state-qualifier="tm-suggestion">Blanc</target>
+        </trans-unit>
+        <trans-unit id="FontColorYellow" translate="yes" xml:space="preserve">
+          <source>Yellow</source>
+          <target state="translated" state-qualifier="tm-suggestion">Jaune</target>
+        </trans-unit>
+        <trans-unit id="GeneralAutoSave.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save</source>
+          <target state="translated">Sauvegarde automatique</target>
+        </trans-unit>
+        <trans-unit id="GeneralDefaultType.Text" translate="yes" xml:space="preserve">
+          <source>Default File Type</source>
+          <target state="translated">Type de fichier par défaut</target>
+        </trans-unit>
+        <trans-unit id="GeneralLaunchMode.Text" translate="yes" xml:space="preserve">
+          <source>Launch Mode</source>
+          <target state="translated">Mode lancement</target>
+        </trans-unit>
+        <trans-unit id="GeneralLaunchModeCombobox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="translated">Par défaut</target>
+        </trans-unit>
+        <trans-unit id="GeneralToggleSwitch.OffContent" translate="yes" xml:space="preserve">
+          <source>Off</source>
+          <target state="translated" state-qualifier="tm-suggestion">Désactivé</target>
+        </trans-unit>
+        <trans-unit id="GeneralToggleSwitch.OnContent" translate="yes" xml:space="preserve">
+          <source>On</source>
+          <target state="translated" state-qualifier="tm-suggestion">Activé</target>
+        </trans-unit>
+        <trans-unit id="IconDesignBy.Text" translate="yes" xml:space="preserve">
+          <source>Icon design by James Arney</source>
+          <target state="translated">Design de l'icône par James Arney</target>
+        </trans-unit>
+        <trans-unit id="Italic.Label" translate="yes" xml:space="preserve">
+          <source>Italic</source>
+          <target state="translated" state-qualifier="tm-suggestion">Italique</target>
+        </trans-unit>
+        <trans-unit id="ItalicTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Italic (Ctrl+I)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Italique (Ctrl+I)</target>
+        </trans-unit>
+        <trans-unit id="Justify.Label" translate="yes" xml:space="preserve">
+          <source>Justify</source>
+          <target state="translated">Justifié</target>
+        </trans-unit>
+        <trans-unit id="JustifyTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Justify text (Ctrl+J)</source>
+          <target state="translated">Justifier le texte (Ctrl+J)</target>
+        </trans-unit>
+        <trans-unit id="LaunchModeClassic.Content" translate="yes" xml:space="preserve">
+          <source>Classic</source>
+          <target state="translated" state-qualifier="tm-suggestion">Classique</target>
+        </trans-unit>
+        <trans-unit id="LaunchInClassicMode" translate="yes" xml:space="preserve">
+          <source>Classic</source>
+          <target state="translated" state-qualifier="tm-suggestion">Classique</target>
+        </trans-unit>
+        <trans-unit id="LaunchInClassicModeDesc" translate="yes" xml:space="preserve">
+          <source>Launch app into classic mode </source>
+          <target state="translated">Ouvrir l'application en mode classique</target>
+        </trans-unit>
+        <trans-unit id="LaunchInFocusMode" translate="yes" xml:space="preserve">
+          <source>Focus</source>
+          <target state="translated">Focus</target>
+        </trans-unit>
+        <trans-unit id="LaunchInFocusModeDesc" translate="yes" xml:space="preserve">
+          <source>Launch app into focus mode </source>
+          <target state="translated">Ouvrir l'application en mode focus</target>
+        </trans-unit>
+        <trans-unit id="LaunchInOnTopMode" translate="yes" xml:space="preserve">
+          <source>Overlay</source>
+          <target state="translated">Superposé</target>
+        </trans-unit>
+        <trans-unit id="LaunchInOnTopModeDesc" translate="yes" xml:space="preserve">
+          <source>Launch app into on top mode</source>
+          <target state="translated">Ouvrir l'application en mode superposé</target>
+        </trans-unit>
+        <trans-unit id="LaunchModeDefault.Content" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="translated" state-qualifier="tm-suggestion">Par défaut</target>
+        </trans-unit>
+        <trans-unit id="LaunchModeFocus.Content" translate="yes" xml:space="preserve">
+          <source>Focus</source>
+          <target state="translated">Focus</target>
+        </trans-unit>
+        <trans-unit id="LaunchModeOnTop.Content" translate="yes" xml:space="preserve">
+          <source>On Top</source>
+          <target state="translated" state-qualifier="tm-suggestion">En haut</target>
+        </trans-unit>
+        <trans-unit id="Left.Label" translate="yes" xml:space="preserve">
+          <source>Left</source>
+          <target state="translated" state-qualifier="tm-suggestion">À gauche</target>
+        </trans-unit>
+        <trans-unit id="LeftTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Align left (Ctrl+L)</source>
+          <target state="translated">Aligner à gauche (Ctrl+L)</target>
+        </trans-unit>
+        <trans-unit id="Light.Content" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="translated" state-qualifier="tm-suggestion">Clair</target>
+        </trans-unit>
+        <trans-unit id="NewDocument" translate="yes" xml:space="preserve">
+          <source>New Document</source>
+          <target state="translated" state-qualifier="tm-suggestion">Nouveau document</target>
+        </trans-unit>
+        <trans-unit id="NewUserFeedbackContent" translate="yes" xml:space="preserve">
+          <source>Please consider leaving a review for Quick Pad in the store.</source>
+          <target state="translated">S'il vous plais, veuillez considérer de laisser un commentaire pour Quick Pad dans le magasin</target>
+        </trans-unit>
+        <trans-unit id="NewUserFeedbackNo" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated" state-qualifier="tm-suggestion">Non</target>
+        </trans-unit>
+        <trans-unit id="NewUserFeedbackTitle" translate="yes" xml:space="preserve">
+          <source>Do you enjoy using Quick Pad?</source>
+          <target state="translated">Est-ce que vous appréciez Quick Pad?</target>
+        </trans-unit>
+        <trans-unit id="NewUserFeedbackYes" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated" state-qualifier="tm-suggestion">Oui</target>
+        </trans-unit>
+        <trans-unit id="NothingToShare" translate="yes" xml:space="preserve">
+          <source>Nothing to share, type something in order to share it.</source>
+          <target state="translated">Rien à partager, insérez quelque chose pour le partager.</target>
+        </trans-unit>
+        <trans-unit id="Paste.Label" translate="yes" xml:space="preserve">
+          <source>Paste</source>
+          <target state="translated" state-qualifier="tm-suggestion">Coller</target>
+        </trans-unit>
+        <trans-unit id="PasteTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Paste (Ctrl+V)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Coller (Ctrl+V)</target>
+        </trans-unit>
+        <trans-unit id="RateAndReview.Content" translate="yes" xml:space="preserve">
+          <source>Rate and review</source>
+          <target state="translated">Évaluer et commenter</target>
+        </trans-unit>
+        <trans-unit id="Right.Label" translate="yes" xml:space="preserve">
+          <source>Right</source>
+          <target state="translated" state-qualifier="tm-suggestion">Droite</target>
+        </trans-unit>
+        <trans-unit id="RightTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Align right (Ctrl+R)</source>
+          <target state="translated">Aligner à droite (Ctrl+R)</target>
+        </trans-unit>
+        <trans-unit id="SaveDialog.Text" translate="yes" xml:space="preserve">
+          <source>Would you like to save your changes?</source>
+          <target state="translated" state-qualifier="tm-suggestion">Voulez-vous enregistrer vos modifications?</target>
+        </trans-unit>
+        <trans-unit id="SaveDialogCancel.Content" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated" state-qualifier="tm-suggestion">Annuler</target>
+        </trans-unit>
+        <trans-unit id="SaveDialogNo.Content" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated" state-qualifier="tm-suggestion">Non</target>
+        </trans-unit>
+        <trans-unit id="SaveDialogYes.Content" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated" state-qualifier="tm-suggestion">Oui</target>
+        </trans-unit>
+        <trans-unit id="SendFeedback.Content" translate="yes" xml:space="preserve">
+          <source>Send Feedback</source>
+          <target state="translated" state-qualifier="tm-suggestion">Envoyer des commentaires</target>
+        </trans-unit>
+        <trans-unit id="SettingsPivot.Title" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated" state-qualifier="tm-suggestion">Paramètres</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab1.Header" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated" state-qualifier="tm-suggestion">Général</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab2.Header" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated" state-qualifier="tm-suggestion">Thème</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab3.Header" translate="yes" xml:space="preserve">
+          <source>Font</source>
+          <target state="translated">Police</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab4.Header" translate="yes" xml:space="preserve">
+          <source>Toolbar</source>
+          <target state="translated" state-qualifier="tm-suggestion">Barre d'outils</target>
+        </trans-unit>
+        <trans-unit id="SettingsTab5.Header" translate="yes" xml:space="preserve">
+          <source>About</source>
+          <target state="translated">À propos</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignCenter.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide align center</source>
+          <target state="translated">Cacher l'algnement au centre</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignCenter.OnContent" translate="yes" xml:space="preserve">
+          <source>Show align center</source>
+          <target state="translated">Montrer l'alignement au centre</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignJustify.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide align justify</source>
+          <target state="translated">Cacher l'alignement justifié</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignJustify.OnContent" translate="yes" xml:space="preserve">
+          <source>Show align justify</source>
+          <target state="translated">Montrer l'alignement justifié</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignLeft.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide align left</source>
+          <target state="translated">Cacher l'alignement à gauche</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignLeft.OnContent" translate="yes" xml:space="preserve">
+          <source>Show align left</source>
+          <target state="translated">Montrer l'alignement à gauche</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignRight.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide align right</source>
+          <target state="translated">Cacher l'alignement à droite</target>
+        </trans-unit>
+        <trans-unit id="ShowAlignRight.OnContent" translate="yes" xml:space="preserve">
+          <source>Show align right</source>
+          <target state="translated">Montrer l'alignement à droite</target>
+        </trans-unit>
+        <trans-unit id="ShowBullets.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide bullet list</source>
+          <target state="translated">Cacher la liste de puce</target>
+        </trans-unit>
+        <trans-unit id="ShowBullets.OnContent" translate="yes" xml:space="preserve">
+          <source>Show bullet list</source>
+          <target state="translated">Montrer la liste de puce</target>
+        </trans-unit>
+        <trans-unit id="ShowStrikethrough.OffContent" translate="yes" xml:space="preserve">
+          <source>Hide strikethrough option</source>
+          <target state="translated">Cacher l'option barrée</target>
+        </trans-unit>
+        <trans-unit id="ShowStrikethrough.OnContent" translate="yes" xml:space="preserve">
+          <source>Show strikethrough option</source>
+          <target state="translated">Montrer l'option barrée</target>
+        </trans-unit>
+        <trans-unit id="SizeDown.Label" translate="yes" xml:space="preserve">
+          <source>Size Down</source>
+          <target state="translated">Taille plus bas</target>
+        </trans-unit>
+        <trans-unit id="SizeDownTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Size Down</source>
+          <target state="translated">Taille plus bas</target>
+        </trans-unit>
+        <trans-unit id="SizeUp.Label" translate="yes" xml:space="preserve">
+          <source>Size Up</source>
+          <target state="translated">Taille plus haut</target>
+        </trans-unit>
+        <trans-unit id="SizeUpTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Size Up</source>
+          <target state="translated">Taille plus haut </target>
+        </trans-unit>
+        <trans-unit id="SpellCheck.Text" translate="yes" xml:space="preserve">
+          <source>Spell Check</source>
+          <target state="translated" state-qualifier="tm-suggestion">Vérification de l'orthographe</target>
+        </trans-unit>
+        <trans-unit id="Strikethrough.Label" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="translated" state-qualifier="tm-suggestion">Barré</target>
+        </trans-unit>
+        <trans-unit id="StrikethroughTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="translated" state-qualifier="tm-suggestion">Barré</target>
+        </trans-unit>
+        <trans-unit id="SystemDefault.Content" translate="yes" xml:space="preserve">
+          <source>System Default</source>
+          <target state="translated">Paramètres du système par défaut</target>
+        </trans-unit>
+        <trans-unit id="TextColorBlack.Text" translate="yes" xml:space="preserve">
+          <source>Black</source>
+          <target state="translated" state-qualifier="tm-suggestion">Noir</target>
+        </trans-unit>
+        <trans-unit id="TextColorBlue.Text" translate="yes" xml:space="preserve">
+          <source>Blue</source>
+          <target state="translated" state-qualifier="tm-suggestion">Bleu</target>
+        </trans-unit>
+        <trans-unit id="TextColorGreen.Text" translate="yes" xml:space="preserve">
+          <source>Green</source>
+          <target state="translated" state-qualifier="tm-suggestion">Vert</target>
+        </trans-unit>
+        <trans-unit id="TextColorOrange.Text" translate="yes" xml:space="preserve">
+          <source>Orange</source>
+          <target state="translated" state-qualifier="tm-suggestion">Orange</target>
+        </trans-unit>
+        <trans-unit id="TextColorPink.Text" translate="yes" xml:space="preserve">
+          <source>Pink</source>
+          <target state="translated" state-qualifier="tm-suggestion">Rose</target>
+        </trans-unit>
+        <trans-unit id="TextColorTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Font Color</source>
+          <target state="translated" state-qualifier="tm-suggestion">Couleur de police</target>
+        </trans-unit>
+        <trans-unit id="TextColorWhite.Text" translate="yes" xml:space="preserve">
+          <source>White</source>
+          <target state="translated" state-qualifier="tm-suggestion">Blanc</target>
+        </trans-unit>
+        <trans-unit id="TextColorYellow.Text" translate="yes" xml:space="preserve">
+          <source>Yellow</source>
+          <target state="translated" state-qualifier="tm-suggestion">Jaune</target>
+        </trans-unit>
+        <trans-unit id="Underline.Label" translate="yes" xml:space="preserve">
+          <source>Underline</source>
+          <target state="translated" state-qualifier="tm-suggestion">Souligné</target>
+        </trans-unit>
+        <trans-unit id="UnderlineTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Underline (Ctrl+U)</source>
+          <target state="translated" state-qualifier="tm-suggestion">Souligner (Ctrl+U)</target>
+        </trans-unit>
+        <trans-unit id="VersionFormat" translate="yes" xml:space="preserve">
+          <source>Version: {0}.{1}.{2}.{3}</source>
+          <target state="translated">Version: {0} ({1}, {2}{3})</target>
+        </trans-unit>
+        <trans-unit id="WhitePlaceholder" translate="yes" xml:space="preserve">
+          <source>White</source>
+          <target state="translated" state-qualifier="tm-suggestion">Blanc</target>
+        </trans-unit>
+        <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
+          <source>Word Wrap</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Retour automatique à la ligne</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>
