@@ -586,10 +586,10 @@
     <value>Back to Default</value>
   </data>
   <data name="ClassicViewFocus.Text" xml:space="preserve">
-    <value>Focus</value>
+    <value>Focus Mode</value>
   </data>
   <data name="ClassicViewOverlay.Text" xml:space="preserve">
-    <value>On Top</value>
+    <value>On Top Mode</value>
   </data>
   <data name="CmdClassicMode.Label" xml:space="preserve">
     <value>Classic Mode</value>
