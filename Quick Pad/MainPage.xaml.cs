@@ -859,17 +859,8 @@ namespace QuickPad
             await SaveWork();
         }
 
-        public async void CmdExit_Click(object sender, RoutedEventArgs e)
+        public void CmdExit_Click(object sender, RoutedEventArgs e)
         {
-            await WantToSave.ShowAsync();
-            switch (WantToSave.DialogResult)
-            {
-                case DialogResult.Yes:
-                    await SaveWork();
-                    break;
-                case DialogResult.Cancel:
-                    return;
-            }
             App.Current.Exit();
         }
 
