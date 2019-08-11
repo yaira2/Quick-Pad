@@ -535,7 +535,7 @@
             </Grid>
         </ContentDialog>
 
-        <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="2" VerticalAlignment="Bottom"
+        <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="4" VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
                                   ShadowOpacity="0.2"
                                   OffsetX="0"
