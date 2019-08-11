@@ -552,7 +552,7 @@
                     <Frame x:Name="FontBoxFrame" Width="167" Height="37" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
                     <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Segoe UI" Canvas.Left="10" Canvas.Top="11" Canvas.ZIndex="100"/>
                     <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="145" Canvas.Top="13" Canvas.ZIndex="100"/>
-                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness="1,1,1,1" PlaceholderForeground="Black"/>
+                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Segoe UI" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness=".5" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
             <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor">
