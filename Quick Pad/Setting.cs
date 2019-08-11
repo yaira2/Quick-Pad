@@ -170,6 +170,13 @@ namespace QuickPad
             set => Set(value);
         }
 
+        [DefaultValue(false)]
+        public bool ShowStatusBar
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
         /// <summary>
         /// this is to check the default file extension choosen in the save file dialog
         /// </summary>
@@ -455,6 +462,44 @@ namespace QuickPad
             byte g = (byte)Convert.ToUInt32(input.Substring(4, 2), 16);
             byte b = (byte)Convert.ToUInt32(input.Substring(6, 2), 16);
             return Color.FromArgb(a, r, g, b);
+        }
+
+        /// <summary>
+        /// Use to check if input item is null or not
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public static bool IsItemNull(object item)
+        {
+            return item is null;
+        }
+
+        /// <summary>
+        /// Use in XAML binding, if item is null show that UI, if item is not null hide the UI
+        /// </summary>
+        /// <param name="input">anything</param>
+        /// <returns></returns>
+        public static Visibility ShowIfItemIsNull(object input) => IsItemNull(input) ? Visibility.Visible : Visibility.Collapsed;
+
+        /// <summary>
+        /// Use in XAML binding, if item is null hide that UI, if item is not null show the UI
+        /// </summary>
+        /// <param name="input">anything</param>
+        /// <returns></returns>
+        public static Visibility ShowIfItemIsNotNull(object input) => IsItemNull(input) ? Visibility.Collapsed : Visibility.Visible;
+
+        public static Visibility CanIShowStatusBar(bool focusMode, bool classicMode, bool showStatusBar)
+        {
+            //Is it either focus mode or classic mode?
+            if (focusMode || classicMode)
+            {
+                //If it on either mode, is it allow to show status bar?
+                if (showStatusBar)
+                {
+                    return Visibility.Visible;
+                }
+            }
+            return Visibility.Collapsed;
         }
     }
 }

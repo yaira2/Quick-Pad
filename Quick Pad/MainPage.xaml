@@ -359,6 +359,12 @@
                         <FontIcon Glyph="&#xE158;" />
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <ToggleMenuFlyoutItem Text="Status Bar" IsChecked="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE75B;" />
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>                
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="Help" x:Uid="ClassicHelp">
                 <MenuFlyoutItem Text="Settings" Click="CmdSettings_Click" x:Uid="CmdSettingsTooltip">
@@ -420,7 +426,10 @@
                                     <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
                                     <ComboBoxItem Content="Classic Mode" Tag="Classic Mode" x:Uid="LaunchModeClassic" x:Name="LaunchModeClassic"/>
                                 </ComboBox>
-                                
+
+                                <TextBlock Text="Show status bar"/>
+                                <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch"/>
+
                                 <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
                                 <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <x:String>.rtf</x:String>
@@ -574,6 +583,32 @@
             <AppBarButton x:Name="Emoji" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
         </CommandBar>
 
+        <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" Padding="5,0,190,5" x:Name="StatusBar"
+              Visibility="{x:Bind q:Converter.CanIShowStatusBar(FocusModeSwitch, ClassicModeSwitch, QSetting.ShowStatusBar), Mode=OneWay}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="{ThemeResource AppBarBackgroundThemeBrush}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.ColumnSpan="5"/>
+            <!--Save status-->
+            <Grid Margin="5,0,10,0" Visibility="{x:Bind q:Converter.ShowIfItemIsNotNull(CurrentWorkingFile), Mode=OneWay}">
+                <SymbolIcon Symbol="Save">
+                    <ToolTipService.ToolTip>
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind CurrentWorkingFile.Path, Mode=OneWay}"/>
+                        </StackPanel>
+                    </ToolTipService.ToolTip>
+                </SymbolIcon>
+                <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="0,0,16,16" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed)}"/>
+            </Grid>
+            <!--Line and character count-->
+            <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" Grid.Column="1">
+                <Run Text="Ln "/><Run Text="{x:Bind totalLine, Mode=OneWay}"/><Run Text=","/>
+                <Run Text="Col "/><Run Text="{x:Bind totalCharacters, Mode=OneWay}"/>
+            </TextBlock>
+        </Grid>
+        
         <Grid x:Name="Title" Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{x:Bind CurrentFilename, Mode=OneWay}"

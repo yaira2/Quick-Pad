@@ -477,6 +477,9 @@ namespace QuickPad
             Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
             //
             Changed = !Equals(initialLoadedContent, ext);
+            //Update line and character count
+            totalCharacters = ext.Length;
+            totalLine = ext.Count(i => i == '\r');
         }
 
         public void SetANewChange()
@@ -487,8 +490,13 @@ namespace QuickPad
             //Update changed
             CheckForChange();
         }
-        
-        public StorageFile CurrentWorkingFile = null;
+
+        StorageFile _file;
+        public StorageFile CurrentWorkingFile
+        {
+            get => _file;
+            set => Set(ref _file, value);
+        }
         private string key; //future access list
 
         private bool _isPageLoaded = false;
@@ -1365,6 +1373,22 @@ namespace QuickPad
             FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
         }
 
+        #endregion
+
+        #region Status bar and update
+        public int _line;
+        public int totalLine
+        {
+            get => _line;
+            set => Set(ref _line, value);
+        }
+
+        public int _char;
+        public int totalCharacters
+        {
+            get => _char;
+            set => Set(ref _char, value);
+        }
         #endregion
     }
 
