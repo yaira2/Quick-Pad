@@ -861,6 +861,11 @@ namespace QuickPad
 
         public async void CmdExit_Click(object sender, RoutedEventArgs e)
         {
+            if (Changed == false)
+            {
+                App.Current.Exit();
+                return;
+            }
             await WantToSave.ShowAsync();
             switch (WantToSave.DialogResult)
             {
