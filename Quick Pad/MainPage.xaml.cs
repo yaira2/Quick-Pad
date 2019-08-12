@@ -1301,11 +1301,15 @@ namespace QuickPad
             {
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
+                CommandBar3.Visibility = Visibility.Collapsed;
+                Shadow2.Visibility = Visibility.Collapsed;
             }
             else
             {
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
+                CommandBar3.Visibility = Visibility.Visible;
+                Shadow2.Visibility = Visibility.Visible;
             }
         }
 
