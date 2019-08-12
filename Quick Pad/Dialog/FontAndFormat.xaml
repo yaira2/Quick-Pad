@@ -19,16 +19,15 @@
         <local:FontFamilySpecificConverter x:Key="FontNameToFontFamily"/>
     </ContentDialog.Resources>
 
-    <ScrollViewer>
+    <ScrollViewer Width="500" Height="400">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="120"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <!--Fonts search-->
             <Grid>
@@ -52,10 +51,10 @@
                     <Style TargetType="ToggleButton">
                         <Setter Property="Margin" Value="0,5"/>
                         <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                        <Setter Property="MinHeight" Value="32"/>
+                        <Setter Property="MinHeight" Value="28"/>
                     </Style>
                 </StackPanel.Resources>
-                <ComboBox SelectedItem="{x:Bind FontSizeSelection, Mode=TwoWay}" Header="Size" w10v1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
+                <ComboBox SelectedItem="{x:Bind FontSizeSelection, Mode=TwoWay}" Header="Size" w10v1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" BorderThickness="1">
                     <x:Int32>4</x:Int32>
                     <x:Int32>6</x:Int32>
                     <x:Int32>8</x:Int32>
@@ -89,12 +88,15 @@
                 <ToggleButton IsChecked="{x:Bind WantStrikethrough, Mode=TwoWay}">
                     <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
                 </ToggleButton>
-            </StackPanel>
 
-            <!--Color-->
-            <StackPanel Grid.Column="2">
-                <TextBlock Text="Color" Margin="0,0,0,4"/>
-                <winui:ColorPicker Width="100" 
+                <!--Font color-->
+                <Button Margin="0,5" HorizontalAlignment="Stretch">
+                    <FontIcon Glyph="&#xE790;" />
+                    <Button.Flyout>
+                        <Flyout>
+                            <StackPanel Grid.Column="2">
+                                <TextBlock Text="Color" Margin="0,0,0,4"/>
+                                <winui:ColorPicker Width="100" 
                                        Color="{x:Bind SelectedColor, Mode=TwoWay}"
                                        IsColorSliderVisible="False"
                                        IsColorChannelTextInputVisible="False"
@@ -103,19 +105,21 @@
                                        IsAlphaSliderVisible="False"
                                        IsAlphaTextInputVisible="False"
                                        IsColorPreviewVisible="False"/>
+                            </StackPanel>
+                        </Flyout>
+                    </Button.Flyout>
+                </Button>
             </StackPanel>
-
+            
             <!--Preview-->
-            <RichEditBox Style="{StaticResource RichEditBox}"
+            <ScrollViewer Grid.Column="0" MaxHeight="120" Grid.ColumnSpan="3" Margin="0,10" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                <RichEditBox Style="{StaticResource RichEditBox}"
                              IsHitTestVisible="False"
-                             Grid.Column="0"
-                         Grid.ColumnSpan="3"
-                         Margin="0,10"
-                         Grid.Row="1"
                              VerticalAlignment="Center"
                              HorizontalAlignment="Center"
                              x:Name="PreviewBox"
                              BorderThickness="0"/>
+            </ScrollViewer>
         </Grid>
     </ScrollViewer>
 </ContentDialog>
