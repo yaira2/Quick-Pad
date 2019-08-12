@@ -77,34 +77,34 @@
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarSeparator/>
-            <AppBarButton x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
+            <AppBarToggleButton IsChecked="{x:Bind IsItBold, Mode=OneWay}" x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Bold (Ctrl+B)" x:Uid="BoldTooltip"/>
                 </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Italic" x:Uid="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch">
+            </AppBarToggleButton>
+            <AppBarToggleButton IsChecked="{x:Bind IsItItalic, Mode=OneWay}" x:Name="Italic" x:Uid="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Italic (Ctrl+I)" x:Uid="ItalicTooltip"/>
                 </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Underline" x:Uid="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch">
+            </AppBarToggleButton>
+            <AppBarToggleButton IsChecked="{x:Bind IsItUnderline, Mode=OneWay}" x:Name="Underline" x:Uid="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Underline (Ctrl+U)" x:Uid="UnderlineTooltip"/>
                 </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Name="Strikethrough" x:Uid="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Strikethrough_Click">
+            </AppBarToggleButton>
+            <AppBarToggleButton IsChecked="{x:Bind IsItStrikethrough, Mode=OneWay}" x:Name="Strikethrough" x:Uid="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Strikethrough_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
                 </ToolTipService.ToolTip>
-                <AppBarButton.Icon>
+                <AppBarToggleButton.Icon>
                     <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
-                </AppBarButton.Icon>
-            </AppBarButton>
-            <AppBarButton x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
+            <AppBarToggleButton IsChecked="{x:Bind IsUsingBulletList, Mode=OneWay}" x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Toggle Bullets" x:Uid="BulletListTooltip"/>
                 </ToolTipService.ToolTip>
-            </AppBarButton>
+            </AppBarToggleButton>
             <AppBarSeparator/>
             <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click" Icon="AlignLeft">
                 <ToolTipService.ToolTip>
@@ -613,6 +613,11 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="10"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!--Save status-->
@@ -635,6 +640,11 @@
                 <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
                     <Run Text="Selection: "/><Run Text="{x:Bind SelectionLength, Mode=OneWay}"/>
                 </TextBlock>
+                <!--Bold, Italic, Underline status-->
+                <FontIcon FontSize="16" Glyph="&#xE8DD;" Grid.Column="5" Visibility="{x:Bind IsItBold, Mode=OneWay}"/>
+                <FontIcon FontSize="16" Glyph="&#xE8DB;" Grid.Column="6" Visibility="{x:Bind IsItItalic, Mode=OneWay}"/>
+                <FontIcon FontSize="16" Glyph="&#xE8DC;" Grid.Column="7" Visibility="{x:Bind IsItUnderline, Mode=OneWay}"/>
+                <FontIcon FontSize="16" Glyph="&#xA7A8;" FontFamily="Segoe UI" Grid.Column="7" Margin="0,0,0,2" Visibility="{x:Bind IsItStrikethrough, Mode=OneWay}"/>
             </Grid>
         </controls:DropShadowPanel>
         

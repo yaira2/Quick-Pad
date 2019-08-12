@@ -1335,6 +1335,12 @@ namespace QuickPad
             Text1.Document.GetText(TextGetOptions.None, out string text);
             totalCharacters = text.Length;
             totalLine = text.Count(i => i == '\r');
+            //update current format
+            IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
+            IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
+            IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
+            IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
+            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
         }
         /// <summary>
         /// Temporary store the copy of text when it loaded, 
@@ -1423,6 +1429,11 @@ namespace QuickPad
                 {
                     SelectionLength = Text1.Document.Selection.Length;
                 }
+                IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
+                IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
+                IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
+                IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
+                IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
             }            
         }
 
@@ -1454,6 +1465,39 @@ namespace QuickPad
         {
             get => _selTT;
             set => Set(ref _selTT, value);
+        }
+
+        private bool _bold, _italic, _underline;
+        public bool IsItBold
+        {
+            get => _bold;
+            set => Set(ref _bold, value);
+        }
+
+        public bool IsItItalic
+        {
+            get => _italic;
+            set => Set(ref _italic, value);
+        }
+
+        public bool IsItUnderline
+        {
+            get => _underline;
+            set => Set(ref _underline, value);
+        }
+
+        private bool _st;
+        public bool IsItStrikethrough
+        {
+            get => _st;
+            set => Set(ref _st, value);
+        }
+
+        private bool _bs;
+        public bool IsUsingBulletList
+        {
+            get => _bs;
+            set => Set(ref _bs, value);
         }
         #endregion
     }
