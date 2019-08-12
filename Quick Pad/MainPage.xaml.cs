@@ -1267,7 +1267,7 @@ namespace QuickPad
                 FrameTop.Visibility = Visibility.Visible;
                 CmdSettings.Visibility = Visibility.Visible;
                 CmdFocusMode.Visibility = Visibility.Visible;
-                CmdClassicMode.Visibility = Visibility.Collapsed;
+                CmdClassicMode.Visibility = Visibility.Visible;
                 CommandBar3.Visibility = Visibility.Visible;
 
                 row0.Height = new GridLength(1, GridUnitType.Auto);
