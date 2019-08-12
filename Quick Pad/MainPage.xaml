@@ -427,8 +427,8 @@
                                     <ComboBoxItem Content="Classic Mode" Tag="Classic Mode" x:Uid="LaunchModeClassic" x:Name="LaunchModeClassic"/>
                                 </ComboBox>
 
-                                <TextBlock Text="Show status bar"/>
-                                <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch"/>
+                                <TextBlock Text="Show status bar" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(QSetting.LaunchMode, q:IntCompare.Equal, 3), Mode=OneWay}"/>
+                                <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(QSetting.LaunchMode, q:IntCompare.Equal, 3), Mode=OneWay}"/>
 
                                 <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
                                 <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
