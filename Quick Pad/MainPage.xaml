@@ -632,19 +632,19 @@
                     <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="0,0,16,16" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
                 </Grid>
                 <!--Line and character count-->
-                <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" Grid.Column="1">
+                <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="14" Grid.Column="1" Margin="5,0,0,0">
                 <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind totalLine, Mode=OneWay}"/><Run Text=","/>
                 <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind totalCharacters, Mode=OneWay}"/>
                 </TextBlock>
                 <!--Selection info-->
-                <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
+                <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" FontSize="14" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
                     <Run Text="Selection: " x:Uid="StatusSelCount"/><Run Text="{x:Bind SelectionLength, Mode=OneWay}"/>
                 </TextBlock>
                 <!--Bold, Italic, Underline status-->
-                <FontIcon FontSize="16" Glyph="&#xE8DD;" Grid.Column="5" Visibility="{x:Bind IsItBold, Mode=OneWay}"/>
-                <FontIcon FontSize="16" Glyph="&#xE8DB;" Grid.Column="6" Visibility="{x:Bind IsItItalic, Mode=OneWay}"/>
-                <FontIcon FontSize="16" Glyph="&#xE8DC;" Grid.Column="7" Visibility="{x:Bind IsItUnderline, Mode=OneWay}"/>
-                <FontIcon FontSize="16" Glyph="&#xA7A8;" FontFamily="Segoe UI" Grid.Column="7" Margin="0,0,0,2" Visibility="{x:Bind IsItStrikethrough, Mode=OneWay}"/>
+                <FontIcon FontSize="14" Glyph="&#xE8DD;" Grid.Column="5" Visibility="{x:Bind IsItBold, Mode=OneWay}"/>
+                <FontIcon FontSize="14" Glyph="&#xE8DB;" Grid.Column="6" Visibility="{x:Bind IsItItalic, Mode=OneWay}"/>
+                <FontIcon FontSize="14" Glyph="&#xE8DC;" Grid.Column="7" Visibility="{x:Bind IsItUnderline, Mode=OneWay}"/>
+                <FontIcon FontSize="14" Glyph="&#xA7A8;" FontFamily="Segoe UI" Grid.Column="7" Margin="0,0,0,2" Visibility="{x:Bind IsItStrikethrough, Mode=OneWay}"/>
             </Grid>
         </controls:DropShadowPanel>
         
