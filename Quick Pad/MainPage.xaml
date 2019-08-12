@@ -584,7 +584,7 @@
         </CommandBar>
 
         <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Grid.Row="3" VerticalAlignment="Stretch" Padding="5,0,190,5" x:Name="StatusBar"
-              Visibility="{x:Bind q:Converter.CanIShowStatusBar(FocusModeSwitch, ClassicModeSwitch, QSetting.ShowStatusBar), Mode=OneWay}">
+              Visibility="{x:Bind q:Converter.CanIShowStatusBar(ClassicModeSwitch, QSetting.ShowStatusBar), Mode=OneWay}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="Auto"/>

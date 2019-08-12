@@ -488,10 +488,10 @@ namespace QuickPad
         /// <returns></returns>
         public static Visibility ShowIfItemIsNotNull(object input) => IsItemNull(input) ? Visibility.Collapsed : Visibility.Visible;
 
-        public static Visibility CanIShowStatusBar(bool focusMode, bool classicMode, bool showStatusBar)
+        public static Visibility CanIShowStatusBar(bool classicMode, bool showStatusBar)
         {
-            //Is it either focus mode or classic mode?
-            if (focusMode || classicMode)
+            //Is it classic mode?
+            if (classicMode)
             {
                 //If it on either mode, is it allow to show status bar?
                 if (showStatusBar)
@@ -501,5 +501,47 @@ namespace QuickPad
             }
             return Visibility.Collapsed;
         }
+
+        /// <summary>
+        /// Use to compare number and return boolean
+        /// </summary>
+        /// <param name="input">Number input</param>
+        /// <param name="compare">Compare type</param>
+        /// <param name="target">Number to compare to</param>
+        /// <returns></returns>
+        public static bool CompareNumber(int input, string compare, int target)
+        {
+            switch (compare)
+            {
+                case IntCompare.NotEqual:
+                    return input != target;
+                case IntCompare.LessOrEqual:
+                    return input <= target;
+                case IntCompare.MoreOrEqual:
+                    return input >= target;
+                case IntCompare.Less:
+                    return input < target;
+                case IntCompare.More:
+                    return input > target;
+                case IntCompare.Equal:
+                default:
+                    return input == target;
+            }
+        }
+
+        public static Visibility ShowAfterCompareNumber(int number, string compareType, int target)
+        {
+            return CompareNumber(number, compareType, target) ? Visibility.Visible : Visibility.Collapsed;
+        }
+    }
+
+    public static class IntCompare
+    {
+        public const string Equal = "=";
+        public const string NotEqual = "!=";
+        public const string Less = "<";
+        public const string More = ">";
+        public const string LessOrEqual = "<=";
+        public const string MoreOrEqual = ">=";
     }
 }
