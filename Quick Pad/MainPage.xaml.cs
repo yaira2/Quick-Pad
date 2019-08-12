@@ -218,7 +218,6 @@ namespace QuickPad
                     SwitchFocusMode(true);
                     break;
                 case AvailableModes.OnTop:
-                    //TODO:Launch compact overlay mode
                     SwitchCompactOverlayMode(true);
                     break;
                 case AvailableModes.Classic:
@@ -1121,9 +1120,12 @@ namespace QuickPad
 
         private async void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
         {
+            //Save selection point
+            int previousPosition = Text1.Document.Selection.StartPosition;
+            int previousSelectionEnd = Text1.Document.Selection.EndPosition;
             //Force select all text
             Text1.Focus(FocusState.Programmatic);
-            Text1.Document.Selection.SetRange(0, Text1.Document.Selection.EndPosition);
+            Text1.Document.Selection.SetRange(0, totalCharacters);
             //Get format info about selection
             var selection = Text1.Document.Selection;
             if (selection != null)
@@ -1151,6 +1153,17 @@ namespace QuickPad
                 formatting.Strikethrough = FontAndFormat.WantStrikethrough ? FormatEffect.On : FormatEffect.Off;
                 formatting.ForegroundColor = FontAndFormat.SelectedColor;
             }
+            //Restore to that point like nothing ever happen
+            if (previousPosition == previousSelectionEnd)
+            {
+                //Not select anything
+                Text1.Document.Selection.StartPosition = previousPosition;
+            }
+            else
+            {
+                //Select like what user used to
+                Text1.Document.Selection.SetRange(previousPosition, previousSelectionEnd);
+            }            
         }
         #endregion
 
