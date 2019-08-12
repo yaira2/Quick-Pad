@@ -71,6 +71,9 @@ namespace QuickPad.Dialog
 
         #region Font name input
         string _name;
+        /// <summary>
+        /// This is a font input and also a final result
+        /// </summary>
         public string FontNameSuggestionInput
         {
             get => _name;
@@ -98,7 +101,81 @@ namespace QuickPad.Dialog
             get => _filtered;
             set => Set(ref _filtered, value);
         }
+
+        string _selected;
+        public string SelectedOnFilteredFont
+        {
+            get => _selected;
+            set
+            {
+                if (Set(ref _selected, value))
+                {
+                    //Selected and update
+                    //Should have put this onto input
+                    if (string.IsNullOrEmpty(value))
+                    {
+                        FontNameSuggestionInput = value;
+                    }
+                }
+            }
+        }
         #endregion
+
+        #region Font size and other formatting
+        int _size;
+        public int FontSizeSelection
+        {
+            get => _size;
+            set => Set(ref _size, value);
+        }
+
+        bool _bold;
+        public bool WantBold
+        {
+            get => _bold;
+            set => Set(ref _bold, value);
+        }
+
+        bool _italic;
+        public bool WantItalic
+        {
+            get => _italic;
+            set => Set(ref _italic, value);
+        }
+
+        bool _under;
+        public bool WantUnderline
+        {
+            get => _under;
+            set => Set(ref _under, value);
+        }
+
+        bool _strike;
+        public bool WantStrikethrough
+        {
+            get => _strike;
+            set => Set(ref _strike, value);
+        }
+        #endregion
+
+        DialogResult _final;
+        public DialogResult FinalResult
+        {
+            get => _final;
+            set => Set(ref _final, value);
+        }
+
+        private void ApplyAllSettings()
+        {
+            FinalResult = DialogResult.Yes;
+            this.Hide();
+        }
+
+        private void DropEverything()
+        {
+            FinalResult = DialogResult.No;
+            this.Hide();            
+        }
     }
 
     /// <summary>

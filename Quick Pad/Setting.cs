@@ -533,6 +533,11 @@ namespace QuickPad
         {
             return CompareNumber(number, compareType, target) ? Visibility.Visible : Visibility.Collapsed;
         }
+
+        public static FontFamily FontNameToFontFamily(string name)
+        {
+            return new FontFamily(name);
+        }
     }
 
     public static class IntCompare

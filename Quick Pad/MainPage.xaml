@@ -8,6 +8,7 @@
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:q="using:QuickPad"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    xmlns:dialog="using:QuickPad.Dialog"
     RequestedTheme="{x:Bind QSetting.Theme, Mode=OneWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
@@ -543,6 +544,10 @@
                 </Pivot>
             </Grid>
         </ContentDialog>
+
+        <dialog:FontAndFormat x:Name="FontAndFormat" 
+                              Background="{ThemeResource SystemControlAcrylicElementBrush}" Grid.RowSpan="4"
+                              AllFonts="{x:Bind AllFonts, Mode=OneWay}"/>
 
         <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="4" VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
