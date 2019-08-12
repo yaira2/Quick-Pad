@@ -9,12 +9,14 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     xmlns:q="using:QuickPad"
     mc:Ignorable="d"
-    Title="Fonts"
     PrimaryButtonText="Apply"
     SecondaryButtonText="Cancel"
     PrimaryButtonClick="{x:Bind ApplyAllSettings}"
     SecondaryButtonClick="{x:Bind DropEverything}"
     Opened="ContentDialog_Opened">
+    <ContentDialog.Title>
+        <TextBlock Text="Fonts" x:Uid="FAF_Fonts"/>
+    </ContentDialog.Title>
     <ContentDialog.Resources>
         <local:FontFamilySpecificConverter x:Key="FontNameToFontFamily"/>
     </ContentDialog.Resources>
@@ -35,7 +37,11 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <AutoSuggestBox Header="Fonts" BorderThickness="1" Text="{x:Bind FontNameSuggestionInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <AutoSuggestBox BorderThickness="1" Text="{x:Bind FontNameSuggestionInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                    <AutoSuggestBox.Header>
+                        <TextBlock Text="Fonts" x:Uid="FAF_Fonts"/>
+                    </AutoSuggestBox.Header>
+                </AutoSuggestBox>
                 <ListBox MinHeight="150" MaxHeight="250" MinWidth="150" HorizontalAlignment="Stretch" Grid.Row="1" ItemsSource="{x:Bind FilteredFonts, Mode=OneWay}" SelectedItem="{x:Bind SelectedOnFilteredFont, Mode=TwoWay}">
                     <ListBox.ItemTemplate>
                         <DataTemplate x:DataType="x:String">
@@ -54,7 +60,10 @@
                         <Setter Property="MinHeight" Value="28"/>
                     </Style>
                 </StackPanel.Resources>
-                <ComboBox SelectedItem="{x:Bind FontSizeSelection, Mode=TwoWay}" Header="Size" w10v1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" BorderThickness="1">
+                <ComboBox SelectedItem="{x:Bind FontSizeSelection, Mode=TwoWay}" w10v1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" BorderThickness="1">
+                    <ComboBox.Header>
+                        <TextBlock Text="Size" x:Uid="FAF_Size"/>
+                    </ComboBox.Header>
                     <x:Int32>4</x:Int32>
                     <x:Int32>6</x:Int32>
                     <x:Int32>8</x:Int32>
@@ -95,7 +104,7 @@
                     <Button.Flyout>
                         <Flyout>
                             <StackPanel Grid.Column="2">
-                                <TextBlock Text="Color" Margin="0,0,0,4"/>
+                                <TextBlock Text="Color" Margin="0,0,0,4" x:Uid="FAF_Color"/>
                                 <winui:ColorPicker Width="100" 
                                        Color="{x:Bind SelectedColor, Mode=TwoWay}"
                                        IsColorSliderVisible="False"

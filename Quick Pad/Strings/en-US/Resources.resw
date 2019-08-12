@@ -600,4 +600,31 @@
   <data name="CmdExitTooltip.Text" xml:space="preserve">
     <value>Exit the app</value>
   </data>
+  <data name="ClassicFormatFonts.Text" xml:space="preserve">
+    <value>Fonts...</value>
+  </data>
+  <data name="ClassicViewStatusBar.Text" xml:space="preserve">
+    <value>Status Bar</value>
+  </data>
+  <data name="FAF_Color.Text" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="FAF_Fonts.Text" xml:space="preserve">
+    <value>Fonts</value>
+  </data>
+  <data name="FAF_Preview_Initial" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="FAF_Size.Text" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>Column: </value>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>Line: </value>
+  </data>
+  <data name="StatusSelCount.Text" xml:space="preserve">
+    <value>Selection: </value>
+  </data>
 </root>

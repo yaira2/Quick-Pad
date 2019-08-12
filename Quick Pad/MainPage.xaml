@@ -348,7 +348,7 @@
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Fonts..." Click="ShowFontsDialog_Click">
+                <MenuFlyoutItem Text="Fonts..." Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Font"/>
                     </MenuFlyoutItem.Icon>
@@ -371,7 +371,7 @@
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <ToggleMenuFlyoutItem Text="Status Bar" IsChecked="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}">
+                <ToggleMenuFlyoutItem Text="Status Bar" IsChecked="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="ClassicViewStatusBar">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE75B;" />
                     </ToggleMenuFlyoutItem.Icon>
@@ -633,12 +633,12 @@
                 </Grid>
                 <!--Line and character count-->
                 <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" Grid.Column="1">
-                <Run Text="Line: "/><Run Text="{x:Bind totalLine, Mode=OneWay}"/><Run Text=","/>
-                <Run Text="Column: "/><Run Text="{x:Bind totalCharacters, Mode=OneWay}"/>
+                <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind totalLine, Mode=OneWay}"/><Run Text=","/>
+                <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind totalCharacters, Mode=OneWay}"/>
                 </TextBlock>
                 <!--Selection info-->
                 <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
-                    <Run Text="Selection: "/><Run Text="{x:Bind SelectionLength, Mode=OneWay}"/>
+                    <Run Text="Selection: " x:Uid="StatusSelCount"/><Run Text="{x:Bind SelectionLength, Mode=OneWay}"/>
                 </TextBlock>
                 <!--Bold, Italic, Underline status-->
                 <FontIcon FontSize="16" Glyph="&#xE8DD;" Grid.Column="5" Visibility="{x:Bind IsItBold, Mode=OneWay}"/>

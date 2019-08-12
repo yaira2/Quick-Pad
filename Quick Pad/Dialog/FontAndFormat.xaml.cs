@@ -7,6 +7,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Input;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
@@ -229,7 +230,7 @@ namespace QuickPad.Dialog
         {
             FinalResult = DialogResult.None;
             FilteredFonts = new ObservableCollection<string>(AllFonts);
-            PreviewBox.Document.SetText(TextSetOptions.None, "Preview");
+            PreviewBox.Document.SetText(TextSetOptions.None, ResourceLoader.GetForCurrentView().GetString("FAF_Preview_Initial"));
             //Apply settings
             var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
             formatting.Name = FontNameSuggestionInput;
