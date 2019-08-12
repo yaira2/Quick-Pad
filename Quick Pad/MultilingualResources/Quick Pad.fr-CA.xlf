@@ -650,6 +650,42 @@
           <source>Exit the app</source>
           <target state="new">Exit the app</target>
         </trans-unit>
+        <trans-unit id="ClassicFormatFonts.Text" translate="yes" xml:space="preserve">
+          <source>Fonts...</source>
+          <target state="new">Fonts...</target>
+        </trans-unit>
+        <trans-unit id="ClassicViewStatusBar.Text" translate="yes" xml:space="preserve">
+          <source>Status Bar</source>
+          <target state="new">Status Bar</target>
+        </trans-unit>
+        <trans-unit id="FAF_Color.Text" translate="yes" xml:space="preserve">
+          <source>Color</source>
+          <target state="new">Color</target>
+        </trans-unit>
+        <trans-unit id="FAF_Fonts.Text" translate="yes" xml:space="preserve">
+          <source>Fonts</source>
+          <target state="new">Fonts</target>
+        </trans-unit>
+        <trans-unit id="FAF_Preview_Initial" translate="yes" xml:space="preserve">
+          <source>Preview</source>
+          <target state="new">Preview</target>
+        </trans-unit>
+        <trans-unit id="FAF_Size.Text" translate="yes" xml:space="preserve">
+          <source>Size</source>
+          <target state="new">Size</target>
+        </trans-unit>
+        <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
+          <source>Column: </source>
+          <target state="new">Column: </target>
+        </trans-unit>
+        <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
+          <source>Line: </source>
+          <target state="new">Line: </target>
+        </trans-unit>
+        <trans-unit id="StatusSelCount.Text" translate="yes" xml:space="preserve">
+          <source>Selection: </source>
+          <target state="new">Selection: </target>
+        </trans-unit>
       </group>
     </body>
   </file>

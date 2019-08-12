@@ -495,4 +495,31 @@
   <data name="CmdExitTooltip.Text" xml:space="preserve">
     <value>ปิดแอปไปทำอย่างอื่น</value>
   </data>
+  <data name="ClassicFormatFonts.Text" xml:space="preserve">
+    <value>แบบอักษร</value>
+  </data>
+  <data name="ClassicViewStatusBar.Text" xml:space="preserve">
+    <value>แถบสถานะ</value>
+  </data>
+  <data name="FAF_Color.Text" xml:space="preserve">
+    <value>สี</value>
+  </data>
+  <data name="FAF_Fonts.Text" xml:space="preserve">
+    <value>แบบอักษร</value>
+  </data>
+  <data name="FAF_Preview_Initial" xml:space="preserve">
+    <value>ตัวอย่าง</value>
+  </data>
+  <data name="FAF_Size.Text" xml:space="preserve">
+    <value>ขนาด</value>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>ตัว: </value>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>บรรทัด: </value>
+  </data>
+  <data name="StatusSelCount.Text" xml:space="preserve">
+    <value>เลือก: </value>
+  </data>
 </root>

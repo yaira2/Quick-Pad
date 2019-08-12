@@ -628,13 +628,11 @@
         </trans-unit>
         <trans-unit id="ClassicViewFocus.Text" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="needs-review-translation">เน้นพิมพ์</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">เน้นพิมพ์</target>
         </trans-unit>
         <trans-unit id="ClassicViewOverlay.Text" translate="yes" xml:space="preserve">
           <source>On Top Mode</source>
-          <target state="needs-review-translation">ทับแอปอื่น</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">ทับแอปอื่น</target>
         </trans-unit>
         <trans-unit id="ClassicView.Title" translate="yes" xml:space="preserve">
           <source>View</source>
@@ -651,6 +649,42 @@
         <trans-unit id="CmdExitTooltip.Text" translate="yes" xml:space="preserve">
           <source>Exit the app</source>
           <target state="translated">ปิดแอปไปทำอย่างอื่น</target>
+        </trans-unit>
+        <trans-unit id="ClassicFormatFonts.Text" translate="yes" xml:space="preserve">
+          <source>Fonts...</source>
+          <target state="translated">แบบอักษร</target>
+        </trans-unit>
+        <trans-unit id="ClassicViewStatusBar.Text" translate="yes" xml:space="preserve">
+          <source>Status Bar</source>
+          <target state="translated">แถบสถานะ</target>
+        </trans-unit>
+        <trans-unit id="FAF_Color.Text" translate="yes" xml:space="preserve">
+          <source>Color</source>
+          <target state="translated">สี</target>
+        </trans-unit>
+        <trans-unit id="FAF_Fonts.Text" translate="yes" xml:space="preserve">
+          <source>Fonts</source>
+          <target state="translated">แบบอักษร</target>
+        </trans-unit>
+        <trans-unit id="FAF_Preview_Initial" translate="yes" xml:space="preserve">
+          <source>Preview</source>
+          <target state="translated">ตัวอย่าง</target>
+        </trans-unit>
+        <trans-unit id="FAF_Size.Text" translate="yes" xml:space="preserve">
+          <source>Size</source>
+          <target state="translated">ขนาด</target>
+        </trans-unit>
+        <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
+          <source>Column: </source>
+          <target state="translated">ตัว: </target>
+        </trans-unit>
+        <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
+          <source>Line: </source>
+          <target state="translated">บรรทัด: </target>
+        </trans-unit>
+        <trans-unit id="StatusSelCount.Text" translate="yes" xml:space="preserve">
+          <source>Selection: </source>
+          <target state="translated">เลือก: </target>
         </trans-unit>
       </group>
     </body>
