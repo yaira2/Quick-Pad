@@ -1118,6 +1118,37 @@ namespace QuickPad
         {
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
+
+        private async void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
+        {
+            //Get current text status
+            var selection = Text1.Document.Selection;
+            if (selection != null)
+            {
+                var formatting = selection.CharacterFormat;
+                //Update to dialog
+                FontAndFormat.FontNameSuggestionInput = formatting.Name;
+                FontAndFormat.FontSizeSelection = Convert.ToInt32(formatting.Size);
+                FontAndFormat.WantBold = formatting.Bold == FormatEffect.On;
+                FontAndFormat.WantItalic = formatting.Italic == FormatEffect.On;
+                FontAndFormat.WantUnderline = formatting.Underline != UnderlineType.None;
+                FontAndFormat.WantStrikethrough = formatting.Strikethrough == FormatEffect.On;
+                FontAndFormat.SelectedColor = formatting.ForegroundColor;
+            }
+            await FontAndFormat.ShowAsync();
+            //Apply setting back if user wanted to
+            if (FontAndFormat.FinalResult == DialogResult.Yes)
+            {
+                var formatting = selection.CharacterFormat;
+                formatting.Name = FontAndFormat.FontNameSuggestionInput;
+                formatting.Size = FontAndFormat.FontSizeSelection;
+                formatting.Bold = FontAndFormat.WantBold ? FormatEffect.On : FormatEffect.Off;
+                formatting.Italic = FontAndFormat.WantItalic ? FormatEffect.On : FormatEffect.Off;
+                formatting.Underline = FontAndFormat.WantUnderline ? UnderlineType.Single : UnderlineType.None;
+                formatting.Strikethrough = FontAndFormat.WantStrikethrough ? FormatEffect.On : FormatEffect.Off;
+                formatting.ForegroundColor = FontAndFormat.SelectedColor;
+            }
+        }
         #endregion
 
         #region UI Mode change

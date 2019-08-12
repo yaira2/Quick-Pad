@@ -343,6 +343,12 @@
                         <SymbolIcon Symbol="FontDecrease"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Fonts..." Click="ShowFontsDialog_Click">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Font"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="View" x:Uid="ClassicView">
                 <ToggleMenuFlyoutItem Text="Back to default mode" IsChecked="{x:Bind ClassicModeSwitch, Mode=TwoWay}" x:Uid="ClassicViewBack">

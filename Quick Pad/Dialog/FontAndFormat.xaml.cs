@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Windows.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -54,7 +55,6 @@ namespace QuickPad.Dialog
         public FontAndFormat()
         {
             this.InitializeComponent();
-            FilteredFonts = new ObservableCollection<string>(AllFonts);
         }
 
         public ObservableCollection<string> AllFonts
@@ -112,9 +112,10 @@ namespace QuickPad.Dialog
                 {
                     //Selected and update
                     //Should have put this onto input
-                    if (string.IsNullOrEmpty(value))
+                    if (!string.IsNullOrEmpty(value))
                     {
-                        FontNameSuggestionInput = value;
+                        _name = value;
+                        NotifyPropertyChanged(nameof(FontNameSuggestionInput));
                     }
                 }
             }
@@ -156,6 +157,13 @@ namespace QuickPad.Dialog
             get => _strike;
             set => Set(ref _strike, value);
         }
+
+        Color _sc;
+        public Color SelectedColor
+        {
+            get => _sc;
+            set => Set(ref _sc, value);
+        }
         #endregion
 
         DialogResult _final;
@@ -175,6 +183,12 @@ namespace QuickPad.Dialog
         {
             FinalResult = DialogResult.No;
             this.Hide();            
+        }
+
+        private void ContentDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
+        {
+            FinalResult = DialogResult.None;
+            FilteredFonts = new ObservableCollection<string>(AllFonts);
         }
     }
 

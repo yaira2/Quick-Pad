@@ -6,96 +6,116 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     xmlns:q="using:QuickPad"
     mc:Ignorable="d"
     Title="Fonts"
     PrimaryButtonText="Apply"
     SecondaryButtonText="Cancel"
     PrimaryButtonClick="{x:Bind ApplyAllSettings}"
-    SecondaryButtonClick="{x:Bind DropEverything}">
+    SecondaryButtonClick="{x:Bind DropEverything}"
+    Opened="ContentDialog_Opened">
     <ContentDialog.Resources>
         <local:FontFamilySpecificConverter x:Key="FontNameToFontFamily"/>
     </ContentDialog.Resources>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
-        <!--Fonts search-->
-        <Grid Margin="0,0,10,0">
+    <ScrollViewer>
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <AutoSuggestBox Header="Fonts" BorderThickness="1" Text="{x:Bind FontNameSuggestionInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-            <ListBox MinHeight="150" MinWidth="150" HorizontalAlignment="Stretch" Grid.Row="1" ItemsSource="{x:Bind FilteredFonts, Mode=OneWay}" SelectedItem="{x:Bind SelectedOnFilteredFont, Mode=TwoWay}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate x:DataType="x:String">
-                        <StackPanel>
-                            <TextBlock Text="{x:Bind}" FontFamily="{x:Bind Converter={StaticResource FontNameToFontFamily}}"/>
-                            <TextBlock Text="{x:Bind}" Style="{ThemeResource CaptionTextBlockStyle}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="69"/>
+            </Grid.ColumnDefinitions>
+            <!--Fonts search-->
+            <Grid Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <AutoSuggestBox Header="Fonts" BorderThickness="1" Text="{x:Bind FontNameSuggestionInput, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                <ListBox MinHeight="150" MaxHeight="250" MinWidth="150" HorizontalAlignment="Stretch" Grid.Row="1" ItemsSource="{x:Bind FilteredFonts, Mode=OneWay}" SelectedItem="{x:Bind SelectedOnFilteredFont, Mode=TwoWay}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="x:String">
+                            <StackPanel>
+                                <TextBlock Text="{x:Bind}" FontFamily="{x:Bind Converter={StaticResource FontNameToFontFamily}}"/>
+                                <TextBlock Text="{x:Bind}" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+
+            <StackPanel Orientation="Vertical" Grid.Column="1">
+                <StackPanel.Resources>
+                    <Style TargetType="ToggleButton">
+                        <Setter Property="Margin" Value="0,5"/>
+                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
+                        <Setter Property="MinHeight" Value="32"/>
+                    </Style>
+                </StackPanel.Resources>
+                <ComboBox SelectedItem="{x:Bind FontSizeSelection, Mode=TwoWay}" Header="Size" w10v1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
+                    <x:Int32>4</x:Int32>
+                    <x:Int32>6</x:Int32>
+                    <x:Int32>8</x:Int32>
+                    <x:Int32>10</x:Int32>
+                    <x:Int32>12</x:Int32>
+                    <x:Int32>14</x:Int32>
+                    <x:Int32>16</x:Int32>
+                    <x:Int32>18</x:Int32>
+                    <x:Int32>20</x:Int32>
+                    <x:Int32>22</x:Int32>
+                    <x:Int32>24</x:Int32>
+                    <x:Int32>26</x:Int32>
+                    <x:Int32>28</x:Int32>
+                    <x:Int32>36</x:Int32>
+                    <x:Int32>48</x:Int32>
+                    <x:Int32>72</x:Int32>
+                </ComboBox>
+
+                <ToggleButton IsChecked="{x:Bind WantBold, Mode=TwoWay}">
+                    <SymbolIcon Symbol="Bold"/>
+                </ToggleButton>
+
+                <ToggleButton IsChecked="{x:Bind WantItalic, Mode=TwoWay}">
+                    <SymbolIcon Symbol="Italic"/>
+                </ToggleButton>
+
+                <ToggleButton IsChecked="{x:Bind WantUnderline, Mode=TwoWay}">
+                    <SymbolIcon Symbol="Underline"/>
+                </ToggleButton>
+
+                <ToggleButton IsChecked="{x:Bind WantStrikethrough, Mode=TwoWay}">
+                    <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
+                </ToggleButton>
+            </StackPanel>
+
+            <Grid Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Grid.Row="1" Margin="10,0,0,0">
+                    <TextBlock Text="Color" Padding="0,0,0,4"/>
+                    <winui:ColorPicker Width="Auto" 
+                               Color="{x:Bind SelectedColor, Mode=TwoWay}"
+                               IsColorSliderVisible="False"
+                               IsColorChannelTextInputVisible="False"
+                               IsHexInputVisible="False"
+                               IsAlphaEnabled="False"
+                               IsAlphaSliderVisible="False"
+                               IsAlphaTextInputVisible="False" />
+                </StackPanel>
+
+                <!--Preview-->
+                <TextBox IsHitTestVisible="False"
+                     Grid.Column="1"
+                     Margin="20,10" 
+                     Padding="10"
+                     Text="Preview"/>
+            </Grid>
         </Grid>
-
-        <StackPanel Orientation="Vertical" Grid.Column="1">
-            <StackPanel.Resources>
-                <Style TargetType="ToggleButton">
-                    <Setter Property="Margin" Value="0,5"/>
-                    <Setter Property="HorizontalAlignment" Value="Stretch"/>
-                    <Setter Property="MinHeight" Value="32"/>
-                </Style>
-            </StackPanel.Resources>
-            <ComboBox SelectedItem="{x:Bind FontSizeSelection, Mode=TwoWay}" Header="Size" w10v1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
-                <x:Int32>4</x:Int32>
-                <x:Int32>6</x:Int32>
-                <x:Int32>8</x:Int32>
-                <x:Int32>10</x:Int32>
-                <x:Int32>12</x:Int32>
-                <x:Int32>14</x:Int32>
-                <x:Int32>16</x:Int32>
-                <x:Int32>18</x:Int32>
-                <x:Int32>20</x:Int32>
-                <x:Int32>22</x:Int32>
-                <x:Int32>24</x:Int32>
-                <x:Int32>26</x:Int32>
-                <x:Int32>28</x:Int32>
-                <x:Int32>36</x:Int32>
-                <x:Int32>48</x:Int32>
-                <x:Int32>72</x:Int32>
-            </ComboBox>
-
-            <ToggleButton IsChecked="{x:Bind WantBold, Mode=TwoWay}">
-                <SymbolIcon Symbol="Bold"/>
-            </ToggleButton>
-
-            <ToggleButton IsChecked="{x:Bind WantItalic, Mode=TwoWay}">
-                <SymbolIcon Symbol="Italic"/>
-            </ToggleButton>
-
-            <ToggleButton IsChecked="{x:Bind WantUnderline, Mode=TwoWay}">
-                <SymbolIcon Symbol="Underline"/>
-            </ToggleButton>
-
-            <ToggleButton IsChecked="{x:Bind WantStrikethrough, Mode=TwoWay}">
-                <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
-            </ToggleButton>
-        </StackPanel>
-        
-        <!--Preview-->
-        <TextBox IsEnabled="False" 
-                 Grid.Row="1" 
-                 Grid.ColumnSpan="2" 
-                 Margin="20,10" 
-                 Padding="10"
-                 Text="Preview"
-                 TextWrapping="Wrap"/>
-    </Grid>
+    </ScrollViewer>
 </ContentDialog>
