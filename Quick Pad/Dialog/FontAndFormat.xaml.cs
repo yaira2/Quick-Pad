@@ -10,6 +10,7 @@ using System.Windows.Input;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI;
+using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -116,53 +117,92 @@ namespace QuickPad.Dialog
                     {
                         _name = value;
                         NotifyPropertyChanged(nameof(FontNameSuggestionInput));
+                        var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                        formatting.Name = value;
+                        PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
                     }
                 }
             }
         }
         #endregion
-
+        
         #region Font size and other formatting
-        int _size;
+        int _size = 18;
         public int FontSizeSelection
         {
             get => _size;
-            set => Set(ref _size, value);
+            set
+            {
+                Set(ref _size, value);
+                var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                formatting.Size = value;
+                PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
+            }
         }
 
         bool _bold;
         public bool WantBold
         {
             get => _bold;
-            set => Set(ref _bold, value);
+            set
+            {
+                Set(ref _bold, value);
+                var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                formatting.Bold = value ? FormatEffect.On : FormatEffect.Off;
+                PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
+            }
         }
 
         bool _italic;
         public bool WantItalic
         {
             get => _italic;
-            set => Set(ref _italic, value);
+            set
+            {
+                Set(ref _italic, value);
+                var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                formatting.Italic = value ? FormatEffect.On : FormatEffect.Off;
+                PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
+            }
         }
 
         bool _under;
         public bool WantUnderline
         {
             get => _under;
-            set => Set(ref _under, value);
+            set
+            {
+                Set(ref _under, value);
+                var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                formatting.Underline = value ? UnderlineType.Single : UnderlineType.None;
+                PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
+            }
         }
 
         bool _strike;
         public bool WantStrikethrough
         {
             get => _strike;
-            set => Set(ref _strike, value);
+            set
+            {
+                Set(ref _strike, value);
+                var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                formatting.Strikethrough = value ? FormatEffect.On : FormatEffect.Off;
+                PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
+            }
         }
 
         Color _sc;
         public Color SelectedColor
         {
             get => _sc;
-            set => Set(ref _sc, value);
+            set
+            {
+                Set(ref _sc, value);
+                var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                formatting.ForegroundColor = value;
+                PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
+            }
         }
         #endregion
 
@@ -189,7 +229,19 @@ namespace QuickPad.Dialog
         {
             FinalResult = DialogResult.None;
             FilteredFonts = new ObservableCollection<string>(AllFonts);
-        }
+            PreviewBox.Document.SetText(TextSetOptions.None, "Preview");
+            //Apply settings
+            var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+            formatting.Name = FontNameSuggestionInput;
+            formatting.Size = FontSizeSelection;
+            formatting.Bold = WantBold ? FormatEffect.On : FormatEffect.Off;
+            formatting.Italic = WantItalic ? FormatEffect.On : FormatEffect.Off;
+            formatting.Underline = WantUnderline ? UnderlineType.Single : UnderlineType.None;
+            formatting.Strikethrough = WantStrikethrough ? FormatEffect.On : FormatEffect.Off;
+            formatting.ForegroundColor = SelectedColor;
+            var sel = PreviewBox.Document.Selection;
+
+        }        
     }
 
     /// <summary>
@@ -200,6 +252,10 @@ namespace QuickPad.Dialog
     {
         public object Convert(object value, Type targetType, object parameter, string language)
         {
+            if (value is null)
+            {
+                return new FontFamily("Segoe UI");
+            }
             return new FontFamily(value.ToString());
         }
 
