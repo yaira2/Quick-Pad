@@ -284,7 +284,11 @@
                 </MenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="Format" x:Uid="ClassicFormat">
-                <ToggleMenuFlyoutItem Text="Word Wrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}" x:Uid="WordWrap"/>
+                <ToggleMenuFlyoutItem Text="Word Wrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}" x:Uid="WordWrap">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE751;" />
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Bold" Click="Bold_Click" x:Uid="ClassicFormatBold">
                     <MenuFlyoutItem.Icon>
