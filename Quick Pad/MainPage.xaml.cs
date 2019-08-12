@@ -477,9 +477,6 @@ namespace QuickPad
             Text1.Document.GetText(TextGetOptions.FormatRtf, out string ext);
             //
             Changed = !Equals(initialLoadedContent, ext);
-            //Update line and character count
-            totalCharacters = ext.Length;
-            totalLine = ext.Count(i => i == '\r');
         }
 
         public void SetANewChange()
@@ -1298,6 +1295,11 @@ namespace QuickPad
             CanRedoText = Text1.Document.CanRedo();
 
             CheckForChange(); //Check fof a change in document
+
+            //Update line and character count
+            Text1.Document.GetText(TextGetOptions.None, out string text);
+            totalCharacters = text.Length;
+            totalLine = text.Count(i => i == '\r');
         }
         /// <summary>
         /// Temporary store the copy of text when it loaded, 

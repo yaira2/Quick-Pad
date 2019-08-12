@@ -600,7 +600,7 @@
                         </StackPanel>
                     </ToolTipService.ToolTip>
                 </SymbolIcon>
-                <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="0,0,16,16" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed)}"/>
+                <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="0,0,16,16" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
             </Grid>
             <!--Line and character count-->
             <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" Grid.Column="1">
