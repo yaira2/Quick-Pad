@@ -1121,30 +1121,35 @@ namespace QuickPad
 
         private async void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
         {
-            //Get current text status
-            var selection = Text1.Document.GetDefaultCharacterFormat();
+            //Force select all text
+            Text1.Focus(FocusState.Programmatic);
+            Text1.Document.Selection.SetRange(0, Text1.Document.Selection.EndPosition);
+            //Get format info about selection
+            var selection = Text1.Document.Selection;
             if (selection != null)
             {
+                var formatting = selection.CharacterFormat;
                 //Update to dialog
-                FontAndFormat.FontNameSuggestionInput = selection.Name;
-                FontAndFormat.FontSizeSelection = Convert.ToInt32(selection.Size);
-                FontAndFormat.WantBold = selection.Bold == FormatEffect.On;
-                FontAndFormat.WantItalic = selection.Italic == FormatEffect.On;
-                FontAndFormat.WantUnderline = selection.Underline != UnderlineType.None;
-                FontAndFormat.WantStrikethrough = selection.Strikethrough == FormatEffect.On;
-                FontAndFormat.SelectedColor = selection.ForegroundColor;
+                FontAndFormat.FontNameSuggestionInput = formatting.Name;
+                FontAndFormat.FontSizeSelection = Convert.ToInt32(formatting.Size);
+                FontAndFormat.WantBold = formatting.Bold == FormatEffect.On;
+                FontAndFormat.WantItalic = formatting.Italic == FormatEffect.On;
+                FontAndFormat.WantUnderline = formatting.Underline != UnderlineType.None;
+                FontAndFormat.WantStrikethrough = formatting.Strikethrough == FormatEffect.On;
+                FontAndFormat.SelectedColor = formatting.ForegroundColor;
             }
             await FontAndFormat.ShowAsync();
             //Apply setting back if user wanted to
             if (FontAndFormat.FinalResult == DialogResult.Yes)
             {
-                selection.Name = FontAndFormat.FontNameSuggestionInput;
-                selection.Size = FontAndFormat.FontSizeSelection;
-                selection.Bold = FontAndFormat.WantBold ? FormatEffect.On : FormatEffect.Off;
-                selection.Italic = FontAndFormat.WantItalic ? FormatEffect.On : FormatEffect.Off;
-                selection.Underline = FontAndFormat.WantUnderline ? UnderlineType.Single : UnderlineType.None;
-                selection.Strikethrough = FontAndFormat.WantStrikethrough ? FormatEffect.On : FormatEffect.Off;
-                selection.ForegroundColor = FontAndFormat.SelectedColor;
+                var formatting = selection.CharacterFormat;
+                formatting.Name = FontAndFormat.FontNameSuggestionInput;
+                formatting.Size = FontAndFormat.FontSizeSelection;
+                formatting.Bold = FontAndFormat.WantBold ? FormatEffect.On : FormatEffect.Off;
+                formatting.Italic = FontAndFormat.WantItalic ? FormatEffect.On : FormatEffect.Off;
+                formatting.Underline = FontAndFormat.WantUnderline ? UnderlineType.Single : UnderlineType.None;
+                formatting.Strikethrough = FontAndFormat.WantStrikethrough ? FormatEffect.On : FormatEffect.Off;
+                formatting.ForegroundColor = FontAndFormat.SelectedColor;
             }
         }
         #endregion
