@@ -1408,23 +1408,52 @@ namespace QuickPad
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
             FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
+            //Update selection info
+            if (Text1.Document.Selection is null)
+            {
+                SelectionLength = 0;
+            }
+            else
+            {
+                if (Text1.Document.Selection.Length < 0)
+                {
+                    SelectionLength = Text1.Document.Selection.Length * -1;
+                }
+                else
+                {
+                    SelectionLength = Text1.Document.Selection.Length;
+                }
+            }            
         }
 
         #endregion
 
         #region Status bar and update
-        public int _line;
+        private int _line;
+        /// <summary>
+        /// Line count
+        /// </summary>
         public int totalLine
         {
             get => _line;
             set => Set(ref _line, value);
         }
 
-        public int _char;
+        private int _char;
+        /// <summary>
+        /// Character count
+        /// </summary>
         public int totalCharacters
         {
             get => _char;
             set => Set(ref _char, value);
+        }
+
+        private int _selTT;
+        public int SelectionLength
+        {
+            get => _selTT;
+            set => Set(ref _selTT, value);
         }
         #endregion
     }

@@ -607,6 +607,8 @@
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!--Save status-->
@@ -622,8 +624,12 @@
                 </Grid>
                 <!--Line and character count-->
                 <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" Grid.Column="1">
-                <Run Text="Ln "/><Run Text="{x:Bind totalLine, Mode=OneWay}"/><Run Text=","/>
-                <Run Text="Col "/><Run Text="{x:Bind totalCharacters, Mode=OneWay}"/>
+                <Run Text="Line: "/><Run Text="{x:Bind totalLine, Mode=OneWay}"/><Run Text=","/>
+                <Run Text="Column: "/><Run Text="{x:Bind totalCharacters, Mode=OneWay}"/>
+                </TextBlock>
+                <!--Selection info-->
+                <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
+                    <Run Text="Selection: "/><Run Text="{x:Bind SelectionLength, Mode=OneWay}"/>
                 </TextBlock>
             </Grid>
         </controls:DropShadowPanel>
