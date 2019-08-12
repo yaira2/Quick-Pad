@@ -1,0 +1,53 @@
+﻿<ContentDialog
+    x:Class="QuickPad.Dialog.FontAndFormat"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QuickPad.Dialog"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:q="using:QuickPad"
+    mc:Ignorable="d"
+    Title="Fonts">
+    <ContentDialog.Resources>
+        <local:FontFamilySpecificConverter x:Key="FontNameToFontFamily"/>
+    </ContentDialog.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <!--Fonts search-->
+        <StackPanel Orientation="Vertical">
+            <AutoSuggestBox Text="{x:Bind FontNameSuggestionInput, UpdateSourceTrigger=PropertyChanged}"/>
+            <ListBox MinHeight="150" MinWidth="150" HorizontalAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind}" FontFamily="{Binding ,Converter={StaticResource FontNameToFontFamily}}"/>
+                            <TextBlock Text="{x:Bind}" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical" Grid.Column="1">
+            <AutoSuggestBox Text="{x:Bind FontNameSuggestionInput, UpdateSourceTrigger=PropertyChanged}"/>
+            <ListBox MinHeight="150" MinWidth="150" HorizontalAlignment="Stretch">
+                <ListBox.ItemTemplate>
+                    <DataTemplate x:DataType="x:String">
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind}" FontFamily="{Binding ,Converter={StaticResource FontNameToFontFamily}}"/>
+                            <TextBlock Text="{x:Bind}" Style="{ThemeResource CaptionTextBlockStyle}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</ContentDialog>
