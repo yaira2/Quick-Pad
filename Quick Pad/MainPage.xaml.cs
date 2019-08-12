@@ -218,7 +218,6 @@ namespace QuickPad
                     SwitchFocusMode(true);
                     break;
                 case AvailableModes.OnTop:
-                    //TODO:Launch compact overlay mode
                     SwitchCompactOverlayMode(true);
                     break;
                 case AvailableModes.Classic:
@@ -487,8 +486,13 @@ namespace QuickPad
             //Update changed
             CheckForChange();
         }
-        
-        public StorageFile CurrentWorkingFile = null;
+
+        StorageFile _file;
+        public StorageFile CurrentWorkingFile
+        {
+            get => _file;
+            set => Set(ref _file, value);
+        }
         private string key; //future access list
 
         private bool _isPageLoaded = false;
@@ -1113,6 +1117,54 @@ namespace QuickPad
         {
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
+
+        private async void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
+        {
+            //Save selection point
+            int previousPosition = Text1.Document.Selection.StartPosition;
+            int previousSelectionEnd = Text1.Document.Selection.EndPosition;
+            //Force select all text
+            Text1.Focus(FocusState.Programmatic);
+            Text1.Document.Selection.SetRange(0, totalCharacters);
+            //Get format info about selection
+            var selection = Text1.Document.Selection;
+            if (selection != null)
+            {
+                var formatting = selection.CharacterFormat;
+                //Update to dialog
+                FontAndFormat.FontNameSuggestionInput = formatting.Name;
+                FontAndFormat.FontSizeSelection = Convert.ToInt32(formatting.Size);
+                FontAndFormat.WantBold = formatting.Bold == FormatEffect.On;
+                FontAndFormat.WantItalic = formatting.Italic == FormatEffect.On;
+                FontAndFormat.WantUnderline = formatting.Underline != UnderlineType.None;
+                FontAndFormat.WantStrikethrough = formatting.Strikethrough == FormatEffect.On;
+                FontAndFormat.SelectedColor = formatting.ForegroundColor;
+            }
+            await FontAndFormat.ShowAsync();
+            //Apply setting back if user wanted to
+            if (FontAndFormat.FinalResult == DialogResult.Yes)
+            {
+                var formatting = selection.CharacterFormat;
+                formatting.Name = FontAndFormat.FontNameSuggestionInput;
+                formatting.Size = FontAndFormat.FontSizeSelection;
+                formatting.Bold = FontAndFormat.WantBold ? FormatEffect.On : FormatEffect.Off;
+                formatting.Italic = FontAndFormat.WantItalic ? FormatEffect.On : FormatEffect.Off;
+                formatting.Underline = FontAndFormat.WantUnderline ? UnderlineType.Single : UnderlineType.None;
+                formatting.Strikethrough = FontAndFormat.WantStrikethrough ? FormatEffect.On : FormatEffect.Off;
+                formatting.ForegroundColor = FontAndFormat.SelectedColor;
+            }
+            //Restore to that point like nothing ever happen
+            if (previousPosition == previousSelectionEnd)
+            {
+                //Not select anything
+                Text1.Document.Selection.StartPosition = previousPosition;
+            }
+            else
+            {
+                //Select like what user used to
+                Text1.Document.Selection.SetRange(previousPosition, previousSelectionEnd);
+            }            
+        }
         #endregion
 
         #region UI Mode change
@@ -1265,11 +1317,15 @@ namespace QuickPad
             {
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
+                CommandBar3.Visibility = Visibility.Collapsed;
+                Shadow2.Visibility = Visibility.Collapsed;
             }
             else
             {
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
+                CommandBar3.Visibility = Visibility.Visible;
+                Shadow2.Visibility = Visibility.Visible;
             }
         }
 
@@ -1290,6 +1346,17 @@ namespace QuickPad
             CanRedoText = Text1.Document.CanRedo();
 
             CheckForChange(); //Check fof a change in document
+
+            //Update line and character count
+            Text1.Document.GetText(TextGetOptions.None, out string text);
+            totalCharacters = text.Length;
+            totalLine = text.Count(i => i == '\r');
+            //update current format
+            IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
+            IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
+            IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
+            IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
+            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
         }
         /// <summary>
         /// Temporary store the copy of text when it loaded, 
@@ -1363,8 +1430,91 @@ namespace QuickPad
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
             FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
+            //Update selection info
+            if (Text1.Document.Selection is null)
+            {
+                SelectionLength = 0;
+            }
+            else
+            {
+                if (Text1.Document.Selection.Length < 0)
+                {
+                    SelectionLength = Text1.Document.Selection.Length * -1;
+                }
+                else
+                {
+                    SelectionLength = Text1.Document.Selection.Length;
+                }
+                IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
+                IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
+                IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
+                IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
+                IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
+            }            
         }
 
+        #endregion
+
+        #region Status bar and update
+        private int _line;
+        /// <summary>
+        /// Line count
+        /// </summary>
+        public int totalLine
+        {
+            get => _line;
+            set => Set(ref _line, value);
+        }
+
+        private int _char;
+        /// <summary>
+        /// Character count
+        /// </summary>
+        public int totalCharacters
+        {
+            get => _char;
+            set => Set(ref _char, value);
+        }
+
+        private int _selTT;
+        public int SelectionLength
+        {
+            get => _selTT;
+            set => Set(ref _selTT, value);
+        }
+
+        private bool _bold, _italic, _underline;
+        public bool IsItBold
+        {
+            get => _bold;
+            set => Set(ref _bold, value);
+        }
+
+        public bool IsItItalic
+        {
+            get => _italic;
+            set => Set(ref _italic, value);
+        }
+
+        public bool IsItUnderline
+        {
+            get => _underline;
+            set => Set(ref _underline, value);
+        }
+
+        private bool _st;
+        public bool IsItStrikethrough
+        {
+            get => _st;
+            set => Set(ref _st, value);
+        }
+
+        private bool _bs;
+        public bool IsUsingBulletList
+        {
+            get => _bs;
+            set => Set(ref _bs, value);
+        }
         #endregion
     }
 
