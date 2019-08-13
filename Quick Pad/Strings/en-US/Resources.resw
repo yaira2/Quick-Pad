@@ -532,7 +532,7 @@
     <value>Save</value>
   </data>
   <data name="ClassicFileSaveAs.Text" xml:space="preserve">
-    <value>Save as...</value>
+    <value>Save As...</value>
   </data>
   <data name="ClassicFileShare.Text" xml:space="preserve">
     <value>Share</value>
@@ -626,5 +626,8 @@
   </data>
   <data name="StatusSelCount.Text" xml:space="preserve">
     <value>Selection: </value>
+  </data>
+  <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
+    <value>Show Status Bar on Classic Mode</value>
   </data>
 </root>

@@ -455,7 +455,7 @@
                                 <TextBlock x:Uid="SpellCheck" Text="Spell Check"/>
                                 <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}"/>
 
-                                <TextBlock Text="Show Status Bar on Classic Mode"/>
+                                <TextBlock Text="Show Status Bar on Classic Mode" x:Uid="GeneralShowStatusOnClassic"/>
                                 <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch"/>
 
                             </StackPanel>
