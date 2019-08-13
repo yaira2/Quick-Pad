@@ -405,7 +405,9 @@
                      VerticalAlignment="Stretch" 
                      TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" 
                      IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" 
-                     Style="{StaticResource RichEditBox}"/>
+                     Style="{StaticResource RichEditBox}"
+                     IsTapEnabled="True"
+                     Tapped="Text1_Tapped"/>
 
         <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" Opened="Settings_Opened" Grid.Row="0" Grid.RowSpan="4">
             <ContentDialog.Resources>
@@ -633,8 +635,8 @@
                 </Grid>
                 <!--Line and character count-->
                 <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="14" Grid.Column="1" Margin="5,0,0,0">
-                <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind totalLine, Mode=OneWay}"/><Run Text=","/>
-                <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind totalCharacters, Mode=OneWay}"/>
+                <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind CurrentPosition, Mode=OneWay}"/><Run Text=","/>
+                <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind CurrentLine, Mode=OneWay}"/>
                 </TextBlock>
                 <!--Selection info-->
                 <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" FontSize="14" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
