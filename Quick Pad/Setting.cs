@@ -170,7 +170,7 @@ namespace QuickPad
             set => Set(value);
         }
 
-        [DefaultValue(false)]
+        [DefaultValue(true)]
         public bool ShowStatusBar
         {
             get => Get<bool>();
