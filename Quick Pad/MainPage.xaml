@@ -405,7 +405,9 @@
                      VerticalAlignment="Stretch" 
                      TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" 
                      IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" 
-                     Style="{StaticResource RichEditBox}"/>
+                     Style="{StaticResource RichEditBox}"
+                     IsTapEnabled="True"
+                     Tapped="Text1_Tapped"/>
 
         <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" Opened="Settings_Opened" Grid.Row="0" Grid.RowSpan="4">
             <ContentDialog.Resources>
@@ -438,9 +440,6 @@
                                     <ComboBoxItem Content="Classic Mode" Tag="Classic Mode" x:Uid="LaunchModeClassic" x:Name="LaunchModeClassic"/>
                                 </ComboBox>
 
-                                <TextBlock Text="Show status bar" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(QSetting.LaunchMode, q:IntCompare.Equal, 3), Mode=OneWay}"/>
-                                <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(QSetting.LaunchMode, q:IntCompare.Equal, 3), Mode=OneWay}"/>
-
                                 <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
                                 <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <x:String>.rtf</x:String>
@@ -455,6 +454,10 @@
                                 
                                 <TextBlock x:Uid="SpellCheck" Text="Spell Check"/>
                                 <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}"/>
+
+                                <TextBlock Text="Show Status Bar on Classic Mode" x:Uid="GeneralShowStatusOnClassic"/>
+                                <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch"/>
+
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
@@ -598,7 +601,7 @@
             <AppBarButton x:Name="Emoji" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
         </CommandBar>
 
-        <controls:DropShadowPanel Grid.RowSpan="4" 
+        <controls:DropShadowPanel Grid.Row="3"
                                   VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
                                   ShadowOpacity="0.2"
@@ -621,20 +624,20 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!--Save status-->
-                <Grid Margin="5,0,6,0" Visibility="{x:Bind q:Converter.ShowIfItemIsNotNull(CurrentWorkingFile), Mode=OneWay}">
-                    <SymbolIcon Symbol="Save">
+                <Grid Margin="5,0,2,0" Visibility="{x:Bind q:Converter.ShowIfItemIsNotNull(CurrentWorkingFile), Mode=OneWay}" Width="32" MaxWidth="32">
+                    <FontIcon Glyph="&#xE74E;" FontSize="14">
                         <ToolTipService.ToolTip>
                             <StackPanel>
                                 <TextBlock Text="{x:Bind CurrentWorkingFile.Path, Mode=OneWay}"/>
                             </StackPanel>
                         </ToolTipService.ToolTip>
-                    </SymbolIcon>
-                    <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="0,0,16,16" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
+                    </FontIcon>
+                    <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="4,0,0,8" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
                 </Grid>
                 <!--Line and character count-->
-                <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="14" Grid.Column="1" Margin="5,0,0,0">
-                <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind totalLine, Mode=OneWay}"/><Run Text=","/>
-                <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind totalCharacters, Mode=OneWay}"/>
+                <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="14" Grid.Column="1" Margin="0,0,0,0">
+                <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind CurrentLine, Mode=OneWay}"/><Run Text=","/>
+                <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind CurrentPosition, Mode=OneWay}"/>
                 </TextBlock>
                 <!--Selection info-->
                 <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" FontSize="14" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">

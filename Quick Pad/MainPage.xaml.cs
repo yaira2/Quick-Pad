@@ -201,6 +201,11 @@ namespace QuickPad
             if (QSetting.DefaultFontColor == "Default")
             {
                 Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+                if (totalCharacters < 2)
+                {
+                    //Nothing is written maybe update initial source
+                    SetANewChange();
+                }
             }
         }
 
@@ -411,7 +416,19 @@ namespace QuickPad
                     Set(ref _fc_selection, value);
                     //Update setting
                     QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
-                    Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
+                    if (QSetting.DefaultFontColor == "Default")
+                    {
+                        bool isDarkTheme = RequestedTheme == ElementTheme.Dark;
+                        if (RequestedTheme == ElementTheme.Default)
+                        {
+                            isDarkTheme = App.Current.RequestedTheme == ApplicationTheme.Dark;
+                        }
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+                    }
+                    else
+                    {
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
+                    }
                 }
             }
         }
@@ -1347,16 +1364,10 @@ namespace QuickPad
 
             CheckForChange(); //Check fof a change in document
 
-            //Update line and character count
-            Text1.Document.GetText(TextGetOptions.None, out string text);
-            totalCharacters = text.Length;
-            totalLine = text.Count(i => i == '\r');
-            //update current format
-            IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
-            IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
-            IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
-            IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
-            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
+            if (ClassicModeSwitch)
+            {
+                
+            }
         }
         /// <summary>
         /// Temporary store the copy of text when it loaded, 
@@ -1379,6 +1390,10 @@ namespace QuickPad
             {
                 Text1.Document.EndUndoGroup();
                 Text1.Document.BeginUndoGroup();
+            }
+            if (ClassicModeSwitch)
+            {
+                CheckForStatusUpdate();
             }
         }
 
@@ -1430,7 +1445,35 @@ namespace QuickPad
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
             FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
-            //Update selection info
+
+            //Update Status bar
+            CheckForStatusUpdate();
+        }
+
+        private void Text1_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            CheckForStatusUpdate();
+        }
+
+        #endregion
+
+        #region Status bar and update
+        public void CheckForStatusUpdate()
+        {
+            //Update line and character count
+            Text1.Document.GetText(TextGetOptions.None, out string text);
+            totalCharacters = text.Length;
+            totalLine = text.Count(i => i == '\r');
+            CurrentPosition = Text1.Document.Selection.StartPosition + 1;
+            string sub = text.Substring(0, Text1.Document.Selection.StartPosition);
+            CurrentLine = sub.Count(i => i == '\r') + 1;
+            //update current format
+            IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
+            IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
+            IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
+            IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
+            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
+            //Selection update
             if (Text1.Document.Selection is null)
             {
                 SelectionLength = 0;
@@ -1445,17 +1488,9 @@ namespace QuickPad
                 {
                     SelectionLength = Text1.Document.Selection.Length;
                 }
-                IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
-                IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
-                IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
-                IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
-                IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
-            }            
+            }
         }
 
-        #endregion
-
-        #region Status bar and update
         private int _line;
         /// <summary>
         /// Line count
@@ -1474,6 +1509,20 @@ namespace QuickPad
         {
             get => _char;
             set => Set(ref _char, value);
+        }
+
+        private int _cp;
+        public int CurrentPosition
+        {
+            get => _cp;
+            set => Set(ref _cp, value);
+        }
+
+        private int _cl;
+        public int CurrentLine
+        {
+            get => _cl;
+            set => Set(ref _cl, value);
         }
 
         private int _selTT;
@@ -1508,7 +1557,7 @@ namespace QuickPad
             get => _st;
             set => Set(ref _st, value);
         }
-
+        
         private bool _bs;
         public bool IsUsingBulletList
         {
