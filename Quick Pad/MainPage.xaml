@@ -635,7 +635,7 @@
                     <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="4,0,0,8" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
                 </Grid>
                 <!--Line and character count-->
-                <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="14" Grid.Column="1" Margin="0,0,0,0">
+                <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="14" Grid.Column="1" Margin="5,0,0,0">
                 <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind CurrentLine, Mode=OneWay}"/><Run Text=","/>
                 <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind CurrentPosition, Mode=OneWay}"/>
                 </TextBlock>
