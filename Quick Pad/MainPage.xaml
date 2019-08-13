@@ -598,7 +598,7 @@
             <AppBarButton x:Name="Emoji" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
         </CommandBar>
 
-        <controls:DropShadowPanel Grid.RowSpan="4" 
+        <controls:DropShadowPanel Grid.Row="3"
                                   VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
                                   ShadowOpacity="0.2"
