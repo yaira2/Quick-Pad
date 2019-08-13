@@ -411,7 +411,19 @@ namespace QuickPad
                     Set(ref _fc_selection, value);
                     //Update setting
                     QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
-                    Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
+                    if (QSetting.DefaultFontColor == "Default")
+                    {
+                        bool isDarkTheme = RequestedTheme == ElementTheme.Dark;
+                        if (RequestedTheme == ElementTheme.Default)
+                        {
+                            isDarkTheme = App.Current.RequestedTheme == ApplicationTheme.Dark;
+                        }
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+                    }
+                    else
+                    {
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
+                    }
                 }
             }
         }
