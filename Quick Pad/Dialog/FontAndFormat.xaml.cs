@@ -91,7 +91,7 @@ namespace QuickPad.Dialog
                     }
                     else
                     {
-                        FilteredFonts = new ObservableCollection<FontFamilyItem>(AllFonts);
+                        FilteredFonts = new ObservableCollection<FontFamilyItem>(searched);
                     }
                 }
             }
@@ -104,24 +104,30 @@ namespace QuickPad.Dialog
             set => Set(ref _filtered, value);
         }
 
-        string _selected;
-        public string SelectedOnFilteredFont
+        private FontFamilyItem _selected;
+        public FontFamilyItem SelectedOnFilteredFont
         {
             get => _selected;
             set
             {
-                if (Set(ref _selected, value))
+                if (Set(ref _selected, value) && (_selected != null))
                 {
                     //Selected and update
                     //Should have put this onto input
-                    if (!string.IsNullOrEmpty(value))
-                    {
-                        _name = value;
-                        NotifyPropertyChanged(nameof(FontNameSuggestionInput));
-                        var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
-                        formatting.Name = value;
-                        PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
-                    }
+                    _name = value.Name;
+                    NotifyPropertyChanged(nameof(FontNameSuggestionInput));
+                    var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                    formatting.Name = value.Name;
+                    PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
+
+                    //if (!string.IsNullOrEmpty(value))
+                    //{
+                    //    _name = value;
+                    //    NotifyPropertyChanged(nameof(FontNameSuggestionInput));
+                    //    var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
+                    //    formatting.Name = value;
+                    //    PreviewBox.TextDocument.SetDefaultCharacterFormat(formatting);
+                    //}
                 }
             }
         }
