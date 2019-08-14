@@ -559,8 +559,8 @@
           <target state="new">Save</target>
         </trans-unit>
         <trans-unit id="ClassicFileSaveAs.Text" translate="yes" xml:space="preserve">
-          <source>Save as...</source>
-          <target state="new">Save as...</target>
+          <source>Save As...</source>
+          <target state="new">Save As...</target>
         </trans-unit>
         <trans-unit id="ClassicFileShare.Text" translate="yes" xml:space="preserve">
           <source>Share</source>
@@ -685,6 +685,10 @@
         <trans-unit id="StatusSelCount.Text" translate="yes" xml:space="preserve">
           <source>Selection: </source>
           <target state="new">Selection: </target>
+        </trans-unit>
+        <trans-unit id="GeneralShowStatusOnClassic.Text" translate="yes" xml:space="preserve">
+          <source>Show Status Bar on Classic Mode</source>
+          <target state="new">Show Status Bar on Classic Mode</target>
         </trans-unit>
       </group>
     </body>

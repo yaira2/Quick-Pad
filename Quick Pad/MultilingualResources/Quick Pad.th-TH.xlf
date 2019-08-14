@@ -559,8 +559,9 @@
           <target state="translated" state-qualifier="tm-suggestion">บันทึก</target>
         </trans-unit>
         <trans-unit id="ClassicFileSaveAs.Text" translate="yes" xml:space="preserve">
-          <source>Save as...</source>
-          <target state="translated">บันทึกเป็น</target>
+          <source>Save As...</source>
+          <target state="needs-review-translation">บันทึกเป็น</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="ClassicFileShare.Text" translate="yes" xml:space="preserve">
           <source>Share</source>
@@ -685,6 +686,10 @@
         <trans-unit id="StatusSelCount.Text" translate="yes" xml:space="preserve">
           <source>Selection: </source>
           <target state="translated">เลือก: </target>
+        </trans-unit>
+        <trans-unit id="GeneralShowStatusOnClassic.Text" translate="yes" xml:space="preserve">
+          <source>Show Status Bar on Classic Mode</source>
+          <target state="translated">แสดงแถบสถานะเมื่ออยู่ในโหมดคลาสสิค</target>
         </trans-unit>
       </group>
     </body>
