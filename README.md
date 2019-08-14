@@ -16,7 +16,6 @@
 * File Print.
 * Find & Replace options.
 * More theme options.
-* Status bar.
 * Zoom Options.
 
 ## Downloads:
