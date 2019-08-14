@@ -625,7 +625,7 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <!--Save status-->
-                <Grid Margin="5,0,2,0" Visibility="{x:Bind q:Converter.ShowIfItemIsNotNull(CurrentWorkingFile), Mode=OneWay}" Width="32" MaxWidth="32">
+                <Grid Margin="5,0,2,0" Visibility="{x:Bind q:Converter.ShowIfItemIsNotNull(CurrentWorkingFile), Mode=OneWay}" Width="32" MaxWidth="32" x:Name="SaveIconStatus">
                     <FontIcon Glyph="&#xE74E;" FontSize="14">
                         <ToolTipService.ToolTip>
                             <StackPanel>
