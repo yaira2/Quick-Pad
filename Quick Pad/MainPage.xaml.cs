@@ -513,7 +513,14 @@ namespace QuickPad
         public StorageFile CurrentWorkingFile
         {
             get => _file;
-            set => Set(ref _file, value);
+            set
+            {
+                Set(ref _file, value);
+                if (value is null)
+                {
+                    SaveIconStatus.Visibility = Visibility.Collapsed;
+                }
+            }
         }
         private string key; //future access list
 
