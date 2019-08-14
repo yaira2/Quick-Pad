@@ -415,7 +415,11 @@
                      IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
                      IsTapEnabled="True"
-                     Tapped="Text1_Tapped"/>
+                     Tapped="Text1_Tapped">
+            <RichEditBox.SelectionHighlightColorWhenNotFocused>
+                <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
+            </RichEditBox.SelectionHighlightColorWhenNotFocused>
+        </RichEditBox>
 
         <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" Opened="Settings_Opened" Grid.Row="0" Grid.RowSpan="4">
             <ContentDialog.Resources>
