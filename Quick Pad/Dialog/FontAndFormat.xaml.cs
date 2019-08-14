@@ -59,9 +59,9 @@ namespace QuickPad.Dialog
             this.InitializeComponent();
         }
 
-        public ObservableCollection<string> AllFonts
+        public ObservableCollection<FontFamilyItem> AllFonts
         {
-            get => GetValue(AllFontsProperty) as ObservableCollection<string>;
+            get => GetValue(AllFontsProperty) as ObservableCollection<FontFamilyItem>;
             set => SetValue(AllFontsProperty, value);
         }
         public static readonly DependencyProperty AllFontsProperty = 
@@ -84,21 +84,21 @@ namespace QuickPad.Dialog
                 if (Set(ref _name, value))
                 {
                     //Search matched result font
-                    var searched = AllFonts.ToList().FindAll(font => font.Contains(value));
+                    var searched = AllFonts.ToList().FindAll(font => font.Name.Contains(value));
                     if (searched.Count < 1)
                     {
-                        FilteredFonts = new ObservableCollection<string>(AllFonts);
+                        FilteredFonts = new ObservableCollection<FontFamilyItem>(AllFonts);
                     }
                     else
                     {
-                        FilteredFonts = new ObservableCollection<string>(searched);
+                        FilteredFonts = new ObservableCollection<FontFamilyItem>(AllFonts);
                     }
                 }
             }
         }
 
-        ObservableCollection<string> _filtered;
-        public ObservableCollection<string> FilteredFonts
+        ObservableCollection<FontFamilyItem> _filtered;
+        public ObservableCollection<FontFamilyItem> FilteredFonts
         {
             get => _filtered;
             set => Set(ref _filtered, value);
@@ -229,7 +229,7 @@ namespace QuickPad.Dialog
         private void ContentDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
         {
             FinalResult = DialogResult.None;
-            FilteredFonts = new ObservableCollection<string>(AllFonts);
+            FilteredFonts = new ObservableCollection<FontFamilyItem>(AllFonts);
             PreviewBox.Document.SetText(TextSetOptions.None, ResourceLoader.GetForCurrentView().GetString("FAF_Preview_Initial"));
             //Apply settings
             var formatting = PreviewBox.Document.GetDefaultCharacterFormat();
