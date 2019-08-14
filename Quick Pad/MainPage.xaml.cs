@@ -281,7 +281,7 @@ namespace QuickPad
             //Sort it in alphabet order
             fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
             //Put it on an observable list
-            AllFonts = new ObservableCollection<string>(fonts);
+            AllFonts = new ObservableCollection<FontFamilyItem>(fonts.Select(x => new FontFamilyItem(x)));
         }
 
         private async void AddJumplists()
@@ -395,8 +395,8 @@ namespace QuickPad
         #endregion
 
         #region Properties     
-        ObservableCollection<string> _fonts;
-        public ObservableCollection<string> AllFonts
+        ObservableCollection<FontFamilyItem> _fonts;
+        public ObservableCollection<FontFamilyItem> AllFonts
         {
             get => _fonts;
             set => Set(ref _fonts, value);
@@ -1110,14 +1110,21 @@ namespace QuickPad
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Text1.Document.BeginUndoGroup();
-            var selectedFont = e.AddedItems[0].ToString();
-            Text1.Document.Selection.CharacterFormat.Name = selectedFont;
+            if (e.AddedItems[0] is FontFamilyItem selectedFont)
+            {
+                Text1.Document.Selection.CharacterFormat.Name = selectedFont.Name;
+            }
             Text1.Document.EndUndoGroup();
         }
 
         private void Frame_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Fonts.IsDropDownOpen = true; //open the font combo box
+            //Set text preview in Font Family selector
+            var selectedText = Text1.Document.Selection.Text;
+            FontFamilyItem.ChangeGlobalPreview(selectedText);
+            foreach (var item in AllFonts) item.UpdateLocalPreview();
+            //open the font combo box
+            Fonts.IsDropDownOpen = true;
         }
 
         private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1717,6 +1724,71 @@ namespace QuickPad
         }
 
         public static FontColorItem Default => new FontColorItem();
+    }
+
+    public class FontFamilyItem: INotifyPropertyChanged, IComparable<FontFamilyItem>
+    {
+        private const int previewMaxLenght = 16;
+        private static string _previewText;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        {
+            get;
+            private set;
+        }
+        public string PreviewText
+        {
+            get => _previewText ?? Name;
+        }
+
+        public FontFamilyItem(string name)
+        {
+            Name = name;
+        }
+
+        public static void ChangeGlobalPreview(string previewText)
+        {
+            if (previewText != null)
+            {
+                previewText = previewText.Trim();
+            }
+            if (string.IsNullOrWhiteSpace(previewText))
+            {
+                _previewText = null;
+            }
+            else
+            {
+                previewText = previewText.Trim();
+                if (previewText.Length > previewMaxLenght)
+                {
+                    _previewText = $"{previewText.Substring(0, previewMaxLenght)}...";
+                }
+                else
+                {
+                    _previewText = previewText;
+                }
+            }
+        }
+        public void UpdateLocalPreview()
+        {
+            UpdateProperty(nameof(PreviewText));
+        }
+
+        public int CompareTo(FontFamilyItem other)
+        {
+            return this.Name.CompareTo(other.Name);
+        }
+        public override string ToString()
+        {
+            return Name;
+        }
+        private void UpdateProperty([CallerMemberName]string propertyName="")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 
     public enum DialogResult
