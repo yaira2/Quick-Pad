@@ -60,6 +60,11 @@ namespace QuickPad
         }
         #endregion
 
+        private const char RichEditBoxDefaultLineEnding = '\r';
+        private string[] _contentLinesCache;
+        private bool _isLineCachePendingUpdate = true;
+        private string _content = string.Empty;
+
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
@@ -1369,6 +1374,16 @@ namespace QuickPad
                 
             }
         }
+
+        private void Text1_TextChanging(RichEditBox sender, RichEditBoxTextChangingEventArgs args)
+        {
+            if (args.IsContentChanging)
+            {
+                Text1.Document.GetText(TextGetOptions.None, out _content);
+                _content = TrimRichEditBoxText(_content);
+                _isLineCachePendingUpdate = true;
+            }
+        }
         /// <summary>
         /// Temporary store the copy of text when it loaded, 
         /// if it didn't match the textbox=it changed
@@ -1461,12 +1476,11 @@ namespace QuickPad
         public void CheckForStatusUpdate()
         {
             //Update line and character count
-            Text1.Document.GetText(TextGetOptions.None, out string text);
-            totalCharacters = text.Length;
-            totalLine = text.Count(i => i == '\r');
-            CurrentPosition = Text1.Document.Selection.StartPosition + 1;
-            string sub = text.Substring(0, Text1.Document.Selection.StartPosition);
-            CurrentLine = sub.Count(i => i == '\r') + 1;
+            GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount);
+            CurrentPosition = columnIndex;
+            CurrentLine = lineIndex;
+            totalCharacters = selectedCount;
+
             //update current format
             IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
             IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
@@ -1489,6 +1503,58 @@ namespace QuickPad
                     SelectionLength = Text1.Document.Selection.Length;
                 }
             }
+        }
+
+        public void GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount)
+        {
+            if (_isLineCachePendingUpdate)
+            {
+                _contentLinesCache = (_content + RichEditBoxDefaultLineEnding).Split(RichEditBoxDefaultLineEnding);
+                _isLineCachePendingUpdate = false;
+            }
+
+            var start = Text1.Document.Selection.StartPosition;
+            var end = Text1.Document.Selection.EndPosition;
+
+            lineIndex = 1;
+            columnIndex = 1;
+            selectedCount = 0;
+
+            var length = 0;
+            bool startLocated = false;
+            for (int i = 0; i < _contentLinesCache.Length; i++)
+            {
+                var line = _contentLinesCache[i];
+
+                if (line.Length + length >= start && !startLocated)
+                {
+                    lineIndex = i + 1;
+                    columnIndex = start - length + 1;
+                    startLocated = true;
+                }
+
+                if (line.Length + length >= end)
+                {
+                    if (i == lineIndex - 1)
+                        selectedCount = end - start;
+                    else
+                        selectedCount = end - start + (i - lineIndex);
+                    return;
+                }
+
+                length += line.Length + 1;
+            }
+        }
+
+        private string TrimRichEditBoxText(string text)
+        {
+            // Trim end \r
+            if (!string.IsNullOrEmpty(text) && text[text.Length - 1] == RichEditBoxDefaultLineEnding)
+            {
+                text = text.Substring(0, text.Length - 1);
+            }
+
+            return text;
         }
 
         private int _line;
@@ -1557,7 +1623,7 @@ namespace QuickPad
             get => _st;
             set => Set(ref _st, value);
         }
-        
+
         private bool _bs;
         public bool IsUsingBulletList
         {

@@ -399,6 +399,7 @@
                      DragOver="Text1_DragOver" 
                      KeyDown="Text1_KeyDown" 
                      TextChanged="Text1_TextChanged" 
+                     TextChanging="Text1_TextChanging"
                      GotFocus="Text1_GotFocus" 
                      BorderThickness="0,0,0,0" 
                      HorizontalAlignment="Stretch" 
