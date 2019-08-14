@@ -14,10 +14,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="FontFamilyComboBoxItem">
-            <StackPanel Margin="10,2,0,2" Spacing="2">
-                <TextBlock Text="{Binding PreviewText}" FontFamily="{Binding Name}" FontSize="18"/>
-                <TextBlock Text="{Binding Name}" FontSize="12" />
-            </StackPanel>
+            <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="10,4,0,4" FontSize="16" />
         </DataTemplate>
     </Page.Resources>
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" HorizontalAlignment="Stretch">
