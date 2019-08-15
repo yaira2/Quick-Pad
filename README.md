@@ -28,4 +28,4 @@ Please head over to [Github Releases](https://github.com/UWPCommunity/Quick-Pad/
 * Localization Contributors: 
     * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
     * [fr-CA][French] [PhilLB1239](https://github.com/PhilLB1239)
-    * [es][French] [Leisvan](https://github.com/Leisvan)
+    * [es][Spanish] [Leisvan](https://github.com/Leisvan)
