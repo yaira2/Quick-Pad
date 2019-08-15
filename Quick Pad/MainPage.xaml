@@ -442,7 +442,7 @@
                         <ScrollViewer x:Name="SettingsTab1SV" Height="200">
                             <StackPanel>
                                 <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
-                                <ComboBox x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1">
+                                <ComboBox x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinWidth="125" HorizontalAlignment="Left" BorderThickness="1">
                                     <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
                                     <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
                                     <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
