@@ -204,9 +204,9 @@ namespace QuickPad
             if (QSetting.DefaultFontColor == "Default")
             {
                 Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
-                if (totalCharacters < 2)
+                //Force a new change IF there are no change made yet
+                if (!Changed)
                 {
-                    //Nothing is written maybe update initial source
                     SetANewChange();
                 }
             }
