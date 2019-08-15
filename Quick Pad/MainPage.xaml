@@ -182,7 +182,10 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarSeparator x:Name="ASep1"/>
-            <AppBarToggleButton x:Name="CompactOverlay" x:Uid="CompactOverlay" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" Content="On Top" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <AppBarToggleButton x:Name="CompactOverlay" x:Uid="CompactOverlay" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" MinWidth="40" Width="Auto">
+                <AppBarToggleButton.Icon>
+                    <FontIcon Glyph="&#xE158;"/>
+                </AppBarToggleButton.Icon>
                 <AppBarToggleButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
                 </AppBarToggleButton.KeyboardAccelerators>
