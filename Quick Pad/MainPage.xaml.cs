@@ -101,7 +101,18 @@ namespace QuickPad
             {
                 if (args.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
                 {
-                    CommandBar2.Focus(FocusState.Programmatic); // Set focus off the main content
+                    if (CommandBar2.Visibility==Visibility.Visible)
+                    {
+                        CommandBar2.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
+                    if (CloseFocusMode.Visibility == Visibility.Visible)
+                    {
+                        CloseFocusMode.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
+                    if (CommandBarClassic.Visibility == Visibility.Visible)
+                    {
+                        CommandBarClassic.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
                 }
             };
 
