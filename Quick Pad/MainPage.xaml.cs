@@ -788,7 +788,7 @@ namespace QuickPad
 
         private async void CmdNew_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentWorkingFile is null && Changed)
+            if (Changed)
             {
                 //File has not been save yet ask use if they want to save
                 await WantToSave.ShowAsync();
