@@ -386,6 +386,7 @@ namespace QuickPad
                             await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
                         }
                         Changed = false;
+                        SetANewChange();
                     }
                     catch (Exception) { }
                 }
