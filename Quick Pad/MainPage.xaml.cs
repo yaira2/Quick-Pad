@@ -199,8 +199,6 @@ namespace QuickPad
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
 
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-
             //Update combobox items font color collection
 
             if (QSetting.DefaultFontColor == "Default")
