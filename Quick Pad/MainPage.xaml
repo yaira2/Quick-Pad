@@ -351,8 +351,8 @@
                         <SymbolIcon Symbol="FontDecrease"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Fonts..." AccessKey="F" Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">
+                <MenuFlyoutSeparator Visibility="Collapsed"/>
+                <MenuFlyoutItem Text="Fonts..." Visibility="Collapsed" AccessKey="F" Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Font"/>
                     </MenuFlyoutItem.Icon>
