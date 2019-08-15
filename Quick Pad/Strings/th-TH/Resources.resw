@@ -393,4 +393,136 @@
   <data name="LaunchModeClassic.Content" xml:space="preserve">
     <value>คลาสสิค</value>
   </data>
+  <data name="ClassicEdit.Title" xml:space="preserve">
+    <value>แก้ไข</value>
+  </data>
+  <data name="ClassicEditCopy.Text" xml:space="preserve">
+    <value>คัดลอก</value>
+  </data>
+  <data name="ClassicEditCut.Text" xml:space="preserve">
+    <value>ตัด</value>
+  </data>
+  <data name="ClassicEditPaste.Text" xml:space="preserve">
+    <value>วาง</value>
+  </data>
+  <data name="ClassicEditRedo.Text" xml:space="preserve">
+    <value>ทำซ้ำ</value>
+  </data>
+  <data name="ClassicEditUndo.Text" xml:space="preserve">
+    <value>เลิกทำ</value>
+  </data>
+  <data name="ClassicFile.Title" xml:space="preserve">
+    <value>แฟ้ม</value>
+  </data>
+  <data name="ClassicFileExit.Text" xml:space="preserve">
+    <value>ออก</value>
+  </data>
+  <data name="ClassicFileNew.Text" xml:space="preserve">
+    <value>ใหม่</value>
+  </data>
+  <data name="ClassicFileOpen.Text" xml:space="preserve">
+    <value>เปิด</value>
+  </data>
+  <data name="ClassicFileSave.Text" xml:space="preserve">
+    <value>บันทึก</value>
+  </data>
+  <data name="ClassicFileSaveAs.Text" xml:space="preserve">
+    <value>บันทึกเป็น</value>
+  </data>
+  <data name="ClassicFileShare.Text" xml:space="preserve">
+    <value>แชร์</value>
+  </data>
+  <data name="ClassicFormat.Title" xml:space="preserve">
+    <value>รูปแบบ</value>
+  </data>
+  <data name="ClassicFormatACenter.Text" xml:space="preserve">
+    <value>จัดกึ่งกลาง</value>
+  </data>
+  <data name="ClassicFormatAJustify.Text" xml:space="preserve">
+    <value>จัดเต็มแนว</value>
+  </data>
+  <data name="ClassicFormatALeft.Text" xml:space="preserve">
+    <value>จัดชิดซ้าย</value>
+  </data>
+  <data name="ClassicFormatARight.Text" xml:space="preserve">
+    <value>จัดชิดขวา</value>
+  </data>
+  <data name="ClassicFormatBold.Text" xml:space="preserve">
+    <value>ตัวหนา</value>
+  </data>
+  <data name="ClassicFormatBullets.Text" xml:space="preserve">
+    <value>สัญลักษณ์แสดงหัวข้อย่อย</value>
+  </data>
+  <data name="ClassicFormatDown.Text" xml:space="preserve">
+    <value>ย่อขนาดตัวอักษร</value>
+  </data>
+  <data name="ClassicFormatItalic.Text" xml:space="preserve">
+    <value>ตัวเอียง</value>
+  </data>
+  <data name="ClassicFormatST.Text" xml:space="preserve">
+    <value>ขีดทับ</value>
+  </data>
+  <data name="ClassicFormatUnderline.Text" xml:space="preserve">
+    <value>ขีดเส้นใต้</value>
+  </data>
+  <data name="ClassicFormatUp.Text" xml:space="preserve">
+    <value>ขยายขนาดตัวอักษร</value>
+  </data>
+  <data name="ClassicHelp.Title" xml:space="preserve">
+    <value>อื่นๆ</value>
+  </data>
+  <data name="ClassicHelpRR.Text" xml:space="preserve">
+    <value>ให้คะแนนและวิจารณ์</value>
+  </data>
+  <data name="ClassicViewBack.Text" xml:space="preserve">
+    <value>กลับไปมุมมองเดิม</value>
+  </data>
+  <data name="ClassicViewFocus.Text" xml:space="preserve">
+    <value>เน้นพิมพ์</value>
+  </data>
+  <data name="ClassicViewOverlay.Text" xml:space="preserve">
+    <value>ทับแอปอื่น</value>
+  </data>
+  <data name="ClassicView.Title" xml:space="preserve">
+    <value>มุมมอง</value>
+  </data>
+  <data name="CmdClassicMode.Label" xml:space="preserve">
+    <value>เมนูคลาสสิค</value>
+  </data>
+  <data name="CmdExit.Label" xml:space="preserve">
+    <value>ออก</value>
+  </data>
+  <data name="CmdExitTooltip.Text" xml:space="preserve">
+    <value>ปิดแอปไปทำอย่างอื่น</value>
+  </data>
+  <data name="ClassicFormatFonts.Text" xml:space="preserve">
+    <value>แบบอักษร</value>
+  </data>
+  <data name="ClassicViewStatusBar.Text" xml:space="preserve">
+    <value>แถบสถานะ</value>
+  </data>
+  <data name="FAF_Color.Text" xml:space="preserve">
+    <value>สี</value>
+  </data>
+  <data name="FAF_Fonts.Text" xml:space="preserve">
+    <value>แบบอักษร</value>
+  </data>
+  <data name="FAF_Preview_Initial" xml:space="preserve">
+    <value>ตัวอย่าง</value>
+  </data>
+  <data name="FAF_Size.Text" xml:space="preserve">
+    <value>ขนาด</value>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>ตัว: </value>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>บรรทัด: </value>
+  </data>
+  <data name="StatusSelCount.Text" xml:space="preserve">
+    <value>เลือก: </value>
+  </data>
+  <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
+    <value>แสดงแถบสถานะเมื่ออยู่ในโหมดคลาสสิค</value>
+  </data>
 </root>

@@ -170,6 +170,13 @@ namespace QuickPad
             set => Set(value);
         }
 
+        [DefaultValue(true)]
+        public bool ShowStatusBar
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
         /// <summary>
         /// this is to check the default file extension choosen in the save file dialog
         /// </summary>
@@ -456,5 +463,90 @@ namespace QuickPad
             byte b = (byte)Convert.ToUInt32(input.Substring(6, 2), 16);
             return Color.FromArgb(a, r, g, b);
         }
+
+        /// <summary>
+        /// Use to check if input item is null or not
+        /// </summary>
+        /// <param name="item"></param>
+        /// <returns></returns>
+        public static bool IsItemNull(object item)
+        {
+            return item is null;
+        }
+
+        /// <summary>
+        /// Use in XAML binding, if item is null show that UI, if item is not null hide the UI
+        /// </summary>
+        /// <param name="input">anything</param>
+        /// <returns></returns>
+        public static Visibility ShowIfItemIsNull(object input) => IsItemNull(input) ? Visibility.Visible : Visibility.Collapsed;
+
+        /// <summary>
+        /// Use in XAML binding, if item is null hide that UI, if item is not null show the UI
+        /// </summary>
+        /// <param name="input">anything</param>
+        /// <returns></returns>
+        public static Visibility ShowIfItemIsNotNull(object input) => IsItemNull(input) ? Visibility.Collapsed : Visibility.Visible;
+
+        public static Visibility CanIShowStatusBar(bool classicMode, bool showStatusBar)
+        {
+            //Is it classic mode?
+            if (classicMode)
+            {
+                //If it on either mode, is it allow to show status bar?
+                if (showStatusBar)
+                {
+                    return Visibility.Visible;
+                }
+            }
+            return Visibility.Collapsed;
+        }
+
+        /// <summary>
+        /// Use to compare number and return boolean
+        /// </summary>
+        /// <param name="input">Number input</param>
+        /// <param name="compare">Compare type</param>
+        /// <param name="target">Number to compare to</param>
+        /// <returns></returns>
+        public static bool CompareNumber(int input, string compare, int target)
+        {
+            switch (compare)
+            {
+                case IntCompare.NotEqual:
+                    return input != target;
+                case IntCompare.LessOrEqual:
+                    return input <= target;
+                case IntCompare.MoreOrEqual:
+                    return input >= target;
+                case IntCompare.Less:
+                    return input < target;
+                case IntCompare.More:
+                    return input > target;
+                case IntCompare.Equal:
+                default:
+                    return input == target;
+            }
+        }
+
+        public static Visibility ShowAfterCompareNumber(int number, string compareType, int target)
+        {
+            return CompareNumber(number, compareType, target) ? Visibility.Visible : Visibility.Collapsed;
+        }
+
+        public static FontFamily FontNameToFontFamily(string name)
+        {
+            return new FontFamily(name);
+        }
+    }
+
+    public static class IntCompare
+    {
+        public const string Equal = "=";
+        public const string NotEqual = "!=";
+        public const string Less = "<";
+        public const string More = ">";
+        public const string LessOrEqual = "<=";
+        public const string MoreOrEqual = ">=";
     }
 }

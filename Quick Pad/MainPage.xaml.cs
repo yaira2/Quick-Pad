@@ -30,7 +30,7 @@ using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Quick_Pad_Free_Edition
+namespace QuickPad
 {
     public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
@@ -59,6 +59,11 @@ namespace Quick_Pad_Free_Edition
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
         #endregion
+
+        private const char RichEditBoxDefaultLineEnding = '\r';
+        private string[] _contentLinesCache;
+        private bool _isLineCachePendingUpdate = true;
+        private string _content = string.Empty;
 
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
@@ -96,7 +101,18 @@ namespace Quick_Pad_Free_Edition
             {
                 if (args.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
                 {
-                    CommandBar2.Focus(FocusState.Programmatic); // Set focus off the main content
+                    if (CommandBar2.Visibility==Visibility.Visible)
+                    {
+                        CommandBar2.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
+                    if (CloseFocusMode.Visibility == Visibility.Visible)
+                    {
+                        CloseFocusMode.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
+                    if (CommandBarClassic.Visibility == Visibility.Visible)
+                    {
+                        CommandBarClassic.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
                 }
             };
 
@@ -194,13 +210,16 @@ namespace Quick_Pad_Free_Edition
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
 
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-
             //Update combobox items font color collection
 
             if (QSetting.DefaultFontColor == "Default")
             {
                 Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+                //Force a new change IF there are no change made yet
+                if (!Changed)
+                {
+                    SetANewChange();
+                }
             }
         }
 
@@ -218,7 +237,6 @@ namespace Quick_Pad_Free_Edition
                     SwitchFocusMode(true);
                     break;
                 case AvailableModes.OnTop:
-                    //TODO:Launch compact overlay mode
                     SwitchCompactOverlayMode(true);
                     break;
                 case AvailableModes.Classic:
@@ -272,7 +290,7 @@ namespace Quick_Pad_Free_Edition
             //Sort it in alphabet order
             fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
             //Put it on an observable list
-            AllFonts = new ObservableCollection<string>(fonts);
+            AllFonts = new ObservableCollection<FontFamilyItem>(fonts.Select(x => new FontFamilyItem(x)));
         }
 
         private async void AddJumplists()
@@ -377,6 +395,7 @@ namespace Quick_Pad_Free_Edition
                             await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
                         }
                         Changed = false;
+                        SetANewChange();
                     }
                     catch (Exception) { }
                 }
@@ -386,8 +405,8 @@ namespace Quick_Pad_Free_Edition
         #endregion
 
         #region Properties     
-        ObservableCollection<string> _fonts;
-        public ObservableCollection<string> AllFonts
+        ObservableCollection<FontFamilyItem> _fonts;
+        public ObservableCollection<FontFamilyItem> AllFonts
         {
             get => _fonts;
             set => Set(ref _fonts, value);
@@ -412,7 +431,19 @@ namespace Quick_Pad_Free_Edition
                     Set(ref _fc_selection, value);
                     //Update setting
                     QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
-                    Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
+                    if (QSetting.DefaultFontColor == "Default")
+                    {
+                        bool isDarkTheme = RequestedTheme == ElementTheme.Dark;
+                        if (RequestedTheme == ElementTheme.Default)
+                        {
+                            isDarkTheme = App.Current.RequestedTheme == ApplicationTheme.Dark;
+                        }
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+                    }
+                    else
+                    {
+                        Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
+                    }
                 }
             }
         }
@@ -487,8 +518,20 @@ namespace Quick_Pad_Free_Edition
             //Update changed
             CheckForChange();
         }
-        
-        public StorageFile CurrentWorkingFile = null;
+
+        StorageFile _file;
+        public StorageFile CurrentWorkingFile
+        {
+            get => _file;
+            set
+            {
+                Set(ref _file, value);
+                if (value is null)
+                {
+                    SaveIconStatus.Visibility = Visibility.Collapsed;
+                }
+            }
+        }
         private string key; //future access list
 
         private bool _isPageLoaded = false;
@@ -756,7 +799,7 @@ namespace Quick_Pad_Free_Edition
 
         private async void CmdNew_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentWorkingFile is null && Changed)
+            if (Changed)
             {
                 //File has not been save yet ask use if they want to save
                 await WantToSave.ShowAsync();
@@ -859,8 +902,22 @@ namespace Quick_Pad_Free_Edition
             await SaveWork();
         }
 
-        public void CmdExit_Click(object sender, RoutedEventArgs e)
+        public async void CmdExit_Click(object sender, RoutedEventArgs e)
         {
+            if (!Changed)
+            {
+                App.Current.Exit();
+                return;
+            }
+            await WantToSave.ShowAsync();
+            switch (WantToSave.DialogResult)
+            {
+                case DialogResult.Yes:
+                    await SaveWork();
+                    break;
+                case DialogResult.Cancel:
+                    return;
+            }
             App.Current.Exit();
         }
 
@@ -1063,14 +1120,21 @@ namespace Quick_Pad_Free_Edition
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Text1.Document.BeginUndoGroup();
-            var selectedFont = e.AddedItems[0].ToString();
-            Text1.Document.Selection.CharacterFormat.Name = selectedFont;
+            if (e.AddedItems[0] is FontFamilyItem selectedFont)
+            {
+                Text1.Document.Selection.CharacterFormat.Name = selectedFont.Name;
+            }
             Text1.Document.EndUndoGroup();
         }
 
         private void Frame_PointerPressed(object sender, PointerRoutedEventArgs e)
         {
-            Fonts.IsDropDownOpen = true; //open the font combo box
+            //Set text preview in Font Family selector
+            var selectedText = Text1.Document.Selection.Text;
+            FontFamilyItem.ChangeGlobalPreview(selectedText);
+            foreach (var item in AllFonts) item.UpdateLocalPreview();
+            //open the font combo box
+            Fonts.IsDropDownOpen = true;
         }
 
         private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1098,6 +1162,54 @@ namespace Quick_Pad_Free_Edition
         private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
         {
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
+        }
+
+        private async void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
+        {
+            //Save selection point
+            int previousPosition = Text1.Document.Selection.StartPosition;
+            int previousSelectionEnd = Text1.Document.Selection.EndPosition;
+            //Force select all text
+            Text1.Focus(FocusState.Programmatic);
+            Text1.Document.Selection.SetRange(0, totalCharacters);
+            //Get format info about selection
+            var selection = Text1.Document.Selection;
+            if (selection != null)
+            {
+                var formatting = selection.CharacterFormat;
+                //Update to dialog
+                FontAndFormat.FontNameSuggestionInput = formatting.Name;
+                FontAndFormat.FontSizeSelection = Convert.ToInt32(formatting.Size);
+                FontAndFormat.WantBold = formatting.Bold == FormatEffect.On;
+                FontAndFormat.WantItalic = formatting.Italic == FormatEffect.On;
+                FontAndFormat.WantUnderline = formatting.Underline != UnderlineType.None;
+                FontAndFormat.WantStrikethrough = formatting.Strikethrough == FormatEffect.On;
+                FontAndFormat.SelectedColor = formatting.ForegroundColor;
+            }
+            await FontAndFormat.ShowAsync();
+            //Apply setting back if user wanted to
+            if (FontAndFormat.FinalResult == DialogResult.Yes)
+            {
+                var formatting = selection.CharacterFormat;
+                formatting.Name = FontAndFormat.FontNameSuggestionInput;
+                formatting.Size = FontAndFormat.FontSizeSelection;
+                formatting.Bold = FontAndFormat.WantBold ? FormatEffect.On : FormatEffect.Off;
+                formatting.Italic = FontAndFormat.WantItalic ? FormatEffect.On : FormatEffect.Off;
+                formatting.Underline = FontAndFormat.WantUnderline ? UnderlineType.Single : UnderlineType.None;
+                formatting.Strikethrough = FontAndFormat.WantStrikethrough ? FormatEffect.On : FormatEffect.Off;
+                formatting.ForegroundColor = FontAndFormat.SelectedColor;
+            }
+            //Restore to that point like nothing ever happen
+            if (previousPosition == previousSelectionEnd)
+            {
+                //Not select anything
+                Text1.Document.Selection.StartPosition = previousPosition;
+            }
+            else
+            {
+                //Select like what user used to
+                Text1.Document.Selection.SetRange(previousPosition, previousSelectionEnd);
+            }            
         }
         #endregion
 
@@ -1163,20 +1275,21 @@ namespace Quick_Pad_Free_Edition
                 ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
 
-                Grid.SetRow(CommandBar2, 2);
-                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
+                Shadow1.Visibility = Visibility.Collapsed;
+                CommandBar1.Visibility = Visibility.Collapsed;
                 Title.Visibility = Visibility.Collapsed;
-                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Stretch;
-                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                Text1.Margin = new Thickness(0, 0, 0, 0);
-                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CmdFocusMode.IsEnabled = false;
-                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
-                CommandBar2.Margin = new Thickness(0, 0, 0, 0);
-                CommandBar2.Visibility = Visibility.Visible;
+                FrameTop.Visibility = Visibility.Collapsed;
+                CmdSettings.Visibility = Visibility.Collapsed;
+                CmdFocusMode.Visibility = Visibility.Collapsed;
+                CmdClassicMode.Visibility = Visibility.Collapsed;
+                CommandBar3.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
+                Grid.SetRow(CommandBar2, 3);
+                CommandBar2.Visibility = Visibility.Visible;
+                CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
+                //
+                row0.Height = new GridLength(0);
+                row1.Height = new GridLength(0);            
 
                 //make text smaller size if user did not do so on their own and if they did not type anything yet.
                 Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
@@ -1191,18 +1304,20 @@ namespace Quick_Pad_Free_Edition
             else
             {
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
-                Grid.SetRow(CommandBar2, 0);
+
                 Title.Visibility = Visibility.Visible;
-                Shadow1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar1.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar2.HorizontalAlignment = Windows.UI.Xaml.HorizontalAlignment.Right;
-                FrameTop.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdSettings.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdFocusMode.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CommandBar3.Visibility = Windows.UI.Xaml.Visibility.Visible;
-                CmdFocusMode.IsEnabled = true;
-                Text1.Margin = new Thickness(0, 74, 0, 40);
-                CommandBar2.Margin = new Thickness(0, 33, 0, 0);
+                Shadow1.Visibility = Visibility.Visible;
+                CommandBar1.Visibility = Visibility.Visible;
+                CommandBar2.HorizontalAlignment = HorizontalAlignment.Right;
+                Grid.SetRow(CommandBar2, 1);
+                FrameTop.Visibility = Visibility.Visible;
+                CmdSettings.Visibility = Visibility.Visible;
+                CmdFocusMode.Visibility = Visibility.Visible;
+                CmdClassicMode.Visibility = Visibility.Visible;
+                CommandBar3.Visibility = Visibility.Visible;
+
+                row0.Height = new GridLength(1, GridUnitType.Auto);
+                row1.Height = new GridLength(1, GridUnitType.Auto);
 
                 if (ClassicModeSwitch == true)
                 {
@@ -1217,11 +1332,12 @@ namespace Quick_Pad_Free_Edition
             if (switching)
             {
                 Text1.SetValue(Canvas.ZIndexProperty, 90);
-                Text1.Margin = new Thickness(0, 33, 0, 0);
+                CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
                 Shadow2.Visibility = Visibility.Collapsed;
                 Shadow1.Visibility = Visibility.Collapsed;
-                CloseFocusMode.Visibility = Visibility.Visible;
+                row1.Height = new GridLength(0);
+                row3.Height = new GridLength(0);
             }
             else
             {
@@ -1230,9 +1346,9 @@ namespace Quick_Pad_Free_Edition
                 CommandBar1.Visibility = Visibility.Visible;
                 Shadow2.Visibility = Visibility.Visible;
                 Shadow1.Visibility = Visibility.Visible;
-                CloseFocusMode.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
-                Text1.Margin = new Thickness(0, 74, 0, 40);
+                row1.Height = new GridLength(1, GridUnitType.Auto);
+                row3.Height = new GridLength(1, GridUnitType.Auto);
             }
             if (ClassicModeSwitch == true)
             {
@@ -1247,11 +1363,15 @@ namespace Quick_Pad_Free_Edition
             {
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
+                CommandBar3.Visibility = Visibility.Collapsed;
+                Shadow2.Visibility = Visibility.Collapsed;
             }
             else
             {
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
+                CommandBar3.Visibility = Visibility.Visible;
+                Shadow2.Visibility = Visibility.Visible;
             }
         }
 
@@ -1272,6 +1392,21 @@ namespace Quick_Pad_Free_Edition
             CanRedoText = Text1.Document.CanRedo();
 
             CheckForChange(); //Check fof a change in document
+
+            if (ClassicModeSwitch)
+            {
+                
+            }
+        }
+
+        private void Text1_TextChanging(RichEditBox sender, RichEditBoxTextChangingEventArgs args)
+        {
+            if (args.IsContentChanging)
+            {
+                Text1.Document.GetText(TextGetOptions.None, out _content);
+                _content = TrimRichEditBoxText(_content);
+                _isLineCachePendingUpdate = true;
+            }
         }
         /// <summary>
         /// Temporary store the copy of text when it loaded, 
@@ -1294,6 +1429,10 @@ namespace Quick_Pad_Free_Edition
             {
                 Text1.Document.EndUndoGroup();
                 Text1.Document.BeginUndoGroup();
+            }
+            if (ClassicModeSwitch)
+            {
+                CheckForStatusUpdate();
             }
         }
 
@@ -1345,8 +1484,176 @@ namespace Quick_Pad_Free_Edition
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
             FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
+
+            //Update Status bar
+            CheckForStatusUpdate();
         }
 
+        private void Text1_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            CheckForStatusUpdate();
+        }
+
+        #endregion
+
+        #region Status bar and update
+        public void CheckForStatusUpdate()
+        {
+            //Update line and character count
+            GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount);
+            CurrentPosition = columnIndex;
+            CurrentLine = lineIndex;
+            totalCharacters = selectedCount;
+
+            //update current format
+            IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
+            IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
+            IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
+            IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
+            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
+            //Selection update
+            if (Text1.Document.Selection is null)
+            {
+                SelectionLength = 0;
+            }
+            else
+            {
+                if (Text1.Document.Selection.Length < 0)
+                {
+                    SelectionLength = Text1.Document.Selection.Length * -1;
+                }
+                else
+                {
+                    SelectionLength = Text1.Document.Selection.Length;
+                }
+            }
+        }
+
+        public void GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount)
+        {
+            if (_isLineCachePendingUpdate)
+            {
+                _contentLinesCache = (_content + RichEditBoxDefaultLineEnding).Split(RichEditBoxDefaultLineEnding);
+                _isLineCachePendingUpdate = false;
+            }
+
+            var start = Text1.Document.Selection.StartPosition;
+            var end = Text1.Document.Selection.EndPosition;
+
+            lineIndex = 1;
+            columnIndex = 1;
+            selectedCount = 0;
+
+            var length = 0;
+            bool startLocated = false;
+            for (int i = 0; i < _contentLinesCache.Length; i++)
+            {
+                var line = _contentLinesCache[i];
+
+                if (line.Length + length >= start && !startLocated)
+                {
+                    lineIndex = i + 1;
+                    columnIndex = start - length + 1;
+                    startLocated = true;
+                }
+
+                if (line.Length + length >= end)
+                {
+                    if (i == lineIndex - 1)
+                        selectedCount = end - start;
+                    else
+                        selectedCount = end - start + (i - lineIndex);
+                    return;
+                }
+
+                length += line.Length + 1;
+            }
+        }
+
+        private string TrimRichEditBoxText(string text)
+        {
+            // Trim end \r
+            if (!string.IsNullOrEmpty(text) && text[text.Length - 1] == RichEditBoxDefaultLineEnding)
+            {
+                text = text.Substring(0, text.Length - 1);
+            }
+
+            return text;
+        }
+
+        private int _line;
+        /// <summary>
+        /// Line count
+        /// </summary>
+        public int totalLine
+        {
+            get => _line;
+            set => Set(ref _line, value);
+        }
+
+        private int _char;
+        /// <summary>
+        /// Character count
+        /// </summary>
+        public int totalCharacters
+        {
+            get => _char;
+            set => Set(ref _char, value);
+        }
+
+        private int _cp;
+        public int CurrentPosition
+        {
+            get => _cp;
+            set => Set(ref _cp, value);
+        }
+
+        private int _cl;
+        public int CurrentLine
+        {
+            get => _cl;
+            set => Set(ref _cl, value);
+        }
+
+        private int _selTT;
+        public int SelectionLength
+        {
+            get => _selTT;
+            set => Set(ref _selTT, value);
+        }
+
+        private bool _bold, _italic, _underline;
+        public bool IsItBold
+        {
+            get => _bold;
+            set => Set(ref _bold, value);
+        }
+
+        public bool IsItItalic
+        {
+            get => _italic;
+            set => Set(ref _italic, value);
+        }
+
+        public bool IsItUnderline
+        {
+            get => _underline;
+            set => Set(ref _underline, value);
+        }
+
+        private bool _st;
+        public bool IsItStrikethrough
+        {
+            get => _st;
+            set => Set(ref _st, value);
+        }
+
+        private bool _bs;
+        public bool IsUsingBulletList
+        {
+            get => _bs;
+            set => Set(ref _bs, value);
+        }
         #endregion
     }
 
@@ -1427,6 +1734,71 @@ namespace Quick_Pad_Free_Edition
         }
 
         public static FontColorItem Default => new FontColorItem();
+    }
+
+    public class FontFamilyItem: INotifyPropertyChanged, IComparable<FontFamilyItem>
+    {
+        private const int previewMaxLenght = 16;
+        private static string _previewText;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public string Name
+        {
+            get;
+            private set;
+        }
+        public string PreviewText
+        {
+            get => _previewText ?? Name;
+        }
+
+        public FontFamilyItem(string name)
+        {
+            Name = name;
+        }
+
+        public static void ChangeGlobalPreview(string previewText)
+        {
+            if (previewText != null)
+            {
+                previewText = previewText.Trim();
+            }
+            if (string.IsNullOrWhiteSpace(previewText))
+            {
+                _previewText = null;
+            }
+            else
+            {
+                previewText = previewText.Trim();
+                if (previewText.Length > previewMaxLenght)
+                {
+                    _previewText = $"{previewText.Substring(0, previewMaxLenght)}...";
+                }
+                else
+                {
+                    _previewText = previewText;
+                }
+            }
+        }
+        public void UpdateLocalPreview()
+        {
+            UpdateProperty(nameof(PreviewText));
+        }
+
+        public int CompareTo(FontFamilyItem other)
+        {
+            return this.Name.CompareTo(other.Name);
+        }
+        public override string ToString()
+        {
+            return Name;
+        }
+        private void UpdateProperty([CallerMemberName]string propertyName="")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 
     public enum DialogResult

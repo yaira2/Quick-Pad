@@ -15,8 +15,8 @@
 
 * File Print.
 * Find & Replace options.
-* Classic mode.
-* Status bar.
+* More theme options.
+* Zoom Options.
 
 ## Downloads:
 
@@ -24,6 +24,8 @@ Please head over to [Github Releases](https://github.com/UWPCommunity/Quick-Pad/
 
 ## Special Thanks:
 
-* Code Contributors: [Toon Werawat](https://github.com/ray199)
+* Code Contributors: [Toon Werawat](https://github.com/ray199), [Leisvan](https://github.com/Leisvan)
 * Localization Contributors: 
     * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
+    * [fr-CA][French] [PhilLB1239](https://github.com/PhilLB1239)
+    * [es][Spanish] [Leisvan](https://github.com/Leisvan)
