@@ -210,16 +210,14 @@ namespace QuickPad
                 titleBar.ButtonForegroundColor = Colors.Black;
             }
 
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-
             //Update combobox items font color collection
 
             if (QSetting.DefaultFontColor == "Default")
             {
                 Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
-                if (totalCharacters < 2)
+                //Force a new change IF there are no change made yet
+                if (!Changed)
                 {
-                    //Nothing is written maybe update initial source
                     SetANewChange();
                 }
             }
@@ -397,6 +395,7 @@ namespace QuickPad
                             await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
                         }
                         Changed = false;
+                        SetANewChange();
                     }
                     catch (Exception) { }
                 }
@@ -800,7 +799,7 @@ namespace QuickPad
 
         private async void CmdNew_Click(object sender, RoutedEventArgs e)
         {
-            if (CurrentWorkingFile is null && Changed)
+            if (Changed)
             {
                 //File has not been save yet ask use if they want to save
                 await WantToSave.ShowAsync();
