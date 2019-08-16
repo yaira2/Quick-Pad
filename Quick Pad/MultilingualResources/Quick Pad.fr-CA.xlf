@@ -512,183 +512,183 @@
         </trans-unit>
         <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Retour automatique à la ligne</target>
+          <target state="translated" state-qualifier="tm-suggestion">Retour automatique à la ligne</target>
         </trans-unit>
         <trans-unit id="ClassicEdit.Title" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="new">Edit</target>
+          <target state="translated" state-qualifier="tm-suggestion">Modifier</target>
         </trans-unit>
         <trans-unit id="ClassicEditCopy.Text" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target state="new">Copy</target>
+          <target state="translated" state-qualifier="tm-suggestion">Copier</target>
         </trans-unit>
         <trans-unit id="ClassicEditCut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
-          <target state="new">Cut</target>
+          <target state="translated" state-qualifier="tm-suggestion">Couper</target>
         </trans-unit>
         <trans-unit id="ClassicEditPaste.Text" translate="yes" xml:space="preserve">
           <source>Paste</source>
-          <target state="new">Paste</target>
+          <target state="translated" state-qualifier="tm-suggestion">Coller</target>
         </trans-unit>
         <trans-unit id="ClassicEditRedo.Text" translate="yes" xml:space="preserve">
           <source>Redo</source>
-          <target state="new">Redo</target>
+          <target state="translated">Répéter</target>
         </trans-unit>
         <trans-unit id="ClassicEditUndo.Text" translate="yes" xml:space="preserve">
           <source>Undo</source>
-          <target state="new">Undo</target>
+          <target state="translated" state-qualifier="tm-suggestion">Annuler</target>
         </trans-unit>
         <trans-unit id="ClassicFile.Title" translate="yes" xml:space="preserve">
           <source>File</source>
-          <target state="new">File</target>
+          <target state="translated" state-qualifier="tm-suggestion">Fichier</target>
         </trans-unit>
         <trans-unit id="ClassicFileExit.Text" translate="yes" xml:space="preserve">
           <source>Exit</source>
-          <target state="new">Exit</target>
+          <target state="translated" state-qualifier="tm-suggestion">Quitter</target>
         </trans-unit>
         <trans-unit id="ClassicFileNew.Text" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target state="new">New</target>
+          <target state="translated" state-qualifier="tm-suggestion">Nouveau</target>
         </trans-unit>
         <trans-unit id="ClassicFileOpen.Text" translate="yes" xml:space="preserve">
           <source>Open</source>
-          <target state="new">Open</target>
+          <target state="translated" state-qualifier="tm-suggestion">Ouvrir</target>
         </trans-unit>
         <trans-unit id="ClassicFileSave.Text" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="new">Save</target>
+          <target state="translated" state-qualifier="tm-suggestion">Enregistrer</target>
         </trans-unit>
         <trans-unit id="ClassicFileSaveAs.Text" translate="yes" xml:space="preserve">
           <source>Save As...</source>
-          <target state="new">Save As...</target>
+          <target state="translated">Enregistrer sous...</target>
         </trans-unit>
         <trans-unit id="ClassicFileShare.Text" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="new">Share</target>
+          <target state="translated" state-qualifier="tm-suggestion">Partager</target>
         </trans-unit>
         <trans-unit id="ClassicFormat.Title" translate="yes" xml:space="preserve">
           <source>Format</source>
-          <target state="new">Format</target>
+          <target state="translated" state-qualifier="tm-suggestion">Format</target>
         </trans-unit>
         <trans-unit id="ClassicFormatACenter.Text" translate="yes" xml:space="preserve">
           <source>Align center</source>
-          <target state="new">Align center</target>
+          <target state="translated" state-qualifier="tm-suggestion">Aligner au centre</target>
         </trans-unit>
         <trans-unit id="ClassicFormatAJustify.Text" translate="yes" xml:space="preserve">
           <source>Align justify</source>
-          <target state="new">Align justify</target>
+          <target state="translated">Alignement justifié</target>
         </trans-unit>
         <trans-unit id="ClassicFormatALeft.Text" translate="yes" xml:space="preserve">
           <source>Align left</source>
-          <target state="new">Align left</target>
+          <target state="translated" state-qualifier="tm-suggestion">Aligner à gauche</target>
         </trans-unit>
         <trans-unit id="ClassicFormatARight.Text" translate="yes" xml:space="preserve">
           <source>Align right</source>
-          <target state="new">Align right</target>
+          <target state="translated" state-qualifier="tm-suggestion">Aligner à droite</target>
         </trans-unit>
         <trans-unit id="ClassicFormatBold.Text" translate="yes" xml:space="preserve">
           <source>Bold</source>
-          <target state="new">Bold</target>
+          <target state="translated" state-qualifier="tm-suggestion">Gras</target>
         </trans-unit>
         <trans-unit id="ClassicFormatBullets.Text" translate="yes" xml:space="preserve">
           <source>Bullets</source>
-          <target state="new">Bullets</target>
+          <target state="translated" state-qualifier="tm-suggestion">Puces</target>
         </trans-unit>
         <trans-unit id="ClassicFormatDown.Text" translate="yes" xml:space="preserve">
           <source>Font Down</source>
-          <target state="new">Font Down</target>
+          <target state="translated">Police vers le bas</target>
         </trans-unit>
         <trans-unit id="ClassicFormatItalic.Text" translate="yes" xml:space="preserve">
           <source>Italic</source>
-          <target state="new">Italic</target>
+          <target state="translated" state-qualifier="tm-suggestion">Italique</target>
         </trans-unit>
         <trans-unit id="ClassicFormatST.Text" translate="yes" xml:space="preserve">
           <source>Strikethrough</source>
-          <target state="new">Strikethrough</target>
+          <target state="translated" state-qualifier="tm-suggestion">Barré</target>
         </trans-unit>
         <trans-unit id="ClassicFormatUnderline.Text" translate="yes" xml:space="preserve">
           <source>Underline</source>
-          <target state="new">Underline</target>
+          <target state="translated" state-qualifier="tm-suggestion">Souligné</target>
         </trans-unit>
         <trans-unit id="ClassicFormatUp.Text" translate="yes" xml:space="preserve">
           <source>Font Up</source>
-          <target state="new">Font Up</target>
+          <target state="translated">Police vers le haut</target>
         </trans-unit>
         <trans-unit id="ClassicHelp.Title" translate="yes" xml:space="preserve">
           <source>Help</source>
-          <target state="new">Help</target>
+          <target state="translated" state-qualifier="tm-suggestion">Aide</target>
         </trans-unit>
         <trans-unit id="ClassicHelpRR.Text" translate="yes" xml:space="preserve">
           <source>Rate and Review</source>
-          <target state="new">Rate and Review</target>
+          <target state="translated">Évaluer et commenter</target>
         </trans-unit>
         <trans-unit id="ClassicView.Title" translate="yes" xml:space="preserve">
           <source>View</source>
-          <target state="new">View</target>
+          <target state="translated" state-qualifier="tm-suggestion">Afficher</target>
         </trans-unit>
         <trans-unit id="ClassicViewBack.Text" translate="yes" xml:space="preserve">
           <source>Back to Default</source>
-          <target state="new">Back to Default</target>
+          <target state="translated">Retourner au défaut</target>
         </trans-unit>
         <trans-unit id="ClassicViewFocus.Text" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="new">Focus Mode</target>
+          <target state="translated">Mode focus</target>
         </trans-unit>
         <trans-unit id="ClassicViewOverlay.Text" translate="yes" xml:space="preserve">
           <source>On Top Mode</source>
-          <target state="new">On Top Mode</target>
+          <target state="translated">Mode superposé</target>
         </trans-unit>
         <trans-unit id="CmdClassicMode.Label" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
-          <target state="new">Classic Mode</target>
+          <target state="translated">Mode classique</target>
         </trans-unit>
         <trans-unit id="CmdExit.Label" translate="yes" xml:space="preserve">
           <source>Exit</source>
-          <target state="new">Exit</target>
+          <target state="translated" state-qualifier="tm-suggestion">Quitter</target>
         </trans-unit>
         <trans-unit id="CmdExitTooltip.Text" translate="yes" xml:space="preserve">
           <source>Exit the app</source>
-          <target state="new">Exit the app</target>
+          <target state="translated">Quitter l'application</target>
         </trans-unit>
         <trans-unit id="ClassicFormatFonts.Text" translate="yes" xml:space="preserve">
           <source>Fonts...</source>
-          <target state="new">Fonts...</target>
+          <target state="translated">Polices...</target>
         </trans-unit>
         <trans-unit id="ClassicViewStatusBar.Text" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
-          <target state="new">Status Bar</target>
+          <target state="translated" state-qualifier="tm-suggestion">Barre d'état</target>
         </trans-unit>
         <trans-unit id="FAF_Color.Text" translate="yes" xml:space="preserve">
           <source>Color</source>
-          <target state="new">Color</target>
+          <target state="translated" state-qualifier="tm-suggestion">Couleur</target>
         </trans-unit>
         <trans-unit id="FAF_Fonts.Text" translate="yes" xml:space="preserve">
           <source>Fonts</source>
-          <target state="new">Fonts</target>
+          <target state="translated" state-qualifier="tm-suggestion">Polices</target>
         </trans-unit>
         <trans-unit id="FAF_Preview_Initial" translate="yes" xml:space="preserve">
           <source>Preview</source>
-          <target state="new">Preview</target>
+          <target state="translated" state-qualifier="tm-suggestion">Aperçu</target>
         </trans-unit>
         <trans-unit id="FAF_Size.Text" translate="yes" xml:space="preserve">
           <source>Size</source>
-          <target state="new">Size</target>
+          <target state="translated" state-qualifier="tm-suggestion">Taille</target>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Column: </source>
-          <target state="new">Column: </target>
+          <target state="translated">Colonne:</target>
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
           <source>Line: </source>
-          <target state="new">Line: </target>
+          <target state="translated">Ligne:</target>
         </trans-unit>
         <trans-unit id="StatusSelCount.Text" translate="yes" xml:space="preserve">
           <source>Selection: </source>
-          <target state="new">Selection: </target>
+          <target state="translated">Sélection:</target>
         </trans-unit>
         <trans-unit id="GeneralShowStatusOnClassic.Text" translate="yes" xml:space="preserve">
           <source>Show Status Bar on Classic Mode</source>
-          <target state="new">Show Status Bar on Classic Mode</target>
+          <target state="translated">Montrer la barre d'état en mode classique</target>
         </trans-unit>
       </group>
     </body>
