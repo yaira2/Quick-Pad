@@ -393,4 +393,136 @@
   <data name="WordWrap.Text" xml:space="preserve">
     <value>Retour automatique à la ligne</value>
   </data>
+  <data name="ClassicEdit.Title" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="ClassicEditCopy.Text" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="ClassicEditCut.Text" xml:space="preserve">
+    <value>Couper</value>
+  </data>
+  <data name="ClassicEditPaste.Text" xml:space="preserve">
+    <value>Coller</value>
+  </data>
+  <data name="ClassicEditRedo.Text" xml:space="preserve">
+    <value>Répéter</value>
+  </data>
+  <data name="ClassicEditUndo.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="ClassicFile.Title" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="ClassicFileExit.Text" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="ClassicFileNew.Text" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="ClassicFileOpen.Text" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="ClassicFileSave.Text" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="ClassicFileSaveAs.Text" xml:space="preserve">
+    <value>Enregistrer sous...</value>
+  </data>
+  <data name="ClassicFileShare.Text" xml:space="preserve">
+    <value>Partager</value>
+  </data>
+  <data name="ClassicFormat.Title" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="ClassicFormatACenter.Text" xml:space="preserve">
+    <value>Aligner au centre</value>
+  </data>
+  <data name="ClassicFormatAJustify.Text" xml:space="preserve">
+    <value>Alignement justifié</value>
+  </data>
+  <data name="ClassicFormatALeft.Text" xml:space="preserve">
+    <value>Aligner à gauche</value>
+  </data>
+  <data name="ClassicFormatARight.Text" xml:space="preserve">
+    <value>Aligner à droite</value>
+  </data>
+  <data name="ClassicFormatBold.Text" xml:space="preserve">
+    <value>Gras</value>
+  </data>
+  <data name="ClassicFormatBullets.Text" xml:space="preserve">
+    <value>Puces</value>
+  </data>
+  <data name="ClassicFormatDown.Text" xml:space="preserve">
+    <value>Police vers le bas</value>
+  </data>
+  <data name="ClassicFormatItalic.Text" xml:space="preserve">
+    <value>Italique</value>
+  </data>
+  <data name="ClassicFormatST.Text" xml:space="preserve">
+    <value>Barré</value>
+  </data>
+  <data name="ClassicFormatUnderline.Text" xml:space="preserve">
+    <value>Souligné</value>
+  </data>
+  <data name="ClassicFormatUp.Text" xml:space="preserve">
+    <value>Police vers le haut</value>
+  </data>
+  <data name="ClassicHelp.Title" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="ClassicHelpRR.Text" xml:space="preserve">
+    <value>Évaluer et commenter</value>
+  </data>
+  <data name="ClassicView.Title" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="ClassicViewBack.Text" xml:space="preserve">
+    <value>Retourner au défaut</value>
+  </data>
+  <data name="ClassicViewFocus.Text" xml:space="preserve">
+    <value>Mode focus</value>
+  </data>
+  <data name="ClassicViewOverlay.Text" xml:space="preserve">
+    <value>Mode superposé</value>
+  </data>
+  <data name="CmdClassicMode.Label" xml:space="preserve">
+    <value>Mode classique</value>
+  </data>
+  <data name="CmdExit.Label" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="CmdExitTooltip.Text" xml:space="preserve">
+    <value>Quitter l'application</value>
+  </data>
+  <data name="ClassicFormatFonts.Text" xml:space="preserve">
+    <value>Polices...</value>
+  </data>
+  <data name="ClassicViewStatusBar.Text" xml:space="preserve">
+    <value>Barre d'état</value>
+  </data>
+  <data name="FAF_Color.Text" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="FAF_Fonts.Text" xml:space="preserve">
+    <value>Polices</value>
+  </data>
+  <data name="FAF_Preview_Initial" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="FAF_Size.Text" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>Colonne:</value>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>Ligne:</value>
+  </data>
+  <data name="StatusSelCount.Text" xml:space="preserve">
+    <value>Sélection:</value>
+  </data>
+  <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
+    <value>Montrer la barre d'état en mode classique</value>
+  </data>
 </root>
