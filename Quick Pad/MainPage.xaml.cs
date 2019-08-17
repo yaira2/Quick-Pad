@@ -1714,6 +1714,20 @@ namespace QuickPad
             set => Set(ref _bs, value);
         }
         #endregion
+
+        #region Find & Replace
+        bool _fr;
+        public bool ShowFindAndReplace
+        {
+            get => _fr;
+            set => Set(ref _fr, value);
+        }
+
+        public void ToggleFindAndReplaceDialog()
+        {
+            ShowFindAndReplace = !ShowFindAndReplace;
+        }
+        #endregion
     }
 
     public class FontColorItem : INotifyPropertyChanged
