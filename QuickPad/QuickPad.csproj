@@ -221,8 +221,23 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>2.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>2.1.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.8</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Services.Store.SDK">
+      <Version>10.1705.16001</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>5.1.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.UI.Xaml">
+      <Version>2.1.190606001</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +256,14 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\th-TH\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.Services.Store.Engagement, Version=10.0">
+      <Name>Microsoft Engagement Framework</Name>
+    </SDKReference>
+    <SDKReference Include="Microsoft.VCLibs, Version=14.0">
+      <Name>Visual C++ 2015 Runtime for Universal Windows Platform Apps</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
