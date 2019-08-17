@@ -7,15 +7,15 @@
   IgnorableNamespaces="uap mp">
 
   <Identity
-    Name="737ca3a1-ed34-4957-830b-d3df5baabf3b"
-    Publisher="CN=Toon"
-    Version="1.0.0.0" />
+    Name="49306atecsolution.QuickPad"
+    Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7"
+    Version="4.3.7.0" />
 
   <mp:PhoneIdentity PhoneProductId="737ca3a1-ed34-4957-830b-d3df5baabf3b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>QuickPad</DisplayName>
-    <PublisherDisplayName>Toon</PublisherDisplayName>
+    <DisplayName>Quick Pad</DisplayName>
+    <PublisherDisplayName>Yair A</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -30,16 +30,73 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="QuickPad.App">
+      EntryPoint="Quick_Pad.App">
       <uap:VisualElements
-        DisplayName="QuickPad"
+        DisplayName="Quick Pad"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="QuickPad"
+        Description="Quick Pad"
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />
+        <uap:InitialRotationPreference>
+          <uap:Rotation Preference="landscape"/>
+          <uap:Rotation Preference="landscapeFlipped"/>
+          <uap:Rotation Preference="portrait"/></uap:InitialRotationPreference>
       </uap:VisualElements>
+      <Extensions>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="quickpad">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.rtf</uap:FileType>
+              <uap:FileType>.txt</uap:FileType>
+              <uap:FileType>.md</uap:FileType>
+              <uap:FileType>.html</uap:FileType>
+              <uap:FileType>.css</uap:FileType>
+              <uap:FileType>.cs</uap:FileType>
+              <uap:FileType>.php</uap:FileType>
+              <uap:FileType>.xml</uap:FileType>
+              <uap:FileType>.scss</uap:FileType>
+              <uap:FileType>.ini</uap:FileType>
+              <uap:FileType>.gitignore</uap:FileType>
+              <uap:FileType>.config</uap:FileType>
+              <uap:FileType>.cnf</uap:FileType>
+              <uap:FileType>.log</uap:FileType>
+              <uap:FileType>.json</uap:FileType>
+              <uap:FileType>.yml</uap:FileType>
+              <uap:FileType>.htm</uap:FileType>
+              <uap:FileType>.asp</uap:FileType>
+              <uap:FileType>.aspx</uap:FileType>
+              <uap:FileType>.jsp</uap:FileType>
+              <uap:FileType>.jspx</uap:FileType>
+              <uap:FileType>.cmake</uap:FileType>
+              <uap:FileType>.bash</uap:FileType>
+              <uap:FileType>.sh</uap:FileType>
+              <uap:FileType>.cpp</uap:FileType>
+              <uap:FileType>.hpp</uap:FileType>
+              <uap:FileType>.cc</uap:FileType>
+              <uap:FileType>.py</uap:FileType>
+              <uap:FileType>.mm</uap:FileType>
+              <uap:FileType>.rb</uap:FileType>
+              <uap:FileType>.vb</uap:FileType>
+              <uap:FileType>.java</uap:FileType>
+              <uap:FileType>.js</uap:FileType>
+              <uap:FileType>.ts</uap:FileType>
+              <uap:FileType>.lua</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>Quick Pad</uap:DisplayName>
+            <uap:Logo>Assets\Quick Pad.png</uap:Logo>
+            <uap:InfoTip>Quick Pad</uap:InfoTip>
+            <uap:EditFlags OpenIsSafe="true"/>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="quickpad">
+            <uap:Logo>Assets\Quick Pad.png</uap:Logo>
+            <uap:DisplayName>Quick Pad launch protocal URI</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+      </Extensions>
     </Application>
   </Applications>
 
