@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTheme.Text" xml:space="preserve">
+    <value>نُسق التطبيق</value>
+  </data>
+  <data name="AutoSaveSwitch.Text" xml:space="preserve">
+    <value>حفظ تلقائيًا</value>
+  </data>
+  <data name="BlackPlaceholder" xml:space="preserve">
+    <value>أسود</value>
+  </data>
+  <data name="Bold.Label" xml:space="preserve">
+    <value>غامق</value>
+  </data>
+  <data name="BoldTooltip.Text" xml:space="preserve">
+    <value>غامق (Ctrl+B)</value>
+  </data>
+  <data name="BulletList.Label" xml:space="preserve">
+    <value>الرصاص</value>
+  </data>
+  <data name="BulletListTooltip.Text" xml:space="preserve">
+    <value>تبديل الرصاص</value>
+  </data>
+  <data name="Center.Label" xml:space="preserve">
+    <value>توسيط</value>
+  </data>
+  <data name="CenterTooltip.Text" xml:space="preserve">
+    <value>توسيط (Ctrl+E)</value>
+  </data>
+  <data name="CmdFocusMode.Label" xml:space="preserve">
+    <value>وضع التركيز</value>
+  </data>
+  <data name="CmdNew.Label" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="CmdNewTooltip.Text" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="CmdOpen.Label" xml:space="preserve">
+    <value>فتح</value>
+  </data>
+  <data name="CmdOpenTooltip.Text" xml:space="preserve">
+    <value>فتح (Ctrl+O)</value>
+  </data>
+  <data name="CmdRedo.Label" xml:space="preserve">
+    <value>إعادة</value>
+  </data>
+  <data name="CmdRedoTooltip.Text" xml:space="preserve">
+    <value>إعادة (Ctrl+Y)</value>
+  </data>
+  <data name="CmdReview.Label" xml:space="preserve">
+    <value>تقييم</value>
+  </data>
+  <data name="CmdSave.Label" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="CmdSaveTooltip.Text" xml:space="preserve">
+    <value>حفظ (Ctrl+S)</value>
+  </data>
+  <data name="CmdSettings.Label" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="CmdSettingsTooltip.Text" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="CmdShare.Label" xml:space="preserve">
+    <value>مشاركة</value>
+  </data>
+  <data name="CmdShareTooltip.Text" xml:space="preserve">
+    <value>شارك الملف الذي تعمل عليه</value>
+  </data>
+  <data name="CmdUndo.Label" xml:space="preserve">
+    <value>تراجع</value>
+  </data>
+  <data name="CmdUndoTooltip.Text" xml:space="preserve">
+    <value>تراجع (Ctrl+Z)</value>
+  </data>
+  <data name="CompactOverlay.Content" xml:space="preserve">
+    <value>عرض مصغر</value>
+  </data>
+  <data name="Contribute.Content" xml:space="preserve">
+    <value>المساهمة للمطور</value>
+  </data>
+  <data name="Copy.Label" xml:space="preserve">
+    <value>نسخ</value>
+  </data>
+  <data name="CopyTooltip.Text" xml:space="preserve">
+    <value>نسخ (Ctrl+C)</value>
+  </data>
+  <data name="Cut.Label" xml:space="preserve">
+    <value>قص</value>
+  </data>
+  <data name="CutTooltip.Text" xml:space="preserve">
+    <value>قص (Ctrl+X)</value>
+  </data>
+  <data name="Dark.Content" xml:space="preserve">
+    <value>داكن</value>
+  </data>
+  <data name="DefaultFont.Text" xml:space="preserve">
+    <value>الخط الافتراضي</value>
+  </data>
+  <data name="DefaultFontColor.Text" xml:space="preserve">
+    <value>لون الخط الافتراضي</value>
+  </data>
+  <data name="DefaultFontColorCombobox.PlaceholderText" xml:space="preserve">
+    <value>أسود</value>
+  </data>
+  <data name="DefaultFontSize.Text" xml:space="preserve">
+    <value>حجم الخط الافتراضي</value>
+  </data>
+  <data name="DevelopedBy.Text" xml:space="preserve">
+    <value>طوره يائير أيجينباوم</value>
+  </data>
+  <data name="ErrorDialogContent" xml:space="preserve">
+    <value>عذرًا ، قويك باد تعذرعلى فتح الملف</value>
+  </data>
+  <data name="ErrorDialogOk" xml:space="preserve">
+    <value>موافق</value>
+  </data>
+  <data name="ErrorDialogTitle" xml:space="preserve">
+    <value>خطأ فتح الملف</value>
+  </data>
+  <data name="ExitFocusMode.Text" xml:space="preserve">
+    <value>الخروج من وضع التركيز</value>
+  </data>
+  <data name="FontColorBlack" xml:space="preserve">
+    <value>أسود</value>
+  </data>
+  <data name="FontColorBlue" xml:space="preserve">
+    <value>أزرق</value>
+  </data>
+  <data name="FontColorGreen" xml:space="preserve">
+    <value>أخضر</value>
+  </data>
+  <data name="FontColorOrange" xml:space="preserve">
+    <value>البرتقالي</value>
+  </data>
+  <data name="FontColorPink" xml:space="preserve">
+    <value>زهري</value>
+  </data>
+  <data name="FontColorWhite" xml:space="preserve">
+    <value>أبيض</value>
+  </data>
+  <data name="FontColorYellow" xml:space="preserve">
+    <value>أصفر</value>
+  </data>
+  <data name="GeneralAutoSave.Text" xml:space="preserve">
+    <value>حفظ تلقائيًا</value>
+  </data>
+  <data name="GeneralDefaultType.Text" xml:space="preserve">
+    <value>نوع الملف الافتراضي</value>
+  </data>
+  <data name="GeneralLaunchMode.Text" xml:space="preserve">
+    <value>وضع التشغيل</value>
+  </data>
+  <data name="GeneralLaunchModeCombobox.PlaceholderText" xml:space="preserve">
+    <value>الافتراضي</value>
+  </data>
+  <data name="GeneralToggleSwitch.OffContent" xml:space="preserve">
+    <value>إيقاف التشغيل</value>
+  </data>
+  <data name="GeneralToggleSwitch.OnContent" xml:space="preserve">
+    <value>تشغيل</value>
+  </data>
+  <data name="IconDesignBy.Text" xml:space="preserve">
+    <value>تصميم أيقونة جيمس آرني</value>
+  </data>
+  <data name="Italic.Label" xml:space="preserve">
+    <value>مائل</value>
+  </data>
+  <data name="ItalicTooltip.Text" xml:space="preserve">
+    <value>مائل (Ctrl+I)</value>
+  </data>
+  <data name="Justify.Label" xml:space="preserve">
+    <value>تبرير</value>
+  </data>
+  <data name="JustifyTooltip.Text" xml:space="preserve">
+    <value>تبرير النص (Ctrl+J)</value>
+  </data>
+  <data name="LaunchModeClassic.Content" xml:space="preserve">
+    <value>كلاسيكي</value>
+  </data>
+  <data name="LaunchInClassicMode" xml:space="preserve">
+    <value>كلاسيكي</value>
+  </data>
+  <data name="LaunchInClassicModeDesc" xml:space="preserve">
+    <value>تشغيل التطبيق في الوضع الكلاسيكي</value>
+  </data>
+  <data name="LaunchInFocusMode" xml:space="preserve">
+    <value>التركيز</value>
+  </data>
+  <data name="LaunchInFocusModeDesc" xml:space="preserve">
+    <value>تشغيل التطبيق في وضع التركيز</value>
+  </data>
+  <data name="LaunchInOnTopMode" xml:space="preserve">
+    <value>غطاء</value>
+  </data>
+  <data name="LaunchInOnTopModeDesc" xml:space="preserve">
+    <value>تشغيل تطبيق في عرض مصغر</value>
+  </data>
+  <data name="LaunchModeDefault.Content" xml:space="preserve">
+    <value>الافتراضي</value>
+  </data>
+  <data name="LaunchModeFocus.Content" xml:space="preserve">
+    <value>تركيز</value>
+  </data>
+  <data name="LaunchModeOnTop.Content" xml:space="preserve">
+    <value>عرض مصغر</value>
+  </data>
+  <data name="Left.Label" xml:space="preserve">
+    <value>يسار</value>
+  </data>
+  <data name="LeftTooltip.Text" xml:space="preserve">
+    <value>محاذاة إلى اليسار (Ctrl+L)</value>
+  </data>
+  <data name="Light.Content" xml:space="preserve">
+    <value>فاتح</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>مستند جديد</value>
+  </data>
+  <data name="NewUserFeedbackContent" xml:space="preserve">
+    <value>يرجى النظر في ترك التعليق لقويك باد في المتجر.</value>
+  </data>
+  <data name="NewUserFeedbackNo" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="NewUserFeedbackTitle" xml:space="preserve">
+    <value>هل تستمتع باستخدام قويك باد؟</value>
+  </data>
+  <data name="NewUserFeedbackYes" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="NothingToShare" xml:space="preserve">
+    <value>لا شيء للمشاركة ، اكتب شيئًا لمشاركته.</value>
+  </data>
+  <data name="Paste.Label" xml:space="preserve">
+    <value>لصق</value>
+  </data>
+  <data name="PasteTooltip.Text" xml:space="preserve">
+    <value>لصق (Ctrl+V)</value>
+  </data>
+  <data name="RateAndReview.Content" xml:space="preserve">
+    <value>معدل ومراجعة</value>
+  </data>
+  <data name="Right.Label" xml:space="preserve">
+    <value>يمين</value>
+  </data>
+  <data name="RightTooltip.Text" xml:space="preserve">
+    <value>محاذاة إلى اليمين (Ctrl+R)</value>
+  </data>
+  <data name="SaveDialog.Text" xml:space="preserve">
+    <value>هل ترغب في حفظ تغييراتك؟</value>
+  </data>
+  <data name="SaveDialogCancel.Content" xml:space="preserve">
+    <value>إلغاء الأمر</value>
+  </data>
+  <data name="SaveDialogNo.Content" xml:space="preserve">
+    <value>لا</value>
+  </data>
+  <data name="SaveDialogYes.Content" xml:space="preserve">
+    <value>نعم</value>
+  </data>
+  <data name="SendFeedback.Content" xml:space="preserve">
+    <value>ارسل رأيك</value>
+  </data>
+  <data name="SettingsPivot.Title" xml:space="preserve">
+    <value>الإعدادات</value>
+  </data>
+  <data name="SettingsTab1.Header" xml:space="preserve">
+    <value>عام</value>
+  </data>
+  <data name="SettingsTab2.Header" xml:space="preserve">
+    <value>نُسق</value>
+  </data>
+  <data name="SettingsTab3.Header" xml:space="preserve">
+    <value>خطوط</value>
+  </data>
+  <data name="SettingsTab4.Header" xml:space="preserve">
+    <value>شريط الأدوات</value>
+  </data>
+  <data name="SettingsTab5.Header" xml:space="preserve">
+    <value>حول</value>
+  </data>
+  <data name="ShowAlignCenter.OffContent" xml:space="preserve">
+    <value>إخفاء توسيط</value>
+  </data>
+  <data name="ShowAlignCenter.OnContent" xml:space="preserve">
+    <value>عرض توسيط</value>
+  </data>
+  <data name="ShowAlignJustify.OffContent" xml:space="preserve">
+    <value>إخفاء تبرير النص</value>
+  </data>
+  <data name="ShowAlignJustify.OnContent" xml:space="preserve">
+    <value>عرض تبرير النص</value>
+  </data>
+  <data name="ShowAlignLeft.OffContent" xml:space="preserve">
+    <value>إخفاء محاذاة إلى اليسار</value>
+  </data>
+  <data name="ShowAlignLeft.OnContent" xml:space="preserve">
+    <value>عرض محاذاة إلى اليسار</value>
+  </data>
+  <data name="ShowAlignRight.OffContent" xml:space="preserve">
+    <value>إخفاء محاذاة إلى اليمين</value>
+  </data>
+  <data name="ShowAlignRight.OnContent" xml:space="preserve">
+    <value>عرض محاذاة إلى اليمين</value>
+  </data>
+  <data name="ShowBullets.OffContent" xml:space="preserve">
+    <value>إخفاء قائمة الرصاص</value>
+  </data>
+  <data name="ShowBullets.OnContent" xml:space="preserve">
+    <value>عرض قائمة الرصاص</value>
+  </data>
+  <data name="ShowStrikethrough.OffContent" xml:space="preserve">
+    <value>إخفاء اختيار ليتوسطه خط</value>
+  </data>
+  <data name="ShowStrikethrough.OnContent" xml:space="preserve">
+    <value>عرض اختيار ليتوسطه خط</value>
+  </data>
+  <data name="SizeDown.Label" xml:space="preserve">
+    <value>تخفيض الحجم</value>
+  </data>
+  <data name="SizeDownTooltip.Text" xml:space="preserve">
+    <value>تخفيض الحجم</value>
+  </data>
+  <data name="SizeUp.Label" xml:space="preserve">
+    <value>زيادة الحجم</value>
+  </data>
+  <data name="SizeUpTooltip.Text" xml:space="preserve">
+    <value>زيادة الحجم</value>
+  </data>
+  <data name="SpellCheck.Text" xml:space="preserve">
+    <value>التدقيق الإملائي</value>
+  </data>
+  <data name="Strikethrough.Label" xml:space="preserve">
+    <value>يتوسطه</value>
+  </data>
+  <data name="StrikethroughTooltip.Text" xml:space="preserve">
+    <value>يتوسطه خط</value>
+  </data>
+  <data name="SystemDefault.Content" xml:space="preserve">
+    <value>الافتراض للنظام</value>
+  </data>
+  <data name="TextColorBlack.Text" xml:space="preserve">
+    <value>أسود</value>
+  </data>
+  <data name="TextColorBlue.Text" xml:space="preserve">
+    <value>أزرق</value>
+  </data>
+  <data name="TextColorGreen.Text" xml:space="preserve">
+    <value>أخضر</value>
+  </data>
+  <data name="TextColorOrange.Text" xml:space="preserve">
+    <value>برتقالي</value>
+  </data>
+  <data name="TextColorPink.Text" xml:space="preserve">
+    <value>زهري</value>
+  </data>
+  <data name="TextColorTooltip.Text" xml:space="preserve">
+    <value>لون الخط</value>
+  </data>
+  <data name="TextColorWhite.Text" xml:space="preserve">
+    <value>الأبيض</value>
+  </data>
+  <data name="TextColorYellow.Text" xml:space="preserve">
+    <value>أصفر</value>
+  </data>
+  <data name="Underline.Label" xml:space="preserve">
+    <value>تسطير</value>
+  </data>
+  <data name="UnderlineTooltip.Text" xml:space="preserve">
+    <value>تسطير (Ctrl+U)</value>
+  </data>
+  <data name="VersionFormat" xml:space="preserve">
+    <value>\u0627\u0644\u0625\u0635\u062f\u0627\u0631: {0}.{1}.{2}.{3}</value>
+  </data>
+  <data name="WhitePlaceholder" xml:space="preserve">
+    <value>أبيض</value>
+  </data>
+  <data name="WordWrap.Text" xml:space="preserve">
+    <value>التفاف النص</value>
+  </data>
+  <data name="ClassicEdit.Title" xml:space="preserve">
+    <value>تحرير</value>
+  </data>
+  <data name="ClassicEditCopy.Text" xml:space="preserve">
+    <value>نسخ</value>
+  </data>
+  <data name="ClassicEditCut.Text" xml:space="preserve">
+    <value>قص</value>
+  </data>
+  <data name="ClassicEditPaste.Text" xml:space="preserve">
+    <value>لصق</value>
+  </data>
+  <data name="ClassicEditRedo.Text" xml:space="preserve">
+    <value>إعادة</value>
+  </data>
+  <data name="ClassicEditUndo.Text" xml:space="preserve">
+    <value>تراجع</value>
+  </data>
+  <data name="ClassicFile.Title" xml:space="preserve">
+    <value>ملف</value>
+  </data>
+  <data name="ClassicFileExit.Text" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="ClassicFileNew.Text" xml:space="preserve">
+    <value>جديد</value>
+  </data>
+  <data name="ClassicFileOpen.Text" xml:space="preserve">
+    <value>فتح</value>
+  </data>
+  <data name="ClassicFileSave.Text" xml:space="preserve">
+    <value>حفظ</value>
+  </data>
+  <data name="ClassicFileSaveAs.Text" xml:space="preserve">
+    <value>حفظ باسم</value>
+  </data>
+  <data name="ClassicFileShare.Text" xml:space="preserve">
+    <value>مشاركة</value>
+  </data>
+  <data name="ClassicFormat.Title" xml:space="preserve">
+    <value>التنسيق</value>
+  </data>
+  <data name="ClassicFormatACenter.Text" xml:space="preserve">
+    <value>توسيط</value>
+  </data>
+  <data name="ClassicFormatAJustify.Text" xml:space="preserve">
+    <value>تبرير النص</value>
+  </data>
+  <data name="ClassicFormatALeft.Text" xml:space="preserve">
+    <value>محاذاة إلى اليسار</value>
+  </data>
+  <data name="ClassicFormatARight.Text" xml:space="preserve">
+    <value>محاذاة إلى اليمين</value>
+  </data>
+  <data name="ClassicFormatBold.Text" xml:space="preserve">
+    <value>غامق</value>
+  </data>
+  <data name="ClassicFormatBullets.Text" xml:space="preserve">
+    <value>الرصاص</value>
+  </data>
+  <data name="ClassicFormatDown.Text" xml:space="preserve">
+    <value>تخفيض حجم الخط</value>
+  </data>
+  <data name="ClassicFormatItalic.Text" xml:space="preserve">
+    <value>مائل</value>
+  </data>
+  <data name="ClassicFormatST.Text" xml:space="preserve">
+    <value>يتوسطه خط</value>
+  </data>
+  <data name="ClassicFormatUnderline.Text" xml:space="preserve">
+    <value>تسطير</value>
+  </data>
+  <data name="ClassicFormatUp.Text" xml:space="preserve">
+    <value>زيادة حجم الخط</value>
+  </data>
+  <data name="ClassicHelp.Title" xml:space="preserve">
+    <value>المساعدة</value>
+  </data>
+  <data name="ClassicHelpRR.Text" xml:space="preserve">
+    <value>معدل ومراجعة</value>
+  </data>
+  <data name="ClassicView.Title" xml:space="preserve">
+    <value>عرض</value>
+  </data>
+  <data name="ClassicViewBack.Text" xml:space="preserve">
+    <value>رجوع إلى الافتراض</value>
+  </data>
+  <data name="ClassicViewFocus.Text" xml:space="preserve">
+    <value>وضع التركيز</value>
+  </data>
+  <data name="ClassicViewOverlay.Text" xml:space="preserve">
+    <value>عرض مصغر</value>
+  </data>
+  <data name="CmdClassicMode.Label" xml:space="preserve">
+    <value>الوضع الكلاسيكي</value>
+  </data>
+  <data name="CmdExit.Label" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="CmdExitTooltip.Text" xml:space="preserve">
+    <value>إغلاق تطبيق</value>
+  </data>
+  <data name="ClassicFormatFonts.Text" xml:space="preserve">
+    <value>الخطوط</value>
+  </data>
+  <data name="ClassicViewStatusBar.Text" xml:space="preserve">
+    <value>شريط المعلومات</value>
+  </data>
+  <data name="FAF_Color.Text" xml:space="preserve">
+    <value>اللون</value>
+  </data>
+  <data name="FAF_Fonts.Text" xml:space="preserve">
+    <value>الخطوط</value>
+  </data>
+  <data name="FAF_Preview_Initial" xml:space="preserve">
+    <value>معاينة</value>
+  </data>
+  <data name="FAF_Size.Text" xml:space="preserve">
+    <value>حجم</value>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>عمود</value>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>سطر</value>
+  </data>
+  <data name="StatusSelCount.Text" xml:space="preserve">
+    <value>اختيار</value>
+  </data>
+  <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
+    <value>عرض شريط المعلومات في الوضع الكلاسيكي</value>
+  </data>
+</root>
