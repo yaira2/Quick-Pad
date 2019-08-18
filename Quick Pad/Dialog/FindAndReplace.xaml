@@ -6,12 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tkui="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:q="using:QuickPad"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
     <tkui:DropShadowPanel>
-        <Grid MinWidth="350" MinHeight="150" Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" Padding="10">
+        <Grid MinWidth="350" Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" Padding="10">
             <Grid.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Height" Value="32"/>
@@ -34,13 +35,13 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <ToggleButton>
+            <ToggleButton IsChecked="{x:Bind ShowReplace, Mode=TwoWay}">
                 <FontIcon Glyph="&#xE011;" />
                 <ToolTipService.ToolTip>
                     <TextBlock Text="More..."/>
                 </ToolTipService.ToolTip>
             </ToggleButton>
-            <TextBox Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
+            <TextBox BorderThickness="1" Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
                 <Button Height="32">
                     <FontIcon Glyph="&#xE094;" />
@@ -85,8 +86,8 @@
             </StackPanel>
             
             <!--Second row-->
-            <TextBox Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.."/>
-            <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal">
+            <TextBox BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
+            <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
                 <Button>
                     <FontIcon Glyph="&#xE8AC;" />
                     <ToolTipService.ToolTip>
@@ -103,9 +104,9 @@
             </StackPanel>
             
             <!--Options-->
-            <StackPanel Grid.Row="2" Grid.ColumnSpan="3">
-                <CheckBox Content="Match case"/>
-                <CheckBox Content="Wrap around"/>
+            <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
+                <CheckBox Content="Match case" IsChecked="{x:Bind MatchCase, Mode=TwoWay}"/>
+                <CheckBox Content="Wrap around" IsChecked="{x:Bind WrapAround, Mode=TwoWay}"/>
             </StackPanel>
         </Grid>
     </tkui:DropShadowPanel>
