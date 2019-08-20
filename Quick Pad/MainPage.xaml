@@ -43,7 +43,7 @@
             </ToolTipService.ToolTip>
         </ToggleButton>
 
-        <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,360,0">
+        <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,340,0">
             <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="New" x:Uid="CmdNewTooltip"/>

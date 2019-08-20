@@ -302,8 +302,8 @@ namespace QuickPad
             all.SystemGroupKind = JumpListSystemGroupKind.None;
             if (all.Items != null && all.Items.Count == 3)
             {
-                //Jumplist already added, ABORT
-                return;
+                //Clear Jumplist
+                all.Items.Clear();
             }
             
             var focus = JumpListItem.CreateWithArguments("quickpad://focus", "ms-resource:///Resources/LaunchInFocusMode");
