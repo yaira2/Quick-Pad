@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Resources;
+using Windows.Globalization;
 using Windows.Services.Store;
 using Windows.Storage;
 using Windows.System;
@@ -247,6 +249,13 @@ namespace QuickPad
             }
         }
 
+        private ObservableCollection<DefaultLanguage> _DefaultLanguage;
+        public ObservableCollection<DefaultLanguage> DefaultLanguages
+        {
+           get => _DefaultLanguage;
+           set => Set(ref _DefaultLanguage, value);
+        }
+
         private void CreateItems()
         {
             FontColorCollections = new ObservableCollection<FontColorItem>
@@ -260,6 +269,13 @@ namespace QuickPad
                 new FontColorItem("Yellow", "LightYellow"),
                 new FontColorItem("Orange", "LightSalmon")
             };
+
+            var supportedLang = ApplicationLanguages.ManifestLanguages;
+            DefaultLanguages = new ObservableCollection<DefaultLanguage>();
+            foreach (var lang in supportedLang)
+            {
+                DefaultLanguages.Add(new DefaultLanguage(lang));
+            }
         }
 
         private void LoadSettings()
@@ -412,6 +428,11 @@ namespace QuickPad
         {
             get => _fonts;
             set => Set(ref _fonts, value);
+        }
+
+        private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            QSetting.AppLanguage = DefaultLanguages[(sender as ComboBox).SelectedIndex].ID;
         }
 
         //Colors
@@ -1814,6 +1835,25 @@ namespace QuickPad
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+    }
+
+    public class DefaultLanguage
+    {
+        public string Name;
+        public string ID;
+
+        public DefaultLanguage()
+        {
+            Name = "";
+            ID = "";
+        }
+
+        public DefaultLanguage(string id)
+        {
+            CultureInfo info = new CultureInfo(id);
+            ID = info.Name;
+            Name = info.DisplayName;
+        }
     }
 
     public enum DialogResult
