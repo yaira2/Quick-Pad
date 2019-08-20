@@ -1050,20 +1050,33 @@ namespace QuickPad
             CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
         }
 
-        private void CmdShare_Click(object sender, RoutedEventArgs e)
+        StorageFile file;
+        private async void CmdShare_Click(object sender, RoutedEventArgs e)
         {
-            Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
-            Windows.ApplicationModel.DataTransfer.DataTransferManager.GetForCurrentView().DataRequested += MainPage_DataRequested;
+            file = null;
+            if (CurrentWorkingFile is null || Changed)
+            {
+                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                StorageFile storageFile = await storageFolder.CreateFileAsync("Quick_Pad_Shared.rtf", CreationCollisionOption.ReplaceExisting);
+                Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                await FileIO.WriteTextAsync(storageFile, value);
+                file = storageFile;
+            }
+            DataTransferManager.GetForCurrentView().DataRequested += MainPage_DataRequested;
+            DataTransferManager.ShowShareUI();
         }
 
-        private void MainPage_DataRequested(Windows.ApplicationModel.DataTransfer.DataTransferManager sender, Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs args)
+        private void MainPage_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
         {
             Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
+            if (file is null) file = CurrentWorkingFile;
 
             if (!string.IsNullOrEmpty(value))
             {
-                args.Request.Data.SetText(value);
-                args.Request.Data.Properties.Title = Windows.ApplicationModel.Package.Current.DisplayName;
+                ObservableCollection<StorageFile> files = new ObservableCollection<StorageFile>();
+                files.Add(file);
+                args.Request.Data.Properties.Title = Package.Current.DisplayName;
+                args.Request.Data.SetStorageItems(files);
             }
             else
             {
