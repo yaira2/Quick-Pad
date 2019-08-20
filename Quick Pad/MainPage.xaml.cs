@@ -433,6 +433,7 @@ namespace QuickPad
         private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             QSetting.AppLanguage = DefaultLanguages[(sender as ComboBox).SelectedIndex].ID;
+            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
         }
 
         //Colors
