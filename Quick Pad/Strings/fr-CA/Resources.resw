@@ -163,7 +163,7 @@
     <value>Type de fichier par défaut</value>
   </data>
   <data name="GeneralLaunchMode.Text" xml:space="preserve">
-    <value>Mode lancement</value>
+    <value>Lancement de mode par défaut</value>
   </data>
   <data name="GeneralLaunchModeCombobox.PlaceholderText" xml:space="preserve">
     <value>Par défaut</value>
@@ -524,5 +524,8 @@
   </data>
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>Montrer la barre d'état en mode classique</value>
+  </data>
+  <data name="AppLanguage.Text" xml:space="preserve">
+    <value>Langue de l'application</value>
   </data>
 </root>
