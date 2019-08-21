@@ -11,9 +11,9 @@
 - Find a "Solution Explorer" window
 - Right-click on the project [Quick Pad (Universal Windows)]
 - Go to "Multilingual App Toolkit" > "Add translation languages..."
-- The dialog said, "Translation provider manager issue" click "OK" to ignore it.
+- The dialog says, "Translation provider manager issue" click "OK" to ignore it.
 - Select the language you want to translate by ticking the ✅ in front of that language.
-- When you found the language you want, press "OK" and the extension should pull the latest text from Resource .resw for you.
+- When you find the language you want, press "OK" and the extension should pull the latest text from Resource .resw for you.
 - The file should reside in "Quick Pad (Universal Windows)\MultilingualResources\QuickPad.[language_code].xlf
 
 #### Don't have access to Visual Studio
@@ -61,15 +61,15 @@ If you have worked with Multilingual Editor before, and already set it as defaul
 - Navigate to the project folder
 - The XLF file should locate at \Quick Pad\MultilingualResources\
 - Either select the file and click "Open."
-- Alternatively, double click the file to open should open the file too.
+- Alternatively, double clicking the file would work as well.
 
 ### Working with the file
 - You can use a translation menu to help on translating, and you can review it later if it correct. Using "Translation" > "Translate all" on Translation section
 - You can use a suggestion on the current text you translating. Using "Suggest" on the Translation section
-- The "State Filter" section is useful if you are working with that language before. You can uncheck "Translated" to hide all the text you already translate.
+- The "State Filter" section is useful if you were working with that language before. You can uncheck "Translated" to hide all the text you already translated.
 - "Source" shows the original text of it. Put your translation in the "Translation" below.
-- All the text you have to translate is store in the "Strings" tab below. You can filter it out using "State Filter" above. The text is automatically gain "Translated" state when you write the text into translation, "Need Reviews" is when the text from en-US source is changed. Most of the time, it probably just a fix of typo or capital letter, but you can update if the meaning of the text is changing in your language. "New" state is when the translation does not translate yet.
+- All the text you have to translate is stored in the "Strings" tab below. You can filter it out by using "State Filter" above. The text is automatically in the "Translated" state when you write the text into the translation, "Need Reviews" is when the text from en-US source is changed. Most of the time, its probably just a fix of typo or capital letter, but you can update if the meaning of the text is different in your language. "New" state is when the translation does not translate yet.
 
 ### Q&A
-#### Why do I have to translate some text for more than once.
-Answer: Some text have extra hotkey add into it, for example "Open" have a tooltip with "Open (Ctrl + O)" and both of them is on a different control One is on AppBarButton and the other is on "TextBlock" this require us to add more than one key to handle the text like "CMDOpen.Content" and "CMDOpenTooltip.Text" We'll try our best to make the text more reusable.
+#### Why do I have to translate some text more than once.
+Answer: Some text have extra hotkeys added into it, for example "Open" has a tooltip with "Open (Ctrl + O)" and both of them is on a different control, One is on AppBarButton and the other is on "TextBlock" this require us to add more than one key to handle the text like "CMDOpen.Content" and "CMDOpenTooltip.Text" We'll try our best to make the text more reusable.
