@@ -208,7 +208,7 @@
         </trans-unit>
         <trans-unit id="GeneralLaunchMode.Text" translate="yes" xml:space="preserve">
           <source>Launch Mode</source>
-          <target state="translated">Mode lancement</target>
+          <target state="translated">Lancement de mode par défaut</target>
         </trans-unit>
         <trans-unit id="GeneralLaunchModeCombobox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Default</source>
@@ -692,7 +692,7 @@
         </trans-unit>
         <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
           <source>App Language</source>
-          <target state="new">App Language</target>
+          <target state="translated">Langue de l'application</target>
         </trans-unit>
       </group>
     </body>
