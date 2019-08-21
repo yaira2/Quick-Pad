@@ -691,6 +691,10 @@
           <source>Show Status Bar on Classic Mode</source>
           <target state="translated">แสดงแถบสถานะเมื่ออยู่ในโหมดคลาสสิค</target>
         </trans-unit>
+        <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
+          <source>App Language</source>
+          <target state="new">App Language</target>
+        </trans-unit>
       </group>
     </body>
   </file>

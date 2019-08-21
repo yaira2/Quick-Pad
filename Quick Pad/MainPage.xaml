@@ -43,7 +43,7 @@
             </ToolTipService.ToolTip>
         </ToggleButton>
 
-        <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,360,0">
+        <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,340,0">
             <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="New" x:Uid="CmdNewTooltip"/>
@@ -425,7 +425,7 @@
             <ContentDialog.Resources>
                 <!--Force all textblock to have margin-->
                 <Style TargetType="TextBlock">
-                    <Setter Property="Margin" Value="0,10,0,4"/>
+                    <Setter Property="Margin" Value="0,8,0,4"/>
                     <Setter Property="TextWrapping" Value="Wrap"/>
                     <Setter Property="FontFamily" Value="Segoe UI"/>
                 </Style>
@@ -442,8 +442,8 @@
                         </DataTemplate>
                     </Pivot.HeaderTemplate>
                     <PivotItem Header="General" x:Name="SettingsTab1" x:Uid="SettingsTab1">
-                        <ScrollViewer x:Name="SettingsTab1SV" Height="200">
-                            <StackPanel>
+                        <ScrollViewer x:Name="SettingsTab1SV" Height="250">
+                            <StackPanel Padding="2,2,2,2">
                                 <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
                                 <ComboBox x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinWidth="125" HorizontalAlignment="Left" BorderThickness="1">
                                     <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
@@ -452,35 +452,40 @@
                                     <ComboBoxItem Content="Classic Mode" Tag="Classic Mode" x:Uid="LaunchModeClassic" x:Name="LaunchModeClassic"/>
                                 </ComboBox>
 
+                                <TextBlock Text="App Language" x:Uid="AppLanguage"/>
+                                <ComboBox PlaceholderText="English" Windows10version1809:CornerRadius="2" x:Name="DefaultLanguage" SelectionChanged="DefaultLanguage_SelectionChanged" ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate x:DataType="q:DefaultLanguage">
+                                            <TextBlock Text="{x:Bind Name}"/>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                
                                 <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
                                 <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <x:String>.rtf</x:String>
                                     <x:String>.txt</x:String>
                                 </ComboBox>
-                                
+
                                 <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save"/>
                                 <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
-                                
-                                <TextBlock x:Uid="WordWrap" Text="Word Wrap"/>
-                                <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.WordWrap, Mode=TwoWay}"/>
-                                
+                                                               
                                 <TextBlock x:Uid="SpellCheck" Text="Spell Check"/>
                                 <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}"/>
 
                                 <TextBlock Text="Show Status Bar on Classic Mode" x:Uid="GeneralShowStatusOnClassic"/>
                                 <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch"/>
-
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="Theme" x:Name="SettingsTab2" x:Uid="SettingsTab2">
-                        <ScrollViewer Height="200">
-                            <StackPanel>
+                        <ScrollViewer Height="250">
+                            <StackPanel Padding="2,2,2,2">
                                 <TextBlock x:Uid="AppTheme" Text="App Theme" TextWrapping="Wrap"/>
                                 <RadioButton x:Name="Light" 
                                          Tag="Light" 
                                          x:Uid="Light" 
-                                         Margin="0,10,0,4"
+                                         Margin="0,8,0,4"
                                          Content="Light" 
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" />
@@ -488,12 +493,12 @@
                                          Tag="Dark" 
                                          x:Uid="Dark" 
                                          Content="Dark"
-                                         Margin="0,10,0,4"
+                                         Margin="0,8,0,4"
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
                                 <RadioButton x:Name="SystemDefault" 
                                          Tag="Default" 
-                                         Margin="0,10,0,4"
+                                         Margin="0,8,0,4"
                                          x:Uid="SystemDefault" 
                                          Content="System Default" 
                                          Click="{x:Bind SetTheme}" 
@@ -502,10 +507,26 @@
                         </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="Font" x:Name="SettingsTab3" x:Uid="SettingsTab3">
-                        <ScrollViewer Height="200">
-                            <StackPanel>
+                        <ScrollViewer Height="250">
+                            <StackPanel Padding="2,2,2,2">
                                 <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
                                 <ComboBox SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" MinWidth="169" BorderThickness="1"/>
+                                                                
+                                <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
+                                <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate x:DataType="q:FontColorItem">
+                                            <StackPanel Orientation="Horizontal">
+                                                <!--Default font color-->
+                                                <Rectangle Width="14" Height="14" Fill="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="{x:Bind q:Converter.IfStringMatchShow(TechnicalName, 'Default'), Mode=OneWay}" />
+                                                <!--Other font color-->
+                                                <Rectangle Width="14" Height="14" Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}" Visibility="{x:Bind q:Converter.IfStringMatchHide(TechnicalName, 'Default'), Mode=OneWay}" />
+                                                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                
                                 <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
                                 <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
                                     <x:Int32>4</x:Int32>
@@ -525,38 +546,27 @@
                                     <x:Int32>48</x:Int32>
                                     <x:Int32>72</x:Int32>
                                 </ComboBox>
-                                <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
-                                <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
-                                    <ComboBox.ItemTemplate>
-                                        <DataTemplate x:DataType="q:FontColorItem">
-                                            <StackPanel Orientation="Horizontal">
-                                                <!--Default font color-->
-                                                <Rectangle Width="14" Height="14" Fill="{ThemeResource ApplicationForegroundThemeBrush}" Visibility="{x:Bind q:Converter.IfStringMatchShow(TechnicalName, 'Default'), Mode=OneWay}" />
-                                                <!--Other font color-->
-                                                <Rectangle Width="14" Height="14" Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}" Visibility="{x:Bind q:Converter.IfStringMatchHide(TechnicalName, 'Default'), Mode=OneWay}" />
-                                                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
-                                            </StackPanel>
-                                        </DataTemplate>
-                                    </ComboBox.ItemTemplate>
-                                </ComboBox>
+
+                                <TextBlock x:Uid="WordWrap" Text="Word Wrap"/>
+                                <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.WordWrap, Mode=TwoWay}"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
-                        <ScrollViewer x:Name="SettingsTab2SV"  Height="200">
-                            <StackPanel>
-                                <ToggleSwitch x:Name="ShowStrikethrough" IsOn="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Margin="0,10,0,4"/>
-                                <ToggleSwitch x:Name="ShowBullets" IsOn="{x:Bind QSetting.ShowBullets, Mode=TwoWay}" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Margin="0,10,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignLeft" IsOn="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Margin="0,10,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignCenter" IsOn="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Margin="0,10,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignRight" IsOn="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Margin="0,10,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignJustify" IsOn="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Margin="0,10,0,4"/>
+                        <ScrollViewer x:Name="SettingsTab2SV"  Height="250">
+                            <StackPanel Padding="2,2,2,2">
+                                <ToggleSwitch x:Name="ShowStrikethrough" IsOn="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Margin="0,8,0,4"/>
+                                <ToggleSwitch x:Name="ShowBullets" IsOn="{x:Bind QSetting.ShowBullets, Mode=TwoWay}" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Margin="0,8,0,4"/>
+                                <ToggleSwitch x:Name="ShowAlignLeft" IsOn="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Margin="0,8,0,4"/>
+                                <ToggleSwitch x:Name="ShowAlignCenter" IsOn="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Margin="0,8,0,4"/>
+                                <ToggleSwitch x:Name="ShowAlignRight" IsOn="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Margin="0,8,0,4"/>
+                                <ToggleSwitch x:Name="ShowAlignJustify" IsOn="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Margin="0,8,0,4"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
-                        <ScrollViewer Height="200">
-                            <StackPanel>
+                        <ScrollViewer Height="250">
+                            <StackPanel Padding="2,2,2,2">
                                 <TextBlock Text="Version number" x:Name="VersionNumber" HorizontalAlignment="Center"/>
                                 <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" HorizontalAlignment="Center"/>
                                 <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" HorizontalAlignment="Center"/>

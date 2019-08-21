@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Resources;
+using Windows.Globalization;
 using Windows.Services.Store;
 using Windows.Storage;
 using Windows.System;
@@ -158,10 +160,12 @@ namespace QuickPad
                         break;
                 }
             };
-
+        
             CheckPushNotifications(); //check for push notifications
 
+#if !DEBUG
             AddJumplists();
+#endif
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
@@ -181,7 +185,7 @@ namespace QuickPad
             }
         }
 
-        #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
+#region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
         private void UpdateUIAccordingToNewTheme(ElementTheme to)
         {
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
@@ -245,6 +249,13 @@ namespace QuickPad
             }
         }
 
+        private ObservableCollection<DefaultLanguage> _DefaultLanguage;
+        public ObservableCollection<DefaultLanguage> DefaultLanguages
+        {
+           get => _DefaultLanguage;
+           set => Set(ref _DefaultLanguage, value);
+        }
+
         private void CreateItems()
         {
             FontColorCollections = new ObservableCollection<FontColorItem>
@@ -258,6 +269,13 @@ namespace QuickPad
                 new FontColorItem("Yellow", "LightYellow"),
                 new FontColorItem("Orange", "LightSalmon")
             };
+
+            var supportedLang = ApplicationLanguages.ManifestLanguages;
+            DefaultLanguages = new ObservableCollection<DefaultLanguage>();
+            foreach (var lang in supportedLang)
+            {
+                DefaultLanguages.Add(new DefaultLanguage(lang));
+            }
         }
 
         private void LoadSettings()
@@ -300,8 +318,8 @@ namespace QuickPad
             all.SystemGroupKind = JumpListSystemGroupKind.None;
             if (all.Items != null && all.Items.Count == 3)
             {
-                //Jumplist already added, ABORT
-                return;
+                //Clear Jumplist
+                all.Items.Clear();
             }
             
             var focus = JumpListItem.CreateWithArguments("quickpad://focus", "ms-resource:///Resources/LaunchInFocusMode");
@@ -402,14 +420,20 @@ namespace QuickPad
             });
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
-        #endregion
+#endregion
 
-        #region Properties     
+#region Properties     
         ObservableCollection<FontFamilyItem> _fonts;
         public ObservableCollection<FontFamilyItem> AllFonts
         {
             get => _fonts;
             set => Set(ref _fonts, value);
+        }
+
+        private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            QSetting.AppLanguage = DefaultLanguages[(sender as ComboBox).SelectedIndex].ID;
+            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
         }
 
         //Colors
@@ -553,9 +577,9 @@ namespace QuickPad
             set => Set(ref _redo, value);
         }
 
-        #endregion
+#endregion
 
-        #region Store service
+#region Store service
         public async void CheckPushNotifications()
         {
             //regisiter for push notifications
@@ -602,9 +626,9 @@ namespace QuickPad
             return false;
         }
 
-        #endregion
+#endregion
 
-        #region Handling navigation
+#region Handling navigation
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -636,9 +660,9 @@ namespace QuickPad
             }
         }
 
-        #endregion
+#endregion
 
-        #region Load/Save file
+#region Load/Save file
         public async Task LoadFileIntoTextBox()
         {
             if (CurrentWorkingFile.FileType.ToLower() == ".rtf")
@@ -758,9 +782,9 @@ namespace QuickPad
             //Update the initial loaded content
             SetANewChange();
         }
-        #endregion
+#endregion
 
-        #region Command bar click
+#region Command bar click
         public void SetTheme(object sender, RoutedEventArgs e)
         {
             QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
@@ -1050,20 +1074,33 @@ namespace QuickPad
             CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
         }
 
-        private void CmdShare_Click(object sender, RoutedEventArgs e)
+        StorageFile file;
+        private async void CmdShare_Click(object sender, RoutedEventArgs e)
         {
-            Windows.ApplicationModel.DataTransfer.DataTransferManager.ShowShareUI();
-            Windows.ApplicationModel.DataTransfer.DataTransferManager.GetForCurrentView().DataRequested += MainPage_DataRequested;
+            file = null;
+            if (CurrentWorkingFile is null || Changed)
+            {
+                StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                StorageFile storageFile = await storageFolder.CreateFileAsync("Quick_Pad_Shared.rtf", CreationCollisionOption.ReplaceExisting);
+                Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                await FileIO.WriteTextAsync(storageFile, value);
+                file = storageFile;
+            }
+            DataTransferManager.GetForCurrentView().DataRequested += MainPage_DataRequested;
+            DataTransferManager.ShowShareUI();
         }
 
-        private void MainPage_DataRequested(Windows.ApplicationModel.DataTransfer.DataTransferManager sender, Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs args)
+        private void MainPage_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
         {
             Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
+            if (file is null) file = CurrentWorkingFile;
 
             if (!string.IsNullOrEmpty(value))
             {
-                args.Request.Data.SetText(value);
-                args.Request.Data.Properties.Title = Windows.ApplicationModel.Package.Current.DisplayName;
+                ObservableCollection<StorageFile> files = new ObservableCollection<StorageFile>();
+                files.Add(file);
+                args.Request.Data.Properties.Title = Package.Current.DisplayName;
+                args.Request.Data.SetStorageItems(files);
             }
             else
             {
@@ -1211,9 +1248,9 @@ namespace QuickPad
                 Text1.Document.Selection.SetRange(previousPosition, previousSelectionEnd);
             }            
         }
-        #endregion
+#endregion
 
-        #region UI Mode change
+#region UI Mode change
         bool? _compact = null;
         public bool CompactOverlaySwitch
         {
@@ -1378,9 +1415,9 @@ namespace QuickPad
         //Use for Click function
         public void TurnOnFocusMode() => FocusModeSwitch = true;
         public void TurnOnClassicMode() => ClassicModeSwitch = true;
-        #endregion
+#endregion
 
-        #region Textbox function
+#region Textbox function
         private void Text1_GotFocus(object sender, RoutedEventArgs e)
         {
             LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
@@ -1494,9 +1531,9 @@ namespace QuickPad
             CheckForStatusUpdate();
         }
 
-        #endregion
+#endregion
 
-        #region Status bar and update
+#region Status bar and update
         public void CheckForStatusUpdate()
         {
             //Update line and character count
@@ -1654,12 +1691,12 @@ namespace QuickPad
             get => _bs;
             set => Set(ref _bs, value);
         }
-        #endregion
+#endregion
     }
 
     public class FontColorItem : INotifyPropertyChanged
     {
-        #region Notification overhead, no need to write it thousands times on set { }
+#region Notification overhead, no need to write it thousands times on set { }
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -1683,7 +1720,7 @@ namespace QuickPad
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-        #endregion
+#endregion
 
         string _name;
         public string ColorName
@@ -1799,6 +1836,25 @@ namespace QuickPad
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+    }
+
+    public class DefaultLanguage
+    {
+        public string Name;
+        public string ID;
+
+        public DefaultLanguage()
+        {
+            Name = "";
+            ID = "";
+        }
+
+        public DefaultLanguage(string id)
+        {
+            CultureInfo info = new CultureInfo(id);
+            ID = info.Name;
+            Name = info.DisplayName;
+        }
     }
 
     public enum DialogResult

@@ -163,6 +163,13 @@ namespace QuickPad
         private ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
         #region Settings
+        [DefaultValue("en-US")]
+        public string AppLanguage
+        {
+            get => Get<string>();
+            set => Set(value);
+        }
+
         [DefaultValue((int)(AvailableModes.Default))]
         public int LaunchMode
         {

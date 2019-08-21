@@ -19,6 +19,7 @@ using Windows.UI.Xaml.Navigation;
 using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
+using Windows.Globalization;
 
 namespace QuickPad
 {
@@ -34,8 +35,13 @@ namespace QuickPad
         public App()
         {
             this.InitializeComponent();
+            ApplicationLanguages.PrimaryLanguageOverride = new Setting().AppLanguage;
+
             this.Suspending += OnSuspending;
+
+#if !DEBUG
             AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes)); //send analytics to app center
+#endif
         }
 
         protected override void OnFileActivated(FileActivatedEventArgs args)
@@ -82,7 +88,7 @@ namespace QuickPad
             }
         }
 
-        #region OnActivated
+#region OnActivated
 
         protected override void OnActivated(IActivatedEventArgs args)
         {
@@ -114,9 +120,9 @@ namespace QuickPad
 
         }
 
-        #endregion
+#endregion
 
-        #region Extract URI
+#region Extract URI
 
         public string GetParameterURI(string fullURI)
         {
@@ -132,7 +138,7 @@ namespace QuickPad
             return output;
         }
 
-        #endregion
+#endregion
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
