@@ -17,7 +17,23 @@
 - The file should reside in "Quick Pad (Universal Windows)\MultilingualResources\QuickPad.[language_code].xlf
 
 #### Don't have access to Visual Studio
-You can contact the project owner "Yair A" on Discord Yair#3380 to send you a file for a Language of your choice. Preferably, you can submit the translated file with GitHub using the "Upload file" menu. Alternatively, send it back on Discord work too.
+You can contact the project owner "Yair A" on Discord Yair#3380 to send you a file for a Language of your choice. Preferably, you can submit the translated file with GitHub and propose the Pull request to the project. Alternatively, send it back on Discord work too.
+
+#### Submit a translate file into GitHub (If you don't have access to Visual Studio: Part 2)
+After you have finish working with the translation, you can manually upload the file into a project, we would love to add your GitHub profile into a translator contributor as well if you do this step.
+- Log into a GitHub
+- Fork the project using the "Fork" button located on the top right
+- Open folder "Quick Pad"
+- Open folder "MultilingualResources"
+- On the top right of the Folder path, click "Upload files" to update your translation
+- Choose the file that you finished working on
+- On the "Commit changes" state the title such as "Adding translation for "Your language"" etc.
+- You can put on the description too such as "Update transalation typo" etc.
+- Checked "Create a new branch for this commit and start a pull request. [Learn more about pull requests.](https://help.github.com/en/articles/about-pull-requests)"
+- Click "Propose changes" when you done
+- Wait for GitHub to process your change
+- It will redirect you to "Open a pull request" 
+- Click "Create pull request" and inform developer to add it to a project
 
 ### Open the file
 #### Inside Visual Studio | First time open the file
@@ -53,3 +69,7 @@ If you have worked with Multilingual Editor before, and already set it as defaul
 - The "State Filter" section is useful if you are working with that language before. You can uncheck "Translated" to hide all the text you already translate.
 - "Source" shows the original text of it. Put your translation in the "Translation" below.
 - All the text you have to translate is store in the "Strings" tab below. You can filter it out using "State Filter" above. The text is automatically gain "Translated" state when you write the text into translation, "Need Reviews" is when the text from en-US source is changed. Most of the time, it probably just a fix of typo or capital letter, but you can update if the meaning of the text is changing in your language. "New" state is when the translation does not translate yet.
+
+### Q&A
+#### Why do I have to translate some text for more than once.
+Answer: Some text have extra hotkey add into it, for example "Open" have a tooltip with "Open (Ctrl + O)" and both of them is on a different control One is on AppBarButton and the other is on "TextBlock" this require us to add more than one key to handle the text like "CMDOpen.Content" and "CMDOpenTooltip.Text" We'll try our best to make the text more reusable.
