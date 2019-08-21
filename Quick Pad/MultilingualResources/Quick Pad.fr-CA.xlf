@@ -690,6 +690,10 @@
           <source>Show Status Bar on Classic Mode</source>
           <target state="translated">Montrer la barre d'état en mode classique</target>
         </trans-unit>
+        <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
+          <source>App Language</source>
+          <target state="new">App Language</target>
+        </trans-unit>
       </group>
     </body>
   </file>

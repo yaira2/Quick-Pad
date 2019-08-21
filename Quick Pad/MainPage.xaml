@@ -452,7 +452,7 @@
                                     <ComboBoxItem Content="Classic Mode" Tag="Classic Mode" x:Uid="LaunchModeClassic" x:Name="LaunchModeClassic"/>
                                 </ComboBox>
 
-                                <TextBlock Text="App Language"/>
+                                <TextBlock Text="App Language" x:Uid="AppLanguage"/>
                                 <ComboBox PlaceholderText="English" Windows10version1809:CornerRadius="2" x:Name="DefaultLanguage" SelectionChanged="DefaultLanguage_SelectionChanged" ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate x:DataType="q:DefaultLanguage">
