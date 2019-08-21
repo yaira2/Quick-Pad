@@ -268,6 +268,7 @@
     </SDKReference>
   </ItemGroup>
   <ItemGroup>
+    <XliffResource Include="MultilingualResources\Quick Pad.ar-SA.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.es.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.th-TH.xlf" />
