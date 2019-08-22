@@ -302,7 +302,7 @@ namespace QuickPad
             set => Set(value);
         }
 
-        [DefaultValue(18)]
+        [DefaultValue(12)]
         public int DefaultFontSize
         {
             get => Get<int>();

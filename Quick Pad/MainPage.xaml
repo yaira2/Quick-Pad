@@ -528,7 +528,7 @@
                                 </ComboBox>
                                 
                                 <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
-                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
+                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="12" MinWidth="69" BorderThickness="1">
                                     <x:Int32>4</x:Int32>
                                     <x:Int32>6</x:Int32>
                                     <x:Int32>8</x:Int32>
