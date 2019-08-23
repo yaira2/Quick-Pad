@@ -89,6 +89,7 @@
               <uap:FileType>.java</uap:FileType>
               <uap:FileType>.js</uap:FileType>
               <uap:FileType>.ts</uap:FileType>
+              <uap:FileType>.tsv</uap:FileType>
               <uap:FileType>.lua</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:EditFlags OpenIsSafe="true"/>
