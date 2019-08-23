@@ -191,6 +191,9 @@
                 <AppBarToggleButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
                 </AppBarToggleButton.KeyboardAccelerators>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="On Top (Ctrl+Shift+O)" x:Uid="CmdOnTopTooltip"/>
+                </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarButton x:Name="Copy" x:Uid="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click">
                 <ToolTipService.ToolTip>

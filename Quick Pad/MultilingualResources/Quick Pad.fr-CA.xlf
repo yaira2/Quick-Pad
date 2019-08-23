@@ -694,6 +694,10 @@
           <source>App Language</source>
           <target state="translated">Langue de l'application</target>
         </trans-unit>
+        <trans-unit id="CmdOnTopTooltip" translate="yes" xml:space="preserve">
+          <source>On Top (Ctrl+Shift+O)</source>
+          <target state="new">On Top (Ctrl+Shift+O)</target>
+        </trans-unit>
       </group>
     </body>
   </file>

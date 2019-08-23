@@ -633,4 +633,7 @@
   <data name="AppLanguage.Text" xml:space="preserve">
     <value>App Language</value>
   </data>
+  <data name="CmdOnTopTooltip" xml:space="preserve">
+    <value>On Top (Ctrl+Shift+O)</value>
+  </data>
 </root>
