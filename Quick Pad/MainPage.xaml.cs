@@ -168,10 +168,7 @@ namespace QuickPad
             };
         
             CheckPushNotifications(); //check for push notifications
-
-#if !DEBUG
-            AddJumplists();
-#endif
+            AddJumplists(); //reset the jumplist tasks
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
