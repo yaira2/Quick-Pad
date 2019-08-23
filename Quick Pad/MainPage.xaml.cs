@@ -130,12 +130,18 @@ namespace QuickPad
                 }
                 else
                 {
-                    //In case if all the change is just nothing but format
-                    Text1.TextDocument.GetText(TextGetOptions.None, out string change);
-                    if (string.IsNullOrEmpty(change))
+                    try //In case if all the change is just nothing but format
                     {
-                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
-                        deferral.Complete();
+                        Text1.TextDocument.GetText(TextGetOptions.None, out string change);
+                        if (string.IsNullOrEmpty(change))
+                        {
+                            deferral.Complete();
+                        }
+                    }
+                    catch (Exception er)
+                    {
+                        //According to error report, the error is in line 132, or when Text1 try to get text
+                        Analytics.TrackEvent($"Track down error \r\n{er.Message}");
                     }
                 }
 
@@ -859,7 +865,17 @@ namespace QuickPad
             //update the title bar to reflect it is a new document
             CurrentFilename = null;
             //Clear undo and redo
-            Text1.TextDocument.ClearUndoRedoHistory();
+            try
+            {
+                if (Text1.TextDocument.CanUndo())//Assume because the history is already empty?
+                {
+                    Text1.TextDocument.ClearUndoRedoHistory();
+                }
+            }
+            catch (Exception ex)
+            {
+                Analytics.TrackEvent($"Error trying to clear undo history\r\n{ex.Message}");
+            }
             //Put up a default font size into a format
             UpdateText1FontSize(QSetting.DefaultFontSize);
             //Set new change
@@ -1071,7 +1087,14 @@ namespace QuickPad
         private void Emoji_Clicked(object sender, RoutedEventArgs e)
         {
             Text1.Focus(FocusState.Programmatic);
-            CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
+            try //More error here
+            {
+                CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
+            }
+            catch (Exception ex)
+            {
+                Analytics.TrackEvent($"Attempting to open emoji keyboard\r\n{ex.Message}");
+            }
         }
 
         StorageFile file;

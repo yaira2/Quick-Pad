@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -20,7 +21,14 @@ namespace QuickPad
             {
                 localSettings.Values.Add(propertyName, GetDefaultValue<T>(propertyName));
             }
-            MigrateSettingFromPreviousVersion<T>(propertyName);
+            try
+            {                
+                MigrateSettingFromPreviousVersion<T>(propertyName);
+            }
+            catch (Exception ex)
+            {
+                Analytics.TrackEvent($"Error trying to migrate setting {propertyName}\r\n{ex.Message}");
+            }
             return (T)localSettings.Values[propertyName];
         }
 
