@@ -103,7 +103,7 @@
                     <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
+                    <FontIcon Glyph="&#xEA65;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton IsChecked="{x:Bind IsUsingBulletList, Mode=OneWay}" x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
@@ -112,30 +112,39 @@
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarSeparator/>
-            <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click" Icon="AlignLeft">
+            <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align left (Ctrl+L)" x:Uid="LeftTooltip"/>
                 </ToolTipService.ToolTip>
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xEA7A;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
+                </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Click="Center_Click" Icon="AlignCenter">
+            <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Click="Center_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align center (Ctrl+E)" x:Uid="CenterTooltip"/>
                 </ToolTipService.ToolTip>
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xEA78;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
+                </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Click="Right_Click" Icon="AlignRight">
+            <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Click="Right_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                 </ToolTipService.ToolTip>
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xEA79;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
+                </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" >
+            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <BitmapIcon UriSource="/Assets/justify align.png"/>
+                    <FontIcon Glyph="&#xEA7A;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" />
+            <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" FontFamily="Segoe UI" />
             <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Size Up" x:Uid="SizeUpTooltip"/>
@@ -319,7 +328,7 @@
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Strikethrough" Click="Strikethrough_Click" x:Uid="ClassicFormatST" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
+                        <FontIcon Glyph="&#xEA65;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Bullets" Click="BulletList_Click" x:Uid="ClassicFormatBullets" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}">
@@ -330,22 +339,22 @@
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Align leff" Click="Left_Click" x:Uid="ClassicFormatALeft" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignLeft"/>
+                        <FontIcon Glyph="&#xEA77;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Align center" Click="Center_Click" x:Uid="ClassicFormatACenter" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignCenter"/>
+                        <FontIcon Glyph="&#xEA78;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Align right" Click="Right_Click" x:Uid="ClassicFormatARight" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignRight"/>
+                        <FontIcon Glyph="&#xEA79;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Align justify" Click="Justify_Click" x:Uid="ClassicFormatAJustify" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
-                        <BitmapIcon UriSource="/Assets/justify align.png"/>
+                        <FontIcon Glyph="&#xEA7A;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}"/>
