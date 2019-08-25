@@ -41,7 +41,7 @@
                     <TextBlock Text="More..."/>
                 </ToolTipService.ToolTip>
             </ToggleButton>
-            <TextBox BorderThickness="1" Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
+            <TextBox Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
                 <Button Height="32">
                     <FontIcon Glyph="&#xE094;" />
@@ -56,7 +56,7 @@
                     </ToolTipService.ToolTip>
                     <Button.Flyout>
                         <MenuFlyout Placement="BottomEdgeAlignedRight">
-                            <MenuFlyoutItem Text="Find Next">
+                            <MenuFlyoutItem Text="Find Next" Click="{x:Bind RequestFindNext}">
                                 <MenuFlyoutItem.Icon>
                                     <FontIcon Glyph="&#xE0AB;" />
                                 </MenuFlyoutItem.Icon>
@@ -77,7 +77,7 @@
                 </Button>
                 
                 <!--Close dialog-->
-                <Button Margin="5,0,0,0">
+                <Button Margin="5,0,0,0" Click="{x:Bind RequestCloseDialog}">
                     <FontIcon Glyph="&#xE10A;" />
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Close"/>
@@ -86,16 +86,16 @@
             </StackPanel>
             
             <!--Second row-->
-            <TextBox BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
+            <TextBox Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
             <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
-                <Button>
-                    <FontIcon Glyph="&#xE8AC;" />
+                <Button Click="{x:Bind SendRequestReplace}">
+                    <FontIcon Glyph="&#xE8AC;"/>
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Replace"/>
                     </ToolTipService.ToolTip>
                 </Button>
 
-                <Button Margin="5,0">
+                <Button Margin="5,0" Click="{x:Bind SendRequestReplaceAll}">
                     <FontIcon Glyph="&#xE8B3;"/>
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Replace all"/>

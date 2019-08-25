@@ -52,7 +52,7 @@ namespace QuickPad.Dialog
             this.InitializeComponent();
         }
 
-        #region Dependencies
+        #region Dialog Dependencies
         public bool ShowReplace
         {
             get => (bool)GetValue(ShowReplaceProperty);
@@ -64,28 +64,83 @@ namespace QuickPad.Dialog
             typeof(UserControl),
             new PropertyMetadata(false, null));
 
+        bool _literal;
         public bool MatchCase
         {
-            get => (bool)GetValue(MatchCaseProperty);
-            set => SetValue(MatchCaseProperty, value);
+            get => _literal;
+            set => Set(ref _literal, value);
         }
-        public static readonly DependencyProperty MatchCaseProperty = DependencyProperty.Register(
-            nameof(MatchCaseProperty),
-            typeof(bool),
+
+        bool _wrap;
+        public bool WrapAround
+        {
+            get => _wrap;
+            set => Set(ref _wrap, value);
+        }
+
+        bool _ff;
+        public bool FindForward
+        {
+            get => _ff;
+            set => Set(ref _ff, value);
+        }
+        #endregion
+
+        #region Input Dependencies
+        public string TextToFind
+        {
+            get => (string)GetValue(TextToFindProperty);
+            set => SetValue(TextToFindProperty, value);
+        }
+        public static readonly DependencyProperty TextToFindProperty = DependencyProperty.Register(
+            nameof(TextToFindProperty),
+            typeof(string),
             typeof(UserControl),
             new PropertyMetadata(false, null));
 
-        public bool WrapAround
+        public string TextToReplace
         {
-            get => (bool)GetValue(WrapAroundProperty);
-            set => SetValue(WrapAroundProperty, value);
+            get => (string)GetValue(TextToReplaceProperty);
+            set => SetValue(TextToReplaceProperty, value);
         }
-        public static readonly DependencyProperty WrapAroundProperty = DependencyProperty.Register(
-            nameof(WrapAroundProperty),
-            typeof(bool),
+        public static readonly DependencyProperty TextToReplaceProperty = DependencyProperty.Register(
+            nameof(TextToReplaceProperty),
+            typeof(string),
             typeof(UserControl),
             new PropertyMetadata(false, null));
 
         #endregion
+
+        #region Events
+        public CloseDialog onClosed { get; set; }
+        public RequestFind onRequestFinding { get; set; }
+        public RequestReplace onRequestReplacing { get; set; }
+        #endregion
+
+        #region Buttons
+        private void RequestCloseDialog() => onClosed?.Invoke();
+
+        public void RequestFindNext()
+        {
+            FindForward = true;
+            onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase, WrapAround);
+        }
+
+        public void RequestFindPrevious()
+        {
+            FindForward = false;
+            onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase, WrapAround);
+        }
+
+        public void SendRequestFind() => onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase, WrapAround);
+
+        public void SendRequestReplace() => onRequestReplacing?.Invoke(TextToFind, TextToReplace, FindForward, MatchCase, WrapAround, false);
+
+        public void SendRequestReplaceAll() => onRequestReplacing?.Invoke(TextToFind, TextToReplace, FindForward, MatchCase, WrapAround, true);
+        #endregion
     }
+
+    public delegate void CloseDialog();
+    public delegate void RequestFind(string find, bool direction, bool match, bool wrap);
+    public delegate void RequestReplace(string find, string replace, bool direction, bool match, bool wrap, bool all);
 }
