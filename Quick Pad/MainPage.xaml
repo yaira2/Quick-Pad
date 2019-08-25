@@ -103,7 +103,7 @@
                     <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon Glyph="&#xEA65;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
+                    <FontIcon FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton IsChecked="{x:Bind IsUsingBulletList, Mode=OneWay}" x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
@@ -112,36 +112,27 @@
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarSeparator/>
-            <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click">
+            <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click" Icon="AlignLeft">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align left (Ctrl+L)" x:Uid="LeftTooltip"/>
                 </ToolTipService.ToolTip>
-                <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xEA7A;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
-                </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Click="Center_Click">
+            <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Click="Center_Click" Icon="AlignCenter">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align center (Ctrl+E)" x:Uid="CenterTooltip"/>
                 </ToolTipService.ToolTip>
-                <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xEA78;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
-                </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Click="Right_Click">
+            <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Click="Right_Click" Icon="AlignRight">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                 </ToolTipService.ToolTip>
-                <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xEA79;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
-                </AppBarButton.Icon>
             </AppBarButton>
             <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xEA7A;" FontFamily="/Assets/Font/QuickPadUI.ttf#QuickPadUI"/>
+                    <FontIcon FontFamily="/Assets/Fonts/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE921;" />
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" FontFamily="Segoe UI" />
