@@ -416,7 +416,7 @@
             </winui:MenuBarItem>
         </winui:MenuBar>
 
-        <dialog:FindAndReplace Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowFindAndReplace), Mode=OneWay}" Canvas.ZIndex="90"/>
+        <dialog:FindAndReplace Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowFindAndReplace), Mode=OneWay}" Canvas.ZIndex="90" x:Name="FindAndReplaceDialog"/>
 
 
 

@@ -1720,13 +1720,49 @@ namespace QuickPad
         public bool ShowFindAndReplace
         {
             get => _fr;
-            set => Set(ref _fr, value);
+            set
+            {
+                if (!Equals(_fr, value))
+                {
+                    Set(ref _fr, value);
+                    if (value)
+                    {
+                        if (Text1.Document.Selection.Length > 1)
+                        {
+                            if (string.IsNullOrEmpty(FindAndReplaceDialog.TextToFind))
+                            {
+                                FindAndReplaceDialog.TextToFind = Text1.Document.Selection.Text;
+                            }
+                        }
+                        FindAndReplaceDialog.onRequestFinding += FindRequestedText;
+                        FindAndReplaceDialog.onRequestReplacing += FindAndReplaceRequestedText;
+                        FindAndReplaceDialog.onClosed += ToggleFindAndReplaceDialog;
+                    }
+                    else
+                    {
+                        FindAndReplaceDialog.onRequestFinding -= FindRequestedText;
+                        FindAndReplaceDialog.onRequestReplacing -= FindAndReplaceRequestedText;
+                        FindAndReplaceDialog.onClosed -= ToggleFindAndReplaceDialog;
+                    }
+                }
+            }
         }
 
         public void ToggleFindAndReplaceDialog()
         {
             ShowFindAndReplace = !ShowFindAndReplace;
         }
+
+        private void FindRequestedText(string find, bool direction, bool match, bool wrap)
+        {
+            
+        }
+
+        private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
+        {
+
+        }
+
         #endregion
     }
 
