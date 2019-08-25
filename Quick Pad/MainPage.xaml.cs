@@ -1875,6 +1875,12 @@ namespace QuickPad
             }
         }
 
+        //Menubar function
+        public void OpenFindDialogWithReplace()
+        {
+            FindAndReplaceDialog.ShowReplace = true;
+            ShowFindAndReplace = true;
+        }
         #endregion
     }
 

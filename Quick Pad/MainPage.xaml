@@ -309,6 +309,35 @@
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Find" Icon="Find" Click="{x:Bind FindAndReplaceDialog.SendRequestFind}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="F" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Find Next" Click="{x:Bind FindAndReplaceDialog.RequestFindNext}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE0AB;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F3" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Find Previous" Click="{x:Bind FindAndReplaceDialog.RequestFindPrevious}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE0A6;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Shift" Key="F3" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Replace" Icon="Rename" Click="{x:Bind OpenFindDialogWithReplace}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="H" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="Format" AccessKey="O" x:Uid="ClassicFormat">
                 <ToggleMenuFlyoutItem Text="Word Wrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}" x:Uid="WordWrap">
