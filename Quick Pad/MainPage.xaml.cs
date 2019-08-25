@@ -1814,7 +1814,43 @@ namespace QuickPad
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
         {
-
+            if (all)
+            {
+                //Replace all
+                while (true) //Eternity loop
+                {
+                    //Mark start and end position
+                    int start = Text1.TextDocument.Selection.StartPosition;
+                    int end = Text1.TextDocument.Selection.EndPosition;
+                    //Send find request
+                    FindRequestedText(find, direction, match, false);
+                    if (Text1.TextDocument.Selection.StartPosition != start &&
+                        Text1.TextDocument.Selection.EndPosition != end)
+                    {
+                        //Found.. Replace
+                        Text1.TextDocument.Selection.Text = replace;
+                    }
+                    else
+                    {
+                        //It's can't find anymore
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                //Mark start and end position
+                int start = Text1.TextDocument.Selection.StartPosition;
+                int end = Text1.TextDocument.Selection.EndPosition;
+                //Send find request
+                FindRequestedText(find, direction, match, wrap);
+                if (Text1.TextDocument.Selection.StartPosition != start &&
+                    Text1.TextDocument.Selection.EndPosition != end)
+                {
+                    //Found.. Replace
+                    Text1.TextDocument.Selection.Text = replace;
+                }
+            }
         }
 
         #endregion

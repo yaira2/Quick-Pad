@@ -74,7 +74,7 @@ namespace QuickPad.Dialog
             set => Set(ref _wrap, value);
         }
 
-        bool _ff;
+        bool _ff = true;
         public bool FindForward
         {
             get => _ff;

@@ -44,7 +44,11 @@
             <TextBox x:Name="FindInput" x:FieldModifier="public" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
                 <Button Height="32" Click="{x:Bind SendRequestFind}">
-                    <FontIcon Glyph="&#xE094;" />
+                    <Grid>
+                        <FontIcon Glyph="&#xE094;" />
+                        <FontIcon Glyph="&#xE0A6;" FontSize="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
+                        <FontIcon Glyph="&#xE0AB;" FontSize="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>
+                    </Grid>
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Find"/>
                     </ToolTipService.ToolTip>
@@ -86,7 +90,7 @@
             </StackPanel>
             
             <!--Second row-->
-            <TextBox Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
+            <TextBox Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
             <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
                 <Button Click="{x:Bind SendRequestReplace}">
                     <FontIcon Glyph="&#xE8AC;"/>
