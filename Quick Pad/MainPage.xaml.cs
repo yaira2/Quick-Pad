@@ -1357,6 +1357,9 @@ namespace QuickPad
                     Text1.FontSize = 16;
                 }
 
+                //Hide Find and Replace dialog if it open
+                ShowFindAndReplace = false;
+
                 //log even in app center
                 Analytics.TrackEvent("Compact Overlay");
             }
