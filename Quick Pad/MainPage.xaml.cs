@@ -1465,6 +1465,7 @@ namespace QuickPad
                 Text1.Document.GetText(TextGetOptions.None, out _content);
                 _content = TrimRichEditBoxText(_content);
                 _isLineCachePendingUpdate = true;
+                MaximumPossibleSearchRange = _content.Length;
             }
         }
         /// <summary>
@@ -1713,6 +1714,141 @@ namespace QuickPad
             get => _bs;
             set => Set(ref _bs, value);
         }
+        #endregion
+
+        #region Find & Replace
+        bool _fr;
+        public bool ShowFindAndReplace
+        {
+            get => _fr;
+            set
+            {
+                if (!Equals(_fr, value))
+                {
+                    Set(ref _fr, value);
+                    if (value)
+                    {
+                        if (Text1.Document.Selection.Length > 1)
+                        {
+                            if (string.IsNullOrEmpty(FindAndReplaceDialog.TextToFind))
+                            {
+                                FindAndReplaceDialog.TextToFind = Text1.Document.Selection.Text;
+                                FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
+                            }
+                        }
+                        FindAndReplaceDialog.onRequestFinding += FindRequestedText;
+                        FindAndReplaceDialog.onRequestReplacing += FindAndReplaceRequestedText;
+                        FindAndReplaceDialog.onClosed += ToggleFindAndReplaceDialog;
+                    }
+                    else
+                    {
+                        FindAndReplaceDialog.onRequestFinding -= FindRequestedText;
+                        FindAndReplaceDialog.onRequestReplacing -= FindAndReplaceRequestedText;
+                        FindAndReplaceDialog.onClosed -= ToggleFindAndReplaceDialog;
+                    }
+                }
+            }
+        }
+
+        public void ToggleFindAndReplaceDialog()
+        {
+            ShowFindAndReplace = !ShowFindAndReplace;
+        }
+
+        int _ssp;
+        public int StartSearchPosition
+        {
+            get => _ssp;
+            set => Set(ref _ssp, value);
+        }
+
+        int _maxRange;
+        public int MaximumPossibleSearchRange
+        {
+            get => _maxRange;
+            set => Set(ref _maxRange, value);
+        }
+
+        private void FindRequestedText(string find, bool direction, bool match, bool wrap)
+        {
+            if (direction)
+            {
+                StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
+            }
+            else if (!direction)
+            {
+                int result = 0;
+                int backward = Text1.TextDocument.Selection.StartPosition - find.Length;
+                if (backward < 1)
+                {
+                    backward = MaximumPossibleSearchRange;
+                }
+                while (backward > 1 && result < 1)
+                {
+                    Text1.TextDocument.Selection.StartPosition = backward;
+                    result = Text1.TextDocument.Selection.FindText(find, find.Length + 1, match ? FindOptions.Case : FindOptions.None);
+                    backward--;
+                    if (backward < 2 && result == 0 && wrap)
+                    {                        
+                        Text1.TextDocument.Selection.SetRange(MaximumPossibleSearchRange, MaximumPossibleSearchRange);
+                        FindRequestedText(find, direction, match, false);
+                        break;
+                    }
+                    else if (backward < 2 && result == 0 && !wrap)
+                    {
+                        FindRequestedText(find, true, match, false);
+                    }
+                }
+            }
+
+            if (StartSearchPosition < 1 && wrap)
+            {
+                Text1.TextDocument.Selection.SetRange(0, 0);
+                FindRequestedText(find, direction, match, false);
+            }
+        }
+
+        private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
+        {
+            if (all)
+            {
+                //Replace all
+                while (true) //Eternity loop
+                {
+                    //Mark start and end position
+                    int start = Text1.TextDocument.Selection.StartPosition;
+                    int end = Text1.TextDocument.Selection.EndPosition;
+                    //Send find request
+                    FindRequestedText(find, direction, match, false);
+                    if (Text1.TextDocument.Selection.StartPosition != start &&
+                        Text1.TextDocument.Selection.EndPosition != end)
+                    {
+                        //Found.. Replace
+                        Text1.TextDocument.Selection.Text = replace;
+                    }
+                    else
+                    {
+                        //It's can't find anymore
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                //Mark start and end position
+                int start = Text1.TextDocument.Selection.StartPosition;
+                int end = Text1.TextDocument.Selection.EndPosition;
+                //Send find request
+                FindRequestedText(find, direction, match, wrap);
+                if (Text1.TextDocument.Selection.StartPosition != start &&
+                    Text1.TextDocument.Selection.EndPosition != end)
+                {
+                    //Found.. Replace
+                    Text1.TextDocument.Selection.Text = replace;
+                }
+            }
+        }
+
         #endregion
     }
 

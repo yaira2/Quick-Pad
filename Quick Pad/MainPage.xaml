@@ -191,6 +191,14 @@
                     <TextBlock Text="Redo (Ctrl+Y)" x:Uid="CmdRedoTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
+            <AppBarSeparator/>
+            <AppBarButton Icon="Find" Width="40" Margin="-8,0" Click="{x:Bind ToggleFindAndReplaceDialog}">
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="F" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
             <AppBarSeparator x:Name="ASep1"/>
             <AppBarToggleButton x:Name="CompactOverlay" x:Uid="CompactOverlay" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" MinWidth="40" Width="Auto">
                 <AppBarToggleButton.Icon>
@@ -407,6 +415,10 @@
                 </MenuFlyoutItem>
             </winui:MenuBarItem>
         </winui:MenuBar>
+
+        <dialog:FindAndReplace Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowFindAndReplace), Mode=OneWay}" Canvas.ZIndex="90" x:Name="FindAndReplaceDialog"/>
+
+
 
         <RichEditBox Grid.Row="2" 
                      x:Name="Text1" 
