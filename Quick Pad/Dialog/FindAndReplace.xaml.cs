@@ -53,16 +53,12 @@ namespace QuickPad.Dialog
         }
 
         #region Dialog Dependencies
+        bool _replace;
         public bool ShowReplace
         {
-            get => (bool)GetValue(ShowReplaceProperty);
-            set => SetValue(ShowReplaceProperty, value);
+            get => _replace;
+            set => Set(ref _replace, value);
         }
-        public static readonly DependencyProperty ShowReplaceProperty = DependencyProperty.Register(
-            nameof(ShowReplaceProperty),
-            typeof(bool),
-            typeof(UserControl),
-            new PropertyMetadata(false, null));
 
         bool _literal;
         public bool MatchCase
@@ -96,7 +92,7 @@ namespace QuickPad.Dialog
             nameof(TextToFindProperty),
             typeof(string),
             typeof(UserControl),
-            new PropertyMetadata(false, null));
+            new PropertyMetadata("", null));
 
         public string TextToReplace
         {
@@ -107,7 +103,7 @@ namespace QuickPad.Dialog
             nameof(TextToReplaceProperty),
             typeof(string),
             typeof(UserControl),
-            new PropertyMetadata(false, null));
+            new PropertyMetadata("", null));
 
         #endregion
 
