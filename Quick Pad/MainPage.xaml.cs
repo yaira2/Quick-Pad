@@ -1771,6 +1771,11 @@ namespace QuickPad
 
         private void FindRequestedText(string find, bool direction, bool match, bool wrap)
         {
+            if (string.IsNullOrEmpty(find))
+            {
+                //Nothing to search for
+                return;
+            }
             if (direction)
             {
                 StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
@@ -1810,6 +1815,15 @@ namespace QuickPad
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
         {
+            if (string.IsNullOrEmpty(find))
+            {
+                //Nothing to search for
+                return;
+            }
+            if (replace is null)
+            {
+                replace = string.Empty;
+            }
             if (all)
             {
                 //Replace all
