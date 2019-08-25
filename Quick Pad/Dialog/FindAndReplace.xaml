@@ -41,9 +41,9 @@
                     <TextBlock Text="More..."/>
                 </ToolTipService.ToolTip>
             </ToggleButton>
-            <TextBox Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
+            <TextBox x:Name="FindInput" x:FieldModifier="public" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <Button Height="32">
+                <Button Height="32" Click="{x:Bind SendRequestFind}">
                     <FontIcon Glyph="&#xE094;" />
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Find"/>
@@ -64,7 +64,7 @@
                                     <KeyboardAccelerator Key="F3" />
                                 </MenuFlyoutItem.KeyboardAccelerators>
                             </MenuFlyoutItem>
-                            <MenuFlyoutItem Text="Find Previous">
+                            <MenuFlyoutItem Text="Find Previous" Click="{x:Bind RequestFindPrevious}">
                                 <MenuFlyoutItem.Icon>
                                     <FontIcon Glyph="&#xE0A6;" />
                                 </MenuFlyoutItem.Icon>
