@@ -170,6 +170,10 @@ namespace QuickPad
             CheckPushNotifications(); //check for push notifications
             AddJumplists(); //reset the jumplist tasks
 
+#if DEBUG
+            Text1.Document.SetText(TextSetOptions.None, "According to all known laws\nof aviation,\nthere is no way a bee\nshould be able to fly.\nIts wings are too small to get\nits fat little body off the ground.\nThe bee, of course, flies anyway\nbecause bees don't care\nwhat humans think is impossible.\nYellow, black. Yellow, black.\nYellow, black. Yellow, black.\nOoh, black and yellow!\nLet's shake it up a little.\nBarry! Breakfast is ready!");
+#endif
+
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
         }
@@ -1465,6 +1469,7 @@ namespace QuickPad
                 Text1.Document.GetText(TextGetOptions.None, out _content);
                 _content = TrimRichEditBoxText(_content);
                 _isLineCachePendingUpdate = true;
+                MaximumPossibleSearchRange = _content.Length;
             }
         }
         /// <summary>
@@ -1732,6 +1737,7 @@ namespace QuickPad
                             if (string.IsNullOrEmpty(FindAndReplaceDialog.TextToFind))
                             {
                                 FindAndReplaceDialog.TextToFind = Text1.Document.Selection.Text;
+                                FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
                             }
                         }
                         FindAndReplaceDialog.onRequestFinding += FindRequestedText;
@@ -1753,9 +1759,57 @@ namespace QuickPad
             ShowFindAndReplace = !ShowFindAndReplace;
         }
 
+        int _ssp;
+        public int StartSearchPosition
+        {
+            get => _ssp;
+            set => Set(ref _ssp, value);
+        }
+
+        int _maxRange;
+        public int MaximumPossibleSearchRange
+        {
+            get => _maxRange;
+            set => Set(ref _maxRange, value);
+        }
+
         private void FindRequestedText(string find, bool direction, bool match, bool wrap)
         {
-            
+            if (direction)
+            {
+                StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
+            }
+            else if (!direction)
+            {
+                int result = 0;
+                int backward = Text1.TextDocument.Selection.StartPosition - find.Length;
+                if (backward < 1)
+                {
+                    backward = MaximumPossibleSearchRange;
+                }
+                while (backward > 1 && result < 1)
+                {
+                    Text1.TextDocument.Selection.StartPosition = backward;
+                    result = Text1.TextDocument.Selection.FindText(find, find.Length + 1, match ? FindOptions.Case : FindOptions.None);
+                    backward--;
+                    if (backward < 2 && result == 0 && wrap)
+                    {                        
+                        Text1.TextDocument.Selection.SetRange(MaximumPossibleSearchRange, MaximumPossibleSearchRange);
+                        FindRequestedText(find, direction, match, false);
+                        break;
+                    }
+                    else if (backward < 2 && result == 0 && !wrap)
+                    {
+                        FindRequestedText(find, true, match, false);
+                    }
+                }
+            }
+
+            if (StartSearchPosition < 1 && wrap)
+            {
+                Text1.TextDocument.Selection.SetRange(0, 0);
+                FindRequestedText(find, direction, match, false);
+            }
         }
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)

@@ -83,27 +83,19 @@ namespace QuickPad.Dialog
         #endregion
 
         #region Input Dependencies
+        string _tf;
         public string TextToFind
         {
-            get => (string)GetValue(TextToFindProperty);
-            set => SetValue(TextToFindProperty, value);
+            get => _tf;
+            set => Set(ref _tf, value);
         }
-        public static readonly DependencyProperty TextToFindProperty = DependencyProperty.Register(
-            nameof(TextToFindProperty),
-            typeof(string),
-            typeof(UserControl),
-            new PropertyMetadata("", null));
-
+        
+        string _tr;
         public string TextToReplace
         {
-            get => (string)GetValue(TextToReplaceProperty);
-            set => SetValue(TextToReplaceProperty, value);
+            get => _tr;
+            set => Set(ref _tr, value);
         }
-        public static readonly DependencyProperty TextToReplaceProperty = DependencyProperty.Register(
-            nameof(TextToReplaceProperty),
-            typeof(string),
-            typeof(UserControl),
-            new PropertyMetadata("", null));
 
         #endregion
 
