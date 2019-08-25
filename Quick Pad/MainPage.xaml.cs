@@ -228,6 +228,8 @@ namespace QuickPad
                     SetANewChange();
                 }
             }
+            //Update dialog theme
+            WantToSave.RequestedTheme = to;
         }
 
         private void UpdateText1FontSize(int to)
