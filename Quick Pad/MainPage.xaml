@@ -103,9 +103,9 @@
                     <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon Margin="0,2,0,-2" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
+                    <FontIcon Margin="0,4,0,-3" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
                         <FontIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
                         </FontIcon.RenderTransform>
                     </FontIcon>
                 </AppBarToggleButton.Icon>
