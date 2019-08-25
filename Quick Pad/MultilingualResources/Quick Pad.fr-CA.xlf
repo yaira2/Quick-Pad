@@ -698,6 +698,10 @@
           <source>On Top (Ctrl+Shift+O)</source>
           <target state="new">On Top (Ctrl+Shift+O)</target>
         </trans-unit>
+        <trans-unit id="CmdFind.Label" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="new">Find</target>
+        </trans-unit>
       </group>
     </body>
   </file>

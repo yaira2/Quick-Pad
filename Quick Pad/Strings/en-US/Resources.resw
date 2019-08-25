@@ -636,4 +636,7 @@
   <data name="CmdOnTopTooltip" xml:space="preserve">
     <value>On Top (Ctrl+Shift+O)</value>
   </data>
+  <data name="CmdFind.Label" xml:space="preserve">
+    <value>Find</value>
+  </data>
 </root>
