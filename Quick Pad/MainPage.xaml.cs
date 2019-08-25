@@ -1730,11 +1730,13 @@ namespace QuickPad
                     {
                         if (Text1.Document.Selection.Length > 1)
                         {
-                            if (string.IsNullOrEmpty(FindAndReplaceDialog.TextToFind))
-                            {
-                                FindAndReplaceDialog.TextToFind = Text1.Document.Selection.Text;
-                                FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
-                            }
+                            FindAndReplaceDialog.TextToFind = Text1.Document.Selection.Text;
+                            DelayFocus();
+                        }
+                        else
+                        {
+                            FindAndReplaceDialog.TextToFind = "";
+                            DelayFocus();
                         }
                         FindAndReplaceDialog.onRequestFinding += FindRequestedText;
                         FindAndReplaceDialog.onRequestReplacing += FindAndReplaceRequestedText;
@@ -1748,6 +1750,13 @@ namespace QuickPad
                     }
                 }
             }
+        }
+
+        async void DelayFocus()
+        {
+            await Task.Delay(100);
+            FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
+            FindAndReplaceDialog.FindInput.SelectionStart = FindAndReplaceDialog.FindInput.Text.Length;
         }
 
         public void ToggleFindAndReplaceDialog()
