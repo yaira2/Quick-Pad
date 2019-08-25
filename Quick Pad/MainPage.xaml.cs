@@ -170,10 +170,6 @@ namespace QuickPad
             CheckPushNotifications(); //check for push notifications
             AddJumplists(); //reset the jumplist tasks
 
-#if DEBUG
-            Text1.Document.SetText(TextSetOptions.None, "According to all known laws\nof aviation,\nthere is no way a bee\nshould be able to fly.\nIts wings are too small to get\nits fat little body off the ground.\nThe bee, of course, flies anyway\nbecause bees don't care\nwhat humans think is impossible.\nYellow, black. Yellow, black.\nYellow, black. Yellow, black.\nOoh, black and yellow!\nLet's shake it up a little.\nBarry! Breakfast is ready!");
-#endif
-
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
         }
