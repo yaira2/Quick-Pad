@@ -169,7 +169,7 @@
                         <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
                     </ToolTipService.ToolTip>
                 </AppBarButton>
-                <AppBarButton Icon="Find" x:Uid="CmdFind" Width="Auto" MinWidth="40" Click="{x:Bind ToggleFindAndReplaceDialog}">
+                <AppBarButton Icon="Find" x:Uid="CmdFind" Width="Auto" MinWidth="40" Click="{x:Bind ToggleFindAndReplaceDialog}" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator
                           Modifiers="Control" 
@@ -416,6 +416,8 @@
         </winui:MenuBar>
 
         <dialog:FindAndReplace Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowFindAndReplace), Mode=OneWay}" Canvas.ZIndex="90" x:Name="FindAndReplaceDialog"/>
+
+
 
         <RichEditBox Grid.Row="2" 
                      x:Name="Text1" 
