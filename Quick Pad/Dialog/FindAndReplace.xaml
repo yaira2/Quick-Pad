@@ -7,9 +7,11 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tkui="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:q="using:QuickPad"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400"
+    Windows10version1809:CornerRadius="4">
 
     <tkui:DropShadowPanel>
         <Grid MinWidth="350" Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" Padding="10">
@@ -35,15 +37,15 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
             </Grid.ColumnDefinitions>
-            <ToggleButton IsChecked="{x:Bind ShowReplace, Mode=TwoWay}">
+            <ToggleButton IsChecked="{x:Bind ShowReplace, Mode=TwoWay}" Windows10version1809:CornerRadius="2">
                 <FontIcon Glyph="&#xE011;" />
                 <ToolTipService.ToolTip>
                     <TextBlock Text="More..."/>
                 </ToolTipService.ToolTip>
             </ToggleButton>
-            <TextBox x:Name="FindInput" x:FieldModifier="public" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
+            <TextBox x:Name="FindInput" x:FieldModifier="public" Windows10version1809:CornerRadius="2" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Margin="5,0" PlaceholderText="Looking for?"/>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <Button Height="32" Click="{x:Bind SendRequestFind}">
+                <Button Height="32" Click="{x:Bind SendRequestFind}" Windows10version1809:CornerRadius="2,0,0,2">
                     <Grid>
                         <FontIcon Glyph="&#xE094;" />
                         <FontIcon Glyph="&#xE0A6;" FontSize="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
@@ -53,7 +55,7 @@
                         <TextBlock Text="Find"/>
                     </ToolTipService.ToolTip>
                 </Button>
-                <Button Padding="2" Height="32">
+                <Button Padding="2" Height="32" Windows10version1809:CornerRadius="0,2,2,0">
                     <FontIcon Glyph="&#xE813;"/>
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Find option"/>
@@ -81,7 +83,7 @@
                 </Button>
                 
                 <!--Close dialog-->
-                <Button Margin="5,0,0,0" Click="{x:Bind RequestCloseDialog}">
+                <Button Margin="5,0,0,0" Click="{x:Bind RequestCloseDialog}" Windows10version1809:CornerRadius="2">
                     <FontIcon Glyph="&#xE10A;" />
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Close"/>
@@ -90,16 +92,16 @@
             </StackPanel>
             
             <!--Second row-->
-            <TextBox Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
+            <TextBox Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Windows10version1809:CornerRadius="2" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
             <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
-                <Button Click="{x:Bind SendRequestReplace}">
+                <Button Click="{x:Bind SendRequestReplace}" Windows10version1809:CornerRadius="2">
                     <FontIcon Glyph="&#xE8AC;"/>
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Replace"/>
                     </ToolTipService.ToolTip>
                 </Button>
 
-                <Button Margin="5,0" Click="{x:Bind SendRequestReplaceAll}">
+                <Button Margin="5,0" Click="{x:Bind SendRequestReplaceAll}" Windows10version1809:CornerRadius="2">
                     <FontIcon Glyph="&#xE8B3;"/>
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Replace all"/>
