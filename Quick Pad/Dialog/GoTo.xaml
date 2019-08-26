@@ -6,8 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Title="Go to">
+    Title="Go To Line"
+    PrimaryButtonText="Go to"
+    SecondaryButtonText="Cancel"
+    Opened="ContentDialog_Opened"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <Grid>
+        <TextBox Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public"/>
     </Grid>
 </ContentDialog>

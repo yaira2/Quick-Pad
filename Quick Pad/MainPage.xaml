@@ -353,9 +353,9 @@
                         <KeyboardAccelerator Modifiers="Control" Key="H" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Go To">
+                <MenuFlyoutItem Text="Go To" Click="{x:Bind CMDGoTo_Click}">
                     <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="H" />
+                        <KeyboardAccelerator Modifiers="Control" Key="G" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12F;" />

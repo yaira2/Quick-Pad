@@ -24,12 +24,51 @@ namespace QuickPad.Dialog
             this.InitializeComponent();
         }
 
+        public DialogResult finalResult;
+
+        private void LineInput_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+
+            if (e.Key != Windows.System.VirtualKey.Enter)
+                return;
+            try
+            {
+                int parse = int.Parse(LineInput.Text);
+            }
+            catch
+            {
+                finalResult = DialogResult.None;
+                this.Hide();
+                return;
+            }
+            finalResult = DialogResult.Yes;
+            this.Hide();
+        }
+
+        private void ContentDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
+        {
+            finalResult = DialogResult.None;
+        }
+
         private void ContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+            try
+            {
+                int parse = int.Parse(LineInput.Text);
+            }
+            catch
+            {
+                finalResult = DialogResult.None;
+                this.Hide();
+                return;
+            }
+            finalResult = DialogResult.Yes;
+            this.Hide();
         }
 
         private void ContentDialog_SecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
+            finalResult = DialogResult.No;
         }
     }
 }

@@ -1891,6 +1891,51 @@ namespace QuickPad
             FindAndReplaceDialog.ShowReplace = true;
             ShowFindAndReplace = true;
         }
+
+        public async void CMDGoTo_Click()
+        {
+            Dialog.GoTo line = new Dialog.GoTo()
+            {
+                RequestedTheme = QSetting.Theme
+            };
+            await line.ShowAsync();
+            if (line.finalResult == DialogResult.Yes)
+            {
+                Text1.TextDocument.GetText(TextGetOptions.None, out string value);
+                totalLine = value.Count(i => i == '\n' || i == '\r');
+                totalCharacters = value.Length;
+                System.Diagnostics.Debug.WriteLine($"\"{value}\"");
+                int input = int.Parse(line.LineInput.Text) - 1;
+                if (input < 1) { input = 1; }
+                if (input > totalLine)
+                {
+                    Text1.TextDocument.Selection.StartPosition = totalCharacters;
+                    Text1.TextDocument.Selection.EndPosition = totalCharacters;
+                }
+                else
+                {
+                    int index = 0;
+                    while (input > 0)
+                    {
+                        if (value[index] == '\r')
+                        {
+                            index++;
+                            input--;
+                            if (index == 0)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            index++;
+                        }
+                    }
+                    Text1.TextDocument.Selection.StartPosition = index;
+                    Text1.TextDocument.Selection.EndPosition = index;
+                }
+            }
+        }
         #endregion
     }
 
