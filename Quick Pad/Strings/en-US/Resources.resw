@@ -639,4 +639,37 @@
   <data name="CmdFind.Label" xml:space="preserve">
     <value>Find</value>
   </data>
+  <data name="ClassicEditFind.Text" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="ClassicEditFindNext.Text" xml:space="preserve">
+    <value>Find Next</value>
+  </data>
+  <data name="ClassicEditFindPrevious.Text" xml:space="preserve">
+    <value>Find Previous</value>
+  </data>
+  <data name="ClassicEditReplace.Text" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="FAR_CloseDialog.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="FAR_FindOption.Text" xml:space="preserve">
+    <value>Find option</value>
+  </data>
+  <data name="FAR_InputEmpty.PlaceholderText" xml:space="preserve">
+    <value>Looking for?</value>
+  </data>
+  <data name="FAR_MatchCase.Content" xml:space="preserve">
+    <value>Match case</value>
+  </data>
+  <data name="FAR_More.Text" xml:space="preserve">
+    <value>More...</value>
+  </data>
+  <data name="FAR_ReplaceAll.Text" xml:space="preserve">
+    <value>Replace All</value>
+  </data>
+  <data name="FAR_WrapAround.Content" xml:space="preserve">
+    <value>Wrap around</value>
+  </data>
 </root>
