@@ -1024,6 +1024,8 @@ namespace QuickPad
             Text1.Document.EndUndoGroup();
         }
 
+        private void Delete_Click(object sender, RoutedEventArgs e) => Text1.TextDocument.Selection.Text = string.Empty;
+
         private async void Paste_Click(object sender, RoutedEventArgs e)
         {
             DataPackageView dataPackageView = Clipboard.GetContent();
@@ -1356,6 +1358,9 @@ namespace QuickPad
                 {
                     Text1.FontSize = 16;
                 }
+
+                //Hide Find and Replace dialog if it open
+                ShowFindAndReplace = false;
 
                 //log even in app center
                 Analytics.TrackEvent("Compact Overlay");
@@ -1730,11 +1735,13 @@ namespace QuickPad
                     {
                         if (Text1.Document.Selection.Length > 1)
                         {
-                            if (string.IsNullOrEmpty(FindAndReplaceDialog.TextToFind))
-                            {
-                                FindAndReplaceDialog.TextToFind = Text1.Document.Selection.Text;
-                                FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
-                            }
+                            FindAndReplaceDialog.TextToFind = Text1.Document.Selection.Text;
+                            DelayFocus();
+                        }
+                        else
+                        {
+                            FindAndReplaceDialog.TextToFind = "";
+                            DelayFocus();
                         }
                         FindAndReplaceDialog.onRequestFinding += FindRequestedText;
                         FindAndReplaceDialog.onRequestReplacing += FindAndReplaceRequestedText;
@@ -1748,6 +1755,13 @@ namespace QuickPad
                     }
                 }
             }
+        }
+
+        async void DelayFocus()
+        {
+            await Task.Delay(100);
+            FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
+            FindAndReplaceDialog.FindInput.SelectionStart = FindAndReplaceDialog.FindInput.Text.Length;
         }
 
         public void ToggleFindAndReplaceDialog()
@@ -1769,8 +1783,21 @@ namespace QuickPad
             set => Set(ref _maxRange, value);
         }
 
+        private async void FindWithBing()
+        {
+            if (Text1.TextDocument.Selection.Text.Length > 0)
+            {
+                await Windows.System.Launcher.LaunchUriAsync(new Uri($"https://www.bing.com/search?q={Text1.TextDocument.Selection.Text}"));
+            }
+        }
+
         private void FindRequestedText(string find, bool direction, bool match, bool wrap)
         {
+            if (string.IsNullOrEmpty(find))
+            {
+                //Nothing to search for
+                return;
+            }
             if (direction)
             {
                 StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
@@ -1810,6 +1837,15 @@ namespace QuickPad
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
         {
+            if (string.IsNullOrEmpty(find))
+            {
+                //Nothing to search for
+                return;
+            }
+            if (replace is null)
+            {
+                replace = string.Empty;
+            }
             if (all)
             {
                 //Replace all
@@ -1849,6 +1885,12 @@ namespace QuickPad
             }
         }
 
+        //Menubar function
+        public void OpenFindDialogWithReplace()
+        {
+            FindAndReplaceDialog.ShowReplace = true;
+            ShowFindAndReplace = true;
+        }
         #endregion
     }
 

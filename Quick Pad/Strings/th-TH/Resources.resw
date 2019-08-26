@@ -525,4 +525,49 @@
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>แสดงแถบสถานะเมื่ออยู่ในโหมดคลาสสิค</value>
   </data>
+  <data name="AppLanguage.Text" xml:space="preserve">
+    <value>ภาษา</value>
+  </data>
+  <data name="CmdOnTopTooltip" xml:space="preserve">
+    <value>ทับแอปอื่น (Ctrl+Shift+O)</value>
+  </data>
+  <data name="CmdFind.Label" xml:space="preserve">
+    <value>ค้นหา</value>
+  </data>
+  <data name="ClassicEditFind.Text" xml:space="preserve">
+    <value>ค้นหา</value>
+  </data>
+  <data name="ClassicEditFindNext.Text" xml:space="preserve">
+    <value>ค้นหาถัดไป</value>
+  </data>
+  <data name="ClassicEditFindPrevious.Text" xml:space="preserve">
+    <value>ค้นหาก่อนหน้า</value>
+  </data>
+  <data name="ClassicEditReplace.Text" xml:space="preserve">
+    <value>แทนที่</value>
+  </data>
+  <data name="FAR_CloseDialog.Text" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="FAR_FindOption.Text" xml:space="preserve">
+    <value>ตัวเลือกการหา</value>
+  </data>
+  <data name="FAR_InputEmpty.PlaceholderText" xml:space="preserve">
+    <value>ต้องการหาอะไร พิมพ์เลย!</value>
+  </data>
+  <data name="FAR_MatchCase.Content" xml:space="preserve">
+    <value>ตรงตามตัวพิมพ์ใหญ่-เล็ก</value>
+  </data>
+  <data name="FAR_More.Text" xml:space="preserve">
+    <value>เพิ่มเติม</value>
+  </data>
+  <data name="FAR_ReplaceAll.Text" xml:space="preserve">
+    <value>แทนที่ทั้งหมด</value>
+  </data>
+  <data name="FAR_WrapAround.Content" xml:space="preserve">
+    <value>ค้นหาแบบวน</value>
+  </data>
+  <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
+    <value>แทนที่ด้วย..</value>
+  </data>
 </root>

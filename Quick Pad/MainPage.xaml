@@ -169,7 +169,7 @@
                         <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
                     </ToolTipService.ToolTip>
                 </AppBarButton>
-                <AppBarButton Icon="Find" x:Uid="CmdFind" Width="Auto" MinWidth="40" Click="{x:Bind ToggleFindAndReplaceDialog}">
+                <AppBarButton Icon="Find" x:Uid="CmdFind" Width="Auto" MinWidth="40" Click="{x:Bind ToggleFindAndReplaceDialog}" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator
                           Modifiers="Control" 
@@ -307,6 +307,69 @@
                 <MenuFlyoutItem Text="Paste" Click="Paste_Click" AccessKey="P" x:Uid="ClassicEditPaste">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Paste"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Delete" Click="Delete_Click" AccessKey="P" x:Uid="ClassicEditPaste">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Delete"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Search with Bing..." Click="{x:Bind FindWithBing}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE12B;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="F" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="ClassicEditFind" Text="Find" Icon="Find" Click="{x:Bind ToggleFindAndReplaceDialog}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="F" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="ClassicEditFindNext" Text="Find Next" Click="{x:Bind FindAndReplaceDialog.RequestFindNext}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE0AB;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F3" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="ClassicEditFindPrevious" Text="Find Previous" Click="{x:Bind FindAndReplaceDialog.RequestFindPrevious}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE0A6;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Shift" Key="F3" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="ClassicEditReplace" Text="Replace" Icon="Rename" Click="{x:Bind OpenFindDialogWithReplace}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="H" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Go To">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="H" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE12F;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Select All">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE8B3;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Date/Time">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xEC92;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
             </winui:MenuBarItem>
