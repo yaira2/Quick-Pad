@@ -1730,6 +1730,11 @@ namespace QuickPad
             {
                 if (!Equals(_fr, value))
                 {
+                    if (CompactOverlaySwitch && value)
+                    {
+                        //Atempt to open find and replace on compact overlay
+                        return;//Abort
+                    }
                     Set(ref _fr, value);
                     if (value)
                     {
