@@ -309,7 +309,22 @@
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Delete" Click="Delete_Click" AccessKey="P" x:Uid="ClassicEditPaste">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Delete"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Search with Bing..." Click="{x:Bind FindWithBing}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE12B;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="F" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
                 <MenuFlyoutItem x:Uid="ClassicEditFind" Text="Find" Icon="Find" Click="{x:Bind ToggleFindAndReplaceDialog}">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator
@@ -337,6 +352,25 @@
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="H" />
                     </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Go To">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="H" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE12F;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Select All">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE8B3;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Date/Time">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xEC92;" />
+                    </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="Format" AccessKey="O" x:Uid="ClassicFormat">

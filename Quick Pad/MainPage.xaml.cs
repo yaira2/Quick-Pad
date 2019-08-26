@@ -1024,6 +1024,8 @@ namespace QuickPad
             Text1.Document.EndUndoGroup();
         }
 
+        private void Delete_Click(object sender, RoutedEventArgs e) => Text1.TextDocument.Selection.Text = string.Empty;
+
         private async void Paste_Click(object sender, RoutedEventArgs e)
         {
             DataPackageView dataPackageView = Clipboard.GetContent();
@@ -1779,6 +1781,14 @@ namespace QuickPad
         {
             get => _maxRange;
             set => Set(ref _maxRange, value);
+        }
+
+        private async void FindWithBing()
+        {
+            if (Text1.TextDocument.Selection.Text.Length > 0)
+            {
+                await Windows.System.Launcher.LaunchUriAsync(new Uri($"https://www.bing.com/search?q={Text1.TextDocument.Selection.Text}"));
+            }
         }
 
         private void FindRequestedText(string find, bool direction, bool match, bool wrap)
