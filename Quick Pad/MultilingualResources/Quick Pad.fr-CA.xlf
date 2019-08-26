@@ -750,6 +750,42 @@
           <source>Replace with..</source>
           <target state="new">Replace with..</target>
         </trans-unit>
+        <trans-unit id="ClassicEditDelete.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditGoTo.Text" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
+          <source>Date/Time</source>
+          <target state="new">Date/Time</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
+          <source>Search with Bing...</source>
+          <target state="new">Search with Bing...</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditSelectAll.Text" translate="yes" xml:space="preserve">
+          <source>Select All</source>
+          <target state="new">Select All</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Go to</source>
+          <target state="new">Go to</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.Title" translate="yes" xml:space="preserve">
+          <source>Go To Line</source>
+          <target state="new">Go To Line</target>
+        </trans-unit>
+        <trans-unit id="GT_LineInput.Header" translate="yes" xml:space="preserve">
+          <source>Line number:</source>
+          <target state="new">Line number:</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -750,6 +750,42 @@
           <source>Replace with..</source>
           <target state="translated">แทนที่ด้วย..</target>
         </trans-unit>
+        <trans-unit id="ClassicEditDelete.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated" state-qualifier="tm-suggestion">ลบ</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditGoTo.Text" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="translated">ไปบรรทัดที</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
+          <source>Date/Time</source>
+          <target state="translated">แทรกเวลาและวันที่</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
+          <source>Search with Bing...</source>
+          <target state="translated" state-qualifier="tm-suggestion">ค้นหาด้วย Bing</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditSelectAll.Text" translate="yes" xml:space="preserve">
+          <source>Select All</source>
+          <target state="translated" state-qualifier="tm-suggestion">เลือกทั้งหมด</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Go to</source>
+          <target state="translated">ไป</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated" state-qualifier="tm-suggestion">ยกเลิก</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.Title" translate="yes" xml:space="preserve">
+          <source>Go To Line</source>
+          <target state="translated">ไปที่บรรทัด</target>
+        </trans-unit>
+        <trans-unit id="GT_LineInput.Header" translate="yes" xml:space="preserve">
+          <source>Line number:</source>
+          <target state="translated">บรรทัดที่:</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -1,0 +1,20 @@
+﻿<ContentDialog
+    x:Class="QuickPad.Dialog.GoTo"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QuickPad.Dialog"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Title="Go To Line"
+    PrimaryButtonText="Go to"
+    SecondaryButtonText="Cancel"
+    x:Uid="GT_Dialog"
+    Opened="ContentDialog_Opened"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <Grid>
+        <TextBox x:Uid="GT_LineInput" Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public"/>
+    </Grid>
+</ContentDialog>

@@ -308,20 +308,20 @@
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Delete" Click="Delete_Click" AccessKey="P" x:Uid="ClassicEditPaste">
+                <MenuFlyoutItem Text="Delete" Click="Delete_Click" x:Uid="ClassicEditDelete">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Delete"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Search with Bing..." Click="{x:Bind FindWithBing}">
+                <MenuFlyoutItem Text="Search with Bing..." Click="{x:Bind FindWithBing}" x:Uid="ClassicEditSearch">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12B;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator
                           Modifiers="Control" 
-                           Key="F" />
+                           Key="E" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem x:Uid="ClassicEditFind" Text="Find" Icon="Find" Click="{x:Bind ToggleFindAndReplaceDialog}">
@@ -352,24 +352,27 @@
                         <KeyboardAccelerator Modifiers="Control" Key="H" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Go To">
+                <MenuFlyoutItem Text="Go To" Click="{x:Bind CMDGoTo_Click}" x:Uid="ClassicEditGoTo">
                     <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control" Key="H" />
+                        <KeyboardAccelerator Modifiers="Control" Key="G" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12F;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Select All">
+                <MenuFlyoutItem Text="Select All" Click="CMDSelectAll_Click" x:Uid="ClassicEditSelectAll">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE8B3;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Date/Time">
+                <MenuFlyoutItem Text="Date/Time" Click="CMDInsertDateTime_Click" x:Uid="ClassicEditInsertDT">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xEC92;" />
                     </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F5" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="Format" AccessKey="O" x:Uid="ClassicFormat">
