@@ -702,6 +702,54 @@
           <source>Find</source>
           <target state="new">Find</target>
         </trans-unit>
+        <trans-unit id="ClassicEditFind.Text" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="new">Find</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditFindNext.Text" translate="yes" xml:space="preserve">
+          <source>Find Next</source>
+          <target state="new">Find Next</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditFindPrevious.Text" translate="yes" xml:space="preserve">
+          <source>Find Previous</source>
+          <target state="new">Find Previous</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditReplace.Text" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="new">Replace</target>
+        </trans-unit>
+        <trans-unit id="FAR_CloseDialog.Text" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="new">Close</target>
+        </trans-unit>
+        <trans-unit id="FAR_FindOption.Text" translate="yes" xml:space="preserve">
+          <source>Find option</source>
+          <target state="new">Find option</target>
+        </trans-unit>
+        <trans-unit id="FAR_InputEmpty.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Looking for?</source>
+          <target state="new">Looking for?</target>
+        </trans-unit>
+        <trans-unit id="FAR_MatchCase.Content" translate="yes" xml:space="preserve">
+          <source>Match case</source>
+          <target state="new">Match case</target>
+        </trans-unit>
+        <trans-unit id="FAR_More.Text" translate="yes" xml:space="preserve">
+          <source>More...</source>
+          <target state="new">More...</target>
+        </trans-unit>
+        <trans-unit id="FAR_ReplaceAll.Text" translate="yes" xml:space="preserve">
+          <source>Replace All</source>
+          <target state="new">Replace All</target>
+        </trans-unit>
+        <trans-unit id="FAR_WrapAround.Content" translate="yes" xml:space="preserve">
+          <source>Wrap around</source>
+          <target state="new">Wrap around</target>
+        </trans-unit>
+        <trans-unit id="FAR_ReplaceInput.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Replace with..</source>
+          <target state="new">Replace with..</target>
+        </trans-unit>
       </group>
     </body>
   </file>

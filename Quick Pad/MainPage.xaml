@@ -310,7 +310,7 @@
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem x:Uid="ClassicEditFind" Text="Find" Icon="Find" Click="{x:Bind FindAndReplaceDialog.SendRequestFind}">
+                <MenuFlyoutItem x:Uid="ClassicEditFind" Text="Find" Icon="Find" Click="{x:Bind ToggleFindAndReplaceDialog}">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator
                           Modifiers="Control" 

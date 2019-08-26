@@ -672,4 +672,7 @@
   <data name="FAR_WrapAround.Content" xml:space="preserve">
     <value>Wrap around</value>
   </data>
+  <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
+    <value>Replace with..</value>
+  </data>
 </root>
