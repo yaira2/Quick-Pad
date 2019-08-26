@@ -309,13 +309,13 @@
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Delete" Click="Delete_Click">
+                <MenuFlyoutItem Text="Delete" Click="Delete_Click" x:Uid="ClassicEditDelete">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Delete"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Search with Bing..." Click="{x:Bind FindWithBing}">
+                <MenuFlyoutItem Text="Search with Bing..." Click="{x:Bind FindWithBing}" x:Uid="ClassicEditSearch">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12B;" />
                     </MenuFlyoutItem.Icon>
@@ -353,7 +353,7 @@
                         <KeyboardAccelerator Modifiers="Control" Key="H" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Go To" Click="{x:Bind CMDGoTo_Click}">
+                <MenuFlyoutItem Text="Go To" Click="{x:Bind CMDGoTo_Click}" x:Uid="ClassicEditGoTo">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="G" />
                     </MenuFlyoutItem.KeyboardAccelerators>
@@ -362,12 +362,12 @@
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Select All" Click="CMDSelectAll_Click">
+                <MenuFlyoutItem Text="Select All" Click="CMDSelectAll_Click" x:Uid="ClassicEditSelectAll">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE8B3;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Date/Time" Click="CMDInsertDateTime_Click">
+                <MenuFlyoutItem Text="Date/Time" Click="CMDInsertDateTime_Click" x:Uid="ClassicEditInsertDT">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xEC92;" />
                     </MenuFlyoutItem.Icon>

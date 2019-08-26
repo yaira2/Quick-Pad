@@ -675,4 +675,31 @@
   <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
     <value>Replace with..</value>
   </data>
+  <data name="ClassicEditDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ClassicEditGoTo.Text" xml:space="preserve">
+    <value>Go To</value>
+  </data>
+  <data name="ClassicEditInsertDT.Text" xml:space="preserve">
+    <value>Date/Time</value>
+  </data>
+  <data name="ClassicEditSearch.Text" xml:space="preserve">
+    <value>Search with Bing...</value>
+  </data>
+  <data name="ClassicEditSelectAll.Text" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="GT_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>Go to</value>
+  </data>
+  <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="GT_Dialog.Title" xml:space="preserve">
+    <value>Go To Line</value>
+  </data>
+  <data name="GT_LineInput.Header" xml:space="preserve">
+    <value>Line number:</value>
+  </data>
 </root>

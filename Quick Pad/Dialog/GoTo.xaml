@@ -9,11 +9,12 @@
     Title="Go To Line"
     PrimaryButtonText="Go to"
     SecondaryButtonText="Cancel"
+    x:Uid="GT_Dialog"
     Opened="ContentDialog_Opened"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <Grid>
-        <TextBox Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public"/>
+        <TextBox x:Uid="GT_LineInput" Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public"/>
     </Grid>
 </ContentDialog>
