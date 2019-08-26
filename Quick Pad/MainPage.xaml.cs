@@ -1885,6 +1885,18 @@ namespace QuickPad
             }
         }
 
+        private void CMDSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            Text1.Document.GetText(TextGetOptions.None, out string value);
+            Text1.Document.Selection.SetRange(0, value.Length);
+        }
+
+        private void CMDInsertDateTime_Click(object sender, RoutedEventArgs e)
+        {
+            Text1.Document.Selection.Text = $"{Text1.Document.Selection.Text}{DateTime.Now.ToString("G")}";
+            Text1.Document.Selection.StartPosition = Text1.Document.Selection.EndPosition;
+        }
+
         //Menubar function
         public void OpenFindDialogWithReplace()
         {
