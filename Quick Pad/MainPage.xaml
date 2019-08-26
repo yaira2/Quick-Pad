@@ -176,7 +176,6 @@
                            Key="F" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:Name="CmdReview" x:Uid="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
                 <AppBarButton x:Name="CmdSettings" x:Uid="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click">
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Settings" x:Uid="CmdSettingsTooltip"/>
