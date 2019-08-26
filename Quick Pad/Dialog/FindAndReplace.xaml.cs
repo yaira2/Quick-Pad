@@ -126,6 +126,22 @@ namespace QuickPad.Dialog
 
         public void SendRequestReplaceAll() => onRequestReplacing?.Invoke(TextToFind, TextToReplace, FindForward, MatchCase, WrapAround, true);
         #endregion
+
+        private void FindInput_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                SendRequestFind();
+            }
+        }
+
+        private void TextBox_KeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key == Windows.System.VirtualKey.Enter)
+            {
+                SendRequestReplace();
+            }
+        }
     }
 
     public delegate void CloseDialog();
