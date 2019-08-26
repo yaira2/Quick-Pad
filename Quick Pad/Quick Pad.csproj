@@ -142,6 +142,9 @@
     <Compile Include="Dialog\FontAndFormat.xaml.cs">
       <DependentUpon>FontAndFormat.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialog\GoTo.xaml.cs">
+      <DependentUpon>GoTo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialog\SaveChange.xaml.cs">
       <DependentUpon>SaveChange.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
     <Page Include="Dialog\FontAndFormat.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialog\GoTo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialog\SaveChange.xaml">
       <SubType>Designer</SubType>
