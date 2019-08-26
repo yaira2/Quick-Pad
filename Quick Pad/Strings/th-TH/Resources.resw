@@ -570,4 +570,31 @@
   <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
     <value>แทนที่ด้วย..</value>
   </data>
+  <data name="ClassicEditDelete.Text" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="ClassicEditGoTo.Text" xml:space="preserve">
+    <value>ไปบรรทัดที</value>
+  </data>
+  <data name="ClassicEditInsertDT.Text" xml:space="preserve">
+    <value>แทรกเวลาและวันที่</value>
+  </data>
+  <data name="ClassicEditSearch.Text" xml:space="preserve">
+    <value>ค้นหาด้วย Bing</value>
+  </data>
+  <data name="ClassicEditSelectAll.Text" xml:space="preserve">
+    <value>เลือกทั้งหมด</value>
+  </data>
+  <data name="GT_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>ไป</value>
+  </data>
+  <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="GT_Dialog.Title" xml:space="preserve">
+    <value>ไปที่บรรทัด</value>
+  </data>
+  <data name="GT_LineInput.Header" xml:space="preserve">
+    <value>บรรทัดที่:</value>
+  </data>
 </root>
