@@ -10,11 +10,10 @@
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400"
-    Windows10version1809:CornerRadius="4">
+    d:DesignWidth="400">
 
     <tkui:DropShadowPanel>
-        <Grid MinWidth="350" Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" Padding="10">
+        <Grid MinWidth="350" Padding="10" Windows10version1809:CornerRadius="4" >
             <Grid.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Height" Value="32"/>
@@ -24,9 +23,12 @@
                 <Style TargetType="ToggleButton">
                     <Setter Property="Height" Value="32"/>
                     <Setter Property="VerticalAlignment" Value="Center"/>
-                    <Setter Property="BorderThickness" Value="1"/>                    
+                    <Setter Property="BorderThickness" Value="1"/>
                 </Style>
             </Grid.Resources>
+            <Grid.Background>
+                <ThemeResource ResourceKey="SystemControlAcrylicElementBrush"/>
+            </Grid.Background>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -53,7 +55,7 @@
                 <Button Height="32" Windows10version1809:CornerRadius="2">
                     <StackPanel>
                         <FontIcon Glyph="&#xE0A6;" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
-                        <FontIcon Glyph="&#xE0AB;" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>                        
+                        <FontIcon Glyph="&#xE0AB;" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>
                     </StackPanel>
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Find option" x:Uid="FAR_FindOption"/>
@@ -79,7 +81,7 @@
                         </MenuFlyout>
                     </Button.Flyout>
                 </Button>
-                
+
                 <!--Close dialog-->
                 <Button Margin="5,0,0,0" Click="{x:Bind RequestCloseDialog}" Windows10version1809:CornerRadius="2">
                     <FontIcon Glyph="&#xE10A;" />
@@ -88,7 +90,7 @@
                     </ToolTipService.ToolTip>
                 </Button>
             </StackPanel>
-            
+
             <!--Second row-->
             <TextBox Style="{StaticResource TextBox}" KeyDown="TextBox_KeyDown" x:Uid="FAR_ReplaceInput" Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Windows10version1809:CornerRadius="2" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
             <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
@@ -106,12 +108,12 @@
                     </ToolTipService.ToolTip>
                 </Button>
             </StackPanel>
-            
+
             <!--Options-->
             <StackPanel Grid.Row="2" Grid.ColumnSpan="3" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
                 <CheckBox x:Uid="FAR_MatchCase" Content="Match case" IsChecked="{x:Bind MatchCase, Mode=TwoWay}"/>
                 <CheckBox x:Uid="FAR_WrapAround" Content="Wrap around" IsChecked="{x:Bind WrapAround, Mode=TwoWay}"/>
             </StackPanel>
-        </Grid>
+    </Grid>
     </tkui:DropShadowPanel>
 </UserControl>
