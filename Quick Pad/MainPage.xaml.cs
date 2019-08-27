@@ -1902,7 +1902,7 @@ namespace QuickPad
 
         private void CMDInsertDateTime_Click(object sender, RoutedEventArgs e)
         {
-            Text1.Document.Selection.Text = $"{Text1.Document.Selection.Text}{DateTime.Now.ToString("G")}";
+            Text1.Document.Selection.Text = $"{Text1.Document.Selection.Text}{DateTime.Now.ToString("HH:mm MM/dd/yyyy")}";
             Text1.Document.Selection.StartPosition = Text1.Document.Selection.EndPosition;
         }
 
