@@ -449,6 +449,27 @@ namespace QuickPad
             set => Set(ref _fci, value);
         }
 
+        int? _font = null;
+        public int SelectedDefaultFont
+        {
+            get
+            {
+                if (_font is null)
+                {
+                    _font = AllFonts.IndexOf(AllFonts.First(i => i.Name == QSetting.DefaultFont));
+                }
+                return _font.Value;
+            }
+            set
+            {
+                if (!Equals(_font, value))
+                {
+                    Set(ref _font, value);
+                    QSetting.DefaultFont = AllFonts[value].Name;
+                }
+            }
+        }
+
         public int _fc_selection = -1;
         public int SelectedDefaultFontColor
         {
@@ -1768,7 +1789,7 @@ namespace QuickPad
         {
             await Task.Delay(100);
             FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
-            FindAndReplaceDialog.FindInput.SelectionStart = FindAndReplaceDialog.FindInput.Text.Length;
+            //FindAndReplaceDialog.FindInput = FindAndReplaceDialog.FindInput.Text.Length;
         }
 
         public void ToggleFindAndReplaceDialog()
@@ -1840,6 +1861,8 @@ namespace QuickPad
                 Text1.TextDocument.Selection.SetRange(0, 0);
                 FindRequestedText(find, direction, match, false);
             }
+            //Scroll to the found text
+            Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
         }
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
@@ -1900,7 +1923,7 @@ namespace QuickPad
 
         private void CMDInsertDateTime_Click(object sender, RoutedEventArgs e)
         {
-            Text1.Document.Selection.Text = $"{Text1.Document.Selection.Text}{DateTime.Now.ToString("G")}";
+            Text1.Document.Selection.Text = $"{Text1.Document.Selection.Text}{DateTime.Now.ToString("HH:mm MM/dd/yyyy")}";
             Text1.Document.Selection.StartPosition = Text1.Document.Selection.EndPosition;
         }
 
@@ -1928,8 +1951,9 @@ namespace QuickPad
                 if (input < 1) { input = 1; }
                 if (input > totalLine)
                 {
-                    Text1.TextDocument.Selection.StartPosition = totalCharacters;
-                    Text1.TextDocument.Selection.EndPosition = totalCharacters;
+                    Text1.TextDocument.Selection.StartPosition = 
+                        Text1.TextDocument.Selection.EndPosition = 
+                        totalCharacters;
                 }
                 else
                 {
@@ -1952,6 +1976,7 @@ namespace QuickPad
                     }
                     Text1.TextDocument.Selection.StartPosition = index;
                     Text1.TextDocument.Selection.EndPosition = index;
+                    Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
                 }
             }
         }

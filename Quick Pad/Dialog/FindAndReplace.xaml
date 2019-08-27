@@ -43,21 +43,18 @@
                     <TextBlock Text="More..." x:Uid="FAR_More"/>
                 </ToolTipService.ToolTip>
             </ToggleButton>
-          
-            <TextBox x:Uid="FAR_InputEmpty" KeyDown="FindInput_KeyDown" x:Name="FindInput" x:FieldModifier="public" Windows10version1809:CornerRadius="2" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" PlaceholderText="Looking for?" Grid.Column="1" Margin="5,0" Style="{StaticResource TextBox}"/>
+
+            <AutoSuggestBox QuerySubmitted="{x:Bind SendRequestFind}" x:Uid="FAR_InputEmpty" KeyDown="FindInput_KeyDown" x:Name="FindInput" x:FieldModifier="public" Windows10version1809:CornerRadius="2" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" PlaceholderText="Looking for?" Grid.Column="1" Margin="5,0">
+                <AutoSuggestBox.QueryIcon>
+                    <SymbolIcon Symbol="Find"/>
+                </AutoSuggestBox.QueryIcon>
+            </AutoSuggestBox>
             <StackPanel Grid.Column="2" Orientation="Horizontal">
-                <Button Height="32" Click="{x:Bind SendRequestFind}" Windows10version1809:CornerRadius="2,0,0,2">
-                    <Grid>
-                        <FontIcon Glyph="&#xE094;" />
-                        <FontIcon Glyph="&#xE0A6;" FontSize="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
-                        <FontIcon Glyph="&#xE0AB;" FontSize="8" VerticalAlignment="Bottom" HorizontalAlignment="Right" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>
-                    </Grid>
-                    <ToolTipService.ToolTip>
-                        <TextBlock Text="Find" x:Uid="ClassicEditFind"/>
-                    </ToolTipService.ToolTip>
-                </Button>
-                <Button Padding="2" Height="32" Windows10version1809:CornerRadius="0,2,2,0">
-                    <FontIcon Glyph="&#xE813;"/>
+                <Button Height="32" Windows10version1809:CornerRadius="2">
+                    <StackPanel>
+                        <FontIcon Glyph="&#xE0A6;" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
+                        <FontIcon Glyph="&#xE0AB;" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>                        
+                    </StackPanel>
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Find option" x:Uid="FAR_FindOption"/>
                     </ToolTipService.ToolTip>
