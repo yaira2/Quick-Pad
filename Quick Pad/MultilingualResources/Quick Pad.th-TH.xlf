@@ -759,8 +759,9 @@
           <target state="translated">ไปบรรทัดที</target>
         </trans-unit>
         <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
-          <source>Date/Time</source>
-          <target state="translated">แทรกเวลาและวันที่</target>
+          <source>Time/Date</source>
+          <target state="needs-review-translation">แทรกเวลาและวันที่</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
           <source>Search with Bing...</source>

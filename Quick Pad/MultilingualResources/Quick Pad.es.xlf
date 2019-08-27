@@ -759,8 +759,8 @@
           <target state="new">Go To</target>
         </trans-unit>
         <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
-          <source>Date/Time</source>
-          <target state="new">Date/Time</target>
+          <source>Time/Date</source>
+          <target state="new">Time/Date</target>
         </trans-unit>
         <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
           <source>Search with Bing...</source>
