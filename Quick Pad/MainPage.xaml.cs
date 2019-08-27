@@ -1923,7 +1923,8 @@ namespace QuickPad
 
         private void CMDInsertDateTime_Click(object sender, RoutedEventArgs e)
         {
-            Text1.Document.Selection.Text = $"{Text1.Document.Selection.Text}{DateTime.Now.ToString("HH:mm MM/dd/yyyy")}";
+            var current = CultureInfo.CurrentUICulture.DateTimeFormat;
+            Text1.Document.Selection.Text = $"{Text1.Document.Selection.Text}{DateTime.Now.ToString(current.ShortTimePattern)} {DateTime.Now.ToString(current.ShortDatePattern)}";
             Text1.Document.Selection.StartPosition = Text1.Document.Selection.EndPosition;
         }
 

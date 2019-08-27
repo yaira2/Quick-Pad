@@ -682,7 +682,7 @@
     <value>Go To</value>
   </data>
   <data name="ClassicEditInsertDT.Text" xml:space="preserve">
-    <value>Date/Time</value>
+    <value>Time/Date</value>
   </data>
   <data name="ClassicEditSearch.Text" xml:space="preserve">
     <value>Search with Bing...</value>
