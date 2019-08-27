@@ -449,6 +449,27 @@ namespace QuickPad
             set => Set(ref _fci, value);
         }
 
+        int? _font = null;
+        public int SelectedDefaultFont
+        {
+            get
+            {
+                if (_font is null)
+                {
+                    _font = AllFonts.IndexOf(AllFonts.First(i => i.Name == QSetting.DefaultFont));
+                }
+                return _font.Value;
+            }
+            set
+            {
+                if (!Equals(_font, value))
+                {
+                    Set(ref _font, value);
+                    QSetting.DefaultFont = AllFonts[value].Name;
+                }
+            }
+        }
+
         public int _fc_selection = -1;
         public int SelectedDefaultFontColor
         {

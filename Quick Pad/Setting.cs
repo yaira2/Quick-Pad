@@ -21,13 +21,16 @@ namespace QuickPad
             {
                 localSettings.Values.Add(propertyName, GetDefaultValue<T>(propertyName));
             }
-            try
-            {                
-                MigrateSettingFromPreviousVersion<T>(propertyName);
-            }
-            catch (Exception ex)
+            if (localSettings.Values[propertyName].GetType() != typeof(T))
             {
-                Analytics.TrackEvent($"Error trying to migrate setting {propertyName}\r\n{ex.Message}");
+                try
+                {
+                    MigrateSettingFromPreviousVersion<T>(propertyName);
+                }
+                catch (Exception ex)
+                {
+                    Analytics.TrackEvent($"Error trying to migrate setting {propertyName}\r\n{ex.Message}");
+                }
             }
             return (T)localSettings.Values[propertyName];
         }
