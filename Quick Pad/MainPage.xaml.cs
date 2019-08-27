@@ -1768,7 +1768,7 @@ namespace QuickPad
         {
             await Task.Delay(100);
             FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
-            FindAndReplaceDialog.FindInput.SelectionStart = FindAndReplaceDialog.FindInput.Text.Length;
+            //FindAndReplaceDialog.FindInput = FindAndReplaceDialog.FindInput.Text.Length;
         }
 
         public void ToggleFindAndReplaceDialog()
@@ -1840,6 +1840,8 @@ namespace QuickPad
                 Text1.TextDocument.Selection.SetRange(0, 0);
                 FindRequestedText(find, direction, match, false);
             }
+            //Scroll to the found text
+            Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
         }
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
@@ -1928,8 +1930,9 @@ namespace QuickPad
                 if (input < 1) { input = 1; }
                 if (input > totalLine)
                 {
-                    Text1.TextDocument.Selection.StartPosition = totalCharacters;
-                    Text1.TextDocument.Selection.EndPosition = totalCharacters;
+                    Text1.TextDocument.Selection.StartPosition = 
+                        Text1.TextDocument.Selection.EndPosition = 
+                        totalCharacters;
                 }
                 else
                 {
@@ -1952,6 +1955,7 @@ namespace QuickPad
                     }
                     Text1.TextDocument.Selection.StartPosition = index;
                     Text1.TextDocument.Selection.EndPosition = index;
+                    Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
                 }
             }
         }
