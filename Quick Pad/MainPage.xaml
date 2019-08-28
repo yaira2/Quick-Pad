@@ -498,7 +498,7 @@
                      IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
                      IsTapEnabled="True"
-                     Tapped="Text1_Tapped">
+                     Tapped="Text1_Tapped" FontFamily="Consolas">
             <RichEditBox.SelectionHighlightColorWhenNotFocused>
                 <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
             </RichEditBox.SelectionHighlightColorWhenNotFocused>
