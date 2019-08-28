@@ -10,11 +10,10 @@
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400"
-    Windows10version1809:CornerRadius="4">
+    d:DesignWidth="400">
 
     <tkui:DropShadowPanel MinWidth="400" Width="400">
-        <StackPanel Orientation="Vertical" MinWidth="400" Width="400" Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" Padding="10">
+        <StackPanel Orientation="Vertical" Windows10version1809:CornerRadius="4" MinWidth="400" Width="400" Background="{ThemeResource SystemControlAcrylicElementMediumHighBrush}" Padding="10">
             <StackPanel.Resources>
                 <Style TargetType="Button">
                     <Setter Property="Height" Value="32"/>
