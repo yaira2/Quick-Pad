@@ -287,7 +287,7 @@
                         <SymbolIcon Symbol="Undo"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Redo" AccessKey="R" Click="CmdRedo_Click" x:Uid="ClassicEditRedo">
+                <MenuFlyoutItem Text="Redo" AccessKey="E" Click="CmdRedo_Click" x:Uid="ClassicEditRedo">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Redo"/>
                     </MenuFlyoutItem.Icon>
@@ -308,13 +308,13 @@
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Delete" Click="Delete_Click" x:Uid="ClassicEditDelete">
+                <MenuFlyoutItem Text="Delete" Click="Delete_Click" AccessKey="L" x:Uid="ClassicEditDelete">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Delete"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Search with Bing..." Click="{x:Bind FindWithBing}" x:Uid="ClassicEditSearch">
+                <MenuFlyoutItem Text="Search with Bing..." AccessKey="S" Click="{x:Bind FindWithBing}" x:Uid="ClassicEditSearch">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12B;" />
                     </MenuFlyoutItem.Icon>
@@ -324,14 +324,14 @@
                            Key="E" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem x:Uid="ClassicEditFind" Text="Find" Icon="Find" Click="{x:Bind ToggleFindAndReplaceDialog}">
+                <MenuFlyoutItem x:Uid="ClassicEditFind" AccessKey="F" Text="Find" Icon="Find" Click="{x:Bind ToggleFindAndReplaceDialog}">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator
                           Modifiers="Control" 
                            Key="F" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem x:Uid="ClassicEditFindNext" Text="Find Next" Click="{x:Bind FindAndReplaceDialog.RequestFindNext}">
+                <MenuFlyoutItem x:Uid="ClassicEditFindNext" AccessKey="N" Text="Find Next" Click="{x:Bind FindAndReplaceDialog.RequestFindNext}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE0AB;" />
                     </MenuFlyoutItem.Icon>
@@ -339,7 +339,7 @@
                         <KeyboardAccelerator Key="F3" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem x:Uid="ClassicEditFindPrevious" Text="Find Previous" Click="{x:Bind FindAndReplaceDialog.RequestFindPrevious}">
+                <MenuFlyoutItem x:Uid="ClassicEditFindPrevious" AccessKey="V" Text="Find Previous" Click="{x:Bind FindAndReplaceDialog.RequestFindPrevious}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE0A6;" />
                     </MenuFlyoutItem.Icon>
@@ -347,12 +347,12 @@
                         <KeyboardAccelerator Modifiers="Shift" Key="F3" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem x:Uid="ClassicEditReplace" Text="Replace" Icon="Rename" Click="{x:Bind OpenFindDialogWithReplace}">
+                <MenuFlyoutItem x:Uid="ClassicEditReplace" AccessKey="R" Text="Replace" Icon="Rename" Click="{x:Bind OpenFindDialogWithReplace}">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="H" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Go To" Click="{x:Bind CMDGoTo_Click}" x:Uid="ClassicEditGoTo">
+                <MenuFlyoutItem Text="Go To" AccessKey="G" Click="{x:Bind CMDGoTo_Click}" x:Uid="ClassicEditGoTo">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="G" />
                     </MenuFlyoutItem.KeyboardAccelerators>
@@ -361,12 +361,12 @@
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Select All" Click="CMDSelectAll_Click" x:Uid="ClassicEditSelectAll">
+                <MenuFlyoutItem Text="Select All" AccessKey="A" Click="CMDSelectAll_Click" x:Uid="ClassicEditSelectAll">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE8B3;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Date/Time" Click="CMDInsertDateTime_Click" x:Uid="ClassicEditInsertDT">
+                <MenuFlyoutItem Text="Date/Time" AccessKey="D" Click="CMDInsertDateTime_Click" x:Uid="ClassicEditInsertDT">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xEC92;" />
                     </MenuFlyoutItem.Icon>
