@@ -586,6 +586,8 @@
                                          Content="System Default" 
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" />
+                                <TextBlock Text="Custom Theme Color"/>
+                                <ComboBox PlaceholderText="Default" Windows10version1809:CornerRadius="2" x:Name="CustomTheme"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
