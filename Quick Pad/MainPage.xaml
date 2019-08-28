@@ -652,7 +652,7 @@
                     <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
                         <ScrollViewer Height="250">
                             <StackPanel Padding="2,2,2,2">
-                                <TextBlock Text="Version number" x:Name="VersionNumber" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Version number" x:Name="VersionNumber" HorizontalAlignment="Center" Margin="0,30,0,0"/>
                                 <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" HorizontalAlignment="Center"/>
                                 <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" HorizontalAlignment="Center"/>
                                 <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
