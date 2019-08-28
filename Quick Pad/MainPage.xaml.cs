@@ -313,7 +313,7 @@ namespace QuickPad
             //Sort it in alphabet order
             fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
             //Put it on an observable list
-            AllFonts = new ObservableCollection<FontFamilyItem>(fonts.Select(x => new FontFamilyItem(x)));
+            AllFonts = new ObservableCollection<string>(fonts);
         }
 
         private async void AddJumplists()
@@ -427,9 +427,14 @@ namespace QuickPad
         }
         #endregion
 
-        #region Properties     
-        ObservableCollection<FontFamilyItem> _fonts;
-        public ObservableCollection<FontFamilyItem> AllFonts
+        #region Properties   
+        public ObservableCollection<FontFamilyItem> SendInFontItem(ObservableCollection<string> fonts)
+        {
+            return new ObservableCollection<FontFamilyItem>(AllFonts.Select(f => new FontFamilyItem(f)));
+        }
+
+        ObservableCollection<string> _fonts;
+        public ObservableCollection<string> AllFonts
         {
             get => _fonts;
             set => Set(ref _fonts, value);
@@ -447,27 +452,6 @@ namespace QuickPad
         {
             get => _fci;
             set => Set(ref _fci, value);
-        }
-
-        int? _font = null;
-        public int SelectedDefaultFont
-        {
-            get
-            {
-                if (_font is null)
-                {
-                    _font = AllFonts.IndexOf(AllFonts.First(i => i.Name == QSetting.DefaultFont));
-                }
-                return _font.Value;
-            }
-            set
-            {
-                if (!Equals(_font, value))
-                {
-                    Set(ref _font, value);
-                    QSetting.DefaultFont = AllFonts[value].Name;
-                }
-            }
         }
 
         public int _fc_selection = -1;
@@ -1213,8 +1197,8 @@ namespace QuickPad
         {
             //Set text preview in Font Family selector
             var selectedText = Text1.Document.Selection.Text;
-            FontFamilyItem.ChangeGlobalPreview(selectedText);
-            foreach (var item in AllFonts) item.UpdateLocalPreview();
+            //FontFamilyItem.ChangeGlobalPreview(selectedText);
+            //foreach (var item in AllFonts) item.UpdateLocalPreview();
             //open the font combo box
             Fonts.IsDropDownOpen = true;
         }
