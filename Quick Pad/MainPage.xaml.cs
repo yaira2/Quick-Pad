@@ -1830,8 +1830,7 @@ namespace QuickPad
         async void DelayFocus()
         {
             await Task.Delay(100);
-            FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
-            //FindAndReplaceDialog.FindInput = FindAndReplaceDialog.FindInput.Text.Length;
+            FindAndReplaceDialog.FindInput.Focus(FocusState.Pointer);
         }
 
         public void ToggleFindAndReplaceDialog()
@@ -1905,6 +1904,8 @@ namespace QuickPad
             }
             //Scroll to the found text
             Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
+            //Set focus into text1
+            Text1.Focus(FocusState.Pointer);
         }
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
@@ -1955,6 +1956,8 @@ namespace QuickPad
                     Text1.TextDocument.Selection.Text = replace;
                 }
             }
+            //Set focus into text1
+            Text1.Focus(FocusState.Pointer);
         }
 
         private void CMDSelectAll_Click(object sender, RoutedEventArgs e)
@@ -2020,6 +2023,7 @@ namespace QuickPad
                     Text1.TextDocument.Selection.StartPosition = index;
                     Text1.TextDocument.Selection.EndPosition = index;
                     Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
+                    Text1.Focus(FocusState.Pointer);
                 }
             }
         }
