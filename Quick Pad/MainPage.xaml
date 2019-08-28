@@ -131,7 +131,7 @@
                     <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
+            <AppBarButton Style="{StaticResource AppBarButton}" x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                 </ToolTipService.ToolTip>
