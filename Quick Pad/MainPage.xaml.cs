@@ -287,6 +287,7 @@ namespace QuickPad
         {
             //check if auto save is on or off
             //start auto save timer
+            timer = new System.Timers.Timer(QSetting.AutoSaveInterval * 1000);
             timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
             timer.AutoReset = true;
             if (QSetting.AutoSave)
@@ -425,6 +426,12 @@ namespace QuickPad
             });
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
+
+        private void AutoSaveTimer_Changed(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+            timer.Interval = e.NewValue * 1000;
+        }
+
         #endregion
 
         #region Properties   
@@ -571,7 +578,7 @@ namespace QuickPad
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
 
-        public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
+        public System.Timers.Timer timer; //this is the auto save timer interval
 
         bool _undo;
         public bool CanUndoText
