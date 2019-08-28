@@ -559,12 +559,6 @@
                                     <Run Text="second(s)"/>
                                 </TextBlock>
                                 <Slider Value="{x:Bind QSetting.AutoSaveInterval, Mode=TwoWay}" Minimum="5" Maximum="30" StepFrequency="1" TickFrequency="5" TickPlacement="Inline" Width="230" HorizontalAlignment="Left" ValueChanged="AutoSaveTimer_Changed"/>
-
-                                <TextBlock x:Uid="SpellCheck" Text="Spell Check"/>
-                                <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}"/>
-
-                                <TextBlock Text="Show Status Bar on Classic Mode" x:Uid="GeneralShowStatusOnClassic"/>
-                                <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
@@ -641,6 +635,9 @@
 
                                 <TextBlock x:Uid="WordWrap" Text="Word Wrap"/>
                                 <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.WordWrap, Mode=TwoWay}"/>
+
+                                <TextBlock x:Uid="SpellCheck" Text="Spell Check"/>
+                                <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
