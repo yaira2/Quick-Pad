@@ -558,7 +558,7 @@
                                     <Run Text="{x:Bind QSetting.AutoSaveInterval, Mode=OneWay}"/>
                                     <Run Text="second(s)"/>
                                 </TextBlock>
-                                <Slider Value="{x:Bind QSetting.AutoSaveInterval, Mode=TwoWay}" Minimum="5" Maximum="30" StepFrequency="1" TickFrequency="5" TickPlacement="Inline" Width="230" HorizontalAlignment="Left" ValueChanged="AutoSaveTimer_Changed"/>
+                                <Slider Value="{x:Bind QSetting.AutoSaveInterval, Mode=TwoWay}" Minimum="5" Maximum="30" StepFrequency="1" TickPlacement="Inline" Width="230" HorizontalAlignment="Left" ValueChanged="AutoSaveTimer_Changed"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
