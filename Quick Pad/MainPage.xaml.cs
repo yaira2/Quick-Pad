@@ -88,14 +88,11 @@ namespace QuickPad
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
             UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
-            //Match the formatted text with the initial content
-            //As it technically not empty but contain format size text
-            SetANewChange();
             //
             CreateItems();
             LoadSettings();
             LoadFonts();
-
+            //
             VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
             //check if focus is on app or off the app
@@ -172,6 +169,10 @@ namespace QuickPad
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
+            //
+            //Match the formatted text with the initial content
+            //As it technically not empty but contain format size text
+            SetANewChange();
         }
 
         private void UpdateAutoSave(bool to)
@@ -287,6 +288,7 @@ namespace QuickPad
         {
             //check if auto save is on or off
             //start auto save timer
+            timer = new System.Timers.Timer(QSetting.AutoSaveInterval * 1000);
             timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
             timer.AutoReset = true;
             if (QSetting.AutoSave)
@@ -313,7 +315,7 @@ namespace QuickPad
             //Sort it in alphabet order
             fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
             //Put it on an observable list
-            AllFonts = new ObservableCollection<FontFamilyItem>(fonts.Select(x => new FontFamilyItem(x)));
+            AllFonts = new ObservableCollection<string>(fonts);
         }
 
         private async void AddJumplists()
@@ -425,20 +427,58 @@ namespace QuickPad
             });
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
+
+        private void AutoSaveTimer_Changed(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+            if (timer != null)
+            {
+                timer.Interval = e.NewValue * 1000;
+            }
+        }
+
+        int? _def_lang = null;
+        public int SelectedDefaultLanguage
+        {
+            get
+            {
+                if (_def_lang is null)
+                {
+                    _def_lang = DefaultLanguages.IndexOf(DefaultLanguages.First(i => i.ID == QSetting.AppLanguage));
+                }
+                return _def_lang.Value;
+            }
+            set
+            {
+                if (!Equals(_def_lang, value))
+                {
+                    Set(ref _def_lang, value);
+                    if (DefaultLanguages.Count < 1)
+                    {
+                        FontColorCollections.Clear();
+                        DefaultLanguages.Clear();
+                        CreateItems();
+                    }
+                    QSetting.AppLanguage = DefaultLanguages[value].ID;
+                    ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
+                    Settings.Hide();
+                    (Window.Current.Content as Frame).IsNavigationStackEnabled = false;
+                    (Window.Current.Content as Frame).Navigate(typeof(MainPage), this);
+                }
+            }
+        }
         #endregion
 
-        #region Properties     
-        ObservableCollection<FontFamilyItem> _fonts;
-        public ObservableCollection<FontFamilyItem> AllFonts
+        #region Properties   
+        public ObservableCollection<FontFamilyItem> SendInFontItem(ObservableCollection<string> fonts)
+        {
+            return new ObservableCollection<FontFamilyItem>(AllFonts.Select(f => new FontFamilyItem(f)));
+        }
+
+        ObservableCollection<string> _fonts;
+        public ObservableCollection<string> AllFonts
         {
             get => _fonts;
             set => Set(ref _fonts, value);
-        }
-
-        private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            QSetting.AppLanguage = DefaultLanguages[(sender as ComboBox).SelectedIndex].ID;
-            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
         }
 
         //Colors
@@ -447,27 +487,6 @@ namespace QuickPad
         {
             get => _fci;
             set => Set(ref _fci, value);
-        }
-
-        int? _font = null;
-        public int SelectedDefaultFont
-        {
-            get
-            {
-                if (_font is null)
-                {
-                    _font = AllFonts.IndexOf(AllFonts.First(i => i.Name == QSetting.DefaultFont));
-                }
-                return _font.Value;
-            }
-            set
-            {
-                if (!Equals(_font, value))
-                {
-                    Set(ref _font, value);
-                    QSetting.DefaultFont = AllFonts[value].Name;
-                }
-            }
         }
 
         public int _fc_selection = -1;
@@ -480,6 +499,12 @@ namespace QuickPad
                 {
                     Set(ref _fc_selection, value);
                     //Update setting
+                    if (FontColorCollections.Count < 1)
+                    {
+                        //Delay reselect
+                        ReUpdateSelectedDefaultFontColor(value);
+                        return;
+                    }
                     QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
                     if (QSetting.DefaultFontColor == "Default")
                     {
@@ -496,6 +521,15 @@ namespace QuickPad
                     }
                 }
             }
+        }
+
+        private async void ReUpdateSelectedDefaultFontColor(int selection)
+        {
+            while (FontColorCollections.Count < 1)
+            {
+                await Task.Delay(200);
+            }
+            SelectedDefaultFontColor = selection;
         }
 
         string _file_name = null;
@@ -560,8 +594,9 @@ namespace QuickPad
             Changed = !Equals(initialLoadedContent, ext);
         }
 
-        public void SetANewChange()
+        public async void SetANewChange()
         {
+            await Task.Delay(100);
             Text1.Document.GetText(TextGetOptions.FormatRtf, out string value);
             //Set initial content
             initialLoadedContent = value;
@@ -587,7 +622,7 @@ namespace QuickPad
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
 
-        public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
+        public System.Timers.Timer timer; //this is the auto save timer interval
 
         bool _undo;
         public bool CanUndoText
@@ -683,6 +718,13 @@ namespace QuickPad
                         ClassicModeSwitch = true;
                     }
                     break;
+                case MainPage transfer:
+                    //Transfer settings from previous page
+                    Text1 = transfer.Text1;
+                    CurrentWorkingFile = transfer.CurrentWorkingFile;
+                    CurrentFilename = transfer.CurrentFilename;
+                    initialLoadedContent = transfer.initialLoadedContent;
+                    break;
             }
         }
 
@@ -758,7 +800,7 @@ namespace QuickPad
 
                 // Default file name if the user does not type one in or select a file to replace
                 if (_file_name == null)
-                    savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
+                    savePicker.SuggestedFileName = $"{textResource.GetString("NewDocument")}{QSetting.NewFileAutoNumber}";
                 else
                     savePicker.SuggestedFileName = _file_name;
 
@@ -1213,8 +1255,8 @@ namespace QuickPad
         {
             //Set text preview in Font Family selector
             var selectedText = Text1.Document.Selection.Text;
-            FontFamilyItem.ChangeGlobalPreview(selectedText);
-            foreach (var item in AllFonts) item.UpdateLocalPreview();
+            //FontFamilyItem.ChangeGlobalPreview(selectedText);
+            //foreach (var item in AllFonts) item.UpdateLocalPreview();
             //open the font combo box
             Fonts.IsDropDownOpen = true;
         }
@@ -1788,8 +1830,7 @@ namespace QuickPad
         async void DelayFocus()
         {
             await Task.Delay(100);
-            FindAndReplaceDialog.FindInput.Focus(FocusState.Keyboard);
-            //FindAndReplaceDialog.FindInput = FindAndReplaceDialog.FindInput.Text.Length;
+            FindAndReplaceDialog.FindInput.Focus(FocusState.Pointer);
         }
 
         public void ToggleFindAndReplaceDialog()
@@ -1863,6 +1904,8 @@ namespace QuickPad
             }
             //Scroll to the found text
             Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
+            //Set focus into text1
+            Text1.Focus(FocusState.Pointer);
         }
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
@@ -1913,6 +1956,8 @@ namespace QuickPad
                     Text1.TextDocument.Selection.Text = replace;
                 }
             }
+            //Set focus into text1
+            Text1.Focus(FocusState.Pointer);
         }
 
         private void CMDSelectAll_Click(object sender, RoutedEventArgs e)
@@ -1978,6 +2023,7 @@ namespace QuickPad
                     Text1.TextDocument.Selection.StartPosition = index;
                     Text1.TextDocument.Selection.EndPosition = index;
                     Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
+                    Text1.Focus(FocusState.Pointer);
                 }
             }
         }

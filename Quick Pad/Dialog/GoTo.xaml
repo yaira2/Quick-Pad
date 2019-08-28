@@ -15,9 +15,21 @@
     Opened="ContentDialog_Opened"
     PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
-    Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicWindowBrush}">
-
+    Windows10version1809:CornerRadius="4" 
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+    <Windows10version1809:ContentDialog.PrimaryButtonStyle>
+        <Style TargetType="Button">
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Windows10version1809:ContentDialog.PrimaryButtonStyle>
+    <Windows10version1809:ContentDialog.SecondaryButtonStyle>
+        <Style TargetType="Button">
+            <Setter Property="CornerRadius" Value="2"/>
+            <Setter Property="BorderThickness" Value="1"/>
+        </Style>
+    </Windows10version1809:ContentDialog.SecondaryButtonStyle>
     <Grid>
-        <TextBox Windows10version1809:CornerRadius="2,2,2,2" Style="{StaticResource TextBox}" x:Uid="GT_LineInput" Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public" extensions:TextBoxRegex.ValidationMode="Dynamic" extensions:TextBoxRegex.ValidationType="Number"/>
+        <TextBox Windows10version1809:CornerRadius="2" Style="{StaticResource TextBox}" x:Uid="GT_LineInput" Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public" extensions:TextBoxRegex.ValidationMode="Dynamic" extensions:TextBoxRegex.ValidationType="Number"/>
     </Grid>
 </ContentDialog>

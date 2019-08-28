@@ -218,6 +218,13 @@ namespace QuickPad
             }
         }
 
+        [DefaultValue(10)]
+        public int AutoSaveInterval
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
         [DefaultValue(true)]
         public bool WordWrap
         {
