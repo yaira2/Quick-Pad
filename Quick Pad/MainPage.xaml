@@ -568,7 +568,7 @@
                                 <RadioButton x:Name="Light" 
                                          Tag="Light" 
                                          x:Uid="Light" 
-                                         Margin="0,8,0,4"
+                                         Margin="0,2,0,4"
                                          Content="Light" 
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" />
@@ -576,18 +576,18 @@
                                          Tag="Dark" 
                                          x:Uid="Dark" 
                                          Content="Dark"
-                                         Margin="0,8,0,4"
+                                         Margin="0,2,0,4"
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
                                 <RadioButton x:Name="SystemDefault" 
                                          Tag="Default" 
-                                         Margin="0,8,0,4"
+                                         Margin="0,2,0,4"
                                          x:Uid="SystemDefault" 
                                          Content="System Default" 
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" />
-                                <TextBlock Text="Custom Theme Color"/>
-                                <ComboBox PlaceholderText="Default" Windows10version1809:CornerRadius="2" x:Name="CustomTheme"/>
+                                <TextBlock Text="Custom Theme Color" />
+                                <ComboBox PlaceholderText="Default" Windows10version1809:CornerRadius="2" x:Name="CustomTheme" BorderThickness="1,1,1,1"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
