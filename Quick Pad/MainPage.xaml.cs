@@ -742,7 +742,7 @@ namespace QuickPad
 
                 // Default file name if the user does not type one in or select a file to replace
                 if (_file_name == null)
-                    savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
+                    savePicker.SuggestedFileName = $"{textResource.GetString("NewDocument")}{QSetting.NewFileAutoNumber}";
                 else
                     savePicker.SuggestedFileName = _file_name;
 
