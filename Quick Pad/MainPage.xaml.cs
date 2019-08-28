@@ -88,14 +88,11 @@ namespace QuickPad
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
             UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
-            //Match the formatted text with the initial content
-            //As it technically not empty but contain format size text
-            SetANewChange();
             //
             CreateItems();
             LoadSettings();
             LoadFonts();
-
+            //
             VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
             //check if focus is on app or off the app
@@ -172,6 +169,10 @@ namespace QuickPad
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
+            //
+            //Match the formatted text with the initial content
+            //As it technically not empty but contain format size text
+            SetANewChange();
         }
 
         private void UpdateAutoSave(bool to)
@@ -435,27 +436,34 @@ namespace QuickPad
             }
         }
 
-        private DefaultLanguage IDToDefaultLanguage(string input)
+        int? _def_lang = null;
+        public int SelectedDefaultLanguage
         {
-            foreach (var item in DefaultLanguages)
+            get
             {
-                if (item.ID == input)
+                if (_def_lang is null)
                 {
-                    return item;
+                    _def_lang = DefaultLanguages.IndexOf(DefaultLanguages.First(i => i.ID == QSetting.AppLanguage));
                 }
+                return _def_lang.Value;
             }
-            return new DefaultLanguage("en-US");
-        }
-
-        private void DefaultLanguageToID(object selected)
-        {
-            if (!Equals(QSetting.DefaultFont, (selected as DefaultLanguage).ID))
+            set
             {
-                Settings.Hide();
-                QSetting.AppLanguage = (selected as DefaultLanguage).ID;
-                ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
-                (Window.Current.Content as Frame).IsNavigationStackEnabled = false;
-                (Window.Current.Content as Frame).Navigate(typeof(MainPage), this);
+                if (!Equals(_def_lang, value))
+                {
+                    Set(ref _def_lang, value);
+                    if (DefaultLanguages.Count < 1)
+                    {
+                        FontColorCollections.Clear();
+                        DefaultLanguages.Clear();
+                        CreateItems();
+                    }
+                    QSetting.AppLanguage = DefaultLanguages[value].ID;
+                    ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
+                    Settings.Hide();
+                    (Window.Current.Content as Frame).IsNavigationStackEnabled = false;
+                    (Window.Current.Content as Frame).Navigate(typeof(MainPage), this);
+                }
             }
         }
         #endregion
@@ -491,6 +499,12 @@ namespace QuickPad
                 {
                     Set(ref _fc_selection, value);
                     //Update setting
+                    if (FontColorCollections.Count < 1)
+                    {
+                        //Delay reselect
+                        ReUpdateSelectedDefaultFontColor(value);
+                        return;
+                    }
                     QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
                     if (QSetting.DefaultFontColor == "Default")
                     {
@@ -507,6 +521,15 @@ namespace QuickPad
                     }
                 }
             }
+        }
+
+        private async void ReUpdateSelectedDefaultFontColor(int selection)
+        {
+            while (FontColorCollections.Count < 1)
+            {
+                await Task.Delay(200);
+            }
+            SelectedDefaultFontColor = selection;
         }
 
         string _file_name = null;
@@ -571,8 +594,9 @@ namespace QuickPad
             Changed = !Equals(initialLoadedContent, ext);
         }
 
-        public void SetANewChange()
+        public async void SetANewChange()
         {
+            await Task.Delay(100);
             Text1.Document.GetText(TextGetOptions.FormatRtf, out string value);
             //Set initial content
             initialLoadedContent = value;
