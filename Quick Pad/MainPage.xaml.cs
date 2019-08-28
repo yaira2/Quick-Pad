@@ -429,9 +429,35 @@ namespace QuickPad
 
         private void AutoSaveTimer_Changed(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
         {
-            timer.Interval = e.NewValue * 1000;
+            if (timer != null)
+            {
+                timer.Interval = e.NewValue * 1000;
+            }
         }
 
+        private DefaultLanguage IDToDefaultLanguage(string input)
+        {
+            foreach (var item in DefaultLanguages)
+            {
+                if (item.ID == input)
+                {
+                    return item;
+                }
+            }
+            return new DefaultLanguage("en-US");
+        }
+
+        private void DefaultLanguageToID(object selected)
+        {
+            if (!Equals(QSetting.DefaultFont, (selected as DefaultLanguage).ID))
+            {
+                Settings.Hide();
+                QSetting.AppLanguage = (selected as DefaultLanguage).ID;
+                ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
+                (Window.Current.Content as Frame).IsNavigationStackEnabled = false;
+                (Window.Current.Content as Frame).Navigate(typeof(MainPage), this);
+            }
+        }
         #endregion
 
         #region Properties   
@@ -445,12 +471,6 @@ namespace QuickPad
         {
             get => _fonts;
             set => Set(ref _fonts, value);
-        }
-
-        private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            QSetting.AppLanguage = DefaultLanguages[(sender as ComboBox).SelectedIndex].ID;
-            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
         }
 
         //Colors
@@ -673,6 +693,13 @@ namespace QuickPad
                     {
                         ClassicModeSwitch = true;
                     }
+                    break;
+                case MainPage transfer:
+                    //Transfer settings from previous page
+                    Text1 = transfer.Text1;
+                    CurrentWorkingFile = transfer.CurrentWorkingFile;
+                    CurrentFilename = transfer.CurrentFilename;
+                    initialLoadedContent = transfer.initialLoadedContent;
                     break;
             }
         }
