@@ -15,11 +15,6 @@
     <tkui:DropShadowPanel MinWidth="355" Width="355">
         <StackPanel Orientation="Vertical" Windows10version1809:CornerRadius="4" MinWidth="350" Width="350" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Padding="10">
             <StackPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Height" Value="32"/>
-                    <Setter Property="VerticalAlignment" Value="Center"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                </Style>
                 <Style TargetType="ToggleButton">
                     <Setter Property="Height" Value="32"/>
                     <Setter Property="VerticalAlignment" Value="Center"/>
@@ -35,13 +30,13 @@
                     </ToolTipService.ToolTip>
                 </ToggleButton>
 
-                <AutoSuggestBox Width="200" HorizontalAlignment="Stretch" QuerySubmitted="{x:Bind SendRequestFind}" x:Uid="FAR_InputEmpty" KeyDown="FindInput_KeyDown" x:Name="FindInput" x:FieldModifier="public" Windows10version1809:CornerRadius="2" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" PlaceholderText="Looking for?" Grid.Column="1" Margin="5,0">
+                <AutoSuggestBox Width="208" HorizontalAlignment="Stretch" QuerySubmitted="{x:Bind SendRequestFind}" x:Uid="FAR_InputEmpty" KeyDown="FindInput_KeyDown" x:Name="FindInput" x:FieldModifier="public" Windows10version1809:CornerRadius="2" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" PlaceholderText="Looking for?" Grid.Column="1" Margin="5,0">
                     <AutoSuggestBox.QueryIcon>
                         <SymbolIcon Symbol="Find"/>
                     </AutoSuggestBox.QueryIcon>
                 </AutoSuggestBox>
                 <StackPanel Grid.Column="2" Orientation="Horizontal">
-                    <Button Height="32" Windows10version1809:CornerRadius="2">
+                    <Button Padding="6" Style="{ThemeResource FluentButtonClassicStyle}">
                         <StackPanel>
                             <FontIcon Glyph="&#xE0A6;" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
                             <FontIcon Glyph="&#xE0AB;" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>
@@ -72,7 +67,7 @@
                     </Button>
 
                     <!--Close dialog-->
-                    <Button Margin="5,0,0,0" Click="{x:Bind RequestCloseDialog}" Windows10version1809:CornerRadius="2">
+                    <Button Margin="5,0,0,0" Padding="6" Click="{x:Bind RequestCloseDialog}" Style="{ThemeResource FluentButtonClassicStyle}">
                         <FontIcon Glyph="&#xE10A;" />
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Close" x:Uid="FAR_CloseDialog"/>
@@ -83,16 +78,16 @@
 
             <!--Second row-->
             <StackPanel Orientation="Horizontal" Margin="38,0,0,0">
-                <TextBox HorizontalAlignment="Stretch" Width="200" Style="{ThemeResource FluentTextBoxStyle}" KeyDown="TextBox_KeyDown" x:Uid="FAR_ReplaceInput" Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Windows10version1809:CornerRadius="2" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
+                <TextBox HorizontalAlignment="Stretch" Width="208" Style="{ThemeResource FluentTextBoxStyle}" KeyDown="TextBox_KeyDown" x:Uid="FAR_ReplaceInput" Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Windows10version1809:CornerRadius="2" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
                 <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
-                    <Button Click="{x:Bind SendRequestReplace}" Windows10version1809:CornerRadius="2">
+                    <Button Click="{x:Bind SendRequestReplace}" Padding="6" Style="{ThemeResource FluentButtonClassicStyle }">
                         <FontIcon Glyph="&#xE8AC;"/>
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Replace" x:Uid="ClassicEditReplace"/>
                         </ToolTipService.ToolTip>
                     </Button>
 
-                    <Button Margin="5,0" Click="{x:Bind SendRequestReplaceAll}" Windows10version1809:CornerRadius="2">
+                    <Button Margin="5,0" Click="{x:Bind SendRequestReplaceAll}" Padding="6" Style="{ThemeResource FluentButtonClassicStyle}">
                         <FontIcon Glyph="&#xE8B3;"/>
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Replace all" x:Uid="FAR_ReplaceAll"/>
