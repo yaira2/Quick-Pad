@@ -1992,7 +1992,7 @@ namespace QuickPad
                 totalCharacters = value.Length;
                 System.Diagnostics.Debug.WriteLine($"\"{value}\"");
                 int input = int.Parse(line.LineInput.Text) - 1;
-                if (input < 1) { input = 1; }
+                if (input < 0) { input = 0; }
                 if (input > totalLine)
                 {
                     Text1.TextDocument.Selection.StartPosition = 
