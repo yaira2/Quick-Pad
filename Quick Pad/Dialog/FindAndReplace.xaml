@@ -8,100 +8,175 @@
     xmlns:tkui="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:q="using:QuickPad"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    mc:Ignorable="d"
-    d:DesignHeight="300"
-    d:DesignWidth="350">
+    mc:Ignorable="d">
+    
+    <tkui:DropShadowPanel Width="355"
+                          HorizontalContentAlignment="Stretch">
+        <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
+              Padding="4"
+              Windows10version1809:CornerRadius="4" >
+            <!-- Animations -->
+            <Grid.Transitions>
+                <TransitionCollection>
+                    <EntranceThemeTransition />
+                </TransitionCollection>
+            </Grid.Transitions>
+            <Grid.ChildrenTransitions>
+                <TransitionCollection>
+                    <RepositionThemeTransition />
+                    
+                </TransitionCollection>
+            </Grid.ChildrenTransitions>
 
-    <tkui:DropShadowPanel MinWidth="355" Width="355">
-        <StackPanel Orientation="Vertical" Windows10version1809:CornerRadius="4" MinWidth="350" Width="350" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Padding="10">
-            <StackPanel.Resources>
-                <Style TargetType="ToggleButton">
-                    <Setter Property="Height" Value="32"/>
-                    <Setter Property="VerticalAlignment" Value="Center"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                </Style>
-            </StackPanel.Resources>
-
-            <StackPanel Orientation="Horizontal">
-                <ToggleButton IsChecked="{x:Bind ShowReplace, Mode=TwoWay}" Windows10version1809:CornerRadius="2">
-                    <FontIcon Glyph="&#xE011;" />
-                    <ToolTipService.ToolTip>
-                        <TextBlock Text="More..." x:Uid="FAR_More"/>
-                    </ToolTipService.ToolTip>
-                </ToggleButton>
-
-                <AutoSuggestBox Width="208" HorizontalAlignment="Stretch" QuerySubmitted="{x:Bind SendRequestFind}" x:Uid="FAR_InputEmpty" KeyDown="FindInput_KeyDown" x:Name="FindInput" x:FieldModifier="public" Windows10version1809:CornerRadius="2" Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" PlaceholderText="Looking for?" Grid.Column="1" Margin="5,0">
-                    <AutoSuggestBox.QueryIcon>
-                        <SymbolIcon Symbol="Find"/>
-                    </AutoSuggestBox.QueryIcon>
-                </AutoSuggestBox>
-                <StackPanel Grid.Column="2" Orientation="Horizontal">
-                    <Button Padding="6" Style="{ThemeResource FluentButtonClassicStyle}">
-                        <StackPanel>
-                            <FontIcon Glyph="&#xE0A6;" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
-                            <FontIcon Glyph="&#xE0AB;" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>
-                        </StackPanel>
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Find option" x:Uid="FAR_FindOption"/>
-                        </ToolTipService.ToolTip>
-                        <Button.Flyout>
-                            <MenuFlyout Placement="BottomEdgeAlignedRight">
-                                <MenuFlyoutItem Text="Find Next" x:Uid="ClassicEditFindNext" Click="{x:Bind RequestFindNext}">
-                                    <MenuFlyoutItem.Icon>
-                                        <FontIcon Glyph="&#xE0AB;" />
-                                    </MenuFlyoutItem.Icon>
-                                    <MenuFlyoutItem.KeyboardAccelerators>
-                                        <KeyboardAccelerator Key="F3" />
-                                    </MenuFlyoutItem.KeyboardAccelerators>
-                                </MenuFlyoutItem>
-                                <MenuFlyoutItem Text="Find Previous" x:Uid="ClassicEditFindPrevious" Click="{x:Bind RequestFindPrevious}">
-                                    <MenuFlyoutItem.Icon>
-                                        <FontIcon Glyph="&#xE0A6;" />
-                                    </MenuFlyoutItem.Icon>
-                                    <MenuFlyoutItem.KeyboardAccelerators>
-                                        <KeyboardAccelerator Key="F3" Modifiers="Shift" />
-                                    </MenuFlyoutItem.KeyboardAccelerators>
-                                </MenuFlyoutItem>
-                            </MenuFlyout>
-                        </Button.Flyout>
-                    </Button>
-
-                    <!--Close dialog-->
-                    <Button Margin="5,0,0,0" Padding="6" Click="{x:Bind RequestCloseDialog}" Style="{ThemeResource FluentButtonClassicStyle}">
-                        <FontIcon Glyph="&#xE10A;" />
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Close" x:Uid="FAR_CloseDialog"/>
-                        </ToolTipService.ToolTip>
-                    </Button>
-                </StackPanel>
-            </StackPanel>
-
-            <!--Second row-->
-            <StackPanel Orientation="Horizontal" Margin="38,0,0,0">
-                <TextBox HorizontalAlignment="Stretch" Width="208" Style="{ThemeResource FluentTextBoxStyle}" KeyDown="TextBox_KeyDown" x:Uid="FAR_ReplaceInput" Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Windows10version1809:CornerRadius="2" BorderThickness="1" Grid.Column="1" Grid.Row="1" Margin="5" PlaceholderText="Replace with.." Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"/>
-                <StackPanel Grid.Column="2" Grid.Row="1" Orientation="Horizontal" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
-                    <Button Click="{x:Bind SendRequestReplace}" Padding="6" Style="{ThemeResource FluentButtonClassicStyle }">
-                        <FontIcon Glyph="&#xE8AC;"/>
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Replace" x:Uid="ClassicEditReplace"/>
-                        </ToolTipService.ToolTip>
-                    </Button>
-
-                    <Button Margin="5,0" Click="{x:Bind SendRequestReplaceAll}" Padding="6" Style="{ThemeResource FluentButtonClassicStyle}">
-                        <FontIcon Glyph="&#xE8B3;"/>
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Replace all" x:Uid="FAR_ReplaceAll"/>
-                        </ToolTipService.ToolTip>
-                    </Button>
-                </StackPanel>
-
-            </StackPanel>
+            <!-- Grid Definitions -->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
             
-            <!--Options-->
-            <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
+            <!-- Find Row (First) -->
+            <!-- Toggle button -->
+            <ToggleButton Grid.Row="0"
+                          Grid.Column="0"
+                          Height="32"
+                          VerticalAlignment="Center"
+                          BorderThickness="1"
+                          Windows10version1809:CornerRadius="2"
+                          Margin="4"
+                          IsChecked="{x:Bind ShowReplace, Mode=TwoWay}">
+                <FontIcon Glyph="&#xE011;" />
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="More..." x:Uid="FAR_More"/>
+                </ToolTipService.ToolTip>
+            </ToggleButton>
+
+            <!-- Find TextBox -->
+            <TextBox x:Name="FindInput" 
+                     x:Uid="FAR_InputEmpty" 
+                     x:FieldModifier="public" 
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Text="{x:Bind TextToFind, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" 
+                     PlaceholderText="Looking for?"
+                     VerticalAlignment="Center"
+                     Margin="4"
+                     Style="{ThemeResource FluentTextBoxStyle}"
+                     KeyDown="FindInput_KeyDown" 
+                     TextChanged="{x:Bind SendRequestFind}" />
+
+            <!-- Next/Previous -->
+            <Button Grid.Row="0"
+                    Grid.Column="2"
+                    Padding="6" 
+                    Margin="4"
+                    Style="{ThemeResource FluentButtonClassicStyle}">
+                <StackPanel>
+                    <FontIcon Glyph="&#xE0A6;" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
+                    <FontIcon Glyph="&#xE0AB;" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>
+                </StackPanel>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Find option" x:Uid="FAR_FindOption"/>
+                </ToolTipService.ToolTip>
+                <Button.Flyout>
+                    <MenuFlyout Placement="BottomEdgeAlignedRight">
+                        <MenuFlyoutItem Text="Find Next" x:Uid="ClassicEditFindNext" Click="{x:Bind RequestFindNext}">
+                            <MenuFlyoutItem.Icon>
+                                <FontIcon Glyph="&#xE0AB;" />
+                            </MenuFlyoutItem.Icon>
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Key="F3" />
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                        <MenuFlyoutItem Text="Find Previous" x:Uid="ClassicEditFindPrevious" Click="{x:Bind RequestFindPrevious}">
+                            <MenuFlyoutItem.Icon>
+                                <FontIcon Glyph="&#xE0A6;" />
+                            </MenuFlyoutItem.Icon>
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Key="F3" Modifiers="Shift" />
+                            </MenuFlyoutItem.KeyboardAccelerators>
+                        </MenuFlyoutItem>
+                    </MenuFlyout>
+                </Button.Flyout>
+            </Button>
+
+            <!-- Close dialog button-->
+            <Button Grid.Row="0"
+                    Grid.Column="3"
+                    Margin="4" 
+                    Padding="6" 
+                    Click="{x:Bind RequestCloseDialog}" 
+                    Style="{ThemeResource FluentButtonClassicStyle}">
+                <FontIcon Glyph="&#xE10A;" />
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Close" x:Uid="FAR_CloseDialog"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            <!-- END OF Find Row -->
+            
+            
+            <!-- Replace Row (Second) -->
+            <!-- Replace TextBox -->
+            <TextBox x:Uid="FAR_ReplaceInput" 
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     HorizontalAlignment="Stretch" 
+                     VerticalAlignment="Center"
+                     Margin="4"
+                     Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     PlaceholderText="Replace with.." 
+                     Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
+                     Style="{ThemeResource FluentTextBoxStyle}" 
+                     KeyDown="TextBox_KeyDown" />
+
+
+            <!-- Replace button -->
+            <Button Grid.Row="1"
+                    Grid.Column="2"                    
+                    Padding="6" 
+                    Margin="4"
+                    Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
+                    Style="{ThemeResource FluentButtonClassicStyle }"
+                    Click="{x:Bind SendRequestReplace}" >
+                <FontIcon Glyph="&#xE8AC;"/>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Replace" x:Uid="ClassicEditReplace"/>
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <!-- Replace all button -->
+            <Button Grid.Row="1"
+                    Grid.Column="3" 
+                    Padding="6" 
+                    Margin="4"
+                    Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
+                    Style="{ThemeResource FluentButtonClassicStyle}"
+                    Click="{x:Bind SendRequestReplaceAll}" >
+                <FontIcon Glyph="&#xE8B3;"/>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Replace all" x:Uid="FAR_ReplaceAll"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            <!-- END OF Replace Row -->
+            
+            
+            <!-- Options Row (Third) -->
+            <StackPanel Grid.Row="2"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="4"
+                        Orientation="Vertical"
+                        Margin="4"
+                        Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
                 <CheckBox x:Uid="FAR_MatchCase" Content="Match case" IsChecked="{x:Bind MatchCase, Mode=TwoWay}"/>
                 <CheckBox x:Uid="FAR_WrapAround" Content="Wrap around" IsChecked="{x:Bind WrapAround, Mode=TwoWay}"/>
             </StackPanel>
-        </StackPanel>
+            <!-- END OF Options -->
+        </Grid>
     </tkui:DropShadowPanel>
 </UserControl>
