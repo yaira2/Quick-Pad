@@ -263,6 +263,9 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="FluiFramework.UWP">
+      <Version>0.0.28-alpha</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>2.1.1</Version>
     </PackageReference>

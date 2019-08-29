@@ -30,6 +30,6 @@
         </Style>
     </Windows10version1809:ContentDialog.SecondaryButtonStyle>
     <Grid>
-        <TextBox Windows10version1809:CornerRadius="2" Style="{StaticResource TextBox}" x:Uid="GT_LineInput" Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public" extensions:TextBoxRegex.ValidationMode="Dynamic" extensions:TextBoxRegex.ValidationType="Number"/>
+        <TextBox Style="{ThemeResource FluentTextBoxStyle}" x:Uid="GT_LineInput" Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public" extensions:TextBoxRegex.ValidationMode="Dynamic" extensions:TextBoxRegex.ValidationType="Number"/>
     </Grid>
 </ContentDialog>
