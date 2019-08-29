@@ -8,28 +8,40 @@
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
+    
+    x:Uid="GT_Dialog"    
     Title="Go To Line"
-    PrimaryButtonText="Go to"
-    SecondaryButtonText="Cancel"
-    x:Uid="GT_Dialog"
-    Opened="ContentDialog_Opened"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
     Windows10version1809:CornerRadius="4" 
-    Background="{ThemeResource SystemControlAcrylicWindowBrush}">
-    <Windows10version1809:ContentDialog.PrimaryButtonStyle>
-        <Style TargetType="Button">
-            <Setter Property="CornerRadius" Value="2"/>
-            <Setter Property="BorderThickness" Value="1"/>
-        </Style>
-    </Windows10version1809:ContentDialog.PrimaryButtonStyle>
-    <Windows10version1809:ContentDialog.SecondaryButtonStyle>
-        <Style TargetType="Button">
-            <Setter Property="CornerRadius" Value="2"/>
-            <Setter Property="BorderThickness" Value="1"/>
-        </Style>
-    </Windows10version1809:ContentDialog.SecondaryButtonStyle>
+    Opened="ContentDialog_Opened"    
+    
+    PrimaryButtonText="Go to"
+    PrimaryButtonStyle="{ThemeResource FluentButtonClassicStyle}"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    
+    SecondaryButtonText="Cancel"
+    SecondaryButtonStyle="{ThemeResource FluentButtonClassicStyle}"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+    
+    <!-- Title template -->
+    <ContentDialog.TitleTemplate>
+        <DataTemplate x:DataType="x:String">
+            <TextBlock Text="{x:Bind}"
+                       Margin="0,0,0,12"
+                       Style="{ThemeResource FluentSubheaderTextStyle}" />
+        </DataTemplate>
+    </ContentDialog.TitleTemplate>
+
+    <!-- Content -->
     <Grid>
-        <TextBox Style="{ThemeResource FluentTextBoxStyle}" x:Uid="GT_LineInput" Header="Line number:" KeyDown="LineInput_KeyDown" InputScope="Number" x:Name="LineInput" x:FieldModifier="public" extensions:TextBoxRegex.ValidationMode="Dynamic" extensions:TextBoxRegex.ValidationType="Number"/>
+        <TextBox x:Name="LineInput" 
+                 x:FieldModifier="public" 
+                 x:Uid="GT_LineInput" 
+                 Header="Line number:" 
+                 InputScope="Number" 
+                 extensions:TextBoxRegex.ValidationMode="Dynamic" 
+                 extensions:TextBoxRegex.ValidationType="Number"
+                 KeyDown="LineInput_KeyDown" 
+                 Style="{ThemeResource FluentTextBoxStyle}" />
     </Grid>
 </ContentDialog>
