@@ -1476,6 +1476,10 @@ namespace QuickPad
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 row1.Height = new GridLength(1, GridUnitType.Auto);
                 row3.Height = new GridLength(1, GridUnitType.Auto);
+                if (ShowFindAndReplace == true)
+                {
+                    ShowFindAndReplace = false;
+                }
             }
             if (ClassicModeSwitch == true)
             {
