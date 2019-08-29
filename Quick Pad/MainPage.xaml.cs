@@ -1904,8 +1904,6 @@ namespace QuickPad
             }
             //Scroll to the found text
             Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
-            //Set focus into text1
-            Text1.Focus(FocusState.Pointer);
         }
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
