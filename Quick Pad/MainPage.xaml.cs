@@ -72,6 +72,8 @@ namespace QuickPad
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
 
         public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
+
+        public Dialog.GoTo GoToDialog = new Dialog.GoTo();
         public MainPage()
         {
             InitializeComponent();
@@ -145,8 +147,9 @@ namespace QuickPad
                 //close dialogs so the app does not hang
                 WantToSave.Hide();
                 Settings.Hide();
+                GoToDialog.Hide();
 
-               await WantToSave.ShowAsync();
+                await WantToSave.ShowAsync();
 
                 switch (WantToSave.DialogResult)
                 {
@@ -1998,18 +2001,14 @@ namespace QuickPad
 
         public async void CMDGoTo_Click()
         {
-            Dialog.GoTo line = new Dialog.GoTo()
-            {
-                RequestedTheme = QSetting.Theme
-            };
-            await line.ShowAsync();
-            if (line.finalResult == DialogResult.Yes)
+            await GoToDialog.ShowAsync();
+            if (GoToDialog.finalResult == DialogResult.Yes)
             {
                 Text1.TextDocument.GetText(TextGetOptions.None, out string value);
                 totalLine = value.Count(i => i == '\n' || i == '\r');
                 totalCharacters = value.Length;
                 System.Diagnostics.Debug.WriteLine($"\"{value}\"");
-                int input = int.Parse(line.LineInput.Text) - 1;
+                int input = int.Parse(GoToDialog.LineInput.Text) - 1;
                 if (input < 0) { return;}
                 if (input > totalLine - 1)
                 {
