@@ -16,7 +16,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="FontFamilyComboBoxItem">
-            <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="10,4,0,4" FontSize="16" />
+            <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="2,2,2,2" FontSize="12"/>
         </DataTemplate>
     </Page.Resources>
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" HorizontalAlignment="Stretch">
