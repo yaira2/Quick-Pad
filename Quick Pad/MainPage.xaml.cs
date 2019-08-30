@@ -1996,12 +1996,10 @@ namespace QuickPad
                 totalCharacters = value.Length;
                 System.Diagnostics.Debug.WriteLine($"\"{value}\"");
                 int input = int.Parse(line.LineInput.Text) - 1;
-                if (input < 0) { input = 0; }
-                if (input > totalLine)
+                if (input < 0) { return;}
+                if (input > totalLine - 1)
                 {
-                    Text1.TextDocument.Selection.StartPosition = 
-                        Text1.TextDocument.Selection.EndPosition = 
-                        totalCharacters;
+                    return;
                 }
                 else
                 {
