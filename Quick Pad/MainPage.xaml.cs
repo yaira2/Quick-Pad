@@ -635,7 +635,10 @@ namespace QuickPad
 
         public FontFamilyItem FromStringToFontItem(string input)
         {
-            return new FontFamilyItem(input);
+            FontFamilyItem item = AllFonts.First(i => i.Name == input);
+            if (item is null)
+                return new FontFamilyItem("Consolas");
+            return item;
         }   
         
         public void FromFontItemBackToString(object font)
