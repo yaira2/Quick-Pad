@@ -598,7 +598,7 @@
                         <ScrollViewer Height="250">
                             <StackPanel Padding="2,2,2,2">
                                 <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
-                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
+                                <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
 
                                 <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
                                 <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
@@ -673,7 +673,7 @@
 
         <dialog:FontAndFormat x:Name="FontAndFormat" 
                               Background="{ThemeResource SystemControlAcrylicElementBrush}" Grid.RowSpan="4"
-                              AllFonts="{x:Bind SendInFontItem(AllFonts), Mode=OneWay}"/>
+                              AllFonts="{x:Bind AllFonts, Mode=OneWay}"/>
 
         <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="4" VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
