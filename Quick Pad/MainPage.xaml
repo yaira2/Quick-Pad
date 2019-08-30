@@ -553,12 +553,13 @@
                                 <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save"/>
                                 <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
 
-                                <TextBlock>
+                                <TextBlock Visibility="{x:Bind QSetting.AutoSave, Mode=OneWay}">
                                     <Run Text="Auto Save Every"/>
                                     <Run Text="{x:Bind QSetting.AutoSaveInterval, Mode=OneWay}"/>
                                     <Run Text="second(s)"/>
                                 </TextBlock>
-                                <Slider Value="{x:Bind QSetting.AutoSaveInterval, Mode=TwoWay}" Minimum="5" Maximum="30" StepFrequency="1" TickPlacement="Inline" Width="230" HorizontalAlignment="Left" ValueChanged="AutoSaveTimer_Changed"/>
+                                
+                                <Slider Value="{x:Bind QSetting.AutoSaveInterval, Mode=TwoWay}" Visibility="{x:Bind QSetting.AutoSave, Mode=OneWay}" Minimum="5" Maximum="30" StepFrequency="1" TickPlacement="Inline" Width="230" HorizontalAlignment="Left" ValueChanged="AutoSaveTimer_Changed"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>

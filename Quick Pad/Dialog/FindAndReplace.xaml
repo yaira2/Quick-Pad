@@ -117,6 +117,9 @@
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Close" x:Uid="FAR_CloseDialog"/>
                 </ToolTipService.ToolTip>
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Key="Escape"/>
+                </Button.KeyboardAccelerators>
             </Button>
             <!-- END OF Find Row -->
             
