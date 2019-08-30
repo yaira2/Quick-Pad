@@ -1,5 +1,6 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using Newtonsoft.Json.Linq;
 using QuickPad;
 using System;
@@ -1971,6 +1972,24 @@ namespace QuickPad
             Text1.Document.Selection.StartPosition = Text1.Document.Selection.EndPosition;
         }
 
+        private float scaleValue = 1;
+        private float scalePercentage = 10;
+
+        private void ZoomInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            if (args.KeyboardAccelerator.Key == VirtualKey.Add && scaleValue <= 2)
+            {
+                scaleValue = scaleValue + (scalePercentage / 100);
+            }
+            else if (args.KeyboardAccelerator.Key == VirtualKey.Subtract && scaleValue >= 0.5)
+            {
+                scaleValue = scaleValue - (scalePercentage / 100);
+            }
+            ContentScroll.ChangeView(0, 0, scaleValue);
+            //Text1.Scale(scaleX: scaleValue, scaleY: scaleValue, centerX: 0, centerY: 0, duration: 250, delay: 0, easingType: EasingType.Default).Start();
+        }
+
         //Menubar function
         public void OpenFindDialogWithReplace()
         {
@@ -2026,6 +2045,27 @@ namespace QuickPad
             }
         }
         #endregion
+
+        public static T MyFindRichEditBoxChildOfType<T>(DependencyObject root) where T : class
+        {
+            var MyQueue = new Queue<DependencyObject>();
+            MyQueue.Enqueue(root);
+            while (MyQueue.Count > 0)
+            {
+                DependencyObject current = MyQueue.Dequeue();
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
+                {
+                    var child = VisualTreeHelper.GetChild(current, i);
+                    var typedChild = child as T;
+                    if (typedChild != null)
+                    {
+                        return typedChild;
+                    }
+                    MyQueue.Enqueue(child);
+                }
+            }
+            return null;
+        }
     }
 
     public class FontColorItem : INotifyPropertyChanged
@@ -2169,7 +2209,6 @@ namespace QuickPad
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 
     public class DefaultLanguage
