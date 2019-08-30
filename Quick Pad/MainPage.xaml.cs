@@ -146,7 +146,7 @@ namespace QuickPad
                 WantToSave.Hide();
                 Settings.Hide();
 
-                await WantToSave.ShowAsync();
+               await WantToSave.ShowAsync();
 
                 switch (WantToSave.DialogResult)
                 {
