@@ -1,5 +1,12 @@
-# Quick Pad
+<p align="center">
+  <img alt="quickpad logo" src="./Quick Pad/Assets/Square44x44Logo.altform-unplated_targetsize-256.png" width="100px" />
+  <h1 align="center">Quick-Pad</h1>
+</p>
+
+
 [![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/store/productId/9PDLWQHTLSV3)
+[![Release](https://img.shields.io/github/release/UWPCommunity/Quick-Pad.svg?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/releases)
+[![Contributors](https://img.shields.io/github/contributors/UWPCommunity/Quick-Padl?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/graphs/contributors)
 
 * Fluent design with dark and light theme support.
 * Launch from the run dialog box by typing "Quickpad".
@@ -30,3 +37,4 @@ Please head over to [Github Releases](https://github.com/UWPCommunity/Quick-Pad/
     * [fr-CA][French] [PhilLB1239](https://github.com/PhilLB1239)
     * [es][Spanish] [Leisvan](https://github.com/Leisvan)
     * [ar-SA][Arabic] [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
+    * [fr-FR][French] [François-Joseph du Fou](https://github.com/FJduFou)
