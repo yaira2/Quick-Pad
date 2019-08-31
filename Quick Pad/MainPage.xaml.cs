@@ -1345,6 +1345,37 @@ namespace QuickPad
                 Text1.Document.Selection.SetRange(previousPosition, previousSelectionEnd);
             }
         }
+
+        bool _forceOpen;
+        public bool ForceFlyoutOpen
+        {
+            get => _forceOpen;
+            set => Set(ref _forceOpen, value);
+        }
+
+        private void ClosingCustomizeFlyout(Windows.UI.Xaml.Controls.Primitives.FlyoutBase sender, Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs args)
+        {
+            if (ForceFlyoutOpen)
+                args.Cancel = true;
+        }
+
+        public void OpenCustomizeFlyout()
+        {
+            ForceFlyoutOpen = !ForceFlyoutOpen;
+        }
+
+        public void ResetToolbarSetting()
+        {
+            QSetting.ShowStrikethroughOption =
+                QSetting.ShowBullets =
+                QSetting.ShowAlignLeft =
+                QSetting.ShowAlignCenter =
+                QSetting.ShowAlignRight =
+                QSetting.ShowAlignJustify =
+                QSetting.ShowSizeUp =
+                QSetting.ShowSizeDown =
+                true;
+        }
         #endregion
 
         #region UI Mode change

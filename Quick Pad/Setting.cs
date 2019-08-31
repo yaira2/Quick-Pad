@@ -303,6 +303,20 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+
+        [DefaultValue(true)]
+        public bool ShowSizeUp
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowSizeDown
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
         #endregion
 
         #region Font setting
@@ -355,7 +369,7 @@ namespace QuickPad
         public autoSaveChange afterAutoSaveChanged { get; set; }
         public themeChange afterThemeChanged { get; set; }
         public fontsizeChange afterFontSizeChanged { get; set; }
-#endregion
+        #endregion
     }
 
     public delegate void autoSaveChange(bool to);
@@ -434,6 +448,15 @@ namespace QuickPad
         public static Visibility HideIfNoAlignButtonShow(bool left, bool center, bool right, bool justify)
         {
             if (!left && !center && !right && !justify)
+            {
+                return Visibility.Collapsed;
+            }
+            return Visibility.Visible;
+        }
+
+        public static  Visibility HideIfNoSizeButtonShow(bool up, bool down)
+        {
+            if (!up && !down)
             {
                 return Visibility.Collapsed;
             }

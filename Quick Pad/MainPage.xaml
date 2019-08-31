@@ -144,15 +144,56 @@
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" />
-            <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease">
+            <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease" Visibility="{x:Bind QSetting.ShowSizeUp, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Size Up" x:Uid="SizeUpTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="SizeDown" x:Uid="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease">
+            <AppBarButton x:Name="SizeDown" x:Uid="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease" Visibility="{x:Bind QSetting.ShowSizeDown, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Size Down" x:Uid="SizeDownTooltip"/>
                 </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarSeparator Width="32" Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
+            <AppBarButton Label="Customize" Width="Auto" MinWidth="32" Click="{x:Bind OpenCustomizeFlyout}" LabelPosition="Default">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE15E;" />
+                </AppBarButton.Icon>
+                <AppBarButton.Flyout>
+                    <MenuFlyout Closing="ClosingCustomizeFlyout">
+                        <ToggleMenuFlyoutItem Text="Show Strikethrough" IsChecked="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}">
+                            <ToggleMenuFlyoutItem.Icon>
+                                <FontIcon Margin="0,4,0,-3" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
+                                    <FontIcon.RenderTransform>
+                                        <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                    </FontIcon.RenderTransform>
+                                </FontIcon>
+                            </ToggleMenuFlyoutItem.Icon>
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem Text="Show bullet list" Icon="Bullets" IsChecked="{x:Bind QSetting.ShowBullets, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem Text="Show align left" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem Text="Show align center" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem Text="Show align right" Icon="AlignRight" IsChecked="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem Text="Show align justify" IsChecked="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}">
+                            <ToggleMenuFlyoutItem.Icon>
+                                <FontIcon Margin="0,5,0,0" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1A2;">
+                                    <FontIcon.RenderTransform>
+                                        <ScaleTransform ScaleX="1.4" ScaleY="1.4"/>
+                                    </FontIcon.RenderTransform>
+                                </FontIcon>
+                            </ToggleMenuFlyoutItem.Icon>
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem Text="Show size up" Icon="FontIncrease" IsChecked="{x:Bind QSetting.ShowSizeUp, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem Text="Show size down" Icon="FontDecrease" IsChecked="{x:Bind QSetting.ShowSizeDown, Mode=TwoWay}"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem Text="Reset toolbar" Icon="Sync" Click="{x:Bind ResetToolbarSetting}"/>
+                        <MenuFlyoutItem Text="Done" Click="{x:Bind OpenCustomizeFlyout}">
+                            <MenuFlyoutItem.Icon>
+                                <FontIcon Glyph="&#xE001;" />
+                            </MenuFlyoutItem.Icon>
+                        </MenuFlyoutItem>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
             </AppBarButton>
         </CommandBar>
 
@@ -411,7 +452,7 @@
                         <SymbolIcon Symbol="Bullets"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
+                <MenuFlyoutSeparator Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}"/>
                 <MenuFlyoutItem Text="Align leff" Click="Left_Click" x:Uid="ClassicFormatALeft" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Icon="AlignLeft"/>
                 <MenuFlyoutItem Text="Align center" Click="Center_Click" x:Uid="ClassicFormatACenter" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Icon="AlignCenter"/>
                 <MenuFlyoutItem Text="Align right" Click="Right_Click" x:Uid="ClassicFormatARight" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Icon="AlignRight"/>
@@ -424,13 +465,13 @@
                         </FontIcon>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutSeparator Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}"/>
-                <MenuFlyoutItem Text="Size up" Click="SizeUp_Click" x:Uid="ClassicFormatUp">
+                <MenuFlyoutSeparator Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
+                <MenuFlyoutItem Text="Size up" Click="SizeUp_Click" x:Uid="ClassicFormatUp" Visibility="{x:Bind QSetting.ShowSizeUp, Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="FontIncrease"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Size down" Click="SizeDown_Click" x:Uid="ClassicFormatDown">
+                <MenuFlyoutItem Text="Size down" Click="SizeDown_Click" x:Uid="ClassicFormatDown" Visibility="{x:Bind QSetting.ShowSizeDown, Mode=OneWay}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="FontDecrease"/>
                     </MenuFlyoutItem.Icon>
