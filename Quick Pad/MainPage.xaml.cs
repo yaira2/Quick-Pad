@@ -456,17 +456,9 @@ namespace QuickPad
                 if (!Equals(_def_lang, value))
                 {
                     Set(ref _def_lang, value);
-                    if (DefaultLanguages.Count < 1)
-                    {
-                        FontColorCollections.Clear();
-                        DefaultLanguages.Clear();
-                        CreateItems();
-                    }
-                    QSetting.AppLanguage = DefaultLanguages[value].ID;
-                    ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
-                    Settings.Hide();
-                    (Window.Current.Content as Frame).IsNavigationStackEnabled = false;
-                    (Window.Current.Content as Frame).Navigate(typeof(MainPage), this);
+                    LangChangeNeedRestart.Visibility = 
+                        ApplicationLanguages.PrimaryLanguageOverride == DefaultLanguages[value].ID 
+                        ? Visibility.Collapsed : Visibility.Visible;
                 }
             }
         }
