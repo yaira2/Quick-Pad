@@ -131,14 +131,14 @@
                     <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton Style="{StaticResource AppBarButton}" x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
+            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon Margin="0,5,0,0" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1A2;">
+                    <FontIcon Margin="0,4,8,5" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1A2;">
                         <FontIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.4" ScaleY="1.4"/>
+                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                         </FontIcon.RenderTransform>
                     </FontIcon>
                 </AppBarButton.Icon>
