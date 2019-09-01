@@ -560,8 +560,7 @@
         </trans-unit>
         <trans-unit id="ClassicFileSaveAs.Text" translate="yes" xml:space="preserve">
           <source>Save As...</source>
-          <target state="needs-review-translation">บันทึกเป็น</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">บันทึกเป็น</target>
         </trans-unit>
         <trans-unit id="ClassicFileShare.Text" translate="yes" xml:space="preserve">
           <source>Share</source>
@@ -693,7 +692,155 @@
         </trans-unit>
         <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
           <source>App Language</source>
-          <target state="new">App Language</target>
+          <target state="translated">ภาษา</target>
+        </trans-unit>
+        <trans-unit id="CmdOnTopTooltip" translate="yes" xml:space="preserve">
+          <source>On Top (Ctrl+Shift+O)</source>
+          <target state="translated">ทับแอปอื่น (Ctrl+Shift+O)</target>
+        </trans-unit>
+        <trans-unit id="CmdFind.Label" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="translated" state-qualifier="tm-suggestion">ค้นหา</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditFind.Text" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="translated" state-qualifier="tm-suggestion">ค้นหา</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditFindNext.Text" translate="yes" xml:space="preserve">
+          <source>Find Next</source>
+          <target state="translated" state-qualifier="tm-suggestion">ค้นหาถัดไป</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditFindPrevious.Text" translate="yes" xml:space="preserve">
+          <source>Find Previous</source>
+          <target state="translated" state-qualifier="tm-suggestion">ค้นหาก่อนหน้า</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditReplace.Text" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="translated">แทนที่</target>
+        </trans-unit>
+        <trans-unit id="FAR_CloseDialog.Text" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="translated" state-qualifier="tm-suggestion">ปิด</target>
+        </trans-unit>
+        <trans-unit id="FAR_FindOption.Text" translate="yes" xml:space="preserve">
+          <source>Find option</source>
+          <target state="translated">ตัวเลือกการหา</target>
+        </trans-unit>
+        <trans-unit id="FAR_InputEmpty.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Looking for?</source>
+          <target state="translated">ต้องการหาอะไร พิมพ์เลย!</target>
+        </trans-unit>
+        <trans-unit id="FAR_MatchCase.Content" translate="yes" xml:space="preserve">
+          <source>Match case</source>
+          <target state="translated" state-qualifier="tm-suggestion">ตรงตามตัวพิมพ์ใหญ่-เล็ก</target>
+        </trans-unit>
+        <trans-unit id="FAR_More.Text" translate="yes" xml:space="preserve">
+          <source>More...</source>
+          <target state="translated" state-qualifier="tm-suggestion">เพิ่มเติม</target>
+        </trans-unit>
+        <trans-unit id="FAR_ReplaceAll.Text" translate="yes" xml:space="preserve">
+          <source>Replace All</source>
+          <target state="translated" state-qualifier="tm-suggestion">แทนที่ทั้งหมด</target>
+        </trans-unit>
+        <trans-unit id="FAR_WrapAround.Content" translate="yes" xml:space="preserve">
+          <source>Wrap around</source>
+          <target state="translated">ค้นหาแบบวน</target>
+        </trans-unit>
+        <trans-unit id="FAR_ReplaceInput.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Replace with..</source>
+          <target state="translated">แทนที่ด้วย..</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditDelete.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated" state-qualifier="tm-suggestion">ลบ</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditGoTo.Text" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="translated">ไปบรรทัดที</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
+          <source>Time/Date</source>
+          <target state="translated">เวลา/วันที่</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
+          <source>Search with Bing...</source>
+          <target state="translated" state-qualifier="tm-suggestion">ค้นหาด้วย Bing</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditSelectAll.Text" translate="yes" xml:space="preserve">
+          <source>Select All</source>
+          <target state="translated" state-qualifier="tm-suggestion">เลือกทั้งหมด</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Go to</source>
+          <target state="translated">ไป</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated" state-qualifier="tm-suggestion">ยกเลิก</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.Title" translate="yes" xml:space="preserve">
+          <source>Go To Line</source>
+          <target state="translated">ไปที่บรรทัด</target>
+        </trans-unit>
+        <trans-unit id="GT_LineInput.Header" translate="yes" xml:space="preserve">
+          <source>Line number:</source>
+          <target state="translated">บรรทัดที่:</target>
+        </trans-unit>
+        <trans-unit id="Cmd_Customize.Label" translate="yes" xml:space="preserve">
+          <source>Customize</source>
+          <target state="translated">ซ่อน/แสดง ปุ่ม</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignCenter.Text" translate="yes" xml:space="preserve">
+          <source>Show align center</source>
+          <target state="translated">แสดงปุ่มจัดกลาง</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignJustify.Text" translate="yes" xml:space="preserve">
+          <source>Show align justify</source>
+          <target state="translated">แสดงปุ่มจัดเต็มแนว</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignLeft.Text" translate="yes" xml:space="preserve">
+          <source>Show align left</source>
+          <target state="translated">แสดงปุ่มจัดชิดซ้าย</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignRight.Text" translate="yes" xml:space="preserve">
+          <source>Show align right</source>
+          <target state="translated">แสดงปุ่มจัดชิดขวา</target>
+        </trans-unit>
+        <trans-unit id="Customize_Bullets.Text" translate="yes" xml:space="preserve">
+          <source>Show bullet list</source>
+          <target state="translated">แสดงปุ่มสัญลักษณ์หัวข้อ</target>
+        </trans-unit>
+        <trans-unit id="Customize_Strikethrough.Text" translate="yes" xml:space="preserve">
+          <source>Show strikethrough option</source>
+          <target state="translated">แสดงปุ่มขีดทับ</target>
+        </trans-unit>
+        <trans-unit id="Customize_SizeDown.Text" translate="yes" xml:space="preserve">
+          <source>Show size down</source>
+          <target state="translated">แสดงปุ่มลดขนาด</target>
+        </trans-unit>
+        <trans-unit id="Customize_SizeUp.Text" translate="yes" xml:space="preserve">
+          <source>Show size up</source>
+          <target state="translated">แสดงปุ่มเพิ่มขนาด</target>
+        </trans-unit>
+        <trans-unit id="Customize_Reset.Text" translate="yes" xml:space="preserve">
+          <source>Reset toolbar</source>
+          <target state="translated">รีเซทเป็นค่าเริ่มต้น</target>
+        </trans-unit>
+        <trans-unit id="ClassicRestoreDefaultZoom" translate="yes" xml:space="preserve">
+          <source>Restore Default Zoom</source>
+          <target state="new">Restore Default Zoom</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoom.Text" translate="yes" xml:space="preserve">
+          <source>Zoom</source>
+          <target state="new">Zoom</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoomIn.Text" translate="yes" xml:space="preserve">
+          <source>Zoom In</source>
+          <target state="new">Zoom In</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoomOut" translate="yes" xml:space="preserve">
+          <source>Zoom Out</source>
+          <target state="new">Zoom Out</target>
         </trans-unit>
       </group>
     </body>

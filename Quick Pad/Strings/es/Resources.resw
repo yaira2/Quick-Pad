@@ -516,4 +516,25 @@
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>Mostrar la barra de estado en Modo Clásico</value>
   </data>
+  <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="Customize_AlignCenter.Text" xml:space="preserve">
+    <value>Mostrar 'Alinear al centro'</value>
+  </data>
+  <data name="Customize_AlignJustify.Text" xml:space="preserve">
+    <value>Mostrar 'Justificar'</value>
+  </data>
+  <data name="Customize_AlignLeft.Text" xml:space="preserve">
+    <value>Mostrar 'Alinear a la izquierda'</value>
+  </data>
+  <data name="Customize_AlignRight.Text" xml:space="preserve">
+    <value>Mostrar 'Alinear a la derecha'</value>
+  </data>
+  <data name="Customize_Bullets.Text" xml:space="preserve">
+    <value>Mostrar 'Lista de viñetas'</value>
+  </data>
+  <data name="Customize_Strikethrough.Text" xml:space="preserve">
+    <value>Mostrar opción de tachado</value>
+  </data>
 </root>

@@ -525,4 +525,106 @@
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>แสดงแถบสถานะเมื่ออยู่ในโหมดคลาสสิค</value>
   </data>
+  <data name="AppLanguage.Text" xml:space="preserve">
+    <value>ภาษา</value>
+  </data>
+  <data name="CmdOnTopTooltip" xml:space="preserve">
+    <value>ทับแอปอื่น (Ctrl+Shift+O)</value>
+  </data>
+  <data name="CmdFind.Label" xml:space="preserve">
+    <value>ค้นหา</value>
+  </data>
+  <data name="ClassicEditFind.Text" xml:space="preserve">
+    <value>ค้นหา</value>
+  </data>
+  <data name="ClassicEditFindNext.Text" xml:space="preserve">
+    <value>ค้นหาถัดไป</value>
+  </data>
+  <data name="ClassicEditFindPrevious.Text" xml:space="preserve">
+    <value>ค้นหาก่อนหน้า</value>
+  </data>
+  <data name="ClassicEditReplace.Text" xml:space="preserve">
+    <value>แทนที่</value>
+  </data>
+  <data name="FAR_CloseDialog.Text" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="FAR_FindOption.Text" xml:space="preserve">
+    <value>ตัวเลือกการหา</value>
+  </data>
+  <data name="FAR_InputEmpty.PlaceholderText" xml:space="preserve">
+    <value>ต้องการหาอะไร พิมพ์เลย!</value>
+  </data>
+  <data name="FAR_MatchCase.Content" xml:space="preserve">
+    <value>ตรงตามตัวพิมพ์ใหญ่-เล็ก</value>
+  </data>
+  <data name="FAR_More.Text" xml:space="preserve">
+    <value>เพิ่มเติม</value>
+  </data>
+  <data name="FAR_ReplaceAll.Text" xml:space="preserve">
+    <value>แทนที่ทั้งหมด</value>
+  </data>
+  <data name="FAR_WrapAround.Content" xml:space="preserve">
+    <value>ค้นหาแบบวน</value>
+  </data>
+  <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
+    <value>แทนที่ด้วย..</value>
+  </data>
+  <data name="ClassicEditDelete.Text" xml:space="preserve">
+    <value>ลบ</value>
+  </data>
+  <data name="ClassicEditGoTo.Text" xml:space="preserve">
+    <value>ไปบรรทัดที</value>
+  </data>
+  <data name="ClassicEditInsertDT.Text" xml:space="preserve">
+    <value>เวลา/วันที่</value>
+  </data>
+  <data name="ClassicEditSearch.Text" xml:space="preserve">
+    <value>ค้นหาด้วย Bing</value>
+  </data>
+  <data name="ClassicEditSelectAll.Text" xml:space="preserve">
+    <value>เลือกทั้งหมด</value>
+  </data>
+  <data name="GT_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>ไป</value>
+  </data>
+  <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>ยกเลิก</value>
+  </data>
+  <data name="GT_Dialog.Title" xml:space="preserve">
+    <value>ไปที่บรรทัด</value>
+  </data>
+  <data name="GT_LineInput.Header" xml:space="preserve">
+    <value>บรรทัดที่:</value>
+  </data>
+  <data name="Cmd_Customize.Label" xml:space="preserve">
+    <value>ซ่อน/แสดง ปุ่ม</value>
+  </data>
+  <data name="Customize_AlignCenter.Text" xml:space="preserve">
+    <value>แสดงปุ่มจัดกลาง</value>
+  </data>
+  <data name="Customize_AlignJustify.Text" xml:space="preserve">
+    <value>แสดงปุ่มจัดเต็มแนว</value>
+  </data>
+  <data name="Customize_AlignLeft.Text" xml:space="preserve">
+    <value>แสดงปุ่มจัดชิดซ้าย</value>
+  </data>
+  <data name="Customize_AlignRight.Text" xml:space="preserve">
+    <value>แสดงปุ่มจัดชิดขวา</value>
+  </data>
+  <data name="Customize_Bullets.Text" xml:space="preserve">
+    <value>แสดงปุ่มสัญลักษณ์หัวข้อ</value>
+  </data>
+  <data name="Customize_Strikethrough.Text" xml:space="preserve">
+    <value>แสดงปุ่มขีดทับ</value>
+  </data>
+  <data name="Customize_SizeDown.Text" xml:space="preserve">
+    <value>แสดงปุ่มลดขนาด</value>
+  </data>
+  <data name="Customize_SizeUp.Text" xml:space="preserve">
+    <value>แสดงปุ่มเพิ่มขนาด</value>
+  </data>
+  <data name="Customize_Reset.Text" xml:space="preserve">
+    <value>รีเซทเป็นค่าเริ่มต้น</value>
+  </data>
 </root>

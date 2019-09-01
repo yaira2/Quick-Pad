@@ -633,4 +633,115 @@
   <data name="AppLanguage.Text" xml:space="preserve">
     <value>App Language</value>
   </data>
+  <data name="CmdOnTopTooltip" xml:space="preserve">
+    <value>On Top (Ctrl+Shift+O)</value>
+  </data>
+  <data name="CmdFind.Label" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="ClassicEditFind.Text" xml:space="preserve">
+    <value>Find</value>
+  </data>
+  <data name="ClassicEditFindNext.Text" xml:space="preserve">
+    <value>Find Next</value>
+  </data>
+  <data name="ClassicEditFindPrevious.Text" xml:space="preserve">
+    <value>Find Previous</value>
+  </data>
+  <data name="ClassicEditReplace.Text" xml:space="preserve">
+    <value>Replace</value>
+  </data>
+  <data name="FAR_CloseDialog.Text" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="FAR_FindOption.Text" xml:space="preserve">
+    <value>Find option</value>
+  </data>
+  <data name="FAR_InputEmpty.PlaceholderText" xml:space="preserve">
+    <value>Looking for?</value>
+  </data>
+  <data name="FAR_MatchCase.Content" xml:space="preserve">
+    <value>Match case</value>
+  </data>
+  <data name="FAR_More.Text" xml:space="preserve">
+    <value>More...</value>
+  </data>
+  <data name="FAR_ReplaceAll.Text" xml:space="preserve">
+    <value>Replace All</value>
+  </data>
+  <data name="FAR_WrapAround.Content" xml:space="preserve">
+    <value>Wrap around</value>
+  </data>
+  <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
+    <value>Replace with..</value>
+  </data>
+  <data name="ClassicEditDelete.Text" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ClassicEditGoTo.Text" xml:space="preserve">
+    <value>Go To</value>
+  </data>
+  <data name="ClassicEditInsertDT.Text" xml:space="preserve">
+    <value>Time/Date</value>
+  </data>
+  <data name="ClassicEditSearch.Text" xml:space="preserve">
+    <value>Search with Bing...</value>
+  </data>
+  <data name="ClassicEditSelectAll.Text" xml:space="preserve">
+    <value>Select All</value>
+  </data>
+  <data name="GT_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>Go to</value>
+  </data>
+  <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="GT_Dialog.Title" xml:space="preserve">
+    <value>Go To Line</value>
+  </data>
+  <data name="GT_LineInput.Header" xml:space="preserve">
+    <value>Line number:</value>
+  </data>
+  <data name="Cmd_Customize.Label" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="Customize_AlignCenter.Text" xml:space="preserve">
+    <value>Show align center</value>
+  </data>
+  <data name="Customize_AlignJustify.Text" xml:space="preserve">
+    <value>Show align justify</value>
+  </data>
+  <data name="Customize_AlignLeft.Text" xml:space="preserve">
+    <value>Show align left</value>
+  </data>
+  <data name="Customize_AlignRight.Text" xml:space="preserve">
+    <value>Show align right</value>
+  </data>
+  <data name="Customize_Bullets.Text" xml:space="preserve">
+    <value>Show bullet list</value>
+  </data>
+  <data name="Customize_Strikethrough.Text" xml:space="preserve">
+    <value>Show strikethrough option</value>
+  </data>
+  <data name="Customize_SizeDown.Text" xml:space="preserve">
+    <value>Show size down</value>
+  </data>
+  <data name="Customize_SizeUp.Text" xml:space="preserve">
+    <value>Show size up</value>
+  </data>
+  <data name="Customize_Reset.Text" xml:space="preserve">
+    <value>Reset toolbar</value>
+  </data>
+  <data name="ClassicRestoreDefaultZoom" xml:space="preserve">
+    <value>Restore Default Zoom</value>
+  </data>
+  <data name="ClassicZoom.Text" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="ClassicZoomIn.Text" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="ClassicZoomOut" xml:space="preserve">
+    <value>Zoom Out</value>
+  </data>
 </root>

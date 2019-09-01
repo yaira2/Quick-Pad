@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AppCenter.Analytics;
+using System;
 using System.ComponentModel;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -20,7 +21,17 @@ namespace QuickPad
             {
                 localSettings.Values.Add(propertyName, GetDefaultValue<T>(propertyName));
             }
-            MigrateSettingFromPreviousVersion<T>(propertyName);
+            if (localSettings.Values[propertyName].GetType() != typeof(T))
+            {
+                try
+                {
+                    MigrateSettingFromPreviousVersion<T>(propertyName);
+                }
+                catch (Exception ex)
+                {
+                    Analytics.TrackEvent($"Error trying to migrate setting {propertyName}\r\n{ex.Message}");
+                }
+            }
             return (T)localSettings.Values[propertyName];
         }
 
@@ -207,6 +218,13 @@ namespace QuickPad
             }
         }
 
+        [DefaultValue(10)]
+        public int AutoSaveInterval
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
         [DefaultValue(true)]
         public bool WordWrap
         {
@@ -285,10 +303,24 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+
+        [DefaultValue(true)]
+        public bool ShowSizeUp
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowSizeDown
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
         #endregion
 
         #region Font setting
-        [DefaultValue("Segoe UI")]
+        [DefaultValue("Consolas")]
         public string DefaultFont
         {
             get => Get<string>();
@@ -302,7 +334,7 @@ namespace QuickPad
             set => Set(value);
         }
 
-        [DefaultValue(18)]
+        [DefaultValue(12)]
         public int DefaultFontSize
         {
             get => Get<int>();
@@ -337,7 +369,7 @@ namespace QuickPad
         public autoSaveChange afterAutoSaveChanged { get; set; }
         public themeChange afterThemeChanged { get; set; }
         public fontsizeChange afterFontSizeChanged { get; set; }
-#endregion
+        #endregion
     }
 
     public delegate void autoSaveChange(bool to);
@@ -416,6 +448,15 @@ namespace QuickPad
         public static Visibility HideIfNoAlignButtonShow(bool left, bool center, bool right, bool justify)
         {
             if (!left && !center && !right && !justify)
+            {
+                return Visibility.Collapsed;
+            }
+            return Visibility.Visible;
+        }
+
+        public static  Visibility HideIfNoSizeButtonShow(bool up, bool down)
+        {
+            if (!up && !down)
             {
                 return Visibility.Collapsed;
             }

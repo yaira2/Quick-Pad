@@ -6,6 +6,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)"
+    xmlns:contract7NotPresent="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,7)"
     xmlns:q="using:QuickPad"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     xmlns:dialog="using:QuickPad.Dialog"
@@ -14,7 +16,7 @@
     mc:Ignorable="d">
     <Page.Resources>
         <DataTemplate x:Key="FontFamilyComboBoxItem">
-            <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="10,4,0,4" FontSize="16" />
+            <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="2,2,2,2" FontSize="12"/>
         </DataTemplate>
     </Page.Resources>
     <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" HorizontalAlignment="Stretch">
@@ -101,7 +103,11 @@
                     <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
+                    <FontIcon Margin="0,4,0,-3" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
+                        <FontIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                        </FontIcon.RenderTransform>
+                    </FontIcon>
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton IsChecked="{x:Bind IsUsingBulletList, Mode=OneWay}" x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
@@ -125,24 +131,64 @@
                     <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" >
+            <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <BitmapIcon UriSource="/Assets/justify align.png"/>
+                    <FontIcon Margin="0,4,8,5" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1A2;">
+                        <FontIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
+                        </FontIcon.RenderTransform>
+                    </FontIcon>
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" />
-            <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease">
+            <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease" Visibility="{x:Bind QSetting.ShowSizeUp, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Size Up" x:Uid="SizeUpTooltip"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Name="SizeDown" x:Uid="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease">
+            <AppBarButton x:Name="SizeDown" x:Uid="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease" Visibility="{x:Bind QSetting.ShowSizeDown, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Size Down" x:Uid="SizeDownTooltip"/>
                 </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarSeparator Width="32" Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
+            <AppBarButton Label="Customize" Width="Auto" MinWidth="32" x:Uid="Cmd_Customize">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE15E;" />
+                </AppBarButton.Icon>
+                <AppBarButton.Flyout>
+                    <MenuFlyout Closing="ClosingCustomizeFlyout">
+                        <ToggleMenuFlyoutItem x:Uid="Customize_Strikethrough" Text="Show Strikethrough" IsChecked="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}">
+                            <ToggleMenuFlyoutItem.Icon>
+                                <FontIcon Margin="0,4,0,-3" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
+                                    <FontIcon.RenderTransform>
+                                        <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                                    </FontIcon.RenderTransform>
+                                </FontIcon>
+                            </ToggleMenuFlyoutItem.Icon>
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_Bullets" Text="Show bullet list" Icon="Bullets" IsChecked="{x:Bind QSetting.ShowBullets, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_AlignLeft" Text="Show align left" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_AlignCenter" Text="Show align center" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_AlignRight" Text="Show align right" Icon="AlignRight" IsChecked="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_AlignJustify" Text="Show align justify" IsChecked="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}">
+                            <ToggleMenuFlyoutItem.Icon>
+                                <FontIcon Margin="0,5,0,0" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1A2;">
+                                    <FontIcon.RenderTransform>
+                                        <ScaleTransform ScaleX="1.4" ScaleY="1.4"/>
+                                    </FontIcon.RenderTransform>
+                                </FontIcon>
+                            </ToggleMenuFlyoutItem.Icon>
+                        </ToggleMenuFlyoutItem>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_SizeUp" Text="Show size up" Icon="FontIncrease" IsChecked="{x:Bind QSetting.ShowSizeUp, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_SizeDown" Text="Show size down" Icon="FontDecrease" IsChecked="{x:Bind QSetting.ShowSizeDown, Mode=TwoWay}"/>
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem x:Uid="Customize_Reset" Text="Reset toolbar" Icon="Sync" Click="{x:Bind ResetToolbarSetting}"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
             </AppBarButton>
         </CommandBar>
 
@@ -159,7 +205,13 @@
                         <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
                     </ToolTipService.ToolTip>
                 </AppBarButton>
-                <AppBarButton x:Name="CmdReview" x:Uid="CmdReview" Icon="SolidStar" Label="Review" Click="CmdReview_Click" Width="Auto"/>
+                <AppBarButton Icon="Find" x:Uid="CmdFind" Width="Auto" MinWidth="40" Click="{x:Bind ToggleFindAndReplaceDialog}" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="F" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
                 <AppBarButton x:Name="CmdSettings" x:Uid="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click">
                     <ToolTipService.ToolTip>
                         <TextBlock Text="Settings" x:Uid="CmdSettingsTooltip"/>
@@ -189,6 +241,9 @@
                 <AppBarToggleButton.KeyboardAccelerators>
                     <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
                 </AppBarToggleButton.KeyboardAccelerators>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="On Top (Ctrl+Shift+O)" x:Uid="CmdOnTopTooltip"/>
+                </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarButton x:Name="Copy" x:Uid="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click">
                 <ToolTipService.ToolTip>
@@ -268,7 +323,7 @@
                         <SymbolIcon Symbol="Undo"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Redo" AccessKey="R" Click="CmdRedo_Click" x:Uid="ClassicEditRedo">
+                <MenuFlyoutItem Text="Redo" AccessKey="E" Click="CmdRedo_Click" x:Uid="ClassicEditRedo">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Redo"/>
                     </MenuFlyoutItem.Icon>
@@ -289,6 +344,72 @@
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Delete" Click="Delete_Click" AccessKey="L" x:Uid="ClassicEditDelete">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Delete"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Search with Bing..." AccessKey="S" Click="{x:Bind FindWithBing}" x:Uid="ClassicEditSearch">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE12B;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="E" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="ClassicEditFind" AccessKey="F" Text="Find" Icon="Find" Click="{x:Bind ToggleFindAndReplaceDialog}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="F" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="ClassicEditFindNext" AccessKey="N" Text="Find Next" Click="{x:Bind FindAndReplaceDialog.RequestFindNext}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE0AB;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F3" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="ClassicEditFindPrevious" AccessKey="V" Text="Find Previous" Click="{x:Bind FindAndReplaceDialog.RequestFindPrevious}">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE0A6;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Shift" Key="F3" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem x:Uid="ClassicEditReplace" AccessKey="R" Text="Replace" Icon="Rename" Click="{x:Bind OpenFindDialogWithReplace}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="H" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Go To" AccessKey="G" Click="{x:Bind CMDGoTo_Click}" x:Uid="ClassicEditGoTo">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="G" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE12F;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem Text="Select All" AccessKey="A" Click="CMDSelectAll_Click" x:Uid="ClassicEditSelectAll">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE8B3;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Date/Time" AccessKey="D" Click="CMDInsertDateTime_Click" x:Uid="ClassicEditInsertDT">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xEC92;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F5" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="Format" AccessKey="O" x:Uid="ClassicFormat">
                 <ToggleMenuFlyoutItem Text="Word Wrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}" x:Uid="WordWrap">
@@ -296,64 +417,6 @@
                         <FontIcon Glyph="&#xE751;" />
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Bold" Click="Bold_Click" x:Uid="ClassicFormatBold">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Bold"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Italic" Click="Italic_Click" x:Uid="ClassicFormatItalic">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Italic"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Underline" Click="Underline_Click" x:Uid="ClassicFormatUnderline">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Underline"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Strikethrough" Click="Strikethrough_Click" x:Uid="ClassicFormatST" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xA7A8;" FontFamily="Segoe UI"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Bullets" Click="BulletList_Click" x:Uid="ClassicFormatBullets" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Bullets"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Align leff" Click="Left_Click" x:Uid="ClassicFormatALeft" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignLeft"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align center" Click="Center_Click" x:Uid="ClassicFormatACenter" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignCenter"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align right" Click="Right_Click" x:Uid="ClassicFormatARight" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="AlignRight"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Align justify" Click="Justify_Click" x:Uid="ClassicFormatAJustify" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <BitmapIcon UriSource="/Assets/justify align.png"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}"/>
-                <MenuFlyoutItem Text="Size up" Click="SizeUp_Click" x:Uid="ClassicFormatUp">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="FontIncrease"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Size down" Click="SizeDown_Click" x:Uid="ClassicFormatDown">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="FontDecrease"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
                 <MenuFlyoutSeparator Visibility="Collapsed"/>
                 <MenuFlyoutItem Text="Fonts..." Visibility="Collapsed" AccessKey="F" Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">
                     <MenuFlyoutItem.Icon>
@@ -378,11 +441,46 @@
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
                 <MenuFlyoutSeparator/>
+                <MenuFlyoutSubItem Text="Zoom" x:Uid="ClassicZoom" AccessKey="Z">
+                    <MenuFlyoutSubItem.Icon>
+                        <FontIcon Glyph="&#xE92D;"/>
+                    </MenuFlyoutSubItem.Icon>
+                    <MenuFlyoutItem Text="Zoom In" Click="ZoomIn" x:Uid="ClassicZoomIn" AccessKey="I">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE8A3;"/>
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="Add"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Zoom Out" Click="ZoomOut" x:Uid="ClassicZoomOut" AccessKey="O">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE71F;"/>
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="Subtract"/>
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Restore Default Zoom" Click="ResetZoom" x:Uid="ClassicRestoreDefaultZoom" AccessKey="R">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE71E;"/>
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="Number0" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                </MenuFlyoutSubItem>
                 <ToggleMenuFlyoutItem Text="Status Bar" AccessKey="S" IsChecked="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="ClassicViewStatusBar">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE75B;" />
                     </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>                
+                </ToggleMenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="Help" AccessKey="H" x:Uid="ClassicHelp">
                 <MenuFlyoutItem Text="Settings" AccessKey="S" Click="CmdSettings_Click" x:Uid="CmdSettingsTooltip">
@@ -398,6 +496,8 @@
                 </MenuFlyoutItem>
             </winui:MenuBarItem>
         </winui:MenuBar>
+
+        <dialog:FindAndReplace Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowFindAndReplace), Mode=OneWay}" Canvas.ZIndex="90" x:Name="FindAndReplaceDialog"/>
 
         <RichEditBox Grid.Row="2" 
                      x:Name="Text1" 
@@ -415,7 +515,7 @@
                      IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
                      IsTapEnabled="True"
-                     Tapped="Text1_Tapped">
+                     Tapped="Text1_Tapped" FontFamily="Consolas">
             <RichEditBox.SelectionHighlightColorWhenNotFocused>
                 <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
             </RichEditBox.SelectionHighlightColorWhenNotFocused>
@@ -453,14 +553,15 @@
                                 </ComboBox>
 
                                 <TextBlock Text="App Language" x:Uid="AppLanguage"/>
-                                <ComboBox PlaceholderText="English" Windows10version1809:CornerRadius="2" x:Name="DefaultLanguage" SelectionChanged="DefaultLanguage_SelectionChanged" ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                <ComboBox PlaceholderText="English (United State)" Windows10version1809:CornerRadius="2" x:Name="DefaultLanguage" SelectedIndex="{x:Bind SelectedDefaultLanguage, Mode=TwoWay}" ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate x:DataType="q:DefaultLanguage">
                                             <TextBlock Text="{x:Bind Name}"/>
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                                
+                                <TextBlock x:Name="LangChangeNeedRestart" Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the change."/>
+
                                 <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
                                 <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <x:String>.rtf</x:String>
@@ -469,12 +570,14 @@
 
                                 <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save"/>
                                 <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
-                                                               
-                                <TextBlock x:Uid="SpellCheck" Text="Spell Check"/>
-                                <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}"/>
 
-                                <TextBlock Text="Show Status Bar on Classic Mode" x:Uid="GeneralShowStatusOnClassic"/>
-                                <ToggleSwitch IsOn="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="GeneralToggleSwitch"/>
+                                <TextBlock Visibility="{x:Bind QSetting.AutoSave, Mode=OneWay}">
+                                    <Run Text="Auto Save Every"/>
+                                    <Run Text="{x:Bind QSetting.AutoSaveInterval, Mode=OneWay}"/>
+                                    <Run Text="second(s)"/>
+                                </TextBlock>
+                                
+                                <Slider Value="{x:Bind QSetting.AutoSaveInterval, Mode=TwoWay}" Visibility="{x:Bind QSetting.AutoSave, Mode=OneWay}" Minimum="5" Maximum="30" StepFrequency="1" TickPlacement="Inline" Width="230" HorizontalAlignment="Left" ValueChanged="AutoSaveTimer_Changed"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
@@ -485,7 +588,7 @@
                                 <RadioButton x:Name="Light" 
                                          Tag="Light" 
                                          x:Uid="Light" 
-                                         Margin="0,8,0,4"
+                                         Margin="0,2,0,4"
                                          Content="Light" 
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" />
@@ -493,16 +596,19 @@
                                          Tag="Dark" 
                                          x:Uid="Dark" 
                                          Content="Dark"
-                                         Margin="0,8,0,4"
+                                         Margin="0,2,0,4"
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
                                 <RadioButton x:Name="SystemDefault" 
                                          Tag="Default" 
-                                         Margin="0,8,0,4"
+                                         Margin="0,2,0,4"
                                          x:Uid="SystemDefault" 
                                          Content="System Default" 
                                          Click="{x:Bind SetTheme}" 
                                          IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" />
+
+                                <TextBlock Text="Custom Theme Color" Visibility="Collapsed"/>
+                                <ComboBox PlaceholderText="Default" x:Load="False" Width="125" Windows10version1809:CornerRadius="2" x:Name="CustomTheme" BorderThickness="1,1,1,1"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
@@ -510,8 +616,8 @@
                         <ScrollViewer Height="250">
                             <StackPanel Padding="2,2,2,2">
                                 <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
-                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFont, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Segoe UI" MinWidth="169" BorderThickness="1"/>
-                                                                
+                                <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
+
                                 <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
                                 <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
                                     <ComboBox.ItemTemplate>
@@ -526,9 +632,9 @@
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
                                 </ComboBox>
-                                
+
                                 <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
-                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="18" MinWidth="69" BorderThickness="1">
+                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" PlaceholderText="12" MinWidth="69" BorderThickness="1">
                                     <x:Int32>4</x:Int32>
                                     <x:Int32>6</x:Int32>
                                     <x:Int32>8</x:Int32>
@@ -549,25 +655,16 @@
 
                                 <TextBlock x:Uid="WordWrap" Text="Word Wrap"/>
                                 <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.WordWrap, Mode=TwoWay}"/>
-                            </StackPanel>
-                        </ScrollViewer>
-                    </PivotItem>
-                    <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
-                        <ScrollViewer x:Name="SettingsTab2SV"  Height="250">
-                            <StackPanel Padding="2,2,2,2">
-                                <ToggleSwitch x:Name="ShowStrikethrough" IsOn="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowBullets" IsOn="{x:Bind QSetting.ShowBullets, Mode=TwoWay}" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignLeft" IsOn="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignCenter" IsOn="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignRight" IsOn="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignJustify" IsOn="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Margin="0,8,0,4"/>
+
+                                <TextBlock x:Uid="SpellCheck" Text="Spell Check"/>
+                                <ToggleSwitch x:Name="SpellCheck" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.SpellCheck, Mode=TwoWay}"/>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
                     <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
                         <ScrollViewer Height="250">
                             <StackPanel Padding="2,2,2,2">
-                                <TextBlock Text="Version number" x:Name="VersionNumber" HorizontalAlignment="Center"/>
+                                <TextBlock Text="Version number" x:Name="VersionNumber" HorizontalAlignment="Center" Margin="0,30,0,0"/>
                                 <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" HorizontalAlignment="Center"/>
                                 <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" HorizontalAlignment="Center"/>
                                 <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
@@ -599,9 +696,9 @@
             <CommandBar.Content>
                 <Canvas Width="169" Height="40">
                     <Frame x:Name="FontBoxFrame" Width="167" Height="37" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
-                    <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Segoe UI" Canvas.Left="10" Canvas.Top="11" Canvas.ZIndex="100"/>
+                    <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Consolas" Canvas.Left="10" Canvas.Top="11" Canvas.ZIndex="100"/>
                     <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="145" Canvas.Top="13" Canvas.ZIndex="100"/>
-                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Segoe UI" ItemTemplate="{StaticResource FontFamilyComboBoxItem}" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness=".5" PlaceholderForeground="Black"/>
+                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Consolas" ItemTemplate="{StaticResource FontFamilyComboBoxItem}" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness=".5" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
             <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor">
@@ -620,7 +717,17 @@
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-            <AppBarButton x:Name="Emoji" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
+            <AppBarButton x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
+            <AppBarButton Width="40" Icon="Add" >
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="Add" Invoked="ZoomInvoked"/>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton Width="40" Icon="Remove" >
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="Subtract" Invoked="ZoomInvoked"/>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
         </CommandBar>
 
         <controls:DropShadowPanel Grid.Row="3"
@@ -632,7 +739,7 @@
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch"
                                   Visibility="{x:Bind q:Converter.CanIShowStatusBar(ClassicModeSwitch, QSetting.ShowStatusBar), Mode=OneWay}">
-            <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Grid.Row="3" VerticalAlignment="Stretch" x:Name="StatusBar" MinHeight="32">
+            <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Grid.Row="3" VerticalAlignment="Stretch" x:Name="StatusBar" MinHeight="28">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -647,32 +754,32 @@
                 </Grid.ColumnDefinitions>
                 <!--Save status-->
                 <Grid Margin="5,0,2,0" Visibility="{x:Bind q:Converter.ShowIfItemIsNotNull(CurrentWorkingFile), Mode=OneWay}" Width="32" MaxWidth="32" x:Name="SaveIconStatus">
-                    <FontIcon Glyph="&#xE74E;" FontSize="14">
+                    <FontIcon Glyph="&#xE74E;" FontSize="12" Grid.Column="3">
                         <ToolTipService.ToolTip>
                             <StackPanel>
                                 <TextBlock Text="{x:Bind CurrentWorkingFile.Path, Mode=OneWay}"/>
                             </StackPanel>
                         </ToolTipService.ToolTip>
                     </FontIcon>
-                    <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="4,0,0,8" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
+                    <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="6,0,0,8" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
                 </Grid>
                 <!--Line and character count-->
-                <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="14" Grid.Column="1" Margin="5,0,0,0">
+                <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="12" Grid.Column="1" Margin="5,0,0,0">
                 <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind CurrentLine, Mode=OneWay}"/><Run Text=","/>
                 <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind CurrentPosition, Mode=OneWay}"/>
                 </TextBlock>
                 <!--Selection info-->
-                <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" FontSize="14" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
+                <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" FontSize="12" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
                     <Run Text="Selection: " x:Uid="StatusSelCount"/><Run Text="{x:Bind SelectionLength, Mode=OneWay}"/>
                 </TextBlock>
                 <!--Bold, Italic, Underline status-->
-                <FontIcon FontSize="14" Glyph="&#xE8DD;" Grid.Column="5" Visibility="{x:Bind IsItBold, Mode=OneWay}"/>
-                <FontIcon FontSize="14" Glyph="&#xE8DB;" Grid.Column="6" Visibility="{x:Bind IsItItalic, Mode=OneWay}"/>
-                <FontIcon FontSize="14" Glyph="&#xE8DC;" Grid.Column="7" Visibility="{x:Bind IsItUnderline, Mode=OneWay}"/>
-                <FontIcon FontSize="14" Glyph="&#xA7A8;" FontFamily="Segoe UI" Grid.Column="7" Margin="0,0,0,2" Visibility="{x:Bind IsItStrikethrough, Mode=OneWay}"/>
+                <FontIcon FontSize="12" Glyph="&#xE8DD;" Grid.Column="5" Visibility="{x:Bind IsItBold, Mode=OneWay}"/>
+                <FontIcon FontSize="12" Glyph="&#xE8DB;" Grid.Column="6" Visibility="{x:Bind IsItItalic, Mode=OneWay}"/>
+                <FontIcon FontSize="12" Glyph="&#xE8DC;" Grid.Column="7" Visibility="{x:Bind IsItUnderline, Mode=OneWay}"/>
+                <FontIcon FontSize="12" Glyph="&#xA7A8;" FontFamily="Segoe UI" Grid.Column="7" Margin="0,0,0,2" Visibility="{x:Bind IsItStrikethrough, Mode=OneWay}"/>
             </Grid>
         </controls:DropShadowPanel>
-        
+
         <Grid x:Name="Title" Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="{x:Bind CurrentFilename, Mode=OneWay}"

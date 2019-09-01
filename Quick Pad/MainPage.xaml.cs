@@ -1,5 +1,6 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Services.Store.Engagement;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using Newtonsoft.Json.Linq;
 using QuickPad;
 using System;
@@ -72,6 +73,8 @@ namespace QuickPad
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
 
         public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
+
+        public Dialog.GoTo GoToDialog = new Dialog.GoTo();
         public MainPage()
         {
             InitializeComponent();
@@ -88,14 +91,11 @@ namespace QuickPad
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
             UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
-            //Match the formatted text with the initial content
-            //As it technically not empty but contain format size text
-            SetANewChange();
             //
             CreateItems();
             LoadSettings();
             LoadFonts();
-
+            //
             VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
             //check if focus is on app or off the app
@@ -103,7 +103,7 @@ namespace QuickPad
             {
                 if (args.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
                 {
-                    if (CommandBar2.Visibility==Visibility.Visible)
+                    if (CommandBar2.Visibility == Visibility.Visible)
                     {
                         CommandBar2.Focus(FocusState.Programmatic); // Set focus off the main content
                     }
@@ -126,23 +126,30 @@ namespace QuickPad
                 if (!Changed)
                 {
                     //No change made, either new document or file saved
-                    deferral.Complete();                   
+                    deferral.Complete();
                 }
                 else
                 {
-                    //In case if all the change is just nothing but format
-                    Text1.TextDocument.GetText(TextGetOptions.None, out string change);
-                    if (string.IsNullOrEmpty(change))
+                    try //In case if all the change is just nothing but format
                     {
-                        QSetting.DefaultFontSize = Convert.ToInt32(Text1.Document.Selection.FormattedText.CharacterFormat.Size);
-                        deferral.Complete();
+                        Text1.TextDocument.GetText(TextGetOptions.None, out string change);
+                        if (string.IsNullOrEmpty(change))
+                        {
+                            deferral.Complete();
+                        }
+                    }
+                    catch (Exception er)
+                    {
+                        //According to error report, the error is in line 132, or when Text1 try to get text
+                        Analytics.TrackEvent($"Track down error \r\n{er.Message}");
                     }
                 }
 
                 //close dialogs so the app does not hang
                 WantToSave.Hide();
                 Settings.Hide();
-                
+                GoToDialog.Hide();
+
                 await WantToSave.ShowAsync();
 
                 switch (WantToSave.DialogResult)
@@ -160,15 +167,16 @@ namespace QuickPad
                         break;
                 }
             };
-        
-            CheckPushNotifications(); //check for push notifications
 
-#if !DEBUG
-            AddJumplists();
-#endif
+            CheckPushNotifications(); //check for push notifications
+            AddJumplists(); //reset the jumplist tasks
 
             this.Loaded += MainPage_Loaded;
             this.LayoutUpdated += MainPage_LayoutUpdated;
+            //
+            //Match the formatted text with the initial content
+            //As it technically not empty but contain format size text
+            SetANewChange();
         }
 
         private void UpdateAutoSave(bool to)
@@ -185,7 +193,7 @@ namespace QuickPad
             }
         }
 
-#region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
+        #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
         private void UpdateUIAccordingToNewTheme(ElementTheme to)
         {
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
@@ -225,6 +233,8 @@ namespace QuickPad
                     SetANewChange();
                 }
             }
+            //Update dialog theme
+            WantToSave.RequestedTheme = to;
         }
 
         private void UpdateText1FontSize(int to)
@@ -252,8 +262,8 @@ namespace QuickPad
         private ObservableCollection<DefaultLanguage> _DefaultLanguage;
         public ObservableCollection<DefaultLanguage> DefaultLanguages
         {
-           get => _DefaultLanguage;
-           set => Set(ref _DefaultLanguage, value);
+            get => _DefaultLanguage;
+            set => Set(ref _DefaultLanguage, value);
         }
 
         private void CreateItems()
@@ -282,6 +292,7 @@ namespace QuickPad
         {
             //check if auto save is on or off
             //start auto save timer
+            timer = new System.Timers.Timer(QSetting.AutoSaveInterval * 1000);
             timer.Elapsed += new System.Timers.ElapsedEventHandler(send);
             timer.AutoReset = true;
             if (QSetting.AutoSave)
@@ -308,7 +319,7 @@ namespace QuickPad
             //Sort it in alphabet order
             fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
             //Put it on an observable list
-            AllFonts = new ObservableCollection<FontFamilyItem>(fonts.Select(x => new FontFamilyItem(x)));
+            AllFonts = new ObservableCollection<FontFamilyItem>(fonts.Select(i => new FontFamilyItem(i)));
         }
 
         private async void AddJumplists()
@@ -321,7 +332,7 @@ namespace QuickPad
                 //Clear Jumplist
                 all.Items.Clear();
             }
-            
+
             var focus = JumpListItem.CreateWithArguments("quickpad://focus", "ms-resource:///Resources/LaunchInFocusMode");
             focus.Description = "ms-resource:///Resources/LaunchInFocusModeDesc";
             focus.Logo = new Uri("ms-appx:///Assets/jumplist/focus.png");
@@ -420,20 +431,46 @@ namespace QuickPad
             });
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
-#endregion
 
-#region Properties     
+        private void AutoSaveTimer_Changed(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
+        {
+            if (timer != null)
+            {
+                timer.Interval = e.NewValue * 1000;
+            }
+        }
+
+        int? _def_lang = null;
+        public int SelectedDefaultLanguage
+        {
+            get
+            {
+                if (_def_lang is null)
+                {
+                    _def_lang = DefaultLanguages.IndexOf(DefaultLanguages.First(i => i.ID == QSetting.AppLanguage));
+                }
+                return _def_lang.Value;
+            }
+            set
+            {
+                if (!Equals(_def_lang, value))
+                {
+                    Set(ref _def_lang, value);
+                    LangChangeNeedRestart.Visibility = 
+                        ApplicationLanguages.PrimaryLanguageOverride == DefaultLanguages[value].ID 
+                        ? Visibility.Collapsed : Visibility.Visible;
+                    QSetting.AppLanguage = DefaultLanguages[value].ID;
+                }
+            }
+        }
+        #endregion
+
+        #region Properties
         ObservableCollection<FontFamilyItem> _fonts;
         public ObservableCollection<FontFamilyItem> AllFonts
         {
             get => _fonts;
             set => Set(ref _fonts, value);
-        }
-
-        private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            QSetting.AppLanguage = DefaultLanguages[(sender as ComboBox).SelectedIndex].ID;
-            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
         }
 
         //Colors
@@ -454,6 +491,12 @@ namespace QuickPad
                 {
                     Set(ref _fc_selection, value);
                     //Update setting
+                    if (FontColorCollections.Count < 1)
+                    {
+                        //Delay reselect
+                        ReUpdateSelectedDefaultFontColor(value);
+                        return;
+                    }
                     QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
                     if (QSetting.DefaultFontColor == "Default")
                     {
@@ -470,6 +513,15 @@ namespace QuickPad
                     }
                 }
             }
+        }
+
+        private async void ReUpdateSelectedDefaultFontColor(int selection)
+        {
+            while (FontColorCollections.Count < 1)
+            {
+                await Task.Delay(200);
+            }
+            SelectedDefaultFontColor = selection;
         }
 
         string _file_name = null;
@@ -534,8 +586,9 @@ namespace QuickPad
             Changed = !Equals(initialLoadedContent, ext);
         }
 
-        public void SetANewChange()
+        public async void SetANewChange()
         {
+            await Task.Delay(100);
             Text1.Document.GetText(TextGetOptions.FormatRtf, out string value);
             //Set initial content
             initialLoadedContent = value;
@@ -561,7 +614,7 @@ namespace QuickPad
         private bool _isPageLoaded = false;
         private Int64 LastFontSize; //this value is the last selected characters font size
 
-        public System.Timers.Timer timer = new System.Timers.Timer(10000); //this is the auto save timer interval
+        public System.Timers.Timer timer; //this is the auto save timer interval
 
         bool _undo;
         public bool CanUndoText
@@ -577,16 +630,35 @@ namespace QuickPad
             set => Set(ref _redo, value);
         }
 
-#endregion
+        public FontFamilyItem FromStringToFontItem(string input)
+        {
+            FontFamilyItem item = AllFonts.First(i => i.Name == input);
+            if (item is null)
+                return new FontFamilyItem("Consolas");
+            return item;
+        }   
+        
+        public void FromFontItemBackToString(object font)
+        {
+            FontFamilyItem selected = (font as FontFamilyItem);
+            QSetting.DefaultFont = selected.Name;
+            //
+            //set default font to UIs that still not depend on binding
+            Fonts.PlaceholderText = selected.Name;
+            Fonts.SelectedItem = selected.Name;
+            FontSelected.Text = selected.Name;
+            Text1.Document.Selection.CharacterFormat.Name = selected.Name;
+        }
+        #endregion
 
-#region Store service
+        #region Store service
         public async void CheckPushNotifications()
         {
             //regisiter for push notifications
             StoreServicesEngagementManager engagementManager = StoreServicesEngagementManager.GetDefault();
             await engagementManager.RegisterNotificationChannelAsync();
         }
-        
+
         public async void NewUserFeedbackAsync()
         {
             ContentDialog deleteFileDialog = new ContentDialog //brings up a content dialog
@@ -626,9 +698,9 @@ namespace QuickPad
             return false;
         }
 
-#endregion
+        #endregion
 
-#region Handling navigation
+        #region Handling navigation
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -657,12 +729,19 @@ namespace QuickPad
                         ClassicModeSwitch = true;
                     }
                     break;
+                case MainPage transfer:
+                    //Transfer settings from previous page
+                    Text1 = transfer.Text1;
+                    CurrentWorkingFile = transfer.CurrentWorkingFile;
+                    CurrentFilename = transfer.CurrentFilename;
+                    initialLoadedContent = transfer.initialLoadedContent;
+                    break;
             }
         }
 
-#endregion
+        #endregion
 
-#region Load/Save file
+        #region Load/Save file
         public async Task LoadFileIntoTextBox()
         {
             if (CurrentWorkingFile.FileType.ToLower() == ".rtf")
@@ -702,7 +781,7 @@ namespace QuickPad
             try
             {
                 Text1.Document.GetText(
-                    CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None, 
+                    CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None,
                     out var value);
                 await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
                 Changed = false;
@@ -732,7 +811,7 @@ namespace QuickPad
 
                 // Default file name if the user does not type one in or select a file to replace
                 if (_file_name == null)
-                    savePicker.SuggestedFileName = $"{_file_name}{QSetting.NewFileAutoNumber}";
+                    savePicker.SuggestedFileName = $"{textResource.GetString("NewDocument")}{QSetting.NewFileAutoNumber}";
                 else
                     savePicker.SuggestedFileName = _file_name;
 
@@ -745,7 +824,7 @@ namespace QuickPad
                     CurrentWorkingFile = file;
                     //update title bar
                     CurrentFilename = file.DisplayName;
-                    
+
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
                     //save as plain text for text file
@@ -782,9 +861,9 @@ namespace QuickPad
             //Update the initial loaded content
             SetANewChange();
         }
-#endregion
+        #endregion
 
-#region Command bar click
+        #region Command bar click
         public void SetTheme(object sender, RoutedEventArgs e)
         {
             QSetting.Theme = (ElementTheme)Enum.Parse(typeof(ElementTheme), (sender as RadioButton).Tag as string);
@@ -827,7 +906,7 @@ namespace QuickPad
             {
                 //File has not been save yet ask use if they want to save
                 await WantToSave.ShowAsync();
-                
+
                 switch (WantToSave.DialogResult)
                 {
                     case DialogResult.Yes:
@@ -859,7 +938,17 @@ namespace QuickPad
             //update the title bar to reflect it is a new document
             CurrentFilename = null;
             //Clear undo and redo
-            Text1.TextDocument.ClearUndoRedoHistory();
+            try
+            {
+                if (Text1.TextDocument.CanUndo())//Assume because the history is already empty?
+                {
+                    Text1.TextDocument.ClearUndoRedoHistory();
+                }
+            }
+            catch (Exception ex)
+            {
+                Analytics.TrackEvent($"Error trying to clear undo history\r\n{ex.Message}");
+            }
             //Put up a default font size into a format
             UpdateText1FontSize(QSetting.DefaultFontSize);
             //Set new change
@@ -1009,6 +1098,8 @@ namespace QuickPad
             Text1.Document.EndUndoGroup();
         }
 
+        private void Delete_Click(object sender, RoutedEventArgs e) => Text1.TextDocument.Selection.Text = string.Empty;
+
         private async void Paste_Click(object sender, RoutedEventArgs e)
         {
             DataPackageView dataPackageView = Clipboard.GetContent();
@@ -1071,7 +1162,14 @@ namespace QuickPad
         private void Emoji_Clicked(object sender, RoutedEventArgs e)
         {
             Text1.Focus(FocusState.Programmatic);
-            CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
+            try //More error here
+            {
+                CoreInputView.GetForCurrentView().TryShow(CoreInputViewKind.Emoji);
+            }
+            catch (Exception ex)
+            {
+                Analytics.TrackEvent($"Attempting to open emoji keyboard\r\n{ex.Message}");
+            }
         }
 
         StorageFile file;
@@ -1142,7 +1240,7 @@ namespace QuickPad
             }
             Text1.Document.EndUndoGroup();
         }
-        
+
         private void CmdBack_Click(object sender, RoutedEventArgs e)
         {
             Settings.Hide();
@@ -1246,11 +1344,30 @@ namespace QuickPad
             {
                 //Select like what user used to
                 Text1.Document.Selection.SetRange(previousPosition, previousSelectionEnd);
-            }            
+            }
         }
-#endregion
 
-#region UI Mode change
+        private void ClosingCustomizeFlyout(Windows.UI.Xaml.Controls.Primitives.FlyoutBase sender, Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs args)
+        {
+            if (Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift).HasFlag(CoreVirtualKeyStates.Down))
+                args.Cancel = true;
+        }
+
+        public void ResetToolbarSetting()
+        {
+            QSetting.ShowStrikethroughOption =
+                QSetting.ShowBullets =
+                QSetting.ShowAlignLeft =
+                QSetting.ShowAlignCenter =
+                QSetting.ShowAlignRight =
+                QSetting.ShowAlignJustify =
+                QSetting.ShowSizeUp =
+                QSetting.ShowSizeDown =
+                true;
+        }
+        #endregion
+
+        #region UI Mode change
         bool? _compact = null;
         public bool CompactOverlaySwitch
         {
@@ -1326,7 +1443,7 @@ namespace QuickPad
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
                 //
                 row0.Height = new GridLength(0);
-                row1.Height = new GridLength(0);            
+                row1.Height = new GridLength(0);
 
                 //make text smaller size if user did not do so on their own and if they did not type anything yet.
                 Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
@@ -1334,6 +1451,9 @@ namespace QuickPad
                 {
                     Text1.FontSize = 16;
                 }
+
+                //Hide Find and Replace dialog if it open
+                ShowFindAndReplace = false;
 
                 //log even in app center
                 Analytics.TrackEvent("Compact Overlay");
@@ -1386,6 +1506,10 @@ namespace QuickPad
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 row1.Height = new GridLength(1, GridUnitType.Auto);
                 row3.Height = new GridLength(1, GridUnitType.Auto);
+                if (ShowFindAndReplace == true)
+                {
+                    ShowFindAndReplace = false;
+                }
             }
             if (ClassicModeSwitch == true)
             {
@@ -1415,9 +1539,9 @@ namespace QuickPad
         //Use for Click function
         public void TurnOnFocusMode() => FocusModeSwitch = true;
         public void TurnOnClassicMode() => ClassicModeSwitch = true;
-#endregion
+        #endregion
 
-#region Textbox function
+        #region Textbox function
         private void Text1_GotFocus(object sender, RoutedEventArgs e)
         {
             LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size); //get font size of last selected character
@@ -1432,7 +1556,7 @@ namespace QuickPad
 
             if (ClassicModeSwitch)
             {
-                
+
             }
         }
 
@@ -1443,6 +1567,7 @@ namespace QuickPad
                 Text1.Document.GetText(TextGetOptions.None, out _content);
                 _content = TrimRichEditBoxText(_content);
                 _isLineCachePendingUpdate = true;
+                MaximumPossibleSearchRange = _content.Length;
             }
         }
         /// <summary>
@@ -1531,9 +1656,9 @@ namespace QuickPad
             CheckForStatusUpdate();
         }
 
-#endregion
+        #endregion
 
-#region Status bar and update
+        #region Status bar and update
         public void CheckForStatusUpdate()
         {
             //Update line and character count
@@ -1691,12 +1816,315 @@ namespace QuickPad
             get => _bs;
             set => Set(ref _bs, value);
         }
-#endregion
+        #endregion
+
+        #region Find & Replace
+        bool _fr;
+        public bool ShowFindAndReplace
+        {
+            get => _fr;
+            set
+            {
+                if (!Equals(_fr, value))
+                {
+                    if (CompactOverlaySwitch && value)
+                    {
+                        //Atempt to open find and replace on compact overlay
+                        return;//Abort
+                    }
+                    Set(ref _fr, value);
+                    if (value)
+                    {
+                        if (Text1.Document.Selection.Length > 1)
+                        {
+                            FindAndReplaceDialog.TextToFind = Text1.Document.Selection.Text;
+                            DelayFocus();
+                        }
+                        else
+                        {
+                            FindAndReplaceDialog.TextToFind = "";
+                            DelayFocus();
+                        }
+                        FindAndReplaceDialog.onRequestFinding += FindRequestedText;
+                        FindAndReplaceDialog.onRequestReplacing += FindAndReplaceRequestedText;
+                        FindAndReplaceDialog.onClosed += ToggleFindAndReplaceDialog;
+                    }
+                    else
+                    {
+                        FindAndReplaceDialog.onRequestFinding -= FindRequestedText;
+                        FindAndReplaceDialog.onRequestReplacing -= FindAndReplaceRequestedText;
+                        FindAndReplaceDialog.onClosed -= ToggleFindAndReplaceDialog;
+                        //Collapsed the replace after close dialog
+                        FindAndReplaceDialog.ShowReplace = false;
+                    }
+                }
+            }
+        }
+
+        async void DelayFocus()
+        {
+            await Task.Delay(100);
+            FindAndReplaceDialog.FindInput.Focus(FocusState.Pointer);
+        }
+
+        public void ToggleFindAndReplaceDialog()
+        {
+            ShowFindAndReplace = !ShowFindAndReplace;
+        }
+
+        int _ssp;
+        public int StartSearchPosition
+        {
+            get => _ssp;
+            set => Set(ref _ssp, value);
+        }
+
+        int _maxRange;
+        public int MaximumPossibleSearchRange
+        {
+            get => _maxRange;
+            set => Set(ref _maxRange, value);
+        }
+
+        private async void FindWithBing()
+        {
+            if (Text1.TextDocument.Selection.Text.Length > 0)
+            {
+                await Windows.System.Launcher.LaunchUriAsync(new Uri($"https://www.bing.com/search?q={Text1.TextDocument.Selection.Text}"));
+            }
+        }
+
+        private void FindRequestedText(string find, bool direction, bool match, bool wrap)
+        {
+            if (string.IsNullOrEmpty(find))
+            {
+                //Nothing to search for
+                return;
+            }
+            if (direction)
+            {
+                StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
+            }
+            else if (!direction)
+            {
+                int result = 0;
+                int backward = Text1.TextDocument.Selection.StartPosition - find.Length;
+                if (backward < 1)
+                {
+                    backward = MaximumPossibleSearchRange;
+                }
+                while (backward > 1 && result < 1)
+                {
+                    Text1.TextDocument.Selection.StartPosition = backward;
+                    result = Text1.TextDocument.Selection.FindText(find, find.Length + 1, match ? FindOptions.Case : FindOptions.None);
+                    backward--;
+                    if (backward < 2 && result == 0 && wrap)
+                    {                        
+                        Text1.TextDocument.Selection.SetRange(MaximumPossibleSearchRange, MaximumPossibleSearchRange);
+                        FindRequestedText(find, direction, match, false);
+                        break;
+                    }
+                    else if (backward < 2 && result == 0 && !wrap)
+                    {
+                        FindRequestedText(find, true, match, false);
+                    }
+                }
+            }
+
+            if (StartSearchPosition < 1 && wrap)
+            {
+                Text1.TextDocument.Selection.SetRange(0, 0);
+                FindRequestedText(find, direction, match, false);
+            }
+            //Scroll to the found text
+            Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
+        }
+
+        private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
+        {
+            if (string.IsNullOrEmpty(find))
+            {
+                //Nothing to search for
+                return;
+            }
+            if (replace is null)
+            {
+                replace = string.Empty;
+            }
+            if (all)
+            {
+                //Replace all
+                while (true) //Eternity loop
+                {
+                    //Mark start and end position
+                    int start = Text1.TextDocument.Selection.StartPosition;
+                    int end = Text1.TextDocument.Selection.EndPosition;
+                    //Send find request
+                    FindRequestedText(find, direction, match, false);
+                    if (Text1.TextDocument.Selection.StartPosition != start &&
+                        Text1.TextDocument.Selection.EndPosition != end)
+                    {
+                        //Found.. Replace
+                        Text1.TextDocument.Selection.Text = replace;
+                    }
+                    else
+                    {
+                        //It's can't find anymore
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                //Mark start and end position
+                int start = Text1.TextDocument.Selection.StartPosition;
+                int end = Text1.TextDocument.Selection.EndPosition;
+                //Send find request
+                FindRequestedText(find, direction, match, wrap);
+                if (Text1.TextDocument.Selection.StartPosition != start &&
+                    Text1.TextDocument.Selection.EndPosition != end)
+                {
+                    //Found.. Replace
+                    Text1.TextDocument.Selection.Text = replace;
+                }
+            }
+            //Set focus into text1
+            Text1.Focus(FocusState.Pointer);
+        }
+
+        private void CMDSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            Text1.Document.GetText(TextGetOptions.None, out string value);
+            Text1.Document.Selection.SetRange(0, value.Length);
+        }
+
+        private void CMDInsertDateTime_Click(object sender, RoutedEventArgs e)
+        {
+            var current = CultureInfo.CurrentUICulture.DateTimeFormat;
+            Text1.Document.Selection.Text = $"{Text1.Document.Selection.Text}{DateTime.Now.ToString(current.ShortTimePattern)} {DateTime.Now.ToString(current.ShortDatePattern)}";
+            Text1.Document.Selection.StartPosition = Text1.Document.Selection.EndPosition;
+        }
+
+        private float scaleValue = 1;
+        private float scalePercentage = 10;
+
+        private void ZoomInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            if (args.KeyboardAccelerator.Key == VirtualKey.Add && scaleValue <= 2)
+            {
+                scaleValue = scaleValue + (scalePercentage / 100);
+            }
+            else if (args.KeyboardAccelerator.Key == VirtualKey.Subtract && scaleValue >= 0.5)
+            {
+                scaleValue = scaleValue - (scalePercentage / 100);
+            }
+            ContentScroll.ChangeView(0, 0, scaleValue);
+            //Text1.Scale(scaleX: scaleValue, scaleY: scaleValue, centerX: 0, centerY: 0, duration: 250, delay: 0, easingType: EasingType.Default).Start();
+        }
+
+        private void ZoomIn(object sender, RoutedEventArgs e)
+        {
+            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            if (scaleValue <= 2)
+            {
+                scaleValue = scaleValue + (scalePercentage / 100);
+            }
+            ContentScroll.ChangeView(0, 0, scaleValue);
+        }
+
+        private void ZoomOut(object sender, RoutedEventArgs e)
+        {
+            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            if (scaleValue >= 0.5)
+            {
+                scaleValue = scaleValue - (scalePercentage / 100);
+            }
+            ContentScroll.ChangeView(0, 0, scaleValue);
+        }
+
+        private void ResetZoom(object sender, RoutedEventArgs e)
+        {
+            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            scaleValue = 1;
+            ContentScroll.ChangeView(0, 0, scaleValue);
+        }
+
+        //Menubar function
+        public void OpenFindDialogWithReplace()
+        {
+            FindAndReplaceDialog.ShowReplace = true;
+            ShowFindAndReplace = true;
+        }
+
+        public async void CMDGoTo_Click()
+        {
+            await GoToDialog.ShowAsync();
+            if (GoToDialog.finalResult == DialogResult.Yes)
+            {
+                Text1.TextDocument.GetText(TextGetOptions.None, out string value);
+                totalLine = value.Count(i => i == '\n' || i == '\r');
+                totalCharacters = value.Length;
+                System.Diagnostics.Debug.WriteLine($"\"{value}\"");
+                int input = int.Parse(GoToDialog.LineInput.Text) - 1;
+                if (input < 0) { return;}
+                if (input > totalLine - 1)
+                {
+                    return;
+                }
+                else
+                {
+                    int index = 0;
+                    while (input > 0)
+                    {
+                        if (value[index] == '\r')
+                        {
+                            index++;
+                            input--;
+                            if (index == 0)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            index++;
+                        }
+                    }
+                    Text1.TextDocument.Selection.StartPosition = index;
+                    Text1.TextDocument.Selection.EndPosition = index;
+                    Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
+                    Text1.Focus(FocusState.Pointer);
+                }
+            }
+        }
+        #endregion
+
+        public static T MyFindRichEditBoxChildOfType<T>(DependencyObject root) where T : class
+        {
+            var MyQueue = new Queue<DependencyObject>();
+            MyQueue.Enqueue(root);
+            while (MyQueue.Count > 0)
+            {
+                DependencyObject current = MyQueue.Dequeue();
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(current); i++)
+                {
+                    var child = VisualTreeHelper.GetChild(current, i);
+                    var typedChild = child as T;
+                    if (typedChild != null)
+                    {
+                        return typedChild;
+                    }
+                    MyQueue.Enqueue(child);
+                }
+            }
+            return null;
+        }
     }
 
     public class FontColorItem : INotifyPropertyChanged
     {
-#region Notification overhead, no need to write it thousands times on set { }
+        #region Notification overhead, no need to write it thousands times on set { }
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -1720,7 +2148,7 @@ namespace QuickPad
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
-#endregion
+        #endregion
 
         string _name;
         public string ColorName
@@ -1773,7 +2201,7 @@ namespace QuickPad
         public static FontColorItem Default => new FontColorItem();
     }
 
-    public class FontFamilyItem: INotifyPropertyChanged, IComparable<FontFamilyItem>
+    public class FontFamilyItem : INotifyPropertyChanged, IComparable<FontFamilyItem>
     {
         private const int previewMaxLenght = 16;
         private static string _previewText;
@@ -1831,11 +2259,10 @@ namespace QuickPad
         {
             return Name;
         }
-        private void UpdateProperty([CallerMemberName]string propertyName="")
+        private void UpdateProperty([CallerMemberName]string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 
     public class DefaultLanguage
