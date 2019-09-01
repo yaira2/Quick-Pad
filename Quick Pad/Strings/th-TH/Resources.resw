@@ -577,7 +577,7 @@
     <value>ไปบรรทัดที</value>
   </data>
   <data name="ClassicEditInsertDT.Text" xml:space="preserve">
-    <value>แทรกเวลาและวันที่</value>
+    <value>เวลา/วันที่</value>
   </data>
   <data name="ClassicEditSearch.Text" xml:space="preserve">
     <value>ค้นหาด้วย Bing</value>
@@ -596,5 +596,35 @@
   </data>
   <data name="GT_LineInput.Header" xml:space="preserve">
     <value>บรรทัดที่:</value>
+  </data>
+  <data name="Cmd_Customize.Label" xml:space="preserve">
+    <value>ซ่อน/แสดง ปุ่ม</value>
+  </data>
+  <data name="Customize_AlignCenter.Text" xml:space="preserve">
+    <value>แสดงปุ่มจัดกลาง</value>
+  </data>
+  <data name="Customize_AlignJustify.Text" xml:space="preserve">
+    <value>แสดงปุ่มจัดเต็มแนว</value>
+  </data>
+  <data name="Customize_AlignLeft.Text" xml:space="preserve">
+    <value>แสดงปุ่มจัดชิดซ้าย</value>
+  </data>
+  <data name="Customize_AlignRight.Text" xml:space="preserve">
+    <value>แสดงปุ่มจัดชิดขวา</value>
+  </data>
+  <data name="Customize_Bullets.Text" xml:space="preserve">
+    <value>แสดงปุ่มสัญลักษณ์หัวข้อ</value>
+  </data>
+  <data name="Customize_Strikethrough.Text" xml:space="preserve">
+    <value>แสดงปุ่มขีดทับ</value>
+  </data>
+  <data name="Customize_SizeDown.Text" xml:space="preserve">
+    <value>แสดงปุ่มลดขนาด</value>
+  </data>
+  <data name="Customize_SizeUp.Text" xml:space="preserve">
+    <value>แสดงปุ่มเพิ่มขนาด</value>
+  </data>
+  <data name="Customize_Reset.Text" xml:space="preserve">
+    <value>รีเซทเป็นค่าเริ่มต้น</value>
   </data>
 </root>

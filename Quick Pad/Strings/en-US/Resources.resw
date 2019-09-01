@@ -702,4 +702,34 @@
   <data name="GT_LineInput.Header" xml:space="preserve">
     <value>Line number:</value>
   </data>
+  <data name="Cmd_Customize.Label" xml:space="preserve">
+    <value>Customize</value>
+  </data>
+  <data name="Customize_AlignCenter.Text" xml:space="preserve">
+    <value>Show align center</value>
+  </data>
+  <data name="Customize_AlignJustify.Text" xml:space="preserve">
+    <value>Show align justify</value>
+  </data>
+  <data name="Customize_AlignLeft.Text" xml:space="preserve">
+    <value>Show align left</value>
+  </data>
+  <data name="Customize_AlignRight.Text" xml:space="preserve">
+    <value>Show align right</value>
+  </data>
+  <data name="Customize_Bullets.Text" xml:space="preserve">
+    <value>Show bullet list</value>
+  </data>
+  <data name="Customize_Strikethrough.Text" xml:space="preserve">
+    <value>Show strikethrough option</value>
+  </data>
+  <data name="Customize_SizeDown.Text" xml:space="preserve">
+    <value>Show size down</value>
+  </data>
+  <data name="Customize_SizeUp.Text" xml:space="preserve">
+    <value>Show size up</value>
+  </data>
+  <data name="Customize_Reset.Text" xml:space="preserve">
+    <value>Reset toolbar</value>
+  </data>
 </root>

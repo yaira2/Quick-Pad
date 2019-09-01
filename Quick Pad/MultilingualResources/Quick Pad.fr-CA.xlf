@@ -776,7 +776,7 @@
         </trans-unit>
         <trans-unit id="GT_Dialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated" state-qualifier="tm-suggestion">Annuler</target>
         </trans-unit>
         <trans-unit id="GT_Dialog.Title" translate="yes" xml:space="preserve">
           <source>Go To Line</source>
@@ -785,6 +785,46 @@
         <trans-unit id="GT_LineInput.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
           <target state="new">Line number:</target>
+        </trans-unit>
+        <trans-unit id="Cmd_Customize.Label" translate="yes" xml:space="preserve">
+          <source>Customize</source>
+          <target state="new">Customize</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignCenter.Text" translate="yes" xml:space="preserve">
+          <source>Show align center</source>
+          <target state="translated">Montrer l'alignement au centre</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignJustify.Text" translate="yes" xml:space="preserve">
+          <source>Show align justify</source>
+          <target state="translated">Montrer l'alignement justifié</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignLeft.Text" translate="yes" xml:space="preserve">
+          <source>Show align left</source>
+          <target state="translated">Montrer l'alignement à gauche</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignRight.Text" translate="yes" xml:space="preserve">
+          <source>Show align right</source>
+          <target state="translated">Montrer l'alignement à droite</target>
+        </trans-unit>
+        <trans-unit id="Customize_Bullets.Text" translate="yes" xml:space="preserve">
+          <source>Show bullet list</source>
+          <target state="translated">Montrer la liste de puce</target>
+        </trans-unit>
+        <trans-unit id="Customize_Strikethrough.Text" translate="yes" xml:space="preserve">
+          <source>Show strikethrough option</source>
+          <target state="translated">Montrer l'option barrée</target>
+        </trans-unit>
+        <trans-unit id="Customize_SizeDown.Text" translate="yes" xml:space="preserve">
+          <source>Show size down</source>
+          <target state="new">Show size down</target>
+        </trans-unit>
+        <trans-unit id="Customize_SizeUp.Text" translate="yes" xml:space="preserve">
+          <source>Show size up</source>
+          <target state="new">Show size up</target>
+        </trans-unit>
+        <trans-unit id="Customize_Reset.Text" translate="yes" xml:space="preserve">
+          <source>Reset toolbar</source>
+          <target state="new">Reset toolbar</target>
         </trans-unit>
       </group>
     </body>
