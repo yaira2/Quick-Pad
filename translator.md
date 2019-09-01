@@ -23,6 +23,7 @@ You can contact the project owner "Yair A" on Discord Yair#3380 to send you a fi
 After you have finish working with the translation, you can manually upload the file into a project, we would love to add your GitHub profile into a translator contributor as well if you do this step.
 - Log into a GitHub
 - Fork the project using the "Fork" button located on the top right
+- Checkout to the dev branch since that is where all pull requests are merged in to.
 - Open folder "Quick Pad"
 - Open folder "MultilingualResources"
 - On the top right of the Folder path, click "Upload files" to update your translation
