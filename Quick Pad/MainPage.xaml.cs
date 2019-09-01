@@ -1347,22 +1347,10 @@ namespace QuickPad
             }
         }
 
-        bool _forceOpen;
-        public bool ForceFlyoutOpen
-        {
-            get => _forceOpen;
-            set => Set(ref _forceOpen, value);
-        }
-
         private void ClosingCustomizeFlyout(Windows.UI.Xaml.Controls.Primitives.FlyoutBase sender, Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs args)
         {
-            if (ForceFlyoutOpen)
+            if (Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift).HasFlag(CoreVirtualKeyStates.Down))
                 args.Cancel = true;
-        }
-
-        public void OpenCustomizeFlyout()
-        {
-            ForceFlyoutOpen = !ForceFlyoutOpen;
         }
 
         public void ResetToolbarSetting()
