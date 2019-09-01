@@ -155,7 +155,7 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarSeparator Width="32" Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
-            <AppBarButton Label="Customize" Width="Auto" MinWidth="32" LabelPosition="Default">
+            <AppBarButton Label="Customize" Width="Auto" MinWidth="40" LabelPosition="Default">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xE15E;" />
                 </AppBarButton.Icon>
