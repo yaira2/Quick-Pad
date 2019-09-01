@@ -155,7 +155,7 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarSeparator Width="32" Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
-            <AppBarButton Label="Customize" Width="Auto" MinWidth="32" Click="{x:Bind OpenCustomizeFlyout}" LabelPosition="Default">
+            <AppBarButton Label="Customize" Width="Auto" MinWidth="32" LabelPosition="Default">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xE15E;" />
                 </AppBarButton.Icon>
@@ -187,11 +187,6 @@
                         <ToggleMenuFlyoutItem Text="Show size down" Icon="FontDecrease" IsChecked="{x:Bind QSetting.ShowSizeDown, Mode=TwoWay}"/>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutItem Text="Reset toolbar" Icon="Sync" Click="{x:Bind ResetToolbarSetting}"/>
-                        <MenuFlyoutItem Text="Done" Click="{x:Bind OpenCustomizeFlyout}">
-                            <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE001;" />
-                            </MenuFlyoutItem.Icon>
-                        </MenuFlyoutItem>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
