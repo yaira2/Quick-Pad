@@ -459,6 +459,7 @@ namespace QuickPad
                     LangChangeNeedRestart.Visibility = 
                         ApplicationLanguages.PrimaryLanguageOverride == DefaultLanguages[value].ID 
                         ? Visibility.Collapsed : Visibility.Visible;
+                    QSetting.AppLanguage = DefaultLanguages[value].ID;
                 }
             }
         }
