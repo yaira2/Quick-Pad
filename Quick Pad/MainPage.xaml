@@ -680,18 +680,6 @@
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
-                    <PivotItem Header="Toolbar" x:Name="SettingsTab4" x:Uid="SettingsTab4">
-                        <ScrollViewer x:Name="SettingsTab2SV"  Height="250">
-                            <StackPanel Padding="2,2,2,2">
-                                <ToggleSwitch x:Name="ShowStrikethrough" IsOn="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}" x:Uid="ShowStrikethrough" OnContent="Show strikethrough option" OffContent="Hide strikethrough option" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowBullets" IsOn="{x:Bind QSetting.ShowBullets, Mode=TwoWay}" x:Uid="ShowBullets" OnContent="Show bullet list"  OffContent="Hide bullet list" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignLeft" IsOn="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}" x:Uid="ShowAlignLeft" OnContent="Show align left"  OffContent="Hide align left" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignCenter" IsOn="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}" x:Uid="ShowAlignCenter" OnContent="Show align center"  OffContent="Hide align center" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignRight" IsOn="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}" x:Uid="ShowAlignRight" OnContent="Show align right"  OffContent="Hide align right" Margin="0,8,0,4"/>
-                                <ToggleSwitch x:Name="ShowAlignJustify" IsOn="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}" x:Uid="ShowAlignJustify" OnContent="Show align justify"  OffContent="Hide align justify" Margin="0,8,0,4"/>
-                            </StackPanel>
-                        </ScrollViewer>
-                    </PivotItem>
                     <PivotItem Header="About" x:Name="SettingsTab5" x:Uid="SettingsTab5">
                         <ScrollViewer Height="250">
                             <StackPanel Padding="2,2,2,2">
