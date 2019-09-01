@@ -528,4 +528,25 @@
   <data name="AppLanguage.Text" xml:space="preserve">
     <value>Langue de l'application</value>
   </data>
+  <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="Customize_AlignCenter.Text" xml:space="preserve">
+    <value>Montrer l'alignement au centre</value>
+  </data>
+  <data name="Customize_AlignJustify.Text" xml:space="preserve">
+    <value>Montrer l'alignement justifié</value>
+  </data>
+  <data name="Customize_AlignLeft.Text" xml:space="preserve">
+    <value>Montrer l'alignement à gauche</value>
+  </data>
+  <data name="Customize_AlignRight.Text" xml:space="preserve">
+    <value>Montrer l'alignement à droite</value>
+  </data>
+  <data name="Customize_Bullets.Text" xml:space="preserve">
+    <value>Montrer la liste de puce</value>
+  </data>
+  <data name="Customize_Strikethrough.Text" xml:space="preserve">
+    <value>Montrer l'option barrée</value>
+  </data>
 </root>

@@ -760,8 +760,7 @@
         </trans-unit>
         <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
           <source>Time/Date</source>
-          <target state="needs-review-translation">แทรกเวลาและวันที่</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">เวลา/วันที่</target>
         </trans-unit>
         <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
           <source>Search with Bing...</source>
@@ -786,6 +785,46 @@
         <trans-unit id="GT_LineInput.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
           <target state="translated">บรรทัดที่:</target>
+        </trans-unit>
+        <trans-unit id="Cmd_Customize.Label" translate="yes" xml:space="preserve">
+          <source>Customize</source>
+          <target state="translated">ซ่อน/แสดง ปุ่ม</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignCenter.Text" translate="yes" xml:space="preserve">
+          <source>Show align center</source>
+          <target state="translated">แสดงปุ่มจัดกลาง</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignJustify.Text" translate="yes" xml:space="preserve">
+          <source>Show align justify</source>
+          <target state="translated">แสดงปุ่มจัดเต็มแนว</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignLeft.Text" translate="yes" xml:space="preserve">
+          <source>Show align left</source>
+          <target state="translated">แสดงปุ่มจัดชิดซ้าย</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignRight.Text" translate="yes" xml:space="preserve">
+          <source>Show align right</source>
+          <target state="translated">แสดงปุ่มจัดชิดขวา</target>
+        </trans-unit>
+        <trans-unit id="Customize_Bullets.Text" translate="yes" xml:space="preserve">
+          <source>Show bullet list</source>
+          <target state="translated">แสดงปุ่มสัญลักษณ์หัวข้อ</target>
+        </trans-unit>
+        <trans-unit id="Customize_Strikethrough.Text" translate="yes" xml:space="preserve">
+          <source>Show strikethrough option</source>
+          <target state="translated">แสดงปุ่มขีดทับ</target>
+        </trans-unit>
+        <trans-unit id="Customize_SizeDown.Text" translate="yes" xml:space="preserve">
+          <source>Show size down</source>
+          <target state="translated">แสดงปุ่มลดขนาด</target>
+        </trans-unit>
+        <trans-unit id="Customize_SizeUp.Text" translate="yes" xml:space="preserve">
+          <source>Show size up</source>
+          <target state="translated">แสดงปุ่มเพิ่มขนาด</target>
+        </trans-unit>
+        <trans-unit id="Customize_Reset.Text" translate="yes" xml:space="preserve">
+          <source>Reset toolbar</source>
+          <target state="translated">รีเซทเป็นค่าเริ่มต้น</target>
         </trans-unit>
       </group>
     </body>

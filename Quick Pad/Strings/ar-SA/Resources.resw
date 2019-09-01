@@ -525,4 +525,25 @@
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>عرض شريط المعلومات في الوضع الكلاسيكي</value>
   </data>
+  <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>إلغاء الأمر</value>
+  </data>
+  <data name="Customize_AlignCenter.Text" xml:space="preserve">
+    <value>عرض توسيط</value>
+  </data>
+  <data name="Customize_AlignJustify.Text" xml:space="preserve">
+    <value>عرض تبرير النص</value>
+  </data>
+  <data name="Customize_AlignLeft.Text" xml:space="preserve">
+    <value>عرض محاذاة إلى اليسار</value>
+  </data>
+  <data name="Customize_AlignRight.Text" xml:space="preserve">
+    <value>عرض محاذاة إلى اليمين</value>
+  </data>
+  <data name="Customize_Bullets.Text" xml:space="preserve">
+    <value>عرض قائمة الرصاص</value>
+  </data>
+  <data name="Customize_Strikethrough.Text" xml:space="preserve">
+    <value>عرض اختيار ليتوسطه خط</value>
+  </data>
 </root>

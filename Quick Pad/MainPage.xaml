@@ -155,13 +155,13 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarSeparator Width="32" Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
-            <AppBarButton Label="Customize" Width="Auto" MinWidth="32" LabelPosition="Default">
+            <AppBarButton Label="Customize" Width="Auto" MinWidth="32" x:Uid="Cmd_Customize">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xE15E;" />
                 </AppBarButton.Icon>
                 <AppBarButton.Flyout>
                     <MenuFlyout Closing="ClosingCustomizeFlyout">
-                        <ToggleMenuFlyoutItem Text="Show Strikethrough" IsChecked="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}">
+                        <ToggleMenuFlyoutItem x:Uid="Customize_Strikethrough" Text="Show Strikethrough" IsChecked="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}">
                             <ToggleMenuFlyoutItem.Icon>
                                 <FontIcon Margin="0,4,0,-3" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
                                     <FontIcon.RenderTransform>
@@ -170,11 +170,11 @@
                                 </FontIcon>
                             </ToggleMenuFlyoutItem.Icon>
                         </ToggleMenuFlyoutItem>
-                        <ToggleMenuFlyoutItem Text="Show bullet list" Icon="Bullets" IsChecked="{x:Bind QSetting.ShowBullets, Mode=TwoWay}"/>
-                        <ToggleMenuFlyoutItem Text="Show align left" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}"/>
-                        <ToggleMenuFlyoutItem Text="Show align center" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}"/>
-                        <ToggleMenuFlyoutItem Text="Show align right" Icon="AlignRight" IsChecked="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}"/>
-                        <ToggleMenuFlyoutItem Text="Show align justify" IsChecked="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}">
+                        <ToggleMenuFlyoutItem x:Uid="Customize_Bullets" Text="Show bullet list" Icon="Bullets" IsChecked="{x:Bind QSetting.ShowBullets, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_AlignLeft" Text="Show align left" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_AlignCenter" Text="Show align center" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_AlignRight" Text="Show align right" Icon="AlignRight" IsChecked="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_AlignJustify" Text="Show align justify" IsChecked="{x:Bind QSetting.ShowAlignJustify, Mode=TwoWay}">
                             <ToggleMenuFlyoutItem.Icon>
                                 <FontIcon Margin="0,5,0,0" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1A2;">
                                     <FontIcon.RenderTransform>
@@ -183,10 +183,10 @@
                                 </FontIcon>
                             </ToggleMenuFlyoutItem.Icon>
                         </ToggleMenuFlyoutItem>
-                        <ToggleMenuFlyoutItem Text="Show size up" Icon="FontIncrease" IsChecked="{x:Bind QSetting.ShowSizeUp, Mode=TwoWay}"/>
-                        <ToggleMenuFlyoutItem Text="Show size down" Icon="FontDecrease" IsChecked="{x:Bind QSetting.ShowSizeDown, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_SizeUp" Text="Show size up" Icon="FontIncrease" IsChecked="{x:Bind QSetting.ShowSizeUp, Mode=TwoWay}"/>
+                        <ToggleMenuFlyoutItem x:Uid="Customize_SizeDown" Text="Show size down" Icon="FontDecrease" IsChecked="{x:Bind QSetting.ShowSizeDown, Mode=TwoWay}"/>
                         <MenuFlyoutSeparator/>
-                        <MenuFlyoutItem Text="Reset toolbar" Icon="Sync" Click="{x:Bind ResetToolbarSetting}"/>
+                        <MenuFlyoutItem x:Uid="Customize_Reset" Text="Reset toolbar" Icon="Sync" Click="{x:Bind ResetToolbarSetting}"/>
                     </MenuFlyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
