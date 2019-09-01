@@ -499,27 +499,27 @@
                     <MenuFlyoutSubItem.Icon>
                         <FontIcon Glyph="&#xE92D;"/>
                     </MenuFlyoutSubItem.Icon>
-                    <MenuFlyoutItem Text="Zoom In" x:Uid="ClassicZoomIn" AccessKey="I">
+                    <MenuFlyoutItem Text="Zoom In" Click="ZoomIn" x:Uid="ClassicZoomIn" AccessKey="I">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE8A3;"/>
                         </MenuFlyoutItem.Icon>
                         <MenuFlyoutItem.KeyboardAccelerators>
                             <KeyboardAccelerator
                           Modifiers="Control" 
-                           Key="Add" />
+                           Key="Add"/>
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Zoom Out" x:Uid="ClassicZoomOut" AccessKey="O">
+                    <MenuFlyoutItem Text="Zoom Out" Click="ZoomOut" x:Uid="ClassicZoomOut" AccessKey="O">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE71F;"/>
                         </MenuFlyoutItem.Icon>
                         <MenuFlyoutItem.KeyboardAccelerators>
                             <KeyboardAccelerator
                           Modifiers="Control" 
-                           Key="Subtract" />
+                           Key="Subtract"/>
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Restore Default Zoom" x:Uid="ClassicRestoreDefaultZoom" AccessKey="R">
+                    <MenuFlyoutItem Text="Restore Default Zoom" Click="ResetZoom" x:Uid="ClassicRestoreDefaultZoom" AccessKey="R">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE71E;"/>
                         </MenuFlyoutItem.Icon>

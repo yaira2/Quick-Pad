@@ -2023,6 +2023,33 @@ namespace QuickPad
             //Text1.Scale(scaleX: scaleValue, scaleY: scaleValue, centerX: 0, centerY: 0, duration: 250, delay: 0, easingType: EasingType.Default).Start();
         }
 
+        private void ZoomIn(object sender, RoutedEventArgs e)
+        {
+            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            if (scaleValue <= 2)
+            {
+                scaleValue = scaleValue + (scalePercentage / 100);
+            }
+            ContentScroll.ChangeView(0, 0, scaleValue);
+        }
+
+        private void ZoomOut(object sender, RoutedEventArgs e)
+        {
+            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            if (scaleValue >= 0.5)
+            {
+                scaleValue = scaleValue - (scalePercentage / 100);
+            }
+            ContentScroll.ChangeView(0, 0, scaleValue);
+        }
+
+        private void ResetZoom(object sender, RoutedEventArgs e)
+        {
+            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            scaleValue = 1;
+            ContentScroll.ChangeView(0, 0, scaleValue);
+        }
+
         //Menubar function
         public void OpenFindDialogWithReplace()
         {
