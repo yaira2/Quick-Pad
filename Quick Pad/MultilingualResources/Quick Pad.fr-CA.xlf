@@ -826,6 +826,22 @@
           <source>Reset toolbar</source>
           <target state="new">Reset toolbar</target>
         </trans-unit>
+        <trans-unit id="ClassicRestoreDefaultZoom" translate="yes" xml:space="preserve">
+          <source>Restore Default Zoom</source>
+          <target state="new">Restore Default Zoom</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoom.Text" translate="yes" xml:space="preserve">
+          <source>Zoom</source>
+          <target state="new">Zoom</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoomIn.Text" translate="yes" xml:space="preserve">
+          <source>Zoom In</source>
+          <target state="new">Zoom In</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoomOut" translate="yes" xml:space="preserve">
+          <source>Zoom Out</source>
+          <target state="new">Zoom Out</target>
+        </trans-unit>
       </group>
     </body>
   </file>

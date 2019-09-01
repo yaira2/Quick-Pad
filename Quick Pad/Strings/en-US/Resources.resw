@@ -732,4 +732,16 @@
   <data name="Customize_Reset.Text" xml:space="preserve">
     <value>Reset toolbar</value>
   </data>
+  <data name="ClassicRestoreDefaultZoom" xml:space="preserve">
+    <value>Restore Default Zoom</value>
+  </data>
+  <data name="ClassicZoom.Text" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="ClassicZoomIn.Text" xml:space="preserve">
+    <value>Zoom In</value>
+  </data>
+  <data name="ClassicZoomOut" xml:space="preserve">
+    <value>Zoom Out</value>
+  </data>
 </root>

@@ -495,6 +495,41 @@
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
                 <MenuFlyoutSeparator/>
+                <MenuFlyoutSubItem Text="Zoom" x:Uid="ClassicZoom" AccessKey="Z">
+                    <MenuFlyoutSubItem.Icon>
+                        <FontIcon Glyph="&#xE92D;"/>
+                    </MenuFlyoutSubItem.Icon>
+                    <MenuFlyoutItem Text="Zoom In" x:Uid="ClassicZoomIn" AccessKey="I">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE8A3;"/>
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="Add" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Zoom Out" x:Uid="ClassicZoomOut" AccessKey="O">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE71F;"/>
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="Subtract" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Restore Default Zoom" x:Uid="ClassicRestoreDefaultZoom" AccessKey="R">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE71E;"/>
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="Number0" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                </MenuFlyoutSubItem>
                 <ToggleMenuFlyoutItem Text="Status Bar" AccessKey="S" IsChecked="{x:Bind QSetting.ShowStatusBar, Mode=TwoWay}" x:Uid="ClassicViewStatusBar">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE75B;" />
