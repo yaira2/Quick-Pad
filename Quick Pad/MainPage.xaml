@@ -417,60 +417,6 @@
                         <FontIcon Glyph="&#xE751;" />
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Bold" Click="Bold_Click" x:Uid="ClassicFormatBold">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Bold"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Italic" Click="Italic_Click" x:Uid="ClassicFormatItalic">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Italic"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Underline" Click="Underline_Click" x:Uid="ClassicFormatUnderline">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Underline"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Strikethrough" Click="Strikethrough_Click" x:Uid="ClassicFormatST" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon Margin="0,2,0,-2" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
-                            <FontIcon.RenderTransform>
-                                <ScaleTransform ScaleX="1.2" ScaleY="1.2"/>
-                            </FontIcon.RenderTransform>
-                        </FontIcon>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Bullets" Click="BulletList_Click" x:Uid="ClassicFormatBullets" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Bullets"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}"/>
-                <MenuFlyoutItem Text="Align leff" Click="Left_Click" x:Uid="ClassicFormatALeft" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Icon="AlignLeft"/>
-                <MenuFlyoutItem Text="Align center" Click="Center_Click" x:Uid="ClassicFormatACenter" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Icon="AlignCenter"/>
-                <MenuFlyoutItem Text="Align right" Click="Right_Click" x:Uid="ClassicFormatARight" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Icon="AlignRight"/>
-                <MenuFlyoutItem Text="Align justify" Click="Justify_Click" x:Uid="ClassicFormatAJustify" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <FontIcon Margin="0,5,0,0" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1A2;">
-                            <FontIcon.RenderTransform>
-                                <ScaleTransform ScaleX="1.4" ScaleY="1.4"/>
-                            </FontIcon.RenderTransform>
-                        </FontIcon>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
-                <MenuFlyoutItem Text="Size up" Click="SizeUp_Click" x:Uid="ClassicFormatUp" Visibility="{x:Bind QSetting.ShowSizeUp, Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="FontIncrease"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Size down" Click="SizeDown_Click" x:Uid="ClassicFormatDown" Visibility="{x:Bind QSetting.ShowSizeDown, Mode=OneWay}">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="FontDecrease"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
                 <MenuFlyoutSeparator Visibility="Collapsed"/>
                 <MenuFlyoutItem Text="Fonts..." Visibility="Collapsed" AccessKey="F" Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">
                     <MenuFlyoutItem.Icon>
