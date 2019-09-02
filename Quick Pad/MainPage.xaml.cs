@@ -103,18 +103,23 @@ namespace QuickPad
             {
                 if (args.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
                 {
-                    if (CommandBar2.Visibility == Visibility.Visible)
-                    {
-                        CommandBar2.Focus(FocusState.Programmatic); // Set focus off the main content
-                    }
-                    if (CloseFocusMode.Visibility == Visibility.Visible)
-                    {
-                        CloseFocusMode.Focus(FocusState.Programmatic); // Set focus off the main content
-                    }
-                    if (CommandBarClassic.Visibility == Visibility.Visible)
-                    {
-                        CommandBarClassic.Focus(FocusState.Programmatic); // Set focus off the main content
-                    }
+                    InvisibleButton.Focus(FocusState.Programmatic);
+                }
+            };
+
+            Window.Current.CoreWindow.KeyDown += (sender, args) =>
+            {
+                if (CompactOverlaySwitch)//Not allow to switch on focus mode
+                    return;
+                //CTRL
+                bool ctrl = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control).HasFlag(CoreVirtualKeyStates.Down);
+                //SHIFT
+                bool shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift).HasFlag(CoreVirtualKeyStates.Down);
+                //F
+                bool f = Window.Current.CoreWindow.GetKeyState(VirtualKey.F).HasFlag(CoreVirtualKeyStates.Down);
+                if (ctrl && shift && f)
+                {
+                    FocusModeSwitch = !FocusModeSwitch;
                 }
             };
 
