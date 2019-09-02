@@ -499,6 +499,7 @@
                      SelectionChanged="Text1_SelectionChanged" 
                      DragOver="Text1_DragOver" 
                      KeyDown="Text1_KeyDown" 
+                     PreviewKeyDown="Text1_KeyDown"
                      TextChanged="Text1_TextChanged" 
                      TextChanging="Text1_TextChanging"
                      GotFocus="Text1_GotFocus" 
@@ -712,16 +713,6 @@
                 </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
-            <AppBarButton Width="40" Icon="Add" >
-                <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="Add" Invoked="ZoomInvoked"/>
-                </AppBarButton.KeyboardAccelerators>
-            </AppBarButton>
-            <AppBarButton Width="40" Icon="Remove" >
-                <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="Subtract" Invoked="ZoomInvoked"/>
-                </AppBarButton.KeyboardAccelerators>
-            </AppBarButton>
         </CommandBar>
 
         <controls:DropShadowPanel Grid.Row="3"

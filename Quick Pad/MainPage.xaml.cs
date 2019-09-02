@@ -1599,6 +1599,25 @@ namespace QuickPad
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
+            if (e.Key == (VirtualKey)187)
+            {
+                ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+                if (scaleValue <= 2)
+                {
+                    scaleValue = scaleValue + (scalePercentage / 100);
+                }
+                ContentScroll.ChangeView(0, 0, scaleValue);
+            }
+            else if (e.Key == (VirtualKey)189)
+            {
+                ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+                if (scaleValue >= 0.5)
+                {
+                    scaleValue = scaleValue - (scalePercentage / 100);
+                }
+                ContentScroll.ChangeView(0, 0, scaleValue);
+            }
+
             if (e.Key == VirtualKey.Tab)
             {
                 RichEditBox richEditBox = sender as RichEditBox;
@@ -2029,21 +2048,6 @@ namespace QuickPad
 
         private float scaleValue = 1;
         private float scalePercentage = 10;
-
-        private void ZoomInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
-        {
-            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
-            if (args.KeyboardAccelerator.Key == VirtualKey.Add && scaleValue <= 2)
-            {
-                scaleValue = scaleValue + (scalePercentage / 100);
-            }
-            else if (args.KeyboardAccelerator.Key == VirtualKey.Subtract && scaleValue >= 0.5)
-            {
-                scaleValue = scaleValue - (scalePercentage / 100);
-            }
-            ContentScroll.ChangeView(0, 0, scaleValue);
-            //Text1.Scale(scaleX: scaleValue, scaleY: scaleValue, centerX: 0, centerY: 0, duration: 250, delay: 0, easingType: EasingType.Default).Start();
-        }
 
         private void ZoomIn(object sender, RoutedEventArgs e)
         {
