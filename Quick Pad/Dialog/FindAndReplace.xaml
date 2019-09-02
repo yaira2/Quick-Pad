@@ -8,26 +8,21 @@
     xmlns:tkui="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:q="using:QuickPad"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    mc:Ignorable="d">
-    
-    <tkui:DropShadowPanel Width="355"
+    mc:Ignorable="d" >
+    <UserControl.Resources>
+        <Storyboard x:Name="EnterContentHolderStoryboard">
+            <FadeInThemeAnimation TargetName="ContentHolderShadow" />
+        </Storyboard>
+        <Storyboard x:Name="ExitContentHolderStoryboard">
+            <FadeOutThemeAnimation TargetName="ContentHolderShadow" />
+        </Storyboard>
+    </UserControl.Resources>
+
+    <tkui:DropShadowPanel x:Name="ContentHolderShadow" Width="355"
                           HorizontalContentAlignment="Stretch">
-        <Grid Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
+        <Grid x:Name="ContentHolderContent" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
               Padding="4"
               Windows10version1809:CornerRadius="4" >
-            <!-- Animations -->
-            <Grid.Transitions>
-                <TransitionCollection>
-                    <EntranceThemeTransition />
-                </TransitionCollection>
-            </Grid.Transitions>
-            <Grid.ChildrenTransitions>
-                <TransitionCollection>
-                    <RepositionThemeTransition />
-                    
-                </TransitionCollection>
-            </Grid.ChildrenTransitions>
-
             <!-- Grid Definitions -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
