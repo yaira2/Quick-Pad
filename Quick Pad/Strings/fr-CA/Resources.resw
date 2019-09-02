@@ -529,7 +529,7 @@
     <value>Langue de l'application</value>
   </data>
   <data name="CmdOnTopTooltip" xml:space="preserve">
-    <value>Superposé (Ctrl+Shift+O)</value>
+    <value>Superposé (Ctrl+Maj+O)</value>
   </data>
   <data name="CmdFind.Label" xml:space="preserve">
     <value>Rechercher</value>
@@ -638,5 +638,11 @@
   </data>
   <data name="ClassicZoomOut" xml:space="preserve">
     <value>Zoom arrière</value>
+  </data>
+  <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
+    <value>Nous avons déplacé le bouton ici pour avoir un style plus propre. Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir.</value>
+  </data>
+  <data name="HowToLeaveFocus.Title" xml:space="preserve">
+    <value>The bouton pour sortir du mode focus a été déplacé</value>
   </data>
 </root>

@@ -750,4 +750,10 @@
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
     <value>The button to leave focus mode button has been moved</value>
   </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>Auto Save Every</value>
+  </data>
+  <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
+    <value>second(s)</value>
+  </data>
 </root>

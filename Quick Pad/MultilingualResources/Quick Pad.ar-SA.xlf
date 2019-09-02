@@ -850,6 +850,14 @@
           <source>The button to leave focus mode button has been moved</source>
           <target state="translated">تم نقل زر لإغلاق وضع التركيز</target>
         </trans-unit>
+        <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save Every</source>
+          <target state="new">Auto Save Every</target>
+        </trans-unit>
+        <trans-unit id="AutoSaveEverySeconds.Text" translate="yes" xml:space="preserve">
+          <source>second(s)</source>
+          <target state="new">second(s)</target>
+        </trans-unit>
       </group>
     </body>
   </file>
