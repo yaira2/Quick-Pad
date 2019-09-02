@@ -1537,8 +1537,9 @@ namespace QuickPad
         }
 
         //Use for Click function
-        public void TurnOnFocusMode() => FocusModeSwitch = true;
-        public void TurnOnClassicMode() => ClassicModeSwitch = true;
+        public void SwitchingFocusMode() => FocusModeSwitch = !FocusModeSwitch;
+        public void SwitchingOverlayMode() => CompactOverlaySwitch = !CompactOverlaySwitch;
+        public void SwitchingClassicAndDefault() => ClassicModeSwitch = !ClassicModeSwitch;
         #endregion
 
         #region Textbox function

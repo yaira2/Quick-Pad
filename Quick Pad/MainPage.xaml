@@ -194,8 +194,8 @@
 
         <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind TurnOnFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
-                <AppBarButton x:Name="CmdClassicMode" Click="{x:Bind TurnOnClassicMode}" Label="Classic Mode" x:Uid="CmdClassicMode" Width="Auto">
+                <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind SwitchingFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
+                <AppBarButton x:Name="CmdClassicMode" Click="{x:Bind SwitchingClassicAndDefault}" Label="Classic Mode" x:Uid="CmdClassicMode" Width="Auto">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE8C5;" />
                     </AppBarButton.Icon>
@@ -425,21 +425,21 @@
                 </MenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="View" AccessKey="V" x:Uid="ClassicView">
-                <ToggleMenuFlyoutItem Text="Back to default mode" AccessKey="D" IsChecked="{x:Bind ClassicModeSwitch, Mode=TwoWay}" x:Uid="ClassicViewBack">
-                    <ToggleMenuFlyoutItem.Icon>
+                <MenuFlyoutItem Text="Back to default mode" AccessKey="D" Click="{x:Bind SwitchingClassicAndDefault}" x:Uid="ClassicViewBack">
+                    <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Back"/>
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
-                <ToggleMenuFlyoutItem Text="Focus Mode" AccessKey="F" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}" x:Uid="ClassicViewFocus">
-                    <ToggleMenuFlyoutItem.Icon>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Focus Mode" AccessKey="F" Click="{x:Bind SwitchingFocusMode}" x:Uid="ClassicViewFocus">
+                    <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Caption"/>
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
-                <ToggleMenuFlyoutItem Text="Overlay mode" AccessKey="O" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" x:Uid="ClassicViewOverlay">
-                    <ToggleMenuFlyoutItem.Icon>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="{x:Bind SwitchingOverlayMode}" x:Uid="ClassicViewOverlay">
+                    <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE158;" />
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutSubItem Text="Zoom" x:Uid="ClassicZoom" AccessKey="Z">
                     <MenuFlyoutSubItem.Icon>
