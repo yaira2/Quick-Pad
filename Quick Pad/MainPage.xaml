@@ -435,7 +435,7 @@
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutSubItem Text="Zoom" x:Uid="ClassicZoom" AccessKey="Z">
+                <MenuFlyoutSubItem Text="Zoom" Visibility="Collapsed" x:Uid="ClassicZoom" AccessKey="Z">
                     <MenuFlyoutSubItem.Icon>
                         <FontIcon Glyph="&#xE92D;"/>
                     </MenuFlyoutSubItem.Icon>
