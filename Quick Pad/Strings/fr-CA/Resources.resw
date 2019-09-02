@@ -645,4 +645,13 @@
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
     <value>The bouton pour sortir du mode focus a été déplacé</value>
   </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>Enregistrer automatiquement toutes les</value>
+  </data>
+  <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
+    <value>secondes</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>Un redémarrage est nécessaire pour appliquer les modifications</value>
+  </data>
 </root>

@@ -852,15 +852,15 @@
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
           <source>Auto Save Every</source>
-          <target state="new">Auto Save Every</target>
+          <target state="translated">حفظ تلقائيا لكل</target>
         </trans-unit>
         <trans-unit id="AutoSaveEverySeconds.Text" translate="yes" xml:space="preserve">
           <source>second(s)</source>
-          <target state="new">second(s)</target>
+          <target state="translated">ثواني</target>
         </trans-unit>
         <trans-unit id="Restart.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
-          <target state="new">Restart required to apply the changes.</target>
+          <target state="translated">إعادة التشغيل المطلوبة لتطبيق التغييرات</target>
         </trans-unit>
       </group>
     </body>
