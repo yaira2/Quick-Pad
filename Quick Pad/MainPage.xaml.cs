@@ -1854,6 +1854,7 @@ namespace QuickPad
                         FindAndReplaceDialog.onRequestFinding -= FindRequestedText;
                         FindAndReplaceDialog.onRequestReplacing -= FindAndReplaceRequestedText;
                         FindAndReplaceDialog.onClosed -= ToggleFindAndReplaceDialog;
+
                         //Collapsed the replace after close dialog
                         FindAndReplaceDialog.ShowReplace = false;
                     }

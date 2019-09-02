@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -50,6 +51,21 @@ namespace QuickPad.Dialog
         public FindAndReplace()
         {
             this.InitializeComponent();
+            this.RegisterPropertyChangedCallback(VisibilityProperty, VisibilityChanged);
+        }
+
+        private void VisibilityChanged(DependencyObject sender, DependencyProperty dp)
+        {
+            if ((sender as UserControl).Visibility == Visibility.Collapsed)
+            {
+                ExitContentHolderStoryboard.Begin();
+                
+            }
+            else if ((sender as UserControl).Visibility == Visibility.Visible)
+            {
+                EnterContentHolderStoryboard.Begin();
+
+            }
         }
 
         #region Dialog Dependencies
