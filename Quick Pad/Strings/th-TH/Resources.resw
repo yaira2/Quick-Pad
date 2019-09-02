@@ -627,4 +627,31 @@
   <data name="Customize_Reset.Text" xml:space="preserve">
     <value>รีเซทเป็นค่าเริ่มต้น</value>
   </data>
+  <data name="ClassicRestoreDefaultZoom" xml:space="preserve">
+    <value>คืนค่าเริ่มต้นซูม</value>
+  </data>
+  <data name="ClassicZoom.Text" xml:space="preserve">
+    <value>ซูม</value>
+  </data>
+  <data name="ClassicZoomIn.Text" xml:space="preserve">
+    <value>ขยายเข้า</value>
+  </data>
+  <data name="ClassicZoomOut" xml:space="preserve">
+    <value>ซูมออก</value>
+  </data>
+  <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
+    <value>เราได้ย้ายปุ่มไปที่นี่เพื่อที่จะเป็นการออกแบบที่สะอาดยิ่งขึ้น นอกจากนี้คุณยังสามารถกด Control + Shift + F เพื่อออก</value>
+  </data>
+  <data name="HowToLeaveFocus.Title" xml:space="preserve">
+    <value>ปุ่มย้ายออกจากโหมดโฟกัสถูกย้ายแล้ว</value>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>บันทึกอัตโนมัติทุก ๆ</value>
+  </data>
+  <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
+    <value>วินาที (s)</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>ต้องรีสตาร์ทเพื่อใช้การเปลี่ยนแปลง</value>
+  </data>
 </root>
