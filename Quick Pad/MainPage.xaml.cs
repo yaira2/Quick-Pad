@@ -123,6 +123,15 @@ namespace QuickPad
                 }
             };
 
+            SystemNavigationManager.GetForCurrentView().BackRequested += (sender, e) =>
+            {
+                e.Handled = true;
+                if (FocusModeSwitch)
+                {
+                    FocusModeSwitch = false;
+                }
+            };
+
             //ask user if they want to save before closing the app
             Windows.UI.Core.Preview.SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += async (sender, e) =>
             {
@@ -1493,6 +1502,7 @@ namespace QuickPad
         {
             if (switching)
             {
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
                 Text1.SetValue(Canvas.ZIndexProperty, 90);
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
@@ -1503,6 +1513,7 @@ namespace QuickPad
             }
             else
             {
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Disabled;
                 Text1.SetValue(Canvas.ZIndexProperty, 0);
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar1.Visibility = Visibility.Visible;
