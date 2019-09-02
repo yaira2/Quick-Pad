@@ -1599,7 +1599,7 @@ namespace QuickPad
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            if (e.Key == (VirtualKey)187)
+            if (IsCttrlPressed() && e.Key == (VirtualKey)187)
             {
                 ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
                 if (scaleValue <= 2)
@@ -1608,7 +1608,7 @@ namespace QuickPad
                 }
                 ContentScroll.ChangeView(0, 0, scaleValue);
             }
-            else if (e.Key == (VirtualKey)189)
+            else if (IsCttrlPressed() && e.Key == (VirtualKey)189)
             {
                 ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
                 if (scaleValue >= 0.5)
@@ -1636,6 +1636,12 @@ namespace QuickPad
             {
                 CheckForStatusUpdate();
             }
+        }
+
+        private bool IsCttrlPressed()
+        {
+            var state = CoreWindow.GetForCurrentThread().GetKeyState(VirtualKey.Control);
+            return (state & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down;
         }
 
         private void Text1_DragOver(object sender, DragEventArgs e)
