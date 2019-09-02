@@ -639,4 +639,10 @@
   <data name="ClassicZoomOut" xml:space="preserve">
     <value>تصغير</value>
   </data>
+  <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
+    <value>لقد نقلنا الزر إلى هنا حتى يكون تصميمًا أنظف. يمكنك أيضًا الضغط على Control + Shift + F لإغلاق.</value>
+  </data>
+  <data name="HowToLeaveFocus.Title" xml:space="preserve">
+    <value>تم نقل زر لإغلاق وضع التركيز</value>
+  </data>
 </root>
