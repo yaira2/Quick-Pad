@@ -776,7 +776,15 @@
 
         <Grid x:Name="Title" Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch">
             <StackPanel Orientation="Horizontal">
-                <Button Width="48" Height="32" Foreground="Transparent" Background="Transparent" Visibility="{x:Bind FocusModeSwitch, Mode=OneWay}"/>
+                <Button Width="48" Height="32" Foreground="Transparent" Background="Transparent" Visibility="{x:Bind FocusModeSwitch, Mode=OneWay}" x:Name="BackButtonHolder">
+                    <Button.Resources>
+                        <winui:TeachingTip x:Name="HowToLeaveFocus"
+                                           Target="{x:Bind BackButtonHolder}"
+                                           Title="Leave focus mode button has been moved"
+                                           Subtitle="We've moved the button to here, so it would be more cleaner. You can also press Control + Shift + F to leave">
+                        </winui:TeachingTip>
+                    </Button.Resources>
+                </Button>
                 <TextBlock Text="{x:Bind CurrentFilename, Mode=OneWay}"
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"

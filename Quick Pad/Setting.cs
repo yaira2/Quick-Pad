@@ -365,6 +365,15 @@ namespace QuickPad
         }
         #endregion
 
+        #region
+        [DefaultValue(0)]
+        public int TimesUsingFocusMode 
+        { //Use to track focus mode, if less than 2 times it will show tip, else it won't
+            get => Get<int>();
+            set => Set(value);
+        }
+        #endregion
+
         #region Events when setting change
         public autoSaveChange afterAutoSaveChanged { get; set; }
         public themeChange afterThemeChanged { get; set; }

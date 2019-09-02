@@ -1510,6 +1510,8 @@ namespace QuickPad
                 Shadow1.Visibility = Visibility.Collapsed;
                 row1.Height = new GridLength(0);
                 row3.Height = new GridLength(0);
+                QSetting.TimesUsingFocusMode++;
+                HowToLeaveFocus.IsOpen = QSetting.TimesUsingFocusMode < 2;
             }
             else
             {
@@ -1526,6 +1528,8 @@ namespace QuickPad
                 {
                     ShowFindAndReplace = false;
                 }
+                if (HowToLeaveFocus.IsOpen)
+                    HowToLeaveFocus.IsOpen = false;
             }
             if (ClassicModeSwitch == true)
             {
