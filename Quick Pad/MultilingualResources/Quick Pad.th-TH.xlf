@@ -858,6 +858,10 @@
           <source>second(s)</source>
           <target state="new">second(s)</target>
         </trans-unit>
+        <trans-unit id="Restart.Text" translate="yes" xml:space="preserve">
+          <source>Restart required to apply the changes.</source>
+          <target state="new">Restart required to apply the changes.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
