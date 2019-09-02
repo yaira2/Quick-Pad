@@ -2090,6 +2090,11 @@ namespace QuickPad
             ShowFindAndReplace = true;
         }
 
+        private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
+        }
+
         public async void CMDGoTo_Click()
         {
             await GoToDialog.ShowAsync();
