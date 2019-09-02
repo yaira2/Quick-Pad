@@ -842,6 +842,14 @@
           <source>Zoom Out</source>
           <target state="new">Zoom Out</target>
         </trans-unit>
+        <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
+          <source>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</source>
+          <target state="new">We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</target>
+        </trans-unit>
+        <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
+          <source>The button to leave focus mode button has been moved</source>
+          <target state="new">The button to leave focus mode button has been moved</target>
+        </trans-unit>
       </group>
     </body>
   </file>

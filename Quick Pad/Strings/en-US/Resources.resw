@@ -744,4 +744,10 @@
   <data name="ClassicZoomOut" xml:space="preserve">
     <value>Zoom Out</value>
   </data>
+  <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
+    <value>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</value>
+  </data>
+  <data name="HowToLeaveFocus.Title" xml:space="preserve">
+    <value>The button to leave focus mode button has been moved</value>
+  </data>
 </root>
