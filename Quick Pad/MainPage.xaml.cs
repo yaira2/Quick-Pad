@@ -103,18 +103,32 @@ namespace QuickPad
             {
                 if (args.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
                 {
-                    if (CommandBar2.Visibility == Visibility.Visible)
-                    {
-                        CommandBar2.Focus(FocusState.Programmatic); // Set focus off the main content
-                    }
-                    if (CloseFocusMode.Visibility == Visibility.Visible)
-                    {
-                        CloseFocusMode.Focus(FocusState.Programmatic); // Set focus off the main content
-                    }
-                    if (CommandBarClassic.Visibility == Visibility.Visible)
-                    {
-                        CommandBarClassic.Focus(FocusState.Programmatic); // Set focus off the main content
-                    }
+                    InvisibleButton.Focus(FocusState.Programmatic);
+                }
+            };
+
+            Window.Current.CoreWindow.KeyDown += (sender, args) =>
+            {
+                if (CompactOverlaySwitch)//Not allow to switch on focus mode
+                    return;
+                //CTRL
+                bool ctrl = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control).HasFlag(CoreVirtualKeyStates.Down);
+                //SHIFT
+                bool shift = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift).HasFlag(CoreVirtualKeyStates.Down);
+                //F
+                bool f = Window.Current.CoreWindow.GetKeyState(VirtualKey.F).HasFlag(CoreVirtualKeyStates.Down);
+                if (ctrl && shift && f)
+                {
+                    FocusModeSwitch = !FocusModeSwitch;
+                }
+            };
+
+            SystemNavigationManager.GetForCurrentView().BackRequested += (sender, e) =>
+            {
+                e.Handled = true;
+                if (FocusModeSwitch)
+                {
+                    FocusModeSwitch = false;
                 }
             };
 
@@ -1488,6 +1502,7 @@ namespace QuickPad
         {
             if (switching)
             {
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
                 Text1.SetValue(Canvas.ZIndexProperty, 90);
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
@@ -1495,9 +1510,12 @@ namespace QuickPad
                 Shadow1.Visibility = Visibility.Collapsed;
                 row1.Height = new GridLength(0);
                 row3.Height = new GridLength(0);
+                QSetting.TimesUsingFocusMode++;
+                HowToLeaveFocus.IsOpen = QSetting.TimesUsingFocusMode < 2;
             }
             else
             {
+                SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = AppViewBackButtonVisibility.Disabled;
                 Text1.SetValue(Canvas.ZIndexProperty, 0);
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar1.Visibility = Visibility.Visible;
@@ -1510,6 +1528,8 @@ namespace QuickPad
                 {
                     ShowFindAndReplace = false;
                 }
+                if (HowToLeaveFocus.IsOpen)
+                    HowToLeaveFocus.IsOpen = false;
             }
             if (ClassicModeSwitch == true)
             {
@@ -1537,8 +1557,9 @@ namespace QuickPad
         }
 
         //Use for Click function
-        public void TurnOnFocusMode() => FocusModeSwitch = true;
-        public void TurnOnClassicMode() => ClassicModeSwitch = true;
+        public void SwitchingFocusMode() => FocusModeSwitch = !FocusModeSwitch;
+        public void SwitchingOverlayMode() => CompactOverlaySwitch = !CompactOverlaySwitch;
+        public void SwitchingClassicAndDefault() => ClassicModeSwitch = !ClassicModeSwitch;
         #endregion
 
         #region Textbox function
@@ -1578,6 +1599,26 @@ namespace QuickPad
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
+            //Unfinished zoom
+            //if (IsCttrlPressed() && e.Key == (VirtualKey)187)
+            //{
+            //    ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            //    if (scaleValue <= 2)
+            //    {
+            //        scaleValue = scaleValue + (scalePercentage / 100);
+            //    }
+            //    ContentScroll.ChangeView(0, 0, scaleValue);
+            //}
+            //else if (IsCttrlPressed() && e.Key == (VirtualKey)189)
+            //{
+            //    ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            //    if (scaleValue >= 0.5)
+            //    {
+            //        scaleValue = scaleValue - (scalePercentage / 100);
+            //    }
+            //    ContentScroll.ChangeView(0, 0, scaleValue);
+            //}
+
             if (e.Key == VirtualKey.Tab)
             {
                 RichEditBox richEditBox = sender as RichEditBox;
@@ -1596,6 +1637,12 @@ namespace QuickPad
             {
                 CheckForStatusUpdate();
             }
+        }
+
+        private bool IsCttrlPressed()
+        {
+            var state = CoreWindow.GetForCurrentThread().GetKeyState(VirtualKey.Control);
+            return (state & CoreVirtualKeyStates.Down) == CoreVirtualKeyStates.Down;
         }
 
         private void Text1_DragOver(object sender, DragEventArgs e)
@@ -1854,6 +1901,7 @@ namespace QuickPad
                         FindAndReplaceDialog.onRequestFinding -= FindRequestedText;
                         FindAndReplaceDialog.onRequestReplacing -= FindAndReplaceRequestedText;
                         FindAndReplaceDialog.onClosed -= ToggleFindAndReplaceDialog;
+
                         //Collapsed the replace after close dialog
                         FindAndReplaceDialog.ShowReplace = false;
                     }
@@ -2007,21 +2055,6 @@ namespace QuickPad
 
         private float scaleValue = 1;
         private float scalePercentage = 10;
-
-        private void ZoomInvoked(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
-        {
-            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
-            if (args.KeyboardAccelerator.Key == VirtualKey.Add && scaleValue <= 2)
-            {
-                scaleValue = scaleValue + (scalePercentage / 100);
-            }
-            else if (args.KeyboardAccelerator.Key == VirtualKey.Subtract && scaleValue >= 0.5)
-            {
-                scaleValue = scaleValue - (scalePercentage / 100);
-            }
-            ContentScroll.ChangeView(0, 0, scaleValue);
-            //Text1.Scale(scaleX: scaleValue, scaleY: scaleValue, centerX: 0, centerY: 0, duration: 250, delay: 0, easingType: EasingType.Default).Start();
-        }
 
         private void ZoomIn(object sender, RoutedEventArgs e)
         {

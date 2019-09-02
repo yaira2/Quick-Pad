@@ -454,7 +454,7 @@
     <value>Puces</value>
   </data>
   <data name="ClassicFormatDown.Text" xml:space="preserve">
-    <value>Police vers le bas</value>
+    <value>Police plus petite</value>
   </data>
   <data name="ClassicFormatItalic.Text" xml:space="preserve">
     <value>Italique</value>
@@ -466,7 +466,7 @@
     <value>Souligné</value>
   </data>
   <data name="ClassicFormatUp.Text" xml:space="preserve">
-    <value>Police vers le haut</value>
+    <value>Police plus grande</value>
   </data>
   <data name="ClassicHelp.Title" xml:space="preserve">
     <value>Aide</value>
@@ -528,8 +528,77 @@
   <data name="AppLanguage.Text" xml:space="preserve">
     <value>Langue de l'application</value>
   </data>
+  <data name="CmdOnTopTooltip" xml:space="preserve">
+    <value>Superposé (Ctrl+Shift+O)</value>
+  </data>
+  <data name="CmdFind.Label" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="ClassicEditFind.Text" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="ClassicEditFindNext.Text" xml:space="preserve">
+    <value>Trouver le suivant</value>
+  </data>
+  <data name="ClassicEditFindPrevious.Text" xml:space="preserve">
+    <value>Trouver le précédent</value>
+  </data>
+  <data name="ClassicEditReplace.Text" xml:space="preserve">
+    <value>Remplacer</value>
+  </data>
+  <data name="FAR_CloseDialog.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="FAR_FindOption.Text" xml:space="preserve">
+    <value>Trouver l'option</value>
+  </data>
+  <data name="FAR_InputEmpty.PlaceholderText" xml:space="preserve">
+    <value>Rechercher?</value>
+  </data>
+  <data name="FAR_MatchCase.Content" xml:space="preserve">
+    <value>Respecter le cas</value>
+  </data>
+  <data name="FAR_More.Text" xml:space="preserve">
+    <value>Plus...</value>
+  </data>
+  <data name="FAR_ReplaceAll.Text" xml:space="preserve">
+    <value>Remplacer tout</value>
+  </data>
+  <data name="FAR_WrapAround.Content" xml:space="preserve">
+    <value>Envelopper autour</value>
+  </data>
+  <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
+    <value>Remplacer par...</value>
+  </data>
+  <data name="ClassicEditDelete.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="ClassicEditGoTo.Text" xml:space="preserve">
+    <value>Aller à</value>
+  </data>
+  <data name="ClassicEditInsertDT.Text" xml:space="preserve">
+    <value>Temps/Date</value>
+  </data>
+  <data name="ClassicEditSearch.Text" xml:space="preserve">
+    <value>Rechercher avec Bing</value>
+  </data>
+  <data name="ClassicEditSelectAll.Text" xml:space="preserve">
+    <value>Sélectionner tout</value>
+  </data>
+  <data name="GT_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>Aller à</value>
+  </data>
   <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
     <value>Annuler</value>
+  </data>
+  <data name="GT_Dialog.Title" xml:space="preserve">
+    <value>Aller à la ligne</value>
+  </data>
+  <data name="GT_LineInput.Header" xml:space="preserve">
+    <value>Numéro de ligne:</value>
+  </data>
+  <data name="Cmd_Customize.Label" xml:space="preserve">
+    <value>Personnaliser</value>
   </data>
   <data name="Customize_AlignCenter.Text" xml:space="preserve">
     <value>Montrer l'alignement au centre</value>
@@ -548,5 +617,26 @@
   </data>
   <data name="Customize_Strikethrough.Text" xml:space="preserve">
     <value>Montrer l'option barrée</value>
+  </data>
+  <data name="Customize_SizeDown.Text" xml:space="preserve">
+    <value>Montrer la taille plus petite</value>
+  </data>
+  <data name="Customize_SizeUp.Text" xml:space="preserve">
+    <value>Montrer la taille plus grande</value>
+  </data>
+  <data name="Customize_Reset.Text" xml:space="preserve">
+    <value>Réinitialiser la barre d'outil</value>
+  </data>
+  <data name="ClassicRestoreDefaultZoom" xml:space="preserve">
+    <value>Restaurer le zoom par défaut</value>
+  </data>
+  <data name="ClassicZoom.Text" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="ClassicZoomIn.Text" xml:space="preserve">
+    <value>Zoom avant</value>
+  </data>
+  <data name="ClassicZoomOut" xml:space="preserve">
+    <value>Zoom arrière</value>
   </data>
 </root>

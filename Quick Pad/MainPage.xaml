@@ -39,12 +39,6 @@
             <Frame x:Name="FrameTop" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1"/>
         </controls:DropShadowPanel>
 
-        <ToggleButton x:Name="CloseFocusMode" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(FocusModeSwitch), Mode=OneWay}" HorizontalAlignment="Right" Content="°°°" VerticalAlignment="Top" Margin="0,10,10,0" Canvas.ZIndex="1500" VerticalContentAlignment="Center" FontSize="10" Width="35" Height="20" Windows10version1809:CornerRadius="2" Grid.Row="2">
-            <ToolTipService.ToolTip>
-                <TextBlock Text="Exit focus mode" x:Uid="ExitFocusMode"/>
-            </ToolTipService.ToolTip>
-        </ToggleButton>
-
         <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" Margin="0,0,340,0">
             <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
                 <ToolTipService.ToolTip>
@@ -194,8 +188,8 @@
 
         <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind TurnOnFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
-                <AppBarButton x:Name="CmdClassicMode" Click="{x:Bind TurnOnClassicMode}" Label="Classic Mode" x:Uid="CmdClassicMode" Width="Auto">
+                <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind SwitchingFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
+                <AppBarButton x:Name="CmdClassicMode" Click="{x:Bind SwitchingClassicAndDefault}" Label="Classic Mode" x:Uid="CmdClassicMode" Width="Auto">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE8C5;" />
                     </AppBarButton.Icon>
@@ -425,23 +419,23 @@
                 </MenuFlyoutItem>
             </winui:MenuBarItem>
             <winui:MenuBarItem Title="View" AccessKey="V" x:Uid="ClassicView">
-                <ToggleMenuFlyoutItem Text="Back to default mode" AccessKey="D" IsChecked="{x:Bind ClassicModeSwitch, Mode=TwoWay}" x:Uid="ClassicViewBack">
-                    <ToggleMenuFlyoutItem.Icon>
+                <MenuFlyoutItem Text="Back to default mode" AccessKey="D" Click="{x:Bind SwitchingClassicAndDefault}" x:Uid="ClassicViewBack">
+                    <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Back"/>
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
-                <ToggleMenuFlyoutItem Text="Focus Mode" AccessKey="F" IsChecked="{x:Bind FocusModeSwitch, Mode=TwoWay}" x:Uid="ClassicViewFocus">
-                    <ToggleMenuFlyoutItem.Icon>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Focus Mode" AccessKey="F" Click="{x:Bind SwitchingFocusMode}" x:Uid="ClassicViewFocus">
+                    <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Caption"/>
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
-                <ToggleMenuFlyoutItem Text="Overlay mode" AccessKey="O" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" x:Uid="ClassicViewOverlay">
-                    <ToggleMenuFlyoutItem.Icon>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="{x:Bind SwitchingOverlayMode}" x:Uid="ClassicViewOverlay">
+                    <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE158;" />
-                    </ToggleMenuFlyoutItem.Icon>
-                </ToggleMenuFlyoutItem>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutSubItem Text="Zoom" x:Uid="ClassicZoom" AccessKey="Z">
+                <MenuFlyoutSubItem Text="Zoom" Visibility="Collapsed" x:Uid="ClassicZoom" AccessKey="Z">
                     <MenuFlyoutSubItem.Icon>
                         <FontIcon Glyph="&#xE92D;"/>
                     </MenuFlyoutSubItem.Icon>
@@ -505,6 +499,7 @@
                      SelectionChanged="Text1_SelectionChanged" 
                      DragOver="Text1_DragOver" 
                      KeyDown="Text1_KeyDown" 
+                     PreviewKeyDown="Text1_KeyDown"
                      TextChanged="Text1_TextChanged" 
                      TextChanging="Text1_TextChanging"
                      GotFocus="Text1_GotFocus" 
@@ -718,16 +713,6 @@
                 </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
-            <AppBarButton Width="40" Icon="Add" >
-                <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="Add" Invoked="ZoomInvoked"/>
-                </AppBarButton.KeyboardAccelerators>
-            </AppBarButton>
-            <AppBarButton Width="40" Icon="Remove" >
-                <AppBarButton.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="Subtract" Invoked="ZoomInvoked"/>
-                </AppBarButton.KeyboardAccelerators>
-            </AppBarButton>
         </CommandBar>
 
         <controls:DropShadowPanel Grid.Row="3"
@@ -782,11 +767,33 @@
 
         <Grid x:Name="Title" Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch">
             <StackPanel Orientation="Horizontal">
+                <Button Width="48" Height="32" Foreground="Transparent" Background="Transparent" Visibility="{x:Bind FocusModeSwitch, Mode=OneWay}" x:Name="BackButtonHolder">
+                    <Button.Resources>
+                        <winui:TeachingTip x:Name="HowToLeaveFocus"
+                                           Target="{x:Bind BackButtonHolder}"
+                                           x:Uid="HowToLeaveFocus"
+                                           Title="The button to leave focus mode button has been moved"
+                                           Subtitle="We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave">
+                        </winui:TeachingTip>
+                    </Button.Resources>
+                </Button>
                 <TextBlock Text="{x:Bind CurrentFilename, Mode=OneWay}"
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
                            Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}"/>
             </StackPanel>
+            <Button x:Name="InvisibleButton" 
+                    Width="0"
+                    Height="0" 
+                    BorderBrush="Transparent"
+                    BorderThickness="0"
+                    IsTabStop="False" 
+                    IsTapEnabled="False" 
+                    Foreground="Transparent" 
+                    Background="Transparent" 
+                    IsHitTestVisible="False"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"/>
         </Grid>
     </Grid>
 </Page>
