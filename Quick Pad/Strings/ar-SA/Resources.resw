@@ -525,8 +525,80 @@
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>عرض شريط المعلومات في الوضع الكلاسيكي</value>
   </data>
+  <data name="AppLanguage.Text" xml:space="preserve">
+    <value>لغة التطبيق</value>
+  </data>
+  <data name="CmdOnTopTooltip" xml:space="preserve">
+    <value>في الفوق (Ctrl+Shift+O)</value>
+  </data>
+  <data name="CmdFind.Label" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="ClassicEditFind.Text" xml:space="preserve">
+    <value>بحث</value>
+  </data>
+  <data name="ClassicEditFindNext.Text" xml:space="preserve">
+    <value>بحث عن التالي</value>
+  </data>
+  <data name="ClassicEditFindPrevious.Text" xml:space="preserve">
+    <value>بحث عن السابق</value>
+  </data>
+  <data name="ClassicEditReplace.Text" xml:space="preserve">
+    <value>‏‏استبدال</value>
+  </data>
+  <data name="FAR_CloseDialog.Text" xml:space="preserve">
+    <value>إغلاق</value>
+  </data>
+  <data name="FAR_FindOption.Text" xml:space="preserve">
+    <value>اختيار للبحث</value>
+  </data>
+  <data name="FAR_InputEmpty.PlaceholderText" xml:space="preserve">
+    <value>بحث عن؟</value>
+  </data>
+  <data name="FAR_MatchCase.Content" xml:space="preserve">
+    <value>بمطابقة حالة الأحرف</value>
+  </data>
+  <data name="FAR_More.Text" xml:space="preserve">
+    <value>المزيد</value>
+  </data>
+  <data name="FAR_ReplaceAll.Text" xml:space="preserve">
+    <value>استبدال الكل</value>
+  </data>
+  <data name="FAR_WrapAround.Content" xml:space="preserve">
+    <value>التفاف حولها</value>
+  </data>
+  <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
+    <value>استبدال بـ:</value>
+  </data>
+  <data name="ClassicEditDelete.Text" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="ClassicEditGoTo.Text" xml:space="preserve">
+    <value>انتقال إلى</value>
+  </data>
+  <data name="ClassicEditInsertDT.Text" xml:space="preserve">
+    <value>الوقت / التاريخ</value>
+  </data>
+  <data name="ClassicEditSearch.Text" xml:space="preserve">
+    <value>البحث باستخدام Bing</value>
+  </data>
+  <data name="ClassicEditSelectAll.Text" xml:space="preserve">
+    <value>تحديد الكل</value>
+  </data>
+  <data name="GT_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>الانتقال إلى</value>
+  </data>
   <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
     <value>إلغاء الأمر</value>
+  </data>
+  <data name="GT_Dialog.Title" xml:space="preserve">
+    <value>الانتقال إلى السطر</value>
+  </data>
+  <data name="GT_LineInput.Header" xml:space="preserve">
+    <value>رقم السطر:</value>
+  </data>
+  <data name="Cmd_Customize.Label" xml:space="preserve">
+    <value>تخصيص</value>
   </data>
   <data name="Customize_AlignCenter.Text" xml:space="preserve">
     <value>عرض توسيط</value>
@@ -545,5 +617,26 @@
   </data>
   <data name="Customize_Strikethrough.Text" xml:space="preserve">
     <value>عرض اختيار ليتوسطه خط</value>
+  </data>
+  <data name="Customize_SizeDown.Text" xml:space="preserve">
+    <value>عرض تخفيض حجم الخط</value>
+  </data>
+  <data name="Customize_SizeUp.Text" xml:space="preserve">
+    <value>عرض زيادة حجم الخط</value>
+  </data>
+  <data name="Customize_Reset.Text" xml:space="preserve">
+    <value>إعادة تعيين شريط الأدوات</value>
+  </data>
+  <data name="ClassicRestoreDefaultZoom" xml:space="preserve">
+    <value>إعادة تعيين ميزات الصور</value>
+  </data>
+  <data name="ClassicZoom.Text" xml:space="preserve">
+    <value>ميزات الصور</value>
+  </data>
+  <data name="ClassicZoomIn.Text" xml:space="preserve">
+    <value>تكبير</value>
+  </data>
+  <data name="ClassicZoomOut" xml:space="preserve">
+    <value>تصغير</value>
   </data>
 </root>

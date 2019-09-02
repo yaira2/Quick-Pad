@@ -692,87 +692,87 @@
         </trans-unit>
         <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
           <source>App Language</source>
-          <target state="new">App Language</target>
+          <target state="translated">لغة التطبيق</target>
         </trans-unit>
         <trans-unit id="CmdOnTopTooltip" translate="yes" xml:space="preserve">
           <source>On Top (Ctrl+Shift+O)</source>
-          <target state="new">On Top (Ctrl+Shift+O)</target>
+          <target state="translated">في الفوق (Ctrl+Shift+O)</target>
         </trans-unit>
         <trans-unit id="CmdFind.Label" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="new">Find</target>
+          <target state="translated">بحث</target>
         </trans-unit>
         <trans-unit id="ClassicEditFind.Text" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="new">Find</target>
+          <target state="translated">بحث</target>
         </trans-unit>
         <trans-unit id="ClassicEditFindNext.Text" translate="yes" xml:space="preserve">
           <source>Find Next</source>
-          <target state="new">Find Next</target>
+          <target state="translated">بحث عن التالي</target>
         </trans-unit>
         <trans-unit id="ClassicEditFindPrevious.Text" translate="yes" xml:space="preserve">
           <source>Find Previous</source>
-          <target state="new">Find Previous</target>
+          <target state="translated">بحث عن السابق</target>
         </trans-unit>
         <trans-unit id="ClassicEditReplace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Replace</target>
+          <target state="translated">‏‏استبدال</target>
         </trans-unit>
         <trans-unit id="FAR_CloseDialog.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="new">Close</target>
+          <target state="translated">إغلاق</target>
         </trans-unit>
         <trans-unit id="FAR_FindOption.Text" translate="yes" xml:space="preserve">
           <source>Find option</source>
-          <target state="new">Find option</target>
+          <target state="translated">اختيار للبحث</target>
         </trans-unit>
         <trans-unit id="FAR_InputEmpty.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Looking for?</source>
-          <target state="new">Looking for?</target>
+          <target state="translated">بحث عن؟</target>
         </trans-unit>
         <trans-unit id="FAR_MatchCase.Content" translate="yes" xml:space="preserve">
           <source>Match case</source>
-          <target state="new">Match case</target>
+          <target state="translated">بمطابقة حالة الأحرف</target>
         </trans-unit>
         <trans-unit id="FAR_More.Text" translate="yes" xml:space="preserve">
           <source>More...</source>
-          <target state="new">More...</target>
+          <target state="translated">المزيد</target>
         </trans-unit>
         <trans-unit id="FAR_ReplaceAll.Text" translate="yes" xml:space="preserve">
           <source>Replace All</source>
-          <target state="new">Replace All</target>
+          <target state="translated">استبدال الكل</target>
         </trans-unit>
         <trans-unit id="FAR_WrapAround.Content" translate="yes" xml:space="preserve">
           <source>Wrap around</source>
-          <target state="new">Wrap around</target>
+          <target state="translated">التفاف حولها</target>
         </trans-unit>
         <trans-unit id="FAR_ReplaceInput.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with..</source>
-          <target state="new">Replace with..</target>
+          <target state="translated">استبدال بـ:</target>
         </trans-unit>
         <trans-unit id="ClassicEditDelete.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">حذف</target>
         </trans-unit>
         <trans-unit id="ClassicEditGoTo.Text" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="translated">انتقال إلى</target>
         </trans-unit>
         <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
           <source>Time/Date</source>
-          <target state="new">Time/Date</target>
+          <target state="translated">الوقت / التاريخ</target>
         </trans-unit>
         <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
           <source>Search with Bing...</source>
-          <target state="new">Search with Bing...</target>
+          <target state="translated">البحث باستخدام Bing</target>
         </trans-unit>
         <trans-unit id="ClassicEditSelectAll.Text" translate="yes" xml:space="preserve">
           <source>Select All</source>
-          <target state="new">Select All</target>
+          <target state="translated">تحديد الكل</target>
         </trans-unit>
         <trans-unit id="GT_Dialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>Go to</source>
-          <target state="new">Go to</target>
+          <target state="translated">الانتقال إلى</target>
         </trans-unit>
         <trans-unit id="GT_Dialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
@@ -780,15 +780,15 @@
         </trans-unit>
         <trans-unit id="GT_Dialog.Title" translate="yes" xml:space="preserve">
           <source>Go To Line</source>
-          <target state="new">Go To Line</target>
+          <target state="translated">الانتقال إلى السطر</target>
         </trans-unit>
         <trans-unit id="GT_LineInput.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
-          <target state="new">Line number:</target>
+          <target state="translated">رقم السطر:</target>
         </trans-unit>
         <trans-unit id="Cmd_Customize.Label" translate="yes" xml:space="preserve">
           <source>Customize</source>
-          <target state="new">Customize</target>
+          <target state="translated">تخصيص</target>
         </trans-unit>
         <trans-unit id="Customize_AlignCenter.Text" translate="yes" xml:space="preserve">
           <source>Show align center</source>
@@ -816,31 +816,31 @@
         </trans-unit>
         <trans-unit id="Customize_SizeDown.Text" translate="yes" xml:space="preserve">
           <source>Show size down</source>
-          <target state="new">Show size down</target>
+          <target state="translated">عرض تخفيض حجم الخط</target>
         </trans-unit>
         <trans-unit id="Customize_SizeUp.Text" translate="yes" xml:space="preserve">
           <source>Show size up</source>
-          <target state="new">Show size up</target>
+          <target state="translated">عرض زيادة حجم الخط</target>
         </trans-unit>
         <trans-unit id="Customize_Reset.Text" translate="yes" xml:space="preserve">
           <source>Reset toolbar</source>
-          <target state="new">Reset toolbar</target>
+          <target state="translated">إعادة تعيين شريط الأدوات</target>
         </trans-unit>
         <trans-unit id="ClassicRestoreDefaultZoom" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="new">Restore Default Zoom</target>
+          <target state="translated">إعادة تعيين ميزات الصور</target>
         </trans-unit>
         <trans-unit id="ClassicZoom.Text" translate="yes" xml:space="preserve">
           <source>Zoom</source>
-          <target state="new">Zoom</target>
+          <target state="translated">ميزات الصور</target>
         </trans-unit>
         <trans-unit id="ClassicZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="new">Zoom In</target>
+          <target state="translated">تكبير</target>
         </trans-unit>
         <trans-unit id="ClassicZoomOut" translate="yes" xml:space="preserve">
           <source>Zoom Out</source>
-          <target state="new">Zoom Out</target>
+          <target state="translated">تصغير</target>
         </trans-unit>
       </group>
     </body>
