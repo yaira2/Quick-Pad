@@ -756,4 +756,7 @@
   <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
     <value>second(s)</value>
   </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>Restart required to apply the changes.</value>
+  </data>
 </root>
