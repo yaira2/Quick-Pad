@@ -782,18 +782,6 @@
                            VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
                            Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}"/>
             </StackPanel>
-            <Button x:Name="InvisibleButton" 
-                    Width="0"
-                    Height="0" 
-                    BorderBrush="Transparent"
-                    BorderThickness="0"
-                    IsTabStop="False" 
-                    IsTapEnabled="False" 
-                    Foreground="Transparent" 
-                    Background="Transparent" 
-                    IsHitTestVisible="False"
-                    HorizontalAlignment="Right"
-                    VerticalAlignment="Bottom"/>
         </Grid>
     </Grid>
 </Page>
