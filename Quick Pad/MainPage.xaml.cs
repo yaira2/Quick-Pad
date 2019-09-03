@@ -70,6 +70,8 @@ namespace QuickPad
 
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
+        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = new VisualThemeSelector();
+
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
 
         public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
@@ -86,8 +88,7 @@ namespace QuickPad
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             //Subscribe to events
-            QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
-            UpdateUIAccordingToNewTheme(QSetting.Theme);
+            VisualThemeSelector.ThemeChanged += UpdateUIAccordingToNewTheme;
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
             UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
@@ -208,8 +209,9 @@ namespace QuickPad
         }
 
         #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
-        private void UpdateUIAccordingToNewTheme(ElementTheme to)
+        private void UpdateUIAccordingToNewTheme(object sender, ThemeChangedEventArgs e)
         {
+            var to = e.Theme;
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
             bool isDarkTheme = to == ElementTheme.Dark;
             if (to == ElementTheme.Default)
