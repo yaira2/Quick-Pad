@@ -828,27 +828,28 @@
         </trans-unit>
         <trans-unit id="ClassicRestoreDefaultZoom" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="translated">คืนค่าเริ่มต้นซูม</target>
+          <target state="translated">คืนค่าการขยาย</target>
         </trans-unit>
         <trans-unit id="ClassicZoom.Text" translate="yes" xml:space="preserve">
           <source>Zoom</source>
-          <target state="translated">ซูม</target>
+          <target state="translated">ย่อ/ขยาย</target>
         </trans-unit>
         <trans-unit id="ClassicZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="translated">ขยายเข้า</target>
+          <target state="translated">ขยาย</target>
         </trans-unit>
         <trans-unit id="ClassicZoomOut" translate="yes" xml:space="preserve">
           <source>Zoom Out</source>
-          <target state="translated">ซูมออก</target>
+          <target state="translated">ย่อ</target>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
           <source>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</source>
-          <target state="translated">เราได้ย้ายปุ่มไปที่นี่เพื่อที่จะเป็นการออกแบบที่สะอาดยิ่งขึ้น นอกจากนี้คุณยังสามารถกด Control + Shift + F เพื่อออก</target>
+          <target state="translated">ปุ่ม "ออกจากโหมดเน้นพิมพ์" ถูกย้ายมาไว้ตรงนี้ เพื่อให้แอปโล่งขึ้น
+หรือกด Control + Shift + F เพื่อออกจากโหมดเน้นพิมพ์</target>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
           <source>The button to leave focus mode button has been moved</source>
-          <target state="translated">ปุ่มย้ายออกจากโหมดโฟกัสถูกย้ายแล้ว</target>
+          <target state="translated">ปุ่ม "ออกจากโหมดเน้นพิมพ์" อยู่ตรงนี้</target>
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
           <source>Auto Save Every</source>
@@ -856,11 +857,11 @@
         </trans-unit>
         <trans-unit id="AutoSaveEverySeconds.Text" translate="yes" xml:space="preserve">
           <source>second(s)</source>
-          <target state="translated">วินาที (s)</target>
+          <target state="translated">วินาที</target>
         </trans-unit>
         <trans-unit id="Restart.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
-          <target state="translated">ต้องรีสตาร์ทเพื่อใช้การเปลี่ยนแปลง</target>
+          <target state="translated">เปลี่ยนภาษาจะมีผลหลังจากออกและเข้าใหม่</target>
         </trans-unit>
       </group>
     </body>
