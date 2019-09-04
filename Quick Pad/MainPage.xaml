@@ -19,7 +19,7 @@
             <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="2,2,2,2" FontSize="12"/>
         </DataTemplate>
     </Page.Resources>
-    <Grid Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" HorizontalAlignment="Stretch">
+    <Grid Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  HorizontalAlignment="Stretch">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" x:Name="row0"/>
             <RowDefinition Height="Auto" x:Name="row1"/>
@@ -36,10 +36,10 @@
                                   HorizontalContentAlignment="Stretch"
                                   Grid.Row="1">
 
-            <Frame x:Name="FrameTop" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1"/>
+            <Frame x:Name="FrameTop" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1"/>
         </controls:DropShadowPanel>
 
-        <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" Margin="0,0,340,0">
+        <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,340,0">
             <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
                 <ToolTipService.ToolTip>
                     <TextBlock Text="New" x:Uid="CmdNewTooltip"/>
@@ -186,7 +186,7 @@
             </AppBarButton>
         </CommandBar>
 
-        <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}">
+        <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{x:Null}">
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind SwitchingFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
                 <AppBarButton x:Name="CmdClassicMode" Click="{x:Bind SwitchingClassicAndDefault}" Label="Classic Mode" x:Uid="CmdClassicMode" Width="Auto">
@@ -256,7 +256,7 @@
             </AppBarButton>
         </CommandBar>
 
-        <winui:MenuBar x:Name="CommandBarClassic" Canvas.ZIndex="75" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(ClassicModeSwitch), Mode=OneWay}">
+        <winui:MenuBar x:Name="CommandBarClassic" Canvas.ZIndex="75" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Visibility="{x:Bind q:Converter.BoolToVisibility(ClassicModeSwitch), Mode=OneWay}">
             <winui:MenuBarItem Title="File" AccessKey="F" x:Uid="ClassicFile">
                 <MenuFlyoutItem Text="New" AccessKey="N" Click="CmdNew_Click" x:Uid="ClassicFileNew">
                     <MenuFlyoutItem.Icon>
@@ -491,7 +491,7 @@
             </winui:MenuBarItem>
         </winui:MenuBar>
 
-        <dialog:FindAndReplace Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10" Visibility="{x:Bind q:Converter.BoolToVisibility(ShowFindAndReplace), Mode=OneWay}" Canvas.ZIndex="90" x:Name="FindAndReplaceDialog"/>
+        <dialog:FindAndReplace Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10"  Visibility="{x:Bind q:Converter.BoolToVisibility(ShowFindAndReplace), Mode=OneWay}" Canvas.ZIndex="90" x:Name="FindAndReplaceDialog"/>
 
         <RichEditBox Grid.Row="2" 
                      x:Name="Text1" 
@@ -509,7 +509,7 @@
                      TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" 
                      IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
-                     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}"
+                     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}" 
                      IsTapEnabled="True"
                      Tapped="Text1_Tapped" FontFamily="Consolas">
             <RichEditBox.SelectionHighlightColorWhenNotFocused>
@@ -517,7 +517,7 @@
             </RichEditBox.SelectionHighlightColorWhenNotFocused>
         </RichEditBox>
 
-        <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{ThemeResource SystemControlAcrylicElementBrush}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" Opened="Settings_Opened" Grid.Row="0" Grid.RowSpan="4">
+        <ContentDialog x:Name="Settings" Windows10version1809:CornerRadius="4" Background="{x:Bind VisualThemeSelector.CurrentItem.SolidBackgroundBrush, Mode=OneWay}" BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}" Opened="Settings_Opened" Grid.Row="0" Grid.RowSpan="4">
             <ContentDialog.Resources>
                 <!--Force all textblock to have margin-->
                 <Style TargetType="TextBlock">
@@ -541,7 +541,7 @@
                         <ScrollViewer x:Name="SettingsTab1SV" Height="250">
                             <StackPanel Padding="2,2,2,2">
                                 <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
-                                <ComboBox x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" MinWidth="125" HorizontalAlignment="Left" BorderThickness="1">
+                                <ComboBox x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  MinWidth="125" HorizontalAlignment="Left" BorderThickness="1">
                                     <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
                                     <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
                                     <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
@@ -549,7 +549,7 @@
                                 </ComboBox>
 
                                 <TextBlock Text="App Language" x:Uid="AppLanguage"/>
-                                <ComboBox PlaceholderText="English (United State)" SelectionChanged="DefaultLanguage_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultLanguage" SelectedIndex="{x:Bind SelectedDefaultLanguage, Mode=TwoWay}" ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                <ComboBox PlaceholderText="English (United State)" SelectionChanged="DefaultLanguage_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultLanguage" SelectedIndex="{x:Bind SelectedDefaultLanguage, Mode=TwoWay}" ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Width="125" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate x:DataType="q:DefaultLanguage">
                                             <TextBlock Text="{x:Bind Name}"/>
@@ -559,7 +559,7 @@
                                 <TextBlock x:Name="LangChangeNeedRestart" x:Uid="Restart" Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the changes."/>
 
                                 <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
-                                <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Width="75" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <x:String>.rtf</x:String>
                                     <x:String>.txt</x:String>
                                 </ComboBox>
@@ -614,10 +614,10 @@
                         <ScrollViewer Height="250">
                             <StackPanel Padding="2,2,2,2">
                                 <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
-                                <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
+                                <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
 
                                 <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
-                                <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                                <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate x:DataType="q:FontColorItem">
                                             <StackPanel Orientation="Horizontal">
@@ -632,7 +632,7 @@
                                 </ComboBox>
 
                                 <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
-                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" PlaceholderText="12" MinWidth="69" BorderThickness="1">
+                                <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  PlaceholderText="12" MinWidth="69" BorderThickness="1">
                                     <x:Int32>4</x:Int32>
                                     <x:Int32>6</x:Int32>
                                     <x:Int32>8</x:Int32>
@@ -687,16 +687,16 @@
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
 
-            <Frame x:Name="FrameBottom" Content="" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
+            <Frame x:Name="FrameBottom" Content="" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
         </controls:DropShadowPanel>
 
-        <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Bottom" Height="40" FlowDirection="LeftToRight" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}">
+        <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Bottom" Height="40" FlowDirection="LeftToRight" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}" >
             <CommandBar.Content>
                 <Canvas Width="169" Height="40">
-                    <Frame x:Name="FontBoxFrame" Width="167" Height="37" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}"/>
+                    <Frame x:Name="FontBoxFrame" Width="167" Height="37" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}" />
                     <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Consolas" Canvas.Left="10" Canvas.Top="11" Canvas.ZIndex="100"/>
                     <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="145" Canvas.Top="13" Canvas.ZIndex="100"/>
-                    <ComboBox VerticalAlignment="Center" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Consolas" ItemTemplate="{StaticResource FontFamilyComboBoxItem}" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness=".5" PlaceholderForeground="Black"/>
+                    <ComboBox VerticalAlignment="Center" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Consolas" ItemTemplate="{StaticResource FontFamilyComboBoxItem}" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness=".5" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
             <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor">
@@ -727,7 +727,7 @@
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch"
                                   Visibility="{x:Bind q:Converter.CanIShowStatusBar(ClassicModeSwitch, QSetting.ShowStatusBar), Mode=OneWay}">
-            <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" Grid.Row="3" VerticalAlignment="Stretch" x:Name="StatusBar" MinHeight="28">
+            <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Grid.Row="3" VerticalAlignment="Stretch" x:Name="StatusBar" MinHeight="28">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
@@ -768,7 +768,7 @@
             </Grid>
         </controls:DropShadowPanel>
 
-        <Grid x:Name="Title" Canvas.ZIndex="100" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundBrush, Mode=OneWay}" VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch">
+        <Grid x:Name="Title" Canvas.ZIndex="100" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch">
             <StackPanel Orientation="Horizontal">
                 <Button Width="48" Height="32" Foreground="Transparent" Background="Transparent" Visibility="{x:Bind FocusModeSwitch, Mode=OneWay}" x:Name="BackButtonHolder">
                     <Button.Resources>

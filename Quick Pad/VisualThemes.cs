@@ -14,6 +14,19 @@ namespace QuickPad
 {
     public class VisualThemeSelector : INotifyPropertyChanged
     {
+        private static VisualThemeSelector _default;
+        public static VisualThemeSelector Default
+        {
+            get
+            {
+                if (_default == null)
+                {
+                    _default = new VisualThemeSelector();
+                }
+                return _default;
+            }
+        }
+
         private List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;
         public event PropertyChangedEventHandler PropertyChanged;
@@ -72,78 +85,38 @@ namespace QuickPad
 
         private void Fill()
         {
-            //White Theme
-            var whiteBrush = GetConfiguredAcrylicBrush();
-            whiteBrush.FallbackColor = Colors.White;
-            whiteBrush.TintColor = Colors.White;
-            var whiteTheme = new VisualTheme
-            {
-                ThemeId = "1",
-                FriendlyName = "White",
-                Theme = ElementTheme.Light,
-                BackgroundBrush = whiteBrush,
-            };
-            _themes.Add(whiteTheme);
-
-            //Black Theme
-            var blackBrush = GetConfiguredAcrylicBrush();
-            blackBrush.FallbackColor = Colors.Black;
-            blackBrush.TintColor = Colors.Black;
-            var blackTheme = new VisualTheme
-            {
-                ThemeId = "2",
-                FriendlyName = "Black",
-                Theme = ElementTheme.Dark,
-                BackgroundBrush = blackBrush,
-            };
-            _themes.Add(blackTheme);
-
-            //Light Green Theme
-            var lgreenBrush = GetConfiguredAcrylicBrush();
-            lgreenBrush.FallbackColor = Color.FromArgb(255, 188, 245, 188);
-            lgreenBrush.TintColor = Color.FromArgb(255, 144, 238, 144);
-            var lgreenTheme = new VisualTheme
-            {
-                ThemeId = "2",
-                FriendlyName = "Lime",
-                Theme = ElementTheme.Light,
-                BackgroundBrush = lgreenBrush,
-            };
-            _themes.Add(lgreenTheme);
-
-            //Salmon Theme
-            var salmonBrush = GetConfiguredAcrylicBrush();
-            salmonBrush.FallbackColor = Color.FromArgb(255, 255, 179, 156);
-            salmonBrush.TintColor = Color.FromArgb(255, 255, 179, 156);
-            var salmonTheme = new VisualTheme
-            {
-                ThemeId = "3",
-                FriendlyName = "Salmon",
-                Theme = ElementTheme.Light,
-                BackgroundBrush = salmonBrush,
-            };
-            _themes.Add(salmonTheme);
-
-            //Cobalt Theme
-            var cobaltBrush = GetConfiguredAcrylicBrush();
-            cobaltBrush.FallbackColor = Color.FromArgb(255, 0, 71, 171);
-            cobaltBrush.TintColor = Color.FromArgb(255, 0, 71, 171);
-            var cobaltTheme = new VisualTheme
-            {
-                ThemeId = "4",
-                FriendlyName = "Cobalt",
-                Theme = ElementTheme.Dark,
-                BackgroundBrush = cobaltBrush,
-            };
-            _themes.Add(cobaltTheme);
-
+            _themes.Add(BuildTheme("0", "White", true, VisualTheme.LightColor));
+            _themes.Add(BuildTheme("1", "Black", false, VisualTheme.DarkColor));
+            _themes.Add(BuildTheme("2", "Light Green", true, Color.FromArgb(255, 144, 238, 144)));
+            _themes.Add(BuildTheme("3", "Cobalt", false, Color.FromArgb(255, 0, 71, 171)));
         }
-        private AcrylicBrush GetConfiguredAcrylicBrush()
+        private VisualTheme BuildTheme(string themeId, string name, bool lightTheme, Color accentColor)
         {
-            AcrylicBrush brush = new AcrylicBrush();
-            brush.BackgroundSource = AcrylicBackgroundSource.HostBackdrop;
-            brush.TintOpacity = .7d;
-            return brush;
+            AcrylicBrush backgroundAcrylic = new AcrylicBrush
+            {
+                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+                FallbackColor = accentColor,
+                TintColor = accentColor,
+                TintOpacity = .7d
+            };
+            AcrylicBrush inAppAcrylic = new AcrylicBrush
+            {
+                BackgroundSource = AcrylicBackgroundSource.Backdrop,
+                FallbackColor = accentColor,
+                TintColor = accentColor,
+                TintOpacity = .85d
+            };
+            var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
+            var theme = new VisualTheme
+            {
+                ThemeId = themeId,
+                FriendlyName = name,
+                Theme = etheme,
+                BackgroundAcrylicBrush = backgroundAcrylic,
+                InAppAcrylicBrush = inAppAcrylic,
+                SolidBackgroundBrush = new SolidColorBrush(accentColor),
+            };
+            return theme;
         }
 
         public void RaisePropertyChanged([CallerMemberName]string propertyName = "")
@@ -153,6 +126,10 @@ namespace QuickPad
     }
     public class VisualTheme
     {
+        public static readonly Color DarkColor = Color.FromArgb(255, 28, 28, 28);
+        public static readonly Color LightColor = Colors.White;
+
+        private ElementTheme _theme;
         public string ThemeId
         {
             get;
@@ -163,13 +140,37 @@ namespace QuickPad
             get;
             set;
         }
-        public ElementTheme Theme { get; set; }
-        public Brush BackgroundBrush
+        public ElementTheme Theme
+        {
+            get => _theme;
+            set
+            {
+                _theme = value;
+                if (DefaultTextForeground == null)
+                {
+                    DefaultTextForeground = new SolidColorBrush
+                        ((_theme == ElementTheme.Dark)
+                        ? LightColor
+                        : DarkColor);
+                }
+            }
+        }
+        public Brush BackgroundAcrylicBrush
         {
             get;
             set;
         }
-        public Brush BackgroundBrush2
+        public Brush InAppAcrylicBrush
+        {
+            get;
+            set;
+        }
+        public Brush SolidBackgroundBrush
+        {
+            get;
+            set;
+        }
+        public Brush DefaultTextForeground
         {
             get;
             set;
