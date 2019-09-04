@@ -252,6 +252,15 @@ namespace QuickPad
             }
             //Update dialog theme
             WantToSave.RequestedTheme = to;
+
+            //CommandBars and ContextMenus
+            Style commandBarStyle = new Style { TargetType = typeof(CommandBarOverflowPresenter) };
+            commandBarStyle.Setters.Add(new Setter(BackgroundProperty, e.VisualTheme.InAppAcrylicBrush));
+            CommandBar1.CommandBarOverflowPresenterStyle = commandBarStyle;
+            CommandBar2.CommandBarOverflowPresenterStyle = commandBarStyle;
+            Style menuFlyoutStyle = new Style { TargetType = typeof(MenuFlyoutPresenter) };
+            menuFlyoutStyle.Setters.Add(new Setter(BackgroundProperty, e.VisualTheme.InAppAcrylicBrush));
+            settingsFlyoutMenu.MenuFlyoutPresenterStyle = menuFlyoutStyle;
         }
 
         private void UpdateText1FontSize(int to)

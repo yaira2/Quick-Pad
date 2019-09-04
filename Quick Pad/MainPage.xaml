@@ -154,7 +154,7 @@
                     <FontIcon Glyph="&#xE15E;" />
                 </AppBarButton.Icon>
                 <AppBarButton.Flyout>
-                    <MenuFlyout Closing="ClosingCustomizeFlyout">
+                    <MenuFlyout x:Name="settingsFlyoutMenu" Closing="ClosingCustomizeFlyout">
                         <ToggleMenuFlyoutItem x:Uid="Customize_Strikethrough" Text="Show Strikethrough" IsChecked="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}">
                             <ToggleMenuFlyoutItem.Icon>
                                 <FontIcon Margin="0,4,0,-3" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
