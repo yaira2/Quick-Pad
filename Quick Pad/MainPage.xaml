@@ -571,7 +571,7 @@
                                     <Run Text="{x:Bind QSetting.AutoSaveInterval, Mode=OneWay}"/>
                                     <Run x:Uid="AutoSaveEverySeconds" Text="second(s)"/>
                                 </TextBlock>
-                                
+
                                 <Slider Value="{x:Bind QSetting.AutoSaveInterval, Mode=TwoWay}" Visibility="{x:Bind QSetting.AutoSave, Mode=OneWay}" Minimum="5" Maximum="45" StepFrequency="1" TickPlacement="Inline" Width="230" HorizontalAlignment="Left" ValueChanged="AutoSaveTimer_Changed"/>
                             </StackPanel>
                         </ScrollViewer>
@@ -690,10 +690,10 @@
         <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Bottom" Height="40" FlowDirection="LeftToRight" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}">
             <CommandBar.Content>
                 <Canvas Width="169" Height="40">
-                    <Frame x:Name="FontBoxFrame" Width="167" Height="37" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left="1" Canvas.Top="1"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
-                    <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Consolas" Canvas.Left="10" Canvas.Top="11" Canvas.ZIndex="100"/>
+                    <Frame x:Name="FontBoxFrame" Windows10version1809:CornerRadius="2" Width="168.3" Height="38" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left=".5" Canvas.Top=".5"  Canvas.ZIndex="100" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"/>
+                    <TextBlock x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Consolas" Canvas.Left="12" Canvas.Top="10" Canvas.ZIndex="100"/>
                     <TextBlock PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="145" Canvas.Top="13" Canvas.ZIndex="100"/>
-                    <ComboBox VerticalAlignment="Center" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Consolas" ItemTemplate="{StaticResource FontFamilyComboBoxItem}" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness=".5" PlaceholderForeground="Black"/>
+                    <ComboBox VerticalAlignment="Center" Windows10version1809:CornerRadius="2" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Consolas" ItemTemplate="{StaticResource FontFamilyComboBoxItem}" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness=".5" PlaceholderForeground="Black"/>
                 </Canvas>
             </CommandBar.Content>
             <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor">
