@@ -211,7 +211,8 @@ namespace QuickPad
         #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
         private void UpdateUIAccordingToNewTheme(object sender, ThemeChangedEventArgs e)
         {
-            var to = e.Theme;
+            
+            var to = e.VisualTheme.Theme;
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
             bool isDarkTheme = to == ElementTheme.Dark;
             if (to == ElementTheme.Default)
@@ -242,7 +243,7 @@ namespace QuickPad
 
             if (QSetting.DefaultFontColor == "Default")
             {
-                Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+                Text1.Document.Selection.CharacterFormat.ForegroundColor = e.VisualTheme.DefaultTextForeground;
                 //Force a new change IF there are no change made yet
                 if (!Changed)
                 {

@@ -80,7 +80,7 @@ namespace QuickPad
         }
         private void NotifyThemeChanged()
         {
-            _themeChanged?.Invoke(this, new ThemeChangedEventArgs(CurrentItem.Theme));
+            _themeChanged?.Invoke(this, new ThemeChangedEventArgs(CurrentItem));
         }
 
         private void Fill()
@@ -148,10 +148,7 @@ namespace QuickPad
                 _theme = value;
                 if (DefaultTextForeground == null)
                 {
-                    DefaultTextForeground = new SolidColorBrush
-                        ((_theme == ElementTheme.Dark)
-                        ? LightColor
-                        : DarkColor);
+                    DefaultTextForeground = (_theme == ElementTheme.Dark) ? LightColor : DarkColor;
                 }
             }
         }
@@ -170,7 +167,7 @@ namespace QuickPad
             get;
             set;
         }
-        public Brush DefaultTextForeground
+        public Color DefaultTextForeground
         {
             get;
             set;
@@ -185,10 +182,10 @@ namespace QuickPad
     public delegate void ThemeChangedEventHandler(object sender, ThemeChangedEventArgs e);
     public class ThemeChangedEventArgs : EventArgs
     {
-        public ElementTheme Theme{ get; set; }
-        public ThemeChangedEventArgs(ElementTheme theme)
+        public VisualTheme VisualTheme { get; set; }
+        public ThemeChangedEventArgs(VisualTheme theme)
         {
-            Theme = theme;
+            VisualTheme = theme;
         }
     }
 
