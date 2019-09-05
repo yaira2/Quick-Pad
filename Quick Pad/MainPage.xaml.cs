@@ -155,18 +155,9 @@ namespace QuickPad
                 }
                 else
                 {
-                    try //In case if all the change is just nothing but format
+                    if (totalCharacters < 1)
                     {
-                        Text1.TextDocument.GetText(TextGetOptions.None, out string change);
-                        if (string.IsNullOrEmpty(change))
-                        {
-                            deferral.Complete();
-                        }
-                    }
-                    catch (Exception er)
-                    {
-                        //According to error report, the error is in line 132, or when Text1 try to get text
-                        Analytics.TrackEvent($"Track down error \r\n{er.Message}");
+                        deferral.Complete();
                     }
                 }
 
@@ -960,16 +951,12 @@ namespace QuickPad
             //update the title bar to reflect it is a new document
             CurrentFilename = null;
             //Clear undo and redo
-            try
+            if (App.Is1903OrNewer)
             {
                 if (Text1.TextDocument.CanUndo())//Assume because the history is already empty?
                 {
                     Text1.TextDocument.ClearUndoRedoHistory();
                 }
-            }
-            catch (Exception ex)
-            {
-                Analytics.TrackEvent($"Error trying to clear undo history\r\n{ex.Message}");
             }
             //Put up a default font size into a format
             UpdateText1FontSize(QSetting.DefaultFontSize);
@@ -1596,7 +1583,7 @@ namespace QuickPad
                 Text1.Document.GetText(TextGetOptions.None, out _content);
                 _content = TrimRichEditBoxText(_content);
                 _isLineCachePendingUpdate = true;
-                MaximumPossibleSearchRange = _content.Length;
+                MaximumPossibleSearchRange = totalCharacters = _content.Length;
             }
         }
         /// <summary>
@@ -1720,7 +1707,7 @@ namespace QuickPad
             GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount);
             CurrentPosition = columnIndex;
             CurrentLine = lineIndex;
-            totalCharacters = selectedCount;
+            SelectionLength = selectedCount;
 
             //update current format
             IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;

@@ -20,6 +20,7 @@ using Microsoft.AppCenter;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Windows.Globalization;
+using Windows.Foundation.Metadata;
 
 namespace QuickPad
 {
@@ -42,7 +43,10 @@ namespace QuickPad
 #if !DEBUG
             AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes)); //send analytics to app center
 #endif
+            Is1903OrNewer = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 9);
         }
+
+        public static bool Is1903OrNewer;
 
         protected override void OnFileActivated(FileActivatedEventArgs args)
         {
