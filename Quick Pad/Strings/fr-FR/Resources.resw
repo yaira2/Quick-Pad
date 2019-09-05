@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppTheme.Text" xml:space="preserve">
+    <value>Thème de l'application</value>
+  </data>
+  <data name="AutoSaveSwitch.Text" xml:space="preserve">
+    <value>Sauvegarde automatique</value>
+  </data>
+  <data name="BlackPlaceholder" xml:space="preserve">
+    <value>Noir</value>
+  </data>
+  <data name="Bold.Label" xml:space="preserve">
+    <value>Gras</value>
+  </data>
+  <data name="BoldTooltip.Text" xml:space="preserve">
+    <value>Gras (Ctrl+B)</value>
+  </data>
+  <data name="BulletList.Label" xml:space="preserve">
+    <value>Puces</value>
+  </data>
+  <data name="BulletListTooltip.Text" xml:space="preserve">
+    <value>Basculer les puces</value>
+  </data>
+  <data name="Center.Label" xml:space="preserve">
+    <value>Centre</value>
+  </data>
+  <data name="CenterTooltip.Text" xml:space="preserve">
+    <value>Aligner au centre (Ctrl+E)</value>
+  </data>
+  <data name="CmdFocusMode.Label" xml:space="preserve">
+    <value>Mode focus</value>
+  </data>
+  <data name="CmdNew.Label" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="CmdNewTooltip.Text" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="CmdOpen.Label" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="CmdOpenTooltip.Text" xml:space="preserve">
+    <value>Ouvrir (Ctrl+O)</value>
+  </data>
+  <data name="CmdRedo.Label" xml:space="preserve">
+    <value>Répéter</value>
+  </data>
+  <data name="CmdRedoTooltip.Text" xml:space="preserve">
+    <value>Répéter (Ctrl+Y)</value>
+  </data>
+  <data name="CmdReview.Label" xml:space="preserve">
+    <value>Révision</value>
+  </data>
+  <data name="CmdSave.Label" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="CmdSaveTooltip.Text" xml:space="preserve">
+    <value>Enregistrer (Ctrl+S)</value>
+  </data>
+  <data name="CmdSettings.Label" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="CmdSettingsTooltip.Text" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="CmdShare.Label" xml:space="preserve">
+    <value>Partager</value>
+  </data>
+  <data name="CmdShareTooltip.Text" xml:space="preserve">
+    <value>Partager le fichier que vous êtes en train de travailler.</value>
+  </data>
+  <data name="CmdUndo.Label" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="CmdUndoTooltip.Text" xml:space="preserve">
+    <value>Annuler (Ctrl+Z)</value>
+  </data>
+  <data name="CompactOverlay.Content" xml:space="preserve">
+    <value>En haut</value>
+  </data>
+  <data name="Contribute.Content" xml:space="preserve">
+    <value>Contribuer au développeur</value>
+  </data>
+  <data name="Copy.Label" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="CopyTooltip.Text" xml:space="preserve">
+    <value>Copier (Ctrl+C)</value>
+  </data>
+  <data name="Cut.Label" xml:space="preserve">
+    <value>Couper</value>
+  </data>
+  <data name="CutTooltip.Text" xml:space="preserve">
+    <value>Couper (Ctrl+X)</value>
+  </data>
+  <data name="Dark.Content" xml:space="preserve">
+    <value>Sombre</value>
+  </data>
+  <data name="DefaultFont.Text" xml:space="preserve">
+    <value>Police par défaut</value>
+  </data>
+  <data name="DefaultFontColor.Text" xml:space="preserve">
+    <value>Couleur de police par défaut</value>
+  </data>
+  <data name="DefaultFontColorCombobox.PlaceholderText" xml:space="preserve">
+    <value>Noir</value>
+  </data>
+  <data name="DefaultFontSize.Text" xml:space="preserve">
+    <value>Taille de police par défaut</value>
+  </data>
+  <data name="DevelopedBy.Text" xml:space="preserve">
+    <value>Développé par Yair Aichenbaum</value>
+  </data>
+  <data name="ErrorDialogContent" xml:space="preserve">
+    <value>Désolé, Quick Pad ne peut pas ouvrir le fichier.</value>
+  </data>
+  <data name="ErrorDialogOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="ErrorDialogTitle" xml:space="preserve">
+    <value>Échec de l'ouverture du fichier</value>
+  </data>
+  <data name="ExitFocusMode.Text" xml:space="preserve">
+    <value>Fermer le mode focus</value>
+  </data>
+  <data name="FontColorBlack" xml:space="preserve">
+    <value>Noir</value>
+  </data>
+  <data name="FontColorBlue" xml:space="preserve">
+    <value>Bleu</value>
+  </data>
+  <data name="FontColorGreen" xml:space="preserve">
+    <value>Vert</value>
+  </data>
+  <data name="FontColorOrange" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="FontColorPink" xml:space="preserve">
+    <value>Rose</value>
+  </data>
+  <data name="FontColorWhite" xml:space="preserve">
+    <value>Blanc</value>
+  </data>
+  <data name="FontColorYellow" xml:space="preserve">
+    <value>Jaune</value>
+  </data>
+  <data name="GeneralAutoSave.Text" xml:space="preserve">
+    <value>Sauvegarde automatique</value>
+  </data>
+  <data name="GeneralDefaultType.Text" xml:space="preserve">
+    <value>Type de fichier par défaut</value>
+  </data>
+  <data name="GeneralLaunchMode.Text" xml:space="preserve">
+    <value>Lancement de mode par défaut</value>
+  </data>
+  <data name="GeneralLaunchModeCombobox.PlaceholderText" xml:space="preserve">
+    <value>Par défaut</value>
+  </data>
+  <data name="GeneralToggleSwitch.OffContent" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
+  <data name="GeneralToggleSwitch.OnContent" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="IconDesignBy.Text" xml:space="preserve">
+    <value>Design de l'icône par James Arney</value>
+  </data>
+  <data name="Italic.Label" xml:space="preserve">
+    <value>Italique</value>
+  </data>
+  <data name="ItalicTooltip.Text" xml:space="preserve">
+    <value>Italique (Ctrl+I)</value>
+  </data>
+  <data name="Justify.Label" xml:space="preserve">
+    <value>Justifié</value>
+  </data>
+  <data name="JustifyTooltip.Text" xml:space="preserve">
+    <value>Justifier le texte (Ctrl+J)</value>
+  </data>
+  <data name="LaunchModeClassic.Content" xml:space="preserve">
+    <value>Classique</value>
+  </data>
+  <data name="LaunchInClassicMode" xml:space="preserve">
+    <value>Classique</value>
+  </data>
+  <data name="LaunchInClassicModeDesc" xml:space="preserve">
+    <value>Ouvrir l'application en mode classique</value>
+  </data>
+  <data name="LaunchInFocusMode" xml:space="preserve">
+    <value>Focus</value>
+  </data>
+  <data name="LaunchInFocusModeDesc" xml:space="preserve">
+    <value>Ouvrir l'application en mode focus</value>
+  </data>
+  <data name="LaunchInOnTopMode" xml:space="preserve">
+    <value>Superposé</value>
+  </data>
+  <data name="LaunchInOnTopModeDesc" xml:space="preserve">
+    <value>Ouvrir l'application en mode superposé</value>
+  </data>
+  <data name="LaunchModeDefault.Content" xml:space="preserve">
+    <value>Par défaut</value>
+  </data>
+  <data name="LaunchModeFocus.Content" xml:space="preserve">
+    <value>Focus</value>
+  </data>
+  <data name="LaunchModeOnTop.Content" xml:space="preserve">
+    <value>En haut</value>
+  </data>
+  <data name="Left.Label" xml:space="preserve">
+    <value>À gauche</value>
+  </data>
+  <data name="LeftTooltip.Text" xml:space="preserve">
+    <value>Aligner à gauche (Ctrl+L)</value>
+  </data>
+  <data name="Light.Content" xml:space="preserve">
+    <value>Clair</value>
+  </data>
+  <data name="NewDocument" xml:space="preserve">
+    <value>Nouveau document</value>
+  </data>
+  <data name="NewUserFeedbackContent" xml:space="preserve">
+    <value>S'il vous plais, veuillez considérer de laisser un commentaire pour Quick Pad dans le magasin</value>
+  </data>
+  <data name="NewUserFeedbackNo" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="NewUserFeedbackTitle" xml:space="preserve">
+    <value>Est-ce que vous appréciez Quick Pad?</value>
+  </data>
+  <data name="NewUserFeedbackYes" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="NothingToShare" xml:space="preserve">
+    <value>Rien à partager, insérez quelque chose pour le partager.</value>
+  </data>
+  <data name="Paste.Label" xml:space="preserve">
+    <value>Coller</value>
+  </data>
+  <data name="PasteTooltip.Text" xml:space="preserve">
+    <value>Coller (Ctrl+V)</value>
+  </data>
+  <data name="RateAndReview.Content" xml:space="preserve">
+    <value>Évaluer et commenter</value>
+  </data>
+  <data name="Right.Label" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="RightTooltip.Text" xml:space="preserve">
+    <value>Aligner à droite (Ctrl+R)</value>
+  </data>
+  <data name="SaveDialog.Text" xml:space="preserve">
+    <value>Voulez-vous enregistrer vos modifications?</value>
+  </data>
+  <data name="SaveDialogCancel.Content" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="SaveDialogNo.Content" xml:space="preserve">
+    <value>Non</value>
+  </data>
+  <data name="SaveDialogYes.Content" xml:space="preserve">
+    <value>Oui</value>
+  </data>
+  <data name="SendFeedback.Content" xml:space="preserve">
+    <value>Envoyer des commentaires</value>
+  </data>
+  <data name="SettingsPivot.Title" xml:space="preserve">
+    <value>Paramètres</value>
+  </data>
+  <data name="SettingsTab1.Header" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="SettingsTab2.Header" xml:space="preserve">
+    <value>Thème</value>
+  </data>
+  <data name="SettingsTab3.Header" xml:space="preserve">
+    <value>Police</value>
+  </data>
+  <data name="SettingsTab4.Header" xml:space="preserve">
+    <value>Barre d'outils</value>
+  </data>
+  <data name="SettingsTab5.Header" xml:space="preserve">
+    <value>À propos</value>
+  </data>
+  <data name="ShowAlignCenter.OffContent" xml:space="preserve">
+    <value>Cacher l'algnement au centre</value>
+  </data>
+  <data name="ShowAlignCenter.OnContent" xml:space="preserve">
+    <value>Montrer l'alignement au centre</value>
+  </data>
+  <data name="ShowAlignJustify.OffContent" xml:space="preserve">
+    <value>Cacher l'alignement justifié</value>
+  </data>
+  <data name="ShowAlignJustify.OnContent" xml:space="preserve">
+    <value>Montrer l'alignement justifié</value>
+  </data>
+  <data name="ShowAlignLeft.OffContent" xml:space="preserve">
+    <value>Cacher l'alignement à gauche</value>
+  </data>
+  <data name="ShowAlignLeft.OnContent" xml:space="preserve">
+    <value>Montrer l'alignement à gauche</value>
+  </data>
+  <data name="ShowAlignRight.OffContent" xml:space="preserve">
+    <value>Cacher l'alignement à droite</value>
+  </data>
+  <data name="ShowAlignRight.OnContent" xml:space="preserve">
+    <value>Montrer l'alignement à droite</value>
+  </data>
+  <data name="ShowBullets.OffContent" xml:space="preserve">
+    <value>Cacher la liste de puce</value>
+  </data>
+  <data name="ShowBullets.OnContent" xml:space="preserve">
+    <value>Montrer la liste de puce</value>
+  </data>
+  <data name="ShowStrikethrough.OffContent" xml:space="preserve">
+    <value>Cacher l'option barrée</value>
+  </data>
+  <data name="ShowStrikethrough.OnContent" xml:space="preserve">
+    <value>Montrer l'option barrée</value>
+  </data>
+  <data name="SizeDown.Label" xml:space="preserve">
+    <value>Taille plus bas</value>
+  </data>
+  <data name="SizeDownTooltip.Text" xml:space="preserve">
+    <value>Taille plus bas</value>
+  </data>
+  <data name="SizeUp.Label" xml:space="preserve">
+    <value>Taille plus haut</value>
+  </data>
+  <data name="SizeUpTooltip.Text" xml:space="preserve">
+    <value>Taille plus haut </value>
+  </data>
+  <data name="SpellCheck.Text" xml:space="preserve">
+    <value>Vérification de l'orthographe</value>
+  </data>
+  <data name="Strikethrough.Label" xml:space="preserve">
+    <value>Barré</value>
+  </data>
+  <data name="StrikethroughTooltip.Text" xml:space="preserve">
+    <value>Barré</value>
+  </data>
+  <data name="SystemDefault.Content" xml:space="preserve">
+    <value>Paramètres du système par défaut</value>
+  </data>
+  <data name="TextColorBlack.Text" xml:space="preserve">
+    <value>Noir</value>
+  </data>
+  <data name="TextColorBlue.Text" xml:space="preserve">
+    <value>Bleu</value>
+  </data>
+  <data name="TextColorGreen.Text" xml:space="preserve">
+    <value>Vert</value>
+  </data>
+  <data name="TextColorOrange.Text" xml:space="preserve">
+    <value>Orange</value>
+  </data>
+  <data name="TextColorPink.Text" xml:space="preserve">
+    <value>Rose</value>
+  </data>
+  <data name="TextColorTooltip.Text" xml:space="preserve">
+    <value>Couleur de police</value>
+  </data>
+  <data name="TextColorWhite.Text" xml:space="preserve">
+    <value>Blanc</value>
+  </data>
+  <data name="TextColorYellow.Text" xml:space="preserve">
+    <value>Jaune</value>
+  </data>
+  <data name="Underline.Label" xml:space="preserve">
+    <value>Souligné</value>
+  </data>
+  <data name="UnderlineTooltip.Text" xml:space="preserve">
+    <value>Souligner (Ctrl+U)</value>
+  </data>
+  <data name="VersionFormat" xml:space="preserve">
+    <value>Version: {0} ({1}, {2}{3})</value>
+  </data>
+  <data name="WhitePlaceholder" xml:space="preserve">
+    <value>Blanc</value>
+  </data>
+  <data name="WordWrap.Text" xml:space="preserve">
+    <value>Retour automatique à la ligne</value>
+  </data>
+  <data name="ClassicEdit.Title" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="ClassicEditCopy.Text" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="ClassicEditCut.Text" xml:space="preserve">
+    <value>Couper</value>
+  </data>
+  <data name="ClassicEditPaste.Text" xml:space="preserve">
+    <value>Coller</value>
+  </data>
+  <data name="ClassicEditRedo.Text" xml:space="preserve">
+    <value>Répéter</value>
+  </data>
+  <data name="ClassicEditUndo.Text" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="ClassicFile.Title" xml:space="preserve">
+    <value>Fichier</value>
+  </data>
+  <data name="ClassicFileExit.Text" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="ClassicFileNew.Text" xml:space="preserve">
+    <value>Nouveau</value>
+  </data>
+  <data name="ClassicFileOpen.Text" xml:space="preserve">
+    <value>Ouvrir</value>
+  </data>
+  <data name="ClassicFileSave.Text" xml:space="preserve">
+    <value>Enregistrer</value>
+  </data>
+  <data name="ClassicFileSaveAs.Text" xml:space="preserve">
+    <value>Enregistrer sous...</value>
+  </data>
+  <data name="ClassicFileShare.Text" xml:space="preserve">
+    <value>Partager</value>
+  </data>
+  <data name="ClassicFormat.Title" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="ClassicFormatACenter.Text" xml:space="preserve">
+    <value>Aligner au centre</value>
+  </data>
+  <data name="ClassicFormatAJustify.Text" xml:space="preserve">
+    <value>Alignement justifié</value>
+  </data>
+  <data name="ClassicFormatALeft.Text" xml:space="preserve">
+    <value>Aligner à gauche</value>
+  </data>
+  <data name="ClassicFormatARight.Text" xml:space="preserve">
+    <value>Aligner à droite</value>
+  </data>
+  <data name="ClassicFormatBold.Text" xml:space="preserve">
+    <value>Gras</value>
+  </data>
+  <data name="ClassicFormatBullets.Text" xml:space="preserve">
+    <value>Puces</value>
+  </data>
+  <data name="ClassicFormatDown.Text" xml:space="preserve">
+    <value>Police vers le bas</value>
+  </data>
+  <data name="ClassicFormatItalic.Text" xml:space="preserve">
+    <value>Italique</value>
+  </data>
+  <data name="ClassicFormatST.Text" xml:space="preserve">
+    <value>Barré</value>
+  </data>
+  <data name="ClassicFormatUnderline.Text" xml:space="preserve">
+    <value>Souligné</value>
+  </data>
+  <data name="ClassicFormatUp.Text" xml:space="preserve">
+    <value>Police vers le haut</value>
+  </data>
+  <data name="ClassicHelp.Title" xml:space="preserve">
+    <value>Aide</value>
+  </data>
+  <data name="ClassicHelpRR.Text" xml:space="preserve">
+    <value>Évaluer et commenter</value>
+  </data>
+  <data name="ClassicView.Title" xml:space="preserve">
+    <value>Afficher</value>
+  </data>
+  <data name="ClassicViewBack.Text" xml:space="preserve">
+    <value>Retourner au défaut</value>
+  </data>
+  <data name="ClassicViewFocus.Text" xml:space="preserve">
+    <value>Mode focus</value>
+  </data>
+  <data name="ClassicViewOverlay.Text" xml:space="preserve">
+    <value>Mode superposé</value>
+  </data>
+  <data name="CmdClassicMode.Label" xml:space="preserve">
+    <value>Mode classique</value>
+  </data>
+  <data name="CmdExit.Label" xml:space="preserve">
+    <value>Quitter</value>
+  </data>
+  <data name="CmdExitTooltip.Text" xml:space="preserve">
+    <value>Quitter l'application</value>
+  </data>
+  <data name="ClassicFormatFonts.Text" xml:space="preserve">
+    <value>Polices...</value>
+  </data>
+  <data name="ClassicViewStatusBar.Text" xml:space="preserve">
+    <value>Barre d'état</value>
+  </data>
+  <data name="FAF_Color.Text" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="FAF_Fonts.Text" xml:space="preserve">
+    <value>Polices</value>
+  </data>
+  <data name="FAF_Preview_Initial" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="FAF_Size.Text" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>Colonne:</value>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>Ligne:</value>
+  </data>
+  <data name="StatusSelCount.Text" xml:space="preserve">
+    <value>Sélection:</value>
+  </data>
+  <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
+    <value>Montrer la barre d'état en mode classique</value>
+  </data>
+  <data name="AppLanguage.Text" xml:space="preserve">
+    <value>Langue de l'application</value>
+  </data>
+</root>

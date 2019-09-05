@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" source-language="en-US" target-language="fr-FR" original="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
@@ -693,6 +693,174 @@
         <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
           <source>App Language</source>
           <target state="translated">Langue de l'application</target>
+        </trans-unit>
+        <trans-unit id="CmdOnTopTooltip" translate="yes" xml:space="preserve">
+          <source>On Top (Ctrl+Shift+O)</source>
+          <target state="new">On Top (Ctrl+Shift+O)</target>
+        </trans-unit>
+        <trans-unit id="CmdFind.Label" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="new">Find</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditFind.Text" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="new">Find</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditFindNext.Text" translate="yes" xml:space="preserve">
+          <source>Find Next</source>
+          <target state="new">Find Next</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditFindPrevious.Text" translate="yes" xml:space="preserve">
+          <source>Find Previous</source>
+          <target state="new">Find Previous</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditReplace.Text" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="new">Replace</target>
+        </trans-unit>
+        <trans-unit id="FAR_CloseDialog.Text" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="new">Close</target>
+        </trans-unit>
+        <trans-unit id="FAR_FindOption.Text" translate="yes" xml:space="preserve">
+          <source>Find option</source>
+          <target state="new">Find option</target>
+        </trans-unit>
+        <trans-unit id="FAR_InputEmpty.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Looking for?</source>
+          <target state="new">Looking for?</target>
+        </trans-unit>
+        <trans-unit id="FAR_MatchCase.Content" translate="yes" xml:space="preserve">
+          <source>Match case</source>
+          <target state="new">Match case</target>
+        </trans-unit>
+        <trans-unit id="FAR_More.Text" translate="yes" xml:space="preserve">
+          <source>More...</source>
+          <target state="new">More...</target>
+        </trans-unit>
+        <trans-unit id="FAR_ReplaceAll.Text" translate="yes" xml:space="preserve">
+          <source>Replace All</source>
+          <target state="new">Replace All</target>
+        </trans-unit>
+        <trans-unit id="FAR_WrapAround.Content" translate="yes" xml:space="preserve">
+          <source>Wrap around</source>
+          <target state="new">Wrap around</target>
+        </trans-unit>
+        <trans-unit id="FAR_ReplaceInput.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Replace with..</source>
+          <target state="new">Replace with..</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditDelete.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditGoTo.Text" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
+          <source>Time/Date</source>
+          <target state="new">Time/Date</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
+          <source>Search with Bing...</source>
+          <target state="new">Search with Bing...</target>
+        </trans-unit>
+        <trans-unit id="ClassicEditSelectAll.Text" translate="yes" xml:space="preserve">
+          <source>Select All</source>
+          <target state="new">Select All</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Go to</source>
+          <target state="new">Go to</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+        </trans-unit>
+        <trans-unit id="GT_Dialog.Title" translate="yes" xml:space="preserve">
+          <source>Go To Line</source>
+          <target state="new">Go To Line</target>
+        </trans-unit>
+        <trans-unit id="GT_LineInput.Header" translate="yes" xml:space="preserve">
+          <source>Line number:</source>
+          <target state="new">Line number:</target>
+        </trans-unit>
+        <trans-unit id="Cmd_Customize.Label" translate="yes" xml:space="preserve">
+          <source>Customize</source>
+          <target state="new">Customize</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignCenter.Text" translate="yes" xml:space="preserve">
+          <source>Show align center</source>
+          <target state="new">Show align center</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignJustify.Text" translate="yes" xml:space="preserve">
+          <source>Show align justify</source>
+          <target state="new">Show align justify</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignLeft.Text" translate="yes" xml:space="preserve">
+          <source>Show align left</source>
+          <target state="new">Show align left</target>
+        </trans-unit>
+        <trans-unit id="Customize_AlignRight.Text" translate="yes" xml:space="preserve">
+          <source>Show align right</source>
+          <target state="new">Show align right</target>
+        </trans-unit>
+        <trans-unit id="Customize_Bullets.Text" translate="yes" xml:space="preserve">
+          <source>Show bullet list</source>
+          <target state="new">Show bullet list</target>
+        </trans-unit>
+        <trans-unit id="Customize_Strikethrough.Text" translate="yes" xml:space="preserve">
+          <source>Show strikethrough option</source>
+          <target state="new">Show strikethrough option</target>
+        </trans-unit>
+        <trans-unit id="Customize_SizeDown.Text" translate="yes" xml:space="preserve">
+          <source>Show size down</source>
+          <target state="new">Show size down</target>
+        </trans-unit>
+        <trans-unit id="Customize_SizeUp.Text" translate="yes" xml:space="preserve">
+          <source>Show size up</source>
+          <target state="new">Show size up</target>
+        </trans-unit>
+        <trans-unit id="Customize_Reset.Text" translate="yes" xml:space="preserve">
+          <source>Reset toolbar</source>
+          <target state="new">Reset toolbar</target>
+        </trans-unit>
+        <trans-unit id="ClassicRestoreDefaultZoom" translate="yes" xml:space="preserve">
+          <source>Restore Default Zoom</source>
+          <target state="new">Restore Default Zoom</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoom.Text" translate="yes" xml:space="preserve">
+          <source>Zoom</source>
+          <target state="new">Zoom</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoomIn.Text" translate="yes" xml:space="preserve">
+          <source>Zoom In</source>
+          <target state="new">Zoom In</target>
+        </trans-unit>
+        <trans-unit id="ClassicZoomOut" translate="yes" xml:space="preserve">
+          <source>Zoom Out</source>
+          <target state="new">Zoom Out</target>
+        </trans-unit>
+        <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
+          <source>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</source>
+          <target state="new">We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</target>
+        </trans-unit>
+        <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
+          <source>The button to leave focus mode button has been moved</source>
+          <target state="new">The button to leave focus mode button has been moved</target>
+        </trans-unit>
+        <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save Every</source>
+          <target state="new">Auto Save Every</target>
+        </trans-unit>
+        <trans-unit id="AutoSaveEverySeconds.Text" translate="yes" xml:space="preserve">
+          <source>second(s)</source>
+          <target state="new">second(s)</target>
+        </trans-unit>
+        <trans-unit id="Restart.Text" translate="yes" xml:space="preserve">
+          <source>Restart required to apply the changes.</source>
+          <target state="new">Restart required to apply the changes.</target>
         </trans-unit>
       </group>
     </body>
