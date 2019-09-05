@@ -4,7 +4,6 @@
   <h1 align="center">Quick-Pad</h1>
 </p>
 
-# Quick Pad
 [![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/store/productId/9PDLWQHTLSV3)
 [![Release](https://img.shields.io/github/release/UWPCommunity/Quick-Pad.svg?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/releases)
 [![Contributors](https://img.shields.io/github/contributors/UWPCommunity/Quick-Padl?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/graphs/contributors)
