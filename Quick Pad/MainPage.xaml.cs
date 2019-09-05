@@ -707,20 +707,17 @@ namespace QuickPad
 
         public async Task<bool> ShowRatingReviewDialog()
         {
-            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
-
-            if (result.ExtendedError == null)
+            try
             {
-                JObject jsonObject = JObject.Parse(result.Response);
-                if (jsonObject.SelectToken("status").ToString() == "success")
-                {
-                    // The customer rated or reviewed the app.
-                    return true;
-                }
+                StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
+                
+            }
+            catch (Exception)
+            {
+                await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?PFN={Package.Current.Id.FamilyName}"));
             }
 
-            // There was an error with the request, or the customer chose not to rate or review the app.
-            return false;
+            return true;
         }
 
         #endregion
