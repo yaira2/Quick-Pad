@@ -80,7 +80,7 @@
                     <TextBlock Text="Find option" x:Uid="FAR_FindOption"/>
                 </ToolTipService.ToolTip>
                 <Button.Flyout>
-                    <MenuFlyout Placement="BottomEdgeAlignedRight">
+                    <MenuFlyout Windows10version1809:Placement="BottomEdgeAlignedRight">
                         <MenuFlyoutItem Text="Find Next" x:Uid="ClassicEditFindNext" Click="{x:Bind RequestFindNext}">
                             <MenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xE0AB;" />
