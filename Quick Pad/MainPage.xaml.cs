@@ -213,9 +213,9 @@ namespace QuickPad
         #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
         private void UpdateUIAccordingToNewTheme(object sender, ThemeChangedEventArgs e)
         {
-            
             var to = e.VisualTheme.Theme;
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
+            QSetting.CustomThemeId = e.VisualTheme.ThemeId;
             bool isDarkTheme = to == ElementTheme.Dark;
             if (to == ElementTheme.Default)
             {

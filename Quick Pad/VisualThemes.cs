@@ -22,6 +22,8 @@ namespace QuickPad
                 if (_default == null)
                 {
                     _default = new VisualThemeSelector();
+                    Setting s = new Setting();
+                    _default.SelectFromId(s.CustomThemeId);
                 }
                 return _default;
             }
@@ -82,13 +84,22 @@ namespace QuickPad
         {
             _themeChanged?.Invoke(this, new ThemeChangedEventArgs(CurrentItem));
         }
+        private void SelectFromId(string id)
+        {
+            var comparer = StringComparer.OrdinalIgnoreCase;
+            var match = ThemesView.Select(x => x as VisualTheme).FirstOrDefault(x => comparer.Equals(x.ThemeId, id));
+            if (match != null)
+            {
+                ThemesView.MoveCurrentTo(match);
+            }
+        }
 
         private void Fill()
         {
-            _themes.Add(BuildTheme("0", "Light", true, VisualTheme.LightColor));
-            _themes.Add(BuildTheme("1", "Dark", false, VisualTheme.DarkColor));
-            _themes.Add(BuildTheme("2", "Chick", true, Color.FromArgb(255, 254, 255, 177)));
-            _themes.Add(BuildTheme("3", "Cobalt", false, Color.FromArgb(255, 0, 71, 171)));
+            _themes.Add(BuildTheme("light", "Light", true, VisualTheme.LightColor));
+            _themes.Add(BuildTheme("dark", "Dark", false, VisualTheme.DarkColor));
+            _themes.Add(BuildTheme("chick", "Chick", true, Color.FromArgb(255, 254, 255, 177)));
+            _themes.Add(BuildTheme("cobalt", "Cobalt", false, Color.FromArgb(255, 0, 71, 171)));
         }
         private VisualTheme BuildTheme(string themeId, string name, bool lightTheme, Color accentColor)
         {

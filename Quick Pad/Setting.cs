@@ -253,6 +253,13 @@ namespace QuickPad
             }
         }
 
+        [DefaultValue("")]
+        public string CustomThemeId
+        {
+            get => Get<string>();
+            set => Set(value);
+        }
+
         [DefaultValue(0)]
         public int NewUser
         {
