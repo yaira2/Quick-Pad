@@ -99,19 +99,25 @@ namespace QuickPad
 
         private void Fill()
         {
+            //Light themes:
             _themes.Add(BuildTheme("light", "Light", true, VisualTheme.LightColor));
-            _themes.Add(BuildTheme("dark", "Dark", false, VisualTheme.DarkColor));
             _themes.Add(BuildTheme("chick", "Chick", true, Color.FromArgb(255, 254, 255, 177)));
+            _themes.Add(BuildTheme("lettuce", "Lettuce", true, Color.FromArgb(255, 177, 234, 175), .8));
+            _themes.Add(BuildTheme("rosegold", "Rose Gold", true, Color.FromArgb(255, 253, 220, 215), .8));
+            //Dark themes:
+            _themes.Add(BuildTheme("dark", "Dark", false, VisualTheme.DarkColor));
             _themes.Add(BuildTheme("cobalt", "Cobalt", false, Color.FromArgb(255, 0, 71, 171)));
+            _themes.Add(BuildTheme("leaf", "Leaf", false, Color.FromArgb(255, 56, 111, 54)));
+            _themes.Add(BuildTheme("crimson", "Crimson", false, Color.FromArgb(255, 149, 0, 39)));
         }
-        private VisualTheme BuildTheme(string themeId, string name, bool lightTheme, Color accentColor)
+        private VisualTheme BuildTheme(string themeId, string name, bool lightTheme, Color accentColor, double tintOpacity=.7)
         {
             AcrylicBrush backgroundAcrylic = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = .7d
+                TintOpacity = tintOpacity,
             };
             AcrylicBrush inAppAcrylic = new AcrylicBrush
             {
