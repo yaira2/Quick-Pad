@@ -581,32 +581,28 @@
                         <ScrollViewer Height="250">
                             <StackPanel Padding="2,2,2,2">
                                 <TextBlock x:Uid="AppTheme" Text="App Theme" TextWrapping="Wrap"/>
-                                <ComboBox x:Name="themeSelector" Windows10version1809:CornerRadius="2" MinWidth="120" ItemsSource="{x:Bind VisualThemeSelector.ThemesView}"/>
-                                <RadioButton x:Name="Light" 
-                                         Tag="Light" 
-                                         x:Uid="Light" 
-                                         Margin="0,2,0,4"
-                                         Content="Light" 
-                                         Click="{x:Bind SetTheme}" 
-                                         IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Light'), Mode=OneWay}" />
-                                <RadioButton x:Name="Dark" 
-                                         Tag="Dark" 
-                                         x:Uid="Dark" 
-                                         Content="Dark"
-                                         Margin="0,2,0,4"
-                                         Click="{x:Bind SetTheme}" 
-                                         IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Dark'), Mode=OneWay}"/>
-                                <RadioButton x:Name="SystemDefault" 
-                                         Tag="Default" 
-                                         Margin="0,2,0,4"
-                                         x:Uid="SystemDefault" 
-                                         Content="System Default" 
-                                         Click="{x:Bind SetTheme}" 
-                                         IsChecked="{x:Bind q:Converter.ThemeToBool(QSetting.Theme, 'Default'), Mode=OneWay}" />
-                                
-
-                                <TextBlock Text="Custom Theme Color" Visibility="Collapsed"/>
-                                <ComboBox PlaceholderText="Default" x:Load="False" Width="125" Windows10version1809:CornerRadius="2" x:Name="CustomTheme" BorderThickness="1,1,1,1"/>
+                                <ListView ItemsSource="{x:Bind VisualThemeSelector.ThemesView}" Margin="0,10,0,0">
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate x:DataType="q:VisualTheme">
+                                            <StackPanel Spacing="5" Orientation="Horizontal">
+                                                <Grid Width="24" Height="24" Margin="2" BorderBrush="{StaticResource SystemAccentColor}" BorderThickness="1">
+                                                    <Rectangle Fill="{x:Bind SolidBackgroundBrush}"/>
+                                                    <Rectangle>
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                                                <GradientStop Color="#00000000"/>
+                                                                <GradientStop Color="#7FFFFFFF" Offset="1"/>
+                                                                <GradientStop Color="#59818181" Offset="0.5"/>
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                </Grid>
+                                                <TextBlock Text="{x:Bind FriendlyName}" VerticalAlignment="Center" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                    
+                                </ListView>
                             </StackPanel>
                         </ScrollViewer>
                     </PivotItem>
@@ -615,7 +611,6 @@
                             <StackPanel Padding="2,2,2,2">
                                 <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
                                 <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
-
                                 <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
                                 <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
                                     <ComboBox.ItemTemplate>

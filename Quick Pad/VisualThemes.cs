@@ -85,9 +85,9 @@ namespace QuickPad
 
         private void Fill()
         {
-            _themes.Add(BuildTheme("0", "White", true, VisualTheme.LightColor));
-            _themes.Add(BuildTheme("1", "Black", false, VisualTheme.DarkColor));
-            _themes.Add(BuildTheme("2", "Light Green", true, Color.FromArgb(255, 144, 238, 144)));
+            _themes.Add(BuildTheme("0", "Light", true, VisualTheme.LightColor));
+            _themes.Add(BuildTheme("1", "Dark", false, VisualTheme.DarkColor));
+            _themes.Add(BuildTheme("2", "Chick", true, Color.FromArgb(255, 254, 255, 177)));
             _themes.Add(BuildTheme("3", "Cobalt", false, Color.FromArgb(255, 0, 71, 171)));
         }
         private VisualTheme BuildTheme(string themeId, string name, bool lightTheme, Color accentColor)
@@ -128,8 +128,8 @@ namespace QuickPad
     {
         public static readonly Color DarkColor = Color.FromArgb(255, 28, 28, 28);
         public static readonly Color LightColor = Colors.White;
+        private Color? _foreground;
 
-        private ElementTheme _theme;
         public string ThemeId
         {
             get;
@@ -142,15 +142,8 @@ namespace QuickPad
         }
         public ElementTheme Theme
         {
-            get => _theme;
-            set
-            {
-                _theme = value;
-                if (DefaultTextForeground == null)
-                {
-                    DefaultTextForeground = (_theme == ElementTheme.Dark) ? LightColor : DarkColor;
-                }
-            }
+            get;
+            set;
         }
         public Brush BackgroundAcrylicBrush
         {
@@ -169,10 +162,19 @@ namespace QuickPad
         }
         public Color DefaultTextForeground
         {
-            get;
-            set;
+            get
+            {
+                if (!_foreground.HasValue)
+                {
+                    return (Theme == ElementTheme.Dark) ? LightColor : DarkColor;
+                }
+                return _foreground.Value;
+            }
+            set
+            {
+                _foreground = value;
+            }
         }
-
         public override string ToString()
         {
             return FriendlyName;
