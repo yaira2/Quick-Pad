@@ -1,4 +1,3 @@
-# Quick Pad
 <p align="center">
   <img alt="quickpad logo" src="./Quick Pad/Assets/Square44x44Logo.altform-unplated_targetsize-256.png" width="100px" />
   <h1 align="center">Quick-Pad</h1>
