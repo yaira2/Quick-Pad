@@ -714,7 +714,7 @@ namespace QuickPad
             }
             catch (Exception)
             {
-                await Launcher.LaunchUriAsync(new Uri($"ms-windows-store://review/?PFN={Package.Current.Id.FamilyName}"));
+                bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9PDLWQHTLSV3"));
             }
 
             return true;
