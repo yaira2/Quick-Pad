@@ -86,11 +86,14 @@ namespace QuickPad
         }
         private void SelectFromId(string id)
         {
-            var comparer = StringComparer.OrdinalIgnoreCase;
-            var match = ThemesView.Select(x => x as VisualTheme).FirstOrDefault(x => comparer.Equals(x.ThemeId, id));
-            if (match != null)
+            if (!string.IsNullOrWhiteSpace(id))
             {
-                ThemesView.MoveCurrentTo(match);
+                var comparer = StringComparer.OrdinalIgnoreCase;
+                var match = ThemesView.Select(x => x as VisualTheme).FirstOrDefault(x => comparer.Equals(x.ThemeId, id));
+                if (match != null)
+                {
+                    ThemesView.MoveCurrentTo(match);
+                }
             }
         }
 

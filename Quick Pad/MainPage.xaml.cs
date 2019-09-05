@@ -228,21 +228,13 @@ namespace QuickPad
             }
             else
             {
-                Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme");
+                Analytics.TrackEvent($"Loaded app in '{e.VisualTheme.FriendlyName}' theme");
             }
             //Make the minimize, maxamize and close button visible
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            if (isDarkTheme)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            else
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
+            titleBar.ButtonForegroundColor = e.VisualTheme.DefaultTextForeground;
 
             //Update combobox items font color collection
-
             if (QSetting.DefaultFontColor == "Default")
             {
                 Text1.Document.Selection.CharacterFormat.ForegroundColor = e.VisualTheme.DefaultTextForeground;
