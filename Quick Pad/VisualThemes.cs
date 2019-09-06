@@ -144,10 +144,10 @@ namespace QuickPad
                 BackgroundAcrylicBrush2 = backgroundAcrylic2,
                 InAppAcrylicBrush = inAppAcrylic,
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
+                PreviewBrush = new SolidColorBrush(accentColor),
             };
             return theme;
         }
-
         public void RaisePropertyChanged([CallerMemberName]string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -180,6 +180,11 @@ namespace QuickPad
             set;
         }
         public Brush BackgroundAcrylicBrush2
+        {
+            get;
+            set;
+        }
+        public Brush PreviewBrush
         {
             get;
             set;

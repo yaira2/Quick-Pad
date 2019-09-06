@@ -1287,24 +1287,8 @@ namespace QuickPad
 
         private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
-            //Change color of the font combo box when hovering over it
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.Black);
-            }
-            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.White);
-            }
-
-            if (this.RequestedTheme == ElementTheme.Dark)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.Black);
-            }
-            else if (this.RequestedTheme == ElementTheme.Light)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.White);
-            }
+            var theme = VisualThemeSelector.CurrentItem;
+            FontBoxFrame.Background = theme.InAppAcrylicBrush;
         }
 
         private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
