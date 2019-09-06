@@ -215,7 +215,7 @@ namespace QuickPad
         {
             var to = e.VisualTheme.Theme;
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
-            QSetting.CustomThemeId = e.VisualTheme.ThemeId;
+            QSetting.CustomThemeId = e.ActualTheme.ThemeId;
             bool isDarkTheme = to == ElementTheme.Dark;
             if (to == ElementTheme.Default)
             {

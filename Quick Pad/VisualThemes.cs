@@ -5,7 +5,9 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
@@ -14,6 +16,8 @@ namespace QuickPad
 {
     public class VisualThemeSelector : INotifyPropertyChanged
     {
+        private const string LIGHT_KEY = "light";
+        private const string DARK_KEY = "dark";
         private static VisualThemeSelector _default;
         public static VisualThemeSelector Default
         {
@@ -50,6 +54,11 @@ namespace QuickPad
             get;
             set;
         }
+        public VisualTheme SettingsItem
+        {
+            get;
+            set;
+        }
         public VisualTheme CurrentItem
         {
             get;
@@ -70,42 +79,94 @@ namespace QuickPad
             ThemesView.MoveCurrentToFirst();
             //
         }
-       
         private void ThemesView_CurrentChanged(object sender, object e)
         {
             if (ThemesView.CurrentItem is VisualTheme theme)
             {
-                CurrentItem = theme;
+                SettingsItem = theme;
+                if (theme.Kind ==VisualThemeKind.System)
+                {
+                    var systemTheme = GetSystemTheme();
+                    bool darkTheme = (systemTheme.HasValue && !systemTheme.Value);
+                    CurrentItem = GetThemeFromId((darkTheme) ? DARK_KEY : LIGHT_KEY);
+                }
+                else if(theme.Kind == VisualThemeKind.Random)
+                {
+                    List<VisualTheme> customThemes = new List<VisualTheme>(_themes.Where(x => x.Kind == VisualThemeKind.Custom));
+                    Random random = new Random();
+                    var index = random.Next(0, customThemes.Count);
+                    var luckyOne = customThemes[index];
+                    CurrentItem = luckyOne;
+                }
+                else
+                {
+                    CurrentItem = theme;
+                }
+                RaisePropertyChanged(nameof(SettingsItem));
                 RaisePropertyChanged(nameof(CurrentItem));
                 NotifyThemeChanged();
             }
         }
         private void NotifyThemeChanged()
         {
-            _themeChanged?.Invoke(this, new ThemeChangedEventArgs(CurrentItem));
+            _themeChanged?.Invoke(this, new ThemeChangedEventArgs(CurrentItem, SettingsItem));
         }
         private void SelectFromId(string id)
         {
             if (!string.IsNullOrWhiteSpace(id))
             {
-                var comparer = StringComparer.OrdinalIgnoreCase;
-                var match = ThemesView.Select(x => x as VisualTheme).FirstOrDefault(x => comparer.Equals(x.ThemeId, id));
+                var match = GetThemeFromId(id);
                 if (match != null)
                 {
                     ThemesView.MoveCurrentTo(match);
                 }
             }
         }
+        public void RaisePropertyChanged([CallerMemberName]string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         private void Fill()
         {
+            //Default:
+            var defPreview = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(1, 1), };
+            defPreview.GradientStops.Add(new GradientStop { Color = VisualTheme.DarkColor, Offset = .5d });
+            defPreview.GradientStops.Add(new GradientStop { Color = VisualTheme.LightColor, Offset = .5d });
+            var def = new VisualTheme
+            {
+                ThemeId = "default",
+                FriendlyName = "System Default",
+                Theme = ElementTheme.Default,
+                Kind = VisualThemeKind.System,
+                PreviewBrush = defPreview
+            };
+            _themes.Add(def);
+
+            //Random theme:
+            var rdmPreview = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(1, 1), };
+            rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Red, Offset = 0d });
+            rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Yellow, Offset = .25d });
+            rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.LightGreen, Offset = .50d });
+            rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Teal, Offset = .75d });
+            rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Violet, Offset = 1d });
+            var rdm = new VisualTheme
+            {
+                ThemeId = "random",
+                FriendlyName = "Random",
+                Theme = ElementTheme.Default,
+                Kind = VisualThemeKind.Random,
+                PreviewBrush = rdmPreview
+            };
+            _themes.Add(rdm);
+
             //Light themes:
-            _themes.Add(BuildTheme("light", "Light", true, VisualTheme.LightColor));
+            _themes.Add(BuildTheme(LIGHT_KEY, "Light", true, VisualTheme.LightColor));
             _themes.Add(BuildTheme("chick", "Chick", true, Color.FromArgb(255, 254, 255, 177)));
             _themes.Add(BuildTheme("lettuce", "Lettuce", true, Color.FromArgb(255, 177, 234, 175), .8));
             _themes.Add(BuildTheme("rosegold", "Rose Gold", true, Color.FromArgb(255, 253, 220, 215), .8));
             //Dark themes:
-            _themes.Add(BuildTheme("dark", "Dark", false, VisualTheme.DarkColor));
+            _themes.Add(BuildTheme(DARK_KEY, "Dark", false, VisualTheme.DarkColor));
             _themes.Add(BuildTheme("cobalt", "Cobalt", false, Color.FromArgb(255, 0, 71, 171)));
             _themes.Add(BuildTheme("leaf", "Leaf", false, Color.FromArgb(255, 56, 111, 54)));
             _themes.Add(BuildTheme("crimson", "Crimson", false, Color.FromArgb(255, 149, 0, 39)));
@@ -148,9 +209,25 @@ namespace QuickPad
             };
             return theme;
         }
-        public void RaisePropertyChanged([CallerMemberName]string propertyName = "")
+        private VisualTheme GetThemeFromId(string id)
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            var comparer = StringComparer.OrdinalIgnoreCase;
+            var match = ThemesView.Select(x => x as VisualTheme).FirstOrDefault(x => comparer.Equals(x.ThemeId, id));
+            return match;
+        }
+        private static bool? GetSystemTheme()
+        {
+            var DefaultTheme = new UISettings();
+            var uiTheme = DefaultTheme.GetColorValue(UIColorType.Background).ToString();
+            if (uiTheme == "#FF000000")
+            {
+                return false;
+            }
+            else if (uiTheme == "#FFFFFFFF")
+            {
+                return true;
+            }
+            return null;
         }
     }
     public class VisualTheme
@@ -174,6 +251,11 @@ namespace QuickPad
             get;
             set;
         }
+        public VisualThemeKind Kind
+        {
+            get;
+            set;
+        } = VisualThemeKind.Custom;
         public Brush BackgroundAcrylicBrush
         {
             get;
@@ -219,14 +301,22 @@ namespace QuickPad
             return FriendlyName;
         }
     }
+    public enum VisualThemeKind
+    {
+        System,
+        Random,
+        Custom,
+    }
 
     public delegate void ThemeChangedEventHandler(object sender, ThemeChangedEventArgs e);
     public class ThemeChangedEventArgs : EventArgs
     {
         public VisualTheme VisualTheme { get; set; }
-        public ThemeChangedEventArgs(VisualTheme theme)
+        public VisualTheme ActualTheme { get; set; }
+        public ThemeChangedEventArgs(VisualTheme theme, VisualTheme actualTheme)
         {
             VisualTheme = theme;
+            ActualTheme = actualTheme;
         }
     }
 
