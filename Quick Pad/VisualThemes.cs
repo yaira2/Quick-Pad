@@ -119,6 +119,14 @@ namespace QuickPad
                 TintColor = accentColor,
                 TintOpacity = tintOpacity,
             };
+            double tintOpacity2 = Math.Min(tintOpacity + .1d, 1d);
+            AcrylicBrush backgroundAcrylic2 = new AcrylicBrush
+            {
+                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
+                FallbackColor = accentColor,
+                TintColor = accentColor,
+                TintOpacity = tintOpacity2,
+            };
             AcrylicBrush inAppAcrylic = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.Backdrop,
@@ -133,6 +141,7 @@ namespace QuickPad
                 FriendlyName = name,
                 Theme = etheme,
                 BackgroundAcrylicBrush = backgroundAcrylic,
+                BackgroundAcrylicBrush2 = backgroundAcrylic2,
                 InAppAcrylicBrush = inAppAcrylic,
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
             };
@@ -166,6 +175,11 @@ namespace QuickPad
             set;
         }
         public Brush BackgroundAcrylicBrush
+        {
+            get;
+            set;
+        }
+        public Brush BackgroundAcrylicBrush2
         {
             get;
             set;
