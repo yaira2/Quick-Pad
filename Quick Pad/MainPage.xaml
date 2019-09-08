@@ -539,13 +539,8 @@
                     <PivotItem Header="General" x:Name="SettingsTab1" x:Uid="SettingsTab1">
                         <ScrollViewer x:Name="SettingsTab1SV" Height="250">
                             <StackPanel Padding="2,2,2,2">
-                                <StackPanel.Resources>
-                                    <Style TargetType="ComboBox">
-                                        <Setter Property="MinWidth" Value="180"/>
-                                    </Style>
-                                </StackPanel.Resources>
                                 <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
-                                <ComboBox x:Uid="GeneralLaunchModeCombobox" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1">
+                                <ComboBox x:Uid="GeneralLaunchModeCombobox" Width="180" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1">
                                     <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
                                     <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
                                     <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
@@ -554,7 +549,7 @@
 
                                 <TextBlock Text="App Language" x:Uid="AppLanguage"/>
 
-                                <ComboBox ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" PlaceholderText="English (United State)" SelectionChanged="DefaultLanguage_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultLanguage" SelectedIndex="{x:Bind SelectedDefaultLanguage, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                <ComboBox ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Width="180" PlaceholderText="English (United State)" SelectionChanged="DefaultLanguage_SelectionChanged" Windows10version1809:CornerRadius="2" x:Name="DefaultLanguage" SelectedIndex="{x:Bind SelectedDefaultLanguage, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <ComboBox.ItemTemplate>
                                         <DataTemplate x:DataType="q:DefaultLanguage">
                                             <TextBlock Text="{x:Bind Name}"/>
@@ -564,7 +559,7 @@
                                 <TextBlock x:Name="LangChangeNeedRestart" x:Uid="Restart" Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the changes."/>
 
                                 <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
-                                <ComboBox PlaceholderText=".rtf" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                                <ComboBox PlaceholderText=".rtf" Width="120" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="DefaultFileType" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                                     <x:String>.rtf</x:String>
                                     <x:String>.txt</x:String>
                                 </ComboBox>
