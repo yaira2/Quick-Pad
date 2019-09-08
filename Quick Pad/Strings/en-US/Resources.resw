@@ -759,4 +759,46 @@
   <data name="Restart.Text" xml:space="preserve">
     <value>Restart required to apply the changes.</value>
   </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>Chick</value>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>Cobalt</value>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>Crimson</value>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>Leaf</value>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>Lettuce</value>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>Random</value>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>Rose Gold</value>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>System Default</value>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>Dark theme</value>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>Light theme</value>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>Random theme on startup</value>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>System-defined theme</value>
+  </data>
 </root>

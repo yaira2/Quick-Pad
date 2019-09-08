@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -16,6 +17,7 @@ namespace QuickPad
 {
     public class VisualThemeSelector : INotifyPropertyChanged
     {
+        private ResourceLoader _loader = ResourceLoader.GetForViewIndependentUse();
         private const string LIGHT_KEY = "light";
         private const string DARK_KEY = "dark";
         private static VisualThemeSelector _default;
@@ -129,6 +131,7 @@ namespace QuickPad
 
         private void Fill()
         {
+            /*Priority Themes*/
             //Default:
             var defPreview = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(1, 1), };
             defPreview.GradientStops.Add(new GradientStop { Color = VisualTheme.DarkColor, Offset = .5d });
@@ -136,14 +139,18 @@ namespace QuickPad
             var def = new VisualTheme
             {
                 ThemeId = "default",
-                FriendlyName = "System Default",
+                Description = _loader.GetString("ThemeSystemDescription"),
+                FriendlyName = _loader.GetString("ThemeSystemName"),
                 Theme = ElementTheme.Default,
                 Kind = VisualThemeKind.System,
                 PreviewBrush = defPreview
             };
             _themes.Add(def);
-
-            //Random theme:
+            //Light
+            _themes.Add(BuildTheme(LIGHT_KEY, "ThemeLightName", true, VisualTheme.LightColor));
+            //Dark
+            _themes.Add(BuildTheme(DARK_KEY, "ThemeDarkName", false, VisualTheme.DarkColor));
+            //Random:
             var rdmPreview = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(1, 1), };
             rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Red, Offset = 0d });
             rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Yellow, Offset = .25d });
@@ -153,25 +160,23 @@ namespace QuickPad
             var rdm = new VisualTheme
             {
                 ThemeId = "random",
-                FriendlyName = "Random",
+                FriendlyName = _loader.GetString("ThemeRandomName"),
+                Description = _loader.GetString("ThemeRandomDescription"),
                 Theme = ElementTheme.Default,
                 Kind = VisualThemeKind.Random,
                 PreviewBrush = rdmPreview
             };
             _themes.Add(rdm);
-
-            //Light themes:
-            _themes.Add(BuildTheme(LIGHT_KEY, "Light", true, VisualTheme.LightColor));
-            _themes.Add(BuildTheme("chick", "Chick", true, Color.FromArgb(255, 254, 255, 177)));
-            _themes.Add(BuildTheme("lettuce", "Lettuce", true, Color.FromArgb(255, 177, 234, 175), .8));
-            _themes.Add(BuildTheme("rosegold", "Rose Gold", true, Color.FromArgb(255, 253, 220, 215), .8));
-            //Dark themes:
-            _themes.Add(BuildTheme(DARK_KEY, "Dark", false, VisualTheme.DarkColor));
-            _themes.Add(BuildTheme("cobalt", "Cobalt", false, Color.FromArgb(255, 0, 71, 171)));
-            _themes.Add(BuildTheme("leaf", "Leaf", false, Color.FromArgb(255, 56, 111, 54)));
-            _themes.Add(BuildTheme("crimson", "Crimson", false, Color.FromArgb(255, 149, 0, 39)));
+            //Custom light themes:
+            _themes.Add(BuildTheme("chick", "ThemeChickName", true, Color.FromArgb(255, 254, 255, 177)));
+            _themes.Add(BuildTheme("lettuce", "ThemeLettuceName", true, Color.FromArgb(255, 177, 234, 175), .8));
+            _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215), .8));
+            //Custom dark themes:
+            _themes.Add(BuildTheme("cobalt", "ThemeCobaltName", false, Color.FromArgb(255, 0, 71, 171)));
+            _themes.Add(BuildTheme("leaf", "ThemeLeafName", false, Color.FromArgb(255, 56, 111, 54)));
+            _themes.Add(BuildTheme("crimson", "ThemeCrimsonName", false, Color.FromArgb(255, 149, 0, 39)));
         }
-        private VisualTheme BuildTheme(string themeId, string name, bool lightTheme, Color accentColor, double tintOpacity=.7)
+        private VisualTheme BuildTheme(string themeId, string nameResKey, bool lightTheme, Color accentColor, double tintOpacity=.7)
         {
             AcrylicBrush backgroundAcrylic = new AcrylicBrush
             {
@@ -196,10 +201,12 @@ namespace QuickPad
                 TintOpacity = .85d
             };
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
+            string descriptionResKey = (lightTheme) ? "ThemeGeneralLightDescription" : "ThemeGeneralDarkDescription";
             var theme = new VisualTheme
             {
                 ThemeId = themeId,
-                FriendlyName = name,
+                FriendlyName = _loader.GetString(nameResKey),
+                Description = _loader.GetString(descriptionResKey),
                 Theme = etheme,
                 BackgroundAcrylicBrush = backgroundAcrylic,
                 BackgroundAcrylicBrush2 = backgroundAcrylic2,
@@ -242,6 +249,11 @@ namespace QuickPad
             set;
         }
         public string FriendlyName
+        {
+            get;
+            set;
+        }
+        public string Description
         {
             get;
             set;

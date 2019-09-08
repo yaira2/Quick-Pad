@@ -585,14 +585,17 @@
                     <PivotItem Header="Theme" x:Name="SettingsTab2" x:Uid="SettingsTab2">
                         <ScrollViewer Height="250">
                             <StackPanel Padding="2,2,2,2">
-                                <TextBlock x:Uid="AppTheme" Text="App Theme" TextWrapping="Wrap"/>
+                                <StackPanel.Resources>
+                                    <x:Double x:Key="CornerRadius">4</x:Double>
+                                </StackPanel.Resources>
+                                <TextBlock Text="Choose your theme" TextWrapping="Wrap"/>
                                 <ListView ItemsSource="{x:Bind VisualThemeSelector.ThemesView}" Margin="0,10,0,0">
                                     <ListView.ItemTemplate>
                                         <DataTemplate x:DataType="q:VisualTheme">
                                             <StackPanel Spacing="5" Orientation="Horizontal">
-                                                <Grid Width="24" Height="24" Margin="2" BorderBrush="{StaticResource SystemAccentColor}" BorderThickness="1">
-                                                    <Rectangle Fill="{x:Bind PreviewBrush}"/>
-                                                    <Rectangle>
+                                                <Grid Width="36" Height="36" Margin="8" CornerRadius="4">
+                                                    <Rectangle Fill="{x:Bind PreviewBrush}" RadiusX="4" RadiusY="4"/>
+                                                    <Rectangle RadiusX="4" RadiusY="4">
                                                         <Rectangle.Fill>
                                                             <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
                                                                 <GradientStop Color="#00000000"/>
@@ -602,7 +605,10 @@
                                                         </Rectangle.Fill>
                                                     </Rectangle>
                                                 </Grid>
-                                                <TextBlock Text="{x:Bind FriendlyName}" VerticalAlignment="Center" />
+                                                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                                                    <TextBlock Text="{x:Bind FriendlyName}" VerticalAlignment="Center" />
+                                                    <TextBlock Text="{x:Bind Description}" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" Opacity=".5"/>
+                                                </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
                                     </ListView.ItemTemplate>

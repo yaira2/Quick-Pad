@@ -234,6 +234,9 @@
   <data name="NewUserFeedbackContent" xml:space="preserve">
     <value>Por favor, considere evaluar la app en la Tienda.</value>
   </data>
+  <data name="NewUserFeedbackNo" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="NewUserFeedbackTitle" xml:space="preserve">
     <value>¿Disfruta usar Quick Pad?</value>
   </data>
@@ -264,6 +267,9 @@
   <data name="SaveDialogCancel.Content" xml:space="preserve">
     <value>Cancelar</value>
   </data>
+  <data name="SaveDialogNo.Content" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="SaveDialogYes.Content" xml:space="preserve">
     <value>Sí</value>
   </data>
@@ -272,6 +278,9 @@
   </data>
   <data name="SettingsPivot.Title" xml:space="preserve">
     <value>Configuración</value>
+  </data>
+  <data name="SettingsTab1.Header" xml:space="preserve">
+    <value>General</value>
   </data>
   <data name="SettingsTab2.Header" xml:space="preserve">
     <value>Tema</value>
@@ -644,5 +653,47 @@
   </data>
   <data name="Restart.Text" xml:space="preserve">
     <value>Reinicio requerido para aplicar los cambios.</value>
+  </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>Pollito</value>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>Cobalto</value>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>Carmesí</value>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>Oscuro</value>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>Hojas</value>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>Lechuga</value>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>Claro</value>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>Aleatorio</value>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>Oro Rosa</value>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>Predeterminado</value>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>Tema Oscuro</value>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>Tema Claro</value>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>Tema aleatorio al inicio</value>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>Tema definido por el Sistema</value>
   </data>
 </root>
