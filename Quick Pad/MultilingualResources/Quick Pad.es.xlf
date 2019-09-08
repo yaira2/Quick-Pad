@@ -304,7 +304,7 @@
         </trans-unit>
         <trans-unit id="NewUserFeedbackNo" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="translated">No</target>
         </trans-unit>
         <trans-unit id="NewUserFeedbackTitle" translate="yes" xml:space="preserve">
           <source>Do you enjoy using Quick Pad?</source>
@@ -348,7 +348,7 @@
         </trans-unit>
         <trans-unit id="SaveDialogNo.Content" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="translated">No</target>
         </trans-unit>
         <trans-unit id="SaveDialogYes.Content" translate="yes" xml:space="preserve">
           <source>Yes</source>
@@ -364,7 +364,7 @@
         </trans-unit>
         <trans-unit id="SettingsTab1.Header" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target state="new">General</target>
+          <target state="translated">General</target>
         </trans-unit>
         <trans-unit id="SettingsTab2.Header" translate="yes" xml:space="preserve">
           <source>Theme</source>
@@ -861,6 +861,62 @@
         <trans-unit id="Restart.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
           <target state="translated">Reinicio requerido para aplicar los cambios.</target>
+        </trans-unit>
+        <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
+          <source>Chick</source>
+          <target state="translated">Pollito</target>
+        </trans-unit>
+        <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
+          <source>Cobalt</source>
+          <target state="translated">Cobalto</target>
+        </trans-unit>
+        <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
+          <source>Crimson</source>
+          <target state="translated">Carmesí</target>
+        </trans-unit>
+        <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="translated">Oscuro</target>
+        </trans-unit>
+        <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
+          <source>Leaf</source>
+          <target state="translated">Hojas</target>
+        </trans-unit>
+        <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
+          <source>Lettuce</source>
+          <target state="translated">Lechuga</target>
+        </trans-unit>
+        <trans-unit id="ThemeLightName" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="translated">Claro</target>
+        </trans-unit>
+        <trans-unit id="ThemeRandomName" translate="yes" xml:space="preserve">
+          <source>Random</source>
+          <target state="translated">Aleatorio</target>
+        </trans-unit>
+        <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
+          <source>Rose Gold</source>
+          <target state="translated">Oro Rosa</target>
+        </trans-unit>
+        <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
+          <source>System Default</source>
+          <target state="translated">Predeterminado</target>
+        </trans-unit>
+        <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
+          <source>Dark theme</source>
+          <target state="translated">Tema Oscuro</target>
+        </trans-unit>
+        <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
+          <source>Light theme</source>
+          <target state="translated">Tema Claro</target>
+        </trans-unit>
+        <trans-unit id="ThemeRandomDescription" translate="yes" xml:space="preserve">
+          <source>Random theme on startup</source>
+          <target state="translated">Tema aleatorio al inicio</target>
+        </trans-unit>
+        <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
+          <source>System-defined theme</source>
+          <target state="translated">Tema definido por el Sistema</target>
         </trans-unit>
       </group>
     </body>

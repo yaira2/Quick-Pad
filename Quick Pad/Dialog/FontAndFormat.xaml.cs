@@ -26,6 +26,8 @@ namespace QuickPad.Dialog
 {
     public sealed partial class FontAndFormat : ContentDialog, INotifyPropertyChanged
     {
+        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+
         #region Notification overhead
         public event PropertyChangedEventHandler PropertyChanged;
 

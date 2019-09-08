@@ -16,12 +16,13 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
+// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=23423
 namespace QuickPad.Dialog
 {
     public sealed partial class FindAndReplace : UserControl, INotifyPropertyChanged
     {
+        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+
         #region Notification overhead, no need to write it thousands times on set { }
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -150,7 +151,6 @@ namespace QuickPad.Dialog
                 SendRequestFind();
             }
         }
-
         private void TextBox_KeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key == Windows.System.VirtualKey.Enter)

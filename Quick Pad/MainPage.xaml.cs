@@ -70,6 +70,8 @@ namespace QuickPad
 
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
+        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
 
         public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
@@ -86,8 +88,7 @@ namespace QuickPad
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             //Subscribe to events
-            QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
-            UpdateUIAccordingToNewTheme(QSetting.Theme);
+            VisualThemeSelector.ThemeChanged += UpdateUIAccordingToNewTheme;
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
             UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
@@ -233,9 +234,11 @@ namespace QuickPad
         }
 
         #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
-        private void UpdateUIAccordingToNewTheme(ElementTheme to)
+        private void UpdateUIAccordingToNewTheme(object sender, ThemeChangedEventArgs e)
         {
+            var to = e.VisualTheme.Theme;
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
+            QSetting.CustomThemeId = e.ActualTheme.ThemeId;
             bool isDarkTheme = to == ElementTheme.Dark;
             if (to == ElementTheme.Default)
             {
@@ -248,24 +251,16 @@ namespace QuickPad
             }
             else
             {
-                Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme");
+                Analytics.TrackEvent($"Loaded app in '{e.VisualTheme.FriendlyName}' theme");
             }
             //Make the minimize, maxamize and close button visible
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            if (isDarkTheme)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            else
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
+            titleBar.ButtonForegroundColor = e.VisualTheme.DefaultTextForeground;
 
             //Update combobox items font color collection
-
             if (QSetting.DefaultFontColor == "Default")
             {
-                Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+                Text1.Document.Selection.CharacterFormat.ForegroundColor = e.VisualTheme.DefaultTextForeground;
                 //Force a new change IF there are no change made yet
                 if (!Changed)
                 {
@@ -274,6 +269,15 @@ namespace QuickPad
             }
             //Update dialog theme
             WantToSave.RequestedTheme = to;
+
+            //CommandBars and ContextMenus
+            Style commandBarStyle = new Style { TargetType = typeof(CommandBarOverflowPresenter) };
+            commandBarStyle.Setters.Add(new Setter(BackgroundProperty, e.VisualTheme.InAppAcrylicBrush));
+            CommandBar1.CommandBarOverflowPresenterStyle = commandBarStyle;
+            CommandBar2.CommandBarOverflowPresenterStyle = commandBarStyle;
+            Style menuFlyoutStyle = new Style { TargetType = typeof(MenuFlyoutPresenter) };
+            menuFlyoutStyle.Setters.Add(new Setter(BackgroundProperty, e.VisualTheme.InAppAcrylicBrush));
+            settingsFlyoutMenu.MenuFlyoutPresenterStyle = menuFlyoutStyle;
         }
 
         private void UpdateText1FontSize(int to)
@@ -1306,24 +1310,8 @@ namespace QuickPad
 
         private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
-            //Change color of the font combo box when hovering over it
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.Black);
-            }
-            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.White);
-            }
-
-            if (this.RequestedTheme == ElementTheme.Dark)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.Black);
-            }
-            else if (this.RequestedTheme == ElementTheme.Light)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.White);
-            }
+            var theme = VisualThemeSelector.CurrentItem;
+            FontBoxFrame.Background = theme.InAppAcrylicBrush;
         }
 
         private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
