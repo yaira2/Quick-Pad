@@ -6,10 +6,6 @@
     </header>
     <body>
       <group id="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
-        <trans-unit id="AppTheme.Text" translate="yes" xml:space="preserve">
-          <source>App theme</source>
-          <target state="translated">ธีมของแอป</target>
-        </trans-unit>
         <trans-unit id="AutoSaveSwitch.Text" translate="yes" xml:space="preserve">
           <source>Auto Save</source>
           <target state="translated">บันทึกอัตโนมัติ</target>
@@ -918,6 +914,10 @@
         <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
           <source>System-defined theme</source>
           <target state="new">System-defined theme</target>
+        </trans-unit>
+        <trans-unit id="ChooseTheme.Text" translate="yes" xml:space="preserve">
+          <source>Choose your theme</source>
+          <target state="new">Choose your theme</target>
         </trans-unit>
       </group>
     </body>
