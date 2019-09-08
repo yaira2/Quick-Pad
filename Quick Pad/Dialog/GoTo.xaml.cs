@@ -19,6 +19,8 @@ namespace QuickPad.Dialog
 {
     public sealed partial class GoTo : ContentDialog
     {
+        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+
         public GoTo()
         {
             this.InitializeComponent();
@@ -47,7 +49,6 @@ namespace QuickPad.Dialog
 
         private void ContentDialog_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
         {
-            RequestedTheme = ((Window.Current.Content as Frame).Content as MainPage).QSetting.Theme;
             finalResult = DialogResult.None;
         }
 

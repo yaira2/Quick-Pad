@@ -12,9 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppTheme.Text" xml:space="preserve">
-    <value>ธีมของแอป</value>
-  </data>
   <data name="AutoSaveSwitch.Text" xml:space="preserve">
     <value>บันทึกอัตโนมัติ</value>
   </data>
@@ -626,5 +623,33 @@
   </data>
   <data name="Customize_Reset.Text" xml:space="preserve">
     <value>รีเซทเป็นค่าเริ่มต้น</value>
+  </data>
+  <data name="ClassicRestoreDefaultZoom" xml:space="preserve">
+    <value>คืนค่าการขยาย</value>
+  </data>
+  <data name="ClassicZoom.Text" xml:space="preserve">
+    <value>ย่อ/ขยาย</value>
+  </data>
+  <data name="ClassicZoomIn.Text" xml:space="preserve">
+    <value>ขยาย</value>
+  </data>
+  <data name="ClassicZoomOut" xml:space="preserve">
+    <value>ย่อ</value>
+  </data>
+  <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
+    <value>ปุ่ม "ออกจากโหมดเน้นพิมพ์" ถูกย้ายมาไว้ตรงนี้ เพื่อให้แอปโล่งขึ้น
+หรือกด Control + Shift + F เพื่อออกจากโหมดเน้นพิมพ์</value>
+  </data>
+  <data name="HowToLeaveFocus.Title" xml:space="preserve">
+    <value>ปุ่ม "ออกจากโหมดเน้นพิมพ์" อยู่ตรงนี้</value>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>บันทึกอัตโนมัติทุก ๆ</value>
+  </data>
+  <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
+    <value>วินาที</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>เปลี่ยนภาษาจะมีผลหลังจากออกและเข้าใหม่</value>
   </data>
 </root>

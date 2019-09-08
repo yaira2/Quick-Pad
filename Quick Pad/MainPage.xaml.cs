@@ -70,6 +70,8 @@ namespace QuickPad
 
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
+        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
 
         public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
@@ -86,8 +88,7 @@ namespace QuickPad
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             //Subscribe to events
-            QSetting.afterThemeChanged += UpdateUIAccordingToNewTheme;
-            UpdateUIAccordingToNewTheme(QSetting.Theme);
+            VisualThemeSelector.ThemeChanged += UpdateUIAccordingToNewTheme;
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
             UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
@@ -98,12 +99,25 @@ namespace QuickPad
             //
             VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
+            Clipboard.ContentChanged += Clipboard_ContentChanged;
+
             //check if focus is on app or off the app
             Window.Current.CoreWindow.Activated += (sender, args) =>
             {
                 if (args.WindowActivationState == Windows.UI.Core.CoreWindowActivationState.Deactivated)
                 {
-                    InvisibleButton.Focus(FocusState.Programmatic);
+                    if (CommandBar2.Visibility == Visibility.Visible)
+                    {
+                        CommandBar2.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
+                    else if (BackButtonHolder.Visibility == Visibility.Visible)
+                    {
+                        BackButtonHolder.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
+                    else if (CommandBarClassic.Visibility == Visibility.Visible)
+                    {
+                        CommandBarClassic.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
                 }
             };
 
@@ -144,18 +158,9 @@ namespace QuickPad
                 }
                 else
                 {
-                    try //In case if all the change is just nothing but format
+                    if (totalCharacters < 1)
                     {
-                        Text1.TextDocument.GetText(TextGetOptions.None, out string change);
-                        if (string.IsNullOrEmpty(change))
-                        {
-                            deferral.Complete();
-                        }
-                    }
-                    catch (Exception er)
-                    {
-                        //According to error report, the error is in line 132, or when Text1 try to get text
-                        Analytics.TrackEvent($"Track down error \r\n{er.Message}");
+                        deferral.Complete();
                     }
                 }
 
@@ -193,6 +198,27 @@ namespace QuickPad
             SetANewChange();
         }
 
+        private static async void Clipboard_ContentChanged(object sender, object e)
+        {
+            Clipboard.ContentChanged -= Clipboard_ContentChanged;
+            try
+            {
+                DataPackageView clipboardContent = Clipboard.GetContent();
+                var dataPackage = new DataPackage();
+                dataPackage.SetText(await clipboardContent.GetTextAsync());
+                Clipboard.SetContent(dataPackage);
+                Clipboard.Flush();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                Clipboard.ContentChanged += Clipboard_ContentChanged;
+            }
+        }
+
+
         private void UpdateAutoSave(bool to)
         {
             if (to)
@@ -208,9 +234,11 @@ namespace QuickPad
         }
 
         #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
-        private void UpdateUIAccordingToNewTheme(ElementTheme to)
+        private void UpdateUIAccordingToNewTheme(object sender, ThemeChangedEventArgs e)
         {
+            var to = e.VisualTheme.Theme;
             //Is it dark theme or light theme? Just in case if it default, get a theme info from application
+            QSetting.CustomThemeId = e.ActualTheme.ThemeId;
             bool isDarkTheme = to == ElementTheme.Dark;
             if (to == ElementTheme.Default)
             {
@@ -223,24 +251,16 @@ namespace QuickPad
             }
             else
             {
-                Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme");
+                Analytics.TrackEvent($"Loaded app in '{e.VisualTheme.FriendlyName}' theme");
             }
             //Make the minimize, maxamize and close button visible
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            if (isDarkTheme)
-            {
-                titleBar.ButtonForegroundColor = Colors.White;
-            }
-            else
-            {
-                titleBar.ButtonForegroundColor = Colors.Black;
-            }
+            titleBar.ButtonForegroundColor = e.VisualTheme.DefaultTextForeground;
 
             //Update combobox items font color collection
-
             if (QSetting.DefaultFontColor == "Default")
             {
-                Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
+                Text1.Document.Selection.CharacterFormat.ForegroundColor = e.VisualTheme.DefaultTextForeground;
                 //Force a new change IF there are no change made yet
                 if (!Changed)
                 {
@@ -249,6 +269,15 @@ namespace QuickPad
             }
             //Update dialog theme
             WantToSave.RequestedTheme = to;
+
+            //CommandBars and ContextMenus
+            Style commandBarStyle = new Style { TargetType = typeof(CommandBarOverflowPresenter) };
+            commandBarStyle.Setters.Add(new Setter(BackgroundProperty, e.VisualTheme.InAppAcrylicBrush));
+            CommandBar1.CommandBarOverflowPresenterStyle = commandBarStyle;
+            CommandBar2.CommandBarOverflowPresenterStyle = commandBarStyle;
+            Style menuFlyoutStyle = new Style { TargetType = typeof(MenuFlyoutPresenter) };
+            menuFlyoutStyle.Setters.Add(new Setter(BackgroundProperty, e.VisualTheme.InAppAcrylicBrush));
+            settingsFlyoutMenu.MenuFlyoutPresenterStyle = menuFlyoutStyle;
         }
 
         private void UpdateText1FontSize(int to)
@@ -696,20 +725,17 @@ namespace QuickPad
 
         public async Task<bool> ShowRatingReviewDialog()
         {
-            StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
-
-            if (result.ExtendedError == null)
+            try
             {
-                JObject jsonObject = JObject.Parse(result.Response);
-                if (jsonObject.SelectToken("status").ToString() == "success")
-                {
-                    // The customer rated or reviewed the app.
-                    return true;
-                }
+                StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
+                
+            }
+            catch (Exception)
+            {
+                bool result = await Windows.System.Launcher.LaunchUriAsync(new Uri("ms-windows-store://review/?ProductId=9PDLWQHTLSV3"));
             }
 
-            // There was an error with the request, or the customer chose not to rate or review the app.
-            return false;
+            return true;
         }
 
         #endregion
@@ -952,16 +978,12 @@ namespace QuickPad
             //update the title bar to reflect it is a new document
             CurrentFilename = null;
             //Clear undo and redo
-            try
+            if (App.Is1903OrNewer)
             {
                 if (Text1.TextDocument.CanUndo())//Assume because the history is already empty?
                 {
                     Text1.TextDocument.ClearUndoRedoHistory();
                 }
-            }
-            catch (Exception ex)
-            {
-                Analytics.TrackEvent($"Error trying to clear undo history\r\n{ex.Message}");
             }
             //Put up a default font size into a format
             UpdateText1FontSize(QSetting.DefaultFontSize);
@@ -1288,24 +1310,8 @@ namespace QuickPad
 
         private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
         {
-            //Change color of the font combo box when hovering over it
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.Black);
-            }
-            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.White);
-            }
-
-            if (this.RequestedTheme == ElementTheme.Dark)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.Black);
-            }
-            else if (this.RequestedTheme == ElementTheme.Light)
-            {
-                FontBoxFrame.Background = new SolidColorBrush(Colors.White);
-            }
+            var theme = VisualThemeSelector.CurrentItem;
+            FontBoxFrame.Background = theme.InAppAcrylicBrush;
         }
 
         private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
@@ -1443,7 +1449,6 @@ namespace QuickPad
                 ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
 
-                Shadow1.Visibility = Visibility.Collapsed;
                 CommandBar1.Visibility = Visibility.Collapsed;
                 Title.Visibility = Visibility.Collapsed;
                 FrameTop.Visibility = Visibility.Collapsed;
@@ -1453,18 +1458,13 @@ namespace QuickPad
                 CommandBar3.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 Grid.SetRow(CommandBar2, 3);
+                Grid.SetRow(Shadow1, 3);
+
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
                 //
                 row0.Height = new GridLength(0);
                 row1.Height = new GridLength(0);
-
-                //make text smaller size if user did not do so on their own and if they did not type anything yet.
-                Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-                if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
-                {
-                    Text1.FontSize = 16;
-                }
 
                 //Hide Find and Replace dialog if it open
                 ShowFindAndReplace = false;
@@ -1477,10 +1477,10 @@ namespace QuickPad
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
 
                 Title.Visibility = Visibility.Visible;
-                Shadow1.Visibility = Visibility.Visible;
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Right;
                 Grid.SetRow(CommandBar2, 1);
+                Grid.SetRow(Shadow1, 1);
                 FrameTop.Visibility = Visibility.Visible;
                 CmdSettings.Visibility = Visibility.Visible;
                 CmdFocusMode.Visibility = Visibility.Visible;
@@ -1588,7 +1588,7 @@ namespace QuickPad
                 Text1.Document.GetText(TextGetOptions.None, out _content);
                 _content = TrimRichEditBoxText(_content);
                 _isLineCachePendingUpdate = true;
-                MaximumPossibleSearchRange = _content.Length;
+                MaximumPossibleSearchRange = totalCharacters = _content.Length;
             }
         }
         /// <summary>
@@ -1712,7 +1712,7 @@ namespace QuickPad
             GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount);
             CurrentPosition = columnIndex;
             CurrentLine = lineIndex;
-            totalCharacters = selectedCount;
+            SelectionLength = selectedCount;
 
             //update current format
             IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
@@ -2088,6 +2088,11 @@ namespace QuickPad
         {
             FindAndReplaceDialog.ShowReplace = true;
             ShowFindAndReplace = true;
+        }
+
+        private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
         }
 
         public async void CMDGoTo_Click()

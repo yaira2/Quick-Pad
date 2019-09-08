@@ -12,9 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppTheme.Text" xml:space="preserve">
-    <value>نُسق التطبيق</value>
-  </data>
   <data name="AutoSaveSwitch.Text" xml:space="preserve">
     <value>حفظ تلقائيًا</value>
   </data>
@@ -644,5 +641,14 @@
   </data>
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
     <value>تم نقل زر لإغلاق وضع التركيز</value>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>حفظ تلقائيا لكل</value>
+  </data>
+  <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
+    <value>ثواني</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>إعادة التشغيل المطلوبة لتطبيق التغييرات</value>
   </data>
 </root>

@@ -12,9 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppTheme.Text" xml:space="preserve">
-    <value>Thème de l'application</value>
-  </data>
   <data name="AutoSaveSwitch.Text" xml:space="preserve">
     <value>Sauvegarde automatique</value>
   </data>
@@ -529,7 +526,7 @@
     <value>Langue de l'application</value>
   </data>
   <data name="CmdOnTopTooltip" xml:space="preserve">
-    <value>Superposé (Ctrl+Shift+O)</value>
+    <value>Superposé (Ctrl+Maj+O)</value>
   </data>
   <data name="CmdFind.Label" xml:space="preserve">
     <value>Rechercher</value>
@@ -638,5 +635,20 @@
   </data>
   <data name="ClassicZoomOut" xml:space="preserve">
     <value>Zoom arrière</value>
+  </data>
+  <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
+    <value>Nous avons déplacé le bouton ici pour avoir un style plus propre. Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir.</value>
+  </data>
+  <data name="HowToLeaveFocus.Title" xml:space="preserve">
+    <value>The bouton pour sortir du mode focus a été déplacé</value>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>Enregistrer automatiquement toutes les</value>
+  </data>
+  <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
+    <value>secondes</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>Un redémarrage est nécessaire pour appliquer les modifications</value>
   </data>
 </root>

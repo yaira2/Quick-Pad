@@ -20,7 +20,7 @@
 
     <tkui:DropShadowPanel x:Name="ContentHolderShadow" Width="355"
                           HorizontalContentAlignment="Stretch">
-        <Grid x:Name="ContentHolderContent" Background="{ThemeResource SystemControlAcrylicWindowMediumHighBrush}"
+        <Grid x:Name="ContentHolderContent" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
               Padding="4"
               Windows10version1809:CornerRadius="4" >
             <!-- Grid Definitions -->
@@ -80,7 +80,7 @@
                     <TextBlock Text="Find option" x:Uid="FAR_FindOption"/>
                 </ToolTipService.ToolTip>
                 <Button.Flyout>
-                    <MenuFlyout Placement="BottomEdgeAlignedRight">
+                    <MenuFlyout Windows10version1809:Placement="BottomEdgeAlignedRight">
                         <MenuFlyoutItem Text="Find Next" x:Uid="ClassicEditFindNext" Click="{x:Bind RequestFindNext}">
                             <MenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xE0AB;" />

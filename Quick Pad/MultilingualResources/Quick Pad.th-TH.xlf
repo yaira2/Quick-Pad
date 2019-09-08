@@ -6,10 +6,6 @@
     </header>
     <body>
       <group id="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
-        <trans-unit id="AppTheme.Text" translate="yes" xml:space="preserve">
-          <source>App theme</source>
-          <target state="translated">ธีมของแอป</target>
-        </trans-unit>
         <trans-unit id="AutoSaveSwitch.Text" translate="yes" xml:space="preserve">
           <source>Auto Save</source>
           <target state="translated">บันทึกอัตโนมัติ</target>
@@ -828,27 +824,100 @@
         </trans-unit>
         <trans-unit id="ClassicRestoreDefaultZoom" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="new">Restore Default Zoom</target>
+          <target state="translated">คืนค่าการขยาย</target>
         </trans-unit>
         <trans-unit id="ClassicZoom.Text" translate="yes" xml:space="preserve">
           <source>Zoom</source>
-          <target state="new">Zoom</target>
+          <target state="translated">ย่อ/ขยาย</target>
         </trans-unit>
         <trans-unit id="ClassicZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="new">Zoom In</target>
+          <target state="translated">ขยาย</target>
         </trans-unit>
         <trans-unit id="ClassicZoomOut" translate="yes" xml:space="preserve">
           <source>Zoom Out</source>
-          <target state="new">Zoom Out</target>
+          <target state="translated">ย่อ</target>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
           <source>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</source>
-          <target state="new">We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</target>
+          <target state="translated">ปุ่ม "ออกจากโหมดเน้นพิมพ์" ถูกย้ายมาไว้ตรงนี้ เพื่อให้แอปโล่งขึ้น
+หรือกด Control + Shift + F เพื่อออกจากโหมดเน้นพิมพ์</target>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
           <source>The button to leave focus mode button has been moved</source>
-          <target state="new">The button to leave focus mode button has been moved</target>
+          <target state="translated">ปุ่ม "ออกจากโหมดเน้นพิมพ์" อยู่ตรงนี้</target>
+        </trans-unit>
+        <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save Every</source>
+          <target state="translated">บันทึกอัตโนมัติทุก ๆ</target>
+        </trans-unit>
+        <trans-unit id="AutoSaveEverySeconds.Text" translate="yes" xml:space="preserve">
+          <source>second(s)</source>
+          <target state="translated">วินาที</target>
+        </trans-unit>
+        <trans-unit id="Restart.Text" translate="yes" xml:space="preserve">
+          <source>Restart required to apply the changes.</source>
+          <target state="translated">เปลี่ยนภาษาจะมีผลหลังจากออกและเข้าใหม่</target>
+        </trans-unit>
+        <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
+          <source>Chick</source>
+          <target state="new">Chick</target>
+        </trans-unit>
+        <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
+          <source>Cobalt</source>
+          <target state="new">Cobalt</target>
+        </trans-unit>
+        <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
+          <source>Crimson</source>
+          <target state="new">Crimson</target>
+        </trans-unit>
+        <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="new">Dark</target>
+        </trans-unit>
+        <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
+          <source>Leaf</source>
+          <target state="new">Leaf</target>
+        </trans-unit>
+        <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
+          <source>Lettuce</source>
+          <target state="new">Lettuce</target>
+        </trans-unit>
+        <trans-unit id="ThemeLightName" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="new">Light</target>
+        </trans-unit>
+        <trans-unit id="ThemeRandomName" translate="yes" xml:space="preserve">
+          <source>Random</source>
+          <target state="new">Random</target>
+        </trans-unit>
+        <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
+          <source>Rose Gold</source>
+          <target state="new">Rose Gold</target>
+        </trans-unit>
+        <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
+          <source>System Default</source>
+          <target state="new">System Default</target>
+        </trans-unit>
+        <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
+          <source>Dark theme</source>
+          <target state="new">Dark theme</target>
+        </trans-unit>
+        <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
+          <source>Light theme</source>
+          <target state="new">Light theme</target>
+        </trans-unit>
+        <trans-unit id="ThemeRandomDescription" translate="yes" xml:space="preserve">
+          <source>Random theme on startup</source>
+          <target state="new">Random theme on startup</target>
+        </trans-unit>
+        <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
+          <source>System-defined theme</source>
+          <target state="new">System-defined theme</target>
+        </trans-unit>
+        <trans-unit id="ChooseTheme.Text" translate="yes" xml:space="preserve">
+          <source>Choose your theme</source>
+          <target state="new">Choose your theme</target>
         </trans-unit>
       </group>
     </body>

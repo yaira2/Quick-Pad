@@ -8,6 +8,7 @@ namespace QuickPad.Dialog
 {
     public sealed partial class SaveChange : ContentDialog
     {
+        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
         public DialogResult DialogResult { get; set; } = DialogResult.None;
         public static bool IsOpen { get; set; }
         public SaveChange()
