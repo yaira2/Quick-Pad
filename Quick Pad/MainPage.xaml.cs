@@ -98,6 +98,8 @@ namespace QuickPad
             //
             VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
+            Clipboard.ContentChanged += Clipboard_ContentChanged;
+
             //check if focus is on app or off the app
             Window.Current.CoreWindow.Activated += (sender, args) =>
             {
@@ -194,6 +196,27 @@ namespace QuickPad
             //As it technically not empty but contain format size text
             SetANewChange();
         }
+
+        private static async void Clipboard_ContentChanged(object sender, object e)
+        {
+            Clipboard.ContentChanged -= Clipboard_ContentChanged;
+            try
+            {
+                DataPackageView clipboardContent = Clipboard.GetContent();
+                var dataPackage = new DataPackage();
+                dataPackage.SetText(await clipboardContent.GetTextAsync());
+                Clipboard.SetContent(dataPackage);
+                Clipboard.Flush();
+            }
+            catch (Exception)
+            {
+            }
+            finally
+            {
+                Clipboard.ContentChanged += Clipboard_ContentChanged;
+            }
+        }
+
 
         private void UpdateAutoSave(bool to)
         {
