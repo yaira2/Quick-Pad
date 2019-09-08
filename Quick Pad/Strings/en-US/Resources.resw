@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AppTheme.Text" xml:space="preserve">
-    <value>App theme</value>
-  </data>
   <data name="AutoSaveSwitch.Text" xml:space="preserve">
     <value>Auto Save</value>
   </data>
@@ -800,5 +797,8 @@
   </data>
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>System-defined theme</value>
+  </data>
+  <data name="ChooseTheme.Text" xml:space="preserve">
+    <value>Choose your theme</value>
   </data>
 </root>
