@@ -185,20 +185,19 @@ namespace QuickPad
                 TintColor = accentColor,
                 TintOpacity = tintOpacity,
             };
-            double tintOpacity2 = Math.Min(tintOpacity + .1d, 1d);
             AcrylicBrush backgroundAcrylic2 = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = tintOpacity2,
+                TintOpacity = .85d
             };
             AcrylicBrush inAppAcrylic = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.Backdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = .85d
+                TintOpacity = .80d
             };
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
             string descriptionResKey = (lightTheme) ? "ThemeGeneralLightDescription" : "ThemeGeneralDarkDescription";

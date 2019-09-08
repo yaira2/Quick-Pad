@@ -1449,7 +1449,6 @@ namespace QuickPad
                 ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
 
-                Shadow1.Visibility = Visibility.Collapsed;
                 CommandBar1.Visibility = Visibility.Collapsed;
                 Title.Visibility = Visibility.Collapsed;
                 FrameTop.Visibility = Visibility.Collapsed;
@@ -1459,18 +1458,13 @@ namespace QuickPad
                 CommandBar3.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 Grid.SetRow(CommandBar2, 3);
+                Grid.SetRow(Shadow1, 3);
+
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
                 //
                 row0.Height = new GridLength(0);
                 row1.Height = new GridLength(0);
-
-                //make text smaller size if user did not do so on their own and if they did not type anything yet.
-                Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-                if (string.IsNullOrEmpty(value) && Text1.FontSize == 18)
-                {
-                    Text1.FontSize = 16;
-                }
 
                 //Hide Find and Replace dialog if it open
                 ShowFindAndReplace = false;
@@ -1483,10 +1477,10 @@ namespace QuickPad
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
 
                 Title.Visibility = Visibility.Visible;
-                Shadow1.Visibility = Visibility.Visible;
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Right;
                 Grid.SetRow(CommandBar2, 1);
+                Grid.SetRow(Shadow1, 1);
                 FrameTop.Visibility = Visibility.Visible;
                 CmdSettings.Visibility = Visibility.Visible;
                 CmdFocusMode.Visibility = Visibility.Visible;
