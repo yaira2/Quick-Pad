@@ -20,8 +20,6 @@
 ## Things that are not working or implemented in this version:
 
 * File Print.
-* Find & Replace options.
-* More theme options.
 * Zoom Options.
 
 ## Downloads:
