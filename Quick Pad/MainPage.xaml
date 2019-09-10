@@ -798,41 +798,46 @@
                                   IsBackButtonVisible="Collapsed"
                                   PaneDisplayMode="LeftCompact"
                                   HorizontalAlignment="Stretch"
+                                  SelectedItem="{x:Bind SelectedNavigationItem, Mode=TwoWay}"
                                   OpenPaneLength="200">
+                <!--Page selection-->
                 <winui:NavigationView.MenuItems>
-                    <winui:NavigationViewItem Content="General" Tag="general" IsSelected="True">
+                    <winui:NavigationViewItem Content="General" Tag="General" IsSelected="{x:Bind SyncWithPage('General'), BindBack=SetToWantedPage, Mode=TwoWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xE12A;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
-                    <winui:NavigationViewItem Content="Theme" Tag="theme">
+                    <winui:NavigationViewItem Content="Theme" Tag="theme" IsSelected="{x:Bind SyncWithPage('Theme'), BindBack=SetToWantedPage, Mode=TwoWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xE771;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
-                    <winui:NavigationViewItem Content="Font" Tag="font">
+                    <winui:NavigationViewItem Content="Font" Tag="font" IsSelected="{x:Bind SyncWithPage('Font'), BindBack=SetToWantedPage, Mode=TwoWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xE8D2;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
-                    <winui:NavigationViewItem Content="Advance" Tag="advance">
+                    <winui:NavigationViewItem Content="Advance" Tag="advance" IsSelected="{x:Bind SyncWithPage('Advance'), BindBack=SetToWantedPage, Mode=TwoWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xE74C;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
                     <winui:NavigationViewItemSeparator/>
-                    <winui:NavigationViewItem Content="Report" Tag="report">
+                    <winui:NavigationViewItem Content="Report" Tag="report" IsSelected="{x:Bind SyncWithPage('Report'), BindBack=SetToWantedPage, Mode=TwoWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xEBE8;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
-                    <winui:NavigationViewItem Content="About" Tag="about">
+                    <winui:NavigationViewItem Content="About" Tag="about" IsSelected="{x:Bind SyncWithPage('About'), BindBack=SetToWantedPage, Mode=TwoWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xE946;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
                 </winui:NavigationView.MenuItems>
-                <Frame x:Name="contentFrame"/>
+                <!--Setting content-->
+                <Grid>
+                    
+                </Grid>
             </winui:NavigationView>
         </SplitView.Pane>
     </SplitView>

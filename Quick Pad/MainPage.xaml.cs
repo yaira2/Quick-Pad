@@ -32,6 +32,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WINUI = Microsoft.UI.Xaml.Controls;
 
 namespace QuickPad
 {
@@ -2159,8 +2160,42 @@ namespace QuickPad
             }
             return null;
         }
-    }
 
+        #region Setting pages
+        public enum settingPage
+        {
+            General,
+            Theme,
+            Font,
+            Advance,
+            About
+        }
+        settingPage _sp = settingPage.General;
+        public settingPage CurrentSettingPage
+        {
+            get => _sp;
+            set => Set(ref _sp, value);
+        }
+
+        WINUI.NavigationViewItem _select_nav;
+        public WINUI.NavigationViewItem SelectedNavigationItem
+        {
+            get => _select_nav;
+            set => Set(ref _select_nav, value);
+        }
+
+        public bool SyncWithPage(string name) => CurrentSettingPage.ToString() == name;
+
+        public void SetToWantedPage(bool wanted)
+        {
+            if (wanted)
+            {
+                CurrentSettingPage = (settingPage)Enum.Parse(typeof(settingPage), SelectedNavigationItem.Tag.ToString());
+            }
+        }
+        #endregion
+    }
+    
     public class FontColorItem : INotifyPropertyChanged
     {
         #region Notification overhead, no need to write it thousands times on set { }
