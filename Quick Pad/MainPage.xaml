@@ -20,7 +20,7 @@
             <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="2,2,2,2" FontSize="12"/>
         </DataTemplate>
     </Page.Resources>
-    <SplitView OpenPaneLength="400" PanePlacement="Right" x:Name="MainView">
+    <SplitView OpenPaneLength="350" PanePlacement="Right" x:Name="MainView">
         <SplitView.Content>
             <Grid Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  HorizontalAlignment="Stretch">
                 <Grid.RowDefinitions>
@@ -676,7 +676,7 @@
                     </winui:NavigationViewItem>
                 </winui:NavigationView.MenuItems>
                 <!--Setting content-->
-                <Grid>
+                <Grid Margin="20,0,0,0">
                     <Grid.Resources>
                         <Style TargetType="TextBlock">
                             <Setter Property="Margin" Value="0,8,0,4"/>

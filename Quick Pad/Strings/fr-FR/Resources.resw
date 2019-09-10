@@ -382,7 +382,7 @@
     <value>Souligner (Ctrl+U)</value>
   </data>
   <data name="VersionFormat" xml:space="preserve">
-    <value>Version: {0} ({1}, {2}{3})</value>
+    <value>Version: {0}.{1}.{2}.{3}</value>
   </data>
   <data name="WhitePlaceholder" xml:space="preserve">
     <value>Blanc</value>
@@ -553,7 +553,7 @@
     <value>Rechercher?</value>
   </data>
   <data name="FAR_MatchCase.Content" xml:space="preserve">
-    <value>Respecter le cas</value>
+    <value>Cas de correspondance</value>
   </data>
   <data name="FAR_More.Text" xml:space="preserve">
     <value>Plus...</value>
@@ -640,19 +640,19 @@
     <value>Nous avons déplacé le bouton ici pour avoir un style plus propre. Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir.</value>
   </data>
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
-    <value>The bouton pour sortir du mode focus a été déplacé</value>
+    <value>Le bouton pour quitter le bouton de mode de mise au point a été déplacé</value>
   </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
-    <value>Enregistrer automatiquement toutes les</value>
+    <value>Sauvegarde automatique de tout</value>
   </data>
   <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
-    <value>secondes</value>
+    <value>seconde(s)</value>
   </data>
   <data name="Restart.Text" xml:space="preserve">
     <value>Un redémarrage est nécessaire pour appliquer les modifications</value>
   </data>
   <data name="ThemeChickName" xml:space="preserve">
-    <value>Chick</value>
+    <value>Poussin</value>
   </data>
   <data name="ThemeCobaltName" xml:space="preserve">
     <value>Cobalt</value>
