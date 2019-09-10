@@ -32,6 +32,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WINUI = Microsoft.UI.Xaml.Controls;
 
 namespace QuickPad
 {
@@ -97,8 +98,7 @@ namespace QuickPad
             LoadSettings();
             LoadFonts();
             //
-            VersionNumber.Text = string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
-
+            
             Clipboard.ContentChanged += Clipboard_ContentChanged;
 
             //check if focus is on app or off the app
@@ -166,7 +166,6 @@ namespace QuickPad
 
                 //close dialogs so the app does not hang
                 WantToSave.Hide();
-                Settings.Hide();
                 GoToDialog.Hide();
 
                 await WantToSave.ShowAsync();
@@ -499,6 +498,8 @@ namespace QuickPad
                 if (!Equals(_def_lang, value))
                 {
                     Set(ref _def_lang, value);
+                    if (value == -1)
+                        return;
                     LangChangeNeedRestart.Visibility = 
                         ApplicationLanguages.PrimaryLanguageOverride == DefaultLanguages[value].ID 
                         ? Visibility.Collapsed : Visibility.Visible;
@@ -533,6 +534,8 @@ namespace QuickPad
                 if (!Equals(_fc_selection, value))
                 {
                     Set(ref _fc_selection, value);
+                    if (value < 0)
+                        return;
                     //Update setting
                     if (FontColorCollections.Count < 1)
                     {
@@ -915,9 +918,10 @@ namespace QuickPad
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), tag);
         }
 
-        private async void CmdSettings_Click(object sender, RoutedEventArgs e)
+        private void CmdSettings_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialogResult result = await Settings.ShowAsync();
+            MainView.IsPaneOpen = !MainView.IsPaneOpen;
+            //ContentDialogResult result = await Settings.ShowAsync();
         }
 
         private void Justify_Click(object sender, RoutedEventArgs e)
@@ -1275,17 +1279,6 @@ namespace QuickPad
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
             }
             Text1.Document.EndUndoGroup();
-        }
-
-        private void CmdBack_Click(object sender, RoutedEventArgs e)
-        {
-            Settings.Hide();
-            SettingsPivot.SelectedIndex = 0; //Set focus to first item in pivot control in the settings panel
-        }
-
-        private void Settings_Opened(ContentDialog sender, ContentDialogOpenedEventArgs args)
-        {
-            SettingsPivot.SelectedItem = SettingsTab1; //Set focus to first item in pivot control in the settings panel
         }
 
         private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -2158,6 +2151,47 @@ namespace QuickPad
             }
             return null;
         }
+
+        #region Setting pages
+        public enum settingPage
+        {
+            General,
+            Theme,
+            Font,
+            Advance,
+            Report,
+            About
+        }
+        settingPage _sp = settingPage.General;
+        public settingPage CurrentSettingPage
+        {
+            get => _sp;
+            set => Set(ref _sp, value);
+        }
+
+        WINUI.NavigationViewItem _select_nav;
+        public WINUI.NavigationViewItem SelectedNavigationItem
+        {
+            get => _select_nav;
+            set
+            {
+                if (!Equals(value, _select_nav))
+                {
+                    Set(ref _select_nav, value);
+                    if (value is null)
+                        return;
+                    CurrentSettingPage = (settingPage)Enum.Parse(typeof(settingPage), value.Tag.ToString());
+                }
+            }
+        }
+
+        public bool SyncWithPage(settingPage current, string name) => current.ToString() == name;
+
+        public Visibility ShowIfItWasThePage(settingPage current, string name) => current.ToString() == name ? Visibility.Visible : Visibility.Collapsed;
+
+        public string VersionNumberText => string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
+
+        #endregion
     }
 
     public class FontColorItem : INotifyPropertyChanged
