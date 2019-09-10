@@ -915,9 +915,10 @@ namespace QuickPad
             Text1.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), tag);
         }
 
-        private async void CmdSettings_Click(object sender, RoutedEventArgs e)
+        private void CmdSettings_Click(object sender, RoutedEventArgs e)
         {
-            ContentDialogResult result = await Settings.ShowAsync();
+            MainView.IsPaneOpen = !MainView.IsPaneOpen;
+            //ContentDialogResult result = await Settings.ShowAsync();
         }
 
         private void Justify_Click(object sender, RoutedEventArgs e)
