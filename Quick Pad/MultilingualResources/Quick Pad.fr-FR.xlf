@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" source-language="en-US" target-language="fr-FR" original="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
@@ -500,7 +500,7 @@
         </trans-unit>
         <trans-unit id="VersionFormat" translate="yes" xml:space="preserve">
           <source>Version: {0}.{1}.{2}.{3}</source>
-          <target state="translated">Version: {0} ({1}, {2}{3})</target>
+          <target state="translated">Version: {0}.{1}.{2}.{3}</target>
         </trans-unit>
         <trans-unit id="WhitePlaceholder" translate="yes" xml:space="preserve">
           <source>White</source>
@@ -728,7 +728,7 @@
         </trans-unit>
         <trans-unit id="FAR_MatchCase.Content" translate="yes" xml:space="preserve">
           <source>Match case</source>
-          <target state="translated">Respecter le cas</target>
+          <target state="translated">Cas de correspondance</target>
         </trans-unit>
         <trans-unit id="FAR_More.Text" translate="yes" xml:space="preserve">
           <source>More...</source>
@@ -844,15 +844,15 @@
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
           <source>The button to leave focus mode button has been moved</source>
-          <target state="translated">The bouton pour sortir du mode focus a été déplacé</target>
+          <target state="translated">Le bouton pour quitter le bouton de mode de mise au point a été déplacé</target>
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
           <source>Auto Save Every</source>
-          <target state="translated">Enregistrer automatiquement toutes les</target>
+          <target state="translated">Sauvegarde automatique de tout</target>
         </trans-unit>
         <trans-unit id="AutoSaveEverySeconds.Text" translate="yes" xml:space="preserve">
           <source>second(s)</source>
-          <target state="translated">secondes</target>
+          <target state="translated">seconde(s)</target>
         </trans-unit>
         <trans-unit id="Restart.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
@@ -860,7 +860,7 @@
         </trans-unit>
         <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
           <source>Chick</source>
-          <target state="translated">Chick</target>
+          <target state="translated">Poussin</target>
         </trans-unit>
         <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
           <source>Cobalt</source>
