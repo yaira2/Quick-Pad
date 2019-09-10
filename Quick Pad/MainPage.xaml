@@ -658,7 +658,7 @@
                             <FontIcon Glyph="&#xE8D2;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
-                    <winui:NavigationViewItem Content="Advance" Tag="Advance" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Advance'), Mode=OneWay}">
+                    <winui:NavigationViewItem Content="Advanced" Tag="Advanced" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Advance'), Mode=OneWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xE74C;" />
                         </winui:NavigationViewItem.Icon>
@@ -676,7 +676,7 @@
                     </winui:NavigationViewItem>
                 </winui:NavigationView.MenuItems>
                 <!--Setting content-->
-                <Grid Margin="20,0,0,0">
+                <Grid Margin="20,0,20,0">
                     <Grid.Resources>
                         <Style TargetType="TextBlock">
                             <Setter Property="Margin" Value="0,8,0,4"/>
@@ -687,6 +687,7 @@
                     <!--General-->
                     <ScrollViewer x:Name="SettingsTab1SV" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'General'),Mode=OneWay}">
                         <StackPanel Padding="2,2,2,2">
+                            <TextBlock Text="General" x:Uid="General" FontSize="24"/>
                             <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
                             <ComboBox x:Uid="GeneralLaunchModeCombobox" Width="180" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" Windows10version1809:CornerRadius="2" x:Name="LaunchOptions" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1">
                                 <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
@@ -731,12 +732,12 @@
                             <StackPanel.Resources>
                                 <x:Double x:Key="CornerRadius">4</x:Double>
                             </StackPanel.Resources>
-                            <TextBlock Text="Choose your theme" x:Uid="ChooseTheme" TextWrapping="Wrap"/>
+                            <TextBlock Text="Theme Settings" x:Uid="ThemeSettings" FontSize="24"/>
                             <ListView ItemsSource="{x:Bind VisualThemeSelector.ThemesView}" Margin="0,10,0,0">
                                 <ListView.ItemTemplate>
                                     <DataTemplate x:DataType="q:VisualTheme">
                                         <StackPanel Spacing="5" Orientation="Horizontal">
-                                            <Grid Width="36" Height="36" Margin="8" CornerRadius="4">
+                                            <Grid Width="36" Height="36" Margin="0,8,8,8" CornerRadius="4">
                                                 <Rectangle Fill="{x:Bind PreviewBrush}" RadiusX="4" RadiusY="4"/>
                                                 <Rectangle RadiusX="4" RadiusY="4">
                                                     <Rectangle.Fill>
@@ -762,6 +763,7 @@
                     <!--Font-->
                     <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Font'), Mode=OneWay}">
                         <StackPanel Padding="2,2,2,2">
+                            <TextBlock Text="Font Settings" x:Uid="FontSettings" FontSize="24"/>
                             <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
                             <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Windows10version1809:CornerRadius="2" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
                             <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>

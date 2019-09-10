@@ -914,9 +914,17 @@
           <source>System-defined theme</source>
           <target state="translated">النسق من النظام</target>
         </trans-unit>
-        <trans-unit id="ChooseTheme.Text" translate="yes" xml:space="preserve">
-          <source>Choose your theme</source>
-          <target state="translated">اختر النسق الخص بك</target>
+        <trans-unit id="General.Text" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="new">General</target>
+        </trans-unit>
+        <trans-unit id="ThemeSettings.Text" translate="yes" xml:space="preserve">
+          <source>Theme Settings</source>
+          <target state="new">Theme Settings</target>
+        </trans-unit>
+        <trans-unit id="FontSettings.Text" translate="yes" xml:space="preserve">
+          <source>Font Settings</source>
+          <target state="new">Font Settings</target>
         </trans-unit>
       </group>
     </body>

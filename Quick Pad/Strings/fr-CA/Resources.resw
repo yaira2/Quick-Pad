@@ -693,7 +693,4 @@
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>Thème défini par le système</value>
   </data>
-  <data name="ChooseTheme.Text" xml:space="preserve">
-    <value>Choisir votre thème</value>
-  </data>
 </root>

@@ -798,7 +798,13 @@
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>System-defined theme</value>
   </data>
-  <data name="ChooseTheme.Text" xml:space="preserve">
-    <value>Choose your theme</value>
+  <data name="FontSettings.Text" xml:space="preserve">
+    <value>Font Settings</value>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="ThemeSettings.Text" xml:space="preserve">
+    <value>Theme Settings</value>
   </data>
 </root>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" source-language="en-US" target-language="fr-FR" original="QUICK PAD/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
@@ -914,9 +914,17 @@
           <source>System-defined theme</source>
           <target state="translated">Thème défini par le système</target>
         </trans-unit>
-        <trans-unit id="ChooseTheme.Text" translate="yes" xml:space="preserve">
-          <source>Choose your theme</source>
-          <target state="translated">Choisir votre thème</target>
+        <trans-unit id="General.Text" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="new">General</target>
+        </trans-unit>
+        <trans-unit id="ThemeSettings.Text" translate="yes" xml:space="preserve">
+          <source>Theme Settings</source>
+          <target state="new">Theme Settings</target>
+        </trans-unit>
+        <trans-unit id="FontSettings.Text" translate="yes" xml:space="preserve">
+          <source>Font Settings</source>
+          <target state="new">Font Settings</target>
         </trans-unit>
       </group>
     </body>

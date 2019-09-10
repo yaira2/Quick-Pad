@@ -694,7 +694,4 @@
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>ใช้ชุดรูปแบบตามที่ระบบกำหนดไว้</value>
   </data>
-  <data name="ChooseTheme.Text" xml:space="preserve">
-    <value>เลือกชุดรูปแบบของคุณ</value>
-  </data>
 </root>

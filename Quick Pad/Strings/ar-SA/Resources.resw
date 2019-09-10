@@ -693,7 +693,4 @@
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>النسق من النظام</value>
   </data>
-  <data name="ChooseTheme.Text" xml:space="preserve">
-    <value>اختر النسق الخص بك</value>
-  </data>
 </root>
