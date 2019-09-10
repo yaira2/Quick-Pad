@@ -658,7 +658,7 @@
                             <FontIcon Glyph="&#xE8D2;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
-                    <winui:NavigationViewItem Content="Advanced" Tag="Advanced" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Advance'), Mode=OneWay}">
+                    <winui:NavigationViewItem Content="Advanced" Tag="Advancedd" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xE74C;" />
                         </winui:NavigationViewItem.Icon>
