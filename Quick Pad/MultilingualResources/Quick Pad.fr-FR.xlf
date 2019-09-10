@@ -916,15 +916,15 @@
         </trans-unit>
         <trans-unit id="General.Text" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target state="new">General</target>
+          <target state="new">Général</target>
         </trans-unit>
         <trans-unit id="ThemeSettings.Text" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="new">Theme Settings</target>
+          <target state="new">Réglage des thèmes</target>
         </trans-unit>
         <trans-unit id="FontSettings.Text" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="new">Font Settings</target>
+          <target state="new">Paramètres de police</target>
         </trans-unit>
       </group>
     </body>
