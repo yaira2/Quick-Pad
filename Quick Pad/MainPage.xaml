@@ -792,22 +792,45 @@
             </Grid>
         </SplitView.Content>
         <SplitView.Pane>
-            <winui:NavigationView IsPaneOpen="False"                    
-                            IsSettingsVisible="False"
-                            IsBackEnabled="False"
-                            IsBackButtonVisible="Collapsed"
-                            PaneDisplayMode="LeftCompact"                                
-                            HorizontalAlignment="Stretch"
-                            OpenPaneLength="200">
+            <winui:NavigationView IsPaneOpen="False"
+                                  IsSettingsVisible="False"
+                                  IsBackEnabled="False"
+                                  IsBackButtonVisible="Collapsed"
+                                  PaneDisplayMode="LeftCompact"
+                                  HorizontalAlignment="Stretch"
+                                  OpenPaneLength="200">
                 <winui:NavigationView.MenuItems>
-                    <winui:NavigationViewItem Content="General" Tag="General" IsSelected="True">
+                    <winui:NavigationViewItem Content="General" Tag="general" IsSelected="True">
                         <winui:NavigationViewItem.Icon>
-                            <FontIcon Glyph="&#xF17F;" />
+                            <FontIcon Glyph="&#xE12A;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
-                    <winui:NavigationViewItem Icon="Save" Content="Theme" Tag="SamplePage2" />
-                    <winui:NavigationViewItem Icon="Refresh" Content="Font" Tag="SamplePage3" />
-                    <winui:NavigationViewItem Icon="Download" Content="About" Tag="SamplePage4" />
+                    <winui:NavigationViewItem Content="Theme" Tag="theme">
+                        <winui:NavigationViewItem.Icon>
+                            <FontIcon Glyph="&#xE771;" />
+                        </winui:NavigationViewItem.Icon>
+                    </winui:NavigationViewItem>
+                    <winui:NavigationViewItem Content="Font" Tag="font">
+                        <winui:NavigationViewItem.Icon>
+                            <FontIcon Glyph="&#xE8D2;" />
+                        </winui:NavigationViewItem.Icon>
+                    </winui:NavigationViewItem>
+                    <winui:NavigationViewItem Content="Advance" Tag="advance">
+                        <winui:NavigationViewItem.Icon>
+                            <FontIcon Glyph="&#xE74C;" />
+                        </winui:NavigationViewItem.Icon>
+                    </winui:NavigationViewItem>
+                    <winui:NavigationViewItemSeparator/>
+                    <winui:NavigationViewItem Content="Report" Tag="report">
+                        <winui:NavigationViewItem.Icon>
+                            <FontIcon Glyph="&#xEBE8;" />
+                        </winui:NavigationViewItem.Icon>
+                    </winui:NavigationViewItem>
+                    <winui:NavigationViewItem Content="About" Tag="about">
+                        <winui:NavigationViewItem.Icon>
+                            <FontIcon Glyph="&#xE946;" />
+                        </winui:NavigationViewItem.Icon>
+                    </winui:NavigationViewItem>
                 </winui:NavigationView.MenuItems>
                 <Frame x:Name="contentFrame"/>
             </winui:NavigationView>
