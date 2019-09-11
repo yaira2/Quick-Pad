@@ -21,6 +21,8 @@ namespace QuickPad.Dialog
     {
         public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 
+        public QuickPad.Setting QSetting => ((Window.Current.Content as Frame).Content as MainPage).QSetting;
+
         public GoTo()
         {
             this.InitializeComponent();

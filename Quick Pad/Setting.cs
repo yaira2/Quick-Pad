@@ -615,6 +615,11 @@ namespace QuickPad
         {
             return new FontFamily(name);
         }
+
+        public static CornerRadius IntToCorner(int corner)
+        {
+            return new CornerRadius(corner);
+        }
     }
 
     public static class IntCompare

@@ -81,7 +81,6 @@ namespace QuickPad
         public MainPage()
         {
             InitializeComponent();
-
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
@@ -2158,7 +2157,7 @@ namespace QuickPad
             General,
             Theme,
             Font,
-            Advance,
+            Advanced,
             Report,
             About
         }

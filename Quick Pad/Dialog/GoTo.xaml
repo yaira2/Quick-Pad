@@ -6,13 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
-    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:q="using:QuickPad"
     mc:Ignorable="d"
     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
     RequestedTheme="{x:Bind VisualThemeSelector.CurrentItem.Theme, Mode=OneWay}"
     x:Uid="GT_Dialog"    
     Title="Go To Line"
-    Windows10version1809:CornerRadius="4" 
+    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalDialogCorner), Mode=OneWay}" 
     Opened="ContentDialog_Opened"    
     
     PrimaryButtonText="Go to"
@@ -42,6 +43,7 @@
                  extensions:TextBoxRegex.ValidationMode="Dynamic" 
                  extensions:TextBoxRegex.ValidationType="Number"
                  KeyDown="LineInput_KeyDown" 
-                 Style="{ThemeResource FluentTextBoxStyle}" />
+                 Style="{ThemeResource FluentTextBoxStyle}" 
+                 w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"/>
     </Grid>
 </ContentDialog>

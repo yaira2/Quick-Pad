@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:tkui="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:q="using:QuickPad"
-    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d" >
     <UserControl.Resources>
         <Storyboard x:Name="EnterContentHolderStoryboard">
@@ -22,7 +22,7 @@
                           HorizontalContentAlignment="Stretch">
         <Grid x:Name="ContentHolderContent" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
               Padding="4"
-              Windows10version1809:CornerRadius="4" >
+              w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalDialogCorner), Mode=OneWay}" >
             <!-- Grid Definitions -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -43,7 +43,7 @@
                           Height="32"
                           VerticalAlignment="Center"
                           BorderThickness="1"
-                          Windows10version1809:CornerRadius="2"
+                          w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                           Margin="4"
                           IsChecked="{x:Bind ShowReplace, Mode=TwoWay}">
                 <FontIcon Glyph="&#xE011;" />
@@ -63,6 +63,7 @@
                      VerticalAlignment="Center"
                      Margin="4"
                      Style="{ThemeResource FluentTextBoxStyle}"
+                     w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                      KeyDown="FindInput_KeyDown" 
                      TextChanged="{x:Bind SendRequestFind}" />
 
@@ -71,6 +72,7 @@
                     Grid.Column="2"
                     Padding="6" 
                     Margin="4"
+                    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle}">
                 <StackPanel>
                     <FontIcon Glyph="&#xE0A6;" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
@@ -80,7 +82,7 @@
                     <TextBlock Text="Find option" x:Uid="FAR_FindOption"/>
                 </ToolTipService.ToolTip>
                 <Button.Flyout>
-                    <MenuFlyout Windows10version1809:Placement="BottomEdgeAlignedRight">
+                    <MenuFlyout w10v1809:Placement="BottomEdgeAlignedRight">
                         <MenuFlyoutItem Text="Find Next" x:Uid="ClassicEditFindNext" Click="{x:Bind RequestFindNext}">
                             <MenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xE0AB;" />
@@ -107,6 +109,7 @@
                     Margin="4" 
                     Padding="6" 
                     Click="{x:Bind RequestCloseDialog}" 
+                    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle}">
                 <FontIcon Glyph="&#xE10A;" />
                 <ToolTipService.ToolTip>
@@ -130,6 +133,7 @@
                      Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      PlaceholderText="Replace with.." 
                      Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
+                     w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                      Style="{ThemeResource FluentTextBoxStyle}" 
                      KeyDown="TextBox_KeyDown" />
 
@@ -141,6 +145,7 @@
                     Margin="4"
                     Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle }"
+                    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                     Click="{x:Bind SendRequestReplace}" >
                 <FontIcon Glyph="&#xE8AC;"/>
                 <ToolTipService.ToolTip>
@@ -155,6 +160,7 @@
                     Margin="4"
                     Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle}"
+                    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                     Click="{x:Bind SendRequestReplaceAll}" >
                 <FontIcon Glyph="&#xE8B3;"/>
                 <ToolTipService.ToolTip>
@@ -171,8 +177,8 @@
                         Orientation="Vertical"
                         Margin="4"
                         Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
-                <CheckBox x:Uid="FAR_MatchCase" Content="Match case" IsChecked="{x:Bind MatchCase, Mode=TwoWay}"/>
-                <CheckBox x:Uid="FAR_WrapAround" Content="Wrap around" IsChecked="{x:Bind WrapAround, Mode=TwoWay}"/>
+                <CheckBox x:Uid="FAR_MatchCase" Content="Match case" IsChecked="{x:Bind MatchCase, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"/>
+                <CheckBox x:Uid="FAR_WrapAround" Content="Wrap around" IsChecked="{x:Bind WrapAround, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"/>
             </StackPanel>
             <!-- END OF Options -->
         </Grid>

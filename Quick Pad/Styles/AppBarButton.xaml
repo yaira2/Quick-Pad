@@ -29,7 +29,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="AppBarButton">
-                    <Grid x:Name="Root" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{TemplateBinding CornerRadius}" MinWidth="{TemplateBinding MinWidth}" MaxWidth="{TemplateBinding MaxWidth}">
+                    <Grid x:Name="Root" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" MinWidth="{TemplateBinding MinWidth}" MaxWidth="{TemplateBinding MaxWidth}">
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="ApplicationViewStates">
                                 <VisualState x:Name="FullSize"/>
@@ -258,7 +258,7 @@
                             </Viewbox>
                             <TextBlock x:Name="TextLabel" AutomationProperties.AccessibilityView="Raw" FontFamily="{TemplateBinding FontFamily}" Foreground="{TemplateBinding Foreground}" FontSize="12" Margin="{ThemeResource AppBarButtonTextLabelMargin}" Grid.Row="1" Text="{TemplateBinding Label}" TextWrapping="Wrap" TextAlignment="Center"/>
                             <TextBlock x:Name="OverflowTextLabel" AutomationProperties.AccessibilityView="Raw" FontFamily="Segoe UI" Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Stretch" Margin="12,0,12,0" Padding="{ThemeResource AppBarButtonOverflowTextLabelPadding}" Text="{TemplateBinding Label}" TextTrimming="Clip" TextWrapping="NoWrap" TextAlignment="Left" VerticalAlignment="Center" Visibility="Collapsed"/>
-                            <TextBlock x:Name="KeyboardAcceleratorTextLabel" AutomationProperties.AccessibilityView="Raw" Grid.Column="1" Foreground="{ThemeResource AppBarButtonKeyboardAcceleratorTextForeground}" HorizontalAlignment="Right" MinWidth="{Binding TemplateSettings.KeyboardAcceleratorTextMinWidth, RelativeSource={RelativeSource Mode=TemplatedParent}}" Margin="24,0,12,0" Style="{ThemeResource CaptionTextBlockStyle}" Text="{TemplateBinding KeyboardAcceleratorTextOverride}" VerticalAlignment="Center" Visibility="Collapsed"/>
+                            <TextBlock x:Name="KeyboardAcceleratorTextLabel" AutomationProperties.AccessibilityView="Raw" Grid.Column="1" Foreground="{ThemeResource AppBarButtonKeyboardAcceleratorTextForeground}" HorizontalAlignment="Right" Margin="24,0,12,0" Style="{ThemeResource CaptionTextBlockStyle}" Text="{TemplateBinding KeyboardAcceleratorTextOverride}" VerticalAlignment="Center" Visibility="Collapsed"/>
                             <FontIcon x:Name="SubItemChevron" AutomationProperties.AccessibilityView="Raw" Grid.Column="2" FontFamily="{ThemeResource SymbolThemeFontFamily}" Foreground="{ThemeResource MenuFlyoutSubItemChevron}" FontSize="12" Glyph="&#xE0E3;" MirroredWhenRightToLeft="True" Margin="12,0,12,0" Visibility="Collapsed"/>
                         </Grid>
                     </Grid>
