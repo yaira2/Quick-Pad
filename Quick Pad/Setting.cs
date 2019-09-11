@@ -395,6 +395,13 @@ namespace QuickPad
             get => Get<int>();
             set => Set(value);
         }
+
+        [DefaultValue(true)]
+        public bool NoFormatClipboard
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
         #endregion
 
         #region Manage
