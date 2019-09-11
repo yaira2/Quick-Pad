@@ -52,9 +52,6 @@
             <uap:Logo>Assets\Quick Pad.png</uap:Logo>
             <uap:InfoTip>Quick Pad</uap:InfoTip>
             <uap:SupportedFileTypes>
-              <uap:FileType>.rtf</uap:FileType>
-              <uap:FileType>.txt</uap:FileType>
-              <uap:FileType>.md</uap:FileType>
               <uap:FileType>.html</uap:FileType>
               <uap:FileType>.css</uap:FileType>
               <uap:FileType>.cs</uap:FileType>
@@ -100,6 +97,39 @@
                <uap:Logo>Assets\Quick Pad.png</uap:Logo>
                <uap:DisplayName>Quick Pad launch protocal URI</uap:DisplayName>
             </uap:Protocol>
+         </uap:Extension>
+         <uap:Extension Category="windows.fileTypeAssociation">
+            <uap:FileTypeAssociation Name="txt">
+               <uap:SupportedFileTypes>
+                  <uap:FileType>.txt</uap:FileType>
+               </uap:SupportedFileTypes>
+               <uap:DisplayName>Quick Pad</uap:DisplayName>
+               <uap:InfoTip>Quick Pad</uap:InfoTip>
+               <uap:Logo>Assets\Files\txt.png</uap:Logo>
+               <uap:EditFlags OpenIsSafe="true"/>
+            </uap:FileTypeAssociation>
+         </uap:Extension>
+         <uap:Extension Category="windows.fileTypeAssociation">
+            <uap:FileTypeAssociation Name="rtf">
+               <uap:SupportedFileTypes>
+                  <uap:FileType>.rtf</uap:FileType>
+               </uap:SupportedFileTypes>
+               <uap:DisplayName>Quick Pad</uap:DisplayName>
+               <uap:InfoTip>Quick Pad</uap:InfoTip>
+               <uap:Logo>Assets\Files\rtf.png</uap:Logo>
+               <uap:EditFlags OpenIsSafe="true"/>
+            </uap:FileTypeAssociation>
+         </uap:Extension>
+         <uap:Extension Category="windows.fileTypeAssociation">
+            <uap:FileTypeAssociation Name="md">
+               <uap:SupportedFileTypes>
+                  <uap:FileType>.md</uap:FileType>
+               </uap:SupportedFileTypes>
+               <uap:DisplayName>Quick Pad</uap:DisplayName>
+               <uap:InfoTip>Quick Pad</uap:InfoTip>
+               <uap:Logo>Assets\Files\MD.png</uap:Logo>
+               <uap:EditFlags OpenIsSafe="true"/>
+            </uap:FileTypeAssociation>
          </uap:Extension>
       </Extensions>
     </Application>

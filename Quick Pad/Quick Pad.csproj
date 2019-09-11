@@ -164,6 +164,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Files\md.png" />
+    <Content Include="Assets\Files\rtf.png" />
+    <Content Include="Assets\Files\txt.png" />
     <Content Include="Assets\jumplist\classic.png" />
     <Content Include="Assets\jumplist\focus.png" />
     <Content Include="Assets\jumplist\ontop.png" />
