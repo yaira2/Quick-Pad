@@ -387,12 +387,19 @@ namespace QuickPad
             set => Set(value);
         }
 
+        [DefaultValue(4)]
         public int GlobalDialogCorner
         {
             get => Get<int>();
             set => Set(value);
         }
         #endregion
+
+        public void ResetSettings()
+        {
+            localSettings.Values.Clear();
+            Application.Current.Exit();
+        }
 
         #region Events when setting change
         public autoSaveChange afterAutoSaveChanged { get; set; }

@@ -2190,6 +2190,24 @@ namespace QuickPad
 
         public string VersionNumberText => string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
+        public async void ResetSettings()
+        {
+            //Ask if they want to save change first
+            if (Changed)
+            {
+                await WantToSave.ShowAsync();
+                switch (WantToSave.DialogResult)
+                {
+                    case DialogResult.Yes:
+                        await SaveWork();
+                        break;
+                    case DialogResult.Cancel:
+                        return;
+                }
+            }
+            timer.Stop();//Prevent some change made to setting
+            QSetting.ResetSettings();
+        }
         #endregion
     }
 
