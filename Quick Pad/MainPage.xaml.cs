@@ -2232,7 +2232,7 @@ namespace QuickPad
             }
         }
 
-        bool _forced;
+        bool _forced = true;
         public bool ForceLoadSetting
         {
             get => _forced;
@@ -2249,9 +2249,11 @@ namespace QuickPad
             var file = await open.PickSingleFileAsync();
             if (file != null)
             {
+                timer.Stop();
                 var setting = await FileIO.ReadTextAsync(file);
-                QSetting.ImportSetting(setting, ForceLoadSetting);
+                QSetting.ImportSetting(setting);
             }
+            Application.Current.Exit();
         }
         #endregion
     }

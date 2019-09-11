@@ -443,7 +443,7 @@ namespace QuickPad
             return appConfig;
         }
 
-        public void ImportSetting(string settings, bool replace)
+        public void ImportSetting(string settings)
         {
             string[] lines = settings.Split("'\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
             foreach (var line in lines)
@@ -451,31 +451,36 @@ namespace QuickPad
                 if (line.StartsWith('#'))
                     continue;
                 var infos = line.Split(new char[] { '[', ']', '=' }, StringSplitOptions.RemoveEmptyEntries);
-                if (localSettings.Values.ContainsKey(infos[0]))
+                try
                 {
-                    localSettings.Values.Remove(infos[0]);
+                    switch (infos[0])
+                    {
+                        case "String":
+                            if (localSettings.Values.ContainsKey(infos[1]))
+                                localSettings.Values[infos[1]] = infos[2];
+                            else
+                                localSettings.Values.Add(infos[1], infos[2]);
+                            break;
+                        case "Boolean":
+                            if (localSettings.Values.ContainsKey(infos[1]))
+                                localSettings.Values[infos[1]] = infos[2] == "True";
+                            else
+                                localSettings.Values.Add(infos[1], infos[2] == "True");
+                            break;
+                        case "Int32":
+                            if (localSettings.Values.ContainsKey(infos[1]))
+                                localSettings.Values[infos[1]] = int.Parse(infos[2]);
+                            else
+                                localSettings.Values.Add(infos[1], int.Parse(infos[2]));
+                            break;
+                    }
                 }
-                switch (infos[0])
+                catch
                 {
-                    case "String":
-                        if (!localSettings.Values.ContainsKey(infos[1]))
-                        {
-                            localSettings.Values.Add(infos[1], infos[2]);
-                        }
-                        break;
-                    case "Boolean":
-                        if (!localSettings.Values.ContainsKey(infos[1]))
-                        {
-                            localSettings.Values.Add(infos[1], infos[2] == "True");
-                        }
-                        break;
-                    case "Int32":
-                        if (!localSettings.Values.ContainsKey(infos[1]))
-                        {
-                            localSettings.Values.Add(infos[1], int.Parse(infos[2]));
-                        }
-                        break;
+                    continue;
                 }
+                //Refresh settings
+                NotifyPropertyChanged(infos[1]);
             }
         }
 
