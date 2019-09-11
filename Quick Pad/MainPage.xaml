@@ -844,11 +844,6 @@
                                 <Run Text="Give you a chance to save or copy your work."/>
                                 <LineBreak/><Run Text="However, you still need to restart as some part of app will not work properly"/>
                             </TextBlock>
-
-                            <TextBlock Text="Saved crash logs"/>
-                            <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
-                                        Content="Open Log files"
-                                        Click="{x:Bind OpenLogFolder}"/>
                         </StackPanel>
                     </ScrollViewer>
                     
