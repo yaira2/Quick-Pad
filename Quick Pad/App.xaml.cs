@@ -21,6 +21,8 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter.Crashes;
 using Windows.Globalization;
 using Windows.Foundation.Metadata;
+using Windows.Storage;
+using Newtonsoft.Json;
 
 namespace QuickPad
 {
@@ -36,14 +38,41 @@ namespace QuickPad
         public App()
         {
             this.InitializeComponent();
-            ApplicationLanguages.PrimaryLanguageOverride = new Setting().AppLanguage;
+            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
 
             this.Suspending += OnSuspending;
+            this.UnhandledException += OnUnhandledException;
+
 
 #if !DEBUG
-            AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes)); //send analytics to app center
+            if (QSetting.SendAnalyticsReport)
+            {
+                AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes)); //send analytics to app center
+            }
 #endif
             Is1903OrNewer = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 9);
+        }
+
+        public Setting QSetting { get; } = new Setting();
+
+        private async void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
+        {
+            e.Handled = QSetting.PreventAppCloseAfterCrash;
+            if (QSetting.SaveLogWhenCrash)
+            {
+                StorageFolder folder = ApplicationData.Current.LocalFolder;
+                var crash = (await folder.TryGetItemAsync("Crash")) as StorageFolder;
+                if (crash is null)
+                {
+                    crash = await folder.CreateFolderAsync("Crash");
+                }
+                StorageFile crashLog = await crash.CreateFileAsync($"CrashLog_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt", CreationCollisionOption.GenerateUniqueName);
+                string feed = $"Quick Pad crash report {DateTime.Now.ToString("G")}\r\n";
+               
+                feed += $"{JsonConvert.SerializeObject(e.Exception, Formatting.Indented)}";
+
+                await FileIO.WriteTextAsync(crashLog, feed);
+            }
         }
 
         public static bool Is1903OrNewer;

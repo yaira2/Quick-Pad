@@ -832,6 +832,26 @@
                         </StackPanel>
                     </ScrollViewer>
 
+                    <!--Crash-->
+                    <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Report'), Mode=OneWay}">
+                        <StackPanel Padding="2">
+                            <CheckBox w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health report to App Center"/>
+
+                            <CheckBox w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log report when app crash"/>
+
+                            <CheckBox w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" Content="Prevent app close when crash"/>
+                            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
+                                <Run Text="Give you a chance to save or copy your work."/>
+                                <LineBreak/><Run Text="However, you still need to restart as some part of app will not work properly"/>
+                            </TextBlock>
+
+                            <TextBlock Text="Saved crash logs"/>
+                            <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
+                                        Content="Open Log files"
+                                        Click="{x:Bind OpenLogFolder}"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                    
                     <!--About-->
                     <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'About'), Mode=OneWay}">
                         <StackPanel Padding="2,2,2,2">

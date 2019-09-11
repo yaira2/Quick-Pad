@@ -2253,6 +2253,16 @@ namespace QuickPad
                 QSetting.ImportSetting(setting, ForceLoadSetting);
             }
         }
+
+        public async void OpenLogFolder()
+        {
+            string path = $"{ApplicationData.Current.LocalFolder.Path}/Crash/";
+            if (!System.IO.Directory.Exists(path))
+            {
+                System.IO.Directory.CreateDirectory(path);
+            }
+            await Windows.System.Launcher.LaunchUriAsync(new Uri($"file://{path}"));
+        }
         #endregion
     }
 

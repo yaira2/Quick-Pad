@@ -395,6 +395,33 @@ namespace QuickPad
             get => Get<int>();
             set => Set(value);
         }
+
+        [DefaultValue(true)]
+        public bool SendAnalyticsReport
+        {
+            get => Get<bool>();
+            set
+            {
+                if (Set(value))
+                {
+                    Analytics.Instance.InstanceEnabled = value;
+                }
+            }
+        }
+
+        [DefaultValue(false)]
+        public bool SaveLogWhenCrash
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(false)]
+        public bool PreventAppCloseAfterCrash
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
         #endregion
 
         #region Manage
