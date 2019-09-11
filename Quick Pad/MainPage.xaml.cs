@@ -2208,6 +2208,29 @@ namespace QuickPad
             timer.Stop();//Prevent some change made to setting
             QSetting.ResetSettings();
         }
+
+        public async void ExportSettings()
+        {
+            string result = QSetting.ExportSetting();
+            Windows.Storage.Pickers.FileSavePicker picker = new Windows.Storage.Pickers.FileSavePicker()
+            {
+                SuggestedFileName = $"AppConfig_{DateTime.Now.ToString("ddMMyy_HHmmss")}"
+            };
+            picker.FileTypeChoices.Add("App configurations", new List<string>() { ".txt" });
+            try
+            {
+                var file = await picker.PickSaveFileAsync();
+                if (file != null)
+                {
+                    await FileIO.WriteTextAsync(file, result);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                //Show error
+            }
+        }
         #endregion
     }
 

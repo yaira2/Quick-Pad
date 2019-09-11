@@ -814,10 +814,19 @@
                             <TextBlock Text="Global dialog corner radius"/>
                             <Slider Value="{x:Bind QSetting.GlobalDialogCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>
 
-                            <TextBlock Text="Reset settings"/>
-                            <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
-                                    Content="Reset"
-                                    Click="{x:Bind ResetSettings}"/>
+                            <TextBlock Text="Manage settings"/>
+                            <StackPanel Orientation="Horizontal">
+                                <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
+                                        Content="Import"
+                                        Click="{x:Bind ResetSettings}"/>
+                                <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
+                                        Content="Export"
+                                        Margin="5,0"
+                                        Click="{x:Bind ExportSettings}"/>
+                                <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
+                                        Content="Reset"
+                                        Click="{x:Bind ResetSettings}"/>
+                            </StackPanel>
                         </StackPanel>
                     </ScrollViewer>
 
