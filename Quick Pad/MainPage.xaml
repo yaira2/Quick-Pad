@@ -821,12 +821,14 @@
                                         Click="{x:Bind ResetSettings}"/>
                                 <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Export"
-                                        Margin="5,0"
+                                        Margin="5,2"
                                         Click="{x:Bind ExportSettings}"/>
                                 <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Reset"
-                                        Click="{x:Bind ResetSettings}"/>
+                                        Click="{x:Bind ImportSetting}"/>
                             </StackPanel>
+                            <CheckBox w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" Content="Replace existing settings" IsChecked="{x:Bind ForceLoadSetting, Mode=TwoWay}"/>
+                            
                         </StackPanel>
                     </ScrollViewer>
 

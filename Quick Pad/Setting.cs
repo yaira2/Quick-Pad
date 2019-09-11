@@ -397,6 +397,7 @@ namespace QuickPad
         }
         #endregion
 
+        #region Manage
         public void ResetSettings()
         {
             localSettings.Values.Clear();
@@ -450,6 +451,8 @@ namespace QuickPad
                 }
             }
         }
+
+        #endregion
 
         #region Events when setting change
         public autoSaveChange afterAutoSaveChanged { get; set; }

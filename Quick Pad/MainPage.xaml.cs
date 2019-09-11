@@ -2231,6 +2231,28 @@ namespace QuickPad
                 //Show error
             }
         }
+
+        bool _forced;
+        public bool ForceLoadSetting
+        {
+            get => _forced;
+            set => Set(ref _forced, value);
+        }
+
+        public async void ImportSetting()
+        {
+            Windows.Storage.Pickers.FileOpenPicker open = new Windows.Storage.Pickers.FileOpenPicker()
+            {
+                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+            };
+            open.FileTypeFilter.Add(".txt");
+            var file = await open.PickSingleFileAsync();
+            if (file != null)
+            {
+                var setting = await FileIO.ReadTextAsync(file);
+                QSetting.ImportSetting(setting, ForceLoadSetting);
+            }
+        }
         #endregion
     }
 
