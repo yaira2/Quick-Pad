@@ -818,17 +818,19 @@
                             <StackPanel Orientation="Horizontal">
                                 <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Import"
-                                        Click="{x:Bind ResetSettings}"/>
+                                        Click="{x:Bind ImportSetting}"/>
                                 <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Export"
                                         Margin="5,2"
                                         Click="{x:Bind ExportSettings}"/>
                                 <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Reset"
-                                        Click="{x:Bind ImportSetting}"/>
+                                        Click="{x:Bind ResetSettings}"/>
                             </StackPanel>
-                            <CheckBox w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" Content="Replace existing settings" IsChecked="{x:Bind ForceLoadSetting, Mode=TwoWay}"/>
-                            
+                            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
+                                <Run Text="Please save your work before Import/Reset"/>
+                                <LineBreak/><Run Text="Since some setting will not update until restart."/>
+                            </TextBlock>
                         </StackPanel>
                     </ScrollViewer>
 
