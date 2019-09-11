@@ -372,10 +372,23 @@ namespace QuickPad
         }
         #endregion
 
-        #region
+        #region Advanced/Others
         [DefaultValue(0)]
         public int TimesUsingFocusMode 
         { //Use to track focus mode, if less than 2 times it will show tip, else it won't
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(2)]
+        public int GlobalButtonCorner
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        public int GlobalDialogCorner
+        {
             get => Get<int>();
             set => Set(value);
         }

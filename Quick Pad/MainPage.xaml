@@ -658,7 +658,7 @@
                             <FontIcon Glyph="&#xE8D2;" />
                         </winui:NavigationViewItem.Icon>
                     </winui:NavigationViewItem>
-                    <winui:NavigationViewItem Content="Advanced" Tag="Advancedd" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
+                    <winui:NavigationViewItem Content="Advanced" Tag="Advanced" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                         <winui:NavigationViewItem.Icon>
                             <FontIcon Glyph="&#xE74C;" />
                         </winui:NavigationViewItem.Icon>
@@ -721,7 +721,6 @@
                                     <Run Text="{x:Bind QSetting.AutoSaveInterval, Mode=OneWay}"/>
                                     <Run x:Uid="AutoSaveEverySeconds" Text="second(s)"/>
                             </TextBlock>
-
                             <Slider Value="{x:Bind QSetting.AutoSaveInterval, Mode=TwoWay}" Visibility="{x:Bind QSetting.AutoSave, Mode=OneWay}" Minimum="5" Maximum="45" StepFrequency="1" TickPlacement="Inline" Width="230" HorizontalAlignment="Left" ValueChanged="AutoSaveTimer_Changed"/>
                         </StackPanel>
                     </ScrollViewer>
@@ -809,8 +808,16 @@
                         </StackPanel>
                     </ScrollViewer>
                     
-                    <!--Advance-->
+                    <!--Advanced-->
+                    <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
+                        <StackPanel>
+                            <TextBlock Text="Global button corner radius"/>
+                            <Slider Value="{x:Bind QSetting.GlobalButtonCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>
 
+                            <TextBlock Text="Global dialog corner radius"/>
+                            <Slider Value="{x:Bind QSetting.GlobalDialogCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>                            
+                        </StackPanel>
+                    </ScrollViewer>
 
                     <!--About-->
                     <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'About'), Mode=OneWay}">
