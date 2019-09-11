@@ -1,11 +1,13 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Windows.Storage;
 using Windows.UI;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 
 namespace QuickPad
@@ -372,13 +374,111 @@ namespace QuickPad
         }
         #endregion
 
-        #region
+        #region Advanced/Others
         [DefaultValue(0)]
         public int TimesUsingFocusMode 
         { //Use to track focus mode, if less than 2 times it will show tip, else it won't
             get => Get<int>();
             set => Set(value);
         }
+
+        [DefaultValue(2)]
+        public int GlobalButtonCorner
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(4)]
+        public int GlobalDialogCorner
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool SendAnalyticsReport
+        {
+            get => Get<bool>();
+            set
+            {
+                if (Set(value))
+                {
+                    Analytics.Instance.InstanceEnabled = value;
+                }
+            }
+        }
+
+        [DefaultValue(false)]
+        public bool SaveLogWhenCrash
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(false)]
+        public bool PreventAppCloseAfterCrash
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+        #endregion
+
+        #region Manage
+        public void ResetSettings()
+        {
+            localSettings.Values.Clear();
+            Application.Current.Exit();
+        }
+
+        public string ExportSetting()
+        {
+            string appConfig = "";
+            appConfig += $"#{Windows.ApplicationModel.Package.Current.DisplayName}\r\n";
+            appConfig += $"#{((Window.Current.Content as Frame).Content as MainPage).VersionNumberText}\r\n";
+            foreach (var set in localSettings.Values.ToList().OrderBy(i => i.Key))
+            {
+                appConfig += $"[{set.Value.GetType().Name}]{set.Key}={set.Value}\r\n";
+            }
+            return appConfig;
+        }
+
+        public void ImportSetting(string settings, bool replace)
+        {
+            string[] lines = settings.Split("'\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            foreach (var line in lines)
+            {
+                if (line.StartsWith('#'))
+                    continue;
+                var infos = line.Split(new char[] { '[', ']', '=' }, StringSplitOptions.RemoveEmptyEntries);
+                if (localSettings.Values.ContainsKey(infos[0]))
+                {
+                    localSettings.Values.Remove(infos[0]);
+                }
+                switch (infos[0])
+                {
+                    case "String":
+                        if (!localSettings.Values.ContainsKey(infos[1]))
+                        {
+                            localSettings.Values.Add(infos[1], infos[2]);
+                        }
+                        break;
+                    case "Boolean":
+                        if (!localSettings.Values.ContainsKey(infos[1]))
+                        {
+                            localSettings.Values.Add(infos[1], infos[2] == "True");
+                        }
+                        break;
+                    case "Int32":
+                        if (!localSettings.Values.ContainsKey(infos[1]))
+                        {
+                            localSettings.Values.Add(infos[1], int.Parse(infos[2]));
+                        }
+                        break;
+                }
+            }
+        }
+
         #endregion
 
         #region Events when setting change
@@ -601,6 +701,11 @@ namespace QuickPad
         public static FontFamily FontNameToFontFamily(string name)
         {
             return new FontFamily(name);
+        }
+
+        public static CornerRadius IntToCorner(int corner)
+        {
+            return new CornerRadius(corner);
         }
     }
 

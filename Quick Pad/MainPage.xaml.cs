@@ -81,7 +81,6 @@ namespace QuickPad
         public MainPage()
         {
             InitializeComponent();
-
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
@@ -2158,7 +2157,7 @@ namespace QuickPad
             General,
             Theme,
             Font,
-            Advance,
+            Advanced,
             Report,
             About
         }
@@ -2191,6 +2190,69 @@ namespace QuickPad
 
         public string VersionNumberText => string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
+        public async void ResetSettings()
+        {
+            //Ask if they want to save change first
+            if (Changed)
+            {
+                await WantToSave.ShowAsync();
+                switch (WantToSave.DialogResult)
+                {
+                    case DialogResult.Yes:
+                        await SaveWork();
+                        break;
+                    case DialogResult.Cancel:
+                        return;
+                }
+            }
+            timer.Stop();//Prevent some change made to setting
+            QSetting.ResetSettings();
+        }
+
+        public async void ExportSettings()
+        {
+            string result = QSetting.ExportSetting();
+            Windows.Storage.Pickers.FileSavePicker picker = new Windows.Storage.Pickers.FileSavePicker()
+            {
+                SuggestedFileName = $"AppConfig_{DateTime.Now.ToString("ddMMyy_HHmmss")}"
+            };
+            picker.FileTypeChoices.Add("App configurations", new List<string>() { ".txt" });
+            try
+            {
+                var file = await picker.PickSaveFileAsync();
+                if (file != null)
+                {
+                    await FileIO.WriteTextAsync(file, result);
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine(ex.Message);
+                //Show error
+            }
+        }
+
+        bool _forced;
+        public bool ForceLoadSetting
+        {
+            get => _forced;
+            set => Set(ref _forced, value);
+        }
+
+        public async void ImportSetting()
+        {
+            Windows.Storage.Pickers.FileOpenPicker open = new Windows.Storage.Pickers.FileOpenPicker()
+            {
+                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+            };
+            open.FileTypeFilter.Add(".txt");
+            var file = await open.PickSingleFileAsync();
+            if (file != null)
+            {
+                var setting = await FileIO.ReadTextAsync(file);
+                QSetting.ImportSetting(setting, ForceLoadSetting);
+            }
+        }
         #endregion
     }
 
