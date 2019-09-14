@@ -211,6 +211,7 @@ namespace QuickPad
                 BackgroundAcrylicBrush2 = backgroundAcrylic2,
                 InAppAcrylicBrush = inAppAcrylic,
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
+                BaseThemeBackgroundBrush = new SolidColorBrush(new UISettings().GetColorValue(UIColorType.Background)),
                 PreviewBrush = new SolidColorBrush(accentColor),
             };
             return theme;
@@ -288,6 +289,11 @@ namespace QuickPad
             set;
         }
         public Brush SolidBackgroundBrush
+        {
+            get;
+            set;
+        }
+        public Brush BaseThemeBackgroundBrush
         {
             get;
             set;

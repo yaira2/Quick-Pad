@@ -445,6 +445,13 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+
+        [DefaultValue(false)]
+        public bool PreventText1ChangeColor
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
         #endregion
 
         #region Manage
@@ -740,6 +747,8 @@ namespace QuickPad
         {
             return new CornerRadius(corner);
         }
+
+        public static Brush SelectionBetweenBrush(bool determiner, Brush a, Brush b) => determiner ? a : b;
     }
 
     public static class IntCompare

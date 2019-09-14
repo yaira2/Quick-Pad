@@ -512,7 +512,7 @@
                      TextWrapping="{x:Bind q:Converter.BoolToTextWrap(QSetting.WordWrap), Mode=OneWay}" 
                      IsSpellCheckEnabled="{x:Bind QSetting.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
-                     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}" 
+                     Background="{x:Bind q:Converter.SelectionBetweenBrush(QSetting.PreventText1ChangeColor, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
                      Tapped="Text1_Tapped" FontFamily="Consolas">
                     <RichEditBox.SelectionHighlightColorWhenNotFocused>

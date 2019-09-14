@@ -189,6 +189,9 @@
                 <!--Advanced-->
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                     <StackPanel>
+                        <TextBlock Text="Disallow writing area following theme setting"/>
+                        <ToggleSwitch IsOn="{x:Bind QSetting.PreventText1ChangeColor, Mode=TwoWay}"/>
+
                         <TextBlock Text="Global button corner radius"/>
                         <Slider Value="{x:Bind QSetting.GlobalButtonCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>
 
