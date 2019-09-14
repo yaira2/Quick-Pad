@@ -71,10 +71,10 @@ namespace QuickPad
 
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
-        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
-
         public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
 
+        public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+        
         public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
 
         public Dialog.GoTo GoToDialog = new Dialog.GoTo();
