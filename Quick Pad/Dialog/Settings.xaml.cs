@@ -118,6 +118,7 @@ namespace QuickPad.Dialog
                     if (value is null)
                         return;
                     CurrentSettingPage = (settingPage)Enum.Parse(typeof(settingPage), value.Tag.ToString());
+                    
                 }
             }
         }

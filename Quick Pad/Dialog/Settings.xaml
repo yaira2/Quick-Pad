@@ -18,7 +18,13 @@
                                   PaneDisplayMode="LeftCompact"
                                   HorizontalAlignment="Stretch"
                                   SelectedItem="{x:Bind SelectedNavigationItem, Mode=TwoWay}"
+                              Header="{x:Bind SelectedNavigationItem.Content, Mode=OneWay}"
                                   OpenPaneLength="200">
+            <winui:NavigationView.HeaderTemplate>
+                <DataTemplate x:DataType="x:String">
+                    <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="{x:Bind}"/>
+                </DataTemplate>
+            </winui:NavigationView.HeaderTemplate>
             <!--Page selection-->
             <winui:NavigationView.MenuItems>
                 <winui:NavigationViewItem Content="General" Tag="General" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'General'), Mode=OneWay}">
@@ -65,7 +71,6 @@
                 <!--General-->
                 <ScrollViewer x:Name="SettingsTab1SV" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'General'),Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
-                        <TextBlock Text="General" x:Uid="General" FontSize="24"/>
                         <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
                         <ComboBox x:Uid="GeneralLaunchModeCombobox" Width="180" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" x:Name="LaunchOptions" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1">
                             <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
@@ -106,7 +111,6 @@
                 <!--Theme-->
                 <ScrollViewer x:Name="SettingsTab2SV" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Theme'), Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
-                        <TextBlock Text="Theme Settings" x:Uid="ThemeSettings" FontSize="24"/>
                         <ListView ItemsSource="{x:Bind VisualThemeSelector.ThemesView}" Margin="0,10,0,0">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="q:VisualTheme">
@@ -137,7 +141,6 @@
                 <!--Font-->
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Font'), Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
-                        <TextBlock Text="Font Settings" x:Uid="FontSettings" FontSize="24"/>
                         <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
                         <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
                         <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
