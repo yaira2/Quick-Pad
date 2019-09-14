@@ -53,7 +53,7 @@ namespace QuickPad
             Is1903OrNewer = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 9);
         }
 
-        public Setting QSetting { get; } = new Setting();
+        public static Setting QSetting { get; } = new Setting();
 
         private async void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
         {

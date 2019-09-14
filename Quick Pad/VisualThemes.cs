@@ -36,7 +36,7 @@ namespace QuickPad
             }
         }
 
-        private Setting _setting = ((Window.Current.Content as Frame).Content as MainPage).QSetting;
+        private Setting _setting = App.QSetting;
 
         private List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;
