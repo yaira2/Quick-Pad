@@ -317,6 +317,13 @@ namespace QuickPad
         {
             return FriendlyName;
         }
+
+        public void UpdateTintOpacity(double to)
+        {
+            BackgroundAcrylicBrush.Opacity = to;
+            BackgroundAcrylicBrush2.Opacity = to;
+            InAppAcrylicBrush.Opacity = to;
+        }
     }
     public enum VisualThemeKind
     {

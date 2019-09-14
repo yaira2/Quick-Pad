@@ -452,6 +452,17 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+
+        [DefaultValue(0.75)]
+        public double BackgroundTintOpacity
+        {
+            get => Get<double>();
+            set
+            {
+                if (Set(value))
+                    afterTintOpacityChanged?.Invoke(value);
+            }
+        }
         #endregion
 
         #region Manage
@@ -522,6 +533,7 @@ namespace QuickPad
         public themeChange afterThemeChanged { get; set; }
         public fontsizeChange afterFontSizeChanged { get; set; }
         public fontcolorChange afterFontColorChanged { get; set; }
+        public tintopacityChange afterTintOpacityChanged { get; set; }
         #endregion
     }
 
@@ -531,6 +543,7 @@ namespace QuickPad
     public delegate void fontsizeChange(int to);
     public delegate void fontcolorChange(Color to);
     public delegate void fontnameChange(string to);
+    public delegate void tintopacityChange(double to);
 
     public enum AvailableModes
     {

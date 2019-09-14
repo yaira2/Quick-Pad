@@ -192,6 +192,9 @@
                         <TextBlock Text="Disallow writing area following theme setting"/>
                         <ToggleSwitch IsOn="{x:Bind QSetting.PreventText1ChangeColor, Mode=TwoWay}"/>
 
+                        <TextBlock Text="App background tint opacity"/>
+                        <Slider Value="{x:Bind QSetting.BackgroundTintOpacity, Mode=TwoWay}" Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
+
                         <TextBlock Text="Global button corner radius"/>
                         <Slider Value="{x:Bind QSetting.GlobalButtonCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>
 
