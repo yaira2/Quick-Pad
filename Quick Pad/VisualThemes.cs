@@ -10,6 +10,7 @@ using Windows.Foundation;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 
@@ -34,6 +35,8 @@ namespace QuickPad
                 return _default;
             }
         }
+
+        private Setting _setting = App.QSetting;
 
         private List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;
@@ -169,35 +172,35 @@ namespace QuickPad
             _themes.Add(rdm);
             //Custom light themes:
             _themes.Add(BuildTheme("chick", "ThemeChickName", true, Color.FromArgb(255, 254, 255, 177)));
-            _themes.Add(BuildTheme("lettuce", "ThemeLettuceName", true, Color.FromArgb(255, 177, 234, 175), .8));
-            _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215), .8));
+            _themes.Add(BuildTheme("lettuce", "ThemeLettuceName", true, Color.FromArgb(255, 177, 234, 175)));
+            _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215)));
             //Custom dark themes:
             _themes.Add(BuildTheme("cobalt", "ThemeCobaltName", false, Color.FromArgb(255, 0, 71, 171)));
             _themes.Add(BuildTheme("leaf", "ThemeLeafName", false, Color.FromArgb(255, 56, 111, 54)));
             _themes.Add(BuildTheme("crimson", "ThemeCrimsonName", false, Color.FromArgb(255, 149, 0, 39)));
         }
-        private VisualTheme BuildTheme(string themeId, string nameResKey, bool lightTheme, Color accentColor, double tintOpacity=.7)
+        private VisualTheme BuildTheme(string themeId, string nameResKey, bool lightTheme, Color accentColor)
         {
             AcrylicBrush backgroundAcrylic = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = tintOpacity,
+                TintOpacity = _setting.BackgroundTintOpacity,
             };
             AcrylicBrush backgroundAcrylic2 = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = .85d
+                TintOpacity = (_setting.BackgroundTintOpacity + .15) > 1 ? 1 : _setting.BackgroundTintOpacity + .15 
             };
             AcrylicBrush inAppAcrylic = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.Backdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = .80d
+                TintOpacity = (_setting.BackgroundTintOpacity + .05) > 1 ? 1 : _setting.BackgroundTintOpacity + .05
             };
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
             string descriptionResKey = (lightTheme) ? "ThemeGeneralLightDescription" : "ThemeGeneralDarkDescription";
@@ -211,8 +214,10 @@ namespace QuickPad
                 BackgroundAcrylicBrush2 = backgroundAcrylic2,
                 InAppAcrylicBrush = inAppAcrylic,
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
+                BaseThemeBackgroundBrush = new SolidColorBrush(new UISettings().GetColorValue(UIColorType.Background)),
                 PreviewBrush = new SolidColorBrush(accentColor),
             };
+            _setting.afterTintOpacityChanged += theme.UpdateTintOpacity;
             return theme;
         }
         private VisualTheme GetThemeFromId(string id)
@@ -292,6 +297,11 @@ namespace QuickPad
             get;
             set;
         }
+        public Brush BaseThemeBackgroundBrush
+        {
+            get;
+            set;
+        }
         public Color DefaultTextForeground
         {
             get
@@ -310,6 +320,13 @@ namespace QuickPad
         public override string ToString()
         {
             return FriendlyName;
+        }
+
+        public void UpdateTintOpacity(double to)
+        {
+            BackgroundAcrylicBrush.Opacity = to;
+            BackgroundAcrylicBrush2.Opacity = to;
+            InAppAcrylicBrush.Opacity = to;
         }
     }
     public enum VisualThemeKind

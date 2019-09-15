@@ -4,10 +4,14 @@ using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 
 namespace QuickPad
@@ -224,7 +228,11 @@ namespace QuickPad
         public int AutoSaveInterval
         {
             get => Get<int>();
-            set => Set(value);
+            set
+            {
+                if (Set(value))
+                    afterAutoSaveIntervalChanged?.Invoke(value);
+            }
         }
 
         [DefaultValue(true)]
@@ -340,7 +348,22 @@ namespace QuickPad
         public string DefaultFontColor
         {
             get => Get<string>();
-            set => Set(value);
+            set
+            {
+                if (Set(value))
+                {
+                    Color update;
+                    if (value == "Default")
+                    {
+                        update = new UISettings().GetColorValue(UIColorType.Foreground);
+                    }
+                    else
+                    {
+                        update = (Color)XamlBindingHelper.ConvertValue(typeof(Color), value);
+                    }
+                    afterFontColorChanged?.Invoke(update);
+                }
+            }
         }
 
         [DefaultValue(12)]
@@ -422,6 +445,24 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+
+        [DefaultValue(false)]
+        public bool PreventText1ChangeColor
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(0.75)]
+        public double BackgroundTintOpacity
+        {
+            get => Get<double>();
+            set
+            {
+                if (Set(value))
+                    afterTintOpacityChanged?.Invoke(value);
+            }
+        }
         #endregion
 
         #region Manage
@@ -434,8 +475,8 @@ namespace QuickPad
         public string ExportSetting()
         {
             string appConfig = "";
-            appConfig += $"#{Windows.ApplicationModel.Package.Current.DisplayName}\r\n";
-            appConfig += $"#{((Window.Current.Content as Frame).Content as MainPage).VersionNumberText}\r\n";
+            appConfig += $"#{Package.Current.DisplayName}\r\n";
+            appConfig += $"#{string.Format(ResourceLoader.GetForCurrentView().GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision)}\r\n";
             foreach (var set in localSettings.Values.ToList().OrderBy(i => i.Key))
             {
                 appConfig += $"[{set.Value.GetType().Name}]{set.Key}={set.Value}\r\n";
@@ -488,14 +529,21 @@ namespace QuickPad
 
         #region Events when setting change
         public autoSaveChange afterAutoSaveChanged { get; set; }
+        public autosaveIntervalChange afterAutoSaveIntervalChanged { get; set; }
         public themeChange afterThemeChanged { get; set; }
         public fontsizeChange afterFontSizeChanged { get; set; }
+        public fontcolorChange afterFontColorChanged { get; set; }
+        public tintopacityChange afterTintOpacityChanged { get; set; }
         #endregion
     }
 
     public delegate void autoSaveChange(bool to);
+    public delegate void autosaveIntervalChange(int to);
     public delegate void themeChange(ElementTheme to);
     public delegate void fontsizeChange(int to);
+    public delegate void fontcolorChange(Color to);
+    public delegate void fontnameChange(string to);
+    public delegate void tintopacityChange(double to);
 
     public enum AvailableModes
     {
@@ -712,6 +760,8 @@ namespace QuickPad
         {
             return new CornerRadius(corner);
         }
+
+        public static Brush SelectionBetweenBrush(bool determiner, Brush a, Brush b) => determiner ? a : b;
     }
 
     public static class IntCompare

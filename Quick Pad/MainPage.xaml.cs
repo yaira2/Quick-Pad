@@ -1,4 +1,5 @@
 using Microsoft.AppCenter.Analytics;
+using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Services.Store.Engagement;
 using Microsoft.Toolkit.Uwp.UI.Animations;
 using Newtonsoft.Json.Linq;
@@ -73,8 +74,8 @@ namespace QuickPad
 
         public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 
-        public QuickPad.Setting QSetting { get; } = new QuickPad.Setting(); //Store all app setting here..
-
+        public Setting QSetting => App.QSetting;
+        
         public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
 
         public Dialog.GoTo GoToDialog = new Dialog.GoTo();
@@ -92,12 +93,13 @@ namespace QuickPad
             QSetting.afterFontSizeChanged += UpdateText1FontSize;
             UpdateText1FontSize(QSetting.DefaultFontSize);
             QSetting.afterAutoSaveChanged += UpdateAutoSave;
+            QSetting.afterAutoSaveIntervalChanged += UpdateAutoSaveInterval;
+            QSetting.afterFontColorChanged += UpdateFontColor;
             //
-            CreateItems();
             LoadSettings();
-            LoadFonts();
+            AllFonts = new ObservableCollection<FontFamilyItem>(CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font).Select(font => new FontFamilyItem(font)));
             //
-            
+
             Clipboard.ContentChanged += Clipboard_ContentChanged;
 
             //check if focus is on app or off the app
@@ -194,6 +196,19 @@ namespace QuickPad
             //Match the formatted text with the initial content
             //As it technically not empty but contain format size text
             SetANewChange();
+        }
+
+        private void UpdateAutoSaveInterval(int to)
+        {
+            if (timer != null)
+            {
+                timer.Interval = to * 1000;
+            }
+        }
+
+        private void UpdateFontColor(Color to)
+        {
+            Text1.Document.Selection.CharacterFormat.ForegroundColor = to;
         }
 
         private static async void Clipboard_ContentChanged(object sender, object e)
@@ -300,35 +315,6 @@ namespace QuickPad
             }
         }
 
-        private ObservableCollection<DefaultLanguage> _DefaultLanguage;
-        public ObservableCollection<DefaultLanguage> DefaultLanguages
-        {
-            get => _DefaultLanguage;
-            set => Set(ref _DefaultLanguage, value);
-        }
-
-        private void CreateItems()
-        {
-            FontColorCollections = new ObservableCollection<FontColorItem>
-            {
-                new FontColorItem(),
-                new FontColorItem("Black"),
-                new FontColorItem("White"),
-                new FontColorItem("Blue", "SkyBlue"),
-                new FontColorItem("Green", "LightGreen"),
-                new FontColorItem("Pink", "LightPink"),
-                new FontColorItem("Yellow", "LightYellow"),
-                new FontColorItem("Orange", "LightSalmon")
-            };
-
-            var supportedLang = ApplicationLanguages.ManifestLanguages;
-            DefaultLanguages = new ObservableCollection<DefaultLanguage>();
-            foreach (var lang in supportedLang)
-            {
-                DefaultLanguages.Add(new DefaultLanguage(lang));
-            }
-        }
-
         private void LoadSettings()
         {
             //check if auto save is on or off
@@ -353,21 +339,11 @@ namespace QuickPad
             }
         }
 
-        private void LoadFonts()
-        {
-            //Load all fonts
-            List<string> fonts = Microsoft.Graphics.Canvas.Text.CanvasTextFormat.GetSystemFontFamilies().ToList();
-            //Sort it in alphabet order
-            fonts.Sort((fontA, fontB) => fontA.CompareTo(fontB));
-            //Put it on an observable list
-            AllFonts = new ObservableCollection<FontFamilyItem>(fonts.Select(i => new FontFamilyItem(i)));
-        }
-
         private async void AddJumplists()
         {
             var all = await JumpList.LoadCurrentAsync();
 
-            all.SystemGroupKind = JumpListSystemGroupKind.None;
+            all.SystemGroupKind = JumpListSystemGroupKind.Recent;
             if (all.Items != null && all.Items.Count == 3)
             {
                 //Clear Jumplist
@@ -409,17 +385,6 @@ namespace QuickPad
                 Fonts.SelectedItem = QSetting.DefaultFont;
                 FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
                 Text1.Document.Selection.CharacterFormat.Name = QSetting.DefaultFont;
-
-                //check what default font color is
-
-                if (QSetting.DefaultFontColor == "Default")
-                {
-                    SelectedDefaultFontColor = 0;
-                }
-                else
-                {
-                    SelectedDefaultFontColor = FontColorCollections.IndexOf(FontColorCollections.First(i => i.TechnicalName == QSetting.DefaultFontColor));
-                }
 
                 Text1.Document.Selection.CharacterFormat.Size = QSetting.DefaultFontSize;
 
@@ -472,40 +437,6 @@ namespace QuickPad
             });
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
-
-        private void AutoSaveTimer_Changed(object sender, Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs e)
-        {
-            if (timer != null)
-            {
-                timer.Interval = e.NewValue * 1000;
-            }
-        }
-
-        int? _def_lang = null;
-        public int SelectedDefaultLanguage
-        {
-            get
-            {
-                if (_def_lang is null)
-                {
-                    _def_lang = DefaultLanguages.IndexOf(DefaultLanguages.First(i => i.ID == QSetting.AppLanguage));
-                }
-                return _def_lang.Value;
-            }
-            set
-            {
-                if (!Equals(_def_lang, value))
-                {
-                    Set(ref _def_lang, value);
-                    if (value == -1)
-                        return;
-                    LangChangeNeedRestart.Visibility = 
-                        ApplicationLanguages.PrimaryLanguageOverride == DefaultLanguages[value].ID 
-                        ? Visibility.Collapsed : Visibility.Visible;
-                    QSetting.AppLanguage = DefaultLanguages[value].ID;
-                }
-            }
-        }
         #endregion
 
         #region Properties
@@ -514,59 +445,6 @@ namespace QuickPad
         {
             get => _fonts;
             set => Set(ref _fonts, value);
-        }
-
-        //Colors
-        ObservableCollection<FontColorItem> _fci;
-        public ObservableCollection<FontColorItem> FontColorCollections
-        {
-            get => _fci;
-            set => Set(ref _fci, value);
-        }
-
-        public int _fc_selection = -1;
-        public int SelectedDefaultFontColor
-        {
-            get => _fc_selection;
-            set
-            {
-                if (!Equals(_fc_selection, value))
-                {
-                    Set(ref _fc_selection, value);
-                    if (value < 0)
-                        return;
-                    //Update setting
-                    if (FontColorCollections.Count < 1)
-                    {
-                        //Delay reselect
-                        ReUpdateSelectedDefaultFontColor(value);
-                        return;
-                    }
-                    QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
-                    if (QSetting.DefaultFontColor == "Default")
-                    {
-                        bool isDarkTheme = RequestedTheme == ElementTheme.Dark;
-                        if (RequestedTheme == ElementTheme.Default)
-                        {
-                            isDarkTheme = App.Current.RequestedTheme == ApplicationTheme.Dark;
-                        }
-                        Text1.Document.Selection.CharacterFormat.ForegroundColor = isDarkTheme ? Colors.White : Colors.Black;
-                    }
-                    else
-                    {
-                        Text1.Document.Selection.CharacterFormat.ForegroundColor = FontColorCollections[value].ActualColor;
-                    }
-                }
-            }
-        }
-
-        private async void ReUpdateSelectedDefaultFontColor(int selection)
-        {
-            while (FontColorCollections.Count < 1)
-            {
-                await Task.Delay(200);
-            }
-            SelectedDefaultFontColor = selection;
         }
 
         string _file_name = null;
@@ -675,25 +553,6 @@ namespace QuickPad
             set => Set(ref _redo, value);
         }
 
-        public FontFamilyItem FromStringToFontItem(string input)
-        {
-            FontFamilyItem item = AllFonts.First(i => i.Name == input);
-            if (item is null)
-                return new FontFamilyItem("Consolas");
-            return item;
-        }   
-        
-        public void FromFontItemBackToString(object font)
-        {
-            FontFamilyItem selected = (font as FontFamilyItem);
-            QSetting.DefaultFont = selected.Name;
-            //
-            //set default font to UIs that still not depend on binding
-            Fonts.PlaceholderText = selected.Name;
-            Fonts.SelectedItem = selected.Name;
-            FontSelected.Text = selected.Name;
-            Text1.Document.Selection.CharacterFormat.Name = selected.Name;
-        }
         #endregion
 
         #region Store service
@@ -2082,11 +1941,6 @@ namespace QuickPad
             ShowFindAndReplace = true;
         }
 
-        private void DefaultLanguage_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
-        }
-
         public async void CMDGoTo_Click()
         {
             await GoToDialog.ShowAsync();
@@ -2151,111 +2005,6 @@ namespace QuickPad
             return null;
         }
 
-        #region Setting pages
-        public enum settingPage
-        {
-            General,
-            Theme,
-            Font,
-            Advanced,
-            Report,
-            About
-        }
-        settingPage _sp = settingPage.General;
-        public settingPage CurrentSettingPage
-        {
-            get => _sp;
-            set => Set(ref _sp, value);
-        }
-
-        WINUI.NavigationViewItem _select_nav;
-        public WINUI.NavigationViewItem SelectedNavigationItem
-        {
-            get => _select_nav;
-            set
-            {
-                if (!Equals(value, _select_nav))
-                {
-                    Set(ref _select_nav, value);
-                    if (value is null)
-                        return;
-                    CurrentSettingPage = (settingPage)Enum.Parse(typeof(settingPage), value.Tag.ToString());
-                }
-            }
-        }
-
-        public bool SyncWithPage(settingPage current, string name) => current.ToString() == name;
-
-        public Visibility ShowIfItWasThePage(settingPage current, string name) => current.ToString() == name ? Visibility.Visible : Visibility.Collapsed;
-
-        public string VersionNumberText => string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
-
-        public async void ResetSettings()
-        {
-            //Ask if they want to save change first
-            if (Changed)
-            {
-                await WantToSave.ShowAsync();
-                switch (WantToSave.DialogResult)
-                {
-                    case DialogResult.Yes:
-                        await SaveWork();
-                        break;
-                    case DialogResult.Cancel:
-                        return;
-                }
-            }
-            timer.Stop();//Prevent some change made to setting
-            QSetting.ResetSettings();
-        }
-
-        public async void ExportSettings()
-        {
-            string result = QSetting.ExportSetting();
-            Windows.Storage.Pickers.FileSavePicker picker = new Windows.Storage.Pickers.FileSavePicker()
-            {
-                SuggestedFileName = $"AppConfig_{DateTime.Now.ToString("ddMMyy_HHmmss")}"
-            };
-            picker.FileTypeChoices.Add("App configurations", new List<string>() { ".txt" });
-            try
-            {
-                var file = await picker.PickSaveFileAsync();
-                if (file != null)
-                {
-                    await FileIO.WriteTextAsync(file, result);
-                }
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-                //Show error
-            }
-        }
-
-        bool _forced = true;
-        public bool ForceLoadSetting
-        {
-            get => _forced;
-            set => Set(ref _forced, value);
-        }
-
-        public async void ImportSetting()
-        {
-            Windows.Storage.Pickers.FileOpenPicker open = new Windows.Storage.Pickers.FileOpenPicker()
-            {
-                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
-            };
-            open.FileTypeFilter.Add(".txt");
-            var file = await open.PickSingleFileAsync();
-            if (file != null)
-            {
-                timer.Stop();
-                var setting = await FileIO.ReadTextAsync(file);
-                QSetting.ImportSetting(setting);
-            }
-            Application.Current.Exit();
-        }
-        #endregion
     }
 
     public class FontColorItem : INotifyPropertyChanged
