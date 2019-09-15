@@ -342,7 +342,7 @@ namespace QuickPad
         {
             var all = await JumpList.LoadCurrentAsync();
 
-            all.SystemGroupKind = JumpListSystemGroupKind.None;
+            all.SystemGroupKind = JumpListSystemGroupKind.Recent;
             if (all.Items != null && all.Items.Count == 3)
             {
                 //Clear Jumplist
