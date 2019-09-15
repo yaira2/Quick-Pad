@@ -121,7 +121,8 @@ namespace QuickPad.Dialog
                     if (value is null)
                         return;
                     CurrentSettingPage = (settingPage)Enum.Parse(typeof(settingPage), value.Tag.ToString());
-                    
+                    if (CurrentSettingPage == settingPage.Report)
+                        LoadCrashList();
                 }
             }
         }
@@ -324,6 +325,75 @@ namespace QuickPad.Dialog
 
             return true;
         }
+
+        #region Crash list
+        ObservableCollection<CrashInfo> _crashes;
+        public ObservableCollection<CrashInfo> AllCrashes
+        {
+            get => _crashes;
+            set => Set(ref _crashes, value);
+        }
+
+        public async void LoadCrashList()
+        {
+            if (AllCrashes != null)
+            {
+                NotifyPropertyChanged(nameof(ShowCrashList));
+                NotifyPropertyChanged(nameof(ShowNoCrashCongratz));
+                return;
+            }
+
+            AllCrashes = new ObservableCollection<CrashInfo>();
+            //
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            var cf = await folder.TryGetItemAsync("Crash") as StorageFolder;
+            if (cf != null)
+            {
+                var crashes = await cf.GetFilesAsync();
+                if (crashes is null || crashes.Count < 1)
+                {
+                    NotifyPropertyChanged(nameof(ShowCrashList));
+                    NotifyPropertyChanged(nameof(ShowNoCrashCongratz));
+                    return;
+                }
+
+                foreach (var file in crashes)
+                {
+                    AllCrashes.Add(new CrashInfo()
+                    {
+                        Name = file.DisplayName,
+                        Content = await FileIO.ReadTextAsync(file)
+                    });
+                }
+            }
+            else
+            {
+                cf = await folder.CreateFolderAsync("Crash");
+            }
+            NotifyPropertyChanged(nameof(ShowCrashList));
+            NotifyPropertyChanged(nameof(ShowNoCrashCongratz));
+        }
+
+        public Visibility ShowCrashList
+        {
+            get
+            {
+                if (AllCrashes is null)
+                    return Visibility.Collapsed;
+                return AllCrashes.Count > 0 ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+
+        public Visibility ShowNoCrashCongratz
+        {
+            get
+            {
+                if (AllCrashes is null)
+                    return Visibility.Visible;
+                return AllCrashes.Count < 1 ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
+        #endregion
     }
 
     public enum settingPage
@@ -334,5 +404,11 @@ namespace QuickPad.Dialog
         Advanced,
         Report,
         About
+    }
+
+    public class CrashInfo
+    {
+        public string Name { get; set; }
+        public string Content { get; set; }
     }
 }

@@ -233,6 +233,22 @@
                                 <Run Text="Give you a chance to save or copy your work."/>
                                 <LineBreak/><Run Text="However, you still need to restart as some part of app will not work properly"/>
                         </TextBlock>
+
+                        <ListView ItemsSource="{x:Bind AllCrashes, Mode=OneWay}" Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Margin="0,30,0,0" SelectionMode="None">
+                            <ListView.ItemTemplate>
+                                <DataTemplate x:DataType="local:CrashInfo">
+                                    <StackPanel Orientation="Vertical" Margin="-8,0,4,0">
+                                        <TextBlock Text="{x:Bind Name}" FontSize="18" FontWeight="Bold"/>
+                                        <TextBlock Text="{x:Bind Content}" Margin="0,0,0,20" TextWrapping="Wrap"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+
+                        <StackPanel Visibility="{x:Bind ShowNoCrashCongratz, Mode=OneWay}" Orientation="Vertical" Margin="0,30,0,0">
+                            <SymbolIcon Symbol="Emoji" HorizontalAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Center" Text="No crash has occured so far"/>
+                        </StackPanel>
                     </StackPanel>
                 </ScrollViewer>
 
