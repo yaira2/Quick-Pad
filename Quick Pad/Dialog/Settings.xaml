@@ -194,12 +194,6 @@
                         <TextBlock Text="App background tint opacity"/>
                         <Slider Value="{x:Bind QSetting.BackgroundTintOpacity, Mode=TwoWay}" Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
 
-                        <TextBlock Text="Global button corner radius"/>
-                        <Slider Value="{x:Bind QSetting.GlobalButtonCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>
-
-                        <TextBlock Text="Global dialog corner radius"/>
-                        <Slider Value="{x:Bind QSetting.GlobalDialogCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>
-
                         <TextBlock Text="Manage settings"/>
                         <StackPanel Orientation="Horizontal">
                             <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
