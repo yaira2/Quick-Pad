@@ -76,7 +76,10 @@ namespace QuickPad.Dialog
         {
             this.InitializeComponent();
 
-            AllFonts = new ObservableCollection<FontFamilyItem>(CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font).Select(font => new FontFamilyItem(font)));
+            if (mainPage != null && mainPage.AllFonts != null)
+                AllFonts = mainPage.AllFonts;
+            else
+                AllFonts = new ObservableCollection<FontFamilyItem>(CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font).Select(font => new FontFamilyItem(font)));
 
             var supportedLang = ApplicationLanguages.ManifestLanguages;
             DefaultLanguages = new ObservableCollection<DefaultLanguage>();

@@ -1,4 +1,5 @@
 using Microsoft.AppCenter.Analytics;
+using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Services.Store.Engagement;
 using Microsoft.Toolkit.Uwp.UI.Animations;
 using Newtonsoft.Json.Linq;
@@ -96,9 +97,9 @@ namespace QuickPad
             QSetting.afterFontColorChanged += UpdateFontColor;
             //
             LoadSettings();
-            AllFonts = Settings.AllFonts;
+            AllFonts = new ObservableCollection<FontFamilyItem>(CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font).Select(font => new FontFamilyItem(font)));
             //
-            
+
             Clipboard.ContentChanged += Clipboard_ContentChanged;
 
             //check if focus is on app or off the app

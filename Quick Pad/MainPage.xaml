@@ -635,7 +635,7 @@
         </SplitView.Content>
         <SplitView.Pane>
             <Grid>
-                <dialog:Settings x:Name="Settings"/>
+                <dialog:Settings x:Name="Settings" x:Load="{x:Bind MainView.IsPaneOpen, Mode=OneWay}"/>
             </Grid>
         </SplitView.Pane>
     </SplitView>
