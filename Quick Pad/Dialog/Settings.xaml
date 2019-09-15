@@ -10,50 +10,49 @@
     xmlns:q="using:QuickPad"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Margin="0,33,0,0">
         <winui:NavigationView IsPaneOpen="False"
                                   IsSettingsVisible="False"
                                   IsBackEnabled="False"
                                   IsBackButtonVisible="Collapsed"
-                                  PaneDisplayMode="LeftCompact"
+                                  PaneDisplayMode="Top"
                                   HorizontalAlignment="Stretch"
                                   SelectedItem="{x:Bind SelectedNavigationItem, Mode=TwoWay}"
-                              Header="{x:Bind SelectedNavigationItem.Content, Mode=OneWay}"
+                                  Header="{x:Bind SelectedNavigationItem.Content, Mode=OneWay}"
                                   OpenPaneLength="200">
             <winui:NavigationView.HeaderTemplate>
                 <DataTemplate x:DataType="x:String">
-                    <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="{x:Bind}"/>
+                    <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="{x:Bind}"/>                    
                 </DataTemplate>
             </winui:NavigationView.HeaderTemplate>
             <!--Page selection-->
             <winui:NavigationView.MenuItems>
-                <winui:NavigationViewItem Content="General" Tag="General" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'General'), Mode=OneWay}">
+                <winui:NavigationViewItem Tag="General" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'General'), Mode=OneWay}">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE12A;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="Theme" Tag="Theme" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Theme'), Mode=OneWay}">
+                <winui:NavigationViewItem Tag="Theme" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Theme'), Mode=OneWay}">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE771;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="Font" Tag="Font" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Font'), Mode=OneWay}">
+                <winui:NavigationViewItem Tag="Font" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Font'), Mode=OneWay}">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8D2;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="Advanced" Tag="Advanced" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
+                <winui:NavigationViewItem Tag="Advanced" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE74C;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItemSeparator/>
-                <winui:NavigationViewItem Content="Report" Tag="Report" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Report'), Mode=OneWay}">
+                <winui:NavigationViewItem Tag="Report" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'Report'), Mode=OneWay}">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xEBE8;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Content="About" Tag="About" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'About'), Mode=OneWay}">
+                <winui:NavigationViewItem Tag="About" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'About'), Mode=OneWay}">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE946;" />
                     </winui:NavigationViewItem.Icon>

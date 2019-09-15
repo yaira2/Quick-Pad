@@ -634,7 +634,8 @@
             </Grid>
         </SplitView.Content>
         <SplitView.Pane>
-            <Grid>
+            <Grid Background="{x:Bind VisualThemeSelector.CurrentItem.SolidBackgroundBrush, Mode=OneWay}">
+                <Grid Height="33" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}" VerticalAlignment="Top"/>
                 <dialog:Settings x:Name="Settings" x:Load="{x:Bind MainView.IsPaneOpen, Mode=OneWay}"/>
             </Grid>
         </SplitView.Pane>
