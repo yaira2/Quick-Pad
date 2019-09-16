@@ -250,8 +250,12 @@ namespace QuickPad
         private void UpdateUIAccordingToNewTheme(object sender, ThemeChangedEventArgs e)
         {
             var to = e.VisualTheme.Theme;
-            //Is it dark theme or light theme? Just in case if it default, get a theme info from application
             QSetting.CustomThemeId = e.ActualTheme.ThemeId;
+
+            if (e.ActualTheme.ThemeId == "default")
+                e.ActualTheme.UpdateBaseBackground(sender, e);
+
+            //Is it dark theme or light theme? Just in case if it default, get a theme info from application
             bool isDarkTheme = to == ElementTheme.Dark;
             if (to == ElementTheme.Default)
             {

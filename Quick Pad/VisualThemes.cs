@@ -214,9 +214,9 @@ namespace QuickPad
                 BackgroundAcrylicBrush2 = backgroundAcrylic2,
                 InAppAcrylicBrush = inAppAcrylic,
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
-                BaseThemeBackgroundBrush = new SolidColorBrush(new UISettings().GetColorValue(UIColorType.Background)),
                 PreviewBrush = new SolidColorBrush(accentColor),
             };
+            theme.BaseThemeBackgroundBrush = etheme == ElementTheme.Dark ? new SolidColorBrush(Colors.Black) : new SolidColorBrush(Colors.White);
             _setting.afterTintOpacityChanged += theme.UpdateTintOpacity;
             return theme;
         }
@@ -327,6 +327,18 @@ namespace QuickPad
             BackgroundAcrylicBrush.Opacity = to;
             BackgroundAcrylicBrush2.Opacity = to;
             InAppAcrylicBrush.Opacity = to;
+        }
+
+        public void UpdateBaseBackground(object sender, ThemeChangedEventArgs e)
+        {
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                BaseThemeBackgroundBrush = new SolidColorBrush(Colors.Black);
+            }
+            else
+            {
+                BaseThemeBackgroundBrush = new SolidColorBrush(Colors.White);
+            }
         }
     }
     public enum VisualThemeKind
