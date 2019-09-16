@@ -394,6 +394,23 @@ namespace QuickPad.Dialog
             }
         }
         #endregion
+
+        public static settingPage forceStartupToPage = settingPage.General;
+        private void PageNavigationOverride(object sender, RoutedEventArgs e)
+        {
+            if (forceStartupToPage != settingPage.General)
+            {
+                foreach (var menu in settingNavView.MenuItems)
+                {
+                    if ((menu as WINUI.NavigationViewItem).Tag.ToString() == forceStartupToPage.ToString())
+                    {
+                        settingNavView.SelectedItem = menu;
+                    }
+                }
+            }
+            //Reset force startup
+            forceStartupToPage = settingPage.General;
+        }
     }
 
     public enum settingPage

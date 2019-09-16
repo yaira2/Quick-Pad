@@ -413,8 +413,8 @@
                                 <FontIcon Glyph="&#xE751;" />
                             </ToggleMenuFlyoutItem.Icon>
                         </ToggleMenuFlyoutItem>
-                        <MenuFlyoutSeparator Visibility="Collapsed"/>
-                        <MenuFlyoutItem Text="Fonts..." Visibility="Collapsed" AccessKey="F" Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">
+                        <MenuFlyoutSeparator/>
+                        <MenuFlyoutItem Text="Fonts..." AccessKey="F" Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">
                             <MenuFlyoutItem.Icon>
                                 <SymbolIcon Symbol="Font"/>
                             </MenuFlyoutItem.Icon>
@@ -519,10 +519,6 @@
                         <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
                     </RichEditBox.SelectionHighlightColorWhenNotFocused>
                 </RichEditBox>
-
-                <dialog:FontAndFormat x:Name="FontAndFormat" 
-                              Background="{ThemeResource SystemControlAcrylicElementBrush}" Grid.RowSpan="4"
-                              AllFonts="{x:Bind AllFonts, Mode=OneWay}"/>
 
                 <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="4" VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
