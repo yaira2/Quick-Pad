@@ -8,10 +8,12 @@
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:q="using:QuickPad"
+    Loaded="PageNavigationOverride"
     mc:Ignorable="d">
 
     <Grid Margin="0,33,0,0">
         <winui:NavigationView IsPaneOpen="False"
+                              x:Name="settingNavView"
                                   IsSettingsVisible="False"
                                   IsBackEnabled="False"
                                   IsBackButtonVisible="Collapsed"
@@ -193,12 +195,6 @@
 
                         <TextBlock Text="App background tint opacity"/>
                         <Slider Value="{x:Bind QSetting.BackgroundTintOpacity, Mode=TwoWay}" Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
-
-                        <TextBlock Text="Global button corner radius"/>
-                        <Slider Value="{x:Bind QSetting.GlobalButtonCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>
-
-                        <TextBlock Text="Global dialog corner radius"/>
-                        <Slider Value="{x:Bind QSetting.GlobalDialogCorner, Mode=TwoWay}" Minimum="0" Maximum="10" StepFrequency="1" Width="230" HorizontalAlignment="Left"/>
 
                         <TextBlock Text="Manage settings"/>
                         <StackPanel Orientation="Horizontal">

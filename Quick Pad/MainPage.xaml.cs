@@ -250,8 +250,12 @@ namespace QuickPad
         private void UpdateUIAccordingToNewTheme(object sender, ThemeChangedEventArgs e)
         {
             var to = e.VisualTheme.Theme;
-            //Is it dark theme or light theme? Just in case if it default, get a theme info from application
             QSetting.CustomThemeId = e.ActualTheme.ThemeId;
+
+            if (e.ActualTheme.ThemeId == "default")
+                e.ActualTheme.UpdateBaseBackground(sender, e);
+
+            //Is it dark theme or light theme? Just in case if it default, get a theme info from application
             bool isDarkTheme = to == ElementTheme.Dark;
             if (to == ElementTheme.Default)
             {
@@ -1170,52 +1174,11 @@ namespace QuickPad
             FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
-        private async void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
+        private void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
         {
-            //Save selection point
-            int previousPosition = Text1.Document.Selection.StartPosition;
-            int previousSelectionEnd = Text1.Document.Selection.EndPosition;
-            //Force select all text
-            Text1.Focus(FocusState.Programmatic);
-            Text1.Document.Selection.SetRange(0, totalCharacters);
-            //Get format info about selection
-            var selection = Text1.Document.Selection;
-            if (selection != null)
-            {
-                var formatting = selection.CharacterFormat;
-                //Update to dialog
-                FontAndFormat.FontNameSuggestionInput = formatting.Name;
-                FontAndFormat.FontSizeSelection = Convert.ToInt32(formatting.Size);
-                FontAndFormat.WantBold = formatting.Bold == FormatEffect.On;
-                FontAndFormat.WantItalic = formatting.Italic == FormatEffect.On;
-                FontAndFormat.WantUnderline = formatting.Underline != UnderlineType.None;
-                FontAndFormat.WantStrikethrough = formatting.Strikethrough == FormatEffect.On;
-                FontAndFormat.SelectedColor = formatting.ForegroundColor;
-            }
-            await FontAndFormat.ShowAsync();
-            //Apply setting back if user wanted to
-            if (FontAndFormat.FinalResult == DialogResult.Yes)
-            {
-                var formatting = selection.CharacterFormat;
-                formatting.Name = FontAndFormat.FontNameSuggestionInput;
-                formatting.Size = FontAndFormat.FontSizeSelection;
-                formatting.Bold = FontAndFormat.WantBold ? FormatEffect.On : FormatEffect.Off;
-                formatting.Italic = FontAndFormat.WantItalic ? FormatEffect.On : FormatEffect.Off;
-                formatting.Underline = FontAndFormat.WantUnderline ? UnderlineType.Single : UnderlineType.None;
-                formatting.Strikethrough = FontAndFormat.WantStrikethrough ? FormatEffect.On : FormatEffect.Off;
-                formatting.ForegroundColor = FontAndFormat.SelectedColor;
-            }
-            //Restore to that point like nothing ever happen
-            if (previousPosition == previousSelectionEnd)
-            {
-                //Not select anything
-                Text1.Document.Selection.StartPosition = previousPosition;
-            }
-            else
-            {
-                //Select like what user used to
-                Text1.Document.Selection.SetRange(previousPosition, previousSelectionEnd);
-            }
+            //Show setting pane w/ a font page
+            Dialog.Settings.forceStartupToPage = Dialog.settingPage.Font;
+            MainView.IsPaneOpen = true;
         }
 
         private void ClosingCustomizeFlyout(Windows.UI.Xaml.Controls.Primitives.FlyoutBase sender, Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs args)
