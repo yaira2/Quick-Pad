@@ -1271,9 +1271,10 @@ namespace QuickPad
                 CmdClassicMode.Visibility = Visibility.Collapsed;
                 CommandBar3.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
+                Shadow1.Visibility = Visibility.Collapsed;
+                Shadow2.Visibility = Visibility.Visible;
                 Grid.SetRow(CommandBar2, 3);
-                Grid.SetRow(Shadow1, 3);
-
+                
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
                 //
@@ -1294,7 +1295,7 @@ namespace QuickPad
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Right;
                 Grid.SetRow(CommandBar2, 1);
-                Grid.SetRow(Shadow1, 1);
+                Shadow1.Visibility = Visibility.Visible;
                 FrameTop.Visibility = Visibility.Visible;
                 CmdSettings.Visibility = Visibility.Visible;
                 CmdFocusMode.Visibility = Visibility.Visible;

@@ -322,11 +322,12 @@ namespace QuickPad
             return FriendlyName;
         }
 
+
         public void UpdateTintOpacity(double to)
         {
-            BackgroundAcrylicBrush.Opacity = to;
-            BackgroundAcrylicBrush2.Opacity = to;
-            InAppAcrylicBrush.Opacity = to;
+            (BackgroundAcrylicBrush as AcrylicBrush).TintOpacity = to;
+            (BackgroundAcrylicBrush2 as AcrylicBrush).TintOpacity = to + .15;
+            (InAppAcrylicBrush as AcrylicBrush).TintOpacity = to;
         }
 
         public void UpdateBaseBackground(object sender, ThemeChangedEventArgs e)
