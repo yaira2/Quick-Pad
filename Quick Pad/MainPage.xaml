@@ -127,14 +127,6 @@
                             <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Uid="Justify" Label="Justify" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
-                        </ToolTipService.ToolTip>
-                        <AppBarButton.Icon>
-                            <FontIcon FontFamily="/Assets/Font/FabExMDL2.ttf#Fabric External MDL2 Assets" Glyph=""/>
-                        </AppBarButton.Icon>
-                    </AppBarButton>
                     <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
