@@ -19,7 +19,7 @@
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <PackageCertificateKeyFile>
     </PackageCertificateKeyFile>
-    <PackageCertificateThumbprint>54A40DE81C61BD87FE34D0B18BAE38926F2D7292</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>3B81F354200041F7952470288FA4BEB2F71C3791</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
@@ -214,6 +214,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Assets\Font\Segoe MDL2 Modded.ttf" />
+    <Content Include="Assets\Font\FabExMDL2.ttf" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
