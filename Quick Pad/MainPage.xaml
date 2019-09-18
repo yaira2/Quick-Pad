@@ -1,4 +1,4 @@
-<Page
+﻿<Page
     x:Class="QuickPad.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -127,16 +127,20 @@
                             <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
+                    <AppBarButton x:Uid="Justify" Label="Justify" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                         </ToolTipService.ToolTip>
                         <AppBarButton.Icon>
-                            <FontIcon Margin="0,4,8,5" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1A2;">
-                                <FontIcon.RenderTransform>
-                                    <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
-                                </FontIcon.RenderTransform>
-                            </FontIcon>
+                            <FontIcon FontFamily="/Assets/Font/FabExMDL2.ttf#Fabric External MDL2 Assets" Glyph=""/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+                    <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
+                        </ToolTipService.ToolTip>
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="/Assets/Font/FabExMDL2.ttf#Fabric External MDL2 Assets" Glyph=""/>
                         </AppBarButton.Icon>
                     </AppBarButton>
                     <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" />
