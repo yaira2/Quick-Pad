@@ -8,7 +8,7 @@
     xmlns:tkui="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:q="using:QuickPad"
     xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalDialogCorner), Mode=OneWay}"
+    w10v1809:CornerRadius="4"
     mc:Ignorable="d" >
     <UserControl.Resources>
         <Storyboard x:Name="EnterContentHolderStoryboard">
@@ -21,9 +21,8 @@
 
     <tkui:DropShadowPanel x:Name="ContentHolderShadow" Width="355"
                           HorizontalContentAlignment="Stretch">
-        <Grid x:Name="ContentHolderContent" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
-              Padding="4"
-              w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalDialogCorner), Mode=OneWay}" >
+        <Grid x:Name="ContentHolderContent" w10v1809:CornerRadius="4" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+              Padding="4">
             <!-- Grid Definitions -->
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -43,8 +42,7 @@
                           Grid.Column="0"
                           Height="32"
                           VerticalAlignment="Center"
-                          BorderThickness="1"
-                          w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
+                          BorderThickness="1" 
                           Margin="4"
                           IsChecked="{x:Bind ShowReplace, Mode=TwoWay}">
                 <FontIcon Glyph="&#xE011;" />
@@ -63,8 +61,6 @@
                      PlaceholderText="Looking for?"
                      VerticalAlignment="Center"
                      Margin="4"
-                     Style="{ThemeResource FluentTextBoxStyle}"
-                     w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                      KeyDown="FindInput_KeyDown" 
                      TextChanged="{x:Bind SendRequestFind}" />
 
@@ -73,7 +69,6 @@
                     Grid.Column="2"
                     Padding="6" 
                     Margin="4"
-                    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle}">
                 <StackPanel>
                     <FontIcon Glyph="&#xE0A6;" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
@@ -110,7 +105,6 @@
                     Margin="4" 
                     Padding="6" 
                     Click="{x:Bind RequestCloseDialog}" 
-                    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle}">
                 <FontIcon Glyph="&#xE10A;" />
                 <ToolTipService.ToolTip>
@@ -134,10 +128,7 @@
                      Text="{x:Bind TextToReplace, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                      PlaceholderText="Replace with.." 
                      Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
-                     w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
-                     Style="{ThemeResource FluentTextBoxStyle}" 
                      KeyDown="TextBox_KeyDown" />
-
 
             <!-- Replace button -->
             <Button Grid.Row="1"
@@ -146,7 +137,6 @@
                     Margin="4"
                     Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle }"
-                    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                     Click="{x:Bind SendRequestReplace}" >
                 <FontIcon Glyph="&#xE8AC;"/>
                 <ToolTipService.ToolTip>
@@ -161,7 +151,6 @@
                     Margin="4"
                     Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle}"
-                    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                     Click="{x:Bind SendRequestReplaceAll}" >
                 <FontIcon Glyph="&#xE8B3;"/>
                 <ToolTipService.ToolTip>
