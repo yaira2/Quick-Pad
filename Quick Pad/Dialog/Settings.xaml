@@ -190,7 +190,7 @@
                 <!--Advanced-->
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                     <StackPanel>
-                        <TextBlock Text="Disallow writing area following theme setting"/>
+                        <TextBlock Text="Use a Dark\Light background for the text area"/>
                         <ToggleSwitch IsOn="{x:Bind QSetting.PreventText1ChangeColor, Mode=TwoWay}"/>
 
                         <TextBlock Text="App background tint opacity"/>
@@ -213,8 +213,8 @@
                                         Click="{x:Bind ResetSettings}"/>
                         </StackPanel>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
-                                <Run Text="Please save your work before Import/Reset"/>
-                                <LineBreak/><Run Text="Since some setting will not update until restart."/>
+                                <Run Text="Please save your work before you import or reset settings."/>
+                                <LineBreak/><Run Text="Some setting will not update until restart."/>
                         </TextBlock>
                     </StackPanel>
                 </ScrollViewer>
