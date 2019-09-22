@@ -214,7 +214,7 @@
                         </StackPanel>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
                                 <Run Text="Please save your work before you import or reset settings."/>
-                                <LineBreak/><Run Text="Some setting will not update until restart."/>
+                                <LineBreak/><Run Text="Some setting will not update until you restart."/>
                         </TextBlock>
                     </StackPanel>
                 </ScrollViewer>
