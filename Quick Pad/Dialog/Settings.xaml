@@ -197,7 +197,7 @@
                         <Slider Value="{x:Bind QSetting.BackgroundTintOpacity, Mode=TwoWay}" Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
 
                         <TextBlock Text="Automatically choose which mode to launch the app in based on the file type"/>
-                        <ToggleSwitch/>
+                        <ToggleSwitch  IsOn="{x:Bind QSetting.AutoPickMode, Mode=TwoWay}"/>
 
                         <TextBlock Text="Manage settings"/>
                         <StackPanel Orientation="Horizontal">

@@ -249,6 +249,13 @@ namespace QuickPad
             set => Set(value);
         }
 
+        [DefaultValue(false)]
+        public bool AutoPickMode
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
         [DefaultValue(ElementTheme.Default)]
         public ElementTheme Theme
         {
