@@ -807,4 +807,31 @@
   <data name="ThemeSettings.Text" xml:space="preserve">
     <value>Theme Settings</value>
   </data>
+  <data name="AutoPickMode.Text" xml:space="preserve">
+    <value>Automatically choose which mode to launch the app in based on the file type</value>
+  </data>
+  <data name="BackgroundTintOpacity.Text" xml:space="preserve">
+    <value>App background tint opacity</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>Manage settings</value>
+  </data>
+  <data name="PleaseSaveWork.Text" xml:space="preserve">
+    <value>Please save your work before you import or reset settings.</value>
+  </data>
+  <data name="PreventText1ChangeColor.Text" xml:space="preserve">
+    <value>Use a dark/light background for the text area</value>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SomeSettings.Text" xml:space="preserve">
+    <value>Some settings will not update until you restart.</value>
+  </data>
 </root>

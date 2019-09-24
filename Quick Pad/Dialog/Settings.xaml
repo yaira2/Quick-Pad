@@ -190,31 +190,35 @@
                 <!--Advanced-->
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                     <StackPanel>
-                        <TextBlock Text="Use a dark/light background for the text area"/>
+                        <TextBlock x:Uid="PreventText1ChangeColor" Text="Use a dark/light background for the text area"/>
                         <ToggleSwitch IsOn="{x:Bind QSetting.PreventText1ChangeColor, Mode=TwoWay}"/>
 
-                        <TextBlock Text="App background tint opacity"/>
+                        <TextBlock x:Uid="BackgroundTintOpacity" Text="App background tint opacity"/>
                         <Slider Value="{x:Bind QSetting.BackgroundTintOpacity, Mode=TwoWay}" Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
 
-                        <TextBlock Text="Automatically choose which mode to launch the app in based on the file type"/>
+                        <TextBlock x:Uid="AutoPickMode" Text="Automatically choose which mode to launch the app in based on the file type"/>
                         <ToggleSwitch  IsOn="{x:Bind QSetting.AutoPickMode, Mode=TwoWay}"/>
 
-                        <TextBlock Text="Manage settings"/>
+                        <TextBlock x:Uid="ManageSettings" Text="Manage settings"/>
                         <StackPanel Orientation="Horizontal">
                             <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Import"
+                                        x:Uid="Import"
                                         Click="{x:Bind ImportSetting}"/>
                             <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Export"
+                                        x:Uid="Export"
                                         Margin="5,2"
                                         Click="{x:Bind ExportSettings}"/>
                             <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Reset"
+                                        x:Uid="Reset"
                                         Click="{x:Bind ResetSettings}"/>
                         </StackPanel>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
-                                <Run Text="Please save your work before you import or reset settings."/>
-                                <LineBreak/><Run Text="Some setting will not update until you restart."/>
+                                <Run x:Uid="PleaseSaveWork" Text="Please save your work before you import or reset settings."/>
+                                <LineBreak/>
+                                <Run x:Uid="SomeSettings" Text="Some settings will not update until you restart."/>
                         </TextBlock>
                     </StackPanel>
                 </ScrollViewer>

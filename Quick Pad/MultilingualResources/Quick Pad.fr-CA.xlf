@@ -926,6 +926,42 @@
           <source>Font Settings</source>
           <target state="new">Font Settings</target>
         </trans-unit>
+        <trans-unit id="AutoPickMode.Text" translate="yes" xml:space="preserve">
+          <source>Automatically choose which mode to launch the app in based on the file type</source>
+          <target state="new">Automatically choose which mode to launch the app in based on the file type</target>
+        </trans-unit>
+        <trans-unit id="BackgroundTintOpacity.Text" translate="yes" xml:space="preserve">
+          <source>App background tint opacity</source>
+          <target state="new">App background tint opacity</target>
+        </trans-unit>
+        <trans-unit id="Export.Content" translate="yes" xml:space="preserve">
+          <source>Export</source>
+          <target state="new">Export</target>
+        </trans-unit>
+        <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
+          <source>Import</source>
+          <target state="new">Import</target>
+        </trans-unit>
+        <trans-unit id="ManageSettings.Text" translate="yes" xml:space="preserve">
+          <source>Manage settings</source>
+          <target state="new">Manage settings</target>
+        </trans-unit>
+        <trans-unit id="PleaseSaveWork.Text" translate="yes" xml:space="preserve">
+          <source>Please save your work before you import or reset settings.</source>
+          <target state="new">Please save your work before you import or reset settings.</target>
+        </trans-unit>
+        <trans-unit id="PreventText1ChangeColor.Text" translate="yes" xml:space="preserve">
+          <source>Use a dark/light background for the text area</source>
+          <target state="new">Use a dark/light background for the text area</target>
+        </trans-unit>
+        <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
+          <source>Reset</source>
+          <target state="new">Reset</target>
+        </trans-unit>
+        <trans-unit id="SomeSettings.Text" translate="yes" xml:space="preserve">
+          <source>Some settings will not update until you restart.</source>
+          <target state="new">Some settings will not update until you restart.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
