@@ -963,6 +963,10 @@
           <source>Some settings will not update until you restart.</source>
           <target state="new">Some settings will not update until you restart.</target>
         </trans-unit>
+        <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+        </trans-unit>
       </group>
     </body>
   </file>

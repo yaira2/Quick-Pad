@@ -807,6 +807,9 @@
   <data name="ThemeSettings.Text" xml:space="preserve">
     <value>Theme Settings</value>
   </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
   <data name="AutoPickMode.Text" xml:space="preserve">
     <value>Automatically choose which mode to launch the app in based on the file type</value>
   </data>
