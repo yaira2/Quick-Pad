@@ -226,14 +226,14 @@
                 <!--Crash-->
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Report'), Mode=OneWay}">
                     <StackPanel Padding="2">
-                        <CheckBox IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health report to App Center"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health reports to App Center"/>
 
-                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log report when app crash"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log report when the app crashes"/>
 
-                        <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" Content="Prevent app close when crash"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" Content="Prevent the app from closing when it crashes"/>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
-                                <Run Text="Give you a chance to save or copy your work."/>
-                                <LineBreak/><Run Text="However, you still need to restart as some part of app will not work properly"/>
+                                <Run Text="Give yourself a chance to save or copy your work."/>
+                                <LineBreak/><Run Text="You may need to restart as some functions may not work properly."/>
                         </TextBlock>
 
                         <ListView ItemsSource="{x:Bind AllCrashes, Mode=OneWay}" Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Margin="0,30,0,0" SelectionMode="None">
