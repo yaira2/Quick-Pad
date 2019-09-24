@@ -1,4 +1,8 @@
-# Quick Pad
+<p align="center">
+  <img alt="uwpvag logo" src="./Quick Pad/Assets/Square44x44Logo.altform-unplated_targetsize-256.png" width="100px" />
+  <h1 align="center">Quick Pad</h1>
+</p>
+
 [![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/store/productId/9PDLWQHTLSV3)
 
 * Fluent design with dark and light theme support.
@@ -28,5 +32,6 @@ Please head over to [Github Releases](https://github.com/UWPCommunity/Quick-Pad/
 * Localization Contributors: 
     * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
     * [fr-CA][French] [PhilLB1239](https://github.com/PhilLB1239)
+    * [fr-FR][French] [François-Joseph du Fou](https://github.com/FJduFou)
     * [es][Spanish] [Leisvan](https://github.com/Leisvan)
     * [ar-SA][Arabic] [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
