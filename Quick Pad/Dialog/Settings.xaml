@@ -73,7 +73,7 @@
                 <ScrollViewer x:Name="SettingsTab1SV" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'General'),Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
                         <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
-                        <ComboBox x:Uid="GeneralLaunchModeCombobox" Width="180" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" x:Name="LaunchOptions" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1">
+                        <ComboBox x:Uid="GeneralLaunchModeCombobox" Width="180" PlaceholderText="Default" SelectedIndex="{x:Bind QSetting.LaunchMode, Mode=TwoWay}" x:Name="LaunchOptions" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1">
                             <ComboBoxItem Content="Default" Tag="Default" x:Uid="LaunchModeDefault" x:Name="LaunchModeDefault"/>
                             <ComboBoxItem Content="On Top" Tag="On Top" x:Uid="LaunchModeOnTop" x:Name="LaunchModeOnTop"/>
                             <ComboBoxItem Content="Focus Mode" Tag="Focus Mode" x:Uid="LaunchModeFocus" x:Name="LaunchModeFocus"/>
@@ -82,7 +82,7 @@
 
                         <TextBlock Text="App Language" x:Uid="AppLanguage"/>
 
-                        <ComboBox ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Width="180" PlaceholderText="English (United State)" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" x:Name="DefaultLanguage" SelectedIndex="{x:Bind SelectedDefaultLanguage, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                        <ComboBox ItemsSource="{x:Bind DefaultLanguages, Mode=OneWay}" Width="180" PlaceholderText="English (United State)" x:Name="DefaultLanguage" SelectedIndex="{x:Bind SelectedDefaultLanguage, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate x:DataType="q:DefaultLanguage">
                                     <TextBlock Text="{x:Bind Name}"/>
@@ -92,7 +92,7 @@
                         <TextBlock x:Name="LangChangeNeedRestart" x:Uid="Restart" Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the changes."/>
 
                         <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
-                        <ComboBox PlaceholderText=".rtf" Width="120" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" x:Name="DefaultFileType" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                        <ComboBox PlaceholderText=".rtf" Width="120" SelectedItem="{x:Bind QSetting.DefaultFileType, Mode=TwoWay}" x:Name="DefaultFileType" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  HorizontalAlignment="Left" BorderThickness="1,1,1,1">
                             <x:String>.rtf</x:String>
                             <x:String>.txt</x:String>
                         </ComboBox>
@@ -143,9 +143,9 @@
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Font'), Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
                         <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
-                        <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
+                        <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
                         <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
-                        <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
+                        <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="Black" Width="139" BorderThickness="1,1,1,1">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate x:DataType="q:FontColorItem">
                                     <StackPanel Orientation="Horizontal">
@@ -160,7 +160,7 @@
                         </ComboBox>
 
                         <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
-                        <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="12" MinWidth="69" BorderThickness="1">
+                        <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="12" MinWidth="69" BorderThickness="1">
                             <x:Int32>4</x:Int32>
                             <x:Int32>6</x:Int32>
                             <x:Int32>8</x:Int32>
@@ -222,11 +222,11 @@
                 <!--Crash-->
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Report'), Mode=OneWay}">
                     <StackPanel Padding="2">
-                        <CheckBox w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health report to App Center"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health report to App Center"/>
 
-                        <CheckBox w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log report when app crash"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log report when app crash"/>
 
-                        <CheckBox w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" Content="Prevent app close when crash"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" Content="Prevent app close when crash"/>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
                                 <Run Text="Give you a chance to save or copy your work."/>
                                 <LineBreak/><Run Text="However, you still need to restart as some part of app will not work properly"/>

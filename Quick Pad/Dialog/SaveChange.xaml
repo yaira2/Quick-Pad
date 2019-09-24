@@ -24,7 +24,7 @@
                 x:Name="SaveDialogYes" 
                 x:Uid="SaveDialogYes" 
                 Click="Yes" 
-                w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" 
+                
                 Width="80" 
                 HorizontalAlignment="Center"
                 Grid.Row="1"/>
@@ -32,7 +32,7 @@
                 x:Name="SaveDialogNo" 
                 x:Uid="SaveDialogNo" 
                 Click="No" 
-                w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"                 
+                                
                 Width="80" 
                 HorizontalAlignment="Center"
                 Margin="3,0"
@@ -42,7 +42,7 @@
                 x:Name="SaveDialogCancel" 
                 x:Uid="SaveDialogCancel" 
                 Click="Cancel" 
-                w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" 
+                
                 Width="80" 
                 HorizontalAlignment="Center"
                 Grid.Row="1"
