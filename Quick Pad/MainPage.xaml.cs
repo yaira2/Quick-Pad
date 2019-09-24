@@ -304,6 +304,24 @@ namespace QuickPad
 
         public void LaunchCheck()
         {
+            if (QSetting.AutoPickMode & CurrentWorkingFile != null)
+            {
+                if (CurrentWorkingFile.FileType == ".txt")
+                {
+                    ClassicModeSwitch = true;
+                    FocusModeSwitch = false;
+                    CompactOverlaySwitch = false;
+                    return;
+                }
+                else if (CurrentWorkingFile.FileType == ".rtf")
+                {
+                    ClassicModeSwitch = false; ;
+                    FocusModeSwitch = false;
+                    CompactOverlaySwitch = false;
+                    return;
+                }
+            }
+    
             //check what mode to launch the app in
             switch ((AvailableModes)QSetting.LaunchMode)
             {
