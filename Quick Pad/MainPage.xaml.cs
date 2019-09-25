@@ -218,7 +218,7 @@ namespace QuickPad
             {
                 DataPackageView clipboardContent = Clipboard.GetContent();
                 var dataPackage = new DataPackage();
-                dataPackage.SetText(await clipboardContent.GetTextAsync());
+                dataPackage.SetRtf(await clipboardContent.GetRtfAsync());
                 Clipboard.SetContent(dataPackage);
                 Clipboard.Flush();
             }
@@ -1022,25 +1022,27 @@ namespace QuickPad
 
         private async void Paste_Click(object sender, RoutedEventArgs e)
         {
-            DataPackageView dataPackageView = Clipboard.GetContent();
-            if (dataPackageView.Contains(StandardDataFormats.Text))
+            DataPackageView clipboardContent = Clipboard.GetContent();
+            try
+            { 
+                Text1.Document.Selection.TypeText(await clipboardContent.GetTextAsync());
+            }
+            catch
             {
-                string text = await dataPackageView.GetTextAsync();
-                //if there is nothing to paste then dont paste anything since it will crash
-                if (text != "")
-                {
-                    Text1.Document.Selection.TypeText(text); //paste the text from the clipboard
-                }
             }
         }
 
         private void Copy_Click(object sender, RoutedEventArgs e)
         {
+            string text;
+            Text1.Document.Selection.GetText(Windows.UI.Text.TextGetOptions.FormatRtf, out text);
+
             //send the selected text to the clipboard
             DataPackage dataPackage = new DataPackage();
             dataPackage.RequestedOperation = DataPackageOperation.Copy;
-            dataPackage.SetText(Text1.Document.Selection.Text);
+            dataPackage.SetRtf(text);
             Clipboard.SetContent(dataPackage);
+            Clipboard.Flush();
         }
 
         private void Cut_Click(object sender, RoutedEventArgs e)
