@@ -1041,6 +1041,7 @@ namespace QuickPad
             dataPackage.RequestedOperation = DataPackageOperation.Copy;
             dataPackage.SetText(Text1.Document.Selection.Text);
             Clipboard.SetContent(dataPackage);
+            Clipboard.Flush();
         }
 
         private void Cut_Click(object sender, RoutedEventArgs e)
@@ -1050,6 +1051,7 @@ namespace QuickPad
             dataPackage.SetText(Text1.Document.Selection.Text);
             Text1.Document.Selection.Text = "";
             Clipboard.SetContent(dataPackage);
+            Clipboard.Flush();
         }
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
