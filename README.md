@@ -6,6 +6,7 @@
 [![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/store/productId/9PDLWQHTLSV3)
 [![Release](https://img.shields.io/github/release/UWPCommunity/Quick-Pad.svg?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/releases)
 [![Contributors](https://img.shields.io/github/contributors/UWPCommunity/Quick-Pad?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/UWPCommunity/Quick-Pad.svg?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/stargazers)
 
 * Fluent design with dark and light theme support.
 * Launch from the run dialog box by typing "Quickpad".
