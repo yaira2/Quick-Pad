@@ -377,36 +377,36 @@
                         </MenuFlyoutItem>
                         <MenuFlyoutItem x:Uid="ClassicEditReplace" AccessKey="R" Text="Replace" Icon="Rename" Click="{x:Bind OpenFindDialogWithReplace}">
                             <MenuFlyoutItem.KeyboardAccelerators>
-                                <KeyboardAccelerator Modifiers="Control" Key="H" />
+                                <KeyboardAccelerator Modifiers="Control" Key="H"/>
                             </MenuFlyoutItem.KeyboardAccelerators>
                         </MenuFlyoutItem>
                         <MenuFlyoutItem Text="Go To" AccessKey="G" Click="{x:Bind CMDGoTo_Click}" x:Uid="ClassicEditGoTo">
                             <MenuFlyoutItem.KeyboardAccelerators>
-                                <KeyboardAccelerator Modifiers="Control" Key="G" />
+                                <KeyboardAccelerator Modifiers="Control" Key="G"/>
                             </MenuFlyoutItem.KeyboardAccelerators>
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE12F;" />
+                                <FontIcon Glyph="&#xE12F;"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutItem Text="Select All" AccessKey="A" Click="CMDSelectAll_Click" x:Uid="ClassicEditSelectAll">
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE8B3;" />
+                                <FontIcon Glyph="&#xE8B3;"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                         <MenuFlyoutItem Text="Date/Time" AccessKey="D" Click="CMDInsertDateTime_Click" x:Uid="ClassicEditInsertDT">
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xEC92;" />
+                                <FontIcon Glyph="&#xEC92;"/>
                             </MenuFlyoutItem.Icon>
                             <MenuFlyoutItem.KeyboardAccelerators>
-                                <KeyboardAccelerator Key="F5" />
+                                <KeyboardAccelerator Key="F5"/>
                             </MenuFlyoutItem.KeyboardAccelerators>
                         </MenuFlyoutItem>
                     </winui:MenuBarItem>
                     <winui:MenuBarItem Title="Format" AccessKey="O" x:Uid="ClassicFormat">
                         <ToggleMenuFlyoutItem Text="Word Wrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}" x:Uid="WordWrap">
                             <ToggleMenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE751;" />
+                                <FontIcon Glyph="&#xE751;"/>
                             </ToggleMenuFlyoutItem.Icon>
                         </ToggleMenuFlyoutItem>
                         <MenuFlyoutSeparator/>
@@ -431,6 +431,9 @@
                             <MenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xE158;" />
                             </MenuFlyoutItem.Icon>
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutSubItem Text="Zoom" Visibility="Collapsed" x:Uid="ClassicZoom" AccessKey="Z">
