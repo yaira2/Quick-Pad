@@ -430,10 +430,7 @@
                         <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="{x:Bind SwitchingOverlayMode}" x:Uid="ClassicViewOverlay">
                             <MenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xE158;" />
-                            </MenuFlyoutItem.Icon>
-                            <MenuFlyoutItem.KeyboardAccelerators>
-                                <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
-                            </MenuFlyoutItem.KeyboardAccelerators>
+                            </MenuFlyoutItem.Icon>                            
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutSubItem Text="Zoom" Visibility="Collapsed" x:Uid="ClassicZoom" AccessKey="Z">
