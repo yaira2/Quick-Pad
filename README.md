@@ -8,13 +8,13 @@
 [![Contributors](https://img.shields.io/github/contributors/UWPCommunity/Quick-Pad?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/graphs/contributors)
 [![Stars](https://img.shields.io/github/stars/UWPCommunity/Quick-Pad.svg?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/stargazers)
 
+![Screenshot Dark Mode](https://github.com/UWPCommunity/Quick-Pad/blob/master/Screenshots/Dark%20theme.png)
+
 * Fluent design with dark and light theme support.
 * Launch from the run dialog box by typing "Quickpad".
 * Compact Overlay mode can make the app always on top.
 * Focus mode hides all distractions.
 * Auto save ensures your works is safe.
-
-![Screenshot Dark Mode](https://github.com/UWPCommunity/Quick-Pad/blob/master/Screenshots/Dark%20theme.png)
 
 ******* Planned features. *******
 
