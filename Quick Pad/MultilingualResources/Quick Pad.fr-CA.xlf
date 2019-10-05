@@ -966,6 +966,10 @@
           <source>Advanced</source>
           <target state="new">Advanced</target>
         </trans-unit>
+        <trans-unit id="PasteTextOnly.Text" translate="yes" xml:space="preserve">
+          <source>Paste text only</source>
+          <target state="new">Paste text only</target>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -470,6 +470,13 @@ namespace QuickPad
                     afterTintOpacityChanged?.Invoke(value);
             }
         }
+
+        [DefaultValue(true)]
+        public bool PasteTextOnly
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
         #endregion
 
         #region Manage
