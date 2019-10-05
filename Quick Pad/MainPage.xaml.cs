@@ -100,8 +100,6 @@ namespace QuickPad
             AllFonts = new ObservableCollection<FontFamilyItem>(CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font).Select(font => new FontFamilyItem(font)));
             //
 
-            Clipboard.ContentChanged += Clipboard_ContentChanged;
-
             //check if focus is on app or off the app
             Window.Current.CoreWindow.Activated += (sender, args) =>
             {
@@ -197,7 +195,8 @@ namespace QuickPad
             //As it technically not empty but contain format size text
             SetANewChange();
         }
-
+        
+        #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
         private void UpdateAutoSaveInterval(int to)
         {
             if (timer != null)
@@ -210,27 +209,6 @@ namespace QuickPad
         {
             Text1.Document.Selection.CharacterFormat.ForegroundColor = to;
         }
-
-        private static async void Clipboard_ContentChanged(object sender, object e)
-        {
-            Clipboard.ContentChanged -= Clipboard_ContentChanged;
-            try
-            {
-                DataPackageView clipboardContent = Clipboard.GetContent();
-                var dataPackage = new DataPackage();
-                dataPackage.SetText(await clipboardContent.GetTextAsync());
-                Clipboard.SetContent(dataPackage);
-                Clipboard.Flush();
-            }
-            catch (Exception)
-            {
-            }
-            finally
-            {
-                Clipboard.ContentChanged += Clipboard_ContentChanged;
-            }
-        }
-
 
         private void UpdateAutoSave(bool to)
         {
@@ -246,7 +224,6 @@ namespace QuickPad
             }
         }
 
-        #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
         private void UpdateUIAccordingToNewTheme(object sender, ThemeChangedEventArgs e)
         {
             var to = e.VisualTheme.Theme;
@@ -1022,15 +999,21 @@ namespace QuickPad
 
         private async void Paste_Click(object sender, RoutedEventArgs e)
         {
-            DataPackageView dataPackageView = Clipboard.GetContent();
-            if (dataPackageView.Contains(StandardDataFormats.Text))
+            if (QSetting.PasteTextOnly)
             {
-                string text = await dataPackageView.GetTextAsync();
-                //if there is nothing to paste then dont paste anything since it will crash
-                if (text != "")
+                DataPackageView dataPackageView = Clipboard.GetContent();
+                if (dataPackageView.Contains(StandardDataFormats.Text))
                 {
-                    Text1.Document.Selection.TypeText(text); //paste the text from the clipboard
+                    //if there is nothing to paste then dont paste anything since it will crash
+                    if (!string.IsNullOrEmpty(await dataPackageView.GetTextAsync()))
+                    {
+                        Text1.Document.Selection.TypeText(await dataPackageView.GetTextAsync()); //paste the text from the clipboard
+                    }
                 }
+            }
+            else
+            {
+                Text1.Document.Selection.Paste(0);
             }
         }
 
