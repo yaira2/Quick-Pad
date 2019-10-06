@@ -241,7 +241,7 @@
 
                         <CheckBox IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health reports to App Center"/>
 
-                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log report when the app crashes"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log reports when the app crashes"/>
 
                         <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" Content="Prevent the app from closing when it crashes"/>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
@@ -256,8 +256,8 @@
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="local:CrashInfo">
                                     <StackPanel Orientation="Vertical" Margin="-8,0,4,0">
-                                        <TextBlock Text="{x:Bind Name}" FontSize="18" FontWeight="Bold"/>
-                                        <TextBlock Text="{x:Bind Content}" IsTextSelectionEnabled="True" Margin="0,0,0,20" TextWrapping="Wrap"/>
+                                        <TextBlock Text="{x:Bind Name}" FontSize="16" FontWeight="Bold"/>
+                                        <TextBlock IsTextSelectionEnabled="True" Text="{x:Bind Content}" Margin="0,0,0,20" TextWrapping="Wrap"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListView.ItemTemplate>

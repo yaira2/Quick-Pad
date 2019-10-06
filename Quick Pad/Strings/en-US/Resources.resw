@@ -226,7 +226,7 @@
     <value>Developed by Yair Aichenbaum</value>
   </data>
   <data name="ErrorDialogContent" xml:space="preserve">
-    <value>Sorry, Quick Pad couldn't open the file.</value>
+    <value>Sorry, Quick Pad couldn't open this file.</value>
   </data>
   <data name="ErrorDialogOk" xml:space="preserve">
     <value>Ok</value>
@@ -742,7 +742,7 @@
     <value>Zoom Out</value>
   </data>
   <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
-    <value>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</value>
+    <value>We moved the button here for a cleaner look! You can also press Control + Shift + F to leave focus mode.</value>
   </data>
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
     <value>The button to leave focus mode button has been moved</value>
