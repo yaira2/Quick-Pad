@@ -241,7 +241,7 @@
 
                         <CheckBox IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health reports to App Center"/>
 
-                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log report when the app crashes"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log reports when the app crashes"/>
 
                         <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" Content="Prevent the app from closing when it crashes"/>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
