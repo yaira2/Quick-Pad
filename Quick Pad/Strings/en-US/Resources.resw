@@ -840,4 +840,13 @@
   <data name="PasteTextOnly.Text" xml:space="preserve">
     <value>Paste text only</value>
   </data>
+  <data name="Customize_Bold" xml:space="preserve">
+    <value>Show bold</value>
+  </data>
+  <data name="Customize_Italic" xml:space="preserve">
+    <value>Show italic</value>
+  </data>
+  <data name="Customize_Underline" xml:space="preserve">
+    <value>Show underline</value>
+  </data>
 </root>

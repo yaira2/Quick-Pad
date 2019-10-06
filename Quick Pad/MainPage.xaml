@@ -78,18 +78,18 @@
                            Key="S"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarSeparator/>
-                    <AppBarToggleButton IsChecked="{x:Bind IsItBold, Mode=OneWay}" x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
+                    <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoBulletOptionsShow(QSetting.ShowBold, QSetting.ShowItalic, QSetting.ShowUnderline, QSetting.ShowStrikethroughOption, QSetting.ShowBullets), Mode=OneWay}"/>
+                    <AppBarToggleButton IsChecked="{x:Bind IsItBold, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBold), Mode=OneWay}" x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Bold (Ctrl+B)" x:Uid="BoldTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarToggleButton>
-                    <AppBarToggleButton IsChecked="{x:Bind IsItItalic, Mode=OneWay}" x:Name="Italic" x:Uid="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch">
+                    <AppBarToggleButton IsChecked="{x:Bind IsItItalic, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowItalic), Mode=OneWay}" x:Name="Italic" x:Uid="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Italic (Ctrl+I)" x:Uid="ItalicTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarToggleButton>
-                    <AppBarToggleButton IsChecked="{x:Bind IsItUnderline, Mode=OneWay}" x:Name="Underline" x:Uid="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch">
+                    <AppBarToggleButton IsChecked="{x:Bind IsItUnderline, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowUnderline), Mode=OneWay}" x:Name="Underline" x:Uid="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Underline (Ctrl+U)" x:Uid="UnderlineTooltip"/>
                         </ToolTipService.ToolTip>
@@ -106,7 +106,7 @@
                             </FontIcon>
                         </AppBarToggleButton.Icon>
                     </AppBarToggleButton>
-                    <AppBarToggleButton IsChecked="{x:Bind IsUsingBulletList, Mode=OneWay}" x:Name="BulletList" x:Uid="BulletList"  Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
+                    <AppBarToggleButton IsChecked="{x:Bind IsUsingBulletList, Mode=OneWay}" x:Name="BulletList" x:Uid="BulletList" Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Toggle Bullets" x:Uid="BulletListTooltip"/>
                         </ToolTipService.ToolTip>
@@ -127,7 +127,7 @@
                             <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}" FontFamily="Angsana New" >
+                    <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                         </ToolTipService.ToolTip>
@@ -135,7 +135,7 @@
                             <FontIcon FontFamily="/Assets/Font/FabExMDL2.ttf#Fabric External MDL2 Assets" Glyph=""/>
                         </AppBarButton.Icon>
                     </AppBarButton>
-                    <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}" />
+                    <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}"/>
                     <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease" Visibility="{x:Bind QSetting.ShowSizeUp, Mode=OneWay}">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Size Up" x:Uid="SizeUpTooltip"/>
@@ -153,6 +153,9 @@
                         </AppBarButton.Icon>
                         <AppBarButton.Flyout>
                             <MenuFlyout x:Name="settingsFlyoutMenu" Closing="ClosingCustomizeFlyout">
+                                <ToggleMenuFlyoutItem x:Uid="Customize_Bold" Text="Show bold" Icon="Bold" IsChecked="{x:Bind QSetting.ShowBold, Mode=TwoWay}"/>
+                                <ToggleMenuFlyoutItem x:Uid="Customize_Italic" Text="Show italic" Icon="Italic" IsChecked="{x:Bind QSetting.ShowItalic, Mode=TwoWay}"/>
+                                <ToggleMenuFlyoutItem x:Uid="Customize_Underline" Text="Show underline" Icon="Underline" IsChecked="{x:Bind QSetting.ShowUnderline, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_Strikethrough" Text="Show Strikethrough" IsChecked="{x:Bind QSetting.ShowStrikethroughOption, Mode=TwoWay}">
                                     <ToggleMenuFlyoutItem.Icon>
                                         <FontIcon Margin="0,4,0,-3" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
