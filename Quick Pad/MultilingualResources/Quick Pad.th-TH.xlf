@@ -267,8 +267,9 @@
           <target state="translated">เปิดโหมดเน้นพิมพ์</target>
         </trans-unit>
         <trans-unit id="ErrorDialogContent" translate="yes" xml:space="preserve">
-          <source>Sorry, Quick Pad couldn't open the file.</source>
-          <target state="translated">ไม่สามารถเปิดไฟล์นี้ได้</target>
+          <source>Sorry, Quick Pad couldn't open this file.</source>
+          <target state="needs-review-translation">ไม่สามารถเปิดไฟล์นี้ได้</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="ErrorDialogOk" translate="yes" xml:space="preserve">
           <source>Ok</source>
@@ -839,9 +840,10 @@
           <target state="translated">ย่อ</target>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
-          <source>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</source>
-          <target state="translated">ปุ่ม "ออกจากโหมดเน้นพิมพ์" ถูกย้ายมาไว้ตรงนี้ เพื่อให้แอปโล่งขึ้น
+          <source>We moved the button here for a cleaner look! You can also press Control + Shift + F to leave focus mode.</source>
+          <target state="needs-review-translation">ปุ่ม "ออกจากโหมดเน้นพิมพ์" ถูกย้ายมาไว้ตรงนี้ เพื่อให้แอปโล่งขึ้น
 หรือกด Control + Shift + F เพื่อออกจากโหมดเน้นพิมพ์</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
           <source>The button to leave focus mode button has been moved</source>

@@ -151,8 +151,9 @@
           <target state="translated">Desarrollado por Yair Aichenbaum</target>
         </trans-unit>
         <trans-unit id="ErrorDialogContent" translate="yes" xml:space="preserve">
-          <source>Sorry, Quick Pad couldn't open the file.</source>
-          <target state="translated">Lo sentimos, Quick Pad no puede abrir el archivo</target>
+          <source>Sorry, Quick Pad couldn't open this file.</source>
+          <target state="needs-review-translation">Lo sentimos, Quick Pad no puede abrir el archivo</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="ErrorDialogOk" translate="yes" xml:space="preserve">
           <source>Ok</source>
@@ -839,8 +840,9 @@
           <target state="translated">Zoom -</target>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
-          <source>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</source>
-          <target state="translated">Hemos movido el botón hasta aquí, para que sea un diseño más limpio. También puede presionar Control + Mayús + F para salir.</target>
+          <source>We moved the button here for a cleaner look! You can also press Control + Shift + F to leave focus mode.</source>
+          <target state="needs-review-translation">Hemos movido el botón hasta aquí, para que sea un diseño más limpio. También puede presionar Control + Mayús + F para salir.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
           <source>The button to leave focus mode button has been moved</source>
