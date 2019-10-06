@@ -248,7 +248,11 @@
                                 <Run Text="Give yourself a chance to save or copy your work."/>
                                 <LineBreak/><Run Text="You may need to restart as some functions may not work properly."/>
                         </TextBlock>
-
+                        
+                        <StackPanel Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Orientation="Horizontal">
+                            <Button Content="Clear crash list" Click="{x:Bind ClearCrashList}"/>
+                            <Button Content="Send it to developer" Click="{x:Bind SendCrashReports}"/>
+                        </StackPanel>
                         <ListView ItemsSource="{x:Bind AllCrashes, Mode=OneWay}" Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Margin="0,30,0,0" SelectionMode="None">
                             <ListView.ItemTemplate>
                                 <DataTemplate x:DataType="local:CrashInfo">
@@ -261,7 +265,7 @@
                         </ListView>
 
                         <StackPanel Visibility="{x:Bind ShowNoCrashCongratz, Mode=OneWay}" Orientation="Vertical" Margin="0,30,0,0">
-                            <SymbolIcon Symbol="Emoji" HorizontalAlignment="Center"/>
+                            <FontIcon Glyph="☺" FontFamily="Segoe UI Emoji" HorizontalAlignment="Center"/>
                             <TextBlock HorizontalAlignment="Center" Text="No crash has occured so far"/>
                         </StackPanel>
                     </StackPanel>

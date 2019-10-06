@@ -374,6 +374,46 @@ namespace QuickPad.Dialog
             NotifyPropertyChanged(nameof(ShowNoCrashCongratz));
         }
 
+        public async void ClearCrashList()
+        {
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            var cf = await folder.TryGetItemAsync("Crash") as StorageFolder;
+            if (cf != null)
+            {
+                var files = await cf.GetFilesAsync();
+                foreach (var file in files)
+                    await file.DeleteAsync();
+            }
+            if (AllCrashes is null)
+                AllCrashes = new ObservableCollection<CrashInfo>();
+            else
+                AllCrashes.Clear();
+        }
+
+        public async void SendCrashReports()
+        {
+            EmailMessage emailMessage = new EmailMessage()
+            {
+                Body = "[QuickPad][CrashReport] I want to send these crash report",
+            };
+            string front = "something_???";
+            string provider = "outlook?";
+            emailMessage.To.Add(new EmailRecipient($"{front}@{provider}.com"));
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            var cf = await folder.TryGetItemAsync("Crash") as StorageFolder;
+            if (cf != null)
+            {
+                var files = await cf.GetFilesAsync();
+                foreach (var file in files)
+                {
+                    var stream = RandomAccessStreamReference.CreateFromFile(file);
+                    emailMessage.Attachments.Add(new EmailAttachment(file.Name, stream));
+                    await file.DeleteAsync();
+                }
+                await EmailManager.ShowComposeNewEmailAsync(emailMessage);
+            }
+        }
+
         public Visibility ShowCrashList
         {
             get
