@@ -396,14 +396,13 @@ namespace QuickPad.Dialog
         {
             EmailMessage emailMessage = new EmailMessage()
             {
-                Body = "[QuickPad][CrashReport] I want to send these crash report",
+                Subject = "[QuickPad][CrashReport] I was using the app and it crash, here is the info."
             };
-            string front = "something_???";
-            string provider = "outlook?";
+            string front = "atechelp";
+            string provider = "outlook";
             emailMessage.To.Add(new EmailRecipient($"{front}@{provider}.com"));
             StorageFolder folder = ApplicationData.Current.LocalFolder;
-            var cf = await folder.TryGetItemAsync("Crash") as StorageFolder;
-            if (cf != null)
+            if (await folder.TryGetItemAsync("Crash") is StorageFolder cf)
             {
                 var files = await cf.GetFilesAsync();
                 foreach (var file in files)
