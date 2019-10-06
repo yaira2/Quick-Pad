@@ -75,7 +75,7 @@ namespace QuickPad
         public QuickPad.VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 
         public Setting QSetting => App.QSetting;
-        
+
         public QuickPad.Dialog.SaveChange WantToSave = new QuickPad.Dialog.SaveChange();
 
         public Dialog.GoTo GoToDialog = new Dialog.GoTo();
@@ -99,6 +99,8 @@ namespace QuickPad
             LoadSettings();
             AllFonts = new ObservableCollection<FontFamilyItem>(CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font).Select(font => new FontFamilyItem(font)));
             //
+
+            Clipboard.ContentChanged += ClipboardStatusUpdate;
 
             //check if focus is on app or off the app
             Window.Current.CoreWindow.Activated += (sender, args) =>
@@ -195,8 +197,30 @@ namespace QuickPad
             //As it technically not empty but contain format size text
             SetANewChange();
         }
-        
+
         #region Startup and function handling (Main_Loaded, Uodate UI, Launch sub function, Navigation hangler
+        private async void ClipboardStatusUpdate(object sender, object e)
+        {
+            try
+            {
+                DataPackageView clipboardContent = Clipboard.GetContent();
+                if (QSetting.PasteTextOnly)
+                {
+                    Clipboard.ContentChanged -= ClipboardStatusUpdate;
+                    var dataPackage = new DataPackage();
+                    dataPackage.SetText(await clipboardContent.GetTextAsync());
+                    Clipboard.SetContent(dataPackage);
+                    Clipboard.Flush();
+                    Clipboard.ContentChanged += ClipboardStatusUpdate;
+                }
+                CanPasteText = clipboardContent.Contains(StandardDataFormats.Text);
+            }
+            catch (Exception)
+            {
+                CanPasteText = false;
+            }
+        }
+
         private void UpdateAutoSaveInterval(int to)
         {
             if (timer != null)
@@ -298,7 +322,7 @@ namespace QuickPad
                     return;
                 }
             }
-    
+
             //check what mode to launch the app in
             switch ((AvailableModes)QSetting.LaunchMode)
             {
@@ -439,6 +463,34 @@ namespace QuickPad
         #endregion
 
         #region Properties
+        int? _vsize = null;
+        public int VisualFontSize
+        {
+            get
+            {
+                if (_vsize is null)
+                {
+                    _vsize = QSetting.DefaultFontSize;
+                }
+                return _vsize.Value;
+            }
+            set => Set(ref _vsize, value);
+        }
+
+        bool? _paste = null;
+        public bool CanPasteText
+        {
+            get
+            {
+                if (_paste is null)
+                {
+                    ClipboardStatusUpdate(null, null);
+                }
+                return _paste.Value;
+            }
+            set => Set(ref _paste, value);
+        }
+
         ObservableCollection<FontFamilyItem> _fonts;
         public ObservableCollection<FontFamilyItem> AllFonts
         {
@@ -1039,6 +1091,8 @@ namespace QuickPad
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
         {
+            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size);
+            //
             Text1.Document.BeginUndoGroup();
             try
             {
@@ -1049,11 +1103,17 @@ namespace QuickPad
             {
                 Text1.Document.Selection.CharacterFormat.Size = LastFontSize;
             }
+            finally
+            {
+                VisualFontSize = Convert.ToInt32(Text1.Document.Selection.CharacterFormat.Size);
+            }
             Text1.Document.EndUndoGroup();
         }
 
         private void SizeDown_Click(object sender, RoutedEventArgs e)
         {
+            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size);
+            //
             Text1.Document.BeginUndoGroup();
             //checks if the font size is too small
             if (Text1.Document.Selection.CharacterFormat.Size > 4)
@@ -1062,6 +1122,7 @@ namespace QuickPad
                 Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size - 2;
             }
             Text1.Document.EndUndoGroup();
+            VisualFontSize = Convert.ToInt32(Text1.Document.Selection.CharacterFormat.Size);
         }
 
         private void Emoji_Clicked(object sender, RoutedEventArgs e)

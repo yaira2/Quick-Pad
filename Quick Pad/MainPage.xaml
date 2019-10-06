@@ -237,17 +237,19 @@
                             <TextBlock Text="On Top (Ctrl+Shift+O)" x:Uid="CmdOnTopTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarToggleButton>
-                    <AppBarButton x:Name="Copy" x:Uid="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click">
+                    <AppBarButton x:Name="Copy" x:Uid="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click"
+                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Copy (Ctrl+C)" x:Uid="CopyTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="Paste" x:Uid="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click">
+                    <AppBarButton x:Name="Paste" IsEnabled="{x:Bind CanPasteText, Mode=OneWay}" x:Uid="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Paste (Ctrl+V)" x:Uid="PasteTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="Cut" x:Uid="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click">
+                    <AppBarButton x:Name="Cut" x:Uid="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click"
+                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Cut (Ctrl+X)" x:Uid="CutTooltip"/>
                         </ToolTipService.ToolTip>
@@ -310,33 +312,36 @@
                         </MenuFlyoutItem>
                     </winui:MenuBarItem>
                     <winui:MenuBarItem Title="Edit" AccessKey="E" x:Uid="ClassicEdit">
-                        <MenuFlyoutItem Text="Undo" Click="CmdUndo_Click" AccessKey="U" x:Uid="ClassicEditUndo">
+                        <MenuFlyoutItem Text="Undo" Click="CmdUndo_Click" AccessKey="U" x:Uid="ClassicEditUndo" IsEnabled="{x:Bind CanUndoText, Mode=OneWay}">
                             <MenuFlyoutItem.Icon>
                                 <SymbolIcon Symbol="Undo"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Redo" AccessKey="E" Click="CmdRedo_Click" x:Uid="ClassicEditRedo">
+                        <MenuFlyoutItem Text="Redo" AccessKey="E" Click="CmdRedo_Click" x:Uid="ClassicEditRedo" IsEnabled="{x:Bind CanRedoText, Mode=OneWay}">
                             <MenuFlyoutItem.Icon>
                                 <SymbolIcon Symbol="Redo"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
-                        <MenuFlyoutItem Text="Cut" Click="Cut_Click" AccessKey="T" x:Uid="ClassicEditCut">
+                        <MenuFlyoutItem Text="Cut" Click="Cut_Click" AccessKey="T" x:Uid="ClassicEditCut"
+                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
                             <MenuFlyoutItem.Icon>
                                 <SymbolIcon Symbol="Cut"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Copy" Click="Copy_Click" AccessKey="C" x:Uid="ClassicEditCopy">
+                        <MenuFlyoutItem Text="Copy" Click="Copy_Click" AccessKey="C" x:Uid="ClassicEditCopy"
+                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
                             <MenuFlyoutItem.Icon>
                                 <SymbolIcon Symbol="Copy"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Paste" Click="Paste_Click" AccessKey="P" x:Uid="ClassicEditPaste">
+                        <MenuFlyoutItem IsEnabled="{x:Bind CanPasteText, Mode=OneWay}" Text="Paste" Click="Paste_Click" AccessKey="P" x:Uid="ClassicEditPaste">
                             <MenuFlyoutItem.Icon>
                                 <SymbolIcon Symbol="Paste"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Delete" Click="Delete_Click" AccessKey="L" x:Uid="ClassicEditDelete">
+                        <MenuFlyoutItem Text="Delete" Click="Delete_Click" AccessKey="L" x:Uid="ClassicEditDelete"
+                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
                             <MenuFlyoutItem.Icon>
                                 <SymbolIcon Symbol="Delete"/>
                             </MenuFlyoutItem.Icon>
@@ -510,6 +515,7 @@
                      Style="{StaticResource RichEditBox}"
                      Background="{x:Bind q:Converter.SelectionBetweenBrush(QSetting.PreventText1ChangeColor, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
+                     FontSize="{x:Bind VisualFontSize, Mode=OneWay}"
                      Tapped="Text1_Tapped" FontFamily="Consolas">
                     <RichEditBox.SelectionHighlightColorWhenNotFocused>
                         <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
