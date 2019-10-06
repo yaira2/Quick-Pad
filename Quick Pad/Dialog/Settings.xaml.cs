@@ -10,12 +10,14 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
+using Windows.ApplicationModel.Email;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Globalization;
 using Windows.Services.Store;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -372,6 +374,22 @@ namespace QuickPad.Dialog
             }
             NotifyPropertyChanged(nameof(ShowCrashList));
             NotifyPropertyChanged(nameof(ShowNoCrashCongratz));
+        }
+
+        public async void ClearCrashList()
+        {
+            StorageFolder folder = ApplicationData.Current.LocalFolder;
+            var cf = await folder.TryGetItemAsync("Crash") as StorageFolder;
+            if (cf != null)
+            {
+                var files = await cf.GetFilesAsync();
+                foreach (var file in files)
+                    await file.DeleteAsync();
+            }
+            if (AllCrashes is null)
+                AllCrashes = new ObservableCollection<CrashInfo>();
+            else
+                AllCrashes.Clear();
         }
 
         public Visibility ShowCrashList
