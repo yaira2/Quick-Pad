@@ -287,6 +287,27 @@ namespace QuickPad
 
         #region Toolbar setting
         [DefaultValue(true)]
+        public bool ShowBold
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowItalic
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowUnderline
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
         public bool ShowBullets
         {
             get => Get<bool>();
@@ -621,6 +642,15 @@ namespace QuickPad
         /// <param name="right">Right align button</param>
         /// <param name="justify">Justify align button</param>
         /// <returns></returns>
+        public static Visibility HideIfNoBulletOptionsShow(bool bullet, bool bold, bool strikethrough, bool underline, bool italic)
+        {
+            if (!bullet && !bold && !strikethrough && !underline && !italic)
+            {
+                return Visibility.Collapsed;
+            }
+            return Visibility.Visible;
+        }
+
         public static Visibility HideIfNoAlignButtonShow(bool left, bool center, bool right, bool justify)
         {
             if (!left && !center && !right && !justify)

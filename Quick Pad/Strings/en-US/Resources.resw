@@ -837,4 +837,13 @@
   <data name="SomeSettings.Text" xml:space="preserve">
     <value>Some settings will not update until you restart.</value>
   </data>
+  <data name="Customize_Bold" xml:space="preserve">
+    <value>Show bold</value>
+  </data>
+  <data name="Customize_Italic" xml:space="preserve">
+    <value>Show italic</value>
+  </data>
+  <data name="Customize_Underline" xml:space="preserve">
+    <value>Show underline</value>
+  </data>
 </root>

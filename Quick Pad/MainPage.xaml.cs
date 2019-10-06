@@ -1209,7 +1209,10 @@ namespace QuickPad
 
         public void ResetToolbarSetting()
         {
-            QSetting.ShowStrikethroughOption =
+                QSetting.ShowBold =
+                QSetting.ShowItalic =
+                QSetting.ShowUnderline =
+                QSetting.ShowStrikethroughOption =
                 QSetting.ShowBullets =
                 QSetting.ShowAlignLeft =
                 QSetting.ShowAlignCenter =
