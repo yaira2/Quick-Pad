@@ -248,8 +248,8 @@
                                 <Run Text="Give yourself a chance to save or copy your work."/>
                                 <LineBreak/><Run Text="You may need to restart as some functions may not work properly."/>
                         </TextBlock>
-                        
-                        <StackPanel Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Orientation="Horizontal">
+
+                        <StackPanel Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Orientation="Horizontal" Padding="0,10,0,0">
                             <Button Content="Clear crash list" Click="{x:Bind ClearCrashList}"/>
                         </StackPanel>
                         <ListView ItemsSource="{x:Bind AllCrashes, Mode=OneWay}" Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Margin="0,30,0,0" SelectionMode="None">
