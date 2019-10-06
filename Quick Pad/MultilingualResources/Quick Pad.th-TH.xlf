@@ -983,9 +983,21 @@
           <source>Keep text only</source>
           <target state="new">Keep text only</target>
         </trans-unit>
-        <trans-unit id="PasteOptions.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="AdvancedPasteOptions.Text" translate="yes" xml:space="preserve">
           <source>Paste Options</source>
           <target state="new">Paste Options</target>
+        </trans-unit>
+        <trans-unit id="AdvancedOther.Text" translate="yes" xml:space="preserve">
+          <source>Other</source>
+          <target state="new">Other</target>
+        </trans-unit>
+        <trans-unit id="AdvancedThemeOptions.Text" translate="yes" xml:space="preserve">
+          <source>Theme Options</source>
+          <target state="new">Theme Options</target>
+        </trans-unit>
+        <trans-unit id="Health.Text" translate="yes" xml:space="preserve">
+          <source>Health</source>
+          <target state="new">Health</target>
         </trans-unit>
       </group>
     </body>

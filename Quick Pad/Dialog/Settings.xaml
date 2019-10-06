@@ -194,21 +194,23 @@
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                     <StackPanel>
                         <TextBlock x:Uid="Advanced" Text="Advanced" FontSize="20"/>
-
-                        <TextBlock x:Uid="PasteOptions" FontSize="14"/>
-                        <TextBlock x:Uid="KeepTextOnly" Text="Keep text only"/>
-                        <ToggleSwitch IsOn="{x:Bind QSetting.PasteTextOnly, Mode=TwoWay}"/>
-
+                        
+                        <TextBlock x:Uid="AdvancedThemeOptions" FontSize="16"/>
                         <TextBlock x:Uid="PreventText1ChangeColor" Text="Use a dark/light background for the text area"/>
                         <ToggleSwitch IsOn="{x:Bind QSetting.PreventText1ChangeColor, Mode=TwoWay}"/>
 
                         <TextBlock x:Uid="BackgroundTintOpacity" Text="App background tint opacity"/>
                         <Slider Value="{x:Bind QSetting.BackgroundTintOpacity, Mode=TwoWay}" Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
 
+                        <TextBlock x:Uid="AdvancedPasteOptions" FontSize="16"/>
+                        <TextBlock x:Uid="KeepTextOnly" Text="Keep text only"/>
+                        <ToggleSwitch IsOn="{x:Bind QSetting.PasteTextOnly, Mode=TwoWay}"/>
+                        
+                        <TextBlock x:Uid="AdvancedOther" FontSize="16"/>
                         <TextBlock x:Uid="AutoPickMode" Text="Automatically choose which mode to launch the app in based on the file type"/>
                         <ToggleSwitch  IsOn="{x:Bind QSetting.AutoPickMode, Mode=TwoWay}"/>
 
-                        <TextBlock x:Uid="ManageSettings" Text="Manage settings"/>
+                        <TextBlock x:Uid="ManageSettings" Text="Manage settings" FontSize="16"/>
                         <StackPanel Orientation="Horizontal">
                             <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
                                         Content="Import"
@@ -235,6 +237,8 @@
                 <!--Crash-->
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Report'), Mode=OneWay}">
                     <StackPanel Padding="2">
+                        <TextBlock x:Uid="Health" Text="Health" FontSize="20"/>
+
                         <CheckBox IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health reports to App Center"/>
 
                         <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log report when the app crashes"/>

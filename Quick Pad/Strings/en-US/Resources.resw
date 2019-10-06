@@ -849,7 +849,16 @@
   <data name="Customize_Underline" xml:space="preserve">
     <value>Show underline</value>
   </data>
-  <data name="PasteOptions.Text" xml:space="preserve">
+  <data name="AdvancedPasteOptions.Text" xml:space="preserve">
     <value>Paste Options</value>
+  </data>
+  <data name="AdvancedOther.Text" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="AdvancedThemeOptions.Text" xml:space="preserve">
+    <value>Theme Options</value>
+  </data>
+  <data name="Health.Text" xml:space="preserve">
+    <value>Health</value>
   </data>
 </root>
