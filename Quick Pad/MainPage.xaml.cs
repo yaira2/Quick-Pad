@@ -101,6 +101,7 @@ namespace QuickPad
             //
 
             Clipboard.ContentChanged += ClipboardStatusUpdate;
+            ClipboardStatusUpdate(null, null);
 
             //check if focus is on app or off the app
             Window.Current.CoreWindow.Activated += (sender, args) =>
@@ -477,17 +478,10 @@ namespace QuickPad
             set => Set(ref _vsize, value);
         }
 
-        bool? _paste = null;
+        bool _paste;
         public bool CanPasteText
         {
-            get
-            {
-                if (_paste is null)
-                {
-                    ClipboardStatusUpdate(null, null);
-                }
-                return _paste.Value;
-            }
+            get => _paste;
             set => Set(ref _paste, value);
         }
 
