@@ -205,15 +205,23 @@ namespace QuickPad
             try
             {
                 DataPackageView clipboardContent = Clipboard.GetContent();
+                Clipboard.ContentChanged -= ClipboardStatusUpdate;
+                var dataPackage = new DataPackage();
                 if (QSetting.PasteTextOnly)
                 {
-                    Clipboard.ContentChanged -= ClipboardStatusUpdate;
-                    var dataPackage = new DataPackage();
                     dataPackage.SetText(await clipboardContent.GetTextAsync());
-                    Clipboard.SetContent(dataPackage);
-                    Clipboard.Flush();
-                    Clipboard.ContentChanged += ClipboardStatusUpdate;
                 }
+                else
+                {
+                    dataPackage = new DataPackage();
+                    if (clipboardContent.Contains(StandardDataFormats.Rtf))
+                        dataPackage.SetRtf(await clipboardContent.GetRtfAsync());
+                    else
+                        dataPackage.SetText(await clipboardContent.GetTextAsync());
+                }
+                Clipboard.SetContent(dataPackage);
+                Clipboard.Flush();
+                Clipboard.ContentChanged += ClipboardStatusUpdate;
                 CanPasteText = clipboardContent.Contains(StandardDataFormats.Text);
             }
             catch (Exception)
