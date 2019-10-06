@@ -301,6 +301,7 @@
   </ItemGroup>
   <ItemGroup>
     <XliffResource Include="MultilingualResources\Quick Pad.ar-SA.xlf" />
+    <XliffResource Include="MultilingualResources\Quick Pad.es-ES.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.es.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.fr-FR.xlf" />
