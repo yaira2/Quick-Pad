@@ -392,29 +392,6 @@ namespace QuickPad.Dialog
                 AllCrashes.Clear();
         }
 
-        public async void SendCrashReports()
-        {
-            EmailMessage emailMessage = new EmailMessage()
-            {
-                Subject = "[QuickPad][CrashReport] I was using the app and it crash, here is the info."
-            };
-            string front = "atechelp";
-            string provider = "outlook";
-            emailMessage.To.Add(new EmailRecipient($"{front}@{provider}.com"));
-            StorageFolder folder = ApplicationData.Current.LocalFolder;
-            if (await folder.TryGetItemAsync("Crash") is StorageFolder cf)
-            {
-                var files = await cf.GetFilesAsync();
-                foreach (var file in files)
-                {
-                    var stream = RandomAccessStreamReference.CreateFromFile(file);
-                    emailMessage.Attachments.Add(new EmailAttachment(file.Name, stream));
-                    await file.DeleteAsync();
-                }
-                await EmailManager.ShowComposeNewEmailAsync(emailMessage);
-            }
-        }
-
         public Visibility ShowCrashList
         {
             get

@@ -250,8 +250,7 @@
                         </TextBlock>
                         
                         <StackPanel Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Orientation="Horizontal">
-                            <Button Content="Clear crash list" Click="{x:Bind ClearCrashList}"/>
-                            <Button Content="Send it to developer" Click="{x:Bind SendCrashReports}"/>
+                            <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}" Content="Clear crash list" Click="{x:Bind ClearCrashList}"/>
                         </StackPanel>
                         <ListView ItemsSource="{x:Bind AllCrashes, Mode=OneWay}" Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Margin="0,30,0,0" SelectionMode="None">
                             <ListView.ItemTemplate>
