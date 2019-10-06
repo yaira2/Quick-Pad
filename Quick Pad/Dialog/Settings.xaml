@@ -194,8 +194,9 @@
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                     <StackPanel>
                         <TextBlock x:Uid="Advanced" Text="Advanced" FontSize="20"/>
-                        
-                        <TextBlock x:Uid="PasteTextOnly" Text="Paste text only"/>
+
+                        <TextBlock x:Uid="PasteOptions" FontSize="14"/>
+                        <TextBlock x:Uid="KeepTextOnly" Text="Keep text only"/>
                         <ToggleSwitch IsOn="{x:Bind QSetting.PasteTextOnly, Mode=TwoWay}"/>
 
                         <TextBlock x:Uid="PreventText1ChangeColor" Text="Use a dark/light background for the text area"/>

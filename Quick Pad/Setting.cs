@@ -492,7 +492,7 @@ namespace QuickPad
             }
         }
 
-        [DefaultValue(true)]
+        [DefaultValue(false)]
         public bool PasteTextOnly
         {
             get => Get<bool>();
