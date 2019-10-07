@@ -121,7 +121,7 @@
     <value>Desarrollado por Yair Aichenbaum</value>
   </data>
   <data name="ErrorDialogContent" xml:space="preserve">
-    <value>Lo sentimos, Quick Pad no puede abrir el archivo</value>
+    <value>Lo sentimos, Quick Pad no puede abrir este archivo</value>
   </data>
   <data name="ErrorDialogOk" xml:space="preserve">
     <value>Vale</value>
@@ -637,7 +637,7 @@
     <value>Zoom -</value>
   </data>
   <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
-    <value>Hemos movido el botón hasta aquí, para que sea un diseño más limpio. También puede presionar Control + Mayús + F para salir.</value>
+    <value>Hemos movido el botón hasta aquí para lograr una mejor visualidad. Puedes presionar Control + Mayús + F para abandonar el modo Enfoque</value>
   </data>
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
     <value>Se movió el botón para salir del modo de enfoque</value>
@@ -692,5 +692,17 @@
   </data>
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>Tema definido por el Sistema</value>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Avanzado</value>
+  </data>
+  <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
+    <value>Prevenir que la app se cierre inesperadamente</value>
+  </data>
+  <data name="SaveLogWhenCrash.Content" xml:space="preserve">
+    <value>Guardar un registro de errores cuando la aplicación se cierre inesperadamente</value>
+  </data>
+  <data name="SendAnalyticsReport.Content" xml:space="preserve">
+    <value>Enviar reporte de salud de la aplicación a App Center</value>
   </data>
 </root>
