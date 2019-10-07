@@ -121,7 +121,7 @@
     <value>طوره يائير أيجينباوم</value>
   </data>
   <data name="ErrorDialogContent" xml:space="preserve">
-    <value>عذرًا ، قويك باد تعذرعلى فتح الملف</value>
+    <value>عذرًا، تعذر قويك باد على فتح هذا الملف</value>
   </data>
   <data name="ErrorDialogOk" xml:space="preserve">
     <value>موافق</value>
@@ -637,7 +637,7 @@
     <value>تصغير</value>
   </data>
   <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
-    <value>لقد نقلنا الزر إلى هنا حتى يكون تصميمًا أنظف. يمكنك أيضًا الضغط على Control + Shift + F لإغلاق.</value>
+    <value>لقد نقلنا الزر إلى هنا حتى يكون تصميمًا أنظف. يمكنك أيضًا الضغط على Control + Shift + F لإغلاق الوضع التركيزي.</value>
   </data>
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
     <value>تم نقل زر لإغلاق وضع التركيز</value>
@@ -692,5 +692,86 @@
   </data>
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>النسق من النظام</value>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>عام</value>
+  </data>
+  <data name="ThemeSettings.Text" xml:space="preserve">
+    <value>إعدادات النسق</value>
+  </data>
+  <data name="FontSettings.Text" xml:space="preserve">
+    <value>إعدادات الخط...</value>
+  </data>
+  <data name="AutoPickMode.Text" xml:space="preserve">
+    <value>اختيار وضع تشغيل التطبيق تلقائيًا وفقًا لنوع الملف</value>
+  </data>
+  <data name="BackgroundTintOpacity.Text" xml:space="preserve">
+    <value>لون الخلفية اللاشفافية للتطبيق</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>تصدير</value>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>استيراد</value>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>إدارة الإعدادات...</value>
+  </data>
+  <data name="PleaseSaveWork.Text" xml:space="preserve">
+    <value>يرجى حفظ عملك قبل استيراد أو إعادة تعيين الإعدادات.</value>
+  </data>
+  <data name="PreventText1ChangeColor.Text" xml:space="preserve">
+    <value>استخدم خلفية داكنة / فاتحة لمنطقة النص</value>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>إعادة التعيين</value>
+  </data>
+  <data name="SomeSettings.Text" xml:space="preserve">
+    <value>لن يتم تحديث بعض الإعدادات حتى تقوم بإعادة التشغيل.</value>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>إعدادات متقدمة</value>
+  </data>
+  <data name="Customize_Bold" xml:space="preserve">
+    <value>عرض بالخط العريض</value>
+  </data>
+  <data name="Customize_Italic" xml:space="preserve">
+    <value>عرض مائل</value>
+  </data>
+  <data name="Customize_Underline" xml:space="preserve">
+    <value>عرض تسطير</value>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>الحفاظ على النص فقط</value>
+  </data>
+  <data name="AdvancedPasteOptions.Text" xml:space="preserve">
+    <value>خيارات اللصق</value>
+  </data>
+  <data name="AdvancedOther.Text" xml:space="preserve">
+    <value>آخر</value>
+  </data>
+  <data name="AdvancedThemeOptions.Text" xml:space="preserve">
+    <value>خيارات النسق</value>
+  </data>
+  <data name="Health.Text" xml:space="preserve">
+    <value>الصحة</value>
+  </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>امنح نفسك فرصة لحفظ عملك أو نسخه ، فستظل بحاجة إلى إعادة التشغيل لأن بعض الوظائف قد لا تعمل بشكل صحيح.</value>
+  </data>
+  <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
+    <value>منع التطبيق من الإغلاق عند حدوث تعطل</value>
+  </data>
+  <data name="SaveLogWhenCrash.Content" xml:space="preserve">
+    <value>حفظ تقارير السجل عند تعطل التطبيق</value>
+  </data>
+  <data name="SendAnalyticsReport.Content" xml:space="preserve">
+    <value>إرسال التقارير الصحية التطبيق إلى مركز التطبيقات</value>
+  </data>
+  <data name="ClearCrashList.Content" xml:space="preserve">
+    <value>مسح التاريخ للتحطم </value>
+  </data>
+  <data name="NoCrashes.Text" xml:space="preserve">
+    <value>لا يوجد تحطم تطبيقي</value>
   </data>
 </root>
