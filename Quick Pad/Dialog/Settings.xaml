@@ -272,7 +272,8 @@
                 <!--About-->
                 <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'About'), Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
-                        <TextBlock Text="{x:Bind VersionNumberText, Mode=OneWay}" x:Name="VersionNumber" HorizontalAlignment="Center" Margin="0,30,0,0"/>
+                        <Image Source="/Assets/Quick Pad.png" Stretch="Fill" Width="60" Height="60" Margin="0,30,0,0"/>
+                        <TextBlock Text="{x:Bind VersionNumberText, Mode=OneWay}" x:Name="VersionNumber" HorizontalAlignment="Center"/>
                         <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" HorizontalAlignment="Center"/>
                         <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" HorizontalAlignment="Center"/>
                         <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
