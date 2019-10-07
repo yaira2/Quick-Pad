@@ -165,7 +165,7 @@
                                         </FontIcon>
                                     </ToggleMenuFlyoutItem.Icon>
                                 </ToggleMenuFlyoutItem>
-                                <ToggleMenuFlyoutItem x:Uid="Customize_Bullets" Text="Show bullet list" Icon="Bullets" IsChecked="{x:Bind QSetting.ShowBullets, Mode=TwoWay}"/>
+                                <ToggleMenuFlyoutItem x:Uid="Customize_Bullets" Text="Show bullet list" Icon="List" IsChecked="{x:Bind QSetting.ShowBullets, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_AlignLeft" Text="Show align left" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignLeft, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_AlignCenter" Text="Show align center" Icon="AlignLeft" IsChecked="{x:Bind QSetting.ShowAlignCenter, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_AlignRight" Text="Show align right" Icon="AlignRight" IsChecked="{x:Bind QSetting.ShowAlignRight, Mode=TwoWay}"/>
