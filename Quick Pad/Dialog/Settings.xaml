@@ -239,18 +239,17 @@
                     <StackPanel Padding="2">
                         <TextBlock x:Uid="Health" Text="Health" FontSize="20"/>
 
-                        <CheckBox IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" Content="Send app health reports to App Center"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.SendAnalyticsReport, Mode=TwoWay}" x:Uid="SendAnalyticsReport" Content="Send app health reports to App Center"/>
 
-                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" Content="Save log reports when the app crashes"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" x:Uid="SaveLogWhenCrash" Content="Save log reports when the app crashes"/>
 
-                        <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" Content="Prevent the app from closing when it crashes"/>
+                        <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" x:Uid="PreventAppCloseAfterCrash" Content="Prevent the app from closing when a crash occurs"/>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
-                                <Run Text="Give yourself a chance to save or copy your work."/>
-                                <LineBreak/><Run Text="You may need to restart as some functions may not work properly."/>
+                                <Run x:Uid="GiveChanceToSave" Text="Give yourself a chance to save or copy your work, you may need to restart as some functions may not work properly."/>
                         </TextBlock>
 
                         <StackPanel Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Orientation="Horizontal" Padding="0,10,0,0">
-                            <Button Content="Clear crash list" Click="{x:Bind ClearCrashList}"/>
+                            <Button Content="Clear crash history" x:Uid="ClearCrashList" Click="{x:Bind ClearCrashList}"/>
                         </StackPanel>
                         <ListView ItemsSource="{x:Bind AllCrashes, Mode=OneWay}" Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Margin="0,30,0,0" SelectionMode="None">
                             <ListView.ItemTemplate>
@@ -265,7 +264,7 @@
 
                         <StackPanel Visibility="{x:Bind ShowNoCrashCongratz, Mode=OneWay}" Orientation="Vertical" Margin="0,30,0,0">
                             <FontIcon Glyph="☺" FontFamily="Segoe UI Emoji" HorizontalAlignment="Center"/>
-                            <TextBlock HorizontalAlignment="Center" Text="No crashes have occured"/>
+                            <TextBlock HorizontalAlignment="Center" x:Uid="NoCrashes" Text="No crashes have occured"/>
                         </StackPanel>
                     </StackPanel>
                 </ScrollViewer>

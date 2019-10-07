@@ -1000,6 +1000,30 @@
           <source>Health</source>
           <target state="new">Health</target>
         </trans-unit>
+        <trans-unit id="GiveChanceToSave.Text" translate="yes" xml:space="preserve">
+          <source>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</source>
+          <target state="new">Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</target>
+        </trans-unit>
+        <trans-unit id="PreventAppCloseAfterCrash.Content" translate="yes" xml:space="preserve">
+          <source>Prevent the app from closing when the app crashes</source>
+          <target state="new">Prevent the app from closing when the app crashes</target>
+        </trans-unit>
+        <trans-unit id="SaveLogWhenCrash.Content" translate="yes" xml:space="preserve">
+          <source>Save log reports when the app crashes</source>
+          <target state="new">Save log reports when the app crashes</target>
+        </trans-unit>
+        <trans-unit id="SendAnalyticsReport.Content" translate="yes" xml:space="preserve">
+          <source>Send app health reports to App Center</source>
+          <target state="new">Send app health reports to App Center</target>
+        </trans-unit>
+        <trans-unit id="ClearCrashList.Content" translate="yes" xml:space="preserve">
+          <source>Clear crash history</source>
+          <target state="new">Clear crash history</target>
+        </trans-unit>
+        <trans-unit id="NoCrashes.Text" translate="yes" xml:space="preserve">
+          <source>No crashes have occured</source>
+          <target state="new">No crashes have occured</target>
+        </trans-unit>
       </group>
     </body>
   </file>
