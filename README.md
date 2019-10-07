@@ -8,7 +8,7 @@
 [![Contributors](https://img.shields.io/github/contributors/UWPCommunity/Quick-Pad?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/graphs/contributors)
 [![Stars](https://img.shields.io/github/stars/UWPCommunity/Quick-Pad.svg?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/stargazers)
 
-![Screenshot ark Mode](https://github.com/UWPCommunity/Quick-Pad/blob/master/Screenshots/Dark%20theme.png)
+![Screenshot Dark Mode](https://github.com/UWPCommunity/Quick-Pad/blob/master/Screenshots/Dark%20the\me.png)
 
 * Fluent design with dark and light theme support.
 * Launch from the run dialog box by typing "Quickpad".
