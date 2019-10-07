@@ -1006,8 +1006,8 @@
           <target state="new">Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</target>
         </trans-unit>
         <trans-unit id="PreventAppCloseAfterCrash.Content" translate="yes" xml:space="preserve">
-          <source>Prevent the app from closing when the app crashes</source>
-          <target state="new">Prevent the app from closing when the app crashes</target>
+          <source>Prevent the app from closing when a crash occurs</source>
+          <target state="new">Prevent the app from closing when a crash occurs</target>
         </trans-unit>
         <trans-unit id="SaveLogWhenCrash.Content" translate="yes" xml:space="preserve">
           <source>Save log reports when the app crashes</source>

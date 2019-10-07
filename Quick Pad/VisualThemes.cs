@@ -234,7 +234,7 @@ namespace QuickPad
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
                 PreviewBrush = new SolidColorBrush(accentColor),
             };
-            theme.BaseThemeBackgroundBrush = etheme == ElementTheme.Dark ? new SolidColorBrush(Colors.Black) : new SolidColorBrush(Colors.White);
+            theme.BaseThemeBackgroundBrush = etheme == ElementTheme.Dark ? new SolidColorBrush(Color.FromArgb(255, 28, 28, 28)) : new SolidColorBrush(Colors.White);
             _setting.afterTintOpacityChanged += theme.UpdateTintOpacity;
             return theme;
         }
