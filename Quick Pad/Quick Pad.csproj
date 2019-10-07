@@ -213,7 +213,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <Content Include="Assets\Font\Segoe MDL2 Modded.ttf" />
     <Content Include="Assets\Font\FabExMDL2.ttf" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
@@ -301,6 +300,7 @@
   </ItemGroup>
   <ItemGroup>
     <XliffResource Include="MultilingualResources\Quick Pad.ar-SA.xlf" />
+    <XliffResource Include="MultilingualResources\Quick Pad.es-ES.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.es.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.fr-FR.xlf" />

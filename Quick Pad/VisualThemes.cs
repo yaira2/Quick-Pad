@@ -5,9 +5,11 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -70,6 +72,11 @@ namespace QuickPad
             private set;
         }
 
+        public UISettings SystemUI
+        {
+            get;
+        }
+
         public VisualThemeSelector()
         {
             _themes = new List<VisualTheme>();
@@ -80,10 +87,24 @@ namespace QuickPad
             ThemesView = source.View;
             ThemesView.CurrentChanged += ThemesView_CurrentChanged;
 
+            //
+            SystemUI = new UISettings();
+            SystemUI.ColorValuesChanged += SystemThemeChanged;
+
             //Select here from settings:
             ThemesView.MoveCurrentToFirst();
             //
         }
+
+        private async void SystemThemeChanged(UISettings sender, object args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                ThemesView_CurrentChanged(null, null);
+            });
+        }
+
         private void ThemesView_CurrentChanged(object sender, object e)
         {
             if (ThemesView.CurrentItem is VisualTheme theme)
