@@ -1,9 +1,6 @@
 using Microsoft.AppCenter.Analytics;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Services.Store.Engagement;
-using Microsoft.Toolkit.Uwp.UI.Animations;
-using Newtonsoft.Json.Linq;
-using QuickPad;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,7 +14,6 @@ using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Resources;
-using Windows.Globalization;
 using Windows.Services.Store;
 using Windows.Storage;
 using Windows.System;
@@ -33,7 +29,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using WINUI = Microsoft.UI.Xaml.Controls;
 
 namespace QuickPad
 {
@@ -642,7 +637,7 @@ namespace QuickPad
             try
             {
                 StoreSendRequestResult result = await StoreRequestHelper.SendRequestAsync(StoreContext.GetDefault(), 16, String.Empty);
-                
+
             }
             catch (Exception)
             {
@@ -1255,18 +1250,18 @@ namespace QuickPad
 
         public void ResetToolbarSetting()
         {
-                QSetting.ShowBold =
-                QSetting.ShowItalic =
-                QSetting.ShowUnderline =
-                QSetting.ShowStrikethroughOption =
-                QSetting.ShowBullets =
-                QSetting.ShowAlignLeft =
-                QSetting.ShowAlignCenter =
-                QSetting.ShowAlignRight =
-                QSetting.ShowAlignJustify =
-                QSetting.ShowSizeUp =
-                QSetting.ShowSizeDown =
-                true;
+            QSetting.ShowBold =
+            QSetting.ShowItalic =
+            QSetting.ShowUnderline =
+            QSetting.ShowStrikethroughOption =
+            QSetting.ShowBullets =
+            QSetting.ShowAlignLeft =
+            QSetting.ShowAlignCenter =
+            QSetting.ShowAlignRight =
+            QSetting.ShowAlignJustify =
+            QSetting.ShowSizeUp =
+            QSetting.ShowSizeDown =
+            true;
         }
         #endregion
 
@@ -1343,7 +1338,7 @@ namespace QuickPad
                 Shadow1.Visibility = Visibility.Collapsed;
                 Shadow2.Visibility = Visibility.Visible;
                 Grid.SetRow(CommandBar2, 3);
-                
+
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
                 //
@@ -1851,7 +1846,7 @@ namespace QuickPad
                     result = Text1.TextDocument.Selection.FindText(find, find.Length + 1, match ? FindOptions.Case : FindOptions.None);
                     backward--;
                     if (backward < 2 && result == 0 && wrap)
-                    {                        
+                    {
                         Text1.TextDocument.Selection.SetRange(MaximumPossibleSearchRange, MaximumPossibleSearchRange);
                         FindRequestedText(find, direction, match, false);
                         break;
@@ -1984,7 +1979,7 @@ namespace QuickPad
                 totalCharacters = value.Length;
                 System.Diagnostics.Debug.WriteLine($"\"{value}\"");
                 int input = int.Parse(GoToDialog.LineInput.Text) - 1;
-                if (input < 0) { return;}
+                if (input < 0) { return; }
                 if (input > totalLine - 1)
                 {
                     return;

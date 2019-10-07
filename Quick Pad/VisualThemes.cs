@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
@@ -12,7 +10,6 @@ using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 
@@ -110,13 +107,13 @@ namespace QuickPad
             if (ThemesView.CurrentItem is VisualTheme theme)
             {
                 SettingsItem = theme;
-                if (theme.Kind ==VisualThemeKind.System)
+                if (theme.Kind == VisualThemeKind.System)
                 {
                     var systemTheme = GetSystemTheme();
                     bool darkTheme = (systemTheme.HasValue && !systemTheme.Value);
                     CurrentItem = GetThemeFromId((darkTheme) ? DARK_KEY : LIGHT_KEY);
                 }
-                else if(theme.Kind == VisualThemeKind.Random)
+                else if (theme.Kind == VisualThemeKind.Random)
                 {
                     List<VisualTheme> customThemes = new List<VisualTheme>(_themes.Where(x => x.Kind == VisualThemeKind.Custom));
                     Random random = new Random();
@@ -214,7 +211,7 @@ namespace QuickPad
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = (_setting.BackgroundTintOpacity + .15) > 1 ? 1 : _setting.BackgroundTintOpacity + .15 
+                TintOpacity = (_setting.BackgroundTintOpacity + .15) > 1 ? 1 : _setting.BackgroundTintOpacity + .15
             };
             AcrylicBrush inAppAcrylic = new AcrylicBrush
             {

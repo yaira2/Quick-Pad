@@ -10,7 +10,6 @@ using Windows.Storage;
 using Windows.UI;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 
@@ -427,7 +426,7 @@ namespace QuickPad
 
         #region Advanced/Others
         [DefaultValue(0)]
-        public int TimesUsingFocusMode 
+        public int TimesUsingFocusMode
         { //Use to track focus mode, if less than 2 times it will show tip, else it won't
             get => Get<int>();
             set => Set(value);
@@ -667,7 +666,7 @@ namespace QuickPad
             return Visibility.Visible;
         }
 
-        public static  Visibility HideIfNoSizeButtonShow(bool up, bool down)
+        public static Visibility HideIfNoSizeButtonShow(bool up, bool down)
         {
             if (!up && !down)
             {
