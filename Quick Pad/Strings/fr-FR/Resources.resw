@@ -382,7 +382,7 @@
     <value>Souligner (Ctrl+U)</value>
   </data>
   <data name="VersionFormat" xml:space="preserve">
-    <value>Version: {0} ({1}, {2}{3})</value>
+    <value>Version: {0}.{1}.{2}.{3}</value>
   </data>
   <data name="WhitePlaceholder" xml:space="preserve">
     <value>Blanc</value>
@@ -524,5 +524,173 @@
   </data>
   <data name="AppLanguage.Text" xml:space="preserve">
     <value>Langue de l'application</value>
+  </data>
+  <data name="CmdOnTopTooltip" xml:space="preserve">
+    <value>En haut</value>
+  </data>
+  <data name="CmdFind.Label" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="ClassicEditFind.Text" xml:space="preserve">
+    <value>Rechercher</value>
+  </data>
+  <data name="ClassicEditFindNext.Text" xml:space="preserve">
+    <value>Trouver le suivant</value>
+  </data>
+  <data name="ClassicEditFindPrevious.Text" xml:space="preserve">
+    <value>Trouver le précédent</value>
+  </data>
+  <data name="ClassicEditReplace.Text" xml:space="preserve">
+    <value>Remplacer</value>
+  </data>
+  <data name="FAR_CloseDialog.Text" xml:space="preserve">
+    <value>Fermer</value>
+  </data>
+  <data name="FAR_FindOption.Text" xml:space="preserve">
+    <value>Trouver l'option</value>
+  </data>
+  <data name="FAR_InputEmpty.PlaceholderText" xml:space="preserve">
+    <value>Rechercher?</value>
+  </data>
+  <data name="FAR_MatchCase.Content" xml:space="preserve">
+    <value>Cas de correspondance</value>
+  </data>
+  <data name="FAR_More.Text" xml:space="preserve">
+    <value>Plus...</value>
+  </data>
+  <data name="FAR_ReplaceAll.Text" xml:space="preserve">
+    <value>Remplacer tout</value>
+  </data>
+  <data name="FAR_WrapAround.Content" xml:space="preserve">
+    <value>Envelopper autour</value>
+  </data>
+  <data name="FAR_ReplaceInput.PlaceholderText" xml:space="preserve">
+    <value>Remplacer par...</value>
+  </data>
+  <data name="ClassicEditDelete.Text" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="ClassicEditGoTo.Text" xml:space="preserve">
+    <value>Aller à</value>
+  </data>
+  <data name="ClassicEditInsertDT.Text" xml:space="preserve">
+    <value>Temps/Date</value>
+  </data>
+  <data name="ClassicEditSearch.Text" xml:space="preserve">
+    <value>Rechercher avec Bing</value>
+  </data>
+  <data name="ClassicEditSelectAll.Text" xml:space="preserve">
+    <value>Sélectionner tout</value>
+  </data>
+  <data name="GT_Dialog.PrimaryButtonText" xml:space="preserve">
+    <value>Aller à</value>
+  </data>
+  <data name="GT_Dialog.SecondaryButtonText" xml:space="preserve">
+    <value>Annuler</value>
+  </data>
+  <data name="GT_Dialog.Title" xml:space="preserve">
+    <value>Aller à la ligne</value>
+  </data>
+  <data name="GT_LineInput.Header" xml:space="preserve">
+    <value>Numéro de ligne:</value>
+  </data>
+  <data name="Cmd_Customize.Label" xml:space="preserve">
+    <value>Personnaliser</value>
+  </data>
+  <data name="Customize_AlignCenter.Text" xml:space="preserve">
+    <value>Montrer l'alignement au centre</value>
+  </data>
+  <data name="Customize_AlignJustify.Text" xml:space="preserve">
+    <value>Montrer l'alignement justifié</value>
+  </data>
+  <data name="Customize_AlignLeft.Text" xml:space="preserve">
+    <value>l'alignement à gauche</value>
+  </data>
+  <data name="Customize_AlignRight.Text" xml:space="preserve">
+    <value>Montrer l'alignement à droite</value>
+  </data>
+  <data name="Customize_Bullets.Text" xml:space="preserve">
+    <value>Montrer la liste de puce</value>
+  </data>
+  <data name="Customize_Strikethrough.Text" xml:space="preserve">
+    <value>Montrer l'option barrée</value>
+  </data>
+  <data name="Customize_SizeDown.Text" xml:space="preserve">
+    <value>Montrer la taille plus petite</value>
+  </data>
+  <data name="Customize_SizeUp.Text" xml:space="preserve">
+    <value>Montrer la taille plus grande</value>
+  </data>
+  <data name="Customize_Reset.Text" xml:space="preserve">
+    <value>Réinitialiser la barre d'outil</value>
+  </data>
+  <data name="ClassicRestoreDefaultZoom" xml:space="preserve">
+    <value>Restaurer le zoom par défaut</value>
+  </data>
+  <data name="ClassicZoom.Text" xml:space="preserve">
+    <value>Zoom</value>
+  </data>
+  <data name="ClassicZoomIn.Text" xml:space="preserve">
+    <value>Zoom avant</value>
+  </data>
+  <data name="ClassicZoomOut" xml:space="preserve">
+    <value>Zoom arrière</value>
+  </data>
+  <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
+    <value>Nous avons déplacé le bouton ici pour avoir un style plus propre. Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir.</value>
+  </data>
+  <data name="HowToLeaveFocus.Title" xml:space="preserve">
+    <value>Le bouton pour quitter le bouton de mode de mise au point a été déplacé</value>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>Sauvegarde automatique de tout</value>
+  </data>
+  <data name="AutoSaveEverySeconds.Text" xml:space="preserve">
+    <value>seconde(s)</value>
+  </data>
+  <data name="Restart.Text" xml:space="preserve">
+    <value>Un redémarrage est nécessaire pour appliquer les modifications</value>
+  </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>Poussin</value>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>Cobalt</value>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>Pourpre</value>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>Sombre</value>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>Feuille</value>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>Salade</value>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>Clair</value>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>Aléatoire</value>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>Or rose</value>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>Paramètres système par défaut</value>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>Thème foncé</value>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>Thème clair</value>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>Thème aléatiore au démarrage</value>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>Thème défini par le système</value>
   </data>
 </root>

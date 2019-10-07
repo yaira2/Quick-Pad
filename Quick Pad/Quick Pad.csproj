@@ -139,14 +139,14 @@
     <Compile Include="Dialog\FindAndReplace.xaml.cs">
       <DependentUpon>FindAndReplace.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Dialog\FontAndFormat.xaml.cs">
-      <DependentUpon>FontAndFormat.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Dialog\GoTo.xaml.cs">
       <DependentUpon>GoTo.xaml</DependentUpon>
     </Compile>
     <Compile Include="Dialog\SaveChange.xaml.cs">
       <DependentUpon>SaveChange.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialog\Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -161,6 +161,9 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Files\md.png" />
+    <Content Include="Assets\Files\rtf.png" />
+    <Content Include="Assets\Files\txt.png" />
     <Content Include="Assets\jumplist\classic.png" />
     <Content Include="Assets\jumplist\focus.png" />
     <Content Include="Assets\jumplist\ontop.png" />
@@ -210,6 +213,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Assets\Font\FabExMDL2.ttf" />
     <Content Include="Assets\Font\Segoe MDL2 Modded.ttf" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Properties\Default.rd.xml" />
@@ -235,15 +239,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dialog\FontAndFormat.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Page Include="Dialog\GoTo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dialog\SaveChange.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dialog\Settings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -284,7 +288,7 @@
       <Version>5.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.2.190830001</Version>
+      <Version>2.2.190917002</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

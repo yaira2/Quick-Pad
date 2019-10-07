@@ -226,7 +226,7 @@
     <value>Developed by Yair Aichenbaum</value>
   </data>
   <data name="ErrorDialogContent" xml:space="preserve">
-    <value>Sorry, Quick Pad couldn't open the file.</value>
+    <value>Sorry, Quick Pad couldn't open this file.</value>
   </data>
   <data name="ErrorDialogOk" xml:space="preserve">
     <value>Ok</value>
@@ -742,7 +742,7 @@
     <value>Zoom Out</value>
   </data>
   <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
-    <value>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</value>
+    <value>We moved the button here for a cleaner look! You can also press Control + Shift + F to leave focus mode.</value>
   </data>
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
     <value>The button to leave focus mode button has been moved</value>
@@ -798,7 +798,85 @@
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>System-defined theme</value>
   </data>
-  <data name="ChooseTheme.Text" xml:space="preserve">
-    <value>Choose your theme</value>
+  <data name="FontSettings.Text" xml:space="preserve">
+    <value>Font Settings</value>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="ThemeSettings.Text" xml:space="preserve">
+    <value>Theme Settings</value>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Advanced</value>
+  </data>
+  <data name="AutoPickMode.Text" xml:space="preserve">
+    <value>Automatically choose which mode to launch the app in based on the file type</value>
+  </data>
+  <data name="BackgroundTintOpacity.Text" xml:space="preserve">
+    <value>App background tint opacity</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>Manage settings</value>
+  </data>
+  <data name="PleaseSaveWork.Text" xml:space="preserve">
+    <value>Please save your work before you import or reset settings.</value>
+  </data>
+  <data name="PreventText1ChangeColor.Text" xml:space="preserve">
+    <value>Use a dark/light background for the text area</value>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="SomeSettings.Text" xml:space="preserve">
+    <value>Some settings will not update until you restart.</value>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>Keep text only</value>
+  </data>
+  <data name="Customize_Bold" xml:space="preserve">
+    <value>Show bold</value>
+  </data>
+  <data name="Customize_Italic" xml:space="preserve">
+    <value>Show italic</value>
+  </data>
+  <data name="Customize_Underline" xml:space="preserve">
+    <value>Show underline</value>
+  </data>
+  <data name="AdvancedPasteOptions.Text" xml:space="preserve">
+    <value>Paste Options</value>
+  </data>
+  <data name="AdvancedOther.Text" xml:space="preserve">
+    <value>Other</value>
+  </data>
+  <data name="AdvancedThemeOptions.Text" xml:space="preserve">
+    <value>Theme Options</value>
+  </data>
+  <data name="Health.Text" xml:space="preserve">
+    <value>Health</value>
+  </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</value>
+  </data>
+  <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
+    <value>Prevent the app from closing when a crash occurs</value>
+  </data>
+  <data name="SaveLogWhenCrash.Content" xml:space="preserve">
+    <value>Save log reports when the app crashes</value>
+  </data>
+  <data name="SendAnalyticsReport.Content" xml:space="preserve">
+    <value>Send app health reports to App Center</value>
+  </data>
+  <data name="ClearCrashList.Content" xml:space="preserve">
+    <value>Clear crash history</value>
+  </data>
+  <data name="NoCrashes.Text" xml:space="preserve">
+    <value>No crashes have occured</value>
   </data>
 </root>

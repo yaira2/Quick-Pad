@@ -652,4 +652,46 @@
   <data name="Restart.Text" xml:space="preserve">
     <value>เปลี่ยนภาษาจะมีผลหลังจากออกและเข้าใหม่</value>
   </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>เหลืองขมิ้น</value>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>ฟ้าราตรี</value>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>กุหลาบแดง</value>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>มืด</value>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>เขียวเข้ม</value>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>เขียวอ่อน</value>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>สว่าง</value>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>สุ่ม</value>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>ขาวอมชมพู</value>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>ค่าเริ่มต้นระบบ</value>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>ชุดรูปแบบมืด</value>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>ชุดรูปแบบสว่าง</value>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>สุ่มเลือกชุดรูปแบบเมื่อเปิดแอป</value>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>ใช้ชุดรูปแบบตามที่ระบบกำหนดไว้</value>
+  </data>
 </root>

@@ -1,11 +1,16 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using System;
 using System.ComponentModel;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.UI;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 
 namespace QuickPad
@@ -222,7 +227,11 @@ namespace QuickPad
         public int AutoSaveInterval
         {
             get => Get<int>();
-            set => Set(value);
+            set
+            {
+                if (Set(value))
+                    afterAutoSaveIntervalChanged?.Invoke(value);
+            }
         }
 
         [DefaultValue(true)]
@@ -234,6 +243,13 @@ namespace QuickPad
 
         [DefaultValue(true)]
         public bool SpellCheck
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(false)]
+        public bool AutoPickMode
         {
             get => Get<bool>();
             set => Set(value);
@@ -269,6 +285,27 @@ namespace QuickPad
         #endregion
 
         #region Toolbar setting
+        [DefaultValue(true)]
+        public bool ShowBold
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowItalic
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowUnderline
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
         [DefaultValue(true)]
         public bool ShowBullets
         {
@@ -338,7 +375,22 @@ namespace QuickPad
         public string DefaultFontColor
         {
             get => Get<string>();
-            set => Set(value);
+            set
+            {
+                if (Set(value))
+                {
+                    Color update;
+                    if (value == "Default")
+                    {
+                        update = new UISettings().GetColorValue(UIColorType.Foreground);
+                    }
+                    else
+                    {
+                        update = (Color)XamlBindingHelper.ConvertValue(typeof(Color), value);
+                    }
+                    afterFontColorChanged?.Invoke(update);
+                }
+            }
         }
 
         [DefaultValue(12)]
@@ -372,25 +424,160 @@ namespace QuickPad
         }
         #endregion
 
-        #region
+        #region Advanced/Others
         [DefaultValue(0)]
-        public int TimesUsingFocusMode 
+        public int TimesUsingFocusMode
         { //Use to track focus mode, if less than 2 times it will show tip, else it won't
             get => Get<int>();
             set => Set(value);
         }
+
+        [DefaultValue(2)]
+        public int GlobalButtonCorner
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(4)]
+        public int GlobalDialogCorner
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool SendAnalyticsReport
+        {
+            get => Get<bool>();
+            set
+            {
+                if (Set(value))
+                {
+                    Analytics.Instance.InstanceEnabled = value;
+                }
+            }
+        }
+
+        [DefaultValue(false)]
+        public bool SaveLogWhenCrash
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(false)]
+        public bool PreventAppCloseAfterCrash
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(false)]
+        public bool PreventText1ChangeColor
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(0.75)]
+        public double BackgroundTintOpacity
+        {
+            get => Get<double>();
+            set
+            {
+                if (Set(value))
+                    afterTintOpacityChanged?.Invoke(value);
+            }
+        }
+
+        [DefaultValue(false)]
+        public bool PasteTextOnly
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+        #endregion
+
+        #region Manage
+        public void ResetSettings()
+        {
+            localSettings.Values.Clear();
+            Application.Current.Exit();
+        }
+
+        public string ExportSetting()
+        {
+            string appConfig = "";
+            appConfig += $"#{Package.Current.DisplayName}\r\n";
+            appConfig += $"#{string.Format(ResourceLoader.GetForCurrentView().GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision)}\r\n";
+            foreach (var set in localSettings.Values.ToList().OrderBy(i => i.Key))
+            {
+                appConfig += $"[{set.Value.GetType().Name}]{set.Key}={set.Value}\r\n";
+            }
+            return appConfig;
+        }
+
+        public void ImportSetting(string settings)
+        {
+            string[] lines = settings.Split("'\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            foreach (var line in lines)
+            {
+                if (line.StartsWith('#'))
+                    continue;
+                var infos = line.Split(new char[] { '[', ']', '=' }, StringSplitOptions.RemoveEmptyEntries);
+                try
+                {
+                    switch (infos[0])
+                    {
+                        case "String":
+                            if (localSettings.Values.ContainsKey(infos[1]))
+                                localSettings.Values[infos[1]] = infos[2];
+                            else
+                                localSettings.Values.Add(infos[1], infos[2]);
+                            break;
+                        case "Boolean":
+                            if (localSettings.Values.ContainsKey(infos[1]))
+                                localSettings.Values[infos[1]] = infos[2] == "True";
+                            else
+                                localSettings.Values.Add(infos[1], infos[2] == "True");
+                            break;
+                        case "Int32":
+                            if (localSettings.Values.ContainsKey(infos[1]))
+                                localSettings.Values[infos[1]] = int.Parse(infos[2]);
+                            else
+                                localSettings.Values.Add(infos[1], int.Parse(infos[2]));
+                            break;
+                    }
+                }
+                catch
+                {
+                    continue;
+                }
+                //Refresh settings
+                NotifyPropertyChanged(infos[1]);
+            }
+        }
+
         #endregion
 
         #region Events when setting change
         public autoSaveChange afterAutoSaveChanged { get; set; }
+        public autosaveIntervalChange afterAutoSaveIntervalChanged { get; set; }
         public themeChange afterThemeChanged { get; set; }
         public fontsizeChange afterFontSizeChanged { get; set; }
+        public fontcolorChange afterFontColorChanged { get; set; }
+        public tintopacityChange afterTintOpacityChanged { get; set; }
         #endregion
     }
 
     public delegate void autoSaveChange(bool to);
+    public delegate void autosaveIntervalChange(int to);
     public delegate void themeChange(ElementTheme to);
     public delegate void fontsizeChange(int to);
+    public delegate void fontcolorChange(Color to);
+    public delegate void fontnameChange(string to);
+    public delegate void tintopacityChange(double to);
 
     public enum AvailableModes
     {
@@ -461,6 +648,15 @@ namespace QuickPad
         /// <param name="right">Right align button</param>
         /// <param name="justify">Justify align button</param>
         /// <returns></returns>
+        public static Visibility HideIfNoBulletOptionsShow(bool bullet, bool bold, bool strikethrough, bool underline, bool italic)
+        {
+            if (!bullet && !bold && !strikethrough && !underline && !italic)
+            {
+                return Visibility.Collapsed;
+            }
+            return Visibility.Visible;
+        }
+
         public static Visibility HideIfNoAlignButtonShow(bool left, bool center, bool right, bool justify)
         {
             if (!left && !center && !right && !justify)
@@ -470,7 +666,7 @@ namespace QuickPad
             return Visibility.Visible;
         }
 
-        public static  Visibility HideIfNoSizeButtonShow(bool up, bool down)
+        public static Visibility HideIfNoSizeButtonShow(bool up, bool down)
         {
             if (!up && !down)
             {
@@ -602,6 +798,13 @@ namespace QuickPad
         {
             return new FontFamily(name);
         }
+
+        public static CornerRadius IntToCorner(int corner)
+        {
+            return new CornerRadius(corner);
+        }
+
+        public static Brush SelectionBetweenBrush(bool determiner, Brush a, Brush b) => determiner ? a : b;
     }
 
     public static class IntCompare

@@ -5,7 +5,10 @@
 
 [![Store link](https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square)](https://www.microsoft.com/store/productId/9PDLWQHTLSV3)
 [![Release](https://img.shields.io/github/release/UWPCommunity/Quick-Pad.svg?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/releases)
-[![Contributors](https://img.shields.io/github/contributors/UWPCommunity/Quick-Padl?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/graphs/contributors)
+[![Contributors](https://img.shields.io/github/contributors/UWPCommunity/Quick-Pad?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/graphs/contributors)
+[![Stars](https://img.shields.io/github/stars/UWPCommunity/Quick-Pad.svg?style=flat-square)](https://github.com/UWPCommunity/Quick-Pad/stargazers)
+
+![Screenshot Dark Mode](https://github.com/UWPCommunity/Quick-Pad/blob/master/Screenshots/Dark%20theme.png)
 
 * Fluent design with dark and light theme support.
 * Launch from the run dialog box by typing "Quickpad".
@@ -13,15 +16,11 @@
 * Focus mode hides all distractions.
 * Auto save ensures your works is safe.
 
-![Screenshot Dark Mode](https://github.com/UWPCommunity/Quick-Pad/blob/master/Screenshots/Dark%20theme.png)
-
 ******* Planned features. *******
 
 ## Things that are not working or implemented in this version:
 
 * File Print.
-* Find & Replace options.
-* More theme options.
 * Zoom Options.
 
 ## Downloads:

@@ -651,4 +651,46 @@
   <data name="Restart.Text" xml:space="preserve">
     <value>إعادة التشغيل المطلوبة لتطبيق التغييرات</value>
   </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>كتكوت</value>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>أزرق كوبالت</value>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>قرمزي</value>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>داكن</value>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>ورقة الشجرة</value>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>الخسّ</value>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>فاتح</value>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>عشوائي</value>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>ذهبي وردي</value>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>القيمة الافتراضية للنظام</value>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>نسق داكن</value>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>نسق فاتح</value>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>نسق عشوائي عند التشغيل</value>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>النسق من النظام</value>
+  </data>
 </root>

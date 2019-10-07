@@ -651,4 +651,46 @@
   <data name="Restart.Text" xml:space="preserve">
     <value>Un redémarrage est nécessaire pour appliquer les modifications</value>
   </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>Chick</value>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>Cobalt</value>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>Pourpre</value>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>Sombre</value>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>Feuille</value>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>Salade</value>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>Clair</value>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>Aléatoire</value>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>Or rose</value>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>Paramètres système par défaut</value>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>Thème foncé</value>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>Thème clair</value>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>Thème aléatiore au démarrage</value>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>Thème défini par le système</value>
+  </data>
 </root>

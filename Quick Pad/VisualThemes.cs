@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.UI;
+using Windows.UI.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
@@ -34,6 +34,8 @@ namespace QuickPad
                 return _default;
             }
         }
+
+        private Setting _setting = App.QSetting;
 
         private List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;
@@ -67,6 +69,11 @@ namespace QuickPad
             private set;
         }
 
+        public UISettings SystemUI
+        {
+            get;
+        }
+
         public VisualThemeSelector()
         {
             _themes = new List<VisualTheme>();
@@ -77,22 +84,36 @@ namespace QuickPad
             ThemesView = source.View;
             ThemesView.CurrentChanged += ThemesView_CurrentChanged;
 
+            //
+            SystemUI = new UISettings();
+            SystemUI.ColorValuesChanged += SystemThemeChanged;
+
             //Select here from settings:
             ThemesView.MoveCurrentToFirst();
             //
         }
+
+        private async void SystemThemeChanged(UISettings sender, object args)
+        {
+            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal,
+            () =>
+            {
+                ThemesView_CurrentChanged(null, null);
+            });
+        }
+
         private void ThemesView_CurrentChanged(object sender, object e)
         {
             if (ThemesView.CurrentItem is VisualTheme theme)
             {
                 SettingsItem = theme;
-                if (theme.Kind ==VisualThemeKind.System)
+                if (theme.Kind == VisualThemeKind.System)
                 {
                     var systemTheme = GetSystemTheme();
                     bool darkTheme = (systemTheme.HasValue && !systemTheme.Value);
                     CurrentItem = GetThemeFromId((darkTheme) ? DARK_KEY : LIGHT_KEY);
                 }
-                else if(theme.Kind == VisualThemeKind.Random)
+                else if (theme.Kind == VisualThemeKind.Random)
                 {
                     List<VisualTheme> customThemes = new List<VisualTheme>(_themes.Where(x => x.Kind == VisualThemeKind.Custom));
                     Random random = new Random();
@@ -169,35 +190,35 @@ namespace QuickPad
             _themes.Add(rdm);
             //Custom light themes:
             _themes.Add(BuildTheme("chick", "ThemeChickName", true, Color.FromArgb(255, 254, 255, 177)));
-            _themes.Add(BuildTheme("lettuce", "ThemeLettuceName", true, Color.FromArgb(255, 177, 234, 175), .8));
-            _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215), .8));
+            _themes.Add(BuildTheme("lettuce", "ThemeLettuceName", true, Color.FromArgb(255, 177, 234, 175)));
+            _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215)));
             //Custom dark themes:
             _themes.Add(BuildTheme("cobalt", "ThemeCobaltName", false, Color.FromArgb(255, 0, 71, 171)));
             _themes.Add(BuildTheme("leaf", "ThemeLeafName", false, Color.FromArgb(255, 56, 111, 54)));
             _themes.Add(BuildTheme("crimson", "ThemeCrimsonName", false, Color.FromArgb(255, 149, 0, 39)));
         }
-        private VisualTheme BuildTheme(string themeId, string nameResKey, bool lightTheme, Color accentColor, double tintOpacity=.7)
+        private VisualTheme BuildTheme(string themeId, string nameResKey, bool lightTheme, Color accentColor)
         {
             AcrylicBrush backgroundAcrylic = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = tintOpacity,
+                TintOpacity = _setting.BackgroundTintOpacity,
             };
             AcrylicBrush backgroundAcrylic2 = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = .85d
+                TintOpacity = (_setting.BackgroundTintOpacity + .15) > 1 ? 1 : _setting.BackgroundTintOpacity + .15
             };
             AcrylicBrush inAppAcrylic = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.Backdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = .80d
+                TintOpacity = (_setting.BackgroundTintOpacity + .05) > 1 ? 1 : _setting.BackgroundTintOpacity + .05
             };
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
             string descriptionResKey = (lightTheme) ? "ThemeGeneralLightDescription" : "ThemeGeneralDarkDescription";
@@ -213,6 +234,8 @@ namespace QuickPad
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
                 PreviewBrush = new SolidColorBrush(accentColor),
             };
+            theme.BaseThemeBackgroundBrush = etheme == ElementTheme.Dark ? new SolidColorBrush(Color.FromArgb(255, 28, 28, 28)) : new SolidColorBrush(Colors.White);
+            _setting.afterTintOpacityChanged += theme.UpdateTintOpacity;
             return theme;
         }
         private VisualTheme GetThemeFromId(string id)
@@ -292,6 +315,11 @@ namespace QuickPad
             get;
             set;
         }
+        public Brush BaseThemeBackgroundBrush
+        {
+            get;
+            set;
+        }
         public Color DefaultTextForeground
         {
             get
@@ -310,6 +338,26 @@ namespace QuickPad
         public override string ToString()
         {
             return FriendlyName;
+        }
+
+
+        public void UpdateTintOpacity(double to)
+        {
+            (BackgroundAcrylicBrush as AcrylicBrush).TintOpacity = to;
+            (BackgroundAcrylicBrush2 as AcrylicBrush).TintOpacity = to + .15;
+            (InAppAcrylicBrush as AcrylicBrush).TintOpacity = to;
+        }
+
+        public void UpdateBaseBackground(object sender, ThemeChangedEventArgs e)
+        {
+            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
+            {
+                BaseThemeBackgroundBrush = new SolidColorBrush(Colors.Black);
+            }
+            else
+            {
+                BaseThemeBackgroundBrush = new SolidColorBrush(Colors.White);
+            }
         }
     }
     public enum VisualThemeKind

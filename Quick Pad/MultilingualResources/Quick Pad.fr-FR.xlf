@@ -151,8 +151,9 @@
           <target state="translated">Développé par Yair Aichenbaum</target>
         </trans-unit>
         <trans-unit id="ErrorDialogContent" translate="yes" xml:space="preserve">
-          <source>Sorry, Quick Pad couldn't open the file.</source>
-          <target state="translated">Désolé, Quick Pad ne peut pas ouvrir le fichier.</target>
+          <source>Sorry, Quick Pad couldn't open this file.</source>
+          <target state="needs-review-translation">Désolé, Quick Pad ne peut pas ouvrir le fichier.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="ErrorDialogOk" translate="yes" xml:space="preserve">
           <source>Ok</source>
@@ -500,7 +501,7 @@
         </trans-unit>
         <trans-unit id="VersionFormat" translate="yes" xml:space="preserve">
           <source>Version: {0}.{1}.{2}.{3}</source>
-          <target state="translated">Version: {0} ({1}, {2}{3})</target>
+          <target state="translated">Version: {0}.{1}.{2}.{3}</target>
         </trans-unit>
         <trans-unit id="WhitePlaceholder" translate="yes" xml:space="preserve">
           <source>White</source>
@@ -692,231 +693,336 @@
         </trans-unit>
         <trans-unit id="CmdOnTopTooltip" translate="yes" xml:space="preserve">
           <source>On Top (Ctrl+Shift+O)</source>
-          <target state="new">On Top (Ctrl+Shift+O)</target>
+          <target state="translated">En haut</target>
         </trans-unit>
         <trans-unit id="CmdFind.Label" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="new">Find</target>
+          <target state="translated">Rechercher</target>
         </trans-unit>
         <trans-unit id="ClassicEditFind.Text" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="new">Find</target>
+          <target state="translated">Rechercher</target>
         </trans-unit>
         <trans-unit id="ClassicEditFindNext.Text" translate="yes" xml:space="preserve">
           <source>Find Next</source>
-          <target state="new">Find Next</target>
+          <target state="translated">Trouver le suivant</target>
         </trans-unit>
         <trans-unit id="ClassicEditFindPrevious.Text" translate="yes" xml:space="preserve">
           <source>Find Previous</source>
-          <target state="new">Find Previous</target>
+          <target state="translated">Trouver le précédent</target>
         </trans-unit>
         <trans-unit id="ClassicEditReplace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Replace</target>
+          <target state="translated">Remplacer</target>
         </trans-unit>
         <trans-unit id="FAR_CloseDialog.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="new">Close</target>
+          <target state="translated">Fermer</target>
         </trans-unit>
         <trans-unit id="FAR_FindOption.Text" translate="yes" xml:space="preserve">
           <source>Find option</source>
-          <target state="new">Find option</target>
+          <target state="translated">Trouver l'option</target>
         </trans-unit>
         <trans-unit id="FAR_InputEmpty.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Looking for?</source>
-          <target state="new">Looking for?</target>
+          <target state="translated">Rechercher?</target>
         </trans-unit>
         <trans-unit id="FAR_MatchCase.Content" translate="yes" xml:space="preserve">
           <source>Match case</source>
-          <target state="new">Match case</target>
+          <target state="translated">Cas de correspondance</target>
         </trans-unit>
         <trans-unit id="FAR_More.Text" translate="yes" xml:space="preserve">
           <source>More...</source>
-          <target state="new">More...</target>
+          <target state="translated">Plus...</target>
         </trans-unit>
         <trans-unit id="FAR_ReplaceAll.Text" translate="yes" xml:space="preserve">
           <source>Replace All</source>
-          <target state="new">Replace All</target>
+          <target state="translated">Remplacer tout</target>
         </trans-unit>
         <trans-unit id="FAR_WrapAround.Content" translate="yes" xml:space="preserve">
           <source>Wrap around</source>
-          <target state="new">Wrap around</target>
+          <target state="translated">Envelopper autour</target>
         </trans-unit>
         <trans-unit id="FAR_ReplaceInput.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with..</source>
-          <target state="new">Replace with..</target>
+          <target state="translated">Remplacer par...</target>
         </trans-unit>
         <trans-unit id="ClassicEditDelete.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">Supprimer</target>
         </trans-unit>
         <trans-unit id="ClassicEditGoTo.Text" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="translated">Aller à</target>
         </trans-unit>
         <trans-unit id="ClassicEditInsertDT.Text" translate="yes" xml:space="preserve">
           <source>Time/Date</source>
-          <target state="new">Time/Date</target>
+          <target state="translated">Temps/Date</target>
         </trans-unit>
         <trans-unit id="ClassicEditSearch.Text" translate="yes" xml:space="preserve">
           <source>Search with Bing...</source>
-          <target state="new">Search with Bing...</target>
+          <target state="translated">Rechercher avec Bing</target>
         </trans-unit>
         <trans-unit id="ClassicEditSelectAll.Text" translate="yes" xml:space="preserve">
           <source>Select All</source>
-          <target state="new">Select All</target>
+          <target state="translated">Sélectionner tout</target>
         </trans-unit>
         <trans-unit id="GT_Dialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>Go to</source>
-          <target state="new">Go to</target>
+          <target state="translated">Aller à</target>
         </trans-unit>
         <trans-unit id="GT_Dialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">Annuler</target>
         </trans-unit>
         <trans-unit id="GT_Dialog.Title" translate="yes" xml:space="preserve">
           <source>Go To Line</source>
-          <target state="new">Go To Line</target>
+          <target state="translated">Aller à la ligne</target>
         </trans-unit>
         <trans-unit id="GT_LineInput.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
-          <target state="new">Line number:</target>
+          <target state="translated">Numéro de ligne:</target>
         </trans-unit>
         <trans-unit id="Cmd_Customize.Label" translate="yes" xml:space="preserve">
           <source>Customize</source>
-          <target state="new">Customize</target>
+          <target state="translated">Personnaliser</target>
         </trans-unit>
         <trans-unit id="Customize_AlignCenter.Text" translate="yes" xml:space="preserve">
           <source>Show align center</source>
-          <target state="new">Show align center</target>
+          <target state="translated">Montrer l'alignement au centre</target>
         </trans-unit>
         <trans-unit id="Customize_AlignJustify.Text" translate="yes" xml:space="preserve">
           <source>Show align justify</source>
-          <target state="new">Show align justify</target>
+          <target state="translated">Montrer l'alignement justifié</target>
         </trans-unit>
         <trans-unit id="Customize_AlignLeft.Text" translate="yes" xml:space="preserve">
           <source>Show align left</source>
-          <target state="new">Show align left</target>
+          <target state="translated">l'alignement à gauche</target>
         </trans-unit>
         <trans-unit id="Customize_AlignRight.Text" translate="yes" xml:space="preserve">
           <source>Show align right</source>
-          <target state="new">Show align right</target>
+          <target state="translated">Montrer l'alignement à droite</target>
         </trans-unit>
         <trans-unit id="Customize_Bullets.Text" translate="yes" xml:space="preserve">
           <source>Show bullet list</source>
-          <target state="new">Show bullet list</target>
+          <target state="translated">Montrer la liste de puce</target>
         </trans-unit>
         <trans-unit id="Customize_Strikethrough.Text" translate="yes" xml:space="preserve">
           <source>Show strikethrough option</source>
-          <target state="new">Show strikethrough option</target>
+          <target state="translated">Montrer l'option barrée</target>
         </trans-unit>
         <trans-unit id="Customize_SizeDown.Text" translate="yes" xml:space="preserve">
           <source>Show size down</source>
-          <target state="new">Show size down</target>
+          <target state="translated">Montrer la taille plus petite</target>
         </trans-unit>
         <trans-unit id="Customize_SizeUp.Text" translate="yes" xml:space="preserve">
           <source>Show size up</source>
-          <target state="new">Show size up</target>
+          <target state="translated">Montrer la taille plus grande</target>
         </trans-unit>
         <trans-unit id="Customize_Reset.Text" translate="yes" xml:space="preserve">
           <source>Reset toolbar</source>
-          <target state="new">Reset toolbar</target>
+          <target state="translated">Réinitialiser la barre d'outil</target>
         </trans-unit>
         <trans-unit id="ClassicRestoreDefaultZoom" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="new">Restore Default Zoom</target>
+          <target state="translated">Restaurer le zoom par défaut</target>
         </trans-unit>
         <trans-unit id="ClassicZoom.Text" translate="yes" xml:space="preserve">
           <source>Zoom</source>
-          <target state="new">Zoom</target>
+          <target state="translated">Zoom</target>
         </trans-unit>
         <trans-unit id="ClassicZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="new">Zoom In</target>
+          <target state="translated">Zoom avant</target>
         </trans-unit>
         <trans-unit id="ClassicZoomOut" translate="yes" xml:space="preserve">
           <source>Zoom Out</source>
-          <target state="new">Zoom Out</target>
+          <target state="translated">Zoom arrière</target>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
-          <source>We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</source>
-          <target state="new">We've moved the button to here, so that it would be a cleaner design. You can also press Control + Shift + F to leave.</target>
+          <source>We moved the button here for a cleaner look! You can also press Control + Shift + F to leave focus mode.</source>
+          <target state="needs-review-translation">Nous avons déplacé le bouton ici pour avoir un style plus propre. Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
           <source>The button to leave focus mode button has been moved</source>
-          <target state="new">The button to leave focus mode button has been moved</target>
+          <target state="translated">Le bouton pour quitter le bouton de mode de mise au point a été déplacé</target>
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
           <source>Auto Save Every</source>
-          <target state="new">Auto Save Every</target>
+          <target state="translated">Sauvegarde automatique de tout</target>
         </trans-unit>
         <trans-unit id="AutoSaveEverySeconds.Text" translate="yes" xml:space="preserve">
           <source>second(s)</source>
-          <target state="new">second(s)</target>
+          <target state="translated">seconde(s)</target>
         </trans-unit>
         <trans-unit id="Restart.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
-          <target state="new">Restart required to apply the changes.</target>
+          <target state="translated">Un redémarrage est nécessaire pour appliquer les modifications</target>
         </trans-unit>
         <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
           <source>Chick</source>
-          <target state="new">Chick</target>
+          <target state="translated">Poussin</target>
         </trans-unit>
         <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
           <source>Cobalt</source>
-          <target state="new">Cobalt</target>
+          <target state="translated">Cobalt</target>
         </trans-unit>
         <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
           <source>Crimson</source>
-          <target state="new">Crimson</target>
+          <target state="translated">Pourpre</target>
         </trans-unit>
         <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="new">Dark</target>
+          <target state="translated">Sombre</target>
         </trans-unit>
         <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
           <source>Leaf</source>
-          <target state="new">Leaf</target>
+          <target state="translated">Feuille</target>
         </trans-unit>
         <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
           <source>Lettuce</source>
-          <target state="new">Lettuce</target>
+          <target state="translated">Salade</target>
         </trans-unit>
         <trans-unit id="ThemeLightName" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="new">Light</target>
+          <target state="translated">Clair</target>
         </trans-unit>
         <trans-unit id="ThemeRandomName" translate="yes" xml:space="preserve">
           <source>Random</source>
-          <target state="new">Random</target>
+          <target state="translated">Aléatoire</target>
         </trans-unit>
         <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
           <source>Rose Gold</source>
-          <target state="new">Rose Gold</target>
+          <target state="translated">Or rose</target>
         </trans-unit>
         <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
           <source>System Default</source>
-          <target state="new">System Default</target>
+          <target state="translated">Paramètres système par défaut</target>
         </trans-unit>
         <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
           <source>Dark theme</source>
-          <target state="new">Dark theme</target>
+          <target state="translated">Thème foncé</target>
         </trans-unit>
         <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
           <source>Light theme</source>
-          <target state="new">Light theme</target>
+          <target state="translated">Thème clair</target>
         </trans-unit>
         <trans-unit id="ThemeRandomDescription" translate="yes" xml:space="preserve">
           <source>Random theme on startup</source>
-          <target state="new">Random theme on startup</target>
+          <target state="translated">Thème aléatiore au démarrage</target>
         </trans-unit>
         <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
           <source>System-defined theme</source>
-          <target state="new">System-defined theme</target>
+          <target state="translated">Thème défini par le système</target>
         </trans-unit>
-        <trans-unit id="ChooseTheme.Text" translate="yes" xml:space="preserve">
-          <source>Choose your theme</source>
-          <target state="new">Choose your theme</target>
+        <trans-unit id="General.Text" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="new">Général</target>
+        </trans-unit>
+        <trans-unit id="ThemeSettings.Text" translate="yes" xml:space="preserve">
+          <source>Theme Settings</source>
+          <target state="new">Réglage des thèmes</target>
+        </trans-unit>
+        <trans-unit id="FontSettings.Text" translate="yes" xml:space="preserve">
+          <source>Font Settings</source>
+          <target state="new">Paramètres de police</target>
+        </trans-unit>
+        <trans-unit id="AutoPickMode.Text" translate="yes" xml:space="preserve">
+          <source>Automatically choose which mode to launch the app in based on the file type</source>
+          <target state="new">Automatically choose which mode to launch the app in based on the file type</target>
+        </trans-unit>
+        <trans-unit id="BackgroundTintOpacity.Text" translate="yes" xml:space="preserve">
+          <source>App background tint opacity</source>
+          <target state="new">App background tint opacity</target>
+        </trans-unit>
+        <trans-unit id="Export.Content" translate="yes" xml:space="preserve">
+          <source>Export</source>
+          <target state="new">Export</target>
+        </trans-unit>
+        <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
+          <source>Import</source>
+          <target state="new">Import</target>
+        </trans-unit>
+        <trans-unit id="ManageSettings.Text" translate="yes" xml:space="preserve">
+          <source>Manage settings</source>
+          <target state="new">Manage settings</target>
+        </trans-unit>
+        <trans-unit id="PleaseSaveWork.Text" translate="yes" xml:space="preserve">
+          <source>Please save your work before you import or reset settings.</source>
+          <target state="new">Please save your work before you import or reset settings.</target>
+        </trans-unit>
+        <trans-unit id="PreventText1ChangeColor.Text" translate="yes" xml:space="preserve">
+          <source>Use a dark/light background for the text area</source>
+          <target state="new">Use a dark/light background for the text area</target>
+        </trans-unit>
+        <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
+          <source>Reset</source>
+          <target state="new">Reset</target>
+        </trans-unit>
+        <trans-unit id="SomeSettings.Text" translate="yes" xml:space="preserve">
+          <source>Some settings will not update until you restart.</source>
+          <target state="new">Some settings will not update until you restart.</target>
+        </trans-unit>
+        <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+        </trans-unit>
+        <trans-unit id="Customize_Bold" translate="yes" xml:space="preserve">
+          <source>Show bold</source>
+          <target state="new">Show bold</target>
+        </trans-unit>
+        <trans-unit id="Customize_Italic" translate="yes" xml:space="preserve">
+          <source>Show italic</source>
+          <target state="new">Show italic</target>
+        </trans-unit>
+        <trans-unit id="Customize_Underline" translate="yes" xml:space="preserve">
+          <source>Show underline</source>
+          <target state="new">Show underline</target>
+        </trans-unit>
+        <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
+          <source>Keep text only</source>
+          <target state="new">Keep text only</target>
+        </trans-unit>
+        <trans-unit id="AdvancedPasteOptions.Text" translate="yes" xml:space="preserve">
+          <source>Paste Options</source>
+          <target state="new">Paste Options</target>
+        </trans-unit>
+        <trans-unit id="AdvancedOther.Text" translate="yes" xml:space="preserve">
+          <source>Other</source>
+          <target state="new">Other</target>
+        </trans-unit>
+        <trans-unit id="AdvancedThemeOptions.Text" translate="yes" xml:space="preserve">
+          <source>Theme Options</source>
+          <target state="new">Theme Options</target>
+        </trans-unit>
+        <trans-unit id="Health.Text" translate="yes" xml:space="preserve">
+          <source>Health</source>
+          <target state="new">Health</target>
+        </trans-unit>
+        <trans-unit id="GiveChanceToSave.Text" translate="yes" xml:space="preserve">
+          <source>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</source>
+          <target state="new">Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</target>
+        </trans-unit>
+        <trans-unit id="PreventAppCloseAfterCrash.Content" translate="yes" xml:space="preserve">
+          <source>Prevent the app from closing when a crash occurs</source>
+          <target state="new">Prevent the app from closing when a crash occurs</target>
+        </trans-unit>
+        <trans-unit id="SaveLogWhenCrash.Content" translate="yes" xml:space="preserve">
+          <source>Save log reports when the app crashes</source>
+          <target state="new">Save log reports when the app crashes</target>
+        </trans-unit>
+        <trans-unit id="SendAnalyticsReport.Content" translate="yes" xml:space="preserve">
+          <source>Send app health reports to App Center</source>
+          <target state="new">Send app health reports to App Center</target>
+        </trans-unit>
+        <trans-unit id="ClearCrashList.Content" translate="yes" xml:space="preserve">
+          <source>Clear crash history</source>
+          <target state="new">Clear crash history</target>
+        </trans-unit>
+        <trans-unit id="NoCrashes.Text" translate="yes" xml:space="preserve">
+          <source>No crashes have occured</source>
+          <target state="new">No crashes have occured</target>
         </trans-unit>
       </group>
     </body>

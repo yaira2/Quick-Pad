@@ -1,6 +1,6 @@
 ## How to help in translating the app
 
-### Software requirement
+### Software requirements
 - Visual Studio 2017 or newer
 - [Multilingual App Toolkit Extension](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
 - [Multilingual App Toolkit Editor](https://developer.microsoft.com/en-us/windows/develop/multilingual-app-toolkit)
