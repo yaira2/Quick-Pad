@@ -358,26 +358,6 @@
           <source>Settings</source>
           <target state="translated">الإعدادات</target>
         </trans-unit>
-        <trans-unit id="SettingsTab1.Header" translate="yes" xml:space="preserve">
-          <source>General</source>
-          <target state="translated">عام</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab2.Header" translate="yes" xml:space="preserve">
-          <source>Theme</source>
-          <target state="translated">نُسق</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab3.Header" translate="yes" xml:space="preserve">
-          <source>Font</source>
-          <target state="translated">خطوط</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab4.Header" translate="yes" xml:space="preserve">
-          <source>Toolbar</source>
-          <target state="translated">شريط الأدوات</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab5.Header" translate="yes" xml:space="preserve">
-          <source>About</source>
-          <target state="translated">حول</target>
-        </trans-unit>
         <trans-unit id="ShowAlignCenter.OffContent" translate="yes" xml:space="preserve">
           <source>Hide align center</source>
           <target state="translated">إخفاء توسيط</target>
@@ -1025,6 +1005,10 @@
         <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
           <target state="translated">نُسق</target>
+        </trans-unit>
+        <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
+          <source>Font</source>
+          <target state="translated">خطوط</target>
         </trans-unit>
       </group>
     </body>

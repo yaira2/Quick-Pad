@@ -132,21 +132,6 @@
   <data name="SettingsPivot.Title" xml:space="preserve">
     <value>การตั้งค่า</value>
   </data>
-  <data name="SettingsTab1.Header" xml:space="preserve">
-    <value>ทั่วไป</value>
-  </data>
-  <data name="SettingsTab2.Header" xml:space="preserve">
-    <value>ธีม</value>
-  </data>
-  <data name="SettingsTab3.Header" xml:space="preserve">
-    <value>แบบอักษร</value>
-  </data>
-  <data name="SettingsTab4.Header" xml:space="preserve">
-    <value>แถบเครื่องมือ</value>
-  </data>
-  <data name="SettingsTab5.Header" xml:space="preserve">
-    <value>เกี่ยวกับ</value>
-  </data>
   <data name="ShowAlignCenter.OffContent" xml:space="preserve">
     <value>ซ่อนปุ่มจัดกลาง</value>
   </data>
@@ -777,5 +762,8 @@
   </data>
   <data name="Theme.Text" xml:space="preserve">
     <value>ธีม</value>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>แบบอักษร</value>
   </data>
 </root>
