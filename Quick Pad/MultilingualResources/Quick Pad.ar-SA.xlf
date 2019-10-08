@@ -358,26 +358,6 @@
           <source>Settings</source>
           <target state="translated">الإعدادات</target>
         </trans-unit>
-        <trans-unit id="SettingsTab1.Header" translate="yes" xml:space="preserve">
-          <source>General</source>
-          <target state="translated">عام</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab2.Header" translate="yes" xml:space="preserve">
-          <source>Theme</source>
-          <target state="translated">نُسق</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab3.Header" translate="yes" xml:space="preserve">
-          <source>Font</source>
-          <target state="translated">خطوط</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab4.Header" translate="yes" xml:space="preserve">
-          <source>Toolbar</source>
-          <target state="translated">شريط الأدوات</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab5.Header" translate="yes" xml:space="preserve">
-          <source>About</source>
-          <target state="translated">حول</target>
-        </trans-unit>
         <trans-unit id="ShowAlignCenter.OffContent" translate="yes" xml:space="preserve">
           <source>Hide align center</source>
           <target state="translated">إخفاء توسيط</target>
@@ -966,18 +946,6 @@
           <source>Advanced</source>
           <target state="translated">إعدادات متقدمة</target>
         </trans-unit>
-        <trans-unit id="Customize_Bold" translate="yes" xml:space="preserve">
-          <source>Show bold</source>
-          <target state="translated">عرض بالخط العريض</target>
-        </trans-unit>
-        <trans-unit id="Customize_Italic" translate="yes" xml:space="preserve">
-          <source>Show italic</source>
-          <target state="translated">عرض مائل</target>
-        </trans-unit>
-        <trans-unit id="Customize_Underline" translate="yes" xml:space="preserve">
-          <source>Show underline</source>
-          <target state="translated">عرض تسطير</target>
-        </trans-unit>
         <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
           <target state="translated">الحفاظ على النص فقط</target>
@@ -1021,6 +989,26 @@
         <trans-unit id="NoCrashes.Text" translate="yes" xml:space="preserve">
           <source>No crashes have occured</source>
           <target state="translated">لا يوجد تحطم تطبيقي</target>
+        </trans-unit>
+        <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated">نُسق</target>
+        </trans-unit>
+        <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
+          <source>Font</source>
+          <target state="translated">خطوط</target>
+        </trans-unit>
+        <trans-unit id="Customize_Bold.Text" translate="yes" xml:space="preserve">
+          <source>Show bold</source>
+          <target state="translated">عرض بالخط العريض</target>
+        </trans-unit>
+        <trans-unit id="Customize_Italic.Text" translate="yes" xml:space="preserve">
+          <source>Show italic</source>
+          <target state="translated">عرض مائل</target>
+        </trans-unit>
+        <trans-unit id="Customize_Underline.Text" translate="yes" xml:space="preserve">
+          <source>Show underline</source>
+          <target state="translated">عرض تسطير</target>
         </trans-unit>
       </group>
     </body>

@@ -196,6 +196,8 @@ namespace QuickPad.Dialog
         #endregion
 
         #region Languages
+        string currentSessionLanguage = null;
+
         int? _def_lang = null;
         public int SelectedDefaultLanguage
         {
@@ -214,9 +216,9 @@ namespace QuickPad.Dialog
                     Set(ref _def_lang, value);
                     if (value == -1)
                         return;
+                    currentSessionLanguage = currentSessionLanguage is null ? QSetting.AppLanguage : currentSessionLanguage;
                     ApplicationLanguages.PrimaryLanguageOverride = DefaultLanguages[value].ID;
-                    LangChangeNeedRestart.Visibility =
-                        ApplicationLanguages.PrimaryLanguageOverride == DefaultLanguages[value].ID
+                    LangChangeNeedRestart.Visibility = currentSessionLanguage == DefaultLanguages[value].ID
                         ? Visibility.Collapsed : Visibility.Visible;
                     QSetting.AppLanguage = DefaultLanguages[value].ID;
                 }

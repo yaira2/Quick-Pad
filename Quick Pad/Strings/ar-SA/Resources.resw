@@ -276,21 +276,6 @@
   <data name="SettingsPivot.Title" xml:space="preserve">
     <value>الإعدادات</value>
   </data>
-  <data name="SettingsTab1.Header" xml:space="preserve">
-    <value>عام</value>
-  </data>
-  <data name="SettingsTab2.Header" xml:space="preserve">
-    <value>نُسق</value>
-  </data>
-  <data name="SettingsTab3.Header" xml:space="preserve">
-    <value>خطوط</value>
-  </data>
-  <data name="SettingsTab4.Header" xml:space="preserve">
-    <value>شريط الأدوات</value>
-  </data>
-  <data name="SettingsTab5.Header" xml:space="preserve">
-    <value>حول</value>
-  </data>
   <data name="ShowAlignCenter.OffContent" xml:space="preserve">
     <value>إخفاء توسيط</value>
   </data>
@@ -732,15 +717,6 @@
   <data name="Advanced.Text" xml:space="preserve">
     <value>إعدادات متقدمة</value>
   </data>
-  <data name="Customize_Bold" xml:space="preserve">
-    <value>عرض بالخط العريض</value>
-  </data>
-  <data name="Customize_Italic" xml:space="preserve">
-    <value>عرض مائل</value>
-  </data>
-  <data name="Customize_Underline" xml:space="preserve">
-    <value>عرض تسطير</value>
-  </data>
   <data name="KeepTextOnly.Text" xml:space="preserve">
     <value>الحفاظ على النص فقط</value>
   </data>
@@ -773,5 +749,20 @@
   </data>
   <data name="NoCrashes.Text" xml:space="preserve">
     <value>لا يوجد تحطم تطبيقي</value>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>نُسق</value>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>خطوط</value>
+  </data>
+  <data name="Customize_Bold.Text" xml:space="preserve">
+    <value>عرض بالخط العريض</value>
+  </data>
+  <data name="Customize_Italic.Text" xml:space="preserve">
+    <value>عرض مائل</value>
+  </data>
+  <data name="Customize_Underline.Text" xml:space="preserve">
+    <value>عرض تسطير</value>
   </data>
 </root>

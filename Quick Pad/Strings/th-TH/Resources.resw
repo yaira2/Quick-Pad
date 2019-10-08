@@ -132,21 +132,6 @@
   <data name="SettingsPivot.Title" xml:space="preserve">
     <value>การตั้งค่า</value>
   </data>
-  <data name="SettingsTab1.Header" xml:space="preserve">
-    <value>ทั่วไป</value>
-  </data>
-  <data name="SettingsTab2.Header" xml:space="preserve">
-    <value>ธีม</value>
-  </data>
-  <data name="SettingsTab3.Header" xml:space="preserve">
-    <value>แบบอักษร</value>
-  </data>
-  <data name="SettingsTab4.Header" xml:space="preserve">
-    <value>แถบเครื่องมือ</value>
-  </data>
-  <data name="SettingsTab5.Header" xml:space="preserve">
-    <value>เกี่ยวกับ</value>
-  </data>
   <data name="ShowAlignCenter.OffContent" xml:space="preserve">
     <value>ซ่อนปุ่มจัดกลาง</value>
   </data>
@@ -693,5 +678,92 @@
   </data>
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>ใช้ชุดรูปแบบตามที่ระบบกำหนดไว้</value>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>ทั่วไป</value>
+  </data>
+  <data name="ThemeSettings.Text" xml:space="preserve">
+    <value>ชุดรูปแบบ</value>
+  </data>
+  <data name="FontSettings.Text" xml:space="preserve">
+    <value>ฟอนต์</value>
+  </data>
+  <data name="AutoPickMode.Text" xml:space="preserve">
+    <value>เลือกโหมดหน้าตาของแอปโดยอัตโนมัติตามไฟล์ที่เปิด</value>
+  </data>
+  <data name="BackgroundTintOpacity.Text" xml:space="preserve">
+    <value>ความโปร่งใสของพื้นหลัง</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>ส่งออก</value>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>นำเข้า</value>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>จัดการตั้งค่า</value>
+  </data>
+  <data name="PleaseSaveWork.Text" xml:space="preserve">
+    <value>กรุณาบันทึกสิ่งที่คุณพิมพ์ไว้ก่อนที่จะนำเข้าหรือรีเซตตั้งค่า</value>
+  </data>
+  <data name="PreventText1ChangeColor.Text" xml:space="preserve">
+    <value>ใช้สีทืบสำหรับพื้นหลังของบริเวณที่พิมพ์</value>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>รีเซต</value>
+  </data>
+  <data name="SomeSettings.Text" xml:space="preserve">
+    <value>การตั้งค่าบางส่วนจะไม่อัพเดตจนกว่าแอปจะเปิดใหม่ครั้งหน้า</value>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>ขั้นสูง</value>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>วางเฉพาะข้อความ</value>
+  </data>
+  <data name="AdvancedPasteOptions.Text" xml:space="preserve">
+    <value>ตั้งค่าการวางข้อความ</value>
+  </data>
+  <data name="AdvancedOther.Text" xml:space="preserve">
+    <value>อื่นๆ</value>
+  </data>
+  <data name="AdvancedThemeOptions.Text" xml:space="preserve">
+    <value>ชุดรูปแบบขั้นสูง</value>
+  </data>
+  <data name="Health.Text" xml:space="preserve">
+    <value>สภาพแอป</value>
+  </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>บังคับไม่ให้แอปปิดตัวลงเมื่อมีปัญหา เพื่อให้คุณได้บันทึกหรือคัดลอกงานของคุณ. แต่คุณยังต้องปิดแล้วเปิดแอปใหม่เพื่อให้ฟังก์ชั่นของแอปกลับมา</value>
+  </data>
+  <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
+    <value>ป้องกันแอปบังคับปิดเมื่อเกิดข้อผิดพลาด</value>
+  </data>
+  <data name="SaveLogWhenCrash.Content" xml:space="preserve">
+    <value>บันทึกข้อมูลข้อผิดพลาดเมื่อแอปมีปัญหา</value>
+  </data>
+  <data name="SendAnalyticsReport.Content" xml:space="preserve">
+    <value>ส่งสถานะภาพแอปให้นักพัฒนา</value>
+  </data>
+  <data name="ClearCrashList.Content" xml:space="preserve">
+    <value>ลบประวัติข้อผิดพลาด</value>
+  </data>
+  <data name="NoCrashes.Text" xml:space="preserve">
+    <value>ยังไม่มีข้อผิดพลาดใดๆ</value>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>ธีม</value>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>แบบอักษร</value>
+  </data>
+  <data name="Customize_Bold.Text" xml:space="preserve">
+    <value>แสดงปุ่มตัวหนา</value>
+  </data>
+  <data name="Customize_Italic.Text" xml:space="preserve">
+    <value>แสดงปุ่มตัวเอียง</value>
+  </data>
+  <data name="Customize_Underline.Text" xml:space="preserve">
+    <value>แสดงปุ่มขีดเส้นใต้</value>
   </data>
 </root>
