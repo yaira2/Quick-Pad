@@ -693,8 +693,71 @@
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>Tema definido por el Sistema</value>
   </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>General</value>
+  </data>
+  <data name="ThemeSettings.Text" xml:space="preserve">
+    <value>Configuración de Tema</value>
+  </data>
+  <data name="FontSettings.Text" xml:space="preserve">
+    <value>Configuración de Fuentes</value>
+  </data>
+  <data name="AutoPickMode.Text" xml:space="preserve">
+    <value>Escoger automáticamente el modo de inicio de la app basado en el tipo de archivo</value>
+  </data>
+  <data name="BackgroundTintOpacity.Text" xml:space="preserve">
+    <value>Tinte de fondo de la app</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Exportar</value>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>Importar</value>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>Administrar configuraciones</value>
+  </data>
+  <data name="PleaseSaveWork.Text" xml:space="preserve">
+    <value>Por favor, guarde su documento antes de importar o reiniciar la configuración</value>
+  </data>
+  <data name="PreventText1ChangeColor.Text" xml:space="preserve">
+    <value>Usar solo tema oscuro o claro para el área de texto.</value>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>Reiniciar</value>
+  </data>
+  <data name="SomeSettings.Text" xml:space="preserve">
+    <value>Algunas configuraciones no tendrán efectos hasta que reinicie la app</value>
+  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Avanzado</value>
+  </data>
+  <data name="Customize_Bold" xml:space="preserve">
+    <value>Mostrar negritas</value>
+  </data>
+  <data name="Customize_Italic" xml:space="preserve">
+    <value>Mostrar cursiva</value>
+  </data>
+  <data name="Customize_Underline" xml:space="preserve">
+    <value>Mostrar subrayado</value>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>Mantener solo texto</value>
+  </data>
+  <data name="AdvancedPasteOptions.Text" xml:space="preserve">
+    <value>Opciones de pegar</value>
+  </data>
+  <data name="AdvancedOther.Text" xml:space="preserve">
+    <value>Otros</value>
+  </data>
+  <data name="AdvancedThemeOptions.Text" xml:space="preserve">
+    <value>Opciones de Tema</value>
+  </data>
+  <data name="Health.Text" xml:space="preserve">
+    <value>Salud</value>
+  </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>Tenga la oportunidad de guardar o copiar su trabajo en caso de que algo salga mal. Tendrá que reiniciar la app para estas funcionalidades funcionen apropiadamente</value>
   </data>
   <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
     <value>Prevenir que la app se cierre inesperadamente</value>
@@ -704,5 +767,11 @@
   </data>
   <data name="SendAnalyticsReport.Content" xml:space="preserve">
     <value>Enviar reporte de salud de la aplicación a App Center</value>
+  </data>
+  <data name="ClearCrashList.Content" xml:space="preserve">
+    <value>Limpiar el historial de errores</value>
+  </data>
+  <data name="NoCrashes.Text" xml:space="preserve">
+    <value>No han ocurrido errores</value>
   </data>
 </root>
