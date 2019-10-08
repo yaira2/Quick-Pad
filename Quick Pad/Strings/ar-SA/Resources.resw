@@ -717,15 +717,6 @@
   <data name="Advanced.Text" xml:space="preserve">
     <value>إعدادات متقدمة</value>
   </data>
-  <data name="Customize_Bold" xml:space="preserve">
-    <value>عرض بالخط العريض</value>
-  </data>
-  <data name="Customize_Italic" xml:space="preserve">
-    <value>عرض مائل</value>
-  </data>
-  <data name="Customize_Underline" xml:space="preserve">
-    <value>عرض تسطير</value>
-  </data>
   <data name="KeepTextOnly.Text" xml:space="preserve">
     <value>الحفاظ على النص فقط</value>
   </data>
@@ -764,5 +755,14 @@
   </data>
   <data name="Font.Text" xml:space="preserve">
     <value>خطوط</value>
+  </data>
+  <data name="Customize_Bold.Text" xml:space="preserve">
+    <value>عرض بالخط العريض</value>
+  </data>
+  <data name="Customize_Italic.Text" xml:space="preserve">
+    <value>عرض مائل</value>
+  </data>
+  <data name="Customize_Underline.Text" xml:space="preserve">
+    <value>عرض تسطير</value>
   </data>
 </root>

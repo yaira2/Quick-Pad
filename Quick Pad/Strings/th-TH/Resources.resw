@@ -718,15 +718,6 @@
   <data name="Advanced.Text" xml:space="preserve">
     <value>ขั้นสูง</value>
   </data>
-  <data name="Customize_Bold" xml:space="preserve">
-    <value>แสดงปุ่มตัวหนา</value>
-  </data>
-  <data name="Customize_Italic" xml:space="preserve">
-    <value>แสดงปุ่มตัวเอียง</value>
-  </data>
-  <data name="Customize_Underline" xml:space="preserve">
-    <value>แสดงปุ่มขีดเส้นใต้</value>
-  </data>
   <data name="KeepTextOnly.Text" xml:space="preserve">
     <value>วางเฉพาะข้อความ</value>
   </data>
@@ -765,5 +756,14 @@
   </data>
   <data name="Font.Text" xml:space="preserve">
     <value>แบบอักษร</value>
+  </data>
+  <data name="Customize_Bold.Text" xml:space="preserve">
+    <value>แสดงปุ่มตัวหนา</value>
+  </data>
+  <data name="Customize_Italic.Text" xml:space="preserve">
+    <value>แสดงปุ่มตัวเอียง</value>
+  </data>
+  <data name="Customize_Underline.Text" xml:space="preserve">
+    <value>แสดงปุ่มขีดเส้นใต้</value>
   </data>
 </root>

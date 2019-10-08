@@ -717,15 +717,6 @@
   <data name="Advanced.Text" xml:space="preserve">
     <value>Avanzado</value>
   </data>
-  <data name="Customize_Bold" xml:space="preserve">
-    <value>Mostrar negritas</value>
-  </data>
-  <data name="Customize_Italic" xml:space="preserve">
-    <value>Mostrar cursiva</value>
-  </data>
-  <data name="Customize_Underline" xml:space="preserve">
-    <value>Mostrar subrayado</value>
-  </data>
   <data name="KeepTextOnly.Text" xml:space="preserve">
     <value>Mantener solo texto</value>
   </data>
@@ -764,5 +755,14 @@
   </data>
   <data name="Font.Text" xml:space="preserve">
     <value>Fuente</value>
+  </data>
+  <data name="Customize_Bold.Text" xml:space="preserve">
+    <value>Mostrar negritas</value>
+  </data>
+  <data name="Customize_Italic.Text" xml:space="preserve">
+    <value>Mostrar cursiva</value>
+  </data>
+  <data name="Customize_Underline.Text" xml:space="preserve">
+    <value>Mostrar subrayado</value>
   </data>
 </root>

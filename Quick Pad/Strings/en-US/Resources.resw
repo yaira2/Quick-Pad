@@ -822,13 +822,13 @@
   <data name="KeepTextOnly.Text" xml:space="preserve">
     <value>Keep text only</value>
   </data>
-  <data name="Customize_Bold" xml:space="preserve">
+  <data name="Customize_Bold.Text" xml:space="preserve">
     <value>Show bold</value>
   </data>
-  <data name="Customize_Italic" xml:space="preserve">
+  <data name="Customize_Italic.Text" xml:space="preserve">
     <value>Show italic</value>
   </data>
-  <data name="Customize_Underline" xml:space="preserve">
+  <data name="Customize_Underline.Text" xml:space="preserve">
     <value>Show underline</value>
   </data>
   <data name="AdvancedPasteOptions.Text" xml:space="preserve">
