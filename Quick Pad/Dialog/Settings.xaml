@@ -206,19 +206,9 @@
 
                         <TextBlock x:Uid="ManageSettings" Text="Manage settings" FontSize="16"/>
                         <StackPanel Orientation="Horizontal">
-                            <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
-                                        Content="Import"
-                                        x:Uid="Import"
-                                        Click="{x:Bind ImportSetting}"/>
-                            <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
-                                        Content="Export"
-                                        x:Uid="Export"
-                                        Margin="5,2"
-                                        Click="{x:Bind ExportSettings}"/>
-                            <Button w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"
-                                        Content="Reset"
-                                        x:Uid="Reset"
-                                        Click="{x:Bind ResetSettings}"/>
+                            <Button Content="Import" x:Uid="Import" Click="{x:Bind ImportSetting}"/>
+                            <Button Content="Export" x:Uid="Export" Margin="5,2" Click="{x:Bind ExportSettings}"/>
+                            <Button Content="Reset" x:Uid="Reset" Click="{x:Bind ResetSettings}"/>
                         </StackPanel>
                         <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
                                 <Run x:Uid="PleaseSaveWork" Text="Please save your work before you import or reset settings."/>

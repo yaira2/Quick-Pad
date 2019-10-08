@@ -13,7 +13,6 @@
     RequestedTheme="{x:Bind VisualThemeSelector.CurrentItem.Theme, Mode=OneWay}"
     x:Uid="GT_Dialog"    
     Title="Go To Line"
-    w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalDialogCorner), Mode=OneWay}" 
     Opened="ContentDialog_Opened"    
     
     PrimaryButtonText="Go to"
@@ -43,7 +42,6 @@
                  extensions:TextBoxRegex.ValidationMode="Dynamic" 
                  extensions:TextBoxRegex.ValidationType="Number"
                  KeyDown="LineInput_KeyDown" 
-                 Style="{ThemeResource FluentTextBoxStyle}" 
-                 w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"/>
+                 Style="{ThemeResource FluentTextBoxStyle}"/>
     </Grid>
 </ContentDialog>

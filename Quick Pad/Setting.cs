@@ -432,20 +432,6 @@ namespace QuickPad
             set => Set(value);
         }
 
-        [DefaultValue(2)]
-        public int GlobalButtonCorner
-        {
-            get => Get<int>();
-            set => Set(value);
-        }
-
-        [DefaultValue(4)]
-        public int GlobalDialogCorner
-        {
-            get => Get<int>();
-            set => Set(value);
-        }
-
         [DefaultValue(true)]
         public bool SendAnalyticsReport
         {
