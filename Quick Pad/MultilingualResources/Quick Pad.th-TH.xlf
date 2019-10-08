@@ -268,8 +268,7 @@
         </trans-unit>
         <trans-unit id="ErrorDialogContent" translate="yes" xml:space="preserve">
           <source>Sorry, Quick Pad couldn't open this file.</source>
-          <target state="needs-review-translation">ไม่สามารถเปิดไฟล์นี้ได้</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">ไม่สามารถเปิดไฟล์นี้ได้</target>
         </trans-unit>
         <trans-unit id="ErrorDialogOk" translate="yes" xml:space="preserve">
           <source>Ok</source>
@@ -841,9 +840,8 @@
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
           <source>We moved the button here for a cleaner look! You can also press Control + Shift + F to leave focus mode.</source>
-          <target state="needs-review-translation">ปุ่ม "ออกจากโหมดเน้นพิมพ์" ถูกย้ายมาไว้ตรงนี้ เพื่อให้แอปโล่งขึ้น
+          <target state="translated">ปุ่ม "ออกจากโหมดเน้นพิมพ์" ถูกย้ายมาไว้ตรงนี้ เพื่อให้แอปโล่งขึ้น
 หรือกด Control + Shift + F เพื่อออกจากโหมดเน้นพิมพ์</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
           <source>The button to leave focus mode button has been moved</source>
@@ -919,111 +917,115 @@
         </trans-unit>
         <trans-unit id="General.Text" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target state="new">General</target>
+          <target state="translated">ทั่วไป</target>
         </trans-unit>
         <trans-unit id="ThemeSettings.Text" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="new">Theme Settings</target>
+          <target state="translated">ชุดรูปแบบ</target>
         </trans-unit>
         <trans-unit id="FontSettings.Text" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="new">Font Settings</target>
+          <target state="translated">ฟอนต์</target>
         </trans-unit>
         <trans-unit id="AutoPickMode.Text" translate="yes" xml:space="preserve">
           <source>Automatically choose which mode to launch the app in based on the file type</source>
-          <target state="new">Automatically choose which mode to launch the app in based on the file type</target>
+          <target state="translated">เลือกโหมดหน้าตาของแอปโดยอัตโนมัติตามไฟล์ที่เปิด</target>
         </trans-unit>
         <trans-unit id="BackgroundTintOpacity.Text" translate="yes" xml:space="preserve">
           <source>App background tint opacity</source>
-          <target state="new">App background tint opacity</target>
+          <target state="translated">ความโปร่งใสของพื้นหลัง</target>
         </trans-unit>
         <trans-unit id="Export.Content" translate="yes" xml:space="preserve">
           <source>Export</source>
-          <target state="new">Export</target>
+          <target state="translated">ส่งออก</target>
         </trans-unit>
         <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
           <source>Import</source>
-          <target state="new">Import</target>
+          <target state="translated">นำเข้า</target>
         </trans-unit>
         <trans-unit id="ManageSettings.Text" translate="yes" xml:space="preserve">
           <source>Manage settings</source>
-          <target state="new">Manage settings</target>
+          <target state="translated">จัดการตั้งค่า</target>
         </trans-unit>
         <trans-unit id="PleaseSaveWork.Text" translate="yes" xml:space="preserve">
           <source>Please save your work before you import or reset settings.</source>
-          <target state="new">Please save your work before you import or reset settings.</target>
+          <target state="translated">กรุณาบันทึกสิ่งที่คุณพิมพ์ไว้ก่อนที่จะนำเข้าหรือรีเซตตั้งค่า</target>
         </trans-unit>
         <trans-unit id="PreventText1ChangeColor.Text" translate="yes" xml:space="preserve">
           <source>Use a dark/light background for the text area</source>
-          <target state="new">Use a dark/light background for the text area</target>
+          <target state="translated">ใช้สีทืบสำหรับพื้นหลังของบริเวณที่พิมพ์</target>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
           <source>Reset</source>
-          <target state="new">Reset</target>
+          <target state="translated">รีเซต</target>
         </trans-unit>
         <trans-unit id="SomeSettings.Text" translate="yes" xml:space="preserve">
           <source>Some settings will not update until you restart.</source>
-          <target state="new">Some settings will not update until you restart.</target>
+          <target state="translated">การตั้งค่าบางส่วนจะไม่อัพเดตจนกว่าแอปจะเปิดใหม่ครั้งหน้า</target>
         </trans-unit>
         <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
           <source>Advanced</source>
-          <target state="new">Advanced</target>
+          <target state="translated">ขั้นสูง</target>
         </trans-unit>
         <trans-unit id="Customize_Bold" translate="yes" xml:space="preserve">
           <source>Show bold</source>
-          <target state="new">Show bold</target>
+          <target state="translated">แสดงปุ่มตัวหนา</target>
         </trans-unit>
         <trans-unit id="Customize_Italic" translate="yes" xml:space="preserve">
           <source>Show italic</source>
-          <target state="new">Show italic</target>
+          <target state="translated">แสดงปุ่มตัวเอียง</target>
         </trans-unit>
         <trans-unit id="Customize_Underline" translate="yes" xml:space="preserve">
           <source>Show underline</source>
-          <target state="new">Show underline</target>
+          <target state="translated">แสดงปุ่มขีดเส้นใต้</target>
         </trans-unit>
         <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
-          <target state="new">Keep text only</target>
+          <target state="translated">วางเฉพาะข้อความ</target>
         </trans-unit>
         <trans-unit id="AdvancedPasteOptions.Text" translate="yes" xml:space="preserve">
           <source>Paste Options</source>
-          <target state="new">Paste Options</target>
+          <target state="translated">ตั้งค่าการวางข้อความ</target>
         </trans-unit>
         <trans-unit id="AdvancedOther.Text" translate="yes" xml:space="preserve">
           <source>Other</source>
-          <target state="new">Other</target>
+          <target state="translated">อื่นๆ</target>
         </trans-unit>
         <trans-unit id="AdvancedThemeOptions.Text" translate="yes" xml:space="preserve">
           <source>Theme Options</source>
-          <target state="new">Theme Options</target>
+          <target state="translated">ชุดรูปแบบขั้นสูง</target>
         </trans-unit>
         <trans-unit id="Health.Text" translate="yes" xml:space="preserve">
           <source>Health</source>
-          <target state="new">Health</target>
+          <target state="translated">สภาพแอป</target>
         </trans-unit>
         <trans-unit id="GiveChanceToSave.Text" translate="yes" xml:space="preserve">
           <source>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</source>
-          <target state="new">Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</target>
+          <target state="translated">บังคับไม่ให้แอปปิดตัวลงเมื่อมีปัญหา เพื่อให้คุณได้บันทึกหรือคัดลอกงานของคุณ. แต่คุณยังต้องปิดแล้วเปิดแอปใหม่เพื่อให้ฟังก์ชั่นของแอปกลับมา</target>
         </trans-unit>
         <trans-unit id="PreventAppCloseAfterCrash.Content" translate="yes" xml:space="preserve">
           <source>Prevent the app from closing when a crash occurs</source>
-          <target state="new">Prevent the app from closing when a crash occurs</target>
+          <target state="translated">ป้องกันแอปบังคับปิดเมื่อเกิดข้อผิดพลาด</target>
         </trans-unit>
         <trans-unit id="SaveLogWhenCrash.Content" translate="yes" xml:space="preserve">
           <source>Save log reports when the app crashes</source>
-          <target state="new">Save log reports when the app crashes</target>
+          <target state="translated">บันทึกข้อมูลข้อผิดพลาดเมื่อแอปมีปัญหา</target>
         </trans-unit>
         <trans-unit id="SendAnalyticsReport.Content" translate="yes" xml:space="preserve">
           <source>Send app health reports to App Center</source>
-          <target state="new">Send app health reports to App Center</target>
+          <target state="translated">ส่งสถานะภาพแอปให้นักพัฒนา</target>
         </trans-unit>
         <trans-unit id="ClearCrashList.Content" translate="yes" xml:space="preserve">
           <source>Clear crash history</source>
-          <target state="new">Clear crash history</target>
+          <target state="translated">ลบประวัติข้อผิดพลาด</target>
         </trans-unit>
         <trans-unit id="NoCrashes.Text" translate="yes" xml:space="preserve">
           <source>No crashes have occured</source>
-          <target state="new">No crashes have occured</target>
+          <target state="translated">ยังไม่มีข้อผิดพลาดใดๆ</target>
+        </trans-unit>
+        <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated" state-qualifier="tm-suggestion">ธีม</target>
         </trans-unit>
       </group>
     </body>

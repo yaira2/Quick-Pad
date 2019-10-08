@@ -20,13 +20,7 @@
                                   PaneDisplayMode="Top"
                                   HorizontalAlignment="Stretch"
                                   SelectedItem="{x:Bind SelectedNavigationItem, Mode=TwoWay}"
-                                  Header="{x:Bind SelectedNavigationItem.Content, Mode=OneWay}"
                                   OpenPaneLength="200">
-            <winui:NavigationView.HeaderTemplate>
-                <DataTemplate x:DataType="x:String">
-                    <TextBlock Style="{ThemeResource TitleTextBlockStyle}" Text="{x:Bind}"/>                    
-                </DataTemplate>
-            </winui:NavigationView.HeaderTemplate>
             <!--Page selection-->
             <winui:NavigationView.MenuItems>
                 <winui:NavigationViewItem Tag="General" IsSelected="{x:Bind SyncWithPage(CurrentSettingPage, 'General'), Mode=OneWay}">

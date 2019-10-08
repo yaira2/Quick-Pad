@@ -879,4 +879,7 @@
   <data name="NoCrashes.Text" xml:space="preserve">
     <value>No crashes have occured</value>
   </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
 </root>

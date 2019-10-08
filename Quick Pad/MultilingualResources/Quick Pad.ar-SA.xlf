@@ -1022,6 +1022,10 @@
           <source>No crashes have occured</source>
           <target state="translated">لا يوجد تحطم تطبيقي</target>
         </trans-unit>
+        <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated">نُسق</target>
+        </trans-unit>
       </group>
     </body>
   </file>

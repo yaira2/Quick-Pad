@@ -693,4 +693,10 @@
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>Thème défini par le système</value>
   </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Thème</value>
+  </data>
 </root>

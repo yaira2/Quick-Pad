@@ -918,7 +918,7 @@
         </trans-unit>
         <trans-unit id="General.Text" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target state="new">Général</target>
+          <target state="translated" state-qualifier="tm-suggestion">Général</target>
         </trans-unit>
         <trans-unit id="ThemeSettings.Text" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
@@ -1023,6 +1023,10 @@
         <trans-unit id="NoCrashes.Text" translate="yes" xml:space="preserve">
           <source>No crashes have occured</source>
           <target state="new">No crashes have occured</target>
+        </trans-unit>
+        <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated" state-qualifier="tm-suggestion">Thème</target>
         </trans-unit>
       </group>
     </body>
