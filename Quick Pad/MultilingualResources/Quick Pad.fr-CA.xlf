@@ -958,7 +958,6 @@
           <source>Show underline</source>
           <target state="translated">Show texte souligné</target>
         </trans-unit>
-
         <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
           <target state="translated">Montrer texte seulement</target>
