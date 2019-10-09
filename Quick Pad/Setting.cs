@@ -432,20 +432,6 @@ namespace QuickPad
             set => Set(value);
         }
 
-        [DefaultValue(2)]
-        public int GlobalButtonCorner
-        {
-            get => Get<int>();
-            set => Set(value);
-        }
-
-        [DefaultValue(4)]
-        public int GlobalDialogCorner
-        {
-            get => Get<int>();
-            set => Set(value);
-        }
-
         [DefaultValue(true)]
         public bool SendAnalyticsReport
         {
@@ -599,18 +585,6 @@ namespace QuickPad
         }
 
         /// <summary>
-        /// Use to convert on XAML & x:Bind from ElementTheme and string to boolean
-        /// If the ElementTheme match string it will return true, otherwise false
-        /// </summary>
-        /// <param name="input">ThemeElement setting</param>
-        /// <param name="expect">Expected value in string</param>
-        public static bool ThemeToBool(ElementTheme input, string expect)
-        {
-            var convert = (ElementTheme)Enum.Parse(typeof(ElementTheme), expect);
-            return Equals(input, convert);
-        }
-
-        /// <summary>
         /// Use to convert on XAML & x:Bind from bool (or Boolean) to Visibility
         /// </summary>
         /// <param name="input">Any boolean input</param>
@@ -639,15 +613,6 @@ namespace QuickPad
             return Visibility.Visible;
         }
 
-        /// <summary>
-        /// A very specific converter use on XAML and x:Bind that only use on align button separator
-        /// By tying all visibility setting into one place and when all 4 is false it will return Visible
-        /// </summary>
-        /// <param name="left">Left align button</param>
-        /// <param name="center">Center align button</param>
-        /// <param name="right">Right align button</param>
-        /// <param name="justify">Justify align button</param>
-        /// <returns></returns>
         public static Visibility HideIfNoBulletOptionsShow(bool bullet, bool bold, bool strikethrough, bool underline, bool italic)
         {
             if (!bullet && !bold && !strikethrough && !underline && !italic)
@@ -709,21 +674,6 @@ namespace QuickPad
             }
         }
 
-        public static string FromColorToHex(Color input)
-        {
-            return $"#{input.A.ToString("16")}{input.R.ToString("16")}{input.G.ToString("16")}{input.B.ToString("16")}";
-        }
-
-        public static Color FromHexToColor(string input)
-        {
-            input = input.Substring(1);
-            byte a = (byte)Convert.ToUInt32(input.Substring(0, 2), 16);
-            byte r = (byte)Convert.ToUInt32(input.Substring(2, 2), 16);
-            byte g = (byte)Convert.ToUInt32(input.Substring(4, 2), 16);
-            byte b = (byte)Convert.ToUInt32(input.Substring(6, 2), 16);
-            return Color.FromArgb(a, r, g, b);
-        }
-
         /// <summary>
         /// Use to check if input item is null or not
         /// </summary>
@@ -733,13 +683,6 @@ namespace QuickPad
         {
             return item is null;
         }
-
-        /// <summary>
-        /// Use in XAML binding, if item is null show that UI, if item is not null hide the UI
-        /// </summary>
-        /// <param name="input">anything</param>
-        /// <returns></returns>
-        public static Visibility ShowIfItemIsNull(object input) => IsItemNull(input) ? Visibility.Visible : Visibility.Collapsed;
 
         /// <summary>
         /// Use in XAML binding, if item is null hide that UI, if item is not null show the UI
@@ -792,11 +735,6 @@ namespace QuickPad
         public static Visibility ShowAfterCompareNumber(int number, string compareType, int target)
         {
             return CompareNumber(number, compareType, target) ? Visibility.Visible : Visibility.Collapsed;
-        }
-
-        public static FontFamily FontNameToFontFamily(string name)
-        {
-            return new FontFamily(name);
         }
 
         public static CornerRadius IntToCorner(int corner)

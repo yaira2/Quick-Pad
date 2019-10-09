@@ -167,8 +167,8 @@
                         Orientation="Vertical"
                         Margin="4"
                         Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}">
-                <CheckBox x:Uid="FAR_MatchCase" Content="Match case" IsChecked="{x:Bind MatchCase, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"/>
-                <CheckBox x:Uid="FAR_WrapAround" Content="Wrap around" IsChecked="{x:Bind WrapAround, Mode=TwoWay}" w10v1809:CornerRadius="{x:Bind q:Converter.IntToCorner(QSetting.GlobalButtonCorner), Mode=OneWay}"/>
+                <CheckBox x:Uid="FAR_MatchCase" Content="Match case" IsChecked="{x:Bind MatchCase, Mode=TwoWay}"/>
+                <CheckBox x:Uid="FAR_WrapAround" Content="Wrap around" IsChecked="{x:Bind WrapAround, Mode=TwoWay}"/>
             </StackPanel>
             <!-- END OF Options -->
         </Grid>

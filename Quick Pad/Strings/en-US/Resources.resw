@@ -381,21 +381,6 @@
   <data name="SettingsPivot.Title" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="SettingsTab1.Header" xml:space="preserve">
-    <value>General</value>
-  </data>
-  <data name="SettingsTab2.Header" xml:space="preserve">
-    <value>Theme</value>
-  </data>
-  <data name="SettingsTab3.Header" xml:space="preserve">
-    <value>Font</value>
-  </data>
-  <data name="SettingsTab4.Header" xml:space="preserve">
-    <value>Toolbar</value>
-  </data>
-  <data name="SettingsTab5.Header" xml:space="preserve">
-    <value>About</value>
-  </data>
   <data name="ShowAlignCenter.OffContent" xml:space="preserve">
     <value>Hide align center</value>
   </data>
@@ -416,9 +401,6 @@
   </data>
   <data name="ShowAlignRight.OffContent" xml:space="preserve">
     <value>Hide align right</value>
-  </data>
-  <data name="ShowAlignRight.OnContent" xml:space="preserve">
-    <value>Show align right</value>
   </data>
   <data name="ShowBullets.OffContent" xml:space="preserve">
     <value>Hide bullet list</value>
@@ -840,13 +822,13 @@
   <data name="KeepTextOnly.Text" xml:space="preserve">
     <value>Keep text only</value>
   </data>
-  <data name="Customize_Bold" xml:space="preserve">
+  <data name="Customize_Bold.Text" xml:space="preserve">
     <value>Show bold</value>
   </data>
-  <data name="Customize_Italic" xml:space="preserve">
+  <data name="Customize_Italic.Text" xml:space="preserve">
     <value>Show italic</value>
   </data>
-  <data name="Customize_Underline" xml:space="preserve">
+  <data name="Customize_Underline.Text" xml:space="preserve">
     <value>Show underline</value>
   </data>
   <data name="AdvancedPasteOptions.Text" xml:space="preserve">
@@ -878,5 +860,14 @@
   </data>
   <data name="NoCrashes.Text" xml:space="preserve">
     <value>No crashes have occured</value>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="ShowAlignRight.OnContent" xml:space="preserve">
+    <value>Show align right</value>
   </data>
 </root>

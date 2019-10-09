@@ -276,21 +276,6 @@
   <data name="SettingsPivot.Title" xml:space="preserve">
     <value>Paramètres</value>
   </data>
-  <data name="SettingsTab1.Header" xml:space="preserve">
-    <value>Général</value>
-  </data>
-  <data name="SettingsTab2.Header" xml:space="preserve">
-    <value>Thème</value>
-  </data>
-  <data name="SettingsTab3.Header" xml:space="preserve">
-    <value>Police</value>
-  </data>
-  <data name="SettingsTab4.Header" xml:space="preserve">
-    <value>Barre d'outils</value>
-  </data>
-  <data name="SettingsTab5.Header" xml:space="preserve">
-    <value>À propos</value>
-  </data>
   <data name="ShowAlignCenter.OffContent" xml:space="preserve">
     <value>Cacher l'algnement au centre</value>
   </data>
@@ -692,5 +677,14 @@
   </data>
   <data name="ThemeSystemDescription" xml:space="preserve">
     <value>Thème défini par le système</value>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>Général</value>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Thème</value>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>Police</value>
   </data>
 </root>

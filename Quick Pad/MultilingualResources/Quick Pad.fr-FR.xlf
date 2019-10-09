@@ -359,26 +359,6 @@
           <source>Settings</source>
           <target state="translated" state-qualifier="tm-suggestion">Paramètres</target>
         </trans-unit>
-        <trans-unit id="SettingsTab1.Header" translate="yes" xml:space="preserve">
-          <source>General</source>
-          <target state="translated" state-qualifier="tm-suggestion">Général</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab2.Header" translate="yes" xml:space="preserve">
-          <source>Theme</source>
-          <target state="translated" state-qualifier="tm-suggestion">Thème</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab3.Header" translate="yes" xml:space="preserve">
-          <source>Font</source>
-          <target state="translated">Police</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab4.Header" translate="yes" xml:space="preserve">
-          <source>Toolbar</source>
-          <target state="translated" state-qualifier="tm-suggestion">Barre d'outils</target>
-        </trans-unit>
-        <trans-unit id="SettingsTab5.Header" translate="yes" xml:space="preserve">
-          <source>About</source>
-          <target state="translated">À propos</target>
-        </trans-unit>
         <trans-unit id="ShowAlignCenter.OffContent" translate="yes" xml:space="preserve">
           <source>Hide align center</source>
           <target state="translated">Cacher l'algnement au centre</target>
@@ -918,7 +898,7 @@
         </trans-unit>
         <trans-unit id="General.Text" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target state="new">Général</target>
+          <target state="translated" state-qualifier="tm-suggestion">Général</target>
         </trans-unit>
         <trans-unit id="ThemeSettings.Text" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
@@ -968,18 +948,6 @@
           <source>Advanced</source>
           <target state="new">Advanced</target>
         </trans-unit>
-        <trans-unit id="Customize_Bold" translate="yes" xml:space="preserve">
-          <source>Show bold</source>
-          <target state="new">Show bold</target>
-        </trans-unit>
-        <trans-unit id="Customize_Italic" translate="yes" xml:space="preserve">
-          <source>Show italic</source>
-          <target state="new">Show italic</target>
-        </trans-unit>
-        <trans-unit id="Customize_Underline" translate="yes" xml:space="preserve">
-          <source>Show underline</source>
-          <target state="new">Show underline</target>
-        </trans-unit>
         <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
           <target state="new">Keep text only</target>
@@ -1023,6 +991,26 @@
         <trans-unit id="NoCrashes.Text" translate="yes" xml:space="preserve">
           <source>No crashes have occured</source>
           <target state="new">No crashes have occured</target>
+        </trans-unit>
+        <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated" state-qualifier="tm-suggestion">Thème</target>
+        </trans-unit>
+        <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
+          <source>Font</source>
+          <target state="translated">Police</target>
+        </trans-unit>
+        <trans-unit id="Customize_Bold.Text" translate="yes" xml:space="preserve">
+          <source>Show bold</source>
+          <target state="new">Show bold</target>
+        </trans-unit>
+        <trans-unit id="Customize_Italic.Text" translate="yes" xml:space="preserve">
+          <source>Show italic</source>
+          <target state="new">Show italic</target>
+        </trans-unit>
+        <trans-unit id="Customize_Underline.Text" translate="yes" xml:space="preserve">
+          <source>Show underline</source>
+          <target state="new">Show underline</target>
         </trans-unit>
       </group>
     </body>
