@@ -946,18 +946,6 @@
           <source>Advanced</source>
           <target state="translated" state-qualifier="tm-suggestion">Avancé</target>
         </trans-unit>
-        <trans-unit id="Customize_Bold" translate="yes" xml:space="preserve">
-          <source>Show bold</source>
-          <target state="translated">Montrer gras</target>
-        </trans-unit>
-        <trans-unit id="Customize_Italic" translate="yes" xml:space="preserve">
-          <source>Show italic</source>
-          <target state="translated">Montrer italique</target>
-        </trans-unit>
-        <trans-unit id="Customize_Underline" translate="yes" xml:space="preserve">
-          <source>Show underline</source>
-          <target state="translated">Show texte souligné</target>
-        </trans-unit>
         <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
           <target state="translated">Montrer texte seulement</target>
