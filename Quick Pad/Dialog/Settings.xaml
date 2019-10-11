@@ -55,7 +55,7 @@
                 </winui:NavigationViewItem>
             </winui:NavigationView.MenuItems>
             <!--Setting content-->
-            <Grid Margin="20,0,20,0">
+            <Grid Margin="0,0,20,0">
                 <Grid.Resources>
                     <Style TargetType="TextBlock">
                         <Setter Property="Margin" Value="0,8,0,4"/>
@@ -64,7 +64,7 @@
                     </Style>
                 </Grid.Resources>
                 <!--General-->
-                <ScrollViewer x:Name="SettingsTab1SV" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'General'),Mode=OneWay}">
+                <ScrollViewer Padding="20,0,0,0" x:Name="SettingsTab1SV" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'General'),Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
                         <TextBlock x:Uid="General" Text="General" FontSize="20"/>
                         <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
@@ -105,7 +105,7 @@
                 </ScrollViewer>
 
                 <!--Theme-->
-                <ScrollViewer x:Name="SettingsTab2SV" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Theme'), Mode=OneWay}">
+                <ScrollViewer Padding="20,0,0,0" x:Name="SettingsTab2SV" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Theme'), Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
                         <TextBlock x:Uid="Theme" Text="Theme" FontSize="20"/>
                         <ListView ItemsSource="{x:Bind VisualThemeSelector.ThemesView}" Margin="0,10,0,0">
@@ -136,7 +136,7 @@
                 </ScrollViewer>
 
                 <!--Font-->
-                <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Font'), Mode=OneWay}">
+                <ScrollViewer Padding="20,0,0,0" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Font'), Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
                         <TextBlock x:Uid="Font" Text="Font" FontSize="20"/>
                         <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
@@ -185,7 +185,7 @@
                 </ScrollViewer>
 
                 <!--Advanced-->
-                <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
+                <ScrollViewer Padding="20,0,0,0" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Advanced'), Mode=OneWay}">
                     <StackPanel>
                         <TextBlock x:Uid="Advanced" Text="Advanced" FontSize="20"/>
                         
@@ -219,7 +219,7 @@
                 </ScrollViewer>
 
                 <!--Crash-->
-                <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Report'), Mode=OneWay}">
+                <ScrollViewer Padding="20,0,0,0" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'Report'), Mode=OneWay}">
                     <StackPanel Padding="2">
                         <TextBlock x:Uid="Health" Text="Health" FontSize="20"/>
 
@@ -227,10 +227,14 @@
 
                         <CheckBox IsChecked="{x:Bind QSetting.SaveLogWhenCrash, Mode=TwoWay}" x:Uid="SaveLogWhenCrash" Content="Save log reports when the app crashes"/>
 
-                        <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" x:Uid="PreventAppCloseAfterCrash" Content="Prevent the app from closing when a crash occurs"/>
-                        <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Margin="0">
-                                <Run x:Uid="GiveChanceToSave" Text="Give yourself a chance to save or copy your work, you may need to restart as some functions may not work properly."/>
-                        </TextBlock>
+                        <Grid>
+                        <CheckBox IsChecked="{x:Bind QSetting.PreventAppCloseAfterCrash, Mode=TwoWay}" x:Uid="PreventAppCloseAfterCrash" Content="Prevent the app from closing when a crash occurs" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,0,25,0"/>
+                            <Button FontFamily="Segoe MDL2 Assets" Content="&#xE946;" VerticalAlignment="Top" HorizontalAlignment="Right" FocusVisualPrimaryBrush="{x:Null}" FocusVisualSecondaryBrush="{x:Null}" Margin="0,5,0,0">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock x:Uid="GiveChanceToSave" TextWrapping="WrapWholeWords"/>
+                                </ToolTipService.ToolTip>
+                            </Button>
+                        </Grid>
 
                         <StackPanel Visibility="{x:Bind ShowCrashList, Mode=OneWay}" Orientation="Horizontal" Padding="0,10,0,0">
                             <Button Content="Clear crash history" x:Uid="ClearCrashList" Click="{x:Bind ClearCrashList}"/>
@@ -254,7 +258,7 @@
                 </ScrollViewer>
 
                 <!--About-->
-                <ScrollViewer Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'About'), Mode=OneWay}">
+                <ScrollViewer Padding="20,0,0,0" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'About'), Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
                         <Image Source="/Assets/Quick Pad.png" Stretch="Fill" Width="60" Height="60" Margin="0,30,0,0"/>
                         <TextBlock Text="{x:Bind VersionNumberText, Mode=OneWay}" x:Name="VersionNumber" HorizontalAlignment="Center"/>

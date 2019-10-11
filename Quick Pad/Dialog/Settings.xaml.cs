@@ -431,6 +431,11 @@ namespace QuickPad.Dialog
             //Reset force startup
             forceStartupToPage = settingPage.General;
         }
+
+        private void GiveChanceToSaveTip_FocusEngaged(Control sender, FocusEngagedEventArgs args)
+        {
+
+        }
     }
 
     public enum settingPage
