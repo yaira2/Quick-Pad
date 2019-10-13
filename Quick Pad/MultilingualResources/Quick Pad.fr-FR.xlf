@@ -152,8 +152,7 @@
         </trans-unit>
         <trans-unit id="ErrorDialogContent" translate="yes" xml:space="preserve">
           <source>Sorry, Quick Pad couldn't open this file.</source>
-          <target state="needs-review-translation">Désolé, Quick Pad ne peut pas ouvrir le fichier.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Désolé, Quick Pad ne peut pas ouvrir le fichier.</target>
         </trans-unit>
         <trans-unit id="ErrorDialogOk" translate="yes" xml:space="preserve">
           <source>Ok</source>
@@ -821,8 +820,7 @@
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Subtitle" translate="yes" xml:space="preserve">
           <source>We moved the button here for a cleaner look! You can also press Control + Shift + F to leave focus mode.</source>
-          <target state="needs-review-translation">Nous avons déplacé le bouton ici pour avoir un style plus propre. Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Nous avons déplacé le bouton ici pour avoir un style plus propre. Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir.</target>
         </trans-unit>
         <trans-unit id="HowToLeaveFocus.Title" translate="yes" xml:space="preserve">
           <source>The button to leave focus mode button has been moved</source>
