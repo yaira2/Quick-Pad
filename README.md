@@ -36,3 +36,4 @@ Please head over to [Github Releases](https://github.com/UWPCommunity/Quick-Pad/
     * [es][Spanish] [Leisvan](https://github.com/Leisvan)
     * [ar-SA][Arabic] [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
     * [fr-FR][French] [François-Joseph du Fou](https://github.com/FJduFou)
+    * [it][Italian] [Leonardo Di Stasio](https://github.com/YohskDista)
