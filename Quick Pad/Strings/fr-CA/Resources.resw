@@ -753,4 +753,7 @@
   <data name="Font.Text" xml:space="preserve">
     <value>Police</value>
   </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>Donner à vous-même une chance d'enregistrer ou de copier votre travail; vous avez toujours besoin de redémarrer puisque certains fonctionnalités peut ne pas fonctionner correctement.</value>
+  </data>
 </root>
