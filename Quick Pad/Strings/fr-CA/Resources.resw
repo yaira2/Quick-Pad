@@ -753,6 +753,15 @@
   <data name="Font.Text" xml:space="preserve">
     <value>Police</value>
   </data>
+  <data name="Customize_Bold.Text" xml:space="preserve">
+    <value>Montrer gras</value>
+  </data>
+  <data name="Customize_Italic.Text" xml:space="preserve">
+    <value>Montrer italique</value>
+  </data>
+  <data name="Customize_Underline.Text" xml:space="preserve">
+    <value>Show texte souligné</value>
+  </data>
   <data name="GiveChanceToSave.Text" xml:space="preserve">
     <value>Donner à vous-même une chance d'enregistrer ou de copier votre travail; vous avez toujours besoin de redémarrer puisque certains fonctionnalités peut ne pas fonctionner correctement.</value>
   </data>

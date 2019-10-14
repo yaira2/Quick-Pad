@@ -996,15 +996,15 @@
         </trans-unit>
         <trans-unit id="Customize_Bold.Text" translate="yes" xml:space="preserve">
           <source>Show bold</source>
-          <target state="new">Show bold</target>
+          <target state="translated">Montrer gras</target>
         </trans-unit>
         <trans-unit id="Customize_Italic.Text" translate="yes" xml:space="preserve">
           <source>Show italic</source>
-          <target state="new">Show italic</target>
+          <target state="translated">Montrer italique</target>
         </trans-unit>
         <trans-unit id="Customize_Underline.Text" translate="yes" xml:space="preserve">
           <source>Show underline</source>
-          <target state="new">Show underline</target>
+          <target state="translated">Show texte souligné</target>
         </trans-unit>
         <trans-unit id="GiveChanceToSave.Text" translate="yes" xml:space="preserve">
           <source>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</source>
