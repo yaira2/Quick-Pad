@@ -225,6 +225,8 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <None Include="Quick Pad_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\it\Resources.resw" />
+    <PRIResource Include="Strings\it\Resources1.resw" />
     <PRIResource Include="Strings\fr-FR\Resources.resw" />
     <PRIResource Include="Strings\ar-SA\Resources.resw" />
     <PRIResource Include="Strings\es\Resources.resw" />
@@ -306,6 +308,7 @@
     <XliffResource Include="MultilingualResources\Quick Pad.es.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.fr-FR.xlf" />
+    <XliffResource Include="MultilingualResources\Quick Pad.it.xlf" />
     <XliffResource Include="MultilingualResources\Quick Pad.th-TH.xlf" />
   </ItemGroup>
   <ItemGroup />
