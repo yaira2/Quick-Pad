@@ -762,4 +762,7 @@
   <data name="Customize_Underline.Text" xml:space="preserve">
     <value>Mostrar subrayado</value>
   </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>Tenga la oportunidad de guardar o copiar su trabajo en caso de que algo salga mal. Tendrá que reiniciar la app para estas funcionalidades funcionen apropiadamente</value>
+  </data>
 </root>
