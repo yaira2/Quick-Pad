@@ -622,7 +622,7 @@
     <value>Zoom arrière</value>
   </data>
   <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
-    <value>Nous avons déplacé le bouton ici pour avoir un style plus propre. Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir.</value>
+    <value>Nous avons déplacé le bouton ici pour avoir un style plus propre! Vous pouvez aussi utiliser Ctrl + Maj + F pour sortir du mode focus.</value>
   </data>
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
     <value>The bouton pour sortir du mode focus a été déplacé</value>
@@ -680,6 +680,72 @@
   </data>
   <data name="General.Text" xml:space="preserve">
     <value>Général</value>
+  </data>
+  <data name="ThemeSettings.Text" xml:space="preserve">
+    <value>Paramètres du thème</value>
+  </data>
+  <data name="FontSettings.Text" xml:space="preserve">
+    <value>Paramètre des polices</value>
+  </data>
+  <data name="AutoPickMode.Text" xml:space="preserve">
+    <value>Choisir automatiquement le mode pour ouvrir l'application dépendamment du type de fichier</value>
+  </data>
+  <data name="BackgroundTintOpacity.Text" xml:space="preserve">
+    <value>Opacité du teinte de fond de l'application</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Expoter</value>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>Importer</value>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>Gérer les paramètres</value>
+  </data>
+  <data name="PleaseSaveWork.Text" xml:space="preserve">
+    <value>Sauvegarder vos travaux avant d'importer ou de réinitialiser les paramètres</value>
+  </data>
+  <data name="PreventText1ChangeColor.Text" xml:space="preserve">
+    <value>Utiliser un fond d'écran foncé/léger pour les zones de texte</value>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>Réinitialiser</value>
+  </data>
+  <data name="SomeSettings.Text" xml:space="preserve">
+    <value>Certains paramètres ne vont pas mettre à jour avant de redémarrer l'application</value>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Avancé</value>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>Montrer texte seulement</value>
+  </data>
+  <data name="AdvancedPasteOptions.Text" xml:space="preserve">
+    <value>Options de collage</value>
+  </data>
+  <data name="AdvancedOther.Text" xml:space="preserve">
+    <value>Autre</value>
+  </data>
+  <data name="AdvancedThemeOptions.Text" xml:space="preserve">
+    <value>Options de thème</value>
+  </data>
+  <data name="Health.Text" xml:space="preserve">
+    <value>Santé</value>
+  </data>
+  <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
+    <value>Éviter l'application de fermer lorsqu'un plantage arrive</value>
+  </data>
+  <data name="SaveLogWhenCrash.Content" xml:space="preserve">
+    <value>Enregistrer les rapports d'activités lorsque l'application plante</value>
+  </data>
+  <data name="SendAnalyticsReport.Content" xml:space="preserve">
+    <value>Envoyer les rapports de la santé de l'application au Centre d'application</value>
+  </data>
+  <data name="ClearCrashList.Content" xml:space="preserve">
+    <value>Effacer historique de plantage</value>
+  </data>
+  <data name="NoCrashes.Text" xml:space="preserve">
+    <value>Auncun plantage s'est produite</value>
   </data>
   <data name="Theme.Text" xml:space="preserve">
     <value>Thème</value>

@@ -732,9 +732,6 @@
   <data name="Health.Text" xml:space="preserve">
     <value>الصحة</value>
   </data>
-  <data name="GiveChanceToSave.Text" xml:space="preserve">
-    <value>امنح نفسك فرصة لحفظ عملك أو نسخه ، فستظل بحاجة إلى إعادة التشغيل لأن بعض الوظائف قد لا تعمل بشكل صحيح.</value>
-  </data>
   <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
     <value>منع التطبيق من الإغلاق عند حدوث تعطل</value>
   </data>

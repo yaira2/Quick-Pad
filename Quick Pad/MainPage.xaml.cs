@@ -115,7 +115,7 @@ namespace QuickPad
                     {
                         CommandBarClassic.Focus(FocusState.Programmatic); // Set focus off the main content
                     }
-                }
+                } 
             };
 
             Window.Current.CoreWindow.KeyDown += (sender, args) =>

@@ -733,9 +733,6 @@
   <data name="Health.Text" xml:space="preserve">
     <value>สภาพแอป</value>
   </data>
-  <data name="GiveChanceToSave.Text" xml:space="preserve">
-    <value>บังคับไม่ให้แอปปิดตัวลงเมื่อมีปัญหา เพื่อให้คุณได้บันทึกหรือคัดลอกงานของคุณ. แต่คุณยังต้องปิดแล้วเปิดแอปใหม่เพื่อให้ฟังก์ชั่นของแอปกลับมา</value>
-  </data>
   <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
     <value>ป้องกันแอปบังคับปิดเมื่อเกิดข้อผิดพลาด</value>
   </data>

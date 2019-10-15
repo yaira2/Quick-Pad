@@ -967,10 +967,6 @@
           <source>Health</source>
           <target state="translated">สภาพแอป</target>
         </trans-unit>
-        <trans-unit id="GiveChanceToSave.Text" translate="yes" xml:space="preserve">
-          <source>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</source>
-          <target state="translated">บังคับไม่ให้แอปปิดตัวลงเมื่อมีปัญหา เพื่อให้คุณได้บันทึกหรือคัดลอกงานของคุณ. แต่คุณยังต้องปิดแล้วเปิดแอปใหม่เพื่อให้ฟังก์ชั่นของแอปกลับมา</target>
-        </trans-unit>
         <trans-unit id="PreventAppCloseAfterCrash.Content" translate="yes" xml:space="preserve">
           <source>Prevent the app from closing when a crash occurs</source>
           <target state="translated">ป้องกันแอปบังคับปิดเมื่อเกิดข้อผิดพลาด</target>
@@ -1010,6 +1006,10 @@
         <trans-unit id="Customize_Underline.Text" translate="yes" xml:space="preserve">
           <source>Show underline</source>
           <target state="translated">แสดงปุ่มขีดเส้นใต้</target>
+        </trans-unit>
+        <trans-unit id="GiveChanceToSave.Text" translate="yes" xml:space="preserve">
+          <source>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</source>
+          <target state="new">Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</target>
         </trans-unit>
       </group>
     </body>
