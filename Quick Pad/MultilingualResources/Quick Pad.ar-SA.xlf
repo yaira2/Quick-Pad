@@ -1008,7 +1008,7 @@
         </trans-unit>
         <trans-unit id="GiveChanceToSave.Text" translate="yes" xml:space="preserve">
           <source>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</source>
-          <target state="new">Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</target>
+          <target state="translated">امنح نفسك فرصة لحفظ عملك أو نسخه ، فستظل بحاجة إلى إعادة التشغيل لأن بعض الوظائف قد لا تعمل بشكل صحيح.</target>
         </trans-unit>
       </group>
     </body>
