@@ -1,5 +1,110 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -220,7 +325,7 @@
     <value>Sinistra</value>
   </data>
   <data name="LeftTooltip.Text" xml:space="preserve">
-    <value>Allineamento sinistra (Ctrl+L)</value>
+    <value>Allineamento a sinistra (Ctrl+L)</value>
   </data>
   <data name="Light.Content" xml:space="preserve">
     <value>Chiaro</value>
@@ -229,7 +334,7 @@
     <value>Nuovo documento</value>
   </data>
   <data name="NewUserFeedbackContent" xml:space="preserve">
-    <value>Considera di lasciare una recensione per Quick Pad nel negozio.</value>
+    <value>Considera di lasciare un commento per Quick Pad nello store.</value>
   </data>
   <data name="NewUserFeedbackNo" xml:space="preserve">
     <value>No</value>
@@ -250,7 +355,7 @@
     <value>Incolla (Ctrl+V)</value>
   </data>
   <data name="RateAndReview.Content" xml:space="preserve">
-    <value>Valuta e recensisci</value>
+    <value>Valuta e commenta</value>
   </data>
   <data name="Right.Label" xml:space="preserve">
     <value>Destra</value>
@@ -283,10 +388,10 @@
     <value>Mostra allineamento centro</value>
   </data>
   <data name="ShowAlignJustify.OffContent" xml:space="preserve">
-    <value>Nascondi allineamento justify</value>
+    <value>Nascondi allineamento giustificato</value>
   </data>
   <data name="ShowAlignJustify.OnContent" xml:space="preserve">
-    <value>Mostra allineamento justify</value>
+    <value>Mostra allineamento giustificato</value>
   </data>
   <data name="ShowAlignLeft.OffContent" xml:space="preserve">
     <value>Nascondi allineamento sinistro</value>
@@ -349,7 +454,7 @@
     <value>Rosa</value>
   </data>
   <data name="TextColorTooltip.Text" xml:space="preserve">
-    <value>Colore font</value>
+    <value>Colore dei caratteri</value>
   </data>
   <data name="TextColorWhite.Text" xml:space="preserve">
     <value>Bianco</value>
@@ -418,7 +523,7 @@
     <value>Allinea al centro</value>
   </data>
   <data name="ClassicFormatAJustify.Text" xml:space="preserve">
-    <value>Allinea justify</value>
+    <value>Allineamento giustificato</value>
   </data>
   <data name="ClassicFormatALeft.Text" xml:space="preserve">
     <value>Allinea a sinistra</value>
@@ -433,7 +538,7 @@
     <value>Punto</value>
   </data>
   <data name="ClassicFormatDown.Text" xml:space="preserve">
-    <value>Carattere Giù</value>
+    <value>Carattere più piccolo</value>
   </data>
   <data name="ClassicFormatItalic.Text" xml:space="preserve">
     <value>Italico</value>
@@ -445,13 +550,13 @@
     <value>Sottolineare</value>
   </data>
   <data name="ClassicFormatUp.Text" xml:space="preserve">
-    <value>Font Up</value>
+    <value>Carattere maiuscolo</value>
   </data>
   <data name="ClassicHelp.Title" xml:space="preserve">
     <value>Aiuto</value>
   </data>
   <data name="ClassicHelpRR.Text" xml:space="preserve">
-    <value>Valuta e recensisci</value>
+    <value>Valuta e commenta</value>
   </data>
   <data name="ClassicView.Title" xml:space="preserve">
     <value>Visualizatore</value>
@@ -463,7 +568,7 @@
     <value>Modalità focus</value>
   </data>
   <data name="ClassicViewOverlay.Text" xml:space="preserve">
-    <value>In modalità Top</value>
+    <value>In modalità sovrapposizione</value>
   </data>
   <data name="CmdClassicMode.Label" xml:space="preserve">
     <value>Modalità classica</value>
@@ -508,7 +613,7 @@
     <value>Lingua del applicazione</value>
   </data>
   <data name="CmdOnTopTooltip" xml:space="preserve">
-    <value>Sopra (Ctrl+Shift+O)</value>
+    <value>Sovrapposizione (Ctrl+Shift+O)</value>
   </data>
   <data name="CmdFind.Label" xml:space="preserve">
     <value>Trovare</value>
@@ -583,13 +688,13 @@
     <value>Mostra allineamento centrale</value>
   </data>
   <data name="Customize_AlignJustify.Text" xml:space="preserve">
-    <value>Mostra allineamento justify</value>
+    <value>Mostra allineamento giustificato</value>
   </data>
   <data name="Customize_AlignLeft.Text" xml:space="preserve">
-    <value>Mostra allineamento sinistro</value>
+    <value>Mostra allineamento a sinistra</value>
   </data>
   <data name="Customize_AlignRight.Text" xml:space="preserve">
-    <value>Mostra allineamento destro</value>
+    <value>Mostra allineamento a destra</value>
   </data>
   <data name="Customize_Bullets.Text" xml:space="preserve">
     <value>Mostra lista di punti</value>
@@ -598,10 +703,10 @@
     <value>Mostra l'opzione barrato</value>
   </data>
   <data name="Customize_SizeDown.Text" xml:space="preserve">
-    <value>Mostra taglia giù</value>
+    <value>Mostra taglia più piccola</value>
   </data>
   <data name="Customize_SizeUp.Text" xml:space="preserve">
-    <value>Mostra taglia sopra</value>
+    <value>Mostra taglia più grossa</value>
   </data>
   <data name="Customize_Reset.Text" xml:space="preserve">
     <value>Resettare barra degli strumenti</value>
@@ -619,10 +724,10 @@
     <value>Rimpicciolire</value>
   </data>
   <data name="HowToLeaveFocus.Subtitle" xml:space="preserve">
-    <value>Abbiamo spostato il pulsante qui, in modo che fosse un design più pulito. Puoi anche premere Control + Maiusc + F per uscire.</value>
+    <value>Abbiamo spostato il pulsante qui, in modo che fosse un design più pulito. Puoi anche premere Control + Shift + F per uscire.</value>
   </data>
   <data name="HowToLeaveFocus.Title" xml:space="preserve">
-    <value>Il pulsante per uscire dal pulsante della modalità di messa a fuoco è stato spostato</value>
+    <value>Il pulsante per uscire dal pulsante della modalità focus è stato spostato</value>
   </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Salva automaticamente ogni</value>
@@ -632,5 +737,139 @@
   </data>
   <data name="Restart.Text" xml:space="preserve">
     <value>Riavvio richiesto per applicare le modifiche.</value>
+  </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>Giallo pallido
+</value>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>Cobalto</value>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>Cremisi</value>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>Scuro
+</value>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>Foglia
+</value>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>Lattuga</value>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>Chiaro</value>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>A caso</value>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>Oro rosa</value>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>Sistema predefinito</value>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>Tema scuro</value>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>Tema chiaro</value>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>Tema a caso all'avio dell'app</value>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>Tema predefinito del sistema</value>
+  </data>
+  <data name="FontSettings.Text" xml:space="preserve">
+    <value>Paramettri dei caratteri
+</value>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>Generale</value>
+  </data>
+  <data name="ThemeSettings.Text" xml:space="preserve">
+    <value>Paramettri del tema</value>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Avanzato</value>
+  </data>
+  <data name="AutoPickMode.Text" xml:space="preserve">
+    <value>Scegli automaticamente la modalità in cui avviare l'app in base al tipo di file</value>
+  </data>
+  <data name="BackgroundTintOpacity.Text" xml:space="preserve">
+    <value>Opacità della tinta di sfondo dell'app</value>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Esporta</value>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>Importa</value>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>Gestisci le impostazioni</value>
+  </data>
+  <data name="PleaseSaveWork.Text" xml:space="preserve">
+    <value>Salvare il lavoro prima di importare o ripristinare le impostazioni.</value>
+  </data>
+  <data name="PreventText1ChangeColor.Text" xml:space="preserve">
+    <value>Utilizzare uno sfondo scuro / chiaro per l'area di testo</value>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>Ripristina</value>
+  </data>
+  <data name="SomeSettings.Text" xml:space="preserve">
+    <value>Alcune impostazioni non verranno aggiornate fino al riavvio.</value>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>Prendi solo il testo</value>
+  </data>
+  <data name="Customize_Bold.Text" xml:space="preserve">
+    <value>Mostra grassetto
+</value>
+  </data>
+  <data name="Customize_Italic.Text" xml:space="preserve">
+    <value>Mostra italico</value>
+  </data>
+  <data name="Customize_Underline.Text" xml:space="preserve">
+    <value>Mostra sottolineamento</value>
+  </data>
+  <data name="AdvancedPasteOptions.Text" xml:space="preserve">
+    <value>Incolla opzioni</value>
+  </data>
+  <data name="AdvancedOther.Text" xml:space="preserve">
+    <value>Altro</value>
+  </data>
+  <data name="AdvancedThemeOptions.Text" xml:space="preserve">
+    <value>Opzioni del tema</value>
+  </data>
+  <data name="Health.Text" xml:space="preserve">
+    <value>Salute</value>
+  </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>Concediti la possibilità di salvare o copiare il tuo lavoro, dovrai comunque riavviarlo poiché alcune funzioni potrebbero non funzionare correttamente.</value>
+  </data>
+  <data name="PreventAppCloseAfterCrash.Content" xml:space="preserve">
+    <value>Impedisci la chiusura dell'app quando si verifica un arresto anomalo</value>
+  </data>
+  <data name="SaveLogWhenCrash.Content" xml:space="preserve">
+    <value>Salva i rapporti del registro in caso di arresto anomalo dell'app</value>
+  </data>
+  <data name="SendAnalyticsReport.Content" xml:space="preserve">
+    <value>Invia rapporti sullo stato delle app all'App Center</value>
+  </data>
+  <data name="ClearCrashList.Content" xml:space="preserve">
+    <value>Cancella cronologia degli arresti anomali</value>
+  </data>
+  <data name="NoCrashes.Text" xml:space="preserve">
+    <value>Nessun arresto anomalo</value>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Tema</value>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>Caratteri</value>
   </data>
 </root>
