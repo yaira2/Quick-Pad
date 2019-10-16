@@ -34,7 +34,7 @@
                                   Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
                                   OffsetX="0"
-                                  OffsetY="2.54"
+                                  OffsetY="1"
                                   Grid.Row="1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
@@ -527,9 +527,9 @@
 
                 <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="4" VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
-                                  ShadowOpacity="0.3"
+                                  ShadowOpacity="0.2"
                                   OffsetX="0"
-                                  OffsetY="-1"
+                                  OffsetY="-.1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
 
@@ -567,7 +567,7 @@
                 <controls:DropShadowPanel Grid.Row="3"
                                   VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
-                                  ShadowOpacity="0.3"
+                                  ShadowOpacity="0.2"
                                   OffsetX="0"
                                   OffsetY="-1"
                                   HorizontalAlignment="Stretch"
