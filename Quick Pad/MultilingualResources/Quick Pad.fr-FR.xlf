@@ -360,7 +360,7 @@
         </trans-unit>
         <trans-unit id="ShowAlignCenter.OffContent" translate="yes" xml:space="preserve">
           <source>Hide align center</source>
-          <target state="translated">Cacher l'algnement au centre</target>
+          <target state="translated">Cacher l'alignement au centre</target>
         </trans-unit>
         <trans-unit id="ShowAlignCenter.OnContent" translate="yes" xml:space="preserve">
           <source>Show align center</source>
