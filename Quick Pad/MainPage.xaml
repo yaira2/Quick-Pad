@@ -231,7 +231,7 @@
                     <AppBarSeparator x:Name="ASep1"/>
                     <AppBarToggleButton x:Name="CompactOverlay" x:Uid="CompactOverlay" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" MinWidth="40" Width="Auto">
                         <AppBarToggleButton.Icon>
-                            <FontIcon Glyph="&#xE158;"/>
+                            <FontIcon Glyph="{x:Bind q:Converter.SwitchBetweenOverlayIcon(CompactOverlaySwitch), Mode=OneWay}" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                         </AppBarToggleButton.Icon>
                         <AppBarToggleButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>

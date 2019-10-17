@@ -674,6 +674,18 @@ namespace QuickPad
             }
         }
 
+        public static string SwitchBetweenOverlayIcon(bool input)
+        {
+            if (input)
+            {
+                return "\uEE47";
+            }
+            else
+            {
+                return "\uEE49";
+            }
+        }
+
         /// <summary>
         /// Use to check if input item is null or not
         /// </summary>
