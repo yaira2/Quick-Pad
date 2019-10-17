@@ -601,6 +601,8 @@
                     </Grid>
                 </controls:DropShadowPanel>
 
+                <Grid x:Name="trickyTitleBar" Grid.Row="0" Canvas.ZIndex="1000" Background="Transparent" Height="33" VerticalAlignment="Top"/>
+
                 <Grid x:Name="Title" Canvas.ZIndex="100" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch">
                     <StackPanel Orientation="Horizontal">
                         <Button Width="48" Height="32" Foreground="Transparent" Background="Transparent" Visibility="{x:Bind FocusModeSwitch, Mode=OneWay}" x:Name="BackButtonHolder">
@@ -617,7 +619,6 @@
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
                            x:Name="FileTitle"/>
-                        <Grid x:Name="trickyTitleBar" Background="Transparent"/>
                         <Button w10v1809:CornerRadius="0" Background="Transparent" x:Name="CloseCompactOverlay" Click="CloseCompactOverlay_Click" Visibility="Collapsed">
                             <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                             <Button.KeyboardAccelerators>

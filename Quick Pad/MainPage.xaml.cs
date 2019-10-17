@@ -1346,6 +1346,7 @@ namespace QuickPad
                 Shadow2.Visibility = Visibility.Collapsed;
                 CloseCompactOverlay.Visibility = Visibility.Visible;
                 FileTitle.Visibility = Visibility.Collapsed;
+                trickyTitleBar.Margin = new Thickness(33, 0, 0, 0);
 
                 //Hide Find and Replace dialog if it open
                 ShowFindAndReplace = false;
