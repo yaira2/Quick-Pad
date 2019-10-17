@@ -41,7 +41,7 @@
                     <Frame x:Name="FrameTop" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1"/>
                 </controls:DropShadowPanel>
 
-                <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,340,0">
+                <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
                     <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="New" x:Uid="CmdNewTooltip"/>
@@ -240,23 +240,6 @@
                             <TextBlock Text="On Top (Ctrl+Shift+O)" x:Uid="CmdOnTopTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarToggleButton>
-                    <AppBarButton x:Name="Copy" x:Uid="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click"
-                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Copy (Ctrl+C)" x:Uid="CopyTooltip"/>
-                        </ToolTipService.ToolTip>
-                    </AppBarButton>
-                    <AppBarButton x:Name="Paste" IsEnabled="{x:Bind CanPasteText, Mode=OneWay}" x:Uid="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Paste (Ctrl+V)" x:Uid="PasteTooltip"/>
-                        </ToolTipService.ToolTip>
-                    </AppBarButton>
-                    <AppBarButton x:Name="Cut" x:Uid="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click"
-                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Cut (Ctrl+X)" x:Uid="CutTooltip"/>
-                        </ToolTipService.ToolTip>
-                    </AppBarButton>
                 </CommandBar>
 
                 <winui:MenuBar x:Name="CommandBarClassic" Canvas.ZIndex="75" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{x:Null}"  Visibility="{x:Bind q:Converter.BoolToVisibility(ClassicModeSwitch), Mode=OneWay}">
