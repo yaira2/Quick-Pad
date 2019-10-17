@@ -418,10 +418,13 @@
                                 <SymbolIcon Symbol="Caption"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="{x:Bind SwitchingOverlayMode}" x:Uid="ClassicViewOverlay">
+                        <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="CompactOverlay_Click"  x:Uid="ClassicViewOverlay">
                             <MenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
-                            </MenuFlyoutItem.Icon>                            
+                            </MenuFlyoutItem.Icon>
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutSubItem Text="Zoom" Visibility="Collapsed" x:Uid="ClassicZoom" AccessKey="Z">
@@ -617,6 +620,9 @@
                         <Grid x:Name="trickyTitleBar" Background="Transparent"/>
                         <Button w10v1809:CornerRadius="0" Background="Transparent" x:Name="CloseCompactOverlay" Click="CloseCompactOverlay_Click" Visibility="Collapsed">
                             <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                            <Button.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                            </Button.KeyboardAccelerators>
                         </Button>
                     </StackPanel>
                 </Grid>

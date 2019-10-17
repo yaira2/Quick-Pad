@@ -116,6 +116,10 @@ namespace QuickPad
                     {
                         CommandBarClassic.Focus(FocusState.Programmatic); // Set focus off the main content
                     }
+                    else if (CloseCompactOverlay.Visibility == Visibility.Visible)
+                    {
+                        CloseCompactOverlay.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
                 } 
             };
 
@@ -1338,6 +1342,8 @@ namespace QuickPad
                 Shadow1.Visibility = Visibility.Collapsed;
                 Shadow2.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Collapsed;
+                StatusBar.Visibility = Visibility.Collapsed;
+                Shadow2.Visibility = Visibility.Collapsed;
                 CloseCompactOverlay.Visibility = Visibility.Visible;
                 FileTitle.Visibility = Visibility.Collapsed;
 
@@ -1359,6 +1365,8 @@ namespace QuickPad
                 CmdClassicMode.Visibility = Visibility.Visible;
                 CommandBar3.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
+                Shadow2.Visibility = Visibility.Visible;
+                StatusBar.Visibility = Visibility.Visible;
                 CloseCompactOverlay.Visibility = Visibility.Collapsed;
                 FileTitle.Visibility = Visibility.Visible;
 
