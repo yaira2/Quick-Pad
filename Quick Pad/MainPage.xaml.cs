@@ -1821,8 +1821,9 @@ namespace QuickPad
             }
         }
 
-        private void FindRequestedText(string find, bool direction, bool match, bool wrap)
+        private void FindRequestedText(string find, bool direction, bool match)
         {
+            bool wrap = true;
             if (string.IsNullOrEmpty(find))
             {
                 //Nothing to search for
@@ -1830,7 +1831,11 @@ namespace QuickPad
             }
             if (direction)
             {
-                StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
+                try
+                {
+                    StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
+                }
+                catch { StartSearchPosition = 0; }
             }
             else if (!direction)
             {
@@ -1848,12 +1853,12 @@ namespace QuickPad
                     if (backward < 2 && result == 0 && wrap)
                     {
                         Text1.TextDocument.Selection.SetRange(MaximumPossibleSearchRange, MaximumPossibleSearchRange);
-                        FindRequestedText(find, direction, match, false);
+                        FindRequestedText(find, direction, match);
                         break;
                     }
                     else if (backward < 2 && result == 0 && !wrap)
                     {
-                        FindRequestedText(find, true, match, false);
+                        FindRequestedText(find, true, match);
                     }
                 }
             }
@@ -1861,14 +1866,15 @@ namespace QuickPad
             if (StartSearchPosition < 1 && wrap)
             {
                 Text1.TextDocument.Selection.SetRange(0, 0);
-                FindRequestedText(find, direction, match, false);
+                FindRequestedText(find, direction, match);
             }
             //Scroll to the found text
             Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
         }
 
-        private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
+        private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool all)
         {
+            bool wrap = true;
             if (string.IsNullOrEmpty(find))
             {
                 //Nothing to search for
@@ -1887,7 +1893,7 @@ namespace QuickPad
                     int start = Text1.TextDocument.Selection.StartPosition;
                     int end = Text1.TextDocument.Selection.EndPosition;
                     //Send find request
-                    FindRequestedText(find, direction, match, false);
+                    FindRequestedText(find, direction, match);
                     if (Text1.TextDocument.Selection.StartPosition != start &&
                         Text1.TextDocument.Selection.EndPosition != end)
                     {
@@ -1907,7 +1913,7 @@ namespace QuickPad
                 int start = Text1.TextDocument.Selection.StartPosition;
                 int end = Text1.TextDocument.Selection.EndPosition;
                 //Send find request
-                FindRequestedText(find, direction, match, wrap);
+                FindRequestedText(find, direction, match);
                 if (Text1.TextDocument.Selection.StartPosition != start &&
                     Text1.TextDocument.Selection.EndPosition != end)
                 {

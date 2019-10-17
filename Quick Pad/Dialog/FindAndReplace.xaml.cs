@@ -86,13 +86,6 @@ namespace QuickPad.Dialog
             set => Set(ref _literal, value);
         }
 
-        bool _wrap;
-        public bool WrapAround
-        {
-            get => _wrap;
-            set => Set(ref _wrap, value);
-        }
-
         bool _ff = true;
         public bool FindForward
         {
@@ -130,20 +123,20 @@ namespace QuickPad.Dialog
         public void RequestFindNext()
         {
             FindForward = true;
-            onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase, WrapAround);
+            onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase);
         }
 
         public void RequestFindPrevious()
         {
             FindForward = false;
-            onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase, WrapAround);
+            onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase);
         }
 
-        public void SendRequestFind() => onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase, WrapAround);
+        public void SendRequestFind() => onRequestFinding?.Invoke(TextToFind, FindForward, MatchCase);
 
-        public void SendRequestReplace() => onRequestReplacing?.Invoke(TextToFind, TextToReplace, FindForward, MatchCase, WrapAround, false);
+        public void SendRequestReplace() => onRequestReplacing?.Invoke(TextToFind, TextToReplace, FindForward, MatchCase, false);
 
-        public void SendRequestReplaceAll() => onRequestReplacing?.Invoke(TextToFind, TextToReplace, FindForward, MatchCase, WrapAround, true);
+        public void SendRequestReplaceAll() => onRequestReplacing?.Invoke(TextToFind, TextToReplace, FindForward, MatchCase, true);
         #endregion
 
         private void FindInput_KeyDown(object sender, KeyRoutedEventArgs e)
@@ -163,6 +156,6 @@ namespace QuickPad.Dialog
     }
 
     public delegate void CloseDialog();
-    public delegate void RequestFind(string find, bool direction, bool match, bool wrap);
-    public delegate void RequestReplace(string find, string replace, bool direction, bool match, bool wrap, bool all);
+    public delegate void RequestFind(string find, bool direction, bool match);
+    public delegate void RequestReplace(string find, string replace, bool direction, bool match, bool all);
 }
