@@ -548,6 +548,7 @@
                 </CommandBar>
 
                 <controls:DropShadowPanel Grid.Row="3"
+                                          x:Name="StatusBarShadow"
                                   VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
                                   ShadowOpacity="0.2"
