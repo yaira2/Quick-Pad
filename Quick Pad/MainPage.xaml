@@ -547,7 +547,11 @@
                             </MenuFlyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
+                    <AppBarButton x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Insert Emojis (Win + .)" x:Uid="Emoji"/>
+                        </ToolTipService.ToolTip>
+                    </AppBarButton>
                 </CommandBar>
 
                 <controls:DropShadowPanel Grid.Row="3"
@@ -624,6 +628,9 @@
                             <Button.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
                             </Button.KeyboardAccelerators>
+                            <ToolTipService.ToolTip>
+                                <TextBlock Text="Close compact overlay" x:Uid="CloseCompactOverlay"/>
+                            </ToolTipService.ToolTip>
                         </Button>
                     </StackPanel>
                 </Grid>
