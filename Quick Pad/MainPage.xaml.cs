@@ -1338,6 +1338,8 @@ namespace QuickPad
                 Shadow1.Visibility = Visibility.Collapsed;
                 Shadow2.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Collapsed;
+                CloseCompactOverlay.Visibility = Visibility.Visible;
+                FileTitle.Visibility = Visibility.Collapsed;
 
                 //Hide Find and Replace dialog if it open
                 ShowFindAndReplace = false;
@@ -1357,6 +1359,8 @@ namespace QuickPad
                 CmdClassicMode.Visibility = Visibility.Visible;
                 CommandBar3.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
+                CloseCompactOverlay.Visibility = Visibility.Collapsed;
+                FileTitle.Visibility = Visibility.Visible;
 
                 if (ClassicModeSwitch == true)
                 {

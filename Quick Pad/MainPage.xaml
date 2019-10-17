@@ -613,9 +613,9 @@
                         <TextBlock Text="{x:Bind CurrentFilename, Mode=OneWay}"
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
-                           Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}"/>
+                           x:Name="FileTitle"/>
                         <Grid x:Name="trickyTitleBar" Background="Transparent"/>
-                        <Button x:Name="CloseCompactOverlay" Click="CloseCompactOverlay_Click" Visibility="{x:Bind CompactOverlaySwitch, Mode=OneWay}">
+                        <Button w10v1809:CornerRadius="0" Background="Transparent" x:Name="CloseCompactOverlay" Click="CloseCompactOverlay_Click" Visibility="Collapsed">
                             <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                         </Button>
                     </StackPanel>
