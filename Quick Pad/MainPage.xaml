@@ -229,17 +229,17 @@
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                     <AppBarSeparator x:Name="ASep1"/>
-                    <AppBarToggleButton x:Name="CompactOverlay" x:Uid="CompactOverlay" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" MinWidth="40" Width="Auto">
-                        <AppBarToggleButton.Icon>
-                            <FontIcon Glyph="{x:Bind q:Converter.SwitchBetweenOverlayIcon(CompactOverlaySwitch), Mode=OneWay}" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
-                        </AppBarToggleButton.Icon>
-                        <AppBarToggleButton.KeyboardAccelerators>
+                    <AppBarButton x:Name="CompactOverlay" x:Uid="CompactOverlay" Click="CompactOverlay_Click" MinWidth="40" Width="Auto">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                        </AppBarButton.Icon>
+                        <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
-                        </AppBarToggleButton.KeyboardAccelerators>
+                        </AppBarButton.KeyboardAccelerators>
                         <ToolTipService.ToolTip>
                             <TextBlock Text="On Top (Ctrl+Shift+O)" x:Uid="CmdOnTopTooltip"/>
                         </ToolTipService.ToolTip>
-                    </AppBarToggleButton>
+                    </AppBarButton>
                 </CommandBar>
 
                 <winui:MenuBar x:Name="CommandBarClassic" Canvas.ZIndex="75" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{x:Null}"  Visibility="{x:Bind q:Converter.BoolToVisibility(ClassicModeSwitch), Mode=OneWay}">
@@ -613,6 +613,10 @@
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
                            Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}"/>
+                        <Grid x:Name="trickyTitleBar" Background="Transparent"/>
+                        <Button x:Name="CloseCompactOverlay" Click="CloseCompactOverlay_Click" Visibility="{x:Bind CompactOverlaySwitch, Mode=OneWay}">
+                            <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Grid>

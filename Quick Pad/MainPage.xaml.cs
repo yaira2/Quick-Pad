@@ -82,6 +82,7 @@ namespace QuickPad
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            Window.Current.SetTitleBar(trickyTitleBar);
 
             //Subscribe to events
             VisualThemeSelector.ThemeChanged += UpdateUIAccordingToNewTheme;
@@ -1328,7 +1329,6 @@ namespace QuickPad
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
 
                 CommandBar1.Visibility = Visibility.Collapsed;
-                Title.Visibility = Visibility.Collapsed;
                 FrameTop.Visibility = Visibility.Collapsed;
                 CmdSettings.Visibility = Visibility.Collapsed;
                 CmdFocusMode.Visibility = Visibility.Collapsed;
@@ -1342,7 +1342,6 @@ namespace QuickPad
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
                 //
-                row0.Height = new GridLength(0);
                 row1.Height = new GridLength(0);
 
                 //Hide Find and Replace dialog if it open
@@ -1355,7 +1354,6 @@ namespace QuickPad
             {
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
 
-                Title.Visibility = Visibility.Visible;
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.HorizontalAlignment = HorizontalAlignment.Right;
                 Grid.SetRow(CommandBar2, 1);
@@ -1366,7 +1364,6 @@ namespace QuickPad
                 CmdClassicMode.Visibility = Visibility.Visible;
                 CommandBar3.Visibility = Visibility.Visible;
 
-                row0.Height = new GridLength(1, GridUnitType.Auto);
                 row1.Height = new GridLength(1, GridUnitType.Auto);
 
                 if (ClassicModeSwitch == true)
@@ -1973,6 +1970,16 @@ namespace QuickPad
         {
             FindAndReplaceDialog.ShowReplace = true;
             ShowFindAndReplace = true;
+        }
+
+        private void CompactOverlay_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchCompactOverlayMode(true);
+        }
+
+        private void CloseCompactOverlay_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchCompactOverlayMode(false);
         }
 
         public async void CMDGoTo_Click()
