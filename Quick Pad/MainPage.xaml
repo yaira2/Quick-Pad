@@ -420,7 +420,7 @@
                         </MenuFlyoutItem>
                         <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="{x:Bind SwitchingOverlayMode}" x:Uid="ClassicViewOverlay">
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE158;" />
+                                <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                             </MenuFlyoutItem.Icon>                            
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
