@@ -255,8 +255,8 @@ namespace QuickPad.Dialog
             QSetting.DefaultFont = selected.Name;
             //
             //set default font to UIs that still not depend on binding
-            mainPage.Fonts.PlaceholderText = selected.Name;
-            mainPage.Fonts.SelectedItem = selected.Name;
+            //mainPage.Fonts.PlaceholderText = selected.Name;
+            //mainPage.Fonts.SelectedItem = selected.Name;
             mainPage.FontSelected.Text = selected.Name;
             mainPage.Text1.Document.Selection.CharacterFormat.Name = selected.Name;
         }

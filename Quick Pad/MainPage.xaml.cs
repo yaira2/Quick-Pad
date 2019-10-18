@@ -413,9 +413,9 @@ namespace QuickPad
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
 
                 //set default font to UIs that still not depend on binding
-                Fonts.PlaceholderText = QSetting.DefaultFont;
-                Fonts.SelectedItem = QSetting.DefaultFont;
-                FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
+                //Fonts.PlaceholderText = QSetting.DefaultFont;
+                //Fonts.SelectedItem = QSetting.DefaultFont;
+                //FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
                 Text1.Document.Selection.CharacterFormat.Name = QSetting.DefaultFont;
 
                 Text1.Document.Selection.CharacterFormat.Size = QSetting.DefaultFontSize;
@@ -1226,7 +1226,7 @@ namespace QuickPad
             FontFamilyItem.ChangeGlobalPreview(selectedText);
             foreach (var item in AllFonts) item.UpdateLocalPreview();
             //open the font combo box
-            Fonts.IsDropDownOpen = true;
+            //Fonts.IsDropDownOpen = true;
         }
 
         private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
@@ -1237,7 +1237,7 @@ namespace QuickPad
 
         private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
         {
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
+            //FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
         }
 
         private void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
