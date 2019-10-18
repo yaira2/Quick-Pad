@@ -34,14 +34,14 @@
                                   Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
                                   OffsetX="0"
-                                  OffsetY="2.54"
+                                  OffsetY="1"
                                   Grid.Row="1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
                     <Frame x:Name="FrameTop" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1"/>
                 </controls:DropShadowPanel>
 
-                <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,340,0">
+                <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
                     <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="New" x:Uid="CmdNewTooltip"/>
@@ -229,32 +229,15 @@
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                     <AppBarSeparator x:Name="ASep1"/>
-                    <AppBarToggleButton x:Name="CompactOverlay" x:Uid="CompactOverlay" IsChecked="{x:Bind CompactOverlaySwitch, Mode=TwoWay}" MinWidth="40" Width="Auto">
-                        <AppBarToggleButton.Icon>
-                            <FontIcon Glyph="&#xE158;"/>
-                        </AppBarToggleButton.Icon>
-                        <AppBarToggleButton.KeyboardAccelerators>
+                    <AppBarButton x:Uid="CompactOverlay" Click="{x:Bind SwitchingOverlayMode}" MinWidth="40" Width="Auto">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                        </AppBarButton.Icon>
+                        <AppBarButton.KeyboardAccelerators>
                             <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
-                        </AppBarToggleButton.KeyboardAccelerators>
+                        </AppBarButton.KeyboardAccelerators>
                         <ToolTipService.ToolTip>
                             <TextBlock Text="On Top (Ctrl+Shift+O)" x:Uid="CmdOnTopTooltip"/>
-                        </ToolTipService.ToolTip>
-                    </AppBarToggleButton>
-                    <AppBarButton x:Name="Copy" x:Uid="Copy" Label="Copy"  Width="Auto" MinWidth="40" Icon="Copy" Click="Copy_Click"
-                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Copy (Ctrl+C)" x:Uid="CopyTooltip"/>
-                        </ToolTipService.ToolTip>
-                    </AppBarButton>
-                    <AppBarButton x:Name="Paste" IsEnabled="{x:Bind CanPasteText, Mode=OneWay}" x:Uid="Paste" Label="Paste" Width="Auto" MinWidth="40" Icon="Paste" Click="Paste_Click">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Paste (Ctrl+V)" x:Uid="PasteTooltip"/>
-                        </ToolTipService.ToolTip>
-                    </AppBarButton>
-                    <AppBarButton x:Name="Cut" x:Uid="Cut" Label="Cut" Width="Auto" MinWidth="40" Icon="Cut" Click="Cut_Click"
-                                  IsEnabled="{x:Bind q:Converter.CompareNumber(SelectionLength, '>', 0), Mode=OneWay}">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Cut (Ctrl+X)" x:Uid="CutTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                 </CommandBar>
@@ -437,8 +420,11 @@
                         </MenuFlyoutItem>
                         <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="{x:Bind SwitchingOverlayMode}" x:Uid="ClassicViewOverlay">
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE158;" />
-                            </MenuFlyoutItem.Icon>                            
+                                <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                            </MenuFlyoutItem.Icon>
+                            <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                            </MenuFlyoutItem.KeyboardAccelerators>
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutSubItem Text="Zoom" Visibility="Collapsed" x:Uid="ClassicZoom" AccessKey="Z">
@@ -527,9 +513,9 @@
 
                 <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="4" VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
-                                  ShadowOpacity="0.3"
+                                  ShadowOpacity="0.2"
                                   OffsetX="0"
-                                  OffsetY="-1"
+                                  OffsetY="-.1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
 
@@ -561,13 +547,18 @@
                             </MenuFlyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked" ToolTipService.ToolTip="Insert Emojis (Win + .)"/>
+                    <AppBarButton x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Insert Emojis (Win + .)" x:Uid="Emoji"/>
+                        </ToolTipService.ToolTip>
+                    </AppBarButton>
                 </CommandBar>
 
                 <controls:DropShadowPanel Grid.Row="3"
+                                          x:Name="StatusBarShadow"
                                   VerticalAlignment="Bottom"
                                   Canvas.ZIndex="10"
-                                  ShadowOpacity="0.3"
+                                  ShadowOpacity="0.2"
                                   OffsetX="0"
                                   OffsetY="-1"
                                   HorizontalAlignment="Stretch"
@@ -614,6 +605,8 @@
                     </Grid>
                 </controls:DropShadowPanel>
 
+                <Grid x:Name="trickyTitleBar" Grid.Row="0" Canvas.ZIndex="1000" Background="Transparent" Height="33" VerticalAlignment="Top"/>
+
                 <Grid x:Name="Title" Canvas.ZIndex="100" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  VerticalAlignment="Top" Height="33" HorizontalAlignment="Stretch">
                     <StackPanel Orientation="Horizontal">
                         <Button Width="48" Height="32" Foreground="Transparent" Background="Transparent" Visibility="{x:Bind FocusModeSwitch, Mode=OneWay}" x:Name="BackButtonHolder">
@@ -629,7 +622,16 @@
                         <TextBlock Text="{x:Bind CurrentFilename, Mode=OneWay}"
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
-                           Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}"/>
+                           x:Name="FileTitle"/>
+                        <Button x:Name="CloseCompactOverlay" w10v1809:CornerRadius="0" Background="Transparent" Click="{x:Bind SwitchingOverlayMode}" Visibility="{x:Bind CompactOverlaySwitch, Mode=OneWay}">
+                            <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                            <Button.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                            </Button.KeyboardAccelerators>
+                            <ToolTipService.ToolTip>
+                                <TextBlock Text="Close compact overlay" x:Uid="CloseCompactOverlay"/>
+                            </ToolTipService.ToolTip>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Grid>

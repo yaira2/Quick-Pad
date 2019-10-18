@@ -870,4 +870,10 @@
   <data name="ShowAlignRight.OnContent" xml:space="preserve">
     <value>Show align right</value>
   </data>
+  <data name="CloseCompactOverlay.Text" xml:space="preserve">
+    <value>Close compact overlay</value>
+  </data>
+  <data name="Emoji.Text" xml:space="preserve">
+    <value>Insert Emojis (Win + .)</value>
+  </data>
 </root>

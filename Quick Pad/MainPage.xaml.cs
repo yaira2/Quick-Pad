@@ -82,6 +82,7 @@ namespace QuickPad
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonBackgroundColor = Colors.Transparent;
             titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            Window.Current.SetTitleBar(trickyTitleBar);
 
             //Subscribe to events
             VisualThemeSelector.ThemeChanged += UpdateUIAccordingToNewTheme;
@@ -115,7 +116,11 @@ namespace QuickPad
                     {
                         CommandBarClassic.Focus(FocusState.Programmatic); // Set focus off the main content
                     }
-                } 
+                    else if (CloseCompactOverlay.Visibility == Visibility.Visible)
+                    {
+                        CloseCompactOverlay.Focus(FocusState.Programmatic); // Set focus off the main content
+                    }
+                }
             };
 
             Window.Current.CoreWindow.KeyDown += (sender, args) =>
@@ -1328,7 +1333,6 @@ namespace QuickPad
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
 
                 CommandBar1.Visibility = Visibility.Collapsed;
-                Title.Visibility = Visibility.Collapsed;
                 FrameTop.Visibility = Visibility.Collapsed;
                 CmdSettings.Visibility = Visibility.Collapsed;
                 CmdFocusMode.Visibility = Visibility.Collapsed;
@@ -1337,13 +1341,11 @@ namespace QuickPad
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 Shadow1.Visibility = Visibility.Collapsed;
                 Shadow2.Visibility = Visibility.Visible;
-                Grid.SetRow(CommandBar2, 3);
-
-                CommandBar2.Visibility = Visibility.Visible;
-                CommandBar2.HorizontalAlignment = HorizontalAlignment.Stretch;
-                //
-                row0.Height = new GridLength(0);
-                row1.Height = new GridLength(0);
+                CommandBar2.Visibility = Visibility.Collapsed;
+                StatusBar.Visibility = Visibility.Collapsed;
+                Shadow2.Visibility = Visibility.Collapsed;
+                FileTitle.Visibility = Visibility.Collapsed;
+                trickyTitleBar.Margin = new Thickness(33, 0, 0, 0);
 
                 //Hide Find and Replace dialog if it open
                 ShowFindAndReplace = false;
@@ -1355,19 +1357,17 @@ namespace QuickPad
             {
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
 
-                Title.Visibility = Visibility.Visible;
                 CommandBar1.Visibility = Visibility.Visible;
-                CommandBar2.HorizontalAlignment = HorizontalAlignment.Right;
-                Grid.SetRow(CommandBar2, 1);
                 Shadow1.Visibility = Visibility.Visible;
                 FrameTop.Visibility = Visibility.Visible;
                 CmdSettings.Visibility = Visibility.Visible;
                 CmdFocusMode.Visibility = Visibility.Visible;
                 CmdClassicMode.Visibility = Visibility.Visible;
                 CommandBar3.Visibility = Visibility.Visible;
-
-                row0.Height = new GridLength(1, GridUnitType.Auto);
-                row1.Height = new GridLength(1, GridUnitType.Auto);
+                CommandBar2.Visibility = Visibility.Visible;
+                Shadow2.Visibility = Visibility.Visible;
+                StatusBar.Visibility = Visibility.Visible;
+                FileTitle.Visibility = Visibility.Visible;
 
                 if (ClassicModeSwitch == true)
                 {
@@ -1821,8 +1821,9 @@ namespace QuickPad
             }
         }
 
-        private void FindRequestedText(string find, bool direction, bool match, bool wrap)
+        private void FindRequestedText(string find, bool direction, bool match)
         {
+            bool wrap = true;
             if (string.IsNullOrEmpty(find))
             {
                 //Nothing to search for
@@ -1830,7 +1831,11 @@ namespace QuickPad
             }
             if (direction)
             {
-                StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
+                try
+                {
+                    StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
+                }
+                catch { StartSearchPosition = 0; }
             }
             else if (!direction)
             {
@@ -1848,12 +1853,12 @@ namespace QuickPad
                     if (backward < 2 && result == 0 && wrap)
                     {
                         Text1.TextDocument.Selection.SetRange(MaximumPossibleSearchRange, MaximumPossibleSearchRange);
-                        FindRequestedText(find, direction, match, false);
+                        FindRequestedText(find, direction, match);
                         break;
                     }
                     else if (backward < 2 && result == 0 && !wrap)
                     {
-                        FindRequestedText(find, true, match, false);
+                        FindRequestedText(find, true, match);
                     }
                 }
             }
@@ -1861,14 +1866,15 @@ namespace QuickPad
             if (StartSearchPosition < 1 && wrap)
             {
                 Text1.TextDocument.Selection.SetRange(0, 0);
-                FindRequestedText(find, direction, match, false);
+                FindRequestedText(find, direction, match);
             }
             //Scroll to the found text
             Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
         }
 
-        private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool wrap, bool all)
+        private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool all)
         {
+            bool wrap = true;
             if (string.IsNullOrEmpty(find))
             {
                 //Nothing to search for
@@ -1887,7 +1893,7 @@ namespace QuickPad
                     int start = Text1.TextDocument.Selection.StartPosition;
                     int end = Text1.TextDocument.Selection.EndPosition;
                     //Send find request
-                    FindRequestedText(find, direction, match, false);
+                    FindRequestedText(find, direction, match);
                     if (Text1.TextDocument.Selection.StartPosition != start &&
                         Text1.TextDocument.Selection.EndPosition != end)
                     {
@@ -1907,7 +1913,7 @@ namespace QuickPad
                 int start = Text1.TextDocument.Selection.StartPosition;
                 int end = Text1.TextDocument.Selection.EndPosition;
                 //Send find request
-                FindRequestedText(find, direction, match, wrap);
+                FindRequestedText(find, direction, match);
                 if (Text1.TextDocument.Selection.StartPosition != start &&
                     Text1.TextDocument.Selection.EndPosition != end)
                 {
@@ -1967,6 +1973,24 @@ namespace QuickPad
         {
             FindAndReplaceDialog.ShowReplace = true;
             ShowFindAndReplace = true;
+        }
+
+        private void SwitchCompactOverlayMode()
+        {
+            if (CompactOverlaySwitch)
+                SwitchCompactOverlayMode(false);
+            else
+                SwitchCompactOverlayMode(true);
+        }
+
+        private void CompactOverlay_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchCompactOverlayMode(true);
+        }
+
+        private void CloseCompactOverlay_Click(object sender, RoutedEventArgs e)
+        {
+            SwitchCompactOverlayMode(false);
         }
 
         public async void CMDGoTo_Click()

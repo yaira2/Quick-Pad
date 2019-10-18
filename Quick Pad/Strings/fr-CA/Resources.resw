@@ -745,12 +745,24 @@
     <value>Effacer historique de plantage</value>
   </data>
   <data name="NoCrashes.Text" xml:space="preserve">
-    <value>Auncun plantage s'est produite</value>
+    <value>Aucun plantage s'est produit</value>
   </data>
   <data name="Theme.Text" xml:space="preserve">
     <value>Thème</value>
   </data>
   <data name="Font.Text" xml:space="preserve">
     <value>Police</value>
+  </data>
+  <data name="Customize_Bold.Text" xml:space="preserve">
+    <value>Monter gras</value>
+  </data>
+  <data name="Customize_Italic.Text" xml:space="preserve">
+    <value>Montrer italique</value>
+  </data>
+  <data name="Customize_Underline.Text" xml:space="preserve">
+    <value>Montrer texte souligné</value>
+  </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>Donnez-vous une chance de sauvegarder ou de copier votre travail, vous avez toujours besoin de redémmarer puisque certaines fonctionnalités peut ne pas marcher.</value>
   </data>
 </root>

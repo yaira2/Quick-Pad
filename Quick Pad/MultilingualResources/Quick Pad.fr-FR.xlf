@@ -360,7 +360,7 @@
         </trans-unit>
         <trans-unit id="ShowAlignCenter.OffContent" translate="yes" xml:space="preserve">
           <source>Hide align center</source>
-          <target state="translated">Cacher l'algnement au centre</target>
+          <target state="translated">Cacher l'alignement au centre</target>
         </trans-unit>
         <trans-unit id="ShowAlignCenter.OnContent" translate="yes" xml:space="preserve">
           <source>Show align center</source>
@@ -1009,6 +1009,14 @@
         <trans-unit id="GiveChanceToSave.Text" translate="yes" xml:space="preserve">
           <source>Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</source>
           <target state="new">Give yourself a chance to save or copy your work, you will still need to restart as some functions may not work properly.</target>
+        </trans-unit>
+        <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
+          <source>Close compact overlay</source>
+          <target state="new">Close compact overlay</target>
+        </trans-unit>
+        <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
+          <source>Insert Emojis (Win + .)</source>
+          <target state="new">Insert Emojis (Win + .)</target>
         </trans-unit>
       </group>
     </body>

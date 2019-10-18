@@ -277,7 +277,7 @@
     <value>Paramètres</value>
   </data>
   <data name="ShowAlignCenter.OffContent" xml:space="preserve">
-    <value>Cacher l'algnement au centre</value>
+    <value>Cacher l'alignement au centre</value>
   </data>
   <data name="ShowAlignCenter.OnContent" xml:space="preserve">
     <value>Montrer l'alignement au centre</value>

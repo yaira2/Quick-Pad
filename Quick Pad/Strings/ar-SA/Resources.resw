@@ -762,4 +762,7 @@
   <data name="Customize_Underline.Text" xml:space="preserve">
     <value>عرض تسطير</value>
   </data>
+  <data name="GiveChanceToSave.Text" xml:space="preserve">
+    <value>امنح نفسك فرصة لحفظ عملك أو نسخه ، فستظل بحاجة إلى إعادة التشغيل لأن بعض الوظائف قد لا تعمل بشكل صحيح.</value>
+  </data>
 </root>
