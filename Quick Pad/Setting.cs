@@ -1,5 +1,6 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -755,6 +756,13 @@ namespace QuickPad
         }
 
         public static Brush SelectionBetweenBrush(bool determiner, Brush a, Brush b) => determiner ? a : b;
+
+        public static FontFamilyItem SelectionFromString(string name, IList<FontFamilyItem> fonts)
+        {
+            if (fonts is null)
+                return new FontFamilyItem(App.QSetting.DefaultFont);
+            return fonts.FirstOrDefault(i => i.Name == name);
+        }
     }
 
     public static class IntCompare

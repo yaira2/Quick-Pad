@@ -472,6 +472,38 @@ namespace QuickPad
         #endregion
 
         #region Properties
+        string _fn = null;
+        public string CurrentFontName
+        {
+            get
+            {
+                if (_fn is null)
+                    _fn = QSetting.DefaultFont;
+                return _fn;
+            }
+            set
+            {
+                if (!Equals(_fn, value))
+                {
+                    Set(ref _fn, value);
+                    //
+                    Text1.Document.Selection.CharacterFormat.Name = value;
+                    CurrentFontName = value;
+                }
+            }
+        }
+
+        public void BindBackFontSelection(object selection)
+        {
+            if (selection is FontFamilyItem f)
+            {
+                Text1.Document.BeginUndoGroup();
+                Text1.Document.Selection.CharacterFormat.Name = f.Name;
+                CurrentFontName = f.Name;
+                Text1.Document.EndUndoGroup();
+            }
+        }
+
         int? _vsize = null;
         public int VisualFontSize
         {
@@ -1205,16 +1237,6 @@ namespace QuickPad
             else
             {
                 Text1.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
-            }
-            Text1.Document.EndUndoGroup();
-        }
-
-        private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Text1.Document.BeginUndoGroup();
-            if (e.AddedItems[0] is FontFamilyItem selectedFont)
-            {
-                Text1.Document.Selection.CharacterFormat.Name = selectedFont.Name;
             }
             Text1.Document.EndUndoGroup();
         }

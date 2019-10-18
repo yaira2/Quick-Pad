@@ -89,7 +89,7 @@
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <AppBarSeparator/>
-                    <AppBarButton Width="Auto" LabelPosition="Default" Label="Consolas" Style="{ThemeResource FontSelection}">
+                    <AppBarButton Width="Auto" LabelPosition="Default" Label="{x:Bind CurrentFontName, Mode=OneWay}" Style="{ThemeResource FontSelection}">
                         <AppBarButton.Flyout>
                             <Flyout Placement="BottomEdgeAlignedLeft">
                                 <ListView Width="250" Height="350"
@@ -97,7 +97,7 @@
                                           Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
                                           ItemsSource="{x:Bind AllFonts, Mode=OneWay}"
                                           ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
-                                          SelectionChanged="Fonts_SelectionChanged"/>
+                                          SelectedItem="{x:Bind q:Converter.SelectionFromString(CurrentFontName, AllFonts), Mode=TwoWay, BindBack=BindBackFontSelection}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
