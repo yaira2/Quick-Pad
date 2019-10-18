@@ -229,7 +229,7 @@
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                     <AppBarSeparator x:Name="ASep1"/>
-                    <AppBarButton x:Name="CompactOverlay" x:Uid="CompactOverlay" Click="CompactOverlay_Click" MinWidth="40" Width="Auto">
+                    <AppBarButton x:Uid="CompactOverlay" Click="{x:Bind SwitchingOverlayMode}" MinWidth="40" Width="Auto">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                         </AppBarButton.Icon>
@@ -418,7 +418,7 @@
                                 <SymbolIcon Symbol="Caption"/>
                             </MenuFlyoutItem.Icon>
                         </MenuFlyoutItem>
-                        <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="CompactOverlay_Click"  x:Uid="ClassicViewOverlay">
+                        <MenuFlyoutItem Text="Overlay mode" AccessKey="O" Click="{x:Bind SwitchingOverlayMode}" x:Uid="ClassicViewOverlay">
                             <MenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                             </MenuFlyoutItem.Icon>
@@ -623,7 +623,7 @@
                            Style="{ThemeResource CaptionTextBlockStyle}"
                            VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"
                            x:Name="FileTitle"/>
-                        <Button w10v1809:CornerRadius="0" Background="Transparent" x:Name="CloseCompactOverlay" Click="CloseCompactOverlay_Click" Visibility="Collapsed">
+                        <Button x:Name="CloseCompactOverlay" w10v1809:CornerRadius="0" Background="Transparent" Click="{x:Bind SwitchingOverlayMode}" Visibility="{x:Bind CompactOverlaySwitch, Mode=OneWay}">
                             <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                             <Button.KeyboardAccelerators>
                                 <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>

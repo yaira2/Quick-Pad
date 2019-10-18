@@ -120,7 +120,7 @@ namespace QuickPad
                     {
                         CloseCompactOverlay.Focus(FocusState.Programmatic); // Set focus off the main content
                     }
-                } 
+                }
             };
 
             Window.Current.CoreWindow.KeyDown += (sender, args) =>
@@ -1344,7 +1344,6 @@ namespace QuickPad
                 CommandBar2.Visibility = Visibility.Collapsed;
                 StatusBar.Visibility = Visibility.Collapsed;
                 Shadow2.Visibility = Visibility.Collapsed;
-                CloseCompactOverlay.Visibility = Visibility.Visible;
                 FileTitle.Visibility = Visibility.Collapsed;
                 trickyTitleBar.Margin = new Thickness(33, 0, 0, 0);
 
@@ -1368,7 +1367,6 @@ namespace QuickPad
                 CommandBar2.Visibility = Visibility.Visible;
                 Shadow2.Visibility = Visibility.Visible;
                 StatusBar.Visibility = Visibility.Visible;
-                CloseCompactOverlay.Visibility = Visibility.Collapsed;
                 FileTitle.Visibility = Visibility.Visible;
 
                 if (ClassicModeSwitch == true)
@@ -1975,6 +1973,14 @@ namespace QuickPad
         {
             FindAndReplaceDialog.ShowReplace = true;
             ShowFindAndReplace = true;
+        }
+
+        private void SwitchCompactOverlayMode()
+        {
+            if (CompactOverlaySwitch)
+                SwitchCompactOverlayMode(false);
+            else
+                SwitchCompactOverlayMode(true);
         }
 
         private void CompactOverlay_Click(object sender, RoutedEventArgs e)
