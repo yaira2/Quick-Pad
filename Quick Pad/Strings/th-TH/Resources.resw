@@ -766,4 +766,10 @@
   <data name="GiveChanceToSave.Text" xml:space="preserve">
     <value>บังคับไม่ให้แอปปิดตัวลงเมื่อมีปัญหา เพื่อให้คุณได้บันทึกหรือคัดลอกงานของคุณ. แต่คุณยังต้องปิดแล้วเปิดแอปใหม่เพื่อให้ฟังก์ชั่นของแอปกลับมา</value>
   </data>
+  <data name="CloseCompactOverlay.Text" xml:space="preserve">
+    <value>ออกจากโหมดทับแอปอื่น</value>
+  </data>
+  <data name="Emoji.Text" xml:space="preserve">
+    <value>แทรกอีโมจิ (Win + .)</value>
+  </data>
 </root>
