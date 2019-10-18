@@ -1863,18 +1863,12 @@ namespace QuickPad
                 }
             }
 
-            if (StartSearchPosition < 1 && wrap)
-            {
-                Text1.TextDocument.Selection.SetRange(0, 0);
-                FindRequestedText(find, direction, match);
-            }
             //Scroll to the found text
             Text1.TextDocument.Selection.ScrollIntoView(PointOptions.Start);
         }
 
         private void FindAndReplaceRequestedText(string find, string replace, bool direction, bool match, bool all)
         {
-            bool wrap = true;
             if (string.IsNullOrEmpty(find))
             {
                 //Nothing to search for
