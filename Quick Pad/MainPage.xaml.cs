@@ -481,16 +481,7 @@ namespace QuickPad
                     _fn = QSetting.DefaultFont;
                 return _fn;
             }
-            set
-            {
-                if (!Equals(_fn, value))
-                {
-                    Set(ref _fn, value);
-                    //
-                    Text1.Document.Selection.CharacterFormat.Name = value;
-                    CurrentFontName = value;
-                }
-            }
+            set => Set(ref _fn, value);
         }
 
         public void BindBackFontSelection(object selection)
@@ -501,6 +492,35 @@ namespace QuickPad
                 Text1.Document.Selection.CharacterFormat.Name = f.Name;
                 CurrentFontName = f.Name;
                 Text1.Document.EndUndoGroup();
+            }
+        }
+
+        Color? _fc = null;
+        public Color CurrentFontColor
+        {
+            get
+            {
+                if (_fc is null)
+                {
+                    if (QSetting.DefaultFontColor == "Default")                    
+                        _fc = new UISettings().GetColorValue(UIColorType.Foreground);                    
+                    else if (QSetting.DefaultFontColor.StartsWith("#"))
+                        _fc = Converter.GetColorFromHex(QSetting.DefaultFontColor);
+                    else
+                        _fc = (Color)XamlBindingHelper.ConvertValue(typeof(Color), QSetting.DefaultFontColor);
+                }
+                return _fc.Value;
+            }
+            set
+            {
+                if (!Equals(_fc, value))
+                {
+                    Set(ref _fc, value);
+                    //
+                    Text1.Document.BeginUndoGroup();
+                    Text1.Document.Selection.CharacterFormat.ForegroundColor = value;
+                    Text1.Document.EndUndoGroup();
+                }
             }
         }
 

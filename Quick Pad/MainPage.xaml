@@ -101,6 +101,16 @@
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
+                    <AppBarButton Style="{StaticResource FontColorSelection}">
+                        <AppBarButton.Flyout>
+                            <Flyout>
+                                <winui:ColorPicker Color="{x:Bind CurrentFontColor, Mode=TwoWay}"
+                                                   IsAlphaEnabled="False"
+                                                   IsColorChannelTextInputVisible="False"
+                                                   IsColorSliderVisible="False"/>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
                     <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoBulletOptionsShow(QSetting.ShowBold, QSetting.ShowItalic, QSetting.ShowUnderline, QSetting.ShowStrikethroughOption, QSetting.ShowBullets), Mode=OneWay}"/>
                     <AppBarToggleButton Style="{StaticResource defaultAppBarT}" IsChecked="{x:Bind IsItBold, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBold), Mode=OneWay}" x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
