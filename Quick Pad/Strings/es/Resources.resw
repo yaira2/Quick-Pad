@@ -765,4 +765,10 @@
   <data name="GiveChanceToSave.Text" xml:space="preserve">
     <value>Tenga la oportunidad de guardar o copiar su trabajo en caso de que algo salga mal. Tendrá que reiniciar la app para estas funcionalidades funcionen apropiadamente</value>
   </data>
+  <data name="CloseCompactOverlay.Text" xml:space="preserve">
+    <value>Cerrar modo compacto</value>
+  </data>
+  <data name="Emoji.Text" xml:space="preserve">
+    <value>Insertar Emojis (Win + .)</value>
+  </data>
 </root>

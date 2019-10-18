@@ -765,4 +765,10 @@
   <data name="GiveChanceToSave.Text" xml:space="preserve">
     <value>Donnez-vous une chance de sauvegarder ou de copier votre travail, vous avez toujours besoin de redémmarer puisque certaines fonctionnalités peut ne pas marcher.</value>
   </data>
+  <data name="CloseCompactOverlay.Text" xml:space="preserve">
+    <value>Fermer le mode compact superposé</value>
+  </data>
+  <data name="Emoji.Text" xml:space="preserve">
+    <value>Insérer des émoticones (Win + .)</value>
+  </data>
 </root>
