@@ -1012,11 +1012,11 @@
         </trans-unit>
         <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
           <source>Close compact overlay</source>
-          <target state="new">Close compact overlay</target>
+          <target state="translated">Fermer le mode compact superposé</target>
         </trans-unit>
         <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
           <source>Insert Emojis (Win + .)</source>
-          <target state="new">Insert Emojis (Win + .)</target>
+          <target state="translated">Insérer des émoticones (Win + .)</target>
         </trans-unit>
       </group>
     </body>
