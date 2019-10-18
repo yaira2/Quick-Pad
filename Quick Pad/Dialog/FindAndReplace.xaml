@@ -19,9 +19,9 @@
         </Storyboard>
     </UserControl.Resources>
 
-    <tkui:DropShadowPanel x:Name="ContentHolderShadow" Width="355"
+    <tkui:DropShadowPanel x:Name="ContentHolderShadow" ShadowOpacity=".5" Width="355"
                           HorizontalContentAlignment="Stretch">
-        <Grid x:Name="ContentHolderContent" w10v1809:CornerRadius="4" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+        <Grid x:Name="ContentHolderContent" w10v1809:CornerRadius="4" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
               Padding="4">
             <!-- Grid Definitions -->
             <Grid.RowDefinitions>
@@ -40,12 +40,14 @@
             <!-- Toggle button -->
             <ToggleButton Grid.Row="0"
                           Grid.Column="0"
-                          Height="32"
+                          Width="34"
+                          Padding="2"
+                          Height="32.6667"
                           VerticalAlignment="Center"
                           BorderThickness="1" 
                           Margin="4"
                           IsChecked="{x:Bind ShowReplace, Mode=TwoWay}">
-                <FontIcon Glyph="&#xE011;" />
+                <FontIcon Glyph="&#xE011;" FontSize="16"/>
                 <ToolTipService.ToolTip>
                     <TextBlock Text="More..." x:Uid="FAR_More"/>
                 </ToolTipService.ToolTip>
@@ -69,10 +71,12 @@
                     Grid.Column="2"
                     Padding="6" 
                     Margin="4"
+                    Width="34"
+                    Height="32.6667"
                     Style="{ThemeResource FluentButtonClassicStyle}">
                 <StackPanel>
-                    <FontIcon Glyph="&#xE0A6;" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
-                    <FontIcon Glyph="&#xE0AB;" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>
+                    <FontIcon Glyph="&#xE0A6;" FontSize="16" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(FindForward), Mode=OneWay}"/>
+                    <FontIcon Glyph="&#xE0AB;" FontSize="16" Visibility="{x:Bind q:Converter.BoolToVisibility(FindForward), Mode=OneWay}"/>
                 </StackPanel>
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Find option" x:Uid="FAR_FindOption"/>
@@ -104,9 +108,11 @@
                     Grid.Column="3"
                     Margin="4" 
                     Padding="6" 
+                    Width="34"
+                    Height="32.6667"
                     Click="{x:Bind RequestCloseDialog}" 
                     Style="{ThemeResource FluentButtonClassicStyle}">
-                <FontIcon Glyph="&#xE10A;" />
+                <FontIcon Glyph="&#xE10A;" FontSize="16"/>
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Close" x:Uid="FAR_CloseDialog"/>
                 </ToolTipService.ToolTip>
@@ -135,10 +141,12 @@
                     Grid.Column="2"                    
                     Padding="6" 
                     Margin="4"
+                    Width="34"
+                    Height="32.6667"
                     Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle }"
                     Click="{x:Bind SendRequestReplace}" >
-                <FontIcon Glyph="&#xE8AC;"/>
+                <FontIcon Glyph="&#xE8AC;" FontSize="16"/>
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Replace" x:Uid="ClassicEditReplace"/>
                 </ToolTipService.ToolTip>
@@ -149,10 +157,12 @@
                     Grid.Column="3" 
                     Padding="6" 
                     Margin="4"
+                    Width="34"
+                    Height="32.6667"
                     Visibility="{x:Bind q:Converter.BoolToVisibility(ShowReplace), Mode=OneWay}"
                     Style="{ThemeResource FluentButtonClassicStyle}"
                     Click="{x:Bind SendRequestReplaceAll}" >
-                <FontIcon Glyph="&#xE8B3;"/>
+                <FontIcon Glyph="&#xE8B3;" FontSize="16"/>
                 <ToolTipService.ToolTip>
                     <TextBlock Text="Replace all" x:Uid="FAR_ReplaceAll"/>
                 </ToolTipService.ToolTip>
