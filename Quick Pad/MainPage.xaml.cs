@@ -1346,6 +1346,7 @@ namespace QuickPad
                 Shadow2.Visibility = Visibility.Collapsed;
                 FileTitle.Visibility = Visibility.Collapsed;
                 trickyTitleBar.Margin = new Thickness(33, 0, 0, 0);
+                StatusBarShadow.Visibility = Visibility.Collapsed;
 
                 //Hide Find and Replace dialog if it open
                 ShowFindAndReplace = false;
@@ -1373,6 +1374,10 @@ namespace QuickPad
                 {
                     SwitchClassicMode(true);
                     CommandBarClassic.Visibility = Visibility.Visible;
+                    if (QSetting.ShowStatusBar == true)
+                    {
+                        StatusBarShadow.Visibility = Visibility.Visible;
+                    }
                 }
             }
         }
