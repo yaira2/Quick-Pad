@@ -1953,6 +1953,30 @@ namespace QuickPad
             else
             {
                 //Find and replace once
+                //Search
+                bool attemp = false; //Like a try tracking on Find function
+                while (true)
+                {
+                    FindRequestedText(find, direction, match); //Start searching
+                    //Check if it found or not
+                    if (start != Text1.Document.Selection.StartPosition && end != Text1.Document.Selection.EndPosition)
+                    {
+                        if ((Text1.Document.Selection.StartPosition == 0 && Text1.Document.Selection.EndPosition == 0)
+                            || (Text1.Document.Selection.StartPosition == MaximumPossibleSearchRange && Text1.Document.Selection.EndPosition == MaximumPossibleSearchRange))
+                        {
+                            if (attemp) //It has been attemp to start over before
+                                break; //Stop
+                                       //It's been forced to select at the start or at the end as it has found any result
+                                       //Wait for the loop to try again
+                            attemp = true; //Mark as it has been attemp to start over
+                            //Begin new search
+                            continue;
+                        }
+                        //Found text, replace
+                        Text1.Document.Selection.Text = replace;
+                        break; //Leave the loop
+                    }
+                }
             }
             //Set focus into text1
             Text1.Focus(FocusState.Pointer);
