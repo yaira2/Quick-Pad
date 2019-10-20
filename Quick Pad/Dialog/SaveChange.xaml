@@ -12,6 +12,7 @@
     mc:Ignorable="d"
     Height="150"
     Opened="ContentDialog_Opened"
+    w10v1809:CornerRadius="4"
     Closed="ContentDialog_Closed"
     KeyDown="ContentDialog_KeyDown">
     <StackPanel Orientation="Vertical" VerticalAlignment="Center">

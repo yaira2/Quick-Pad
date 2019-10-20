@@ -8,6 +8,7 @@
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:q="using:QuickPad"
+    w10v1809:CornerRadius="4"
     mc:Ignorable="d"
     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
     RequestedTheme="{x:Bind VisualThemeSelector.CurrentItem.Theme, Mode=OneWay}"
