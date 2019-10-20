@@ -1839,16 +1839,55 @@ namespace QuickPad
                 //Search forward
                 Text1.Document.Selection.FindText(find, MaximumPossibleSearchRange, matchCase);
                 //Check if position change, if change not, then it found nothing else it found and end it
-                if (Text1.Document.Selection.StartPosition != start && Text1.Document.Selection.EndPosition != end)
-                {
-                    return;
-                }
-                else
+                if (Text1.Document.Selection.StartPosition == start || Text1.Document.Selection.EndPosition == end)
                 {
                     //Not found, have one more chance to wrap around and start over
                     Text1.Document.Selection.StartPosition = Text1.Document.Selection.EndPosition = 0;
                     //Search again..
                     Text1.Document.Selection.FindText(find, MaximumPossibleSearchRange, matchCase);
+                }
+            }
+            else
+            {
+                //Search backward
+                if (start < 1 && end < 1)
+                {
+                    //Start position is at the start. Go to the end of text
+                    Text1.Document.Selection.StartPosition
+                        = Text1.Document.Selection.EndPosition
+                        = MaximumPossibleSearchRange;
+                }
+                //A selection length
+                int result = 0;
+                int length = MaximumPossibleSearchRange;
+                bool retry = false; //Use as a mark to check does the search has been start from the end before? | false = no | true = yes
+                while (result < 1 || result == find.Length) //Loop until the length is more than 1 or same as the length of text that want to find
+                {
+                    //Find a text but only at a length of text that want to find
+                    result = Text1.Document.Selection.FindText(find, find.Length, matchCase);
+                    if (result < 1)//Still not found a text?
+                    {
+                        Text1.Document.Selection.StartPosition -= find.Length; //Shift the cursor back a length of searching text
+                        Text1.Document.Selection.EndPosition = Text1.Document.Selection.StartPosition;
+                        if (Text1.Document.Selection.StartPosition < 1)
+                        {
+                            if (retry) //Does the search has been start over before?
+                                break; //If it does, stop
+
+                            //It already back to the beginning
+                            //One more chance to go start from the end
+                            Text1.Document.Selection.StartPosition =
+                                Text1.Document.Selection.EndPosition =
+                                MaximumPossibleSearchRange;
+                            retry = true; //mark the search as this has been move to start over from the end
+                            break; //Search over.
+                        }
+                    }
+                    else
+                    {
+                        //Found a text
+                        break; //Search over
+                    }
                 }
             }
 
