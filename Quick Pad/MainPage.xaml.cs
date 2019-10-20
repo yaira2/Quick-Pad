@@ -1906,42 +1906,53 @@ namespace QuickPad
             {
                 replace = string.Empty;
             }
+            //track start and end position of cursor
+            int start = Text1.Document.Selection.StartPosition;
+            int end = Text1.Document.Selection.EndPosition;
+            FindOptions matchCase = match ? FindOptions.Case : FindOptions.None;
+
             if (all)
             {
                 //Replace all
-                while (true) //Eternity loop
+                //Start from the back and work backward from there
+                Text1.Document.Selection.StartPosition =
+                    Text1.Document.Selection.EndPosition =
+                    MaximumPossibleSearchRange;
+                //Track result
+                int result = 0;
+                //Begin the loop of search and replace
+                while (Text1.Document.Selection.StartPosition > 1) //Search and replace until the cursor hit 0,0
                 {
-                    //Mark start and end position
-                    int start = Text1.TextDocument.Selection.StartPosition;
-                    int end = Text1.TextDocument.Selection.EndPosition;
-                    //Send find request
-                    FindRequestedText(find, direction, match);
-                    if (Text1.TextDocument.Selection.StartPosition != start &&
-                        Text1.TextDocument.Selection.EndPosition != end)
+                    result = Text1.Document.Selection.FindText(find, find.Length, matchCase); //Find a text
+                    if (result >= 1)
                     {
-                        //Found.. Replace
-                        Text1.TextDocument.Selection.Text = replace;
+                        //Found a text
+                        //Replace
+                        Text1.Document.Selection.Text = replace;
+                        //Set cursor back further
+                        Text1.Document.Selection.StartPosition -= (find.Length + replace.Length);
                     }
                     else
                     {
-                        //It's can't find anymore
-                        break;
+                        //Not found anything
+                        //Continue
+                        int testLength = Text1.Document.Selection.StartPosition - find.Length;
+                        if (testLength < 1)
+                        {
+                            //Length less than 0. no more search can occur
+                            break;
+                        }
+                        else
+                        {
+                            //Continue the search
+                            Text1.Document.Selection.StartPosition = testLength;
+                        }
                     }
                 }
             }
             else
             {
-                //Mark start and end position
-                int start = Text1.TextDocument.Selection.StartPosition;
-                int end = Text1.TextDocument.Selection.EndPosition;
-                //Send find request
-                FindRequestedText(find, direction, match);
-                if (Text1.TextDocument.Selection.StartPosition != start &&
-                    Text1.TextDocument.Selection.EndPosition != end)
-                {
-                    //Found.. Replace
-                    Text1.TextDocument.Selection.Text = replace;
-                }
+                //Find and replace once
             }
             //Set focus into text1
             Text1.Focus(FocusState.Pointer);
