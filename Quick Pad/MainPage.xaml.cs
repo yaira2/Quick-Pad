@@ -1828,43 +1828,27 @@ namespace QuickPad
 
         private void FindRequestedText(string find, bool direction, bool match)
         {
-            bool wrap = true;
             if (string.IsNullOrEmpty(find))
-            {
-                //Nothing to search for
                 return;
-            }
+            int start = Text1.Document.Selection.StartPosition;
+            int end = Text1.Document.Selection.EndPosition;
+            FindOptions matchCase = match ? FindOptions.Case : FindOptions.None;
+            
             if (direction)
             {
-                try
+                //Search forward
+                Text1.Document.Selection.FindText(find, MaximumPossibleSearchRange, matchCase);
+                //Check if position change, if change not, then it found nothing else it found and end it
+                if (Text1.Document.Selection.StartPosition != start && Text1.Document.Selection.EndPosition != end)
                 {
-                    StartSearchPosition = Text1.TextDocument.Selection.FindText(find, MaximumPossibleSearchRange, match ? FindOptions.Case : FindOptions.None);
+                    return;
                 }
-                catch { StartSearchPosition = 0; }
-            }
-            else if (!direction)
-            {
-                int result = 0;
-                int backward = Text1.TextDocument.Selection.StartPosition - find.Length;
-                if (backward < 1)
+                else
                 {
-                    backward = MaximumPossibleSearchRange;
-                }
-                while (backward > 1 && result < 1)
-                {
-                    Text1.TextDocument.Selection.StartPosition = backward;
-                    result = Text1.TextDocument.Selection.FindText(find, find.Length + 1, match ? FindOptions.Case : FindOptions.None);
-                    backward--;
-                    if (backward < 2 && result == 0 && wrap)
-                    {
-                        Text1.TextDocument.Selection.SetRange(MaximumPossibleSearchRange, MaximumPossibleSearchRange);
-                        FindRequestedText(find, direction, match);
-                        break;
-                    }
-                    else if (backward < 2 && result == 0 && !wrap)
-                    {
-                        FindRequestedText(find, true, match);
-                    }
+                    //Not found, have one more chance to wrap around and start over
+                    Text1.Document.Selection.StartPosition = Text1.Document.Selection.EndPosition = 0;
+                    //Search again..
+                    Text1.Document.Selection.FindText(find, MaximumPossibleSearchRange, matchCase);
                 }
             }
 
