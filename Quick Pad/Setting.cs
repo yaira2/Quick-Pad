@@ -287,6 +287,27 @@ namespace QuickPad
 
         #region Toolbar setting
         [DefaultValue(true)]
+        public bool ShowFont
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+        
+        [DefaultValue(true)]
+        public bool ShowColor
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowEmoji
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
         public bool ShowBold
         {
             get => Get<bool>();
@@ -630,6 +651,15 @@ namespace QuickPad
         public static Visibility HideIfNoAlignButtonShow(bool left, bool center, bool right, bool justify)
         {
             if (!left && !center && !right && !justify)
+            {
+                return Visibility.Collapsed;
+            }
+            return Visibility.Visible;
+        }
+
+        public static Visibility HideIfNoFormatsButtonShow(bool font, bool color, bool emoji)
+        {
+            if (!font && !color && !emoji)
             {
                 return Visibility.Collapsed;
             }

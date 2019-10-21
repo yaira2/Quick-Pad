@@ -88,8 +88,8 @@
                            Key="S"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarSeparator/>
-                    <AppBarButton Width="Auto" LabelPosition="Default" Label="{x:Bind CurrentFontName, Mode=OneWay}" Style="{ThemeResource FontSelection}">
+                    <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoFormatsButtonShow(QSetting.ShowFont, QSetting.ShowColor, QSetting.ShowEmoji), Mode=OneWay}"/>
+                    <AppBarButton Visibility="{x:Bind QSetting.ShowFont, Mode=OneWay}" Width="Auto" LabelPosition="Default" Label="{x:Bind CurrentFontName, Mode=OneWay}" Style="{ThemeResource FontSelection}">
                         <AppBarButton.Flyout>
                             <Flyout Placement="BottomEdgeAlignedLeft">
                                 <ListView Width="250" Height="350"
@@ -101,7 +101,7 @@
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton Style="{StaticResource FontColorSelection}">
+                    <AppBarButton Visibility="{x:Bind QSetting.ShowColor, Mode=OneWay}" Style="{StaticResource FontColorSelection}">
                         <AppBarButton.Flyout>
                             <Flyout>
                                 <winui:ColorPicker Color="{x:Bind CurrentFontColor, Mode=TwoWay}"
@@ -111,7 +111,7 @@
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
+                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="{x:Bind QSetting.ShowEmoji, Mode=OneWay}" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Insert Emojis (Win + .)" x:Uid="Emoji"/>
                         </ToolTipService.ToolTip>
