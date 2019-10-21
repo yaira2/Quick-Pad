@@ -1262,27 +1262,6 @@ namespace QuickPad
             Text1.Document.EndUndoGroup();
         }
 
-        private void Frame_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            //Set text preview in Font Family selector
-            var selectedText = Text1.Document.Selection.Text;
-            FontFamilyItem.ChangeGlobalPreview(selectedText);
-            foreach (var item in AllFonts) item.UpdateLocalPreview();
-            //open the font combo box
-            //Fonts.IsDropDownOpen = true;
-        }
-
-        private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
-        {
-            var theme = VisualThemeSelector.CurrentItem;
-            FontBoxFrame.Background = theme.InAppAcrylicBrush;
-        }
-
-        private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            //FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-        }
-
         private void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
         {
             //Show setting pane w/ a font page
@@ -1383,13 +1362,10 @@ namespace QuickPad
                 CmdSettings.Visibility = Visibility.Collapsed;
                 CmdFocusMode.Visibility = Visibility.Collapsed;
                 CmdClassicMode.Visibility = Visibility.Collapsed;
-                CommandBar3.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 Shadow1.Visibility = Visibility.Collapsed;
-                Shadow2.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Collapsed;
                 StatusBar.Visibility = Visibility.Collapsed;
-                Shadow2.Visibility = Visibility.Collapsed;
                 FileTitle.Visibility = Visibility.Collapsed;
                 trickyTitleBar.Margin = new Thickness(33, 0, 0, 0);
                 StatusBarShadow.Visibility = Visibility.Collapsed;
@@ -1410,9 +1386,7 @@ namespace QuickPad
                 CmdSettings.Visibility = Visibility.Visible;
                 CmdFocusMode.Visibility = Visibility.Visible;
                 CmdClassicMode.Visibility = Visibility.Visible;
-                CommandBar3.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
-                Shadow2.Visibility = Visibility.Visible;
                 StatusBar.Visibility = Visibility.Visible;
                 FileTitle.Visibility = Visibility.Visible;
 
@@ -1436,7 +1410,6 @@ namespace QuickPad
                 Text1.SetValue(Canvas.ZIndexProperty, 90);
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
-                Shadow2.Visibility = Visibility.Collapsed;
                 Shadow1.Visibility = Visibility.Collapsed;
                 row1.Height = new GridLength(0);
                 row3.Height = new GridLength(0);
@@ -1449,7 +1422,6 @@ namespace QuickPad
                 Text1.SetValue(Canvas.ZIndexProperty, 0);
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar1.Visibility = Visibility.Visible;
-                Shadow2.Visibility = Visibility.Visible;
                 Shadow1.Visibility = Visibility.Visible;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 row1.Height = new GridLength(1, GridUnitType.Auto);
@@ -1474,15 +1446,11 @@ namespace QuickPad
             {
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
-                CommandBar3.Visibility = Visibility.Collapsed;
-                Shadow2.Visibility = Visibility.Collapsed;
             }
             else
             {
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
-                CommandBar3.Visibility = Visibility.Visible;
-                Shadow2.Visibility = Visibility.Visible;
             }
         }
 
@@ -1622,7 +1590,7 @@ namespace QuickPad
 
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
+            CurrentFontName = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
 
             //Update Status bar
             CheckForStatusUpdate();
