@@ -111,6 +111,11 @@
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
+                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Insert Emojis (Win + .)" x:Uid="Emoji"/>
+                        </ToolTipService.ToolTip>
+                    </AppBarButton>
                     <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoBulletOptionsShow(QSetting.ShowBold, QSetting.ShowItalic, QSetting.ShowUnderline, QSetting.ShowStrikethroughOption, QSetting.ShowBullets), Mode=OneWay}"/>
                     <AppBarToggleButton Style="{StaticResource defaultAppBarT}" IsChecked="{x:Bind IsItBold, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBold), Mode=OneWay}" x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
@@ -578,11 +583,6 @@
                                 <MenuFlyoutItem x:Name="Green" x:Uid="TextColorGreen" Tag="LightGreen" Text="Green" Click="SetFormatColor" />
                             </MenuFlyout>
                         </AppBarButton.Flyout>
-                    </AppBarButton>
-                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Insert Emojis (Win + .)" x:Uid="Emoji"/>
-                        </ToolTipService.ToolTip>
                     </AppBarButton>
                 </CommandBar>
 
