@@ -1298,6 +1298,9 @@ namespace QuickPad
 
         public void ResetToolbarSetting()
         {
+            QSetting.ShowFont =
+            QSetting.ShowColor =
+            QSetting.ShowEmoji =
             QSetting.ShowBold =
             QSetting.ShowItalic =
             QSetting.ShowUnderline =
