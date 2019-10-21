@@ -180,7 +180,7 @@
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                     <AppBarSeparator Width="32" Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
-                    <AppBarButton Style="{StaticResource defaultAppBarB}" Label="Customize" Width="Auto" MinWidth="32" x:Uid="Cmd_Customize">
+                    <AppBarButton Label="Customize" Width="Auto" MinWidth="32" x:Uid="Cmd_Customize">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xE15E;" />
                         </AppBarButton.Icon>
@@ -222,30 +222,30 @@
 
                 <CommandBar x:Name="CommandBar2" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Grid.Row="1" VerticalAlignment="Top" Height="40" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
                     <CommandBar.SecondaryCommands>
-                        <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind SwitchingFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
-                        <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="CmdClassicMode" Click="{x:Bind SwitchingClassicAndDefault}" Label="Classic Mode" x:Uid="CmdClassicMode" Width="Auto">
+                        <AppBarButton x:Name="CmdFocusMode" x:Uid="CmdFocusMode" Click="{x:Bind SwitchingFocusMode}" Icon="Caption" Label="Focus Mode" Width="Auto"/>
+                        <AppBarButton x:Name="CmdClassicMode" Click="{x:Bind SwitchingClassicAndDefault}" Label="Classic Mode" x:Uid="CmdClassicMode" Width="Auto">
                             <AppBarButton.Icon>
                                 <FontIcon Glyph="&#xE8C5;" />
                             </AppBarButton.Icon>
                         </AppBarButton>
-                        <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" >
+                        <AppBarButton x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" >
                             <ToolTipService.ToolTip>
                                 <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
                             </ToolTipService.ToolTip>
                         </AppBarButton>
-                        <AppBarButton Style="{StaticResource defaultAppBarB}" Icon="Find" x:Uid="CmdFind" Width="Auto" MinWidth="40" Click="{x:Bind ToggleFindAndReplaceDialog}" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}">
+                        <AppBarButton Icon="Find" x:Uid="CmdFind" Width="Auto" MinWidth="40" Click="{x:Bind ToggleFindAndReplaceDialog}" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(CompactOverlaySwitch), Mode=OneWay}">
                             <AppBarButton.KeyboardAccelerators>
                                 <KeyboardAccelerator
                           Modifiers="Control" 
                            Key="F" />
                             </AppBarButton.KeyboardAccelerators>
                         </AppBarButton>
-                        <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="CmdSettings" x:Uid="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click">
+                        <AppBarButton x:Name="CmdSettings" x:Uid="CmdSettings" Icon="Setting" Label="Settings" Width="Auto" Visibility="Visible" Click="CmdSettings_Click">
                             <ToolTipService.ToolTip>
                                 <TextBlock Text="Settings" x:Uid="CmdSettingsTooltip"/>
                             </ToolTipService.ToolTip>
                         </AppBarButton>
-                        <AppBarButton Style="{StaticResource defaultAppBarB}" Icon="Cancel" Label="Exit" Width="Auto" Click="CmdExit_Click" x:Uid="CmdExit">
+                        <AppBarButton Icon="Cancel" Label="Exit" Width="Auto" Click="CmdExit_Click" x:Uid="CmdExit">
                             <ToolTipService.ToolTip>
                                 <TextBlock Text="Exit the app" x:Uid="CmdExitTooltip"/>
                             </ToolTipService.ToolTip>
