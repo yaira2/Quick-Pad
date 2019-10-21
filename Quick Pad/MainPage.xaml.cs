@@ -1458,6 +1458,8 @@ namespace QuickPad
         public void SwitchingFocusMode() => FocusModeSwitch = !FocusModeSwitch;
         public void SwitchingOverlayMode() => CompactOverlaySwitch = !CompactOverlaySwitch;
         public void SwitchingClassicAndDefault() => ClassicModeSwitch = !ClassicModeSwitch;
+
+        public void SwitchingStatusBarDisplay() => QSetting.ShowStatusBar = !QSetting.ShowStatusBar;
         #endregion
 
         #region Textbox function

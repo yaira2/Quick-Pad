@@ -240,6 +240,11 @@
                                 <FontIcon Glyph="&#xE8C5;" />
                             </AppBarButton.Icon>
                         </AppBarButton>
+                        <AppBarButton x:Name="CmdStatusBar" Click="{x:Bind SwitchingStatusBarDisplay}" Label="Status bar">
+                            <AppBarButton.Icon>
+                                <FontIcon Glyph="&#xE75B;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
                         <AppBarButton x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" >
                             <ToolTipService.ToolTip>
                                 <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
@@ -565,7 +570,7 @@
                                   OffsetY="-1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch"
-                                  Visibility="{x:Bind q:Converter.CanIShowStatusBar(ClassicModeSwitch, QSetting.ShowStatusBar), Mode=OneWay}">
+                                  Visibility="{x:Bind q:Converter.CanIShowStatusBar(ClassicModeSwitch, FocusModeSwitch, CompactOverlaySwitch, QSetting.ShowStatusBar), Mode=OneWay}">
                     <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  Grid.Row="3" VerticalAlignment="Stretch" x:Name="StatusBar" MinHeight="28">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>

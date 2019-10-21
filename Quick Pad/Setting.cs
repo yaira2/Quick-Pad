@@ -750,12 +750,20 @@ namespace QuickPad
         /// <returns></returns>
         public static Visibility ShowIfItemIsNotNull(object input) => IsItemNull(input) ? Visibility.Collapsed : Visibility.Visible;
 
-        public static Visibility CanIShowStatusBar(bool classicMode, bool showStatusBar)
+        public static Visibility CanIShowStatusBar(bool classicMode, bool focus, bool over, bool showStatusBar)
         {
             //Is it classic mode?
             if (classicMode)
             {
                 //If it on either mode, is it allow to show status bar?
+                if (showStatusBar)
+                {
+                    return Visibility.Visible;
+                }
+            }
+            else if (!focus && !over && !classicMode)
+            {
+                //Is not in any mode (focus, overlay, classic)
                 if (showStatusBar)
                 {
                     return Visibility.Visible;
