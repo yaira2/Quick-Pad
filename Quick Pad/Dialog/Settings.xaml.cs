@@ -288,11 +288,11 @@ namespace QuickPad.Dialog
                 if (FontColorCollections.Count > 1)
                 {
                     if (QSetting.DefaultFontColor.StartsWith("#"))
-                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i.TechnicalName == "Custom"));
+                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i is CustomFontColorItem));
                     else if (QSetting.DefaultFontColor == "Default")
-                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i.TechnicalName == "Default"));
+                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i is DefaultFontColorItem));
                     else
-                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i.TechnicalName == QSetting.DefaultFontColor));
+                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i is NamedFontColorItem && i.TechnicalName == QSetting.DefaultFontColor));
                 }
                 return _fc_selection;
             }
@@ -596,7 +596,8 @@ namespace QuickPad.Dialog
             }
             set
             {
-                App.QSetting.DefaultFontColor = Converter.GetHexFromColor(value);
+                if (App.QSetting.DefaultFontColor.StartsWith("#"))
+                    App.QSetting.DefaultFontColor = Converter.GetHexFromColor(value);
             }
         }
 

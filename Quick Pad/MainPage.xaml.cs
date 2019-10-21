@@ -508,6 +508,7 @@ namespace QuickPad
                         _fc = Converter.GetColorFromHex(QSetting.DefaultFontColor);
                     else
                         _fc = (Color)XamlBindingHelper.ConvertValue(typeof(Color), QSetting.DefaultFontColor);
+                    Text1.Document.Selection.CharacterFormat.ForegroundColor = _fc.Value;
                 }
                 return _fc.Value;
             }
