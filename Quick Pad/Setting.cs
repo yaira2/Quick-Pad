@@ -1,5 +1,6 @@
 ﻿using Microsoft.AppCenter.Analytics;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
@@ -286,6 +287,27 @@ namespace QuickPad
 
         #region Toolbar setting
         [DefaultValue(true)]
+        public bool ShowFont
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+        
+        [DefaultValue(true)]
+        public bool ShowColor
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
+        public bool ShowEmoji
+        {
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        [DefaultValue(true)]
         public bool ShowBold
         {
             get => Get<bool>();
@@ -383,6 +405,10 @@ namespace QuickPad
                     if (value == "Default")
                     {
                         update = new UISettings().GetColorValue(UIColorType.Foreground);
+                    }
+                    else if (value.StartsWith("#"))
+                    {
+                        update = Converter.GetColorFromHex(value);
                     }
                     else
                     {
@@ -631,6 +657,15 @@ namespace QuickPad
             return Visibility.Visible;
         }
 
+        public static Visibility HideIfNoFormatsButtonShow(bool font, bool color, bool emoji)
+        {
+            if (!font && !color && !emoji)
+            {
+                return Visibility.Collapsed;
+            }
+            return Visibility.Visible;
+        }
+
         public static Visibility HideIfNoSizeButtonShow(bool up, bool down)
         {
             if (!up && !down)
@@ -674,6 +709,18 @@ namespace QuickPad
             }
         }
 
+        public static Visibility IfAnyStringMatchHide(string input, params string[] compare)
+        {
+            if (compare is null)
+                return Visibility.Visible;
+            foreach (string str in compare)
+            {
+                if (IfStringMatch(input, str))
+                    return Visibility.Visible;
+            }
+            return Visibility.Collapsed;
+        }
+
         public static string SwitchBetweenOverlayIcon(bool input)
         {
             if (input)
@@ -703,12 +750,20 @@ namespace QuickPad
         /// <returns></returns>
         public static Visibility ShowIfItemIsNotNull(object input) => IsItemNull(input) ? Visibility.Collapsed : Visibility.Visible;
 
-        public static Visibility CanIShowStatusBar(bool classicMode, bool showStatusBar)
+        public static Visibility CanIShowStatusBar(bool classicMode, bool focus, bool over, bool showStatusBar)
         {
             //Is it classic mode?
             if (classicMode)
             {
                 //If it on either mode, is it allow to show status bar?
+                if (showStatusBar)
+                {
+                    return Visibility.Visible;
+                }
+            }
+            else if (!focus && !over && !classicMode)
+            {
+                //Is not in any mode (focus, overlay, classic)
                 if (showStatusBar)
                 {
                     return Visibility.Visible;
@@ -755,6 +810,35 @@ namespace QuickPad
         }
 
         public static Brush SelectionBetweenBrush(bool determiner, Brush a, Brush b) => determiner ? a : b;
+
+        public static FontFamilyItem SelectionFromString(string name, IList<FontFamilyItem> fonts)
+        {
+            if (fonts is null)
+                return new FontFamilyItem(App.QSetting.DefaultFont);
+            return fonts.FirstOrDefault(i => i.Name == name);
+        }
+
+        public static Color GetColorFromHex(string hex)
+        {
+            hex = hex.Replace("#", string.Empty);
+            byte a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
+            byte r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
+            byte g = (byte)(Convert.ToUInt32(hex.Substring(4, 2), 16));
+            byte b = (byte)(Convert.ToUInt32(hex.Substring(6, 2), 16));
+            return Windows.UI.Color.FromArgb(a, r, g, b);
+        }
+
+        public static string GetHexFromColor(Color color)
+        {
+            return $"#{color.A:X2}{color.R:X2}{color.G:X2}{color.B:X2}";
+        }
+
+        public static string GetRandomHexDecimalOfColor()
+        {
+            byte[] color = new byte[3];
+            new Random().NextBytes(color);
+            return $"#{byte.MaxValue:X2}{color[0]:X2}{color[1]:X2}{color[2]:X2}";
+        }
     }
 
     public static class IntCompare

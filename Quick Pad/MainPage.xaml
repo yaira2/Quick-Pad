@@ -19,6 +19,16 @@
         <DataTemplate x:Key="FontFamilyComboBoxItem">
             <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="2,2,2,2" FontSize="12"/>
         </DataTemplate>
+            <Style TargetType="AppBarButton" x:Key="defaultAppBarB">
+                <Setter Property="LabelPosition" Value="Collapsed"/>
+                <Setter Property="Width" Value="Auto"/>
+                <Setter Property="MinWidth" Value="40"/>
+            </Style>
+            <Style TargetType="AppBarToggleButton" x:Key="defaultAppBarT">
+                <Setter Property="LabelPosition" Value="Collapsed"/>
+                <Setter Property="Width" Value="Auto"/>
+                <Setter Property="MinWidth" Value="40"/>
+            </Style>
     </Page.Resources>
     <SplitView OpenPaneLength="350" PanePlacement="Right" x:Name="MainView">
         <SplitView.Content>
@@ -41,8 +51,8 @@
                     <Frame x:Name="FrameTop" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1"/>
                 </controls:DropShadowPanel>
 
-                <CommandBar x:Name="CommandBar1" DefaultLabelPosition="Collapsed" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
-                    <AppBarButton x:Name="CmdNew" x:Uid="CmdNew" Label="New" Width="Auto" MinWidth="40" Click="CmdNew_Click">
+                <CommandBar  x:Name="CommandBar1" DefaultLabelPosition="Right" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Left" Grid.Row="1" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
+                    <AppBarButton Width="Auto" MinWidth="40" LabelPosition="Collapsed" x:Name="CmdNew" x:Uid="CmdNew" Label="New" Click="CmdNew_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="New" x:Uid="CmdNewTooltip"/>
                         </ToolTipService.ToolTip>
@@ -55,7 +65,7 @@
                            Key="N" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:Name="CmdOpen" x:Uid="CmdOpen" Label="Open"  Width="Auto" MinWidth="40" Click="CmdOpen_Click">
+                    <AppBarButton Width="Auto" MinWidth="40" LabelPosition="Collapsed" x:Name="CmdOpen" x:Uid="CmdOpen" Label="Open" Click="CmdOpen_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Open (Ctrl+O)" x:Uid="CmdOpenTooltip"/>
                         </ToolTipService.ToolTip>
@@ -68,7 +78,7 @@
                            Key="O" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton x:Name="CmdSave" x:Uid="CmdSave" Label="Save" Width="Auto" MinWidth="40" Icon="Save" Click="CmdSave_Click" LabelPosition="Collapsed">
+                    <AppBarButton Width="Auto" MinWidth="40" LabelPosition="Collapsed" x:Name="CmdSave" x:Uid="CmdSave" Label="Save" Icon="Save" Click="CmdSave_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Save (Ctrl+S)" x:Uid="CmdSaveTooltip"/>
                         </ToolTipService.ToolTip>
@@ -78,23 +88,59 @@
                            Key="S"/>
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
+                    <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoFormatsButtonShow(QSetting.ShowFont, QSetting.ShowColor, QSetting.ShowEmoji), Mode=OneWay}"/>
+                    <AppBarButton Visibility="{x:Bind QSetting.ShowFont, Mode=OneWay}" Width="Auto" Label="{x:Bind CurrentFontName, Mode=OneWay}">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE70D;"/>
+                        </AppBarButton.Icon>
+                        <AppBarButton.Flyout>
+                            <Flyout Placement="BottomEdgeAlignedLeft">
+                                <ListView Width="250" Height="350"
+                                          x:Name="FontListSelection"
+                                          Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+                                          ItemsSource="{x:Bind AllFonts, Mode=OneWay}"
+                                          Padding="0"
+                                          Margin="0"
+                                          ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
+                                          SelectedItem="{x:Bind q:Converter.SelectionFromString(CurrentFontName, AllFonts), Mode=TwoWay, BindBack=BindBackFontSelection}"/>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                    <AppBarButton Width="40" LabelPosition="Collapsed" Visibility="{x:Bind QSetting.ShowColor, Mode=OneWay}">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE790;"/>
+                        </AppBarButton.Icon>
+                        <AppBarButton.Flyout>
+                            <Flyout>
+                                <winui:ColorPicker Color="{x:Bind CurrentFontColor, Mode=TwoWay}"
+                                                   IsAlphaEnabled="False"
+                                                   IsColorChannelTextInputVisible="False"
+                                                   IsColorSliderVisible="False"/>
+                            </Flyout>
+                        </AppBarButton.Flyout>
+                    </AppBarButton>
+                    <AppBarButton LabelPosition="Collapsed" x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="{x:Bind QSetting.ShowEmoji, Mode=OneWay}" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
+                        <ToolTipService.ToolTip>
+                            <TextBlock Text="Insert Emojis (Win + .)" x:Uid="Emoji"/>
+                        </ToolTipService.ToolTip>
+                    </AppBarButton>
                     <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoBulletOptionsShow(QSetting.ShowBold, QSetting.ShowItalic, QSetting.ShowUnderline, QSetting.ShowStrikethroughOption, QSetting.ShowBullets), Mode=OneWay}"/>
-                    <AppBarToggleButton IsChecked="{x:Bind IsItBold, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBold), Mode=OneWay}" x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
+                    <AppBarToggleButton LabelPosition="Collapsed" IsChecked="{x:Bind IsItBold, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBold), Mode=OneWay}" x:Name="Bold" x:Uid="Bold"  Label="Bold"  Width="Auto" MinWidth="40" Click="Bold_Click" Icon="Bold" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Bold (Ctrl+B)" x:Uid="BoldTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarToggleButton>
-                    <AppBarToggleButton IsChecked="{x:Bind IsItItalic, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowItalic), Mode=OneWay}" x:Name="Italic" x:Uid="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch">
+                    <AppBarToggleButton LabelPosition="Collapsed" IsChecked="{x:Bind IsItItalic, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowItalic), Mode=OneWay}" x:Name="Italic" x:Uid="Italic" Label="Italic" Width="Auto" MinWidth="40" Click="Italic_Click" Icon="Italic" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Italic (Ctrl+I)" x:Uid="ItalicTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarToggleButton>
-                    <AppBarToggleButton IsChecked="{x:Bind IsItUnderline, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowUnderline), Mode=OneWay}" x:Name="Underline" x:Uid="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch">
+                    <AppBarToggleButton LabelPosition="Collapsed" IsChecked="{x:Bind IsItUnderline, Mode=OneWay}" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowUnderline), Mode=OneWay}" x:Name="Underline" x:Uid="Underline" Label="Underline" Width="Auto" MinWidth="40" Click="Underline_Click" Icon="Underline" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Underline (Ctrl+U)" x:Uid="UnderlineTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarToggleButton>
-                    <AppBarToggleButton IsChecked="{x:Bind IsItStrikethrough, Mode=OneWay}" x:Name="Strikethrough" x:Uid="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Strikethrough_Click">
+                    <AppBarToggleButton LabelPosition="Collapsed" IsChecked="{x:Bind IsItStrikethrough, Mode=OneWay}" x:Name="Strikethrough" x:Uid="Strikethrough" Label="Strikethrough"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowStrikethroughOption), Mode=OneWay}" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Strikethrough_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Strikethrough" x:Uid="StrikethroughTooltip"/>
                         </ToolTipService.ToolTip>
@@ -106,28 +152,28 @@
                             </FontIcon>
                         </AppBarToggleButton.Icon>
                     </AppBarToggleButton>
-                    <AppBarToggleButton IsChecked="{x:Bind IsUsingBulletList, Mode=OneWay}" x:Name="BulletList" x:Uid="BulletList" Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
+                    <AppBarToggleButton LabelPosition="Collapsed" IsChecked="{x:Bind IsUsingBulletList, Mode=OneWay}" x:Name="BulletList" x:Uid="BulletList" Label="Bullets"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowBullets), Mode=OneWay}" Icon="List" Click="BulletList_Click" HorizontalAlignment="Stretch">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Toggle Bullets" x:Uid="BulletListTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarToggleButton>
                     <AppBarSeparator/>
-                    <AppBarButton x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click" Icon="AlignLeft">
+                    <AppBarButton LabelPosition="Collapsed" x:Name="Left" x:Uid="Left" Label="Left" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignLeft), Mode=OneWay}" Click="Left_Click" Icon="AlignLeft">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Align left (Ctrl+L)" x:Uid="LeftTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Click="Center_Click" Icon="AlignCenter">
+                    <AppBarButton LabelPosition="Collapsed" x:Name="Center" x:Uid="Center" Label="Center" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignCenter), Mode=OneWay}" Click="Center_Click" Icon="AlignCenter">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Align center (Ctrl+E)" x:Uid="CenterTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Click="Right_Click" Icon="AlignRight">
+                    <AppBarButton LabelPosition="Collapsed" x:Name="Right" x:Uid="Right" Label="Right"  Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignRight), Mode=OneWay}" Click="Right_Click" Icon="AlignRight">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Align right (Ctrl+R)" x:Uid="RightTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="Justify" x:Uid="Justify" Label="Justify" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}">
+                    <AppBarButton LabelPosition="Collapsed" x:Name="Justify" x:Uid="Justify" Label="Justify" Width="Auto" MinWidth="40" Visibility="{x:Bind q:Converter.BoolToVisibility(QSetting.ShowAlignJustify), Mode=OneWay}" Click="Justify_Click" Background="{x:Null}">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Justify text (Ctrl+J)" x:Uid="JustifyTooltip"/>
                         </ToolTipService.ToolTip>
@@ -136,23 +182,30 @@
                         </AppBarButton.Icon>
                     </AppBarButton>
                     <AppBarSeparator x:Name="AlignSeparator" Visibility="{x:Bind q:Converter.HideIfNoAlignButtonShow(QSetting.ShowAlignLeft, QSetting.ShowAlignCenter, QSetting.ShowAlignRight, QSetting.ShowAlignJustify), Mode=OneWay}"/>
-                    <AppBarButton x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease" Visibility="{x:Bind QSetting.ShowSizeUp, Mode=OneWay}">
+                    <AppBarButton LabelPosition="Collapsed" x:Name="SizeUp" x:Uid="SizeUp" Label="Size Up" Width="Auto" MinWidth="40" Click="SizeUp_Click" Icon="FontIncrease" Visibility="{x:Bind QSetting.ShowSizeUp, Mode=OneWay}">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Size Up" x:Uid="SizeUpTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="SizeDown" x:Uid="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease" Visibility="{x:Bind QSetting.ShowSizeDown, Mode=OneWay}">
+                    <AppBarButton LabelPosition="Collapsed" x:Name="SizeDown" x:Uid="SizeDown" Label="Size Down"  Width="Auto" MinWidth="40" Click="SizeDown_Click" Icon="FontDecrease" Visibility="{x:Bind QSetting.ShowSizeDown, Mode=OneWay}">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Size Down" x:Uid="SizeDownTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                     <AppBarSeparator Width="32" Visibility="{x:Bind q:Converter.HideIfNoSizeButtonShow(QSetting.ShowSizeUp, QSetting.ShowSizeDown), Mode=OneWay}"/>
-                    <AppBarButton Label="Customize" Width="Auto" MinWidth="32" x:Uid="Cmd_Customize">
+                    <AppBarButton Label="Customize" Width="Auto" MinWidth="32" x:Uid="Cmd_Customize" LabelPosition="Collapsed">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xE15E;" />
                         </AppBarButton.Icon>
                         <AppBarButton.Flyout>
                             <MenuFlyout x:Name="settingsFlyoutMenu" Closing="ClosingCustomizeFlyout">
+                                <ToggleMenuFlyoutItem Text="Show fonts" Icon="Font" IsChecked="{x:Bind QSetting.ShowFont, Mode=TwoWay}"/>
+                                <ToggleMenuFlyoutItem Text="Show color" IsChecked="{x:Bind QSetting.ShowColor, Mode=TwoWay}">
+                                    <ToggleMenuFlyoutItem.Icon>
+                                        <FontIcon Glyph="&#xE2B1;"/>
+                                    </ToggleMenuFlyoutItem.Icon>
+                                </ToggleMenuFlyoutItem>
+                                <ToggleMenuFlyoutItem Text="Show emoji" Icon="Emoji2" IsChecked="{x:Bind QSetting.ShowEmoji, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_Bold" Text="Show bold" Icon="Bold" IsChecked="{x:Bind QSetting.ShowBold, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_Italic" Text="Show italic" Icon="Italic" IsChecked="{x:Bind QSetting.ShowItalic, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_Underline" Text="Show underline" Icon="Underline" IsChecked="{x:Bind QSetting.ShowUnderline, Mode=TwoWay}"/>
@@ -195,6 +248,11 @@
                                 <FontIcon Glyph="&#xE8C5;" />
                             </AppBarButton.Icon>
                         </AppBarButton>
+                        <AppBarButton x:Name="CmdStatusBar" Click="{x:Bind SwitchingStatusBarDisplay}" Label="Status bar">
+                            <AppBarButton.Icon>
+                                <FontIcon Glyph="&#xE75B;" />
+                            </AppBarButton.Icon>
+                        </AppBarButton>
                         <AppBarButton x:Name="CmdShare" x:Uid="CmdShare" Label="Share"  Width="Auto" MinWidth="40" Icon="Share" Click="CmdShare_Click" >
                             <ToolTipService.ToolTip>
                                 <TextBlock Text="Share the file you are working on." x:Uid="CmdShareTooltip"/>
@@ -218,18 +276,18 @@
                             </ToolTipService.ToolTip>
                         </AppBarButton>
                     </CommandBar.SecondaryCommands>
-                    <AppBarButton x:Name="CmdUndo" IsEnabled="{x:Bind CanUndoText, Mode=OneWay}" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click">
+                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="CmdUndo" IsEnabled="{x:Bind CanUndoText, Mode=OneWay}" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Undo (Ctrl+Z)" x:Uid="CmdUndoTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton x:Name="CmdRedo" IsEnabled="{x:Bind CanRedoText, Mode=OneWay}" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click">
+                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="CmdRedo" IsEnabled="{x:Bind CanRedoText, Mode=OneWay}" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Redo (Ctrl+Y)" x:Uid="CmdRedoTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                     <AppBarSeparator x:Name="ASep1"/>
-                    <AppBarButton x:Uid="CompactOverlay" Click="{x:Bind SwitchingOverlayMode}" MinWidth="40" Width="Auto">
+                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Uid="CompactOverlay" Click="{x:Bind SwitchingOverlayMode}" MinWidth="40" Width="Auto">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                         </AppBarButton.Icon>
@@ -512,49 +570,6 @@
                 </RichEditBox>
     </ScrollViewer>
 
-                <controls:DropShadowPanel x:Name="Shadow2" Margin="0,0,0,0" Grid.RowSpan="4" VerticalAlignment="Bottom"
-                                  Canvas.ZIndex="10"
-                                  ShadowOpacity="0.2"
-                                  OffsetX="0"
-                                  OffsetY="-.1"
-                                  HorizontalAlignment="Stretch"
-                                  HorizontalContentAlignment="Stretch">
-
-                    <Frame x:Name="FrameBottom" Content="" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  Visibility="Visible" VerticalAlignment="Top" Height="40" Grid.RowSpan="1" Margin="0,0,0,0"/>
-                </controls:DropShadowPanel>
-
-                <CommandBar x:Name="CommandBar3" Canvas.ZIndex="75" IsOpen="False" HorizontalAlignment="Right" Margin="0,0,0,0" Grid.Row="3" VerticalAlignment="Bottom" Height="40" FlowDirection="LeftToRight" Background="{x:Null}" >
-                    <CommandBar.Content>
-                        <Canvas Width="169" Height="40">
-                            <Frame x:FieldModifier="public" x:Name="FontBoxFrame" Width="168.3" Height="38" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed"  Canvas.Left=".5" Canvas.Top=".5"  Canvas.ZIndex="100" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"/>
-                            <TextBlock x:FieldModifier="public" x:Name="FontSelected" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" Text="Consolas" Canvas.Left="12" Canvas.Top="10" Canvas.ZIndex="100"/>
-                            <TextBlock x:FieldModifier="public" PointerMoved="FontSelected_PointerMoved" PointerExited="FontSelected_PointerExited" PointerPressed="Frame_PointerPressed" FontFamily="Segoe MDL2 Assets" Text="&#xE972;"  Canvas.Left="145" Canvas.Top="13" Canvas.ZIndex="100"/>
-                            <ComboBox x:FieldModifier="public" VerticalAlignment="Center" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}" MinHeight="40" x:Name="Fonts" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" PlaceholderText="Consolas" ItemTemplate="{StaticResource FontFamilyComboBoxItem}" SelectionChanged="Fonts_SelectionChanged" Width="169" HorizontalAlignment="Left" BorderThickness=".5" PlaceholderForeground="Black"/>
-                        </Canvas>
-                    </CommandBar.Content>
-                    <AppBarButton x:Name="TextColor" x:Uid="TextColor" Width="40" Icon="FontColor">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Font Color" x:Uid="TextColorTooltip"/>
-                        </ToolTipService.ToolTip>
-                        <AppBarButton.Flyout>
-                            <MenuFlyout>
-                                <MenuFlyoutItem x:Name="Black" x:Uid="TextColorBlack" Tag="Black" Text="Black" Click="SetFormatColor" />
-                                <MenuFlyoutItem x:Name="White" x:Uid="TextColorWhite" Tag="White" Text="White" Click="SetFormatColor" />
-                                <MenuFlyoutItem x:Name="Yellow" x:Uid="TextColorYellow" Tag="LightYellow" Text="Yellow" Click="SetFormatColor" />
-                                <MenuFlyoutItem x:Name="Blue" x:Uid="TextColorBlue" Tag="SkyBlue" Text="Blue" Click="SetFormatColor" />
-                                <MenuFlyoutItem x:Name="Pink" x:Uid="TextColorPink" Tag="LightPink" Text="Pink" Click="SetFormatColor" />
-                                <MenuFlyoutItem x:Name="Orange" x:Uid="TextColorOrange" Tag="LightSalmon" Text="Orange" Click="SetFormatColor" />
-                                <MenuFlyoutItem x:Name="Green" x:Uid="TextColorGreen" Tag="LightGreen" Text="Green" Click="SetFormatColor" />
-                            </MenuFlyout>
-                        </AppBarButton.Flyout>
-                    </AppBarButton>
-                    <AppBarButton x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="Visible" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
-                        <ToolTipService.ToolTip>
-                            <TextBlock Text="Insert Emojis (Win + .)" x:Uid="Emoji"/>
-                        </ToolTipService.ToolTip>
-                    </AppBarButton>
-                </CommandBar>
-
                 <controls:DropShadowPanel Grid.Row="3"
                                           x:Name="StatusBarShadow"
                                   VerticalAlignment="Bottom"
@@ -564,7 +579,7 @@
                                   OffsetY="-1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch"
-                                  Visibility="{x:Bind q:Converter.CanIShowStatusBar(ClassicModeSwitch, QSetting.ShowStatusBar), Mode=OneWay}">
+                                  Visibility="{x:Bind q:Converter.CanIShowStatusBar(ClassicModeSwitch, FocusModeSwitch, CompactOverlaySwitch, QSetting.ShowStatusBar), Mode=OneWay}">
                     <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  Grid.Row="3" VerticalAlignment="Stretch" x:Name="StatusBar" MinHeight="28">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>

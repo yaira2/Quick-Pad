@@ -413,9 +413,9 @@ namespace QuickPad
                 Text1.Focus(FocusState.Programmatic); // Set focus on the main content so the user can start typing right away
 
                 //set default font to UIs that still not depend on binding
-                Fonts.PlaceholderText = QSetting.DefaultFont;
-                Fonts.SelectedItem = QSetting.DefaultFont;
-                FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
+                //Fonts.PlaceholderText = QSetting.DefaultFont;
+                //Fonts.SelectedItem = QSetting.DefaultFont;
+                //FontSelected.Text = Convert.ToString(Fonts.SelectedItem);
                 Text1.Document.Selection.CharacterFormat.Name = QSetting.DefaultFont;
 
                 Text1.Document.Selection.CharacterFormat.Size = QSetting.DefaultFontSize;
@@ -472,6 +472,59 @@ namespace QuickPad
         #endregion
 
         #region Properties
+        string _fn = null;
+        public string CurrentFontName
+        {
+            get
+            {
+                if (_fn is null)
+                    _fn = QSetting.DefaultFont;
+                return _fn;
+            }
+            set => Set(ref _fn, value);
+        }
+
+        public void BindBackFontSelection(object selection)
+        {
+            if (selection is FontFamilyItem f)
+            {
+                Text1.Document.BeginUndoGroup();
+                Text1.Document.Selection.CharacterFormat.Name = f.Name;
+                CurrentFontName = f.Name;
+                Text1.Document.EndUndoGroup();
+            }
+        }
+
+        Color? _fc = null;
+        public Color CurrentFontColor
+        {
+            get
+            {
+                if (_fc is null)
+                {
+                    if (QSetting.DefaultFontColor == "Default")                    
+                        _fc = new UISettings().GetColorValue(UIColorType.Foreground);                    
+                    else if (QSetting.DefaultFontColor.StartsWith("#"))
+                        _fc = Converter.GetColorFromHex(QSetting.DefaultFontColor);
+                    else
+                        _fc = (Color)XamlBindingHelper.ConvertValue(typeof(Color), QSetting.DefaultFontColor);
+                    Text1.Document.Selection.CharacterFormat.ForegroundColor = _fc.Value;
+                }
+                return _fc.Value;
+            }
+            set
+            {
+                if (!Equals(_fc, value))
+                {
+                    Set(ref _fc, value);
+                    //
+                    Text1.Document.BeginUndoGroup();
+                    Text1.Document.Selection.CharacterFormat.ForegroundColor = value;
+                    Text1.Document.EndUndoGroup();
+                }
+            }
+        }
+
         int? _vsize = null;
         public int VisualFontSize
         {
@@ -1209,37 +1262,6 @@ namespace QuickPad
             Text1.Document.EndUndoGroup();
         }
 
-        private void Fonts_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            Text1.Document.BeginUndoGroup();
-            if (e.AddedItems[0] is FontFamilyItem selectedFont)
-            {
-                Text1.Document.Selection.CharacterFormat.Name = selectedFont.Name;
-            }
-            Text1.Document.EndUndoGroup();
-        }
-
-        private void Frame_PointerPressed(object sender, PointerRoutedEventArgs e)
-        {
-            //Set text preview in Font Family selector
-            var selectedText = Text1.Document.Selection.Text;
-            FontFamilyItem.ChangeGlobalPreview(selectedText);
-            foreach (var item in AllFonts) item.UpdateLocalPreview();
-            //open the font combo box
-            Fonts.IsDropDownOpen = true;
-        }
-
-        private void FontSelected_PointerMoved(object sender, PointerRoutedEventArgs e)
-        {
-            var theme = VisualThemeSelector.CurrentItem;
-            FontBoxFrame.Background = theme.InAppAcrylicBrush;
-        }
-
-        private void FontSelected_PointerExited(object sender, PointerRoutedEventArgs e)
-        {
-            FontBoxFrame.Background = Fonts.Background; //Make the frame over the font box the same color as the font box
-        }
-
         private void ShowFontsDialog_Click(object sender, RoutedEventArgs e)
         {
             //Show setting pane w/ a font page
@@ -1255,6 +1277,9 @@ namespace QuickPad
 
         public void ResetToolbarSetting()
         {
+            QSetting.ShowFont =
+            QSetting.ShowColor =
+            QSetting.ShowEmoji =
             QSetting.ShowBold =
             QSetting.ShowItalic =
             QSetting.ShowUnderline =
@@ -1337,13 +1362,10 @@ namespace QuickPad
                 CmdSettings.Visibility = Visibility.Collapsed;
                 CmdFocusMode.Visibility = Visibility.Collapsed;
                 CmdClassicMode.Visibility = Visibility.Collapsed;
-                CommandBar3.Visibility = Visibility.Collapsed;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 Shadow1.Visibility = Visibility.Collapsed;
-                Shadow2.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Collapsed;
                 StatusBar.Visibility = Visibility.Collapsed;
-                Shadow2.Visibility = Visibility.Collapsed;
                 FileTitle.Visibility = Visibility.Collapsed;
                 trickyTitleBar.Margin = new Thickness(33, 0, 0, 0);
                 StatusBarShadow.Visibility = Visibility.Collapsed;
@@ -1364,9 +1386,7 @@ namespace QuickPad
                 CmdSettings.Visibility = Visibility.Visible;
                 CmdFocusMode.Visibility = Visibility.Visible;
                 CmdClassicMode.Visibility = Visibility.Visible;
-                CommandBar3.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
-                Shadow2.Visibility = Visibility.Visible;
                 StatusBar.Visibility = Visibility.Visible;
                 FileTitle.Visibility = Visibility.Visible;
 
@@ -1390,7 +1410,6 @@ namespace QuickPad
                 Text1.SetValue(Canvas.ZIndexProperty, 90);
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
-                Shadow2.Visibility = Visibility.Collapsed;
                 Shadow1.Visibility = Visibility.Collapsed;
                 row1.Height = new GridLength(0);
                 row3.Height = new GridLength(0);
@@ -1403,7 +1422,6 @@ namespace QuickPad
                 Text1.SetValue(Canvas.ZIndexProperty, 0);
                 CommandBar2.Visibility = Visibility.Visible;
                 CommandBar1.Visibility = Visibility.Visible;
-                Shadow2.Visibility = Visibility.Visible;
                 Shadow1.Visibility = Visibility.Visible;
                 CommandBarClassic.Visibility = Visibility.Collapsed;
                 row1.Height = new GridLength(1, GridUnitType.Auto);
@@ -1428,15 +1446,11 @@ namespace QuickPad
             {
                 CommandBar1.Visibility = Visibility.Collapsed;
                 CommandBar2.Visibility = Visibility.Collapsed;
-                CommandBar3.Visibility = Visibility.Collapsed;
-                Shadow2.Visibility = Visibility.Collapsed;
             }
             else
             {
                 CommandBar1.Visibility = Visibility.Visible;
                 CommandBar2.Visibility = Visibility.Visible;
-                CommandBar3.Visibility = Visibility.Visible;
-                Shadow2.Visibility = Visibility.Visible;
             }
         }
 
@@ -1444,6 +1458,8 @@ namespace QuickPad
         public void SwitchingFocusMode() => FocusModeSwitch = !FocusModeSwitch;
         public void SwitchingOverlayMode() => CompactOverlaySwitch = !CompactOverlaySwitch;
         public void SwitchingClassicAndDefault() => ClassicModeSwitch = !ClassicModeSwitch;
+
+        public void SwitchingStatusBarDisplay() => QSetting.ShowStatusBar = !QSetting.ShowStatusBar;
         #endregion
 
         #region Textbox function
@@ -1581,7 +1597,7 @@ namespace QuickPad
 
         private void Text1_SelectionChanged(object sender, RoutedEventArgs e)
         {
-            FontSelected.Text = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
+            CurrentFontName = Text1.Document.Selection.CharacterFormat.Name; //updates font box to show the selected characters font
 
             //Update Status bar
             CheckForStatusUpdate();
@@ -2119,85 +2135,6 @@ namespace QuickPad
             return null;
         }
 
-    }
-
-    public class FontColorItem : INotifyPropertyChanged
-    {
-        #region Notification overhead, no need to write it thousands times on set { }
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Set property and also alert the UI if the value is changed
-        /// </summary>
-        /// <param name="value">New value</param>
-        public void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
-        {
-            if (!Equals(storage, value))
-            {
-                storage = value;
-                NotifyPropertyChanged(propertyName);
-            }
-        }
-
-        /// <summary>
-        /// Alert the UI there is a change in this property and need update
-        /// </summary>
-        /// <param name="name"></param>
-        public void NotifyPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-        #endregion
-
-        string _name;
-        public string ColorName
-        {
-            get => _name;
-            set => Set(ref _name, value);
-        }
-
-        string _tname;
-        public string TechnicalName
-        {
-            get => _tname;
-            set => Set(ref _tname, value);
-        }
-
-        Color _ac;
-        public Color ActualColor
-        {
-            get => _ac;
-            set => Set(ref _ac, value);
-        }
-
-        public FontColorItem()
-        {
-            ColorName = "Default";
-            TechnicalName = "Default";
-            if (App.Current.RequestedTheme == ApplicationTheme.Dark)
-            {
-                ActualColor = Colors.White;
-            }
-            else if (App.Current.RequestedTheme == ApplicationTheme.Light)
-            {
-                ActualColor = Colors.Black;
-            }
-        }
-
-        public FontColorItem(string name)
-        {
-            ColorName = ResourceLoader.GetForCurrentView().GetString($"FontColor{name}");
-            TechnicalName = name;
-            ActualColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), name);
-        }
-        public FontColorItem(string name, string technical)
-        {
-            ColorName = ResourceLoader.GetForCurrentView().GetString($"FontColor{name}");
-            TechnicalName = technical;
-            ActualColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), technical);
-        }
-
-        public static FontColorItem Default => new FontColorItem();
     }
 
     public class FontFamilyItem : INotifyPropertyChanged, IComparable<FontFamilyItem>
