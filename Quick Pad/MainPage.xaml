@@ -96,6 +96,11 @@
                         </StackPanel>
                         <AppBarButton.Flyout>
                             <Flyout Placement="BottomEdgeAlignedLeft">
+                                <Flyout.FlyoutPresenterStyle>
+                                    <Style TargetType="FlyoutPresenter">
+                                        <Setter Property="Padding" Value="0"/>
+                                    </Style>
+                                </Flyout.FlyoutPresenterStyle>
                                 <ListView Width="250" Height="350"
                                     x:Name="FontListSelection"
                                     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
