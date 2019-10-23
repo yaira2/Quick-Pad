@@ -1483,25 +1483,30 @@ namespace QuickPad
 
         private void Text1_KeyDown(object sender, KeyRoutedEventArgs e)
         {
-            //Unfinished zoom
-            //if (IsCttrlPressed() && e.Key == (VirtualKey)187)
-            //{
-            //    ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
-            //    if (scaleValue <= 2)
-            //    {
-            //        scaleValue = scaleValue + (scalePercentage / 100);
-            //    }
-            //    ContentScroll.ChangeView(0, 0, scaleValue);
-            //}
-            //else if (IsCttrlPressed() && e.Key == (VirtualKey)189)
-            //{
-            //    ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
-            //    if (scaleValue >= 0.5)
-            //    {
-            //        scaleValue = scaleValue - (scalePercentage / 100);
-            //    }
-            //    ContentScroll.ChangeView(0, 0, scaleValue);
-            //}
+            if (IsCttrlPressed() && e.Key == (VirtualKey)187) //ctrl + +
+            {
+                ScrollViewer ContentScroll = ScroolZoom;
+                if (scaleValue <= 2)
+                {
+                    scaleValue = scaleValue + (scalePercentage / 100);
+                }
+                ContentScroll.ChangeView(0, 0, scaleValue);
+            }
+            else if (IsCttrlPressed() && e.Key == (VirtualKey)189) //ctrl + -
+            {
+                ScrollViewer ContentScroll = ScroolZoom;
+                if (scaleValue >= 0.5)
+                {
+                    scaleValue = scaleValue - (scalePercentage / 100);
+                }
+                ContentScroll.ChangeView(0, 0, scaleValue);
+            }
+            else if (IsCttrlPressed() && e.Key == (VirtualKey)48) //ctrl + 0
+            {
+                ScrollViewer ContentScroll = ScroolZoom;
+                scaleValue = 1;
+                ContentScroll.ChangeView(0, 0, scaleValue);
+            }
 
             if (e.Key == VirtualKey.Tab)
             {
@@ -2000,7 +2005,7 @@ namespace QuickPad
 
         private void ZoomIn(object sender, RoutedEventArgs e)
         {
-            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            ScrollViewer ContentScroll = ScroolZoom;
             if (scaleValue <= 2)
             {
                 scaleValue = scaleValue + (scalePercentage / 100);
@@ -2010,7 +2015,7 @@ namespace QuickPad
 
         private void ZoomOut(object sender, RoutedEventArgs e)
         {
-            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            ScrollViewer ContentScroll = ScroolZoom;
             if (scaleValue >= 0.5)
             {
                 scaleValue = scaleValue - (scalePercentage / 100);
@@ -2020,7 +2025,7 @@ namespace QuickPad
 
         private void ResetZoom(object sender, RoutedEventArgs e)
         {
-            ScrollViewer ContentScroll = MyFindRichEditBoxChildOfType<ScrollViewer>(Text1);
+            ScrollViewer ContentScroll = ScroolZoom;
             scaleValue = 1;
             ContentScroll.ChangeView(0, 0, scaleValue);
         }
