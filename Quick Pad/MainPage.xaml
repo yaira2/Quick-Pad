@@ -89,20 +89,19 @@
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoFormatsButtonShow(QSetting.ShowFont, QSetting.ShowColor, QSetting.ShowEmoji), Mode=OneWay}"/>
-                    <AppBarButton Visibility="{x:Bind QSetting.ShowFont, Mode=OneWay}" Width="Auto" Label="{x:Bind CurrentFontName, Mode=OneWay}">
-                        <AppBarButton.Icon>
-                            <FontIcon Glyph="&#xE70D;"/>
-                        </AppBarButton.Icon>
+                    <AppBarButton Visibility="{x:Bind QSetting.ShowFont, Mode=OneWay}" LabelPosition="Collapsed" Width="Auto">
+                        <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
+                            <TextBlock Text="{x:Bind CurrentFontName, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                            <FontIcon Glyph="&#xE70D;" FontSize="12"/>
+                        </StackPanel>
                         <AppBarButton.Flyout>
                             <Flyout Placement="BottomEdgeAlignedLeft">
                                 <ListView Width="250" Height="350"
-                                          x:Name="FontListSelection"
-                                          Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
-                                          ItemsSource="{x:Bind AllFonts, Mode=OneWay}"
-                                          Padding="0"
-                                          Margin="0"
-                                          ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
-                                          SelectedItem="{x:Bind q:Converter.SelectionFromString(CurrentFontName, AllFonts), Mode=TwoWay, BindBack=BindBackFontSelection}"/>
+                                    x:Name="FontListSelection"
+                                    Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+                                    ItemsSource="{x:Bind AllFonts, Mode=OneWay}"
+                                    ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
+                                    SelectedItem="{x:Bind q:Converter.SelectionFromString(CurrentFontName, AllFonts), Mode=TwoWay, BindBack=BindBackFontSelection}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
