@@ -78,7 +78,7 @@
                            Key="O" />
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
-                    <AppBarButton Width="Auto" MinWidth="40" LabelPosition="Collapsed" x:Name="CmdSave" x:Uid="CmdSave" Label="Save" Icon="Save"  Click="CmdSave_Click">
+                    <AppBarButton Width="Auto" MinWidth="40" LabelPosition="Collapsed" x:Name="CmdSave" x:Uid="CmdSave" Label="Save" Icon="Save" Click="CmdSave_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Save (Ctrl+S)" x:Uid="CmdSaveTooltip"/>
                         </ToolTipService.ToolTip>
@@ -89,19 +89,27 @@
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoFormatsButtonShow(QSetting.ShowFont, QSetting.ShowColor, QSetting.ShowEmoji), Mode=OneWay}"/>
-                    <AppBarButton Visibility="{x:Bind QSetting.ShowFont, Mode=OneWay}" Width="Auto" LabelPosition="Default" Label="{x:Bind CurrentFontName, Mode=OneWay}" Style="{ThemeResource FontSelection}">
+                    <AppBarButton Visibility="{x:Bind QSetting.ShowFont, Mode=OneWay}" Width="Auto" Label="{x:Bind CurrentFontName, Mode=OneWay}">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE70D;"/>
+                        </AppBarButton.Icon>
                         <AppBarButton.Flyout>
                             <Flyout Placement="BottomEdgeAlignedLeft">
                                 <ListView Width="250" Height="350"
                                           x:Name="FontListSelection"
                                           Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
                                           ItemsSource="{x:Bind AllFonts, Mode=OneWay}"
+                                          Padding="0"
+                                          Margin="0"
                                           ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
                                           SelectedItem="{x:Bind q:Converter.SelectionFromString(CurrentFontName, AllFonts), Mode=TwoWay, BindBack=BindBackFontSelection}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton Visibility="{x:Bind QSetting.ShowColor, Mode=OneWay}" Style="{StaticResource FontColorSelection}">
+                    <AppBarButton Width="40" LabelPosition="Collapsed" Visibility="{x:Bind QSetting.ShowColor, Mode=OneWay}">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE790;"/>
+                        </AppBarButton.Icon>
                         <AppBarButton.Flyout>
                             <Flyout>
                                 <winui:ColorPicker Color="{x:Bind CurrentFontColor, Mode=TwoWay}"
