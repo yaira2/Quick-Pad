@@ -201,6 +201,20 @@ namespace QuickPad
             set => Set(value);
         }
 
+        [DefaultValue(320)]
+        public int CompactSizeHeight
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(200)]
+        public int CompactSizeWidth
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
         /// <summary>
         /// this is to check the default file extension choosen in the save file dialog
         /// </summary>

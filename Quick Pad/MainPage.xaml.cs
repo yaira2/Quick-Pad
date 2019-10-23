@@ -1355,6 +1355,7 @@ namespace QuickPad
             if (switching)
             {
                 ViewModePreferences compactOptions = ViewModePreferences.CreateDefault(ApplicationViewMode.CompactOverlay);
+                compactOptions.CustomSize = new Windows.Foundation.Size(QSetting.CompactSizeWidth, QSetting.CompactSizeHeight);
                 bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay, compactOptions);
 
                 CommandBar1.Visibility = Visibility.Collapsed;
@@ -1389,6 +1390,9 @@ namespace QuickPad
                 CommandBar2.Visibility = Visibility.Visible;
                 StatusBar.Visibility = Visibility.Visible;
                 FileTitle.Visibility = Visibility.Visible;
+
+                QSetting.CompactSizeHeight = Convert.ToInt16(ActualHeight);
+                QSetting.CompactSizeWidth = Convert.ToInt16(ActualWidth);
 
                 if (ClassicModeSwitch == true)
                 {
