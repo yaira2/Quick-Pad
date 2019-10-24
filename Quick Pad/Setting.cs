@@ -472,6 +472,13 @@ namespace QuickPad
             set => Set(value);
         }
 
+        [DefaultValue(0)]
+        public int TimesUsingDefaultMode
+        { //Use to track default mode, if less than 2 times it will show tip, else it won't
+            get => Get<int>();
+            set => Set(value);
+        }
+
         [DefaultValue(true)]
         public bool SendAnalyticsReport
         {

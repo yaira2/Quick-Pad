@@ -89,7 +89,13 @@
                         </AppBarButton.KeyboardAccelerators>
                     </AppBarButton>
                     <AppBarSeparator Visibility="{x:Bind q:Converter.HideIfNoFormatsButtonShow(QSetting.ShowFont, QSetting.ShowColor, QSetting.ShowEmoji), Mode=OneWay}"/>
-                    <AppBarButton Visibility="{x:Bind QSetting.ShowFont, Mode=OneWay}" LabelPosition="Collapsed" Width="Auto">
+                    <AppBarButton Visibility="{x:Bind QSetting.ShowFont, Mode=OneWay}" x:Name="FontDropdown" LabelPosition="Collapsed" Width="Auto">
+                        <AppBarButton.Resources>
+                            <winui:TeachingTip x:Name="FontOptionTip"
+                                           Target="{x:Bind FontDropdown}"
+                                           x:Uid="FontOptionTip">
+                            </winui:TeachingTip>
+                        </AppBarButton.Resources>
                         <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
                             <TextBlock Text="{x:Bind CurrentFontName, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
                             <FontIcon Glyph="&#xE70D;" FontSize="12"/>

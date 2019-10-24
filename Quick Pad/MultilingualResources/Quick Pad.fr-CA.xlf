@@ -1018,6 +1018,14 @@
           <source>Insert Emojis (Win + .)</source>
           <target state="translated">Insérer des émoticones (Win + .)</target>
         </trans-unit>
+        <trans-unit id="FontOptionTip.Title" translate="yes" xml:space="preserve">
+          <source>Some options have moved</source>
+          <target state="new">Some options have moved</target>
+        </trans-unit>
+        <trans-unit id="FontOptionTip.Subtitle" translate="yes" xml:space="preserve">
+          <source>All your options are still here, we just moved them so that you could benefit from having the status bar in default mode as well.</source>
+          <target state="new">All your options are still here, we just moved them so that you could benefit from having the status bar in default mode as well.</target>
+        </trans-unit>
       </group>
     </body>
   </file>
