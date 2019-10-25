@@ -552,7 +552,7 @@
                 </winui:MenuBar>
 
                 <dialog:FindAndReplace Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="10"  Visibility="{x:Bind q:Converter.BoolToVisibility(ShowFindAndReplace), Mode=OneWay}" Canvas.ZIndex="90" x:Name="FindAndReplaceDialog"/>
-                <ScrollViewer x:Name="ScroolZoom" ZoomMode="Enabled" Grid.Row="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxZoomFactor="10000000" HorizontalScrollMode="Enabled" VerticalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
+                <ScrollViewer x:Name="ScroolZoom" ZoomMode="Enabled" Grid.Row="2"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxZoomFactor="4" HorizontalScrollMode="Enabled" VerticalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
                     <RichEditBox Grid.Row="2" 
                      x:Name="Text1" 
                      x:FieldModifier="public"

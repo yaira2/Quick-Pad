@@ -1506,7 +1506,7 @@ namespace QuickPad
             if (IsCttrlPressed() && e.Key == (VirtualKey)187) //ctrl + +
             {
                 ScrollViewer ContentScroll = ScroolZoom;
-                if (scaleValue <= 2)
+                if (scaleValue <= 4)
                 {
                     scaleValue = scaleValue + (scalePercentage / 100);
                 }
@@ -2026,7 +2026,7 @@ namespace QuickPad
         private void ZoomIn(object sender, RoutedEventArgs e)
         {
             ScrollViewer ContentScroll = ScroolZoom;
-            if (scaleValue <= 2)
+            if (scaleValue <= 4)
             {
                 scaleValue = scaleValue + (scalePercentage / 100);
             }
