@@ -286,18 +286,18 @@
                             </ToolTipService.ToolTip>
                         </AppBarButton>
                     </CommandBar.SecondaryCommands>
-                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="CmdUndo" IsEnabled="{x:Bind CanUndoText, Mode=OneWay}" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click">
+                    <AppBarButton x:Name="CmdUndo" IsEnabled="{x:Bind CanUndoText, Mode=OneWay}" Label="Undo" x:Uid="CmdUndo" Width="Auto" MinWidth="40" Icon="Undo" Visibility="Visible"  Click="CmdUndo_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Undo (Ctrl+Z)" x:Uid="CmdUndoTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
-                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Name="CmdRedo" IsEnabled="{x:Bind CanRedoText, Mode=OneWay}" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click">
+                    <AppBarButton x:Name="CmdRedo" IsEnabled="{x:Bind CanRedoText, Mode=OneWay}" Label="Redo" x:Uid="CmdRedo" Width="Auto" MinWidth="40" Icon="Redo" Visibility="Visible" Click="CmdRedo_Click">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Redo (Ctrl+Y)" x:Uid="CmdRedoTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                     <AppBarSeparator x:Name="ASep1"/>
-                    <AppBarButton Style="{StaticResource defaultAppBarB}" x:Uid="CompactOverlay" Click="{x:Bind SwitchingOverlayMode}" MinWidth="40" Width="Auto">
+                    <AppBarButton x:Uid="CompactOverlay" Click="{x:Bind SwitchingOverlayMode}" MinWidth="40" Width="Auto">
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                         </AppBarButton.Icon>
