@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Resources;
+using Windows.Foundation.Metadata;
 using Windows.Storage;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -310,7 +311,15 @@ namespace QuickPad
         [DefaultValue(true)]
         public bool ShowEmoji
         {
-            get => Get<bool>();
+            get
+            {
+                if (!ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 7))
+                {
+                    return false;
+                }
+                return Get<bool>();
+            }
+
             set => Set(value);
         }
 
@@ -533,6 +542,7 @@ namespace QuickPad
             set => Set(value);
         }
 
+        public bool NewerThanApril2018Update => ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 7);
         #endregion
 
         #region Manage

@@ -6,8 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
-    xmlns:contract7Present="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract,7)"
-    xmlns:contract7NotPresent="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractNotPresent(Windows.Foundation.UniversalApiContract,7)"
     xmlns:q="using:QuickPad"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     xmlns:dialog="using:QuickPad.Dialog"
@@ -102,7 +100,7 @@
                             <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                         </StackPanel>
                         <AppBarButton.Flyout>
-                            <Flyout Placement="BottomEdgeAlignedLeft">
+                            <Flyout w10v1809:Placement="BottomEdgeAlignedLeft">
                                 <Flyout.FlyoutPresenterStyle>
                                     <Style TargetType="FlyoutPresenter">
                                         <Setter Property="Padding" Value="0"/>
@@ -130,7 +128,7 @@
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>
-                    <AppBarButton LabelPosition="Collapsed" x:Name="Emoji" contract7NotPresent:Visibility="Collapsed" contract7Present:Visibility="{x:Bind QSetting.ShowEmoji, Mode=OneWay}" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
+                    <AppBarButton LabelPosition="Collapsed" x:Name="Emoji" w10v1809:Visibility="{x:Bind QSetting.ShowEmoji, Mode=OneWay}" Width="40" Icon="Emoji2" Click="Emoji_Clicked">
                         <ToolTipService.ToolTip>
                             <TextBlock Text="Insert Emojis (Win + .)" x:Uid="Emoji"/>
                         </ToolTipService.ToolTip>
@@ -216,7 +214,8 @@
                                         <FontIcon Glyph="&#xE2B1;"/>
                                     </ToggleMenuFlyoutItem.Icon>
                                 </ToggleMenuFlyoutItem>
-                                <ToggleMenuFlyoutItem Text="Show emoji" Icon="Emoji2" IsChecked="{x:Bind QSetting.ShowEmoji, Mode=TwoWay}"/>
+                                <ToggleMenuFlyoutItem Text="Show emoji" Icon="Emoji2" IsChecked="{x:Bind QSetting.ShowEmoji, Mode=TwoWay}"
+                                                      Visibility="{x:Bind QSetting.NewerThanApril2018Update}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_Bold" Text="Show bold" Icon="Bold" IsChecked="{x:Bind QSetting.ShowBold, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_Italic" Text="Show italic" Icon="Italic" IsChecked="{x:Bind QSetting.ShowItalic, Mode=TwoWay}"/>
                                 <ToggleMenuFlyoutItem x:Uid="Customize_Underline" Text="Show underline" Icon="Underline" IsChecked="{x:Bind QSetting.ShowUnderline, Mode=TwoWay}"/>
