@@ -162,7 +162,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Logo.png" />
+    <Content Include="Assets\Logo.png" />
     <Content Include="Assets\Files\md.png" />
     <Content Include="Assets\Files\rtf.png" />
     <Content Include="Assets\Files\txt.png" />

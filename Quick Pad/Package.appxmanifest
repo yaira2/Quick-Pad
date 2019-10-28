@@ -49,7 +49,7 @@
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="quickpad">
             <uap:DisplayName>Quick Pad</uap:DisplayName>
-            <uap:Logo>Logo.png</uap:Logo>
+            <uap:Logo>Assets\Logo.png</uap:Logo>
             <uap:InfoTip>Quick Pad</uap:InfoTip>
             <uap:SupportedFileTypes>
               <uap:FileType>.html</uap:FileType>
@@ -94,7 +94,7 @@
         </uap:Extension>
          <uap:Extension Category="windows.protocol">
             <uap:Protocol Name="quickpad">
-               <uap:Logo>Logo.png</uap:Logo>
+               <uap:Logo>Assets\Logo.png</uap:Logo>
                <uap:DisplayName>Quick Pad launch protocal URI</uap:DisplayName>
             </uap:Protocol>
          </uap:Extension>
