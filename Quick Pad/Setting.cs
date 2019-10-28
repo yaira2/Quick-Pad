@@ -290,13 +290,6 @@ namespace QuickPad
             get => Get<string>();
             set => Set(value);
         }
-
-        [DefaultValue(0)]
-        public int NewUser
-        {
-            get => Get<int>();
-            set => Set(value);
-        }
         #endregion
 
         #region Toolbar setting
@@ -465,20 +458,6 @@ namespace QuickPad
         #endregion
 
         #region Advanced/Others
-        [DefaultValue(0)]
-        public int TimesUsingFocusMode
-        { //Use to track focus mode, if less than 2 times it will show tip, else it won't
-            get => Get<int>();
-            set => Set(value);
-        }
-
-        [DefaultValue(0)]
-        public int TimesUsingDefaultMode
-        { //Use to track default mode, if less than 2 times it will show tip, else it won't
-            get => Get<int>();
-            set => Set(value);
-        }
-
         [DefaultValue(true)]
         public bool SendAnalyticsReport
         {
@@ -530,6 +509,30 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+        #endregion
+
+        #region Info & Acknowledgement 
+        [DefaultValue(0)]
+        public int NewUser
+        { //Use to track number of launch time. Asking for feedback on 2
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(0)]
+        public int TimesUsingFocusMode
+        { //Use to track focus mode, if less than 2 times it will show tip, else it won't
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(false)]
+        public bool AcknowledgeFontSelectionChange
+        { //Use to inform user about font selection has move into command bar 1
+            get => Get<bool>();
+            set => Set(value);
+        }
+
         #endregion
 
         #region Manage
