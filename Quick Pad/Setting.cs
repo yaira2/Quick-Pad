@@ -7,6 +7,7 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Resources;
+using Windows.Foundation.Metadata;
 using Windows.Storage;
 using Windows.UI;
 using Windows.UI.ViewManagement;
@@ -290,13 +291,6 @@ namespace QuickPad
             get => Get<string>();
             set => Set(value);
         }
-
-        [DefaultValue(0)]
-        public int NewUser
-        {
-            get => Get<int>();
-            set => Set(value);
-        }
         #endregion
 
         #region Toolbar setting
@@ -317,7 +311,15 @@ namespace QuickPad
         [DefaultValue(true)]
         public bool ShowEmoji
         {
-            get => Get<bool>();
+            get
+            {
+                if (!ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 7))
+                {
+                    return false;
+                }
+                return Get<bool>();
+            }
+
             set => Set(value);
         }
 
@@ -465,20 +467,6 @@ namespace QuickPad
         #endregion
 
         #region Advanced/Others
-        [DefaultValue(0)]
-        public int TimesUsingFocusMode
-        { //Use to track focus mode, if less than 2 times it will show tip, else it won't
-            get => Get<int>();
-            set => Set(value);
-        }
-
-        [DefaultValue(0)]
-        public int TimesUsingDefaultMode
-        { //Use to track default mode, if less than 2 times it will show tip, else it won't
-            get => Get<int>();
-            set => Set(value);
-        }
-
         [DefaultValue(true)]
         public bool SendAnalyticsReport
         {
@@ -530,6 +518,31 @@ namespace QuickPad
             get => Get<bool>();
             set => Set(value);
         }
+        #endregion
+
+        #region Info & Acknowledgement 
+        [DefaultValue(0)]
+        public int NewUser
+        { //Use to track number of launch time. Asking for feedback on 2
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(0)]
+        public int TimesUsingFocusMode
+        { //Use to track focus mode, if less than 2 times it will show tip, else it won't
+            get => Get<int>();
+            set => Set(value);
+        }
+
+        [DefaultValue(false)]
+        public bool AcknowledgeFontSelectionChange
+        { //Use to inform user about font selection has move into command bar 1
+            get => Get<bool>();
+            set => Set(value);
+        }
+
+        public bool NewerThanApril2018Update => ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 7);
         #endregion
 
         #region Manage

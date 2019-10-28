@@ -345,6 +345,8 @@ namespace QuickPad
                     SwitchClassicMode(true);
                     break;
             }
+            //Check and inform font picker change
+            CheckAndInformAboutCommandBar3();
         }
 
         private void LoadSettings()
@@ -1293,6 +1295,25 @@ namespace QuickPad
             QSetting.ShowSizeDown =
             true;
         }
+
+        private void OpenFontFlyout(object sender, object e)
+        {
+            trySelectFontName = "";
+            FontListSelection.Focus(FocusState.Programmatic);
+            FontListSelection.ScrollIntoView(FontListSelection.SelectedItem);
+        }
+
+        string trySelectFontName;
+        private void TryToFindFont(UIElement sender, CharacterReceivedRoutedEventArgs args)
+        {
+            trySelectFontName += args.Character;
+            var trySelect = AllFonts.FirstOrDefault(i => i.Name.ToLower().StartsWith(trySelectFontName.ToLower()));
+            if (trySelect is null)
+                return;
+
+            FontListSelection.ScrollIntoView(trySelect, ScrollIntoViewAlignment.Leading);
+            FontListSelection.SelectedItem = trySelect;
+        }
         #endregion
 
         #region UI Mode change
@@ -1311,6 +1332,7 @@ namespace QuickPad
             {
                 Set(ref _compact, value);
                 SwitchCompactOverlayMode(value);
+                CheckAndInformAboutCommandBar3();
             }
         }
 
@@ -1329,6 +1351,7 @@ namespace QuickPad
             {
                 Set(ref _focus, value);
                 SwitchFocusMode(value);
+                CheckAndInformAboutCommandBar3();
             }
         }
 
@@ -1347,6 +1370,7 @@ namespace QuickPad
             {
                 Set(ref _classic, value);
                 SwitchClassicMode(value);
+                CheckAndInformAboutCommandBar3();
             }
         }
 
@@ -1464,6 +1488,19 @@ namespace QuickPad
         public void SwitchingClassicAndDefault() => ClassicModeSwitch = !ClassicModeSwitch;
 
         public void SwitchingStatusBarDisplay() => QSetting.ShowStatusBar = !QSetting.ShowStatusBar;
+
+        public void CheckAndInformAboutCommandBar3()
+        {
+            if (!FocusModeSwitch && !CompactOverlaySwitch && !ClassicModeSwitch)//Check if app isn't in any of this mode
+            {
+                if (!QSetting.AcknowledgeFontSelectionChange)
+                {
+                    FontOptionTip.IsOpen = true;
+                }
+            }
+        }
+
+        public void AcknowledgeTheChangeOfFontSelection() => QSetting.AcknowledgeFontSelectionChange = true;
         #endregion
 
         #region Textbox function
