@@ -767,6 +767,9 @@ namespace QuickPad
             }
         }
 
+        public static string SwitchBetweenTwoIcon(bool input, string iconA, string iconB)
+            => input ? iconA : iconB;
+
         /// <summary>
         /// Use to check if input item is null or not
         /// </summary>
