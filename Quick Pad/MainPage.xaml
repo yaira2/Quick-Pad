@@ -100,18 +100,19 @@
                             <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                         </StackPanel>
                         <AppBarButton.Flyout>
-                            <Flyout w10v1809:Placement="BottomEdgeAlignedLeft">
+                            <Flyout w10v1809:Placement="BottomEdgeAlignedLeft" Opened="OpenFontFlyout">
                                 <Flyout.FlyoutPresenterStyle>
                                     <Style TargetType="FlyoutPresenter">
                                         <Setter Property="Padding" Value="0"/>
                                     </Style>
                                 </Flyout.FlyoutPresenterStyle>
                                 <ListView Width="250" Height="350"
-                                    x:Name="FontListSelection"
-                                    Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
-                                    ItemsSource="{x:Bind AllFonts, Mode=OneWay}"
-                                    ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
-                                    SelectedItem="{x:Bind q:Converter.SelectionFromString(CurrentFontName, AllFonts), Mode=TwoWay, BindBack=BindBackFontSelection}"/>
+                                          x:Name="FontListSelection"
+                                          Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+                                          ItemsSource="{x:Bind AllFonts, Mode=OneWay}"
+                                          ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
+                                          CharacterReceived="TryToFindFont"
+                                          SelectedItem="{x:Bind q:Converter.SelectionFromString(CurrentFontName, AllFonts), Mode=TwoWay, BindBack=BindBackFontSelection}"/>
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>

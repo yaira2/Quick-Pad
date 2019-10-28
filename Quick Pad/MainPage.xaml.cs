@@ -1295,6 +1295,25 @@ namespace QuickPad
             QSetting.ShowSizeDown =
             true;
         }
+
+        private void OpenFontFlyout(object sender, object e)
+        {
+            trySelectFontName = "";
+            FontListSelection.Focus(FocusState.Programmatic);
+            FontListSelection.ScrollIntoView(FontListSelection.SelectedItem);
+        }
+
+        string trySelectFontName;
+        private void TryToFindFont(UIElement sender, CharacterReceivedRoutedEventArgs args)
+        {
+            trySelectFontName += args.Character;
+            var trySelect = AllFonts.FirstOrDefault(i => i.Name.ToLower().StartsWith(trySelectFontName.ToLower()));
+            if (trySelect is null)
+                return;
+
+            FontListSelection.ScrollIntoView(trySelect, ScrollIntoViewAlignment.Leading);
+            FontListSelection.SelectedItem = trySelect;
+        }
         #endregion
 
         #region UI Mode change
