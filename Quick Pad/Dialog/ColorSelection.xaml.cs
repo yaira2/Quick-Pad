@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Windows.ApplicationModel.Resources;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
@@ -12,6 +13,9 @@ namespace QuickPad.Dialog
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 
         public Setting QSetting => App.QSetting;
+
+        public ResourceLoader textResource => ResourceLoader.GetForCurrentView();
+
 
         #region Property notification
         public event PropertyChangedEventHandler PropertyChanged;
@@ -40,14 +44,49 @@ namespace QuickPad.Dialog
         public FontColorItem FontColorSelection
         {
             get => _fci;
-            set => Set(ref _fci, value);
+            set
+            {
+                Set(ref _fci, value);
+                if (value.TechnicalName.StartsWith("#"))
+                    SelectedColorType = ColorSelectiomType.Custom;
+                else if (value.TechnicalName == "Default")
+                    SelectedColorType = ColorSelectiomType.Default;
+                else
+                    SelectedColorType = ColorSelectiomType.Standard;
+            }
         }
 
-        bool _custom;
-        public bool ShowCustomColor
+        ColorSelectiomType _cstype;
+        public ColorSelectiomType SelectedColorType
         {
-            get => _custom;
-            set => Set(ref _custom, value);
+            get => _cstype;
+            set
+            {
+                Set(ref _cstype, value);
+                NotifyPropertyChanged(nameof(IsDefaultTab));
+                NotifyPropertyChanged(nameof(IsStandardTab));
+                NotifyPropertyChanged(nameof(IsCustomTab));
+            }
         }
+
+        public bool IsDefaultTab => SelectedColorType == ColorSelectiomType.Default;
+        public bool IsStandardTab => SelectedColorType == ColorSelectiomType.Standard;
+        public bool IsCustomTab => SelectedColorType == ColorSelectiomType.Custom;
+
+        public void SetToDefaultColor() => FontColorSelection = new DefaultFontColorItem();
+
+        public void SetToStandardColor() =>
+            //Only switch to that tab
+            SelectedColorType = ColorSelectiomType.Standard;
+
+        public void SetToCustomColor() =>
+            SelectedColorType = ColorSelectiomType.Custom;
+    }
+
+    public enum ColorSelectiomType
+    {
+        Default,
+        Standard,
+        Custom
     }
 }

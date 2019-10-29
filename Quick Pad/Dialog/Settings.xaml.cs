@@ -473,16 +473,6 @@ namespace QuickPad.Dialog
         {
 
         }
-
-#if DEBUG
-        private void DEBUG_FORCE_OPEN(FlyoutBase sender, FlyoutBaseClosingEventArgs args)
-        {
-            if (removeOnRelease.AllowFocusOnInteraction)
-                args.Cancel = true;
-        }
-#else
-        void DEBUG_FORCE_OPEN(FlyoutBase sender, FlyoutBaseClosingEventArgs args) { }
-#endif
     }
 
     public enum settingPage

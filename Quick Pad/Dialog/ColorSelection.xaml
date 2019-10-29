@@ -12,33 +12,42 @@
     d:DesignHeight="400"
     d:DesignWidth="300">
 
-    <Grid Width="200">
+    <Grid Width="240" Margin="-5, 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ToggleButton HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Height="32">
-            <StackPanel Orientation="Horizontal" Padding="0, -12">
-                <Border Margin="5,0" CornerRadius="5" Width="20" Height="20">
-                    <Rectangle Fill="{ThemeResource ApplicationForegroundThemeBrush}"/>
-                </Border>
-                <TextBlock Text="Default" VerticalAlignment="Center"/>
-            </StackPanel>
-        </ToggleButton>
-        <Grid Grid.Row="1" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(ShowCustomColor), Mode=OneWay}">
+        <CommandBar Margin="0, -5, 0, 5" Height="38" OverflowButtonVisibility="Collapsed" DefaultLabelPosition="Collapsed" HorizontalAlignment="Left">
+            <AppBarToggleButton Click="{x:Bind SetToDefaultColor}" IsChecked="{x:Bind IsDefaultTab, Mode=OneWay}" Width="48">
+                <AppBarToggleButton.Icon>
+                    <FontIcon Glyph="&#xE8D3;" FontSize="14" />
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
+            <AppBarToggleButton Click="{x:Bind SetToStandardColor}" Width="48" IsChecked="{x:Bind IsStandardTab, Mode=OneWay}">
+                <AppBarToggleButton.Icon>
+                    <FontIcon Glyph="&#xE790;" FontSize="14" />
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
+            <AppBarToggleButton Click="{x:Bind SetToCustomColor}" Width="48" IsChecked="{x:Bind IsCustomTab, Mode=OneWay}">
+                <AppBarToggleButton.Icon>
+                    <FontIcon Glyph="&#xE771;" FontSize="14" />
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
+        </CommandBar>
+
+        <Grid Grid.Row="1" Canvas.ZIndex="100" VerticalAlignment="Top" Visibility="{x:Bind IsStandardTab, Mode=OneWay}">
             <Grid.Resources>
                 <Style TargetType="ToggleButton">
-                    <Setter Property="Width" Value="24"/>
-                    <Setter Property="Height" Value="24"/>
+                    <Setter Property="Width" Value="32"/>
+                    <Setter Property="Height" Value="32"/>
                 </Style>
                 <Style TargetType="Border">
                     <Setter Property="Margin" Value="0,2"/>
                     <Setter Property="BorderThickness" Value="1"/>
                     <Setter Property="BorderBrush" Value="{ThemeResource ApplicationForegroundThemeBrush}"/>
                     <Setter Property="CornerRadius" Value="5"/>
-                    <Setter Property="Width" Value="24"/>
-                    <Setter Property="Height" Value="24"/>
+                    <Setter Property="Width" Value="32"/>
+                    <Setter Property="Height" Value="32"/>
                 </Style>
             </Grid.Resources>
             <Grid.ColumnDefinitions>
@@ -50,7 +59,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" Orientation="Vertical">
-                <Border Margin="0,5">
+                <Border Margin="0,5,0,8">
                     <ToggleButton Background="Black"/>
                 </Border>
                 <Border>
@@ -70,7 +79,7 @@
                 </Border>
             </StackPanel>
             <StackPanel Grid.Column="1" Orientation="Vertical">
-                <Border Margin="0,5">
+                <Border Margin="0,5,0,8">
                     <ToggleButton Background="Blue"/>
                 </Border>
                 <Border>
@@ -90,7 +99,7 @@
                 </Border>
             </StackPanel>
             <StackPanel Grid.Column="2" Orientation="Vertical">
-                <Border Margin="0,5">
+                <Border Margin="0,5,0,8">
                     <ToggleButton Background="Green"/>
                 </Border>
                 <Border>
@@ -110,7 +119,7 @@
                 </Border>
             </StackPanel>
             <StackPanel Grid.Column="3" Orientation="Vertical">
-                <Border Margin="0,5">
+                <Border Margin="0,5,0,8">
                     <ToggleButton Background="Pink"/>
                 </Border>
                 <Border>
@@ -130,7 +139,7 @@
                 </Border>
             </StackPanel>
             <StackPanel Grid.Column="4" Orientation="Vertical">
-                <Border Margin="0,5">
+                <Border Margin="0,5,0,8">
                     <ToggleButton Background="Yellow"/>
                 </Border>
                 <Border>
@@ -150,7 +159,7 @@
                 </Border>
             </StackPanel>
             <StackPanel Grid.Column="5" Orientation="Vertical">
-                <Border Margin="0,5">
+                <Border Margin="0,5,0,8">
                     <ToggleButton Background="Orange"/>
                 </Border>
                 <Border>
@@ -170,18 +179,12 @@
                 </Border>
             </StackPanel>
         </Grid>
-        <Viewbox StretchDirection="Both" Stretch="Fill" Margin="0, 5" Grid.Row="1" MaxHeight="200" MaxWidth="200" Visibility="{x:Bind ShowCustomColor, Mode=OneWay}">
+
+        <Viewbox VerticalAlignment="Top" Grid.Row="1" StretchDirection="Both" Stretch="Fill" Margin="0, 5" MaxHeight="260" MaxWidth="240" Visibility="{x:Bind IsCustomTab, Mode=OneWay}">
             <winui:ColorPicker IsAlphaEnabled="False"
                                IsColorChannelTextInputVisible="False"
                                IsColorSliderVisible="False"
-                               IsColorPreviewVisible="False"/>
+                               Color="Red"/>
         </Viewbox>
-        <ToggleButton Margin="0, 5" Grid.Row="2" IsChecked="{x:Bind ShowCustomColor, Mode=TwoWay}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Left" Height="32">
-            <StackPanel Orientation="Horizontal" Padding="0, -12">
-                <FontIcon Margin="5,0" Glyph="{x:Bind q:Converter.SwitchBetweenTwoIcon(ShowCustomColor, '&#xE010;', '&#xE011;'), Mode=OneWay}" FontSize="14" />
-                <TextBlock Text="Custom" VerticalAlignment="Center" Visibility="{x:Bind q:Converter.BoolToVisibilityInvert(ShowCustomColor), Mode=OneWay}"/>
-                <TextBlock Text="Standard" VerticalAlignment="Center" Visibility="{x:Bind ShowCustomColor, Mode=OneWay}"/>
-            </StackPanel>
-        </ToggleButton>
     </Grid>
 </UserControl>
