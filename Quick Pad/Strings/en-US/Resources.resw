@@ -613,7 +613,7 @@
     <value>App Language</value>
   </data>
   <data name="CmdOnTopTooltip" xml:space="preserve">
-    <value>On Top (Ctrl+Shift+O)</value>
+    <value>On Top (Alt + Up)</value>
   </data>
   <data name="CmdFind.Label" xml:space="preserve">
     <value>Find</value>

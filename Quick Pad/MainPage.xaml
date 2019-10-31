@@ -303,10 +303,10 @@
                             <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                         </AppBarButton.Icon>
                         <AppBarButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                            <KeyboardAccelerator Modifiers="Menu" Key="Up"/>
                         </AppBarButton.KeyboardAccelerators>
                         <ToolTipService.ToolTip>
-                            <TextBlock Text="On Top (Ctrl+Shift+O)" x:Uid="CmdOnTopTooltip"/>
+                            <TextBlock Text="On Top (Alt + Up)" x:Uid="CmdOnTopTooltip"/>
                         </ToolTipService.ToolTip>
                     </AppBarButton>
                 </CommandBar>
@@ -492,7 +492,7 @@
                                 <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                             </MenuFlyoutItem.Icon>
                             <MenuFlyoutItem.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                            <KeyboardAccelerator Modifiers="Menu" Key="Up"/>
                             </MenuFlyoutItem.KeyboardAccelerators>
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
@@ -653,7 +653,7 @@
                         <Button x:Name="CloseCompactOverlay" w10v1809:CornerRadius="0" Background="Transparent" Click="{x:Bind SwitchingOverlayMode}" Visibility="{x:Bind CompactOverlaySwitch, Mode=OneWay}">
                             <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                             <Button.KeyboardAccelerators>
-                                <KeyboardAccelerator Modifiers="Control, Shift" Key="O"/>
+                                <KeyboardAccelerator Modifiers="Menu" Key="Down"/>
                             </Button.KeyboardAccelerators>
                             <ToolTipService.ToolTip>
                                 <TextBlock Text="Close compact overlay" x:Uid="CloseCompactOverlay"/>

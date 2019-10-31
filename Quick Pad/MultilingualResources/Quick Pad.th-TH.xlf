@@ -671,8 +671,9 @@
           <target state="translated">ภาษา</target>
         </trans-unit>
         <trans-unit id="CmdOnTopTooltip" translate="yes" xml:space="preserve">
-          <source>On Top (Ctrl+Shift+O)</source>
-          <target state="translated">ทับแอปอื่น (Ctrl+Shift+O)</target>
+          <source>On Top (Alt + Up)</source>
+          <target state="needs-review-translation">ทับแอปอื่น (Ctrl+Shift+O)</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CmdFind.Label" translate="yes" xml:space="preserve">
           <source>Find</source>
