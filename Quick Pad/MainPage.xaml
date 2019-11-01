@@ -121,13 +121,9 @@
                             <FontIcon Glyph="&#xE790;"/>
                         </AppBarButton.Icon>
                         <AppBarButton.Flyout>
-                            <Flyout>
+                            <Flyout AllowFocusOnInteraction="True">
                                 <dialog:ColorSelection AllowDefault="False"
                                                        ColorSelectionChanged="ColorSelection_ColorSelectionChanged"/>
-                                <!--<winui:ColorPicker Color="{x:Bind CurrentFontColor, Mode=TwoWay}"
-                                                   IsAlphaEnabled="False"
-                                                   IsColorChannelTextInputVisible="False"
-                                                   IsColorSliderVisible="False"/>-->
                             </Flyout>
                         </AppBarButton.Flyout>
                     </AppBarButton>

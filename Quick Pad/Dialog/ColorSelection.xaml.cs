@@ -185,9 +185,9 @@ namespace QuickPad.Dialog
             get
             {
                 if (FontColorSelection.StartsWith("#"))
-                    return "Custom";
+                    return textResource.GetString("CustomColor");
                 else if (FontColorSelection == "Default")
-                    return "Default";
+                    return ResourceLoader.GetForCurrentView().GetString("LaunchModeDefault/Content");
                 else
                     return FontColorItems.First(i => i.TechnicalName == FontColorSelection).DisplayName;
             }            
@@ -283,7 +283,7 @@ namespace QuickPad.Dialog
 
         public FontColorInfo(string hex)
         {
-            DisplayName = "Custom";//TODO:Return a text resource 
+            DisplayName = ResourceLoader.GetForCurrentView().GetString("CustomColor");
             TechnicalName = hex;            
         }
 

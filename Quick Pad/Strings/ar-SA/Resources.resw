@@ -336,30 +336,6 @@
   <data name="SystemDefault.Content" xml:space="preserve">
     <value>الافتراض للنظام</value>
   </data>
-  <data name="TextColorBlack.Text" xml:space="preserve">
-    <value>أسود</value>
-  </data>
-  <data name="TextColorBlue.Text" xml:space="preserve">
-    <value>أزرق</value>
-  </data>
-  <data name="TextColorGreen.Text" xml:space="preserve">
-    <value>أخضر</value>
-  </data>
-  <data name="TextColorOrange.Text" xml:space="preserve">
-    <value>برتقالي</value>
-  </data>
-  <data name="TextColorPink.Text" xml:space="preserve">
-    <value>زهري</value>
-  </data>
-  <data name="TextColorTooltip.Text" xml:space="preserve">
-    <value>لون الخط</value>
-  </data>
-  <data name="TextColorWhite.Text" xml:space="preserve">
-    <value>أبيض</value>
-  </data>
-  <data name="TextColorYellow.Text" xml:space="preserve">
-    <value>أصفر</value>
-  </data>
   <data name="Underline.Label" xml:space="preserve">
     <value>تسطير</value>
   </data>

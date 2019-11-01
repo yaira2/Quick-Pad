@@ -434,38 +434,6 @@
           <source>System Default</source>
           <target state="translated">Sistema predefinito</target>
         </trans-unit>
-        <trans-unit id="TextColorBlack.Text" translate="yes" xml:space="preserve">
-          <source>Black</source>
-          <target state="translated">Nero</target>
-        </trans-unit>
-        <trans-unit id="TextColorBlue.Text" translate="yes" xml:space="preserve">
-          <source>Blue</source>
-          <target state="translated">Blu</target>
-        </trans-unit>
-        <trans-unit id="TextColorGreen.Text" translate="yes" xml:space="preserve">
-          <source>Green</source>
-          <target state="translated">Verde</target>
-        </trans-unit>
-        <trans-unit id="TextColorOrange.Text" translate="yes" xml:space="preserve">
-          <source>Orange</source>
-          <target state="translated">Arancione</target>
-        </trans-unit>
-        <trans-unit id="TextColorPink.Text" translate="yes" xml:space="preserve">
-          <source>Pink</source>
-          <target state="translated">Rosa</target>
-        </trans-unit>
-        <trans-unit id="TextColorTooltip.Text" translate="yes" xml:space="preserve">
-          <source>Font Color</source>
-          <target state="translated">Colore dei caratteri</target>
-        </trans-unit>
-        <trans-unit id="TextColorWhite.Text" translate="yes" xml:space="preserve">
-          <source>White</source>
-          <target state="translated">Bianco</target>
-        </trans-unit>
-        <trans-unit id="TextColorYellow.Text" translate="yes" xml:space="preserve">
-          <source>Yellow</source>
-          <target state="translated">Giallo</target>
-        </trans-unit>
         <trans-unit id="Underline.Label" translate="yes" xml:space="preserve">
           <source>Underline</source>
           <target state="translated">Sottolineare</target>
@@ -1030,6 +998,14 @@
         <trans-unit id="FontOptionTip.Subtitle" translate="yes" xml:space="preserve">
           <source>All your options are still here, we just moved them so that you could benefit from having the status bar in default mode as well.</source>
           <target state="new">All your options are still here, we just moved them so that you could benefit from having the status bar in default mode as well.</target>
+        </trans-unit>
+        <trans-unit id="CustomColor" translate="yes" xml:space="preserve">
+          <source>Custom</source>
+          <target state="new">Custom</target>
+        </trans-unit>
+        <trans-unit id="FontColorGray" translate="yes" xml:space="preserve">
+          <source>Gray</source>
+          <target state="new">Gray</target>
         </trans-unit>
       </group>
     </body>

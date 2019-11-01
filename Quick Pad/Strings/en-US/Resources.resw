@@ -438,30 +438,6 @@
   <data name="SystemDefault.Content" xml:space="preserve">
     <value>System Default</value>
   </data>
-  <data name="TextColorBlack.Text" xml:space="preserve">
-    <value>Black</value>
-  </data>
-  <data name="TextColorBlue.Text" xml:space="preserve">
-    <value>Blue</value>
-  </data>
-  <data name="TextColorGreen.Text" xml:space="preserve">
-    <value>Green</value>
-  </data>
-  <data name="TextColorOrange.Text" xml:space="preserve">
-    <value>Orange</value>
-  </data>
-  <data name="TextColorPink.Text" xml:space="preserve">
-    <value>Pink</value>
-  </data>
-  <data name="TextColorTooltip.Text" xml:space="preserve">
-    <value>Font Color</value>
-  </data>
-  <data name="TextColorWhite.Text" xml:space="preserve">
-    <value>White</value>
-  </data>
-  <data name="TextColorYellow.Text" xml:space="preserve">
-    <value>Yellow</value>
-  </data>
   <data name="Underline.Label" xml:space="preserve">
     <value>Underline</value>
   </data>
@@ -881,5 +857,11 @@
   </data>
   <data name="FontOptionTip.Title" xml:space="preserve">
     <value>Some options have moved</value>
+  </data>
+  <data name="CustomColor" xml:space="preserve">
+    <value>Custom</value>
+  </data>
+  <data name="FontColorGray" xml:space="preserve">
+    <value>Gray</value>
   </data>
 </root>

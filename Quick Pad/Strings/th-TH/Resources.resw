@@ -231,27 +231,6 @@
   <data name="LaunchModeOnTop.Content" xml:space="preserve">
     <value>ทับแอปอื่น</value>
   </data>
-  <data name="TextColorBlack.Text" xml:space="preserve">
-    <value>ดำ</value>
-  </data>
-  <data name="TextColorBlue.Text" xml:space="preserve">
-    <value>ฟ้า</value>
-  </data>
-  <data name="TextColorGreen.Text" xml:space="preserve">
-    <value>เขียว</value>
-  </data>
-  <data name="TextColorOrange.Text" xml:space="preserve">
-    <value>ส้ม</value>
-  </data>
-  <data name="TextColorPink.Text" xml:space="preserve">
-    <value>ชมพู</value>
-  </data>
-  <data name="TextColorWhite.Text" xml:space="preserve">
-    <value>ขาว</value>
-  </data>
-  <data name="TextColorYellow.Text" xml:space="preserve">
-    <value>เหลือง</value>
-  </data>
   <data name="DefaultFontColorCombobox.PlaceholderText" xml:space="preserve">
     <value>ดำ</value>
   </data>
@@ -317,9 +296,6 @@
   </data>
   <data name="StrikethroughTooltip.Text" xml:space="preserve">
     <value>ขีดทับ</value>
-  </data>
-  <data name="TextColorTooltip.Text" xml:space="preserve">
-    <value>สีตัวอักษร</value>
   </data>
   <data name="UnderlineTooltip.Text" xml:space="preserve">
     <value>ขีดเส้นใต้ (Ctrl+U)</value>

@@ -333,30 +333,6 @@
   <data name="SystemDefault.Content" xml:space="preserve">
     <value>Sistema predefinito</value>
   </data>
-  <data name="TextColorBlack.Text" xml:space="preserve">
-    <value>Nero</value>
-  </data>
-  <data name="TextColorBlue.Text" xml:space="preserve">
-    <value>Blu</value>
-  </data>
-  <data name="TextColorGreen.Text" xml:space="preserve">
-    <value>Verde</value>
-  </data>
-  <data name="TextColorOrange.Text" xml:space="preserve">
-    <value>Arancione</value>
-  </data>
-  <data name="TextColorPink.Text" xml:space="preserve">
-    <value>Rosa</value>
-  </data>
-  <data name="TextColorTooltip.Text" xml:space="preserve">
-    <value>Colore dei caratteri</value>
-  </data>
-  <data name="TextColorWhite.Text" xml:space="preserve">
-    <value>Bianco</value>
-  </data>
-  <data name="TextColorYellow.Text" xml:space="preserve">
-    <value>Giallo</value>
-  </data>
   <data name="Underline.Label" xml:space="preserve">
     <value>Sottolineare</value>
   </data>
