@@ -715,47 +715,6 @@ namespace QuickPad
             return new SolidColorBrush(input);
         }
 
-        public static bool IfStringMatch(string input, string compare)
-        {
-            return Equals(input, compare);
-        }
-
-        public static Visibility IfStringMatchShow(string input, string compare)
-        {
-            if (IfStringMatch(input, compare))
-            {
-                return Visibility.Visible;
-            }
-            else
-            {
-                return Visibility.Collapsed;
-            }
-        }
-
-        public static Visibility IfStringMatchHide(string input, string compare)
-        {
-            if (IfStringMatch(input, compare))
-            {
-                return Visibility.Collapsed;
-            }
-            else
-            {
-                return Visibility.Visible;
-            }
-        }
-
-        public static Visibility IfAnyStringMatchHide(string input, params string[] compare)
-        {
-            if (compare is null)
-                return Visibility.Visible;
-            foreach (string str in compare)
-            {
-                if (IfStringMatch(input, str))
-                    return Visibility.Visible;
-            }
-            return Visibility.Collapsed;
-        }
-
         public static string SwitchBetweenOverlayIcon(bool input)
         {
             if (input)
@@ -767,9 +726,6 @@ namespace QuickPad
                 return "\uEE49";
             }
         }
-
-        public static string SwitchBetweenTwoIcon(bool input, string iconA, string iconB)
-            => input ? iconA : iconB;
 
         /// <summary>
         /// Use to check if input item is null or not
@@ -842,11 +798,6 @@ namespace QuickPad
             return CompareNumber(number, compareType, target) ? Visibility.Visible : Visibility.Collapsed;
         }
 
-        public static CornerRadius IntToCorner(int corner)
-        {
-            return new CornerRadius(corner);
-        }
-
         public static Brush SelectionBetweenBrush(bool determiner, Brush a, Brush b) => determiner ? a : b;
 
         public static FontFamilyItem SelectionFromString(string name, IList<FontFamilyItem> fonts)
@@ -876,13 +827,6 @@ namespace QuickPad
         public static string GetHexFromColor(Color color)
         {
             return $"#{color.A:X2}{color.R:X2}{color.G:X2}{color.B:X2}";
-        }
-
-        public static string GetRandomHexDecimalOfColor()
-        {
-            byte[] color = new byte[3];
-            new Random().NextBytes(color);
-            return $"#{byte.MaxValue:X2}{color[0]:X2}{color[1]:X2}{color[2]:X2}";
         }
     }
 

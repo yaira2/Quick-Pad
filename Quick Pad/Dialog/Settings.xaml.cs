@@ -249,36 +249,6 @@ namespace QuickPad.Dialog
         }
         #endregion
 
-        #region Font color
-        Color? _cc;
-        public Color CustomColor
-        {
-            get
-            {
-                if (_cc is null)
-                {
-                    _cc = Converter.GetColorFromHex(App.QSetting.DefaultFontColor.StartsWith("#") ?
-                        App.QSetting.DefaultFontColor :
-                        Converter.GetRandomHexDecimalOfColor());
-                }
-                return _cc.Value;
-            }
-            set
-            {
-                if (!Equals(_cc, value))
-                {
-                    Set(ref _cc, value);
-                    QSetting.DefaultFontColor = Converter.GetHexFromColor(value);
-                    NotifyPropertyChanged(nameof(CustomColorBrush));
-                }
-            }
-        }
-
-        public Brush CustomColorBrush => new SolidColorBrush(CustomColor);
-
-        #endregion
-
-
         public string VersionNumberText => string.Format(textResource.GetString("VersionFormat"), Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
         private async void CmdReview_Click(object sender, RoutedEventArgs e)
@@ -403,11 +373,6 @@ namespace QuickPad.Dialog
             }
             //Reset force startup
             forceStartupToPage = settingPage.General;
-        }
-
-        private void GiveChanceToSaveTip_FocusEngaged(Control sender, FocusEngagedEventArgs args)
-        {
-
         }
     }
 
