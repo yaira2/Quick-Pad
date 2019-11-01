@@ -71,7 +71,7 @@
                                Color="{x:Bind SettingToColor(FontColorSelection), Mode=TwoWay, BindBack=BindBackCustomFontColor}"/>
         </Viewbox>
 
-        <TextBlock Grid.Row="1" TextWrapping="Wrap" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Default'), Mode=OneWay}">
+        <TextBlock x:Uid="DefaultColorSelected" Grid.Row="1" TextWrapping="Wrap" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Default'), Mode=OneWay}">
             <Run Text="Default font color selected"/>
             <LineBreak/><Run Text="Font color will change based on app theme"/>
             <LineBreak/><Run Text="White for Dark, Black for Light."/>

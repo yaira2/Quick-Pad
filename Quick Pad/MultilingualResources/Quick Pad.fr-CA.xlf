@@ -1002,6 +1002,14 @@
           <source>Gray</source>
           <target state="new">Gray</target>
         </trans-unit>
+        <trans-unit id="DefaultColorSelected.Text" translate="yes" xml:space="preserve">
+          <source>Default font color selected.
+Font color will change based on app theme,
+Black for Light, White for Dark</source>
+          <target state="new">Default font color selected.
+Font color will change based on app theme,
+Black for Light, White for Dark</target>
+        </trans-unit>
       </group>
     </body>
   </file>

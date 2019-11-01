@@ -154,7 +154,7 @@ namespace QuickPad.Dialog
                 {
                     if (App.QSetting.DefaultFontColor.StartsWith("#"))
                         _ctype = ColorSelectionType.Custom;
-                    else if (App.QSetting.DefaultFontColor == "Default")
+                    else if (App.QSetting.DefaultFontColor == "Default" && AllowDefault)
                         _ctype = ColorSelectionType.Default;
                     else
                         _ctype = ColorSelectionType.Standard;
@@ -294,7 +294,7 @@ namespace QuickPad.Dialog
         }
 
         public Color FinalColor => GetColorFromStoredSetting(TechnicalName);
-
+        
         public static Color GetColorFromStoredSetting(string setting)
         {
             if (string.IsNullOrEmpty(setting))
