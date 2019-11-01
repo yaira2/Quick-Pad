@@ -1,4 +1,5 @@
 ﻿using Microsoft.AppCenter.Analytics;
+using QuickPad.Dialog;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -857,6 +858,13 @@ namespace QuickPad
 
         public static Color GetColorFromHex(string hex)
         {
+            if (!hex.StartsWith("#"))
+            {
+                if (hex == "Default")
+                    return new UISettings().GetColorValue(UIColorType.Background);
+                else
+                    return (Color)XamlBindingHelper.ConvertValue(typeof(Color), hex);
+            }
             hex = hex.Replace("#", string.Empty);
             byte a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
             byte r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));

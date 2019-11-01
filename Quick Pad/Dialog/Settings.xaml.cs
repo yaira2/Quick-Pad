@@ -91,19 +91,6 @@ namespace QuickPad.Dialog
             {
                 DefaultLanguages.Add(new DefaultLanguage(lang));
             }
-
-            FontColorCollections = new ObservableCollection<FontColorItem>
-            {
-                new DefaultFontColorItem(),
-                new CustomFontColorItem(),
-                new NamedFontColorItem("Black", "Black"),
-                new NamedFontColorItem("White", "White"),
-                new NamedFontColorItem("Blue", "SkyBlue"),
-                new NamedFontColorItem("Green", "LightGreen"),
-                new NamedFontColorItem("Pink", "LightPink"),
-                new NamedFontColorItem("Yellow", "LightYellow"),
-                new NamedFontColorItem("Orange", "LightSalmon")
-            };
         }
 
         #region Page navigation
@@ -263,58 +250,6 @@ namespace QuickPad.Dialog
         #endregion
 
         #region Font color
-
-        //Colors
-        ObservableCollection<FontColorItem> _fci;
-        public ObservableCollection<FontColorItem> FontColorCollections
-        {
-            get => _fci;
-            set => Set(ref _fci, value);
-        }
-
-        public int _fc_selection = -1;
-        public int SelectedDefaultFontColor
-        {
-            get
-            {
-                while (FontColorCollections is null || FontColorCollections.Count < 1)
-                {
-                    NotifyPropertyChanged(nameof(SelectedDefaultFontColor));//Force update until it back
-                    return -1;
-                }
-                if (FontColorCollections.Count > 1)
-                {
-                    if (QSetting.DefaultFontColor.StartsWith("#"))
-                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i is CustomFontColorItem));
-                    else if (QSetting.DefaultFontColor == "Default")
-                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i is DefaultFontColorItem));
-                    else
-                        _fc_selection = FontColorCollections.IndexOf(FontColorCollections.First(i => i is NamedFontColorItem && i.TechnicalName == QSetting.DefaultFontColor));
-                }
-                return _fc_selection;
-            }
-
-            set
-            {
-                if (!Equals(_fc_selection, value))
-                {
-                    Set(ref _fc_selection, value);
-                    if (value < 0)
-                        return;
-                    //Update setting                    
-                    if (FontColorCollections[value].TechnicalName == "Custom")
-                    {
-                        QSetting.DefaultFontColor = Converter.GetHexFromColor(CustomColor);
-                    }
-                    else
-                    {
-                        QSetting.DefaultFontColor = FontColorCollections[value].TechnicalName;
-                    }
-                    NotifyPropertyChanged(nameof(SelectedDefaultFontColor));
-                }
-            }
-        }
-
         Color? _cc;
         public Color CustomColor
         {
@@ -340,6 +275,7 @@ namespace QuickPad.Dialog
         }
 
         public Brush CustomColorBrush => new SolidColorBrush(CustomColor);
+
         #endregion
 
 
@@ -489,146 +425,5 @@ namespace QuickPad.Dialog
     {
         public string Name { get; set; }
         public string Content { get; set; }
-    }
-
-    public class FontColorItem : INotifyPropertyChanged
-    {
-        #region Notification overhead
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// Set property and also alert the UI if the value is changed
-        /// </summary>
-        /// <param name="value">New value</param>
-        public void Set<T>(ref T storage, T value, [CallerMemberName]string propertyName = null)
-        {
-            if (!Equals(storage, value))
-            {
-                storage = value;
-                NotifyPropertyChanged(propertyName);
-            }
-        }
-
-        /// <summary>
-        /// Alert the UI there is a change in this property and need update
-        /// </summary>
-        /// <param name="name"></param>
-        public void NotifyPropertyChanged(string name)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-        }
-        #endregion
-
-        string _name;
-        public string ColorName
-        {
-            get => _name;
-            set => Set(ref _name, value);
-        }
-
-        string _tname;
-        public string TechnicalName
-        {
-            get => _tname;
-            set => Set(ref _tname, value);
-        }
-
-        internal FontColorItem(otherColor o)
-        {
-            if (o == otherColor.Default)
-            {
-                ColorName = ResourceLoader.GetForCurrentView().GetString("LaunchModeDefault/Content");
-                TechnicalName = "Default";
-            }
-            else if (o == otherColor.Custom)
-            {
-                ColorName = "Custom";/*TODO:Get "custom" from text resource*/
-                TechnicalName = "Custom";
-            }
-        }
-
-        public FontColorItem(string name, string technical)
-        {
-            ColorName = ResourceLoader.GetForCurrentView().GetString($"FontColor{name}");
-            TechnicalName = technical;
-        }
-
-        internal enum otherColor
-        {
-            Default,
-            Custom
-        }
-    }
-
-    public class NamedFontColorItem : FontColorItem
-    {
-        Color _ac;
-        public Color ActualColor
-        {
-            get => _ac;
-            set => Set(ref _ac, value);
-        }
-
-        public NamedFontColorItem(string name, string technical) : base(name, technical)
-        {
-            ActualColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), technical);
-        }
-    }
-
-    public class DefaultFontColorItem : FontColorItem
-    {
-        public DefaultFontColorItem() : base(otherColor.Default) { }
-    }
-
-    public class CustomFontColorItem : FontColorItem
-    {
-        public Color HexColor
-        {
-            get
-            {
-                if (App.QSetting.DefaultFontColor.StartsWith("#"))
-                    return Converter.GetColorFromHex(App.QSetting.DefaultFontColor);
-                else
-                    return Converter.GetColorFromHex(Converter.GetRandomHexDecimalOfColor());
-            }
-            set
-            {
-                if (App.QSetting.DefaultFontColor.StartsWith("#"))
-                    App.QSetting.DefaultFontColor = Converter.GetHexFromColor(value);
-            }
-        }
-
-        public CustomFontColorItem() : base(otherColor.Custom)
-        {
-            App.QSetting.afterFontColorChanged += FollowFontColorSetting;
-        }
-
-        private void FollowFontColorSetting(Color to)
-        {
-            NotifyPropertyChanged(nameof(HexColor));
-        }
-    }
-
-    public class FontItemTemplator : DataTemplateSelector
-    {
-        public DataTemplate FontColorItem { get; set; }
-        public DataTemplate Default { get; set; }
-        public DataTemplate Custom { get; set; }
-        
-        protected override DataTemplate SelectTemplateCore(object item)
-        {
-            switch (item)
-            {
-                case DefaultFontColorItem _:
-                    return Default;
-                case CustomFontColorItem _:
-                    return Custom;
-                case NamedFontColorItem _:
-                default:
-                    return FontColorItem;
-            }
-        }
-
-        protected override DataTemplate SelectTemplateCore(object item, DependencyObject container) => SelectTemplateCore(item);
     }
 }
