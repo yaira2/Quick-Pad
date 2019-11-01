@@ -10,44 +10,6 @@
     xmlns:q="using:QuickPad"
     Loaded="PageNavigationOverride"
     mc:Ignorable="d">
-    <UserControl.Resources>
-        <DataTemplate x:Key="defaultfcolor" x:DataType="local:DefaultFontColorItem">
-            <StackPanel Orientation="Horizontal">
-                <Border Width="14" Height="14" CornerRadius="2">
-                    <Rectangle Fill="{ThemeResource ApplicationForegroundThemeBrush}"/>
-                </Border>
-                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
-            </StackPanel>
-        </DataTemplate>
-        <DataTemplate x:Key="customcolor" x:DataType="local:CustomFontColorItem">
-            <StackPanel Orientation="Horizontal">
-                <Button Width="14" Height="14" Background="{x:Bind q:Converter.FromColorToBrush(HexColor), Mode=OneWay}">
-                    <Button.Flyout>
-                        <Flyout>
-                            <winui:ColorPicker IsAlphaEnabled="False"
-                                               Color="{x:Bind HexColor, Mode=TwoWay}"
-                                               IsColorChannelTextInputVisible="False"
-                                               IsColorSliderVisible="False"/>
-                        </Flyout>
-                    </Button.Flyout>
-                </Button>
-                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
-            </StackPanel>
-        </DataTemplate>
-        <DataTemplate x:Key="itemfontcolor" x:DataType="local:NamedFontColorItem">
-            <StackPanel Orientation="Horizontal">
-                <Border Width="14" Height="14" CornerRadius="2">
-                    <Rectangle Fill="{x:Bind q:Converter.FromColorToBrush(ActualColor)}"/>
-                </Border>
-                <TextBlock Text="{x:Bind ColorName}" Margin="5,0"/>
-            </StackPanel>
-        </DataTemplate>
-        <local:FontItemTemplator Default="{StaticResource defaultfcolor}"
-                                 Custom="{StaticResource customcolor}"
-                                 FontColorItem="{StaticResource itemfontcolor}"
-                                 x:Key="fontColorTemplates"/>
-    </UserControl.Resources>
-
     <Grid Margin="0,33,0,0">
         <winui:NavigationView IsPaneOpen="False"
                               x:Name="settingNavView"
@@ -179,7 +141,25 @@
                         <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
                         <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
                         <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
-                        <ComboBox x:Name="DefaultFontColor" x:Uid="DefaultFontColorCombobox" ItemsSource="{x:Bind FontColorCollections}" SelectedIndex="{x:Bind SelectedDefaultFontColor, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" PlaceholderText="Black" Width="139" BorderThickness="1" ItemTemplateSelector="{StaticResource fontColorTemplates}"/>
+                        <Button Background="Transparent" BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}" BorderThickness=".5" Width="139" Height="32" HorizontalContentAlignment="Stretch">
+                            <Grid HorizontalAlignment="Stretch" Padding="-6, -12">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Border Margin="5,0" CornerRadius="4" Width="18" Height="18">
+                                    <Rectangle Fill="{x:Bind FontColorSelector.FinalSelectionPreview, Mode=OneWay}"/>
+                                </Border>
+                                <TextBlock Text="{x:Bind FontColorSelector.FinalSelectionDisplay, Mode=OneWay}" VerticalAlignment="Center" Grid.Column="1"/>
+                                <FontIcon HorizontalAlignment="Right" FontSize="12" Glyph="&#xE011;" Grid.Column="2" Margin="6"/>
+                            </Grid>
+                            <Button.Flyout>
+                                <Flyout AllowFocusOnInteraction="True" w10v1809:Placement="BottomEdgeAlignedLeft">
+                                    <local:ColorSelection x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
 
                         <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
                         <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="12" MinWidth="69" BorderThickness="1">

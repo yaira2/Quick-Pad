@@ -336,30 +336,6 @@
   <data name="SystemDefault.Content" xml:space="preserve">
     <value>Configuración del Sistema</value>
   </data>
-  <data name="TextColorBlack.Text" xml:space="preserve">
-    <value>Negro</value>
-  </data>
-  <data name="TextColorBlue.Text" xml:space="preserve">
-    <value>Azul</value>
-  </data>
-  <data name="TextColorGreen.Text" xml:space="preserve">
-    <value>Verde</value>
-  </data>
-  <data name="TextColorOrange.Text" xml:space="preserve">
-    <value>Naranja</value>
-  </data>
-  <data name="TextColorPink.Text" xml:space="preserve">
-    <value>Rosado</value>
-  </data>
-  <data name="TextColorTooltip.Text" xml:space="preserve">
-    <value>Color de Fuente</value>
-  </data>
-  <data name="TextColorWhite.Text" xml:space="preserve">
-    <value>Blanco</value>
-  </data>
-  <data name="TextColorYellow.Text" xml:space="preserve">
-    <value>Amarillo</value>
-  </data>
   <data name="Underline.Label" xml:space="preserve">
     <value>Subrayar</value>
   </data>

@@ -1,0 +1,80 @@
+﻿<UserControl
+    x:Class="QuickPad.Dialog.ColorSelection"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QuickPad.Dialog"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    xmlns:q="using:QuickPad"
+    mc:Ignorable="d"
+    d:DesignHeight="400"
+    d:DesignWidth="300">
+
+    <Grid Width="240" Margin="-5, 0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <CommandBar Margin="0, -5, 0, 5" Height="38" OverflowButtonVisibility="Collapsed" DefaultLabelPosition="Collapsed" HorizontalAlignment="Left">
+            <AppBarToggleButton Click="{x:Bind SetToDefaultColor}" IsChecked="{x:Bind CompareAndReturn(CurrentColorTab, 'Default'), Mode=OneWay}" Width="48" Visibility="{x:Bind AllowDefault}">
+                <AppBarToggleButton.Icon>
+                    <FontIcon Glyph="&#xE8D3;" FontSize="14" />
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
+            <AppBarToggleButton Click="{x:Bind SetToStandardColor}" Width="48" IsChecked="{x:Bind CompareAndReturn(CurrentColorTab, 'Standard'), Mode=OneWay}">
+                <AppBarToggleButton.Icon>
+                    <FontIcon Glyph="&#xE790;" FontSize="14" />
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
+            <AppBarToggleButton Click="{x:Bind SetToCustomColor}" Width="48" IsChecked="{x:Bind CompareAndReturn(CurrentColorTab, 'Custom'), Mode=OneWay}">
+                <AppBarToggleButton.Icon>
+                    <FontIcon Glyph="&#xE771;" FontSize="14" />
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
+        </CommandBar>
+
+        <Grid Grid.Row="1" Canvas.ZIndex="100" VerticalAlignment="Top" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Standard'), Mode=OneWay}">
+            <GridView ItemsSource="{x:Bind FontColorItems, Mode=OneWay}" SelectionMode="Single"
+                      ScrollViewer.VerticalScrollMode="Disabled"
+                      ScrollViewer.HorizontalScrollMode="Disabled"
+                      SelectedItem="{x:Bind SelectionBasedFromSetting(FontColorSelection), Mode=OneWay}"
+                      SelectionChanged="GridView_SelectionChanged">
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="6" Orientation="Vertical"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+                <GridView.ItemTemplate>
+                    <DataTemplate x:DataType="local:FontColorInfo">
+                        <Border BorderThickness="1" 
+                                BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}"
+                                CornerRadius="5"
+                                Width="32"
+                                Height="32">
+                            <Rectangle Fill="{x:Bind q:Converter.FromColorToBrush(FinalColor)}">
+                                <ToolTipService.ToolTip>
+                                    <TextBlock Text="{x:Bind DisplayName}"/>
+                                </ToolTipService.ToolTip>
+                            </Rectangle>
+                        </Border>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </Grid>
+
+        <Viewbox VerticalAlignment="Top" Grid.Row="1" StretchDirection="Both" Stretch="Fill" Margin="0, 5" MaxHeight="260" MaxWidth="240" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Custom'), Mode=OneWay}">
+            <winui:ColorPicker IsAlphaEnabled="False"
+                               IsColorChannelTextInputVisible="False"
+                               IsColorSliderVisible="False"                              
+                               Color="{x:Bind SettingToColor(FontColorSelection), Mode=TwoWay, BindBack=BindBackCustomFontColor}"/>
+        </Viewbox>
+
+        <TextBlock x:Uid="DefaultColorSelected" Grid.Row="1" TextWrapping="Wrap" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Default'), Mode=OneWay}">
+            <Run Text="Default font color selected"/>
+            <LineBreak/><Run Text="Font color will change based on app theme"/>
+            <LineBreak/><Run Text="White for Dark, Black for Light."/>
+        </TextBlock>
+    </Grid>
+</UserControl>
