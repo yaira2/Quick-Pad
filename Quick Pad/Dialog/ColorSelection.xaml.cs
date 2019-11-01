@@ -70,20 +70,13 @@ namespace QuickPad.Dialog
                 new FontColorInfo("Green", "LawnGreen"),
                 new FontColorInfo("Green", "PaleGreen"),
                 //Row4
-                new FontColorInfo("Pink", "Pink"),
-                new FontColorInfo("Pink", "MediumVioletRed"),
-                new FontColorInfo("Pink", "DeepPink"),
-                new FontColorInfo("Pink", "HotPink"),
-                new FontColorInfo("Pink", "Magenta"),
-                new FontColorInfo("Pink", "Violet"),
-                //Row5
                 new FontColorInfo("Yellow", "Yellow"),
                 new FontColorInfo("Yellow", "DarkGoldenrod"),
                 new FontColorInfo("Yellow", "Goldenrod"),
                 new FontColorInfo("Yellow", "Gold"),
                 new FontColorInfo("Yellow", "Khaki"),
                 new FontColorInfo("Yellow", "LemonChiffon"),
-                //Row6
+                //Row5
                 new FontColorInfo("Orange", "Orange"),
                 new FontColorInfo("Orange", "Sienna"),
                 new FontColorInfo("Orange", "Chocolate"),

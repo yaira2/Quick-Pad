@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <CommandBar Margin="0, -5, 0, 5" Height="38" OverflowButtonVisibility="Collapsed" DefaultLabelPosition="Collapsed" HorizontalAlignment="Left">
+        <CommandBar Margin="0, 0, 0, 5" Height="40" OverflowButtonVisibility="Collapsed" DefaultLabelPosition="Collapsed" HorizontalAlignment="Left">
             <AppBarToggleButton Click="{x:Bind SetToDefaultColor}" IsChecked="{x:Bind CompareAndReturn(CurrentColorTab, 'Default'), Mode=OneWay}" Width="48" Visibility="{x:Bind AllowDefault}">
                 <AppBarToggleButton.Icon>
                     <FontIcon Glyph="&#xE8D3;" FontSize="14" />
@@ -43,16 +43,13 @@
                       SelectionChanged="GridView_SelectionChanged">
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <ItemsWrapGrid MaximumRowsOrColumns="6" Orientation="Vertical"/>
+                        <ItemsWrapGrid MaximumRowsOrColumns="5" Orientation="Vertical"/>
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
                 <GridView.ItemTemplate>
                     <DataTemplate x:DataType="local:FontColorInfo">
-                        <Border BorderThickness="1" 
-                                BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}"
-                                CornerRadius="5"
-                                Width="32"
-                                Height="32">
+                        <Border Width="40"
+                                Height="40">
                             <Rectangle Fill="{x:Bind q:Converter.FromColorToBrush(FinalColor)}">
                                 <ToolTipService.ToolTip>
                                     <TextBlock Text="{x:Bind DisplayName}"/>
@@ -73,8 +70,8 @@
 
         <TextBlock x:Uid="DefaultColorSelected" Grid.Row="1" TextWrapping="Wrap" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Default'), Mode=OneWay}">
             <Run Text="Default font color selected"/>
-            <LineBreak/><Run Text="Font color will change based on app theme"/>
-            <LineBreak/><Run Text="White for Dark, Black for Light."/>
+            <LineBreak/><Run Text="Font color will change based on the app theme"/>
+            <LineBreak/><Run Text="White for Dark theme, Black for Light theme."/>
         </TextBlock>
     </Grid>
 </UserControl>
