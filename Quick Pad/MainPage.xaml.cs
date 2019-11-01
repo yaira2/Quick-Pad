@@ -271,15 +271,7 @@ namespace QuickPad
             {
                 isDarkTheme = App.Current.RequestedTheme == ApplicationTheme.Dark;
             }
-            //Tell analytics what theme is selected
-            if (to == ElementTheme.Default)
-            {
-                Analytics.TrackEvent($"Loaded app in {QSetting.Theme.ToString().ToLower()} theme from a system, which is {(isDarkTheme ? "dark theme" : "light theme")}");
-            }
-            else
-            {
-                Analytics.TrackEvent($"Loaded app in '{e.VisualTheme.FriendlyName}' theme");
-            }
+
             //Make the minimize, maxamize and close button visible
             ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
             titleBar.ButtonForegroundColor = e.VisualTheme.DefaultTextForeground;
