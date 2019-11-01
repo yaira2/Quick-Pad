@@ -1314,6 +1314,12 @@ namespace QuickPad
             FontListSelection.ScrollIntoView(trySelect, ScrollIntoViewAlignment.Leading);
             FontListSelection.SelectedItem = trySelect;
         }
+
+        private void ColorSelection_ColorSelectionChanged(object sender, Dialog.ColorSelectionChangedEventArgs e)
+        {
+            Text1.Document.Selection.CharacterFormat.ForegroundColor = e.SelectedColor;
+        }
+
         #endregion
 
         #region UI Mode change
