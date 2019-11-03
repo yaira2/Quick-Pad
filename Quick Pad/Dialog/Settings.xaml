@@ -141,7 +141,7 @@
                         <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
                         <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
                         <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
-                        <Button Background="Transparent" BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}" BorderThickness=".5" Width="139" Height="32" HorizontalContentAlignment="Stretch">
+                        <Button Background="Transparent" BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}" BorderThickness=".5" Width="Auto" MinWidth="120" Height="32" HorizontalContentAlignment="Stretch">
                             <Grid HorizontalAlignment="Stretch" Padding="-6, -12">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
@@ -152,7 +152,7 @@
                                     <Rectangle Fill="{x:Bind FontColorSelector.FinalSelectionPreview, Mode=OneWay}"/>
                                 </Border>
                                 <TextBlock Text="{x:Bind FontColorSelector.FinalSelectionDisplay, Mode=OneWay}" VerticalAlignment="Center" Grid.Column="1"/>
-                                <FontIcon HorizontalAlignment="Right" FontSize="12" Glyph="&#xE011;" Grid.Column="2" Margin="6"/>
+                                <FontIcon HorizontalAlignment="Right" FontSize="12" Glyph="&#xEF3C;" Grid.Column="2" Margin="6"/>
                             </Grid>
                             <Button.Flyout>
                                 <Flyout AllowFocusOnInteraction="True" w10v1809:Placement="BottomEdgeAlignedLeft">
