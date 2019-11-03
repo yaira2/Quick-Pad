@@ -863,8 +863,7 @@
   </data>
   <data name="DefaultColorSelected.Text" xml:space="preserve">
     <value>Default font color selected.
-Font color will change based on app theme,
-Black for Light, White for Dark</value>
+Font color will change based on app theme.</value>
   </data>
   <data name="FontColorGray" xml:space="preserve">
     <value>Gray</value>

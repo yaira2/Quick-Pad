@@ -1006,11 +1006,9 @@
         </trans-unit>
         <trans-unit id="DefaultColorSelected.Text" translate="yes" xml:space="preserve">
           <source>Default font color selected.
-Font color will change based on app theme,
-Black for Light, White for Dark</source>
+Font color will change based on app theme.</source>
           <target state="new">Default font color selected.
-Font color will change based on app theme,
-Black for Light, White for Dark</target>
+Font color will change based on app theme.</target>
         </trans-unit>
       </group>
     </body>

@@ -12,7 +12,7 @@
     d:DesignHeight="400"
     d:DesignWidth="300">
 
-    <Grid Width="240" Margin="-5, 0">
+    <Grid Width="Auto" Margin="-5, 0">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -20,7 +20,11 @@
         <CommandBar Margin="0, 0, 0, 5" Height="40" OverflowButtonVisibility="Collapsed" DefaultLabelPosition="Collapsed" HorizontalAlignment="Left">
             <AppBarToggleButton Click="{x:Bind SetToDefaultColor}" IsChecked="{x:Bind CompareAndReturn(CurrentColorTab, 'Default'), Mode=OneWay}" Width="48" Visibility="{x:Bind AllowDefault}">
                 <AppBarToggleButton.Icon>
-                    <FontIcon Glyph="&#xE8D3;" FontSize="14" />
+                    <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#x25EA;">
+                        <FontIcon.RenderTransform>
+                            <ScaleTransform ScaleX="2" ScaleY="2" CenterX="10" CenterY="18" />                            
+                        </FontIcon.RenderTransform>
+                    </FontIcon>
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton Click="{x:Bind SetToStandardColor}" Width="48" IsChecked="{x:Bind CompareAndReturn(CurrentColorTab, 'Standard'), Mode=OneWay}">
@@ -61,7 +65,7 @@
             </GridView>
         </Grid>
 
-        <Viewbox Margin="5,0" VerticalAlignment="Top" Grid.Row="1" StretchDirection="Both" Stretch="Fill" Margin="0, 5" MaxHeight="260" MaxWidth="240" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Custom'), Mode=OneWay}">
+        <Viewbox VerticalAlignment="Top" Grid.Row="1" StretchDirection="Both" Stretch="Fill" Margin="0, 5" MaxHeight="260" MaxWidth="240" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Custom'), Mode=OneWay}">
             <winui:ColorPicker IsAlphaEnabled="False"
                                IsColorChannelTextInputVisible="False"
                                IsColorSliderVisible="False"                              
@@ -70,8 +74,7 @@
 
         <TextBlock Margin="5,0" x:Uid="DefaultColorSelected" Grid.Row="1" TextWrapping="Wrap" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Default'), Mode=OneWay}">
             <Run Text="Default font color selected"/>
-            <LineBreak/><Run Text="Font color will change based on the app theme"/>
-            <LineBreak/><Run Text="White for Dark theme, Black for Light theme."/>
+            <LineBreak/><Run Text="Font color will change based on the app theme."/>
         </TextBlock>
     </Grid>
 </UserControl>
