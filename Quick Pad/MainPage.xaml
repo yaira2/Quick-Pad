@@ -463,9 +463,6 @@
                             <ToggleMenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xE751;"/>
                             </ToggleMenuFlyoutItem.Icon>
-                            <ToggleMenuFlyoutItem.KeyboardAccelerators>
-                                <KeyboardAccelerator Modifiers="Menu" Key="Z"/>
-                            </ToggleMenuFlyoutItem.KeyboardAccelerators>
                         </ToggleMenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutItem Text="Fonts..." AccessKey="F" Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">

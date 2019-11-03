@@ -123,6 +123,11 @@ namespace QuickPad
                 }
             };
 
+            Window.Current.CoreWindow.SizeChanged += (sender, args) =>
+            {
+                Text1.Width = ActualWidth;
+            };
+
             Window.Current.CoreWindow.KeyDown += (sender, args) =>
             {
                 if (CompactOverlaySwitch)//Not allow to switch on focus mode
@@ -317,6 +322,23 @@ namespace QuickPad
                 args.VirtualKey != VirtualKey.Menu && args.VirtualKey == VirtualKey.Up && FocusModeSwitch == false)
             {
                 CompactOverlaySwitch = true;
+            }
+
+            //toggle word wrap for alt + z
+            if (args.EventType != CoreAcceleratorKeyEventType.KeyDown &&
+               args.EventType != CoreAcceleratorKeyEventType.SystemKeyDown &&
+               Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu).HasFlag(CoreVirtualKeyStates.Down) &&
+               args.VirtualKey != VirtualKey.Menu && args.VirtualKey == VirtualKey.Z)
+            {
+                if (QSetting.WordWrap == true)
+                {
+                    QSetting.WordWrap = false;
+                }
+                else if (QSetting.WordWrap == false)
+                {
+                    QSetting.WordWrap = true;
+                    Text1.Width = ActualWidth;
+                }
             }
         }
 
