@@ -901,8 +901,9 @@
           <target state="translated">กรุณาบันทึกสิ่งที่คุณพิมพ์ไว้ก่อนที่จะนำเข้าหรือรีเซตตั้งค่า</target>
         </trans-unit>
         <trans-unit id="PreventText1ChangeColor.Text" translate="yes" xml:space="preserve">
-          <source>Use a dark/light background for the text area</source>
-          <target state="translated">ใช้สีทืบสำหรับพื้นหลังของบริเวณที่พิมพ์</target>
+          <source>Use acrylic background for the text area</source>
+          <target state="needs-review-translation">ใช้สีทืบสำหรับพื้นหลังของบริเวณที่พิมพ์</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
           <source>Reset</source>

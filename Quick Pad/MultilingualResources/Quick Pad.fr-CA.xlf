@@ -900,8 +900,9 @@
           <target state="translated">Sauvegarder vos travaux avant d'importer ou de réinitialiser les paramètres</target>
         </trans-unit>
         <trans-unit id="PreventText1ChangeColor.Text" translate="yes" xml:space="preserve">
-          <source>Use a dark/light background for the text area</source>
-          <target state="translated">Utiliser un fond d'écran foncé/léger pour les zones de texte</target>
+          <source>Use acrylic background for the text area</source>
+          <target state="needs-review-translation">Utiliser un fond d'écran foncé/léger pour les zones de texte</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
           <source>Reset</source>

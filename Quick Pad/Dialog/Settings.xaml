@@ -177,7 +177,7 @@
                         <TextBlock x:Uid="Advanced" Text="Advanced" FontSize="20"/>
                         
                         <TextBlock x:Uid="AdvancedThemeOptions" FontSize="16"/>
-                        <TextBlock x:Uid="PreventText1ChangeColor" Text="Use a dark/light background for the text area"/>
+                        <TextBlock x:Uid="PreventText1ChangeColor" Text="Use acrylic background for the text area"/>
                         <ToggleSwitch IsOn="{x:Bind QSetting.PreventText1ChangeColor, Mode=TwoWay}"/>
 
                         <TextBlock x:Uid="BackgroundTintOpacity" Text="App background tint opacity"/>

@@ -787,7 +787,7 @@
     <value>Please save your work before you import or reset settings.</value>
   </data>
   <data name="PreventText1ChangeColor.Text" xml:space="preserve">
-    <value>Use a dark/light background for the text area</value>
+    <value>Use acrylic background for the text area</value>
   </data>
   <data name="Reset.Content" xml:space="preserve">
     <value>Reset</value>

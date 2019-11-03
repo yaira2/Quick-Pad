@@ -900,8 +900,8 @@
           <target state="new">Please save your work before you import or reset settings.</target>
         </trans-unit>
         <trans-unit id="PreventText1ChangeColor.Text" translate="yes" xml:space="preserve">
-          <source>Use a dark/light background for the text area</source>
-          <target state="new">Use a dark/light background for the text area</target>
+          <source>Use acrylic background for the text area</source>
+          <target state="new">Use acrylic background for the text area</target>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
           <source>Reset</source>

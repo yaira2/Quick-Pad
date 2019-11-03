@@ -900,8 +900,9 @@
           <target state="translated">يرجى حفظ عملك قبل استيراد أو إعادة تعيين الإعدادات.</target>
         </trans-unit>
         <trans-unit id="PreventText1ChangeColor.Text" translate="yes" xml:space="preserve">
-          <source>Use a dark/light background for the text area</source>
-          <target state="translated">استخدم خلفية داكنة / فاتحة لمنطقة النص</target>
+          <source>Use acrylic background for the text area</source>
+          <target state="needs-review-translation">استخدم خلفية داكنة / فاتحة لمنطقة النص</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
           <source>Reset</source>
