@@ -39,7 +39,7 @@
             </AppBarToggleButton>
         </CommandBar>
 
-        <Grid Margin="5, 0" Grid.Row="1" Canvas.ZIndex="100" VerticalAlignment="Top" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Standard'), Mode=OneWay}">
+        <Grid Margin="0, 0, 0, 0" Grid.Row="1" Canvas.ZIndex="100" VerticalAlignment="Top" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Standard'), Mode=OneWay}">
             <GridView ItemsSource="{x:Bind FontColorItems, Mode=OneWay}" SelectionMode="Single"
                       ScrollViewer.VerticalScrollMode="Disabled"
                       ScrollViewer.HorizontalScrollMode="Disabled"
@@ -65,7 +65,7 @@
             </GridView>
         </Grid>
 
-        <Viewbox VerticalAlignment="Top" Grid.Row="1" StretchDirection="Both" Stretch="Fill" Margin="0, 5" MaxHeight="260" MaxWidth="240" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Custom'), Mode=OneWay}">
+        <Viewbox VerticalAlignment="Top" Grid.Row="1" StretchDirection="Both" Stretch="Fill" Margin="0,5,0,0" MaxHeight="260" MaxWidth="240" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Custom'), Mode=OneWay}">
             <winui:ColorPicker IsAlphaEnabled="False"
                                IsColorChannelTextInputVisible="False"
                                IsColorSliderVisible="False"                              
