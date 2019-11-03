@@ -310,6 +310,7 @@ namespace QuickPad
         // You can also use a lambda for this
         private void Dispatcher_AcceleratorKeyActivated(CoreDispatcher sender, AcceleratorKeyEventArgs args)
         {
+            //switch to compact overlay for alt + up
             if (args.EventType != CoreAcceleratorKeyEventType.KeyDown &&
                 args.EventType != CoreAcceleratorKeyEventType.SystemKeyDown &&
                 Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu).HasFlag(CoreVirtualKeyStates.Down) &&

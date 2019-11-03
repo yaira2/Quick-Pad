@@ -459,10 +459,13 @@
                         </MenuFlyoutItem>
                     </winui:MenuBarItem>
                     <winui:MenuBarItem Title="Format" AccessKey="O" x:Uid="ClassicFormat">
-                        <ToggleMenuFlyoutItem Text="Word Wrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}" x:Uid="WordWrap">
+                        <ToggleMenuFlyoutItem Text="Word Wrap" x:Name="WordWrap" IsChecked="{x:Bind QSetting.WordWrap, Mode=TwoWay}" x:Uid="WordWrap">
                             <ToggleMenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xE751;"/>
                             </ToggleMenuFlyoutItem.Icon>
+                            <ToggleMenuFlyoutItem.KeyboardAccelerators>
+                                <KeyboardAccelerator Modifiers="Menu" Key="Z"/>
+                            </ToggleMenuFlyoutItem.KeyboardAccelerators>
                         </ToggleMenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutItem Text="Fonts..." AccessKey="F" Click="ShowFontsDialog_Click" x:Uid="ClassicFormatFonts">
