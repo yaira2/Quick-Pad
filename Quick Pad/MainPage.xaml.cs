@@ -123,11 +123,6 @@ namespace QuickPad
                 }
             };
 
-            Window.Current.CoreWindow.SizeChanged += (sender, args) =>
-            {
-                Text1.Width = ActualWidth;
-            };
-
             Window.Current.CoreWindow.KeyDown += (sender, args) =>
             {
                 if (CompactOverlaySwitch)//Not allow to switch on focus mode
@@ -337,7 +332,6 @@ namespace QuickPad
                 else if (QSetting.WordWrap == false)
                 {
                     QSetting.WordWrap = true;
-                    Text1.Width = ActualWidth;
                 }
             }
         }
@@ -1433,9 +1427,6 @@ namespace QuickPad
 
                 //Hide Find and Replace dialog if it open
                 ShowFindAndReplace = false;
-
-                //log even in app center
-                Analytics.TrackEvent("Compact Overlay");
             }
             else
             {
@@ -1578,7 +1569,7 @@ namespace QuickPad
         {
             if (IsCttrlPressed() && e.Key == (VirtualKey)187) //ctrl + +
             {
-                ScrollViewer ContentScroll = ScroolZoom;
+                ScrollViewer ContentScroll = ScrollZoom;
                 if (scaleValue <= 4)
                 {
                     scaleValue = scaleValue + (scalePercentage / 100);
@@ -1587,7 +1578,7 @@ namespace QuickPad
             }
             else if (IsCttrlPressed() && e.Key == (VirtualKey)189) //ctrl + -
             {
-                ScrollViewer ContentScroll = ScroolZoom;
+                ScrollViewer ContentScroll = ScrollZoom;
                 if (scaleValue >= 0.5)
                 {
                     scaleValue = scaleValue - (scalePercentage / 100);
@@ -1596,7 +1587,7 @@ namespace QuickPad
             }
             else if (IsCttrlPressed() && e.Key == (VirtualKey)48) //ctrl + 0
             {
-                ScrollViewer ContentScroll = ScroolZoom;
+                ScrollViewer ContentScroll = ScrollZoom;
                 scaleValue = 1;
                 ContentScroll.ChangeView(0, 0, scaleValue);
             }
@@ -2098,7 +2089,7 @@ namespace QuickPad
 
         private void ZoomIn(object sender, RoutedEventArgs e)
         {
-            ScrollViewer ContentScroll = ScroolZoom;
+            ScrollViewer ContentScroll = ScrollZoom;
             if (scaleValue <= 4)
             {
                 scaleValue = scaleValue + (scalePercentage / 100);
@@ -2108,7 +2099,7 @@ namespace QuickPad
 
         private void ZoomOut(object sender, RoutedEventArgs e)
         {
-            ScrollViewer ContentScroll = ScroolZoom;
+            ScrollViewer ContentScroll = ScrollZoom;
             if (scaleValue >= 0.5)
             {
                 scaleValue = scaleValue - (scalePercentage / 100);
@@ -2118,7 +2109,7 @@ namespace QuickPad
 
         private void ResetZoom(object sender, RoutedEventArgs e)
         {
-            ScrollViewer ContentScroll = ScroolZoom;
+            ScrollViewer ContentScroll = ScrollZoom;
             scaleValue = 1;
             ContentScroll.ChangeView(0, 0, scaleValue);
         }
