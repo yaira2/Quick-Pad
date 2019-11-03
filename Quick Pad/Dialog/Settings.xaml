@@ -141,25 +141,7 @@
                         <TextBlock x:Uid="DefaultFont" Text="Default Font"/>
                         <ComboBox SelectedItem="{x:Bind FromStringToFontItem(QSetting.DefaultFont), BindBack=FromFontItemBackToString, Mode=TwoWay}" ItemsSource="{x:Bind AllFonts, Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" PlaceholderText="Consolas" MinWidth="169" BorderThickness="1"/>
                         <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color"/>
-                        <Button Background="Transparent" BorderBrush="{ThemeResource ApplicationForegroundThemeBrush}" BorderThickness=".5" Width="Auto" MinWidth="120" Height="32" HorizontalContentAlignment="Stretch">
-                            <Grid HorizontalAlignment="Stretch" Padding="-6, -12">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Border Margin="5,0" CornerRadius="4" Width="18" Height="18">
-                                    <Rectangle Fill="{x:Bind FontColorSelector.FinalSelectionPreview, Mode=OneWay}"/>
-                                </Border>
-                                <TextBlock Text="{x:Bind FontColorSelector.FinalSelectionDisplay, Mode=OneWay}" VerticalAlignment="Center" Grid.Column="1"/>
-                                <FontIcon HorizontalAlignment="Right" FontSize="12" Glyph="&#xEF3C;" Grid.Column="2" Margin="6"/>
-                            </Grid>
-                            <Button.Flyout>
-                                <Flyout AllowFocusOnInteraction="True" w10v1809:Placement="BottomEdgeAlignedLeft">
-                                    <local:ColorSelection x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>
-                                </Flyout>
-                            </Button.Flyout>
-                        </Button>
+                        <local:ColorSelection HorizontalAlignment="Left" x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>
 
                         <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" TextWrapping="Wrap"/>
                         <ComboBox SelectedItem="{x:Bind QSetting.DefaultFontSize, Mode=TwoWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  PlaceholderText="12" MinWidth="69" BorderThickness="1">
