@@ -54,35 +54,30 @@ namespace QuickPad.Dialog
                 new FontColorInfo("Gray", "Gray"),
                 new FontColorInfo("Gray", "DarkGray"),
                 new FontColorInfo("Gray", "LightGray"),
-                new FontColorInfo("White", "White"),
                 //Row2
+                new FontColorInfo("White", "White"),
                 new FontColorInfo("Blue", "Blue"),
                 new FontColorInfo("Blue", "MidnightBlue"),
                 new FontColorInfo("Blue", "DarkBlue"),
                 new FontColorInfo("Blue", "MediumBlue"),
+                //Row3
                 new FontColorInfo("Blue", "RoyalBlue"),
                 new FontColorInfo("Blue", "LightBlue"),
-                //Row3
                 new FontColorInfo("Green", "Green"),
                 new FontColorInfo("Green", "DarkGreen"),
                 new FontColorInfo("Green", "ForestGreen"),
+                //Row4
                 new FontColorInfo("Green", "LimeGreen"),
                 new FontColorInfo("Green", "LawnGreen"),
-                new FontColorInfo("Green", "PaleGreen"),
-                //Row4
+                new FontColorInfo("Green", "PaleGreen"),                
                 new FontColorInfo("Yellow", "Yellow"),
                 new FontColorInfo("Yellow", "DarkGoldenrod"),
+                //Row5
                 new FontColorInfo("Yellow", "Goldenrod"),
                 new FontColorInfo("Yellow", "Gold"),
                 new FontColorInfo("Yellow", "Khaki"),
-                new FontColorInfo("Yellow", "LemonChiffon"),
-                //Row5
+                new FontColorInfo("Yellow", "LemonChiffon"),                
                 new FontColorInfo("Orange", "Orange"),
-                new FontColorInfo("Orange", "Sienna"),
-                new FontColorInfo("Orange", "Chocolate"),
-                new FontColorInfo("Orange", "Salmon"),
-                new FontColorInfo("Orange", "SandyBrown"),
-                new FontColorInfo("Orange", "PeachPuff")
             };
             Initialize = true;
         }
