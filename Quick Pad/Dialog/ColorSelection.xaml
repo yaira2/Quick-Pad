@@ -35,7 +35,7 @@
             </AppBarToggleButton>
         </CommandBar>
 
-        <Grid Grid.Row="1" Canvas.ZIndex="100" VerticalAlignment="Top" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Standard'), Mode=OneWay}">
+        <Grid Margin="5, 0" Grid.Row="1" Canvas.ZIndex="100" VerticalAlignment="Top" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Standard'), Mode=OneWay}">
             <GridView ItemsSource="{x:Bind FontColorItems, Mode=OneWay}" SelectionMode="Single"
                       ScrollViewer.VerticalScrollMode="Disabled"
                       ScrollViewer.HorizontalScrollMode="Disabled"
@@ -61,14 +61,14 @@
             </GridView>
         </Grid>
 
-        <Viewbox VerticalAlignment="Top" Grid.Row="1" StretchDirection="Both" Stretch="Fill" Margin="0, 5" MaxHeight="260" MaxWidth="240" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Custom'), Mode=OneWay}">
+        <Viewbox Margin="5,0" VerticalAlignment="Top" Grid.Row="1" StretchDirection="Both" Stretch="Fill" Margin="0, 5" MaxHeight="260" MaxWidth="240" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Custom'), Mode=OneWay}">
             <winui:ColorPicker IsAlphaEnabled="False"
                                IsColorChannelTextInputVisible="False"
                                IsColorSliderVisible="False"                              
                                Color="{x:Bind SettingToColor(FontColorSelection), Mode=TwoWay, BindBack=BindBackCustomFontColor}"/>
         </Viewbox>
 
-        <TextBlock x:Uid="DefaultColorSelected" Grid.Row="1" TextWrapping="Wrap" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Default'), Mode=OneWay}">
+        <TextBlock Margin="5,0" x:Uid="DefaultColorSelected" Grid.Row="1" TextWrapping="Wrap" Visibility="{x:Bind CompareAndShowOrHide(CurrentColorTab, 'Default'), Mode=OneWay}">
             <Run Text="Default font color selected"/>
             <LineBreak/><Run Text="Font color will change based on the app theme"/>
             <LineBreak/><Run Text="White for Dark theme, Black for Light theme."/>
