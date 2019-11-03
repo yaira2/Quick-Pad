@@ -300,9 +300,6 @@
                         <AppBarButton.Icon>
                             <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                         </AppBarButton.Icon>
-                        <AppBarButton.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Menu" Key="Up"/>
-                        </AppBarButton.KeyboardAccelerators>
                         <ToolTipService.ToolTip>
                             <TextBlock Text="On Top (Alt + Up)" x:Uid="CmdOnTopTooltip"/>
                         </ToolTipService.ToolTip>
@@ -489,9 +486,6 @@
                             <MenuFlyoutItem.Icon>
                                 <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                             </MenuFlyoutItem.Icon>
-                            <MenuFlyoutItem.KeyboardAccelerators>
-                            <KeyboardAccelerator Modifiers="Menu" Key="Up"/>
-                            </MenuFlyoutItem.KeyboardAccelerators>
                         </MenuFlyoutItem>
                         <MenuFlyoutSeparator/>
                         <MenuFlyoutSubItem Text="Zoom" x:Uid="ClassicZoom" AccessKey="Z">

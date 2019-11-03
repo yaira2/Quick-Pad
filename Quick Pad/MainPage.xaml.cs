@@ -139,6 +139,9 @@ namespace QuickPad
                 }
             };
 
+            // Wherever you need
+            Window.Current.Dispatcher.AcceleratorKeyActivated += Dispatcher_AcceleratorKeyActivated;
+
             SystemNavigationManager.GetForCurrentView().BackRequested += (sender, e) =>
             {
                 e.Handled = true;
@@ -302,6 +305,18 @@ namespace QuickPad
         private void UpdateText1FontSize(int to)
         {
             Text1.Document.Selection.CharacterFormat.Size = to; //set the font size
+        }
+
+        // You can also use a lambda for this
+        private void Dispatcher_AcceleratorKeyActivated(CoreDispatcher sender, AcceleratorKeyEventArgs args)
+        {
+            if (args.EventType != CoreAcceleratorKeyEventType.KeyDown &&
+                args.EventType != CoreAcceleratorKeyEventType.SystemKeyDown &&
+                Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu).HasFlag(CoreVirtualKeyStates.Down) &&
+                args.VirtualKey != VirtualKey.Menu && args.VirtualKey == VirtualKey.Up && FocusModeSwitch == false)
+            {
+                CompactOverlaySwitch = true;
+            }
         }
 
         public void LaunchCheck()
