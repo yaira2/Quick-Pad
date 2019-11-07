@@ -247,11 +247,11 @@
                 <!--About-->
                 <ScrollViewer Padding="20,0,0,0" Visibility="{x:Bind ShowIfItWasThePage(CurrentSettingPage, 'About'), Mode=OneWay}">
                     <StackPanel Padding="2,2,2,2">
-                        <Image Source="/Assets/Quick Pad.png" Stretch="Fill" Width="60" Height="60" Margin="0,30,0,0"/>
+                        <Image Source="/Assets/Logo.png" Stretch="Fill" Width="60" Height="60" Margin="0,30,0,0"/>
                         <TextBlock Text="{x:Bind VersionNumberText, Mode=OneWay}" x:Name="VersionNumber" HorizontalAlignment="Center"/>
                         <TextBlock Text="Developed by Yair Aichenbaum" x:Uid="DevelopedBy" HorizontalAlignment="Center"/>
                         <TextBlock Text="Icon design by James Arney" x:Uid="IconDesignBy" HorizontalAlignment="Center"/>
-                        <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://feedback.userreport.com/0a1a1038-4b33-4cc9-ad5e-ed71af43bb39/#ideas/popular"/>
+                        <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose"/>
                         <HyperlinkButton Content="Rate and review" x:Uid="RateAndReview" Click="CmdReview_Click" HorizontalAlignment="Center"/>
                         <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
                     </StackPanel>
