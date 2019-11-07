@@ -91,6 +91,14 @@
                             <x:String>.txt</x:String>
                         </ComboBox>
 
+                        <TextBlock x:Uid="DefaultEncoding" Text="Default File Encoding"/>
+                        <ComboBox PlaceholderText="UTF-8" Width="120" SelectedIndex="{x:Bind QSetting.DefaultEncoding, Mode=TwoWay}" x:Name="DefaultEncoding" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"  HorizontalAlignment="Left" BorderThickness="1,1,1,1">
+                            <ComboBoxItem Content="UTF-8" Tag="UTF-8" x:Uid="DefaultEncodingUTF8" x:Name="DefaultEncodingUTF8"/>
+                            <ComboBoxItem Content="UTF-16 LE" Tag="UTF-16 LE" x:Uid="DefaultEncodingUTF16_LE" x:Name="DefaultEncodingUTF16_LE"/>
+                            <ComboBoxItem Content="UTF-16 BE" Tag="UTF-16 BE" x:Uid="DefaultEncodingUTF16_BE" x:Name="DefaultEncodingUTF8_BE"/>
+                            <ComboBoxItem Content="UTF-32" Tag="UTF-32" x:Uid="DefaultEncodingUTF32" x:Name="DefaultEncodingUTF32"/>
+                        </ComboBox>
+
                         <TextBlock x:Uid="AutoSaveSwitch" Text="Auto Save"/>
                         <ToggleSwitch x:Name="AutoSaveSwitch" x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off" IsOn="{x:Bind QSetting.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
 

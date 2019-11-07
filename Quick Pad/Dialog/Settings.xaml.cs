@@ -376,6 +376,14 @@ namespace QuickPad.Dialog
         }
     }
 
+    public enum Encoding
+    {
+        UTF8 = 0,
+        UTF16_LE = 1,
+        UTF16_BE = 2,
+        UTF32 = 3
+    }
+
     public enum settingPage
     {
         General,

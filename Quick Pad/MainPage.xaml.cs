@@ -64,6 +64,7 @@ namespace QuickPad
         private string[] _contentLinesCache;
         private bool _isLineCachePendingUpdate = true;
         private string _content = string.Empty;
+        private bool _fileSaveCancelled = false;
 
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
@@ -498,7 +499,7 @@ namespace QuickPad
         #endregion
 
         #region Properties
-        string _fn = null;
+        private string _fn = null;
         public string CurrentFontName
         {
             get
@@ -521,15 +522,15 @@ namespace QuickPad
             }
         }
 
-        Color? _fc = null;
+        private Color? _fc = null;
         public Color CurrentFontColor
         {
             get
             {
                 if (_fc is null)
                 {
-                    if (QSetting.DefaultFontColor == "Default")                    
-                        _fc = new UISettings().GetColorValue(UIColorType.Foreground);                    
+                    if (QSetting.DefaultFontColor == "Default")
+                        _fc = new UISettings().GetColorValue(UIColorType.Foreground);
                     else if (QSetting.DefaultFontColor.StartsWith("#"))
                         _fc = Converter.GetColorFromHex(QSetting.DefaultFontColor);
                     else
@@ -551,7 +552,7 @@ namespace QuickPad
             }
         }
 
-        int? _vsize = null;
+        private int? _vsize = null;
         public int VisualFontSize
         {
             get
@@ -565,21 +566,21 @@ namespace QuickPad
             set => Set(ref _vsize, value);
         }
 
-        bool _paste;
+        private bool _paste;
         public bool CanPasteText
         {
             get => _paste;
             set => Set(ref _paste, value);
         }
 
-        ObservableCollection<FontFamilyItem> _fonts;
+        private ObservableCollection<FontFamilyItem> _fonts;
         public ObservableCollection<FontFamilyItem> AllFonts
         {
             get => _fonts;
             set => Set(ref _fonts, value);
         }
 
-        string _file_name = null;
+        private string _file_name = null;
         public string CurrentFilename
         {
             get
@@ -611,14 +612,14 @@ namespace QuickPad
             }
         }
 
-        void UpdateAppTitlebar()
+        private void UpdateAppTitlebar()
         {
             //Set Title bar
             var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
             appView.Title = CurrentFilename;
         }
 
-        bool _changed;
+        private bool _changed;
         public bool Changed
         {
             get => _changed;
@@ -627,7 +628,10 @@ namespace QuickPad
                 if (!Equals(_changed, value))
                 {
                     Set(ref _changed, value);
-                    NotifyPropertyChanged(nameof(CurrentFilename));
+
+                    if (!_fileSaveCancelled)
+                        NotifyPropertyChanged(nameof(CurrentFilename));
+
                     UpdateAppTitlebar();
                 }
             }
@@ -651,7 +655,7 @@ namespace QuickPad
             CheckForChange();
         }
 
-        StorageFile _file;
+        private StorageFile _file;
         public StorageFile CurrentWorkingFile
         {
             get => _file;
@@ -671,14 +675,14 @@ namespace QuickPad
 
         public System.Timers.Timer timer; //this is the auto save timer interval
 
-        bool _undo;
+        private bool _undo;
         public bool CanUndoText
         {
             get => _undo;
             set => Set(ref _undo, value);
         }
 
-        bool _redo;
+        private bool _redo;
         public bool CanRedoText
         {
             get => _redo;
@@ -884,11 +888,13 @@ namespace QuickPad
 
                     //Increase new auto number, so next file will not get the same name
                     QSetting.NewFileAutoNumber++;
+                    _fileSaveCancelled = false;
                 }
                 else
                 {
                     CurrentWorkingFile = temporaryForce;
                     temporaryForce = null;
+                    _fileSaveCancelled = true;
                 }
             }
             //Update the initial loaded content
@@ -1219,7 +1225,7 @@ namespace QuickPad
             }
         }
 
-        StorageFile file;
+        private StorageFile file;
         private async void CmdShare_Click(object sender, RoutedEventArgs e)
         {
             file = null;
@@ -1327,7 +1333,7 @@ namespace QuickPad
             FontListSelection.ScrollIntoView(FontListSelection.SelectedItem);
         }
 
-        string trySelectFontName;
+        private string trySelectFontName;
         private void TryToFindFont(UIElement sender, CharacterReceivedRoutedEventArgs args)
         {
             trySelectFontName += args.Character;
@@ -1347,7 +1353,7 @@ namespace QuickPad
         #endregion
 
         #region UI Mode change
-        bool? _compact = null;
+        private bool? _compact = null;
         public bool CompactOverlaySwitch
         {
             get
@@ -1366,7 +1372,7 @@ namespace QuickPad
             }
         }
 
-        bool? _focus = null;
+        private bool? _focus = null;
         public bool FocusModeSwitch
         {
             get
@@ -1385,7 +1391,7 @@ namespace QuickPad
             }
         }
 
-        bool? _classic = null;
+        private bool? _classic = null;
         public bool ClassicModeSwitch
         {
             get
@@ -1839,7 +1845,7 @@ namespace QuickPad
         #endregion
 
         #region Find & Replace
-        bool _fr;
+        private bool _fr;
         public bool ShowFindAndReplace
         {
             get => _fr;
@@ -1882,7 +1888,7 @@ namespace QuickPad
             }
         }
 
-        async void DelayFocus()
+        private async void DelayFocus()
         {
             await Task.Delay(100);
             FindAndReplaceDialog.FindInput.Focus(FocusState.Pointer);
@@ -1893,14 +1899,14 @@ namespace QuickPad
             ShowFindAndReplace = !ShowFindAndReplace;
         }
 
-        int _ssp;
+        private int _ssp;
         public int StartSearchPosition
         {
             get => _ssp;
             set => Set(ref _ssp, value);
         }
 
-        int _maxRange;
+        private int _maxRange;
         public int MaximumPossibleSearchRange
         {
             get => _maxRange;
@@ -1922,7 +1928,7 @@ namespace QuickPad
             int start = Text1.Document.Selection.StartPosition;
             int end = Text1.Document.Selection.EndPosition;
             FindOptions matchCase = match ? FindOptions.Case : FindOptions.None;
-            
+
             if (direction)
             {
                 //Search forward

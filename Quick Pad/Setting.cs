@@ -27,7 +27,7 @@ namespace QuickPad
         {
             if (!localSettings.Values.ContainsKey(propertyName))
             {
-                localSettings.Values.Add(propertyName, GetDefaultValue<T>(propertyName));
+                    localSettings.Values.Add(propertyName, GetDefaultValue<T>(propertyName));
             }
             if (localSettings.Values[propertyName].GetType() != typeof(T))
             {
@@ -65,6 +65,26 @@ namespace QuickPad
                 else if (conversion == "Focus Mode")
                 {
                     previousSetting = AvailableModes.Focus;
+                }
+            }
+            else if(propertyName == nameof(DefaultEncoding))
+            {
+                conversion = localSettings.Values[propertyName] as string;
+                if (conversion.Equals("UTF-8"))
+                {
+                    previousSetting = Encoding.UTF8;
+                }
+                else if(conversion.Equals("UTF-16 BE"))
+                {
+                    previousSetting = Encoding.UTF16_BE;
+                }
+                else if(conversion.Equals("UTF-16 LE"))
+                {
+                    previousSetting = Encoding.UTF16_LE;
+                }
+                else if (conversion.Equals("UTF-32"))
+                {
+                    previousSetting = Encoding.UTF32;
                 }
             }
             else if (propertyName == nameof(AutoSave))
@@ -226,6 +246,14 @@ namespace QuickPad
             get => Get<string>();
             set => Set(value);
         }
+
+        [DefaultValue((int)Encoding.UTF8)]
+        public int DefaultEncoding
+        {
+            get => Get<int>();
+            set => Set(value);
+        }
+
 
         [DefaultValue(true)]
         public bool AutoSave
