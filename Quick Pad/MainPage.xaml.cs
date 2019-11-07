@@ -6,8 +6,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
@@ -341,14 +343,14 @@ namespace QuickPad
         {
             if (QSetting.AutoPickMode & CurrentWorkingFile != null)
             {
-                if (CurrentWorkingFile.FileType == ".txt")
+                if (CurrentWorkingFile.StorageFile.FileType == ".txt")
                 {
                     ClassicModeSwitch = true;
                     FocusModeSwitch = false;
                     CompactOverlaySwitch = false;
                     return;
                 }
-                else if (CurrentWorkingFile.FileType == ".rtf")
+                else if (CurrentWorkingFile.StorageFile.FileType == ".rtf")
                 {
                     ClassicModeSwitch = false; ;
                     FocusModeSwitch = false;
@@ -475,18 +477,18 @@ namespace QuickPad
                 {
                     try
                     {
-                        var result = CurrentWorkingFile.FileType; //find out the file extension
+                        var result = CurrentWorkingFile.StorageFile.FileType; //find out the file extension
                         if ((result.ToLower() != ".rtf"))
                         {
                             //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.None, out var value);
-                            await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                            tText1.Document.GetText(TextGetOptions.None, out var value);
+                            await PathIO.WriteTextAsync(CurrentWorkingFile.StorageFile.Path, value);
                         }
                         if (result.ToLower() == ".rtf")
                         {
                             //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                            await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                            tText1.Document.GetText(TextGetOptions.FormatRtf, out var value);
+                            await PathIO.WriteTextAsync(CurrentWorkingFile.StorageFile.Path, value);
                         }
                         Changed = false;
                         SetANewChange();
@@ -655,19 +657,20 @@ namespace QuickPad
             CheckForChange();
         }
 
-        private StorageFile _file;
-        public StorageFile CurrentWorkingFile
+        private StorageFileWithEncoding _file;
+        public StorageFileWithEncoding CurrentWorkingFile
         {
             get => _file;
             set
             {
                 Set(ref _file, value);
-                if (value is null)
+                if(value is null)
                 {
                     SaveIconStatus.Visibility = Visibility.Collapsed;
                 }
             }
         }
+       
         private string key; //future access list
 
         private bool _isPageLoaded = false;
@@ -781,20 +784,20 @@ namespace QuickPad
         #region Load/Save file
         public async Task LoadFileIntoTextBox()
         {
-            if (CurrentWorkingFile.FileType.ToLower() == ".rtf")
+            if (CurrentWorkingFile.StorageFile.FileType.ToLower() == ".rtf")
             {
-                Windows.Storage.Streams.IRandomAccessStream randAccStream = await CurrentWorkingFile.OpenAsync(FileAccessMode.Read);
+                Windows.Storage.Streams.IRandomAccessStream randAccStream = await CurrentWorkingFile.StorageFile.OpenAsync(FileAccessMode.Read);
 
-                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile); //let file be accessed later
+                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile.StorageFile); //let file be accessed later
 
                 // Load the file into the Document property of the RichEditBox.
                 Text1.Document.LoadFromStream(TextSetOptions.FormatRtf, randAccStream);
             }
             else
             {
-                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile); //let file be accessed later
+                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile.StorageFile); //let file be accessed later
 
-                Text1.Document.SetText(TextSetOptions.None, await FileIO.ReadTextAsync(CurrentWorkingFile));
+                Text1.Document.SetText(TextSetOptions.None, await FileIO.ReadTextAsync(CurrentWorkingFile.StorageFile));
             }
             //Clear undo/redo history
             Text1.TextDocument.ClearUndoRedoHistory();
@@ -808,7 +811,7 @@ namespace QuickPad
             {
                 CurrentWorkingFile = inputFile;
                 await LoadFileIntoTextBox();
-                CurrentFilename = CurrentWorkingFile.DisplayName;
+                CurrentFilename = CurrentWorkingFile.StorageFile.DisplayName;
             }
             catch (Exception) { }
         }
@@ -817,10 +820,36 @@ namespace QuickPad
         {
             try
             {
-                Text1.Document.GetText(
-                    CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None,
-                    out var value);
-                await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                //Text1.Document.GetText(
+                //    CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None,
+                //    out var value);
+                //await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+
+                Text1.Document.GetText(CurrentWorkingFile.StorageFile.FileType.ToLower().Equals(".rtf") ? TextGetOptions.FormatRtf : TextGetOptions.None, out var value);
+
+                Encoding encoding;
+                switch (CurrentWorkingFile.FileEncoding)
+                {
+                    case App.Encoding.UTF8:
+                        encoding = Encoding.UTF8;
+                        break;
+                    case App.Encoding.UTF16_LE:
+                        encoding = Encoding.Unicode;
+                        break;
+                    case App.Encoding.UTF16_BE:
+                        encoding = Encoding.BigEndianUnicode;
+                        break;
+                    case App.Encoding.UTF32:
+                        encoding = Encoding.UTF32;
+                        break;
+                    default:
+                        encoding = Encoding.UTF8;
+                        break;
+                }
+
+                var bytes = encoding.GetBytes(value);
+                await PathIO.WriteBytesAsync(CurrentWorkingFile.StorageFile.Path, bytes);
+                
                 Changed = false;
             }
 
@@ -864,18 +893,62 @@ namespace QuickPad
 
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
+
+
+
                     //save as plain text for text file
+                    //if ((file.FileType.ToLower() != ".rtf"))
+                    //{
+                    //    Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
+                    //    aawait FileIO.WriteTextAsync(file, value); //write the text to the file
+                    //}
+                    ////save as rich text for rich text file
+                    //if (file.FileType.ToLower() == ".rtf")
+                    //{
+                    //    Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
+                    //    aawait FileIO.WriteTextAsync(file, value); //write the text to the file
+                    //}
+
+                    string value = string.Empty;
+
                     if ((file.FileType.ToLower() != ".rtf"))
                     {
-                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                        Text1.Document.GetText(TextGetOptions.None, out value); //get the text to save
                     }
                     //save as rich text for rich text file
                     if (file.FileType.ToLower() == ".rtf")
                     {
-                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                        Text1.Document.GetText(TextGetOptions.FormatRtf, out value); //get the text to save
                     }
+
+                    Encoding encoding;
+                    switch ((App.Encoding)Settings.QSetting.DefaultEncoding)
+                    {
+                        case App.Encoding.UTF8:
+                            CurrentWorkingFile.FileEncoding = App.Encoding.UTF8;
+                            encoding = Encoding.UTF8;
+                            break;
+                        case App.Encoding.UTF16_LE:
+                            CurrentWorkingFile.FileEncoding = App.Encoding.UTF16_LE;
+                            encoding = Encoding.Unicode;
+                            break;
+                        case App.Encoding.UTF16_BE:
+                            CurrentWorkingFile.FileEncoding = App.Encoding.UTF16_BE;
+                            encoding = Encoding.BigEndianUnicode;
+                            break;
+                        case App.Encoding.UTF32:
+                            CurrentWorkingFile.FileEncoding = App.Encoding.UTF32;
+                            encoding = Encoding.UTF32;
+                            break;
+                        default:
+                            CurrentWorkingFile.FileEncoding = App.Encoding.UTF32;
+                            encoding = Encoding.UTF8;
+                            break;
+                    }
+
+                    var bytes = encoding.GetBytes(value);
+                    await FileIO.WriteBytesAsync(file, bytes);
+
 
                     // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
                     Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
@@ -1019,7 +1092,7 @@ namespace QuickPad
 
                     //Set current file
                     CurrentWorkingFile = file;
-                    CurrentFilename = CurrentWorkingFile.DisplayName;
+                    CurrentFilename = CurrentWorkingFile.StorageFile.DisplayName;
                     //Clear undo and redo, so the last undo will be the loaded text
                     Text1.TextDocument.ClearUndoRedoHistory();
                     //Update the initial loaded content
@@ -1043,7 +1116,8 @@ namespace QuickPad
             await SaveWork(); //call the function to save
         }
 
-        private StorageFile temporaryForce = null;
+        //private StorageFile temporaryForce = null;
+        private StorageFileWithEncoding temporaryForce = null;
         public async void CmdSaveAs_Click(object sender, RoutedEventArgs e)
         {
             temporaryForce = CurrentWorkingFile;
@@ -1244,7 +1318,7 @@ namespace QuickPad
         private void MainPage_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
         {
             Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-            if (file is null) file = CurrentWorkingFile;
+            if (file is null) file = CurrentWorkingFile.StorageFile;
 
             if (!string.IsNullOrEmpty(value))
             {
@@ -1659,7 +1733,7 @@ namespace QuickPad
                     {
                         CurrentWorkingFile = items[0] as StorageFile;
                         await LoadFileIntoTextBox();
-                        CurrentFilename = CurrentWorkingFile.DisplayName;
+                        CurrentFilename = CurrentWorkingFile.StorageFile.DisplayName;
 
                         //log event in app center
                         Analytics.TrackEvent("Droped file in to Quick Pad");

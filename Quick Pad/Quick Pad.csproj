@@ -158,6 +158,7 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Setting.cs" />
+    <Compile Include="StorageFileWithEncoding.cs" />
     <Compile Include="VisualThemes.cs" />
   </ItemGroup>
   <ItemGroup>
