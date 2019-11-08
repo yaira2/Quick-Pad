@@ -153,6 +153,8 @@
     <Compile Include="Dialog\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Encoding.cs" />
+    <Compile Include="Extensions.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

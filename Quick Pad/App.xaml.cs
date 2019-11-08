@@ -31,14 +31,6 @@ namespace QuickPad
     /// </summary>
     sealed partial class App : Application
     {
-        public enum Encoding
-        {
-            UTF8 = 0,
-            UTF16_LE = 1,
-            UTF16_BE = 2,
-            UTF32 = 3
-        }
-
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().

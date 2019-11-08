@@ -17,16 +17,16 @@
         <DataTemplate x:Key="FontFamilyComboBoxItem">
             <TextBlock Text="{Binding Name}" FontFamily="{Binding Name}" Margin="2,2,2,2" FontSize="12"/>
         </DataTemplate>
-            <Style TargetType="AppBarButton" x:Key="defaultAppBarB">
-                <Setter Property="LabelPosition" Value="Collapsed"/>
-                <Setter Property="Width" Value="Auto"/>
-                <Setter Property="MinWidth" Value="40"/>
-            </Style>
-            <Style TargetType="AppBarToggleButton" x:Key="defaultAppBarT">
-                <Setter Property="LabelPosition" Value="Collapsed"/>
-                <Setter Property="Width" Value="Auto"/>
-                <Setter Property="MinWidth" Value="40"/>
-            </Style>
+        <Style TargetType="AppBarButton" x:Key="defaultAppBarB">
+            <Setter Property="LabelPosition" Value="Collapsed"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="MinWidth" Value="40"/>
+        </Style>
+        <Style TargetType="AppBarToggleButton" x:Key="defaultAppBarT">
+            <Setter Property="LabelPosition" Value="Collapsed"/>
+            <Setter Property="Width" Value="Auto"/>
+            <Setter Property="MinWidth" Value="40"/>
+        </Style>
     </Page.Resources>
     <SplitView OpenPaneLength="350" PanePlacement="Right" x:Name="MainView">
         <SplitView.Content>
@@ -567,11 +567,11 @@
                      IsTapEnabled="True"
                      FontSize="{x:Bind VisualFontSize, Mode=OneWay}"
                      Tapped="Text1_Tapped" FontFamily="Consolas">
-                    <RichEditBox.SelectionHighlightColorWhenNotFocused>
-                        <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
-                    </RichEditBox.SelectionHighlightColorWhenNotFocused>
-                </RichEditBox>
-    </ScrollViewer>
+                        <RichEditBox.SelectionHighlightColorWhenNotFocused>
+                            <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
+                        </RichEditBox.SelectionHighlightColorWhenNotFocused>
+                    </RichEditBox>
+                </ScrollViewer>
 
                 <controls:DropShadowPanel Grid.Row="3"
                                           x:Name="StatusBarShadow"
@@ -601,7 +601,7 @@
                             <FontIcon Glyph="&#xE74E;" FontSize="12" Grid.Column="3">
                                 <ToolTipService.ToolTip>
                                     <StackPanel>
-                                        <TextBlock Text="{x:Bind CurrentWorkingFile.Path, Mode=OneWay}"/>
+                                        <TextBlock Text="{x:Bind CurrentWorkingFile.StorageFile.Path, Mode=OneWay}"/>
                                     </StackPanel>
                                 </ToolTipService.ToolTip>
                             </FontIcon>
@@ -621,6 +621,10 @@
                         <FontIcon FontSize="12" Glyph="&#xE8DB;" Grid.Column="6" Visibility="{x:Bind IsItItalic, Mode=OneWay}"/>
                         <FontIcon FontSize="12" Glyph="&#xE8DC;" Grid.Column="7" Visibility="{x:Bind IsItUnderline, Mode=OneWay}"/>
                         <FontIcon FontSize="12" Glyph="&#xA7A8;" FontFamily="Segoe UI" Grid.Column="7" Margin="0,0,0,2" Visibility="{x:Bind IsItStrikethrough, Mode=OneWay}"/>
+
+                        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,15,0">
+                            <Run Text="{x:Bind CurrentEncoding, Mode=OneWay}"/>
+                        </TextBlock>
                     </Grid>
                 </controls:DropShadowPanel>
 

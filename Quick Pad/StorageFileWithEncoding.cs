@@ -9,5 +9,7 @@ namespace QuickPad
         public Encoding FileEncoding { get; set; } 
 
         public static implicit operator StorageFileWithEncoding(StorageFile fs) => new StorageFileWithEncoding() { StorageFile = fs, FileEncoding = Encoding.UTF8};
+
+        public static implicit operator StorageFile(StorageFileWithEncoding sfwe) => sfwe.StorageFile;
     }
 }
