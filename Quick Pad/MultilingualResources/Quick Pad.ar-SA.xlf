@@ -1010,6 +1010,10 @@ Font color will change based on app theme.</source>
           <target state="new">Default font color selected.
 Font color will change based on app theme.</target>
         </trans-unit>
+        <trans-unit id="DefaultEncoding.Text" translate="yes" xml:space="preserve">
+          <source>Default File Encoding</source>
+          <target state="new">Default File Encoding</target>
+        </trans-unit>
       </group>
     </body>
   </file>

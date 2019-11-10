@@ -867,4 +867,7 @@ Font color will change based on app theme.</value>
   <data name="FontColorGray" xml:space="preserve">
     <value>Gray</value>
   </data>
+  <data name="DefaultEncoding.Text" xml:space="preserve">
+    <value>Default File Encoding</value>
+  </data>
 </root>
