@@ -583,46 +583,31 @@
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch"
                                   Visibility="{x:Bind q:Converter.CanIShowStatusBar(ClassicModeSwitch, FocusModeSwitch, CompactOverlaySwitch, QSetting.ShowStatusBar), Mode=OneWay}">
-                    <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  Grid.Row="3" VerticalAlignment="Stretch" x:Name="StatusBar" MinHeight="28">
+                    <Grid Canvas.ZIndex="74" HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"  Grid.Row="3" VerticalAlignment="Stretch" x:Name="StatusBar" MinHeight="25">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="10"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <!--Save status-->
                         <Grid Margin="5,0,2,0" Visibility="{x:Bind q:Converter.ShowIfItemIsNotNull(CurrentWorkingFile), Mode=OneWay}" Width="32" MaxWidth="32" x:Name="SaveIconStatus">
-                            <FontIcon Glyph="&#xE74E;" FontSize="12" Grid.Column="3">
+                            <FontIcon Glyph="&#xE74E;" FontSize="11" Grid.Column="1" Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}">
                                 <ToolTipService.ToolTip>
                                     <StackPanel>
                                         <TextBlock Text="{x:Bind CurrentWorkingFile.StorageFile.Path, Mode=OneWay}"/>
                                     </StackPanel>
                                 </ToolTipService.ToolTip>
                             </FontIcon>
-                            <Ellipse Width="8" Height="8" Fill="Red" HorizontalAlignment="Left" Margin="6,0,0,8" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
+                            <Ellipse Width="6" Height="6" Fill="Red" HorizontalAlignment="Left" Margin="8,0,0,8" Visibility="{x:Bind q:Converter.BoolToVisibility(Changed), Mode=OneWay}"/>
                         </Grid>
                         <!--Line and character count-->
-                        <TextBlock VerticalAlignment="Center" Padding="5,0,10,0" FontSize="12" Grid.Column="1" Margin="5,0,0,0">
-                <Run Text="Line: " x:Uid="StatusLnCount"/><Run Text="{x:Bind CurrentLine, Mode=OneWay}"/><Run Text=","/>
-                <Run Text="Column: " x:Uid="StatusColCount"/><Run Text="{x:Bind CurrentPosition, Mode=OneWay}"/>
+                        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Right" Padding="5,0,10,0" FontSize="11" Grid.Column="2" Margin="0,0,5,0" Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}">
+                <Run Text="Ln: " x:Uid="StatusLnCount"/><Run Text="{x:Bind CurrentLine, Mode=OneWay}"/><Run Text=","/>
+                <Run Text="Col: " x:Uid="StatusColCount"/><Run Text="{x:Bind CurrentPosition, Mode=OneWay}"/>
                         </TextBlock>
-                        <!--Selection info-->
-                        <TextBlock VerticalAlignment="Center" Padding="5,0" Grid.Column="3" FontSize="12" Visibility="{x:Bind q:Converter.ShowAfterCompareNumber(SelectionLength, q:IntCompare.More, 0), Mode=OneWay}">
-                    <Run Text="Selection: " x:Uid="StatusSelCount"/><Run Text="{x:Bind SelectionLength, Mode=OneWay}"/>
-                        </TextBlock>
-                        <!--Bold, Italic, Underline status-->
-                        <FontIcon FontSize="12" Glyph="&#xE8DD;" Grid.Column="5" Visibility="{x:Bind IsItBold, Mode=OneWay}"/>
-                        <FontIcon FontSize="12" Glyph="&#xE8DB;" Grid.Column="6" Visibility="{x:Bind IsItItalic, Mode=OneWay}"/>
-                        <FontIcon FontSize="12" Glyph="&#xE8DC;" Grid.Column="7" Visibility="{x:Bind IsItUnderline, Mode=OneWay}"/>
-                        <FontIcon FontSize="12" Glyph="&#xA7A8;" FontFamily="Segoe UI" Grid.Column="7" Margin="0,0,0,2" Visibility="{x:Bind IsItStrikethrough, Mode=OneWay}"/>
 
-                        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="12" Grid.Column="8" Grid.ColumnSpan="2" Margin="0,0,15,0">
+                        <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="11" Grid.Column="4" Margin="0,0,15,0" Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}">
                             <Run Text="{x:Bind CurrentEncoding, Mode=OneWay}"/>
                         </TextBlock>
                     </Grid>

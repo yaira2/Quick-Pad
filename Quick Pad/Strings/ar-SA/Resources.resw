@@ -473,12 +473,11 @@
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
     <value>عمود:</value>
+    <comment>Changed to Col:</comment>
   </data>
   <data name="StatusLnCount.Text" xml:space="preserve">
     <value>سطر:</value>
-  </data>
-  <data name="StatusSelCount.Text" xml:space="preserve">
-    <value>تحديد:</value>
+    <comment>Changed to Ln:</comment>
   </data>
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>عرض شريط المعلومات في الوضع الكلاسيكي</value>

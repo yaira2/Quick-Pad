@@ -1854,30 +1854,13 @@ namespace QuickPad
             GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount);
             CurrentPosition = columnIndex;
             CurrentLine = lineIndex;
-            SelectionLength = selectedCount;
 
             //update current format
             IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
             IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
             IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
             IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
-            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
-            //Selection update
-            if (Text1.Document.Selection is null)
-            {
-                SelectionLength = 0;
-            }
-            else
-            {
-                if (Text1.Document.Selection.Length < 0)
-                {
-                    SelectionLength = Text1.Document.Selection.Length * -1;
-                }
-                else
-                {
-                    SelectionLength = Text1.Document.Selection.Length;
-                }
-            }
+            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;           
         }
 
         public void GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount)
