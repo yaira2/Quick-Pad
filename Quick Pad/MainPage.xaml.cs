@@ -16,6 +16,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Resources;
 using Windows.Services.Store;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI;
 using Windows.UI.Core;
@@ -46,7 +47,11 @@ namespace QuickPad
             if (!Equals(storage, value))
             {
                 storage = value;
-                NotifyPropertyChanged(propertyName);
+
+                if (propertyName.Equals("SetCurrentEncoding"))
+                    NotifyPropertyChanged("CurrentEncoding");
+                else
+                    NotifyPropertyChanged(propertyName);
             }
         }
 
@@ -64,6 +69,7 @@ namespace QuickPad
         private string[] _contentLinesCache;
         private bool _isLineCachePendingUpdate = true;
         private string _content = string.Empty;
+        private bool _fileSaveCancelled = false;
 
         public ResourceLoader textResource { get; } = ResourceLoader.GetForCurrentView(); //Use to get a text resource from Strings/en-US
 
@@ -95,6 +101,8 @@ namespace QuickPad
             LoadSettings();
             AllFonts = new ObservableCollection<FontFamilyItem>(CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font).Select(font => new FontFamilyItem(font)));
             //
+
+            SetCurrentEncoding = (Encoding)App.QSetting.DefaultEncoding;
 
             Clipboard.ContentChanged += ClipboardStatusUpdate;
             ClipboardStatusUpdate(null, null);
@@ -340,14 +348,14 @@ namespace QuickPad
         {
             if (QSetting.AutoPickMode & CurrentWorkingFile != null)
             {
-                if (CurrentWorkingFile.FileType == ".txt")
+                if (CurrentWorkingFile.StorageFile.FileType == ".txt")
                 {
                     ClassicModeSwitch = true;
                     FocusModeSwitch = false;
                     CompactOverlaySwitch = false;
                     return;
                 }
-                else if (CurrentWorkingFile.FileType == ".rtf")
+                else if (CurrentWorkingFile.StorageFile.FileType == ".rtf")
                 {
                     ClassicModeSwitch = false; ;
                     FocusModeSwitch = false;
@@ -474,19 +482,44 @@ namespace QuickPad
                 {
                     try
                     {
-                        var result = CurrentWorkingFile.FileType; //find out the file extension
+                        var result = CurrentWorkingFile.StorageFile.FileType; //find out the file extension
+                        var value = string.Empty;
                         if ((result.ToLower() != ".rtf"))
                         {
                             //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.None, out var value);
-                            await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                            Text1.Document.GetText(TextGetOptions.None, out value);
+                            //await PathIO.WriteTextAsync(CurrentWorkingFile.StorageFile.Path, value);
                         }
                         if (result.ToLower() == ".rtf")
                         {
                             //tries to update file if it exsits and is not read only
-                            Text1.Document.GetText(TextGetOptions.FormatRtf, out var value);
-                            await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                            Text1.Document.GetText(TextGetOptions.FormatRtf, out value);
+                            //await PathIO.WriteTextAsync(CurrentWorkingFile.StorageFile.Path, value);
                         }
+
+                        System.Text.Encoding encoding;
+                        switch (CurrentWorkingFile.FileEncoding)
+                        {
+                            case Encoding.UTF8:
+                                encoding = System.Text.Encoding.UTF8;
+                                break;
+                            case Encoding.UTF16_LE:
+                                encoding = System.Text.Encoding.Unicode;
+                                break;
+                            case Encoding.UTF16_BE:
+                                encoding = System.Text.Encoding.BigEndianUnicode;
+                                break;
+                            case Encoding.UTF32:
+                                encoding = System.Text.Encoding.UTF32;
+                                break;
+                            default:
+                                encoding = System.Text.Encoding.UTF8;
+                                break;
+                        }
+
+                        var bytes = encoding.GetBytes(value);
+                        await PathIO.WriteBytesAsync(CurrentWorkingFile.StorageFile.Path, bytes);
+
                         Changed = false;
                         SetANewChange();
                     }
@@ -498,7 +531,7 @@ namespace QuickPad
         #endregion
 
         #region Properties
-        string _fn = null;
+        private string _fn = null;
         public string CurrentFontName
         {
             get
@@ -521,15 +554,15 @@ namespace QuickPad
             }
         }
 
-        Color? _fc = null;
+        private Color? _fc = null;
         public Color CurrentFontColor
         {
             get
             {
                 if (_fc is null)
                 {
-                    if (QSetting.DefaultFontColor == "Default")                    
-                        _fc = new UISettings().GetColorValue(UIColorType.Foreground);                    
+                    if (QSetting.DefaultFontColor == "Default")
+                        _fc = new UISettings().GetColorValue(UIColorType.Foreground);
                     else if (QSetting.DefaultFontColor.StartsWith("#"))
                         _fc = Converter.GetColorFromHex(QSetting.DefaultFontColor);
                     else
@@ -551,7 +584,7 @@ namespace QuickPad
             }
         }
 
-        int? _vsize = null;
+        private int? _vsize = null;
         public int VisualFontSize
         {
             get
@@ -565,21 +598,21 @@ namespace QuickPad
             set => Set(ref _vsize, value);
         }
 
-        bool _paste;
+        private bool _paste;
         public bool CanPasteText
         {
             get => _paste;
             set => Set(ref _paste, value);
         }
 
-        ObservableCollection<FontFamilyItem> _fonts;
+        private ObservableCollection<FontFamilyItem> _fonts;
         public ObservableCollection<FontFamilyItem> AllFonts
         {
             get => _fonts;
             set => Set(ref _fonts, value);
         }
 
-        string _file_name = null;
+        private string _file_name = null;
         public string CurrentFilename
         {
             get
@@ -611,14 +644,14 @@ namespace QuickPad
             }
         }
 
-        void UpdateAppTitlebar()
+        private void UpdateAppTitlebar()
         {
             //Set Title bar
             var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
             appView.Title = CurrentFilename;
         }
 
-        bool _changed;
+        private bool _changed;
         public bool Changed
         {
             get => _changed;
@@ -627,7 +660,10 @@ namespace QuickPad
                 if (!Equals(_changed, value))
                 {
                     Set(ref _changed, value);
-                    NotifyPropertyChanged(nameof(CurrentFilename));
+
+                    if (!_fileSaveCancelled)
+                        NotifyPropertyChanged(nameof(CurrentFilename));
+
                     UpdateAppTitlebar();
                 }
             }
@@ -651,8 +687,8 @@ namespace QuickPad
             CheckForChange();
         }
 
-        StorageFile _file;
-        public StorageFile CurrentWorkingFile
+        private StorageFileWithEncoding _file;
+        public StorageFileWithEncoding CurrentWorkingFile
         {
             get => _file;
             set
@@ -664,6 +700,7 @@ namespace QuickPad
                 }
             }
         }
+
         private string key; //future access list
 
         private bool _isPageLoaded = false;
@@ -671,14 +708,14 @@ namespace QuickPad
 
         public System.Timers.Timer timer; //this is the auto save timer interval
 
-        bool _undo;
+        private bool _undo;
         public bool CanUndoText
         {
             get => _undo;
             set => Set(ref _undo, value);
         }
 
-        bool _redo;
+        private bool _redo;
         public bool CanRedoText
         {
             get => _redo;
@@ -777,21 +814,49 @@ namespace QuickPad
         #region Load/Save file
         public async Task LoadFileIntoTextBox()
         {
-            if (CurrentWorkingFile.FileType.ToLower() == ".rtf")
+            var buffer = await FileIO.ReadBufferAsync(CurrentWorkingFile.StorageFile);
+            byte[] bytes = new byte[buffer.Length];
+            using (DataReader dr = DataReader.FromBuffer(buffer))
             {
-                Windows.Storage.Streams.IRandomAccessStream randAccStream = await CurrentWorkingFile.OpenAsync(FileAccessMode.Read);
+                dr.ReadBytes(bytes);
+            }
 
-                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile); //let file be accessed later
+            var encoding = bytes.GetEncoding();
+            var data = encoding.GetString(bytes);
 
-                // Load the file into the Document property of the RichEditBox.
-                Text1.Document.LoadFromStream(TextSetOptions.FormatRtf, randAccStream);
+            key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile.StorageFile);
+
+            if (CurrentWorkingFile.StorageFile.FileType.ToLower() == ".rtf")
+            {
+                Text1.Document.SetText(TextSetOptions.FormatRtf, data);
             }
             else
             {
-                key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(CurrentWorkingFile); //let file be accessed later
-
-                Text1.Document.SetText(TextSetOptions.None, await FileIO.ReadTextAsync(CurrentWorkingFile));
+                Text1.Document.SetText(TextSetOptions.None, data);
             }
+
+            if (encoding == System.Text.Encoding.UTF8)
+            {
+                SetCurrentEncoding = Encoding.UTF8;
+            }
+            else if (encoding == System.Text.Encoding.Unicode)
+            {
+                SetCurrentEncoding = Encoding.UTF16_LE;
+            }
+            else if (encoding == System.Text.Encoding.BigEndianUnicode)
+            {
+                SetCurrentEncoding = Encoding.UTF16_BE;
+            }
+            else if (encoding == System.Text.Encoding.UTF32)
+            {
+                SetCurrentEncoding = Encoding.UTF32;
+            }
+            else
+            {
+                SetCurrentEncoding = Encoding.UTF8;
+            }
+
+
             //Clear undo/redo history
             Text1.TextDocument.ClearUndoRedoHistory();
             //Update the initial loaded content
@@ -804,7 +869,7 @@ namespace QuickPad
             {
                 CurrentWorkingFile = inputFile;
                 await LoadFileIntoTextBox();
-                CurrentFilename = CurrentWorkingFile.DisplayName;
+                CurrentFilename = CurrentWorkingFile.StorageFile.DisplayName;
             }
             catch (Exception) { }
         }
@@ -813,10 +878,31 @@ namespace QuickPad
         {
             try
             {
-                Text1.Document.GetText(
-                    CurrentWorkingFile.FileType.ToLower() == ".rtf" ? TextGetOptions.FormatRtf : TextGetOptions.None,
-                    out var value);
-                await PathIO.WriteTextAsync(CurrentWorkingFile.Path, value);
+                Text1.Document.GetText(CurrentWorkingFile.StorageFile.FileType.ToLower().Equals(".rtf") ? TextGetOptions.FormatRtf : TextGetOptions.None, out var value);
+
+                System.Text.Encoding encoding;
+                switch (CurrentWorkingFile.FileEncoding)
+                {
+                    case Encoding.UTF8:
+                        encoding = System.Text.Encoding.UTF8;
+                        break;
+                    case Encoding.UTF16_LE:
+                        encoding = System.Text.Encoding.Unicode;
+                        break;
+                    case Encoding.UTF16_BE:
+                        encoding = System.Text.Encoding.BigEndianUnicode;
+                        break;
+                    case Encoding.UTF32:
+                        encoding = System.Text.Encoding.UTF32;
+                        break;
+                    default:
+                        encoding = System.Text.Encoding.UTF8;
+                        break;
+                }
+
+                var bytes = encoding.GetBytes(value);
+                await PathIO.WriteBytesAsync(CurrentWorkingFile.StorageFile.Path, bytes);
+
                 Changed = false;
             }
 
@@ -853,25 +939,66 @@ namespace QuickPad
                 {
                     //Change has been saved
                     Changed = false;
+
+                    if (null == CurrentWorkingFile) CurrentWorkingFile = new StorageFileWithEncoding();
                     //Set the current working file
-                    CurrentWorkingFile = file;
+                    CurrentWorkingFile.StorageFile = file;
                     //update title bar
                     CurrentFilename = file.DisplayName;
 
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
-                    //save as plain text for text file
+                    string value = string.Empty;
+
                     if ((file.FileType.ToLower() != ".rtf"))
                     {
-                        Text1.Document.GetText(TextGetOptions.None, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                        Text1.Document.GetText(TextGetOptions.None, out value); //get the text to save
                     }
                     //save as rich text for rich text file
                     if (file.FileType.ToLower() == ".rtf")
                     {
-                        Text1.Document.GetText(TextGetOptions.FormatRtf, out var value); //get the text to save
-                        await FileIO.WriteTextAsync(file, value); //write the text to the file
+                        Text1.Document.GetText(TextGetOptions.FormatRtf, out value); //get the text to save
                     }
+
+                    System.Text.Encoding encoding;
+                    switch ((Encoding)App.QSetting.DefaultEncoding)
+                    {
+                        case Encoding.UTF8:
+                            CurrentWorkingFile.FileEncoding = Encoding.UTF8;
+                            encoding = System.Text.Encoding.UTF8;
+                            break;
+                        case Encoding.UTF16_LE:
+                            CurrentWorkingFile.FileEncoding = Encoding.UTF16_LE;
+                            encoding = System.Text.Encoding.Unicode;
+                            break;
+                        case Encoding.UTF16_BE:
+                            CurrentWorkingFile.FileEncoding = Encoding.UTF16_BE;
+                            encoding = System.Text.Encoding.BigEndianUnicode;
+                            break;
+                        case Encoding.UTF32:
+                            CurrentWorkingFile.FileEncoding = Encoding.UTF32;
+                            encoding = System.Text.Encoding.UTF32;
+                            break;
+                        default:
+                            CurrentWorkingFile.FileEncoding = Encoding.UTF32;
+                            encoding = System.Text.Encoding.UTF8;
+                            break;
+                    }
+
+                    var preamble = encoding.GetPreamble();
+                    var bytes = encoding.GetBytes(value);
+                    var final = new byte[preamble.Length + bytes.Length];
+                    for (var i = 0; i < preamble.Length; i++)
+                    {
+                        final[i] = preamble[i];
+                    }
+
+                    for (var i = 0; i < bytes.Length; i++)
+                    {
+                        final[i + preamble.Length] = bytes[i];
+                    }
+                    await FileIO.WriteBytesAsync(file, final);
+
 
                     // Let Windows know that we're finished changing the file so the other app can update the remote version of the file.
                     Windows.Storage.Provider.FileUpdateStatus status = await Windows.Storage.CachedFileManager.CompleteUpdatesAsync(file);
@@ -884,11 +1011,13 @@ namespace QuickPad
 
                     //Increase new auto number, so next file will not get the same name
                     QSetting.NewFileAutoNumber++;
+                    _fileSaveCancelled = false;
                 }
                 else
                 {
                     CurrentWorkingFile = temporaryForce;
                     temporaryForce = null;
+                    _fileSaveCancelled = true;
                 }
             }
             //Update the initial loaded content
@@ -983,6 +1112,8 @@ namespace QuickPad
             UpdateText1FontSize(QSetting.DefaultFontSize);
             //Set new change
             SetANewChange();
+
+            SetCurrentEncoding = (Encoding)App.QSetting.DefaultEncoding;
         }
 
         private async void CmdOpen_Click(object sender, RoutedEventArgs e)
@@ -999,21 +1130,58 @@ namespace QuickPad
             {
                 try
                 {
-                    Windows.Storage.Streams.IRandomAccessStream randAccStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
+                    //Windows.Storage.Streams.IRandomAccessStream randAccStream = await file.OpenAsync(Windows.Storage.FileAccessMode.Read);
                     key = Windows.Storage.AccessCache.StorageApplicationPermissions.FutureAccessList.Add(file); //let file be accessed later
 
-                    if ((file.FileType.ToLower() != ".rtf"))
+                    var buffer = await FileIO.ReadBufferAsync(file);
+                    byte[] bytes = new byte[buffer.Length];
+                    using (DataReader dr = DataReader.FromBuffer(buffer))
                     {
-                        Text1.Document.SetText(Windows.UI.Text.TextSetOptions.None, await FileIO.ReadTextAsync(file));
+                        dr.ReadBytes(bytes);
                     }
-                    if (file.FileType.ToLower() == ".rtf")
+
+                    var encoding = bytes.GetEncoding();
+                    var data = encoding.GetString(bytes);
+
+                    if (null == CurrentWorkingFile) CurrentWorkingFile = new StorageFileWithEncoding();
+                    if (encoding == System.Text.Encoding.UTF8)
                     {
-                        Text1.Document.LoadFromStream(Windows.UI.Text.TextSetOptions.FormatRtf, randAccStream);
+                        CurrentWorkingFile.FileEncoding = Encoding.UTF8;
+                        SetCurrentEncoding = Encoding.UTF8;
+                    }
+                    else if (encoding == System.Text.Encoding.Unicode)
+                    {
+                        CurrentWorkingFile.FileEncoding = Encoding.UTF16_LE;
+                        SetCurrentEncoding = Encoding.UTF16_LE;
+                    }
+                    else if (encoding == System.Text.Encoding.BigEndianUnicode)
+                    {
+                        CurrentWorkingFile.FileEncoding = Encoding.UTF16_BE;
+                        SetCurrentEncoding = Encoding.UTF16_BE;
+                    }
+                    else if (encoding == System.Text.Encoding.UTF32)
+                    {
+                        CurrentWorkingFile.FileEncoding = Encoding.UTF32;
+                        SetCurrentEncoding = Encoding.UTF32;
+                    }
+                    else
+                    {
+                        CurrentWorkingFile.FileEncoding = Encoding.UTF8;
+                        SetCurrentEncoding = Encoding.UTF8;
+                    }
+
+                    if (file.FileType.ToLower().Equals(".rtf"))
+                    {
+                        Text1.Document.SetText(TextSetOptions.FormatRtf, data);
+                    }
+                    else
+                    {
+                        Text1.Document.SetText(TextSetOptions.None, data);
                     }
 
                     //Set current file
-                    CurrentWorkingFile = file;
-                    CurrentFilename = CurrentWorkingFile.DisplayName;
+                    CurrentWorkingFile.StorageFile = file;
+                    CurrentFilename = CurrentWorkingFile.StorageFile.DisplayName;
                     //Clear undo and redo, so the last undo will be the loaded text
                     Text1.TextDocument.ClearUndoRedoHistory();
                     //Update the initial loaded content
@@ -1037,7 +1205,8 @@ namespace QuickPad
             await SaveWork(); //call the function to save
         }
 
-        private StorageFile temporaryForce = null;
+        //private StorageFile temporaryForce = null;
+        private StorageFileWithEncoding temporaryForce = null;
         public async void CmdSaveAs_Click(object sender, RoutedEventArgs e)
         {
             temporaryForce = CurrentWorkingFile;
@@ -1219,7 +1388,7 @@ namespace QuickPad
             }
         }
 
-        StorageFile file;
+        private StorageFile file;
         private async void CmdShare_Click(object sender, RoutedEventArgs e)
         {
             file = null;
@@ -1238,7 +1407,7 @@ namespace QuickPad
         private void MainPage_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
         {
             Text1.Document.GetText(TextGetOptions.UseCrlf, out var value);
-            if (file is null) file = CurrentWorkingFile;
+            if (file is null) file = CurrentWorkingFile.StorageFile;
 
             if (!string.IsNullOrEmpty(value))
             {
@@ -1327,7 +1496,7 @@ namespace QuickPad
             FontListSelection.ScrollIntoView(FontListSelection.SelectedItem);
         }
 
-        string trySelectFontName;
+        private string trySelectFontName;
         private void TryToFindFont(UIElement sender, CharacterReceivedRoutedEventArgs args)
         {
             trySelectFontName += args.Character;
@@ -1347,7 +1516,7 @@ namespace QuickPad
         #endregion
 
         #region UI Mode change
-        bool? _compact = null;
+        private bool? _compact = null;
         public bool CompactOverlaySwitch
         {
             get
@@ -1366,7 +1535,7 @@ namespace QuickPad
             }
         }
 
-        bool? _focus = null;
+        private bool? _focus = null;
         public bool FocusModeSwitch
         {
             get
@@ -1385,7 +1554,7 @@ namespace QuickPad
             }
         }
 
-        bool? _classic = null;
+        private bool? _classic = null;
         public bool ClassicModeSwitch
         {
             get
@@ -1653,7 +1822,7 @@ namespace QuickPad
                     {
                         CurrentWorkingFile = items[0] as StorageFile;
                         await LoadFileIntoTextBox();
-                        CurrentFilename = CurrentWorkingFile.DisplayName;
+                        CurrentFilename = CurrentWorkingFile.StorageFile.DisplayName;
 
                         //log event in app center
                         Analytics.TrackEvent("Droped file in to Quick Pad");
@@ -1685,30 +1854,13 @@ namespace QuickPad
             GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount);
             CurrentPosition = columnIndex;
             CurrentLine = lineIndex;
-            SelectionLength = selectedCount;
 
             //update current format
             IsItBold = Text1.Document.Selection.CharacterFormat.Bold == FormatEffect.On;
             IsItItalic = Text1.Document.Selection.CharacterFormat.Italic == FormatEffect.On;
             IsItUnderline = Text1.Document.Selection.CharacterFormat.Underline != UnderlineType.None;
             IsItStrikethrough = Text1.Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
-            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;
-            //Selection update
-            if (Text1.Document.Selection is null)
-            {
-                SelectionLength = 0;
-            }
-            else
-            {
-                if (Text1.Document.Selection.Length < 0)
-                {
-                    SelectionLength = Text1.Document.Selection.Length * -1;
-                }
-                else
-                {
-                    SelectionLength = Text1.Document.Selection.Length;
-                }
-            }
+            IsUsingBulletList = Text1.Document.Selection.ParagraphFormat.ListType != MarkerType.None;           
         }
 
         public void GetCurrentLineColumn(out int lineIndex, out int columnIndex, out int selectedCount)
@@ -1836,10 +1988,37 @@ namespace QuickPad
             get => _bs;
             set => Set(ref _bs, value);
         }
+
+        private Encoding _currentEncoding;
+        public string CurrentEncoding
+        {
+            get
+            {
+                switch (_currentEncoding)
+                {
+                    case Encoding.UTF8:
+                        return "UTF-8";
+                    case Encoding.UTF16_LE:
+                        return "UTF-16 LE";
+                    case Encoding.UTF16_BE:
+                        return "UTF-16 BE";
+                    case Encoding.UTF32:
+                        return "UTF-32";
+                    default:
+                        return "UTF-8";
+
+                }
+            }
+        }
+
+        private Encoding SetCurrentEncoding
+        {
+            set => Set(ref _currentEncoding, value);
+        }
         #endregion
 
         #region Find & Replace
-        bool _fr;
+        private bool _fr;
         public bool ShowFindAndReplace
         {
             get => _fr;
@@ -1882,7 +2061,7 @@ namespace QuickPad
             }
         }
 
-        async void DelayFocus()
+        private async void DelayFocus()
         {
             await Task.Delay(100);
             FindAndReplaceDialog.FindInput.Focus(FocusState.Pointer);
@@ -1893,14 +2072,14 @@ namespace QuickPad
             ShowFindAndReplace = !ShowFindAndReplace;
         }
 
-        int _ssp;
+        private int _ssp;
         public int StartSearchPosition
         {
             get => _ssp;
             set => Set(ref _ssp, value);
         }
 
-        int _maxRange;
+        private int _maxRange;
         public int MaximumPossibleSearchRange
         {
             get => _maxRange;
@@ -1922,7 +2101,7 @@ namespace QuickPad
             int start = Text1.Document.Selection.StartPosition;
             int end = Text1.Document.Selection.EndPosition;
             FindOptions matchCase = match ? FindOptions.Case : FindOptions.None;
-            
+
             if (direction)
             {
                 //Search forward
@@ -2047,7 +2226,7 @@ namespace QuickPad
                 while (true)
                 {
                     FindRequestedText(find, direction, match); //Start searching
-                    //Check if it found or not
+                                                               //Check if it found or not
                     if (start != Text1.Document.Selection.StartPosition && end != Text1.Document.Selection.EndPosition)
                     {
                         if ((Text1.Document.Selection.StartPosition == 0 && Text1.Document.Selection.EndPosition == 0)
@@ -2058,7 +2237,7 @@ namespace QuickPad
                                        //It's been forced to select at the start or at the end as it has found any result
                                        //Wait for the loop to try again
                             attemp = true; //Mark as it has been attemp to start over
-                            //Begin new search
+                                           //Begin new search
                             continue;
                         }
                         //Found text, replace

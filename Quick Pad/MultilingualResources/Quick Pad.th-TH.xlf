@@ -619,16 +619,16 @@
           <target state="translated">ขนาด</target>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
-          <source>Column: </source>
-          <target state="translated">ตัว: </target>
+          <source>Col: </source>
+          <target state="needs-review-translation">ตัว: </target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Changed to Col:</note>
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
-          <source>Line: </source>
-          <target state="translated">บรรทัด: </target>
-        </trans-unit>
-        <trans-unit id="StatusSelCount.Text" translate="yes" xml:space="preserve">
-          <source>Selection: </source>
-          <target state="translated">เลือก: </target>
+          <source>Ln: </source>
+          <target state="needs-review-translation">บรรทัด: </target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Changed to Ln:</note>
         </trans-unit>
         <trans-unit id="GeneralShowStatusOnClassic.Text" translate="yes" xml:space="preserve">
           <source>Show Status Bar on Classic Mode</source>
@@ -1010,6 +1010,10 @@
 Font color will change based on app theme.</source>
           <target state="new">Default font color selected.
 Font color will change based on app theme.</target>
+        </trans-unit>
+        <trans-unit id="DefaultEncoding.Text" translate="yes" xml:space="preserve">
+          <source>Default File Encoding</source>
+          <target state="new">Default File Encoding</target>
         </trans-unit>
       </group>
     </body>

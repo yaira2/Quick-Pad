@@ -574,13 +574,12 @@
     <value>Size</value>
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
-    <value>Column: </value>
+    <value>Col: </value>
+    <comment>Changed to Col:</comment>
   </data>
   <data name="StatusLnCount.Text" xml:space="preserve">
-    <value>Line: </value>
-  </data>
-  <data name="StatusSelCount.Text" xml:space="preserve">
-    <value>Selection: </value>
+    <value>Ln: </value>
+    <comment>Changed to Ln:</comment>
   </data>
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>Show Status Bar on Classic Mode</value>
@@ -867,5 +866,8 @@ Font color will change based on app theme.</value>
   </data>
   <data name="FontColorGray" xml:space="preserve">
     <value>Gray</value>
+  </data>
+  <data name="DefaultEncoding.Text" xml:space="preserve">
+    <value>Default File Encoding</value>
   </data>
 </root>

@@ -473,12 +473,11 @@
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
     <value>Colonne:</value>
+    <comment>Changed to Col:</comment>
   </data>
   <data name="StatusLnCount.Text" xml:space="preserve">
     <value>Ligne:</value>
-  </data>
-  <data name="StatusSelCount.Text" xml:space="preserve">
-    <value>Sélection:</value>
+    <comment>Changed to Ln:</comment>
   </data>
   <data name="GeneralShowStatusOnClassic.Text" xml:space="preserve">
     <value>Montrer la barre d'état en mode classique</value>
