@@ -281,7 +281,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluiFramework.UWP">
-      <Version>0.0.31</Version>
+      <Version>0.0.33</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>2.5.0</Version>
