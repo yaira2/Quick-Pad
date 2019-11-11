@@ -284,7 +284,7 @@
       <Version>0.0.33</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>2.5.0</Version>
+      <Version>2.6.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
       <Version>2.6.1</Version>
