@@ -12,7 +12,7 @@
 
 * Fluent design with dark and light theme support.
 * Launch from the run dialog box by typing "Quickpad".
-* Compact Overlay mode can make the app always on top.
+* Compact Overlay mode will make the app stay on top of other apps or windows.
 * Focus mode hides all distractions.
 * Auto save ensures your works is safe.
 
@@ -21,7 +21,6 @@
 ## Things that are not working or implemented in this version:
 
 * File Print.
-* Zoom Options.
 
 ## Downloads:
 
