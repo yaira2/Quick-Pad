@@ -12,8 +12,8 @@
 
     <Grid>
         <MenuBar Height="40" Width="268.667">
-            <MenuBarItem Title="File" AccessKey="F">
-                <MenuFlyoutItem Text="New" AccessKey="N">
+            <MenuBarItem Title="File" AccessKey="F" x:Uid="File">
+                <MenuFlyoutItem Text="New" AccessKey="N" x:Uid="New">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE7C3;"/>
                     </MenuFlyoutItem.Icon>
@@ -23,7 +23,7 @@
                            Key="N" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Open" AccessKey="O">
+                <MenuFlyoutItem Text="Open" AccessKey="O" x:Uid="Open">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xF12B;"/>
                     </MenuFlyoutItem.Icon>
@@ -33,7 +33,7 @@
                            Key="O" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save" AccessKey="S">
+                <MenuFlyoutItem Text="Save" AccessKey="S" x:Uid="Save">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Save"/>
                     </MenuFlyoutItem.Icon>
@@ -43,7 +43,7 @@
                            Key="S" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save As..." AccessKey="A">
+                <MenuFlyoutItem Text="Save As..." AccessKey="A" x:Uid="SaveAs">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Save"/>
                     </MenuFlyoutItem.Icon>
@@ -54,52 +54,52 @@
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Share" AccessKey="H">
+                <MenuFlyoutItem Text="Share" AccessKey="H" x:Uid="Share">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Share"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Exit" AccessKey="X">
+                <MenuFlyoutItem Text="Exit" AccessKey="X" x:Uid="Exit">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE8BB;"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
             </MenuBarItem>
-            <MenuBarItem Title="Edit" AccessKey="E">
-                <MenuFlyoutItem Text="Undo" AccessKey="U">
+            <MenuBarItem Title="Edit" AccessKey="E" x:Uid="Edit">
+                <MenuFlyoutItem Text="Undo" AccessKey="U" x:Uid="Undo">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Undo"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Redo" AccessKey="E">
+                <MenuFlyoutItem Text="Redo" AccessKey="E" x:Uid="Redo">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Redo"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Cut" AccessKey="T">
+                <MenuFlyoutItem Text="Cut" AccessKey="T" x:Uid="Cut">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Cut"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Copy" AccessKey="C">
+                <MenuFlyoutItem Text="Copy" AccessKey="C" x:Uid="Copy">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Copy"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Paste" AccessKey="P">
+                <MenuFlyoutItem Text="Paste" AccessKey="P" x:Uid="Paste">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Delete" AccessKey="L">
+                <MenuFlyoutItem Text="Delete" AccessKey="L" x:Uid="Delete">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Delete"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Search with Bing..." AccessKey="S">
+                <MenuFlyoutItem Text="Search with Bing..." AccessKey="S" x:Uid="SearchBing">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12B;" />
                     </MenuFlyoutItem.Icon>
@@ -109,14 +109,14 @@
                            Key="E" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Find" AccessKey="F" Icon="Find">
+                <MenuFlyoutItem Text="Find" AccessKey="F" Icon="Find" x:Uid="Find"> 
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator
                           Modifiers="Control" 
                            Key="F" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Find Next" AccessKey="N">
+                <MenuFlyoutItem Text="Find Next" AccessKey="N" x:Uid="FindNext">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE0AB;" />
                     </MenuFlyoutItem.Icon>
@@ -124,7 +124,7 @@
                         <KeyboardAccelerator Key="F3" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Find Previous" AccessKey="V">
+                <MenuFlyoutItem Text="Find Previous" AccessKey="V" x:Uid="FindPrevious">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE0A6;" />
                     </MenuFlyoutItem.Icon>
@@ -132,12 +132,12 @@
                         <KeyboardAccelerator Modifiers="Shift" Key="F3" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Replace" AccessKey="R" Icon="Rename">
+                <MenuFlyoutItem Text="Replace" AccessKey="R" Icon="Rename" x:Uid="Replace">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="H"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Go To" AccessKey="G">
+                <MenuFlyoutItem Text="Go To" AccessKey="G" x:Uid="GoTo">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="G"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
@@ -146,12 +146,12 @@
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Select All" AccessKey="A">
+                <MenuFlyoutItem Text="Select All" AccessKey="A" x:Uid="SelectAll">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE8B3;"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Date/Time" AccessKey="D">
+                <MenuFlyoutItem Text="Date/Time" AccessKey="D" x:Uid="DateTime">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xEC92;"/>
                     </MenuFlyoutItem.Icon>
@@ -160,41 +160,41 @@
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
             </MenuBarItem>
-            <MenuBarItem Title="Format" AccessKey="O">
-                <ToggleMenuFlyoutItem Text="Word Wrap">
+            <MenuBarItem Title="Format" AccessKey="O" x:Uid="Format">
+                <ToggleMenuFlyoutItem Text="Word Wrap" x:Uid="WordWrap">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE751;"/>
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Fonts..." AccessKey="F">
+                <MenuFlyoutItem Text="Fonts..." AccessKey="F" x:Uid="Fonts">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Font"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
             </MenuBarItem>
-            <MenuBarItem Title="View" AccessKey="V">
-                <MenuFlyoutItem Text="Back to default mode" AccessKey="D">
+            <MenuBarItem Title="View" AccessKey="V" x:Uid="View">
+                <MenuFlyoutItem Text="Back to Default Mode" AccessKey="D" x:Uid="BackToDefault">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Back"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Focus Mode" AccessKey="F">
+                <MenuFlyoutItem Text="Focus Mode" AccessKey="F" x:Uid="Focus Mode">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Caption"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Overlay mode" AccessKey="O">
+                <MenuFlyoutItem Text="Overlay Mode" AccessKey="O" x:Uid="OverlayMode">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutSubItem Text="Zoom" AccessKey="Z">
+                <MenuFlyoutSubItem Text="Zoom" AccessKey="Z" x:Uid="Zoom">
                     <MenuFlyoutSubItem.Icon>
                         <FontIcon Glyph="&#xE92D;"/>
                     </MenuFlyoutSubItem.Icon>
-                    <MenuFlyoutItem Text="Zoom In" AccessKey="I">
+                    <MenuFlyoutItem Text="Zoom In" AccessKey="I" x:Uid="ZoomIn">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE8A3;"/>
                         </MenuFlyoutItem.Icon>
@@ -204,7 +204,7 @@
                            Key="Add"/>
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Zoom Out" AccessKey="O">
+                    <MenuFlyoutItem Text="Zoom Out" AccessKey="O" x:Uid="ZoomOut">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE71F;"/>
                         </MenuFlyoutItem.Icon>
@@ -214,7 +214,7 @@
                            Key="Subtract"/>
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Restore Default Zoom" AccessKey="R">
+                    <MenuFlyoutItem Text="Restore Default Zoom" AccessKey="R" x:Uid="RestoreDefaultZoom">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE71E;"/>
                         </MenuFlyoutItem.Icon>
@@ -225,20 +225,20 @@
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
                 </MenuFlyoutSubItem>
-                <ToggleMenuFlyoutItem Text="Status Bar" AccessKey="S">
+                <ToggleMenuFlyoutItem Text="Status Bar" AccessKey="S" x:Uid="StatusBar">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE75B;" />
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
             </MenuBarItem>
-            <MenuBarItem Title="Help" AccessKey="H">
-                <MenuFlyoutItem Text="Settings" AccessKey="S">
+            <MenuBarItem Title="Help" AccessKey="H" x:Uid="Help">
+                <MenuFlyoutItem Text="Settings" AccessKey="S" x:Uid="Settings">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Setting"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Rate and Review" AccessKey="R">
+                <MenuFlyoutItem Text="Rate and Review" AccessKey="R" x:Uid="RateAndReview">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="SolidStar"/>
                     </MenuFlyoutItem.Icon>
