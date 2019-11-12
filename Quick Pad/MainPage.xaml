@@ -565,7 +565,6 @@
                      Style="{StaticResource RichEditBox}"
                      Background="{x:Bind q:Converter.SelectionBetweenBrush(QSetting.PreventText1ChangeColor, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
-                     FontSize="{x:Bind QSetting.DefaultFontSize, Mode=OneWay}"
                      Tapped="Text1_Tapped" FontFamily="Consolas">
                         <RichEditBox.SelectionHighlightColorWhenNotFocused>
                             <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>

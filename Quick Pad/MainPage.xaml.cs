@@ -312,7 +312,7 @@ namespace QuickPad
 
         private void UpdateText1FontSize(int to)
         {
-            Text1.Document.Selection.CharacterFormat.Size = to; //set the font size
+            Text1.Document.Selection.CharacterFormat.Size = QSetting.DefaultFontSize; //set the font size
         }
 
         // You can also use a lambda for this
@@ -818,6 +818,8 @@ namespace QuickPad
             }
             else
             {
+                //make the text have the default font settings since the plain text files dont get styled by the user
+                Text1.FontSize = QSetting.DefaultFontSize;
                 Text1.Document.SetText(TextSetOptions.None, data);
             }
 
