@@ -7,8 +7,6 @@ using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
-using Windows.UI.Core.Preview;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -16,15 +14,8 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using Microsoft.AppCenter;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter.Crashes;
-using Windows.Globalization;
-using Windows.Foundation.Metadata;
-using Windows.Storage;
-using Newtonsoft.Json;
 
-namespace QuickPad
+namespace Quick_Pad
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.
@@ -38,52 +29,7 @@ namespace QuickPad
         public App()
         {
             this.InitializeComponent();
-            ApplicationLanguages.PrimaryLanguageOverride = QSetting.AppLanguage;
-
             this.Suspending += OnSuspending;
-            this.UnhandledException += OnUnhandledException;
-
-
-#if !DEBUG
-            if (QSetting.SendAnalyticsReport)
-            {
-                AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes)); //send analytics to app center
-            }
-#endif
-            Is1903OrNewer = ApiInformation.IsApiContractPresent("Windows.Foundation.UniversalApiContract", 9);
-        }
-
-        public static Setting QSetting { get; } = new Setting();
-
-        private async void OnUnhandledException(object sender, Windows.UI.Xaml.UnhandledExceptionEventArgs e)
-        {
-            e.Handled = QSetting.PreventAppCloseAfterCrash;
-            if (QSetting.SaveLogWhenCrash)
-            {
-                StorageFolder folder = ApplicationData.Current.LocalFolder;
-                var crash = (await folder.TryGetItemAsync("Crash")) as StorageFolder;
-                if (crash is null)
-                {
-                    crash = await folder.CreateFolderAsync("Crash");
-                }
-                StorageFile crashLog = await crash.CreateFileAsync($"CrashLog_{DateTime.Now.ToString("yyyyMMdd_HHmmss")}.txt", CreationCollisionOption.GenerateUniqueName);
-                string feed = $"Quick Pad crash report {DateTime.Now.ToString("G")}\r\n";
-               
-                feed += $"{JsonConvert.SerializeObject(e.Exception, Formatting.Indented)}";
-
-                await FileIO.WriteTextAsync(crashLog, feed);
-            }
-        }
-
-        public static bool Is1903OrNewer;
-
-        protected override void OnFileActivated(FileActivatedEventArgs args)
-        {
-            base.OnFileActivated(args);
-            var rootFrame = new Frame();
-            rootFrame.Navigate(typeof(MainPage), args);
-            Window.Current.Content = rootFrame;
-            Window.Current.Activate();
         }
 
         /// <summary>
@@ -94,13 +40,22 @@ namespace QuickPad
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             Frame rootFrame = Window.Current.Content as Frame;
+
+            // Do not repeat app initialization when the Window already has content,
+            // just ensure that the window is active
             if (rootFrame == null)
             {
+                // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
+
+                rootFrame.NavigationFailed += OnNavigationFailed;
+
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
+                    //TODO: Load state from previously suspended application
                 }
 
+                // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
 
@@ -108,70 +63,15 @@ namespace QuickPad
             {
                 if (rootFrame.Content == null)
                 {
-                    if (!string.IsNullOrEmpty(e.Arguments))
-                    {
-                        rootFrame.Navigate(typeof(MainPage), GetParameterURI(e.Arguments));
-                    }
-                    else
-                    {
-                        rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                    }
+                    // When the navigation stack isn't restored navigate to the first page,
+                    // configuring the new page by passing required information as a navigation
+                    // parameter
+                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
                 }
+                // Ensure the current window is active
                 Window.Current.Activate();
             }
         }
-
-#region OnActivated
-
-        protected override void OnActivated(IActivatedEventArgs args)
-        {
-            string additionParameter = "";
-            switch (args.Kind)
-            {
-                case ActivationKind.CommandLineLaunch:
-                    CommandLineActivatedEventArgs cmdLineArgs =
-                        args as CommandLineActivatedEventArgs;
-                    CommandLineActivationOperation operation = cmdLineArgs.Operation;
-                    string cmdLineString = operation.Arguments;
-                    string activationPath = operation.CurrentDirectoryPath;
-                    break;
-                case ActivationKind.Protocol:
-                    ProtocolActivatedEventArgs uriArg = args as ProtocolActivatedEventArgs;
-                    additionParameter = GetParameterURI(uriArg.Uri.OriginalString);
-                    break;
-            }
-            //Navigate
-            Frame rootFrame = Window.Current.Content as Frame;
-            if (rootFrame == null)
-            {
-                rootFrame = new Frame();
-                Window.Current.Content = rootFrame;
-            }
-            rootFrame.Navigate(typeof(MainPage), additionParameter);
-
-            Window.Current.Activate();
-
-        }
-
-#endregion
-
-#region Extract URI
-
-        public string GetParameterURI(string fullURI)
-        {
-            string output = "";
-            if (fullURI.Contains("//"))
-            {
-                output = fullURI.Substring(fullURI.IndexOf("//"));
-                if (output.Contains("/"))
-                {
-                    output = output.Replace("/", string.Empty);
-                }
-            }
-            return output;
-        }
-
-#endregion
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
@@ -196,6 +96,5 @@ namespace QuickPad
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
-
     }
 }
