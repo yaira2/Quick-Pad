@@ -820,6 +820,7 @@ namespace QuickPad
             {
                 //make the text have the default font settings since the plain text files dont get styled by the user
                 Text1.FontSize = QSetting.DefaultFontSize;
+
                 Text1.Document.SetText(TextSetOptions.None, data);
             }
 

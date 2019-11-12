@@ -209,7 +209,7 @@ namespace QuickPad
             set => Set(value);
         }
 
-        [DefaultValue((int)(AvailableModes.Default))]
+        [DefaultValue((int)(AvailableModes.Classic))]
         public int LaunchMode
         {
             get => Get<int>();
@@ -240,7 +240,7 @@ namespace QuickPad
         /// <summary>
         /// this is to check the default file extension choosen in the save file dialog
         /// </summary>
-        [DefaultValue(".rtf")]
+        [DefaultValue(".txt")]
         public string DefaultFileType
         {
             get => Get<string>();
