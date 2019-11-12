@@ -584,20 +584,6 @@ namespace QuickPad
             }
         }
 
-        private int? _vsize = null;
-        public int VisualFontSize
-        {
-            get
-            {
-                if (_vsize is null)
-                {
-                    _vsize = QSetting.DefaultFontSize;
-                }
-                return _vsize.Value;
-            }
-            set => Set(ref _vsize, value);
-        }
-
         private bool _paste;
         public bool CanPasteText
         {
@@ -1341,38 +1327,42 @@ namespace QuickPad
 
         private void SizeUp_Click(object sender, RoutedEventArgs e)
         {
-            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size);
-            //
             Text1.Document.BeginUndoGroup();
             try
             {
                 //makes the selected text font size bigger
-                Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size + 2;
+                Text1.Document.Selection.CharacterFormat.Size = LastFontSize + 2;
             }
             catch (Exception)
             {
-                Text1.Document.Selection.CharacterFormat.Size = LastFontSize;
+                Text1.Document.Selection.CharacterFormat.Size = QSetting.DefaultFontSize + 2;
             }
-            finally
-            {
-                VisualFontSize = Convert.ToInt32(Text1.Document.Selection.CharacterFormat.Size);
-            }
+
+            LastFontSize = Convert.ToInt32(Text1.Document.Selection.CharacterFormat.Size);
+
             Text1.Document.EndUndoGroup();
         }
 
         private void SizeDown_Click(object sender, RoutedEventArgs e)
         {
-            LastFontSize = Convert.ToInt64(Text1.Document.Selection.CharacterFormat.Size);
-            //
             Text1.Document.BeginUndoGroup();
             //checks if the font size is too small
-            if (Text1.Document.Selection.CharacterFormat.Size > 4)
+            if (LastFontSize > 4)
             {
-                //make the selected text font size smaller
-                Text1.Document.Selection.CharacterFormat.Size = Text1.Document.Selection.CharacterFormat.Size - 2;
+                try
+                {
+                    //make the selected text font size smaller
+                    Text1.Document.Selection.CharacterFormat.Size = LastFontSize - 2;
+                }
+                catch (Exception)
+                {
+                    Text1.Document.Selection.CharacterFormat.Size = QSetting.DefaultFontSize - 2;
+                }
             }
+
+            LastFontSize = Convert.ToInt32(Text1.Document.Selection.CharacterFormat.Size);
+
             Text1.Document.EndUndoGroup();
-            VisualFontSize = Convert.ToInt32(Text1.Document.Selection.CharacterFormat.Size);
         }
 
         private void Emoji_Clicked(object sender, RoutedEventArgs e)
