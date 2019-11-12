@@ -223,14 +223,14 @@ namespace QuickPad
             set => Set(value);
         }
 
-        [DefaultValue(320)]
+        [DefaultValue(200)]
         public int CompactSizeHeight
         {
             get => Get<int>();
             set => Set(value);
         }
 
-        [DefaultValue(200)]
+        [DefaultValue(320)]
         public int CompactSizeWidth
         {
             get => Get<int>();
