@@ -215,7 +215,7 @@ namespace QuickPad.Mvc
                 // Dropdown of file types the user can save the file as
                 savePicker.FileTypeChoices.Add("Plain Text", new List<string>() { ".txt" });
                 savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-                savePicker.FileTypeChoices.Add("Any", new List<string>() { "" });
+                savePicker.FileTypeChoices.Add("Any", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
                 savePicker.SuggestedFileName = documentViewModel.File.DisplayName ?? "Unnamed";
