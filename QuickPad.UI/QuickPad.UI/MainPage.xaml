@@ -8,11 +8,6 @@
     xmlns:controls="using:Quick_Pad"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Page.TopAppBar>
-        <AppBar>
-            <AppBarButton x:Name="SaveButton" Icon="Save" Command="{x:Bind ViewModel.SaveCommand}" CommandParameter="{x:Bind ViewModel}" />
-        </AppBar>
-    </Page.TopAppBar>
 
     <Grid>
         <Grid.RowDefinitions>
