@@ -1,0 +1,181 @@
+﻿<UserControl
+    x:Class="Quick_Pad.CommandBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Quick_Pad"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    mc:Ignorable="d"
+    d:DesignHeight="40"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Grid HorizontalAlignment="Stretch">
+        <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
+            <AppBarButton x:Uid="NewLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Command="{x:Bind ViewModel.NewCommand}" CommandParameter="{x:Bind ViewModel}">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="New" Text="New"/>
+                </ToolTipService.ToolTip>
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE7C3;"/>
+                </AppBarButton.Icon>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="N" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton x:Uid="OpenLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Command="{x:Bind ViewModel.LoadCommand}" CommandParameter="{x:Bind ViewModel}">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Open" Text="Open (Ctrl+O)"/>
+                </ToolTipService.ToolTip>
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xF12B;"/>
+                </AppBarButton.Icon>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="O" />
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarButton x:Uid="SaveLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Icon="Save" Command="{x:Bind ViewModel.SaveCommand}" CommandParameter="{x:Bind ViewModel}">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Save" Text="Save (Ctrl+S)"/>
+                </ToolTipService.ToolTip>
+                <AppBarButton.KeyboardAccelerators>
+                    <KeyboardAccelerator 
+                          Modifiers="Control" 
+                           Key="S"/>
+                </AppBarButton.KeyboardAccelerators>
+            </AppBarButton>
+            <AppBarSeparator/>
+            <AppBarButton x:Name="FontDropdown" LabelPosition="Collapsed" Width="Auto">
+                <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
+                    <TextBlock FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                    <FontIcon Glyph="&#xE70D;" FontSize="12"/>
+                </StackPanel>
+            </AppBarButton>
+            <AppBarButton x:Name="FontSizeDropdown" LabelPosition="Collapsed" MinWidth="75" Width="Auto">
+                <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
+                    <TextBlock FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                    <FontIcon Glyph="&#xE70D;" FontSize="12"/>
+                </StackPanel>
+            </AppBarButton>
+            <AppBarButton x:Uid="ColorLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Color" Text="Font Color"/>
+                </ToolTipService.ToolTip>
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xE790;"/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+            <AppBarButton x:Uid="EmojiLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Emoji2">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Emoji" Text="Insert Emojis (Win + .)"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarSeparator/>
+            <AppBarToggleButton x:Uid="BoldLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Bold">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Bold" Text="Bold (Ctrl+B)"/>
+                </ToolTipService.ToolTip>
+            </AppBarToggleButton>
+            <AppBarToggleButton x:Uid="ItalicLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Italic">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Italic" Text="Italic (Ctrl+I)"/>
+                </ToolTipService.ToolTip>
+            </AppBarToggleButton>
+            <AppBarToggleButton x:Uid="UnderlineLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Underline">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Underline" Text="Underline (Ctrl+U)"/>
+                </ToolTipService.ToolTip>
+            </AppBarToggleButton>
+            <AppBarToggleButton x:Uid="StrikethroughLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" >
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Strikethrough" Text="Strikethrough"/>
+                </ToolTipService.ToolTip>
+                <AppBarToggleButton.Icon>
+                    <FontIcon Margin="0,4,0,-3" FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded" Glyph="&#xE1B2;">
+                        <FontIcon.RenderTransform>
+                            <ScaleTransform ScaleX="1.1" ScaleY="1.1"/>
+                        </FontIcon.RenderTransform>
+                    </FontIcon>
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
+            <AppBarToggleButton x:Uid="BulletsLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="List">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="Bullets" Text="Toggle Bullets"/>
+                </ToolTipService.ToolTip>
+            </AppBarToggleButton>
+            <AppBarSeparator/>
+            <AppBarButton x:Uid="AlignLeftLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignLeft">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="AlignLeft" Text="Align Left (Ctrl+L)"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Uid="AlignCenterLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignCenter">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="AlignCenter" Text="Align Center (Ctrl+E)"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Uid="AlignRightLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignRight">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="AlignRight" Text="Align Right (Ctrl+R)"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Uid="JustifyTextLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="JustifyText" Text="Justify Text (Ctrl+J)"/>
+                </ToolTipService.ToolTip>
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="/Assets/Font/FabExMDL2.ttf#Fabric External MDL2 Assets" Glyph=""/>
+                </AppBarButton.Icon>
+            </AppBarButton>
+        </CommandBar>
+
+        <CommandBar DefaultLabelPosition="Collapsed" IsOpen="False" HorizontalAlignment="Right" Height="40" Background="{x:Null}">
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Uid="FocusModeLabel" Label="Focus Mode" Width="Auto" Icon="Caption"/>
+                <AppBarButton x:Uid="ClassicModeLabel" Label="Classic Mode" Width="Auto">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE8C5;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Uid="StatusBarLabel" Label="Status Bar" Width="Auto">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE75B;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Uid="ShareLabel" Label="Share" Width="Auto" Icon="Share"/>
+                <AppBarButton x:Uid="FindLabel" Label="Find" Width="Auto" Icon="Find">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator
+                          Modifiers="Control" 
+                           Key="F" />
+                    </AppBarButton.KeyboardAccelerators>
+                </AppBarButton>
+                <AppBarButton x:Uid="SettingsLabel" Label="Settings" Width="Auto" Icon="Setting"/>
+                <AppBarButton x:Uid="ExitLabel" Label="Exit" Width="Auto" Icon="Cancel"/>
+            </CommandBar.SecondaryCommands>
+            <AppBarButton Width="Auto" MinWidth="40" Icon="Undo">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="UndoTooltip" Text="Undo (Ctrl+Z)"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton Width="Auto" MinWidth="40" Icon="Redo">
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="RedoTooltip" Text="Redo (Ctrl+Y)"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarSeparator/>
+            <AppBarButton MinWidth="40" Width="Auto">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                </AppBarButton.Icon>
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="OnTopTooltip" Text="Keep On Top (Alt + Up)"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+        </CommandBar>
+    </Grid>
+</UserControl>

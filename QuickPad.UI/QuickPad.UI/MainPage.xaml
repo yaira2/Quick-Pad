@@ -14,7 +14,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <controls:MenuBar ViewModel="{x:Bind ViewModel}" Height="40" Grid.Row="0" HorizontalAlignment="Left"/>
+        <controls:CommandBar ViewModel="{x:Bind ViewModel}" Height="40" Grid.Row="0" HorizontalAlignment="Stretch"/>
 
         <RichEditBox x:Name="RichEditBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"/>
     </Grid>
