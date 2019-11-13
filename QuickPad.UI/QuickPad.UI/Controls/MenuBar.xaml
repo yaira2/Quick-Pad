@@ -33,7 +33,7 @@
                            Key="O" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save" AccessKey="S" x:Uid="Save"  Command="{Binding ViewModel.SaveCommand}" CommandParameter="{Binding ViewModel}">
+                <MenuFlyoutItem Text="Save" AccessKey="S" x:Uid="Save" Command="{x:Bind ViewModel.SaveCommand}" CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Save"/>
                     </MenuFlyoutItem.Icon>

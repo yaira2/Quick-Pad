@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuickPad.MVVM;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,9 +20,22 @@ namespace Quick_Pad
 {
     public sealed partial class MenuBar : UserControl
     {
+
+        public DocumentViewModel ViewModel
+        {
+            get => DataContext as DocumentViewModel;
+            set
+            {
+                if (value == null || DataContext == value) return;
+                DataContext = value;
+            }
+        }
+
         public MenuBar()
         {
             this.InitializeComponent();
         }
+
+
     }
 }

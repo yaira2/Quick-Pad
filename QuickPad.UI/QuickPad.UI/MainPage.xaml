@@ -5,6 +5,7 @@
     xmlns:local="using:QuickPad.UI"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Quick_Pad"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.TopAppBar>
@@ -12,7 +13,15 @@
             <AppBarButton x:Name="SaveButton" Icon="Save" Command="{x:Bind ViewModel.SaveCommand}" CommandParameter="{x:Bind ViewModel}" />
         </AppBar>
     </Page.TopAppBar>
+
     <Grid>
-        <RichEditBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" x:Name="RichEditBox" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <controls:MenuBar ViewModel="{x:Bind ViewModel}" Height="40" Grid.Row="0" HorizontalAlignment="Left"/>
+
+        <RichEditBox x:Name="RichEditBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </Grid>
 </Page>
