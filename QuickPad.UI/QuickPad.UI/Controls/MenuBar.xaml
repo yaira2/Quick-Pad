@@ -8,7 +8,7 @@
     xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d"
     d:DesignHeight="40"
-    d:DesignWidth="268.667">
+    d:DesignWidth="268.667" DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid>
         <MenuBar Height="40" Width="268.667">
@@ -33,7 +33,7 @@
                            Key="O" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Save" AccessKey="S" x:Uid="Save">
+                <MenuFlyoutItem Text="Save" AccessKey="S" x:Uid="Save"  Command="{Binding ViewModel.SaveCommand}" CommandParameter="{Binding ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Save"/>
                     </MenuFlyoutItem.Icon>
