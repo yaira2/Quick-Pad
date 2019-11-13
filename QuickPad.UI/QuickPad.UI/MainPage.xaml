@@ -6,12 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Quick_Pad"
-    mc:Ignorable="d"
+    mc:Ignorable="d"       
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.TopAppBar>
-        <AppBar>
-            <AppBarButton x:Name="SaveButton" Icon="Save" Command="{x:Bind ViewModel.SaveCommand}" CommandParameter="{x:Bind ViewModel}" />
-        </AppBar>
+        <CommandBar IsOpen="True" IsSticky="False">
+            <AppBarButton x:Name="LoadButton" Label="Load" Icon="OpenFile" Command="{x:Bind ViewModel.LoadCommand}" CommandParameter="{x:Bind ViewModel}" />
+            <AppBarButton x:Name="SaveButton" Label="Save" Icon="Save" Command="{x:Bind ViewModel.SaveCommand}" CommandParameter="{x:Bind ViewModel}" />
+        </CommandBar>
     </Page.TopAppBar>
 
     <Grid>

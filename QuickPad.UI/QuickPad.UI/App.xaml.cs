@@ -16,7 +16,8 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using QuickPad.MVC;
+using QuickPad.Mvc;
+using QuickPad.Mvc.Hosting;
 
 namespace QuickPad.UI
 {

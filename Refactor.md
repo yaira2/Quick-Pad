@@ -5,9 +5,9 @@
 The application is split into four projects:
 
 * QuickPad.UI - User interface layer - only contains XAML and code behind
-* QuickPad.MVVM - Model layer - only contains ViewModels and Models
+* QuickPad.Mvvm - Model layer - only contains ViewModels and Models
 * QuickPad.Data - Data Access layer - only contains Persistance.
-* QuickPad.MVC - Controller and View Definition layer - only contains View definitions and the ApplicationController.
+* QuickPad.Mvc - Controller and View Definition layer - only contains View definitions and the ApplicationController.
 
 ### Data Flow
 

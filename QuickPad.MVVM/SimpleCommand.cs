@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Windows.Graphics.Imaging;
 
-namespace QuickPad.MVVM
+namespace QuickPad.Mvvm
 {
     public class SimpleCommand<TValue> : ICommand
     {
@@ -29,6 +29,7 @@ namespace QuickPad.MVVM
             if(parameter is TValue value)
             {
                 Executioner?.Invoke(value);
+                return;
             }
 
             Executioner?.Invoke(default);

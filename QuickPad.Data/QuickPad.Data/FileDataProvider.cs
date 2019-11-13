@@ -6,19 +6,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using QuickPad.Data.Interfaces;
+using Windows.Storage.Streams;
 
 namespace QuickPad.Data
 {
     public class FileDataProvider : IDataProvider
     {
-        public Task<byte[]> LoadDataAsync(Uri uri)
+        public async Task<byte[]> LoadDataAsync(StorageFile file)
         {
-            return File.ReadAllBytesAsync(uri.ToString());
-        }
+            var buffer = await FileIO.ReadBufferAsync(file);
 
-        public Task<byte[]> LoadDataAsync(string path)
-        {
-            return File.ReadAllBytesAsync(path);
+            using (var reader = DataReader.FromBuffer(buffer))
+            {
+                var bytes = new byte[buffer.Length];
+                reader.ReadBytes(bytes);
+                return bytes;
+            }
         }
 
         public async Task<string> SaveDataAsync(StorageFile file, IWriter writer, Encoding encoding)

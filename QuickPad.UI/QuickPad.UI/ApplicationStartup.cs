@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using QuickPad.MVVM;
+using QuickPad.Mvvm;
 
-namespace QuickPad.MVC
+namespace QuickPad.Mvc
 {
     public class ApplicationStartup
     {

@@ -1,4 +1,4 @@
-﻿namespace QuickPad.MVC
+﻿namespace QuickPad.Mvc
 {
     public interface IView
     {

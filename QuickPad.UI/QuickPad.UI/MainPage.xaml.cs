@@ -13,8 +13,9 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using QuickPad.MVC;
-using QuickPad.MVVM;
+using QuickPad.Mvc;
+using QuickPad.Mvvm;
+using Windows.UI.Core.Preview;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -32,10 +33,32 @@ namespace QuickPad.UI
 
             this.InitializeComponent();
             ViewModel.Document = RichEditBox.Document;
+            RichEditBox.TextChanged += ViewModel.TextChanged;
 
             DataContext = ViewModel;
 
             ViewModel.InitNewDocument();
+
+            ViewModel.PropertyChanged += ViewModel_PropertyChanged;
+
+            SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.OnCloseRequest;
+        }
+
+        private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(ViewModel.Title):
+                    var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+                    appView.Title = ViewModel.Title;
+                    break;
+            }
+        }
+
+        private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        {
+            e.Handled = true;
+            ViewModel.ExitCommand.Execute(ViewModel);
         }
 
         public DocumentViewModel ViewModel { get; set; }
