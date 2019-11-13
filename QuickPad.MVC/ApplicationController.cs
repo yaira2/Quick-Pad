@@ -218,7 +218,7 @@ namespace QuickPad.Mvc
                 savePicker.FileTypeChoices.Add("Any", new List<string>() { "." });
 
                 // Default file name if the user does not type one in or select a file to replace
-                savePicker.SuggestedFileName = documentViewModel.File.DisplayName ?? "Unnamed";
+                savePicker.SuggestedFileName = documentViewModel.File?.DisplayName ?? "Unnamed";
 
                 var file = await savePicker.PickSaveFileAsync();
 
