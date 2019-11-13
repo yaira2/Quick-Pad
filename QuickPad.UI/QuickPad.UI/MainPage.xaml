@@ -8,13 +8,6 @@
     xmlns:controls="using:Quick_Pad"
     mc:Ignorable="d"       
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Page.TopAppBar>
-        <CommandBar IsOpen="True" IsSticky="False">
-            <AppBarButton x:Name="LoadButton" Label="Load" Icon="OpenFile" Command="{x:Bind ViewModel.LoadCommand}" CommandParameter="{x:Bind ViewModel}" />
-            <AppBarButton x:Name="SaveButton" Label="Save" Icon="Save" Command="{x:Bind ViewModel.SaveCommand}" CommandParameter="{x:Bind ViewModel}" />
-        </CommandBar>
-    </Page.TopAppBar>
-
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -23,6 +16,6 @@
 
         <controls:MenuBar ViewModel="{x:Bind ViewModel}" Height="40" Grid.Row="0" HorizontalAlignment="Left"/>
 
-        <RichEditBox x:Name="RichEditBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <RichEditBox x:Name="RichEditBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"/>
     </Grid>
 </Page>
