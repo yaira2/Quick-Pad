@@ -1,7 +1,7 @@
 ﻿using System;
-using QuickPad.MVVM;
+using QuickPad.Mvvm;
 
-namespace QuickPad.MVC
+namespace QuickPad.Mvc
 {
     public interface IDocumentView : IView
     {
