@@ -10,7 +10,7 @@
     d:DesignHeight="40"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid HorizontalAlignment="Stretch">
+    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
             <AppBarButton x:Uid="NewLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Command="{x:Bind ViewModel.NewCommand}" CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>

@@ -1,4 +1,5 @@
 ﻿using QuickPad.Mvvm;
+using QuickPad.UI.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,6 +21,7 @@ namespace Quick_Pad
 {
     public sealed partial class StatusBar : UserControl
     {
+        public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 
         public DocumentViewModel ViewModel
         {
