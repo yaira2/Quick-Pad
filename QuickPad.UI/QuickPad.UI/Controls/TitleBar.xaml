@@ -16,7 +16,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Background="Transparent" VerticalAlignment="Top" Height="32" Width="40" BorderThickness="0" Visibility="Collapsed">
+        <Button Background="Transparent" VerticalAlignment="Top" Height="32" Width="40" BorderThickness="0" Visibility="Collapsed" CornerRadius="0">
             <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
             <Button.KeyboardAccelerators>
                 <KeyboardAccelerator Modifiers="Menu" Key="Down"/>
@@ -25,8 +25,8 @@
                 <TextBlock Text="Close Compact Overlay" x:Uid="CloseCompactOverlay"/>
             </ToolTipService.ToolTip>
         </Button>
-        
-        <Button Width="48" Height="32" Foreground="Transparent" Background="Transparent" Visibility="Collapsed"/>
+
+        <Button Width="48" Height="32" VerticalAlignment="Top" Foreground="Transparent" Background="Transparent" Visibility="Collapsed" CornerRadius="0"/>
                 
         <Grid x:Name="trickyTitleBar" Grid.Column="1"  Background="Transparent" Height="33">
             <TextBlock Text="Untitled" Style="{ThemeResource CaptionTextBlockStyle}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
