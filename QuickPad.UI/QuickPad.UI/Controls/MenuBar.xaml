@@ -8,10 +8,10 @@
     xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     mc:Ignorable="d"
     d:DesignHeight="40"
-    d:DesignWidth="268.667" DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid HorizontalAlignment="Left">
-        <MenuBar Height="40" Width="268.667">
+    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
+        <MenuBar Height="40" HorizontalAlignment="Left" Width="268.667">
             <MenuBarItem Title="File" AccessKey="F" x:Uid="File">
                 <MenuFlyoutItem Text="New" AccessKey="N" x:Uid="New" 
                                 Command="{x:Bind ViewModel.NewCommand}" 

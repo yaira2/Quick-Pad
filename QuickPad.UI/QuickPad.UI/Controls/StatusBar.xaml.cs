@@ -19,7 +19,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Quick_Pad
 {
-    public sealed partial class MenuBar : UserControl
+    public sealed partial class StatusBar : UserControl
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 
@@ -33,11 +33,10 @@ namespace Quick_Pad
             }
         }
 
-        public MenuBar()
+        public StatusBar()
         {
             this.InitializeComponent();
         }
-
 
     }
 }

@@ -16,6 +16,7 @@ using Windows.UI.Xaml.Navigation;
 using QuickPad.Mvc;
 using QuickPad.Mvvm;
 using Windows.UI.Core.Preview;
+using QuickPad.UI.Common;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -26,6 +27,8 @@ namespace QuickPad.UI
     /// </summary>
     public sealed partial class MainPage : Page, IDocumentView
     {
+        public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+
         public MainPage()
         {
             App.Controller.AddView(this);

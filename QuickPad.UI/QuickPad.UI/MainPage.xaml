@@ -6,16 +6,38 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Quick_Pad"
+    xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d"       
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls:CommandBar ViewModel="{x:Bind ViewModel}" Height="40" Grid.Row="0" HorizontalAlignment="Stretch"/>
+        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                                  ShadowOpacity="0.3"
+                                  OffsetX="0"
+                                  OffsetY="1"
+                                  Grid.Row="0"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Stretch">
+            <controls:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" Grid.Row="0" HorizontalAlignment="Stretch"/>
+        </controls1:DropShadowPanel>
+        
 
-        <RichEditBox x:Name="RichEditBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"/>
+        <RichEditBox x:Name="RichEditBox" Style="{StaticResource RichEditBox}" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"/>
+
+        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                                  ShadowOpacity="0.3"
+                                  OffsetX="0"
+                                  OffsetY="1"
+                                  Grid.Row="2"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Stretch">
+            <controls:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" Grid.Row="2" HorizontalAlignment="Stretch"/>
+        </controls1:DropShadowPanel>
+
     </Grid>
 </Page>
