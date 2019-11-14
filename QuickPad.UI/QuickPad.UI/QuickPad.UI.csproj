@@ -126,6 +126,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApplicationStartup.cs" />
+    <Compile Include="Common\VisualThemes.cs" />
     <Compile Include="Controls\CommandBar.xaml.cs">
       <DependentUpon>CommandBar.xaml</DependentUpon>
     </Compile>
