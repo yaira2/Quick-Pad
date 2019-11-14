@@ -17,6 +17,9 @@ using QuickPad.Mvc;
 using QuickPad.Mvvm;
 using Windows.UI.Core.Preview;
 using QuickPad.UI.Common;
+using Windows.ApplicationModel.Core;
+using Windows.UI.ViewManagement;
+using Windows.UI;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -35,6 +38,13 @@ namespace QuickPad.UI
             Initialize?.Invoke(this);
 
             this.InitializeComponent();
+
+            //extent app in to the title bar
+            CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
+            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
+            titleBar.ButtonBackgroundColor = Colors.Transparent;
+            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+
             ViewModel.Document = RichEditBox.Document;
             RichEditBox.TextChanged += ViewModel.TextChanged;
 

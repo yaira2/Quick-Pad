@@ -132,6 +132,9 @@
     <Compile Include="Common\VisualTheme.cs" />
     <Compile Include="Common\VisualThemeKind.cs" />
     <Compile Include="Common\VisualThemes.cs" />
+    <Compile Include="Controls\TitleBar.xaml.cs">
+      <DependentUpon>TitleBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\StatusBar.xaml.cs">
       <DependentUpon>StatusBar.xaml</DependentUpon>
     </Compile>
@@ -166,6 +169,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\TitleBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\StatusBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
