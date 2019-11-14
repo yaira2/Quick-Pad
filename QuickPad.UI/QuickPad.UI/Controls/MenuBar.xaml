@@ -10,7 +10,7 @@
     d:DesignHeight="40"
     d:DesignWidth="268.667" DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid>
+    <Grid HorizontalAlignment="Left">
         <MenuBar Height="40" Width="268.667">
             <MenuBarItem Title="File" AccessKey="F" x:Uid="File">
                 <MenuFlyoutItem Text="New" AccessKey="N" x:Uid="New" 
