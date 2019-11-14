@@ -27,6 +27,8 @@ namespace QuickPad.UI
     /// </summary>
     public sealed partial class MainPage : Page, IDocumentView
     {
+        public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+
         public MainPage()
         {
             App.Controller.AddView(this);
