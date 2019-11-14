@@ -12,10 +12,14 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <controls:CommandBar ViewModel="{x:Bind ViewModel}" Height="40" Grid.Row="0" HorizontalAlignment="Stretch"/>
 
         <RichEditBox x:Name="RichEditBox" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"/>
+
+        <controls:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" Grid.Row="2" HorizontalAlignment="Stretch"/>
+
     </Grid>
 </Page>

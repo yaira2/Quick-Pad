@@ -117,57 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AlignCenterLabel.Label" xml:space="preserve">
-    <value>Align Center</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="AlignCenter.Text" xml:space="preserve">
-    <value>Align Center (Ctrl + E)</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="AlignLeftLabel.Label" xml:space="preserve">
-    <value>Align Left</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="AlignLeft.Text" xml:space="preserve">
-    <value>Align Left (Ctrl+L)</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="AlignRightLabel.Label" xml:space="preserve">
-    <value>Align Right</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="Color.Text" xml:space="preserve">
-    <value>Color</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="AlignRight.Text" xml:space="preserve">
-    <value>Align Right (Ctrl+R)</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
   <data name="BackToDefault.Text" xml:space="preserve">
     <value>Back to Default Mode</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="BoldLabel.Label" xml:space="preserve">
-    <value>Bold</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="Bold.Text" xml:space="preserve">
-    <value>Bold (Ctrl+B)</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="BulletsLabel.Label" xml:space="preserve">
-    <value>Bullets</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="Bullets.Text" xml:space="preserve">
-    <value>Toggle Bullets</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="ColorLabel.Label" xml:space="preserve">
-    <value>Color</value>
-    <comment>Used on CommandBar</comment>
   </data>
   <data name="Copy.Text" xml:space="preserve">
     <value>Copy</value>
@@ -188,14 +140,6 @@
   <data name="Edit.Title" xml:space="preserve">
     <value>Edit</value>
     <comment>Used on Menu Header</comment>
-  </data>
-  <data name="EmojiLabel.Label" xml:space="preserve">
-    <value>Emojis</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="Emoji.Text" xml:space="preserve">
-    <value>Insert Emojis (Win + .)</value>
-    <comment>Used on CommandBarToolTip</comment>
   </data>
   <data name="Exit.Text" xml:space="preserve">
     <value>Exit</value>
@@ -237,33 +181,9 @@
     <value>Help</value>
     <comment>Used on Menu Header</comment>
   </data>
-  <data name="ItalicLabel.Label" xml:space="preserve">
-    <value>Italic</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="Italic.Text" xml:space="preserve">
-    <value>Italic (Ctrl + I)</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="JustifyTextLabel.Label" xml:space="preserve">
-    <value>Justify Text</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="JustifyText.Text" xml:space="preserve">
-    <value>Justify Text (Ctrl + J)</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="NewLabel.Label" xml:space="preserve">
-    <value>New</value>
-    <comment>Used on CommandBar</comment>
-  </data>
   <data name="New.Text" xml:space="preserve">
     <value>New</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="OpenLabel.Label" xml:space="preserve">
-    <value>Open</value>
-    <comment>Used on CommandBar</comment>
   </data>
   <data name="Open.Text" xml:space="preserve">
     <value>Open</value>
@@ -293,10 +213,6 @@
     <value>Restore Default Zoom</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SaveLabel.Label" xml:space="preserve">
-    <value>Save</value>
-    <comment>Used on CommandBar</comment>
-  </data>
   <data name="Save.Text" xml:space="preserve">
     <value>Save</value>
     <comment>Used on Menu Item</comment>
@@ -325,21 +241,13 @@
     <value>Status Bar</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="StrikethroughLabel.Label" xml:space="preserve">
-    <value>Strikethrough</value>
-    <comment>Used on CommandBar</comment>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>Col: </value>
+    <comment>Used on StatusBar</comment>
   </data>
-  <data name="Strikethrough.Text" xml:space="preserve">
-    <value>Strikethrough</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="UnderlineLabel.Label" xml:space="preserve">
-    <value>Underline</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="Underline.Text" xml:space="preserve">
-    <value>Underline (Ctrl+U)</value>
-    <comment>Used on CommandBarToolTip</comment>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>Ln: </value>
+    <comment>Used on StatusBar</comment>
   </data>
   <data name="Undo.Text" xml:space="preserve">
     <value>Undo</value>
@@ -364,45 +272,5 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>Zoom Out</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="ClassicModeLabel.Label" xml:space="preserve">
-    <value>Classic Mode</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="ExitLabel.Label" xml:space="preserve">
-    <value>Exit</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="FindLabel.Label" xml:space="preserve">
-    <value>Find</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="FocusModeLabel.Label" xml:space="preserve">
-    <value>Focus Mode</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="OnTopTooltip.Text" xml:space="preserve">
-    <value>Keep On Top (Alt + Up)</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="RedoTooltip.Text" xml:space="preserve">
-    <value>Redo (Ctrl+Y)</value>
-    <comment>Used on CommandBarToolTip</comment>
-  </data>
-  <data name="SettingsLabel.Label" xml:space="preserve">
-    <value>Settings</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="ShareLabel.Label" xml:space="preserve">
-    <value>Share</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="StatusBarLabel.Label" xml:space="preserve">
-    <value>StatusBar</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="UndoTooltip.Text" xml:space="preserve">
-    <value>Undo (Ctrl+Z)</value>
-    <comment>Used on CommandBarToolTip</comment>
   </data>
 </root>

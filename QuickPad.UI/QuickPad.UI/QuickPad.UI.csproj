@@ -132,6 +132,9 @@
     <Compile Include="Common\VisualTheme.cs" />
     <Compile Include="Common\VisualThemeKind.cs" />
     <Compile Include="Common\VisualThemes.cs" />
+    <Compile Include="Controls\StatusBar.xaml.cs">
+      <DependentUpon>StatusBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\CommandBar.xaml.cs">
       <DependentUpon>CommandBar.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\StatusBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Controls\CommandBar.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -217,13 +224,13 @@
     <Content Include="Assets\Font\CalcMDL2.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Strings\en-US\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\Font\Segoe MDL2 Modded.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Font\FabExMDL2.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
