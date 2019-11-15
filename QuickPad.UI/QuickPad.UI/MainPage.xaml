@@ -30,7 +30,15 @@
         </controls1:DropShadowPanel>
         
 
-        <RichEditBox x:Name="RichEditBox" Style="{StaticResource RichEditBox}" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"/>
+        <RichEditBox x:Name="RichEditBox" 
+                     Style="{StaticResource RichEditBox}" 
+                     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  
+                     Grid.Row="2" 
+                     HorizontalAlignment="Stretch" 
+                     VerticalAlignment="Stretch" 
+                     BorderBrush="{x:Null}"
+                     BorderThickness="0"
+                     TextWrapping="NoWrap"/>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
