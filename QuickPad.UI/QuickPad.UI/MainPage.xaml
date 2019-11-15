@@ -28,7 +28,16 @@
                                   HorizontalContentAlignment="Stretch">
             <controls:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
-        
+
+        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                                  ShadowOpacity="0.3"                                  
+                                  Grid.Row="2"
+                                  HorizontalAlignment="Right"
+                                  VerticalAlignment="Top"
+                                  Margin="15">
+            <controls:FindAndReplace Canvas.ZIndex="100"  ViewModel="{x:Bind ViewModel}"/>
+        </controls1:DropShadowPanel>
+
 
         <RichEditBox x:Name="RichEditBox" 
                      Style="{StaticResource RichEditBox}" 
