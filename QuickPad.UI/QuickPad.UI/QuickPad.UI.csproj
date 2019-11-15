@@ -149,6 +149,9 @@
     <Compile Include="Controls\CommandBar.xaml.cs">
       <DependentUpon>CommandBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dialogs\GoToLine.xaml.cs">
+      <DependentUpon>GoToLine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\AskToSave.xaml.cs">
       <DependentUpon>AskToSave.xaml</DependentUpon>
     </Compile>
@@ -234,6 +237,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\CommandBar.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\GoToLine.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
