@@ -21,13 +21,13 @@
 
         <StackPanel>
             <Image Source="/Assets/StoreLogo.scale-200.png" Stretch="Fill" Width="80" Height="80" Margin="0,30,0,0"/>
-            <TextBlock Text="Quick Pad" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock Text="Quick Pad" HorizontalAlignment="Center" FontSize="16" x:Uid="AppName"/>
             <TextBlock Text="Version Number" HorizontalAlignment="Center"/>
-            <TextBlock Text="Developed by Yair Aichenbaum" HorizontalAlignment="Center"/>
+            <TextBlock Text="Developed by Yair Aichenbaum" HorizontalAlignment="Center" x:Uid="CreatedBy"/>
             
-            <HyperlinkButton Content="Send Feedback" HorizontalAlignment="Center" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Margin="0,20,0,0"/>
-            <HyperlinkButton Content="Rate and Review" HorizontalAlignment="Center"/>
-            <HyperlinkButton Content="Contribute to the developer" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
+            <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Margin="0,20,0,0"/>
+            <HyperlinkButton Content="Rate and Review" x:Uid="RateAndReviewLink" HorizontalAlignment="Center"/>
+            <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
         </StackPanel>
 
     </Grid>

@@ -117,6 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AppName.Text" xml:space="preserve">
+    <value>Quick Pad</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="BackToDefault.Text" xml:space="preserve">
     <value>Back to Default Mode</value>
     <comment>Used on Menu Item</comment>
@@ -125,9 +129,17 @@
     <value>Close Compact Overlay</value>
     <comment>Used on TitleBar</comment>
   </data>
+  <data name="Contribute.Content" xml:space="preserve">
+    <value>Contribute to the developer</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="Copy.Text" xml:space="preserve">
     <value>Copy</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CreatedBy.Text" xml:space="preserve">
+    <value>Developed by Yair Aichenbaum</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
     <value>Cut</value>
@@ -205,6 +217,10 @@
     <value>Rate and Review</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="RateAndReviewLink.Content" xml:space="preserve">
+    <value>Rate and Review</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="Redo.Text" xml:space="preserve">
     <value>Redo</value>
     <comment>Used on Menu Item</comment>
@@ -232,6 +248,10 @@
   <data name="SelectAll.Text" xml:space="preserve">
     <value>Select All</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SendFeedback.Content" xml:space="preserve">
+    <value>Send Feedback</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>Settings</value>
