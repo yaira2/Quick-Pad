@@ -41,30 +41,15 @@ namespace QuickPad.UI.Controls.Settings
 
         private void settingNavView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
         {
-            Type pageType;
-            int tmp = 2;
-
-            switch (args.InvokedItemContainer.Tag.ToString())
+            Type pageType = (args.InvokedItemContainer.Tag.ToString()) switch
             {
-                case "General":
-                    pageType = typeof(General);
-                    break;
-                case "Theme":
-                    pageType = typeof(Theme);
-                    break;
-                case "Font":
-                    pageType = typeof(Font);
-                    break;
-                case "Advanced":
-                    pageType = typeof(Advanced);
-                    break;
-                case "About":
-                    pageType = typeof(About);
-                    break;
-                default:
-                    pageType = typeof(General);
-                    break;
-            }
+                "General" => typeof(General),
+                "Theme" => typeof(Theme),
+                "Font" => typeof(Font),
+                "Advanced" => typeof(Advanced),
+                "About" => typeof(About),
+                _ => typeof(General)
+            };
 
             SettingsFrame.Navigate(pageType, new SuppressNavigationTransitionInfo());
         }
