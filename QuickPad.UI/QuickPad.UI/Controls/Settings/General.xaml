@@ -19,16 +19,16 @@
         </Grid.Resources>
 
         <StackPanel>
-            <TextBlock Text="General" FontSize="20"/>
-            <TextBlock Text="Launch Mode"/>
-            <ComboBox Width="180" PlaceholderText="Classic Mode" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
-                <ComboBoxItem Content="Classic Mode"/>
-                <ComboBoxItem Content="Default"/>
-                <ComboBoxItem Content="On Top"/>
-                <ComboBoxItem Content="Focus Mode"/>
+            <TextBlock Text="General" FontSize="20" x:Uid="General"/>
+            <TextBlock Text="Launch Mode" x:Uid="LaunchMode"/>
+            <ComboBox Width="180" PlaceholderText="Classic Mode" x:Uid="LaunchModeComboBox" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+                <ComboBoxItem Content="Classic Mode" x:Uid="LaunchClassicMode"/>
+                <ComboBoxItem Content="Default" x:Uid="LaunchDefaultMode"/>
+                <ComboBoxItem Content="On Top" x:Uid="LaunchOnTopMode"/>
+                <ComboBoxItem Content="Focus Mode" x:Uid="LaunchFocusMode"/>
             </ComboBox>
 
-            <TextBlock Text="App Language"/>
+            <TextBlock Text="App Language" x:Uid="AppLanguage"/>
 
             <ComboBox Width="180" PlaceholderText="English (United State)" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBox.ItemTemplate>
@@ -37,15 +37,15 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <TextBlock Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the changes."/>
+            <TextBlock Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the changes." x:Uid="RestatRequired"/>
 
-            <TextBlock Text="Default File Type"/>
+            <TextBlock Text="Default File Type" x:Uid="DefaultFileType"/>
             <ComboBox PlaceholderText=".txt" Width="120" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <x:String>.txt</x:String>
                 <x:String>.rtf</x:String>
             </ComboBox>
 
-            <TextBlock Text="Default File Encoding"/>
+            <TextBlock Text="Default File Encoding" x:Uid="DefaultFileEncoding"/>
             <ComboBox PlaceholderText="UTF-8" Width="120" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBoxItem Content="UTF-8" Tag="UTF-8" x:Uid="DefaultEncodingUTF8" x:Name="DefaultEncodingUTF8"/>
                 <ComboBoxItem Content="UTF-16 LE" Tag="UTF-16 LE" x:Uid="DefaultEncodingUTF16_LE" x:Name="DefaultEncodingUTF16_LE"/>
@@ -53,13 +53,13 @@
                 <ComboBoxItem Content="UTF-32" Tag="UTF-32" x:Uid="DefaultEncodingUTF32" x:Name="DefaultEncodingUTF32"/>
             </ComboBox>
 
-            <TextBlock Text="Auto Save"/>
-            <ToggleSwitch OnContent="On" OffContent="Off" HorizontalAlignment="Left"/>
+            <TextBlock Text="Auto Save" x:Uid="AutoSave"/>
+            <ToggleSwitch HorizontalAlignment="Left"/>
 
             <TextBlock>
-                <Run Text="Auto Save Every"/>
+                <Run Text="Auto save every" x:Uid="AutoSaveEvery"/>
                 <Run Text="5"/>
-                <Run Text="second(s)"/>
+                <Run Text="second(s)" x:Uid="AutoSaveSeconds"/>
             </TextBlock>
             <Slider Minimum="5" Maximum="45" StepFrequency="1" TickPlacement="Inline" Width="230" HorizontalAlignment="Left"/>
         </StackPanel>
