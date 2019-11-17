@@ -317,6 +317,10 @@
     <value>Ln: </value>
     <comment>Used on StatusBar</comment>
   </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Theme</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="Undo.Text" xml:space="preserve">
     <value>Undo</value>
     <comment>Used on Menu Item</comment>
