@@ -117,8 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AcrylicOptions.Text" xml:space="preserve">
+    <value>Acrylic Options</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
+    <value>Acrylic tint opacity</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Advanced</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="AppName.Text" xml:space="preserve">
     <value>Quick Pad</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutomaticallyChooseMode.Text" xml:space="preserve">
+    <value>Automatically choose which mode to launch the app in based on the file type</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="BackToDefault.Text" xml:space="preserve">
@@ -161,6 +177,10 @@
     <value>Exit</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Export</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="File.Title" xml:space="preserve">
     <value>File</value>
     <comment>Used on Menu Header</comment>
@@ -197,6 +217,18 @@
     <value>Help</value>
     <comment>Used on Menu Header</comment>
   </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>Import</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>Keep text only</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>Manage Settings</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="New.Text" xml:space="preserve">
     <value>New</value>
     <comment>Used on Menu Item</comment>
@@ -205,6 +237,10 @@
     <value>Open</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="Other.Text" xml:space="preserve">
+    <value>Other</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="OverlayMode.Text" xml:space="preserve">
     <value>Overlay Mode</value>
     <comment>Used on Menu Item</comment>
@@ -212,6 +248,10 @@
   <data name="Paste.Text" xml:space="preserve">
     <value>Paste</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="PasteOptions.Text" xml:space="preserve">
+    <value>Paste Options</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="RateAndReview.Text" xml:space="preserve">
     <value>Rate and Review</value>
@@ -228,6 +268,10 @@
   <data name="Replace.Text" xml:space="preserve">
     <value>Replace</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>Reset</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="RestoreDefaultZoom.Text" xml:space="preserve">
     <value>Restore Default Zoom</value>
@@ -276,6 +320,10 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>Undo</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
+    <value>Use acrylic background for the text area</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>View</value>

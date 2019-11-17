@@ -22,26 +22,26 @@
         <StackPanel>
             <TextBlock x:Uid="Advanced" Text="Advanced" FontSize="20"/>
 
-            <TextBlock Text="Acrylic Options" FontSize="16"/>
-            <TextBlock Text="Use acrylic background for the text area"/>
+            <TextBlock x:Uid="AcrylicOptions" Text="Acrylic Options" FontSize="16"/>
+            <TextBlock x:Uid="UseAcrylicOnTextBox" Text="Use acrylic background for the text area"/>
             <ToggleSwitch/>
 
-            <TextBlock Text="Acrylic tint opacity"/>
+            <TextBlock x:Uid="AcrylicTintOpacity" Text="Acrylic tint opacity"/>
             <Slider Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
 
-            <TextBlock Text="Paste Options" FontSize="16"/>
-            <TextBlock Text="Keep text only"/>
+            <TextBlock x:Uid="PasteOptions" Text="Paste Options" FontSize="16"/>
+            <TextBlock x:Uid="KeepTextOnly" Text="Keep text only"/>
             <ToggleSwitch/>
 
-            <TextBlock Text="Other" FontSize="16"/>
-            <TextBlock Text="Automatically choose which mode to launch the app in based on the file type"/>
+            <TextBlock x:Uid="Other" Text="Other" FontSize="16"/>
+            <TextBlock x:Uid="AutomaticallyChooseMode" Text="Automatically choose which mode to launch the app in based on the file type"/>
             <ToggleSwitch/>
 
-            <TextBlock Text="Manage Settings" FontSize="16"/>
+            <TextBlock x:Uid="ManageSettings" Text="Manage Settings" FontSize="16"/>
             <StackPanel Orientation="Horizontal">
-                <Button Content="Import" />
-                <Button Content="Export" Margin="5,2"/>
-                <Button Content="Reset"/>
+                <Button x:Uid="Import" Content="Import" />
+                <Button x:Uid="Export" Content="Export" Margin="5,2"/>
+                <Button x:Uid="Reset" Content="Reset"/>
             </StackPanel>
         </StackPanel>
 
