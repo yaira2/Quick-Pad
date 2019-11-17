@@ -18,10 +18,10 @@
             </Style>
         </Grid.Resources>
 
-        <StackPanel Padding="2,2,2,2">
+        <StackPanel>
             <TextBlock Text="General" FontSize="20"/>
-            <TextBlock Text="Launch Mode" x:Uid="GeneralLaunchMode"/>
-            <ComboBox x:Uid="GeneralLaunchModeCombobox" Width="180" PlaceholderText="Classic Mode" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+            <TextBlock Text="Launch Mode"/>
+            <ComboBox Width="180" PlaceholderText="Classic Mode" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBoxItem Content="Classic Mode"/>
                 <ComboBoxItem Content="Default"/>
                 <ComboBoxItem Content="On Top"/>
@@ -39,7 +39,7 @@
             </ComboBox>
             <TextBlock Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the changes."/>
 
-            <TextBlock x:Uid="GeneralDefaultType" Text="Default File Type"/>
+            <TextBlock Text="Default File Type"/>
             <ComboBox PlaceholderText=".txt" Width="120" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <x:String>.txt</x:String>
                 <x:String>.rtf</x:String>
