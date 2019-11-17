@@ -10,7 +10,8 @@
     PrimaryButtonText="Save"
     SecondaryButtonText="Don't Save"
     CloseButtonText="Cancel"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    PrimaryButtonCommand="{StaticResource QuickPadCommands.SaveCommand}"
+    PrimaryButtonCommandParameter="{Binding ViewModel}"    
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
 

@@ -20,6 +20,7 @@ using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI;
+using QuickPad.MVVM;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -35,7 +36,7 @@ namespace QuickPad.UI
         public MainPage()
         {
             App.Controller.AddView(this);
-            Initialize?.Invoke(this);
+            Initialize?.Invoke(this, App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands);
 
             this.InitializeComponent();
 
@@ -71,10 +72,11 @@ namespace QuickPad.UI
         private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
             e.Handled = true;
-            ViewModel.ExitCommand.Execute(ViewModel);
+            var commands = App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
+            commands.ExitCommand.Execute(ViewModel);
         }
 
         public DocumentViewModel ViewModel { get; set; }
-        public event Action<IDocumentView> Initialize;
+        public event Action<IDocumentView, QuickPadCommands> Initialize;
     }
 }

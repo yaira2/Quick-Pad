@@ -25,14 +25,16 @@ namespace QuickPad.Mvvm
         private string _currentHash;
 
         private StorageFile _file;
-
-
+        
         public DocumentViewModel(ILogger<DocumentViewModel> logger) : base(logger)
         {
             _md5 = HMACMD5.Create("HMACMD5");
             _md5.Key = UnicodeEncoding.ASCII.GetBytes("12345");
         }
 
+        public void InvokeFocusTextbox(FocusState focusState) => RequestFocusTextbox?.Invoke(focusState);
+        
+        public event Action<FocusState> RequestFocusTextbox;
         public ITextDocument Document
         {
             get => _document;
@@ -98,13 +100,13 @@ namespace QuickPad.Mvvm
             OnPropertyChanged(nameof(Title));
         }
 
-        public SimpleCommand<DocumentViewModel> NewCommand { get; set; }
-        public SimpleCommand<DocumentViewModel> LoadCommand { get; set; }
-        public SimpleCommand<DocumentViewModel> SaveCommand { get; set; }
-        public SimpleCommand<DocumentViewModel> SaveAsCommand { get; set; }
-        public SimpleCommand<DocumentViewModel> PrintCommand { get; set; }
-        public SimpleCommand<DocumentViewModel> ShareCommand { get; set; }
-        public SimpleCommand<DocumentViewModel> ExitCommand { get; set; }
+        //public SimpleCommand<DocumentViewModel> NewCommand { get; set; }
+        //public SimpleCommand<DocumentViewModel> LoadCommand { get; set; }
+        //public SimpleCommand<DocumentViewModel> SaveCommand { get; set; }
+        //public SimpleCommand<DocumentViewModel> SaveAsCommand { get; set; }
+        //public SimpleCommand<DocumentViewModel> PrintCommand { get; set; }
+        //public SimpleCommand<DocumentViewModel> ShareCommand { get; set; }
+        //public SimpleCommand<DocumentViewModel> ExitCommand { get; set; }
 
         public StorageFile File
         {

@@ -120,14 +120,36 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DocumentViewModel.cs" />
+    <Compile Include="Commands\Editing\CenterAlignCommand.cs" />
+    <Compile Include="Commands\Editing\BulletsCommand.cs" />
+    <Compile Include="Commands\Editing\BoldCommand.cs" />
+    <Compile Include="Commands\Clipboard\CopyCommand.cs" />
+    <Compile Include="Commands\Clipboard\CutCommand.cs" />
+    <Compile Include="Models\DefaultLanguageModel.cs" />
+    <Compile Include="ViewModels\DocumentViewModel.cs" />
+    <Compile Include="Commands\Editing\ItalicCommand.cs" />
+    <Compile Include="Commands\Editing\EmojiCommand.cs" />
+    <Compile Include="Models\FontFamilyModel.cs" />
+    <Compile Include="Commands\Clipboard\PasteCommand.cs" />
+    <Compile Include="Commands\Editing\JustifyCommand.cs" />
+    <Compile Include="Commands\Editing\LeftAlignCommand.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="SimpleCommand.cs" />
-    <Compile Include="ViewModel.cs" />
+    <Compile Include="Commands\QuickPadCommands.cs" />
+    <Compile Include="Commands\Editing\RedoCommand.cs" />
+    <Compile Include="Commands\Editing\RightAlignCommand.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Commands\SimpleCommand.cs" />
+    <Compile Include="Commands\Editing\StrikethroughCommand.cs" />
+    <Compile Include="Commands\Editing\UnderlineCommand.cs" />
+    <Compile Include="Commands\Editing\UndoCommand.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\QuickPad.MVVM.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>2.6.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration">
       <Version>3.0.0</Version>
     </PackageReference>
@@ -156,6 +178,7 @@
       <Version>2.2.190917002</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

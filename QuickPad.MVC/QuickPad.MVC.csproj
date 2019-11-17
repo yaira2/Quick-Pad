@@ -129,6 +129,9 @@
     <EmbeddedResource Include="Properties\QuickPad.MVC.rd.xml" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AppCenter.Analytics">
+      <Version>2.6.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration">
       <Version>3.0.0</Version>
     </PackageReference>

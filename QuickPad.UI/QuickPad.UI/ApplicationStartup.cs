@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm;
+using QuickPad.MVVM;
+using QuickPad.UI.Common;
 
 namespace QuickPad.Mvc
 {
@@ -13,8 +15,12 @@ namespace QuickPad.Mvc
     {
         public static void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<PasteCommand, PasteCommand>();
+            services.AddSingleton<QuickPadCommands, QuickPadCommands>();
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
+            services.AddSingleton<SettingsViewModel, SettingsViewModel>();
             services.AddSingleton<ApplicationController, ApplicationController>();
+            services.AddTransient<VisualThemeSelector, VisualThemeSelector>();
 
             // Add additional services here.
         }

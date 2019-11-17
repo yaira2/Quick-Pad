@@ -9,10 +9,11 @@
     mc:Ignorable="d"
     d:DesignHeight="40"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
-
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
-            <AppBarButton x:Uid="NewLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Command="{x:Bind ViewModel.NewCommand}" CommandParameter="{x:Bind ViewModel}">
+            <AppBarButton x:Uid="NewLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" 
+                          Command="{Binding Path=NewDocumentCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" 
+                          CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="New" Text="New"/>
                 </ToolTipService.ToolTip>
@@ -25,7 +26,9 @@
                            Key="N" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:Uid="OpenLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Command="{x:Bind ViewModel.LoadCommand}" CommandParameter="{x:Bind ViewModel}">
+            <AppBarButton x:Uid="OpenLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" 
+                          Command="{Binding Path=OpenCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Open" Text="Open (Ctrl+O)"/>
                 </ToolTipService.ToolTip>
@@ -38,7 +41,9 @@
                            Key="O" />
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
-            <AppBarButton x:Uid="SaveLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Icon="Save" Command="{x:Bind ViewModel.SaveCommand}" CommandParameter="{x:Bind ViewModel}">
+            <AppBarButton x:Uid="SaveLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Icon="Save" 
+                          Command="{Binding Path=SaveCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Save" Text="Save (Ctrl+S)"/>
                 </ToolTipService.ToolTip>
@@ -69,28 +74,38 @@
                     <FontIcon Glyph="&#xE790;"/>
                 </AppBarButton.Icon>
             </AppBarButton>
-            <AppBarButton x:Uid="EmojiLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Emoji2">
+            <AppBarButton x:Uid="EmojiLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Emoji2" 
+                          Command="{Binding Path=EmojiCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Emoji" Text="Insert Emojis (Win + .)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarSeparator/>
-            <AppBarToggleButton x:Uid="BoldLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Bold">
+            <AppBarToggleButton x:Uid="BoldLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Bold"
+                                Command="{Binding Path=BoldCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" 
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Bold" Text="Bold (Ctrl+B)"/>
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
-            <AppBarToggleButton x:Uid="ItalicLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Italic">
+            <AppBarToggleButton x:Uid="ItalicLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Italic"
+                                Command="{Binding Path=ItalicsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Italic" Text="Italic (Ctrl+I)"/>
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
-            <AppBarToggleButton x:Uid="UnderlineLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Underline">
+            <AppBarToggleButton x:Uid="UnderlineLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Underline"
+                                Command="{Binding Path=UnderlineCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Underline" Text="Underline (Ctrl+U)"/>
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
-            <AppBarToggleButton x:Uid="StrikethroughLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" >
+            <AppBarToggleButton x:Uid="StrikethroughLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
+                                Command="{Binding Path=StrikethroughCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Strikethrough" Text="Strikethrough"/>
                 </ToolTipService.ToolTip>
@@ -102,28 +117,38 @@
                     </FontIcon>
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
-            <AppBarToggleButton x:Uid="BulletsLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="List">
+            <AppBarToggleButton x:Uid="BulletsLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="List"
+                                Command="{Binding Path=BulletsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Bullets" Text="Toggle Bullets"/>
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarSeparator/>
-            <AppBarButton x:Uid="AlignLeftLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignLeft">
+            <AppBarButton x:Uid="AlignLeftLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignLeft"
+                                Command="{Binding Path=LeftAlignCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignLeft" Text="Align Left (Ctrl+L)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Uid="AlignCenterLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignCenter">
+            <AppBarButton x:Uid="AlignCenterLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignCenter"
+                                Command="{Binding Path=CenterAlignCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignCenter" Text="Align Center (Ctrl+E)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Uid="AlignRightLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignRight">
+            <AppBarButton x:Uid="AlignRightLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignRight"
+                                Command="{Binding Path=RightAlignCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignRight" Text="Align Right (Ctrl+R)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Uid="JustifyTextLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40">
+            <AppBarButton x:Uid="JustifyTextLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
+                                Command="{Binding Path=JustifyCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="JustifyText" Text="Justify Text (Ctrl+J)"/>
                 </ToolTipService.ToolTip>
@@ -157,12 +182,16 @@
                 <AppBarButton x:Uid="SettingsLabel" Label="Settings" Width="Auto" Icon="Setting"/>
                 <AppBarButton x:Uid="ExitLabel" Label="Exit" Width="Auto" Icon="Cancel"/>
             </CommandBar.SecondaryCommands>
-            <AppBarButton Width="Auto" MinWidth="40" Icon="Undo">
+            <AppBarButton Width="Auto" MinWidth="40" Icon="Undo"
+                          Command="{Binding Path=UndoCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
+                          CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="UndoTooltip" Text="Undo (Ctrl+Z)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton Width="Auto" MinWidth="40" Icon="Redo">
+            <AppBarButton Width="Auto" MinWidth="40" Icon="Redo"
+                          Command="{Binding Path=RedoCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="RedoTooltip" Text="Redo (Ctrl+Y)"/>
                 </ToolTipService.ToolTip>
