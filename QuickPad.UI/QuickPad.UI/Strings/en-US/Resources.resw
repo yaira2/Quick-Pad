@@ -121,6 +121,10 @@
     <value>Back to Default Mode</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="CloseCompactOverlay.Text" xml:space="preserve">
+    <value>Close Compact Overlay</value>
+    <comment>Used on TitleBar</comment>
+  </data>
   <data name="Copy.Text" xml:space="preserve">
     <value>Copy</value>
     <comment>Used on Menu Item</comment>

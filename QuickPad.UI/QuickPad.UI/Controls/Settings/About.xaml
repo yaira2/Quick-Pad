@@ -1,0 +1,34 @@
+﻿
+    <UserControl
+    x:Class="QuickPad.UI.Controls.Settings.About"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QuickPad.UI.Controls.Settings"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    d:DesignWidth="400">
+
+    <Grid Margin="20">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,8,0,4"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+            </Style>
+        </Grid.Resources>
+
+        <StackPanel>
+            <Image Source="/Assets/StoreLogo.scale-200.png" Stretch="Fill" Width="80" Height="80" Margin="0,30,0,0"/>
+            <TextBlock Text="Quick Pad" HorizontalAlignment="Center" FontSize="16"/>
+            <TextBlock Text="Version Number" HorizontalAlignment="Center"/>
+            <TextBlock Text="Developed by Yair Aichenbaum" HorizontalAlignment="Center"/>
+
+            <HyperlinkButton Content="Send Feedback" HorizontalAlignment="Center" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose"/>
+            <HyperlinkButton Content="Rate and Review" HorizontalAlignment="Center"/>
+            <HyperlinkButton Content="Contribute to the developer" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

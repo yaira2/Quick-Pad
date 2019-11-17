@@ -1,0 +1,68 @@
+﻿<UserControl
+    x:Class="QuickPad.UI.Controls.Settings.General"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QuickPad.UI.Controls.Settings"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    d:DesignWidth="400">
+
+    <Grid Margin="20">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,8,0,4"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+            </Style>
+        </Grid.Resources>
+
+        <StackPanel>
+            <TextBlock Text="General" FontSize="20"/>
+            <TextBlock Text="Launch Mode"/>
+            <ComboBox Width="180" PlaceholderText="Classic Mode" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+                <ComboBoxItem Content="Classic Mode"/>
+                <ComboBoxItem Content="Default"/>
+                <ComboBoxItem Content="On Top"/>
+                <ComboBoxItem Content="Focus Mode"/>
+            </ComboBox>
+
+            <TextBlock Text="App Language"/>
+
+            <ComboBox Width="180" PlaceholderText="English (United State)" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+            <TextBlock Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the changes."/>
+
+            <TextBlock Text="Default File Type"/>
+            <ComboBox PlaceholderText=".txt" Width="120" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+                <x:String>.txt</x:String>
+                <x:String>.rtf</x:String>
+            </ComboBox>
+
+            <TextBlock Text="Default File Encoding"/>
+            <ComboBox PlaceholderText="UTF-8" Width="120" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+                <ComboBoxItem Content="UTF-8" Tag="UTF-8" x:Uid="DefaultEncodingUTF8" x:Name="DefaultEncodingUTF8"/>
+                <ComboBoxItem Content="UTF-16 LE" Tag="UTF-16 LE" x:Uid="DefaultEncodingUTF16_LE" x:Name="DefaultEncodingUTF16_LE"/>
+                <ComboBoxItem Content="UTF-16 BE" Tag="UTF-16 BE" x:Uid="DefaultEncodingUTF16_BE" x:Name="DefaultEncodingUTF8_BE"/>
+                <ComboBoxItem Content="UTF-32" Tag="UTF-32" x:Uid="DefaultEncodingUTF32" x:Name="DefaultEncodingUTF32"/>
+            </ComboBox>
+
+            <TextBlock Text="Auto Save"/>
+            <ToggleSwitch OnContent="On" OffContent="Off" HorizontalAlignment="Left"/>
+
+            <TextBlock>
+                <Run Text="Auto Save Every"/>
+                <Run Text="5"/>
+                <Run Text="second(s)"/>
+            </TextBlock>
+            <Slider Minimum="5" Maximum="45" StepFrequency="1" TickPlacement="Inline" Width="230" HorizontalAlignment="Left"/>
+        </StackPanel>
+
+    </Grid>
+</UserControl>

@@ -7,36 +7,59 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Quick_Pad"
     xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls2="using:QuickPad.UI.Controls.Settings"
     mc:Ignorable="d"       
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls1:DropShadowPanel Canvas.ZIndex="75"
-                                  ShadowOpacity="0.3"
-                                  OffsetX="0"
-                                  OffsetY="1"
-                                  Grid.Row="0"
-                                  HorizontalAlignment="Stretch"
-                                  HorizontalContentAlignment="Stretch">
-            <controls:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" Grid.Row="0" HorizontalAlignment="Stretch"/>
-        </controls1:DropShadowPanel>
+        <controls:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
         
-
-        <RichEditBox x:Name="RichEditBox" Style="{StaticResource RichEditBox}" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"/>
+        <controls2:SettingsNav Canvas.ZIndex="150" ViewModel="{x:Bind ViewModel}" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Stretch" HorizontalAlignment="Right"/>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
                                   OffsetX="0"
                                   OffsetY="1"
-                                  Grid.Row="2"
+                                  Grid.Row="1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
-            <controls:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" Grid.Row="2" HorizontalAlignment="Stretch"/>
+            <controls:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
+        </controls1:DropShadowPanel>
+
+        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                                  ShadowOpacity="0.3"                                  
+                                  Grid.Row="2"
+                                  HorizontalAlignment="Right"
+                                  VerticalAlignment="Top"
+                                  Margin="15"
+                                  Visibility="Collapsed">
+            <controls:FindAndReplace Canvas.ZIndex="100"  ViewModel="{x:Bind ViewModel}"/>
+        </controls1:DropShadowPanel>
+
+        <RichEditBox x:Name="RichEditBox" 
+                     Style="{StaticResource RichEditBox}" 
+                     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  
+                     Grid.Row="2" 
+                     HorizontalAlignment="Stretch" 
+                     VerticalAlignment="Stretch" 
+                     BorderBrush="{x:Null}"
+                     BorderThickness="0"
+                     TextWrapping="NoWrap"/>
+
+        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                                  ShadowOpacity="0.3"
+                                  OffsetX="0"
+                                  OffsetY="1"
+                                  Grid.Row="3"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Stretch">
+            <controls:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
 
     </Grid>
