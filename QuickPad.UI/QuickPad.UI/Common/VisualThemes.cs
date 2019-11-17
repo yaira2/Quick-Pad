@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuickPad.MVVM;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,6 +13,7 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace QuickPad.UI.Common
 {
@@ -21,7 +23,7 @@ namespace QuickPad.UI.Common
         private const string LIGHT_KEY = "light";
         private const string DARK_KEY = "dark";
         private static VisualThemeSelector _default;
-        private readonly Setting _setting = App.QSetting;
+        private readonly SettingsViewModel _settingsViewModel;
         private readonly List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;
 
@@ -31,8 +33,8 @@ namespace QuickPad.UI.Common
             {
                 if (_default != null) return _default;
 
-                _default = new VisualThemeSelector();
-                var s = new Setting();
+                _default = App.Services.GetService<VisualThemeSelector>();
+                var s = App.Services.GetService<SettingsViewModel>();
                 _default.SelectFromId(s.CustomThemeId);
 
                 return _default;
@@ -74,8 +76,9 @@ namespace QuickPad.UI.Common
             get;
         }
 
-        public VisualThemeSelector()
+        public VisualThemeSelector(SettingsViewModel settingsViewModel)
         {
+            _settingsViewModel = settingsViewModel;
             _themes = new List<VisualTheme>();
 
             Fill();
@@ -222,7 +225,7 @@ namespace QuickPad.UI.Common
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = _setting.BackgroundTintOpacity,
+                TintOpacity = _settingsViewModel.BackgroundTintOpacity,
             };
 
             var backgroundAcrylic2 = new AcrylicBrush
@@ -230,7 +233,7 @@ namespace QuickPad.UI.Common
                 BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = (_setting.BackgroundTintOpacity + .15) > 1 ? 1 : _setting.BackgroundTintOpacity + .15
+                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + .15) > 1 ? 1 : _settingsViewModel.BackgroundTintOpacity + .15
             };
 
             var inAppAcrylic = new AcrylicBrush
@@ -238,7 +241,7 @@ namespace QuickPad.UI.Common
                 BackgroundSource = AcrylicBackgroundSource.Backdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = (_setting.BackgroundTintOpacity + .05) > 1 ? 1 : _setting.BackgroundTintOpacity + .05
+                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + .05) > 1 ? 1 : _settingsViewModel.BackgroundTintOpacity + .05
             };
 
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
@@ -263,7 +266,7 @@ namespace QuickPad.UI.Common
                     : new SolidColorBrush(Colors.White),
             };
 
-            _setting.AfterTintOpacityChanged += theme.UpdateTintOpacity;
+            _settingsViewModel.AfterTintOpacityChanged += theme.UpdateTintOpacity;
 
             return theme;
         }

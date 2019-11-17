@@ -4,11 +4,13 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
 using QuickPad.UI.Common;
+using QuickPad.MVVM;
 
 namespace QuickPad.UI
 {
@@ -21,7 +23,6 @@ namespace QuickPad.UI
         public static ApplicationHost Host { get; set; }
         public static ApplicationController Controller => Host?.Controller;
         public static IServiceProvider Services => Host?.Services;
-        public static Setting QSetting { get; set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -44,9 +45,8 @@ namespace QuickPad.UI
                 .ConfigureHostConfiguration(ApplicationStartup.Configure)
                 .BuildApplicationHost();
 
-            QSetting = new Setting();
-
             this.InitializeComponent();
+
             this.Suspending += OnSuspending;
         }
 
@@ -72,6 +72,12 @@ namespace QuickPad.UI
                 {
                     //TODO: Load state from previously suspended application
                 }
+
+                this.Resources.Remove(nameof(QuickPadCommands));
+                this.Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
+
+                this.Resources.Remove(nameof(SettingsViewModel));
+                this.Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
 
                 // Place the frame in the current Window
                 Window.Current.Content = rootFrame;

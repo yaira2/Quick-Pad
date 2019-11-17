@@ -14,6 +14,7 @@ using QuickPad.Mvvm;
 using Windows.UI.Popups;
 using Windows.Foundation.Metadata;
 using Windows.UI.Xaml;
+using QuickPad.MVVM;
 
 namespace QuickPad.Mvc
 {
@@ -58,15 +59,17 @@ namespace QuickPad.Mvc
             }
         }
 
-        private void DocumentInitializer(IDocumentView documentView)
+        private void DocumentInitializer(IDocumentView documentView, QuickPadCommands commands)
         {
             documentView.ViewModel = ServiceProvider.GetService<DocumentViewModel>();
+            var quickPadCommands =
+                Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
 
-            documentView.ViewModel.NewCommand = new SimpleCommand<DocumentViewModel> { Executioner = NewDocument };
-            documentView.ViewModel.LoadCommand = new SimpleCommand<DocumentViewModel> { Executioner = LoadDocument };
-            documentView.ViewModel.SaveCommand = new SimpleCommand<DocumentViewModel> { Executioner = SaveDocument };
-            documentView.ViewModel.SaveAsCommand = new SimpleCommand<DocumentViewModel> { Executioner = SaveAsDocument };
-            documentView.ViewModel.ExitCommand = new SimpleCommand<DocumentViewModel> { Executioner = ExitApplication };
+            quickPadCommands.NewDocumentCommand.Executioner = NewDocument;
+            quickPadCommands.LoadCommand.Executioner = LoadDocument;
+            quickPadCommands.SaveCommand.Executioner = SaveDocument;
+            quickPadCommands.SaveAsCommand.Executioner = SaveAsDocument;
+            quickPadCommands.ExitCommand.Executioner = ExitApplication;
 
             documentView.ViewModel.Initialize = viewModel =>
             {

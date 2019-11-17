@@ -14,7 +14,7 @@
         <MenuBar Height="40" HorizontalAlignment="Left" Width="268.667">
             <MenuBarItem Title="File" AccessKey="F" x:Uid="File">
                 <MenuFlyoutItem Text="New" AccessKey="N" x:Uid="New" 
-                                Command="{x:Bind ViewModel.NewCommand}" 
+                                Command="{Binding Path=NewDocumentCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE7C3;"/>
@@ -26,7 +26,7 @@
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Open" AccessKey="O" x:Uid="Open" 
-                                Command="{x:Bind ViewModel.LoadCommand}" 
+                                Command="{Binding Path=LoadCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" 
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xF12B;"/>
@@ -38,7 +38,7 @@
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Save" AccessKey="S" x:Uid="Save" 
-                                Command="{x:Bind ViewModel.SaveCommand}" 
+                                Command="{Binding Path=SaveCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" 
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Save"/>
@@ -50,7 +50,7 @@
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Save As..." AccessKey="A" x:Uid="SaveAs" 
-                                Command="{x:Bind ViewModel.SaveAsCommand}" 
+                                Command="{Binding Path=SaveAsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Save"/>
@@ -63,7 +63,7 @@
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Share" AccessKey="H" x:Uid="Share" 
-                                Command="{x:Bind ViewModel.ShareCommand}" 
+                                Command="{Binding Path=ShareCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Share"/>
@@ -71,7 +71,7 @@
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Exit" AccessKey="X" x:Uid="Exit" 
-                                Command="{x:Bind ViewModel.ExitCommand}" 
+                                Command="{Binding Path=ExitCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE8BB;"/>
@@ -79,28 +79,38 @@
                 </MenuFlyoutItem>
             </MenuBarItem>
             <MenuBarItem Title="Edit" AccessKey="E" x:Uid="Edit">
-                <MenuFlyoutItem Text="Undo" AccessKey="U" x:Uid="Undo">
+                <MenuFlyoutItem Text="Undo" AccessKey="U" x:Uid="Undo" 
+                                Command="{Binding Path=UndoCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Undo"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Redo" AccessKey="E" x:Uid="Redo">
+                <MenuFlyoutItem Text="Redo" AccessKey="E" x:Uid="Redo" 
+                                Command="{Binding Path=RedoCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Redo"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Cut" AccessKey="T" x:Uid="Cut">
+                <MenuFlyoutItem Text="Cut" AccessKey="T" x:Uid="Cut" 
+                                Command="{Binding Path=CutCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Cut"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Copy" AccessKey="C" x:Uid="Copy">
+                <MenuFlyoutItem Text="Copy" AccessKey="C" x:Uid="Copy" 
+                                Command="{Binding Path=CopyCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Copy"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Paste" AccessKey="P" x:Uid="Paste">
+                <MenuFlyoutItem Text="Paste" AccessKey="P" x:Uid="Paste" 
+                                Command="{Binding Path=PasteCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
