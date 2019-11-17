@@ -19,13 +19,13 @@
         </Grid.Resources>
 
         <StackPanel>
-            <TextBlock Text="Font" FontSize="20"/>
-            <TextBlock Text="Default Font"/>
+            <TextBlock Text="Font" FontSize="20" x:Uid="Font"/>
+            <TextBlock Text="Default Font" x:Uid="DefaultFont"/>
             <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" PlaceholderText="Consolas" MinWidth="170"/>
-            <TextBlock Text="Default Font Color"/>
+            <TextBlock Text="Default Font Color" x:Uid="DefaultFontColor"/>
             <!--<local:ColorSelection Margin="5,0,0,0" HorizontalAlignment="Left" x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>-->
 
-            <TextBlock Text="Default Font Size"/>
+            <TextBlock Text="Default Font Size" x:Uid="DefaultFontSize"/>
             <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" PlaceholderText="12" MinWidth="69">
                 <x:Int32>4</x:Int32>
                 <x:Int32>6</x:Int32>
@@ -45,11 +45,11 @@
                 <x:Int32>72</x:Int32>
             </ComboBox>
 
-            <TextBlock Text="Word Wrap"/>
-            <ToggleSwitch x:Uid="GeneralToggleSwitch" OnContent="On" OffContent="Off"/>
+            <TextBlock Text="Word Wrap" x:Uid="WordWrapSetting"/>
+            <ToggleSwitch/>
 
-            <TextBlock Text="Spell Check"/>
-            <ToggleSwitch OnContent="On" OffContent="Off"/>
+            <TextBlock Text="Spell Check" x:Uid="SpellCheck"/>
+            <ToggleSwitch/>
         </StackPanel>
 
     </Grid>

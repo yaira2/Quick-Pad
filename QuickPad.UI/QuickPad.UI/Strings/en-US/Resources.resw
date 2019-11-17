@@ -165,6 +165,18 @@
     <value>Date/Time</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="DefaultFont.Text" xml:space="preserve">
+    <value>Default Font</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontColor.Text" xml:space="preserve">
+    <value>Default Font Color</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Text" xml:space="preserve">
+    <value>Default Font Size</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>Delete</value>
     <comment>Used on Menu Item</comment>
@@ -200,6 +212,10 @@
   <data name="FocusMode.Text" xml:space="preserve">
     <value>Focus Mode</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>Font</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="Fonts.Text" xml:space="preserve">
     <value>Fonts...</value>
@@ -305,6 +321,10 @@
     <value>Share</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="SpellCheck.Text" xml:space="preserve">
+    <value>Spell Check</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>Status Bar</value>
     <comment>Used on Menu Item</comment>
@@ -336,6 +356,10 @@
   <data name="WordWrap.Text" xml:space="preserve">
     <value>Word Wrap</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="WordWrapSetting.Text" xml:space="preserve">
+    <value>Word Wrap</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>Zoom</value>
