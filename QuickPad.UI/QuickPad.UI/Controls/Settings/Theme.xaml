@@ -25,8 +25,8 @@
                     <DataTemplate>
                         <StackPanel Spacing="5" Orientation="Horizontal">
                             <Grid Width="36" Height="36" Margin="0,8,8,8">
-                                <Rectangle Fill="{x:Bind PreviewBrush}" RadiusX="{Binding page.QSetting.GlobalDialogRadius, Mode=OneWay}" RadiusY="{Binding page.QSetting.GlobalDialogRadius, Mode=OneWay}"/>
-                                <Rectangle RadiusX="{Binding page.QSetting.GlobalDialogRadius, Mode=OneWay}" RadiusY="{Binding page.QSetting.GlobalDialogRadius, Mode=OneWay}">
+                                <Rectangle/>
+                                <Rectangle>
                                     <Rectangle.Fill>
                                         <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
                                             <GradientStop Color="#00000000"/>
@@ -37,8 +37,8 @@
                                 </Rectangle>
                             </Grid>
                             <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-                                <TextBlock Text="{x:Bind FriendlyName}" VerticalAlignment="Center" />
-                                <TextBlock Text="{x:Bind Description}" Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" Opacity=".5"/>
+                                <TextBlock VerticalAlignment="Center" />
+                                <TextBlock Style="{StaticResource CaptionTextBlockStyle}" VerticalAlignment="Center" Opacity=".5"/>
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>

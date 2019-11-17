@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Quick_Pad"
     xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:controls2="using:QuickPad.UI.Controls.Settings"
     mc:Ignorable="d"       
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
@@ -18,6 +19,8 @@
         </Grid.RowDefinitions>
 
         <controls:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
+        
+        <controls2:SettingsNav Canvas.ZIndex="150" ViewModel="{x:Bind ViewModel}" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Stretch" HorizontalAlignment="Right"/>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
@@ -34,10 +37,10 @@
                                   Grid.Row="2"
                                   HorizontalAlignment="Right"
                                   VerticalAlignment="Top"
-                                  Margin="15">
+                                  Margin="15"
+                                  Visibility="Collapsed">
             <controls:FindAndReplace Canvas.ZIndex="100"  ViewModel="{x:Bind ViewModel}"/>
         </controls1:DropShadowPanel>
-
 
         <RichEditBox x:Name="RichEditBox" 
                      Style="{StaticResource RichEditBox}" 

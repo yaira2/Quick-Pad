@@ -7,9 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    d:DesignWidth="400">
+    d:DesignWidth="400"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid>
+    <Grid Width="320">
         <winui:NavigationView IsPaneOpen="False"
                               x:Name="settingNavView"
                                   IsSettingsVisible="False"
@@ -39,11 +40,6 @@
                         <FontIcon Glyph="&#xE74C;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Tag="Report">
-                    <winui:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xEBE8;" />
-                    </winui:NavigationViewItem.Icon>
-                </winui:NavigationViewItem>
                 <winui:NavigationViewItem Tag="About">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE946;" />
@@ -52,7 +48,7 @@
             </winui:NavigationView.MenuItems>
         </winui:NavigationView>
 
-        <ScrollViewer Margin="0,40,0,0" >
+        <ScrollViewer Margin="0,40,0,0"  Background="{x:Bind VisualThemeSelector.CurrentItem.SolidBackgroundBrush, Mode=OneWay}">
             <Frame Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </ScrollViewer>
 
