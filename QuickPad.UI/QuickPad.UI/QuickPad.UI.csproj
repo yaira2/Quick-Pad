@@ -143,6 +143,9 @@
     <Compile Include="Controls\FindAndReplace.xaml.cs">
       <DependentUpon>FindAndReplace.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Settings\About.xaml.cs">
+      <DependentUpon>About.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Settings\Advanced.xaml.cs">
       <DependentUpon>Advanced.xaml</DependentUpon>
     </Compile>
@@ -247,6 +250,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Controls\FindAndReplace.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Settings\About.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
