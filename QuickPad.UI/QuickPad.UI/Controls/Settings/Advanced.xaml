@@ -1,0 +1,49 @@
+﻿
+    <UserControl
+    x:Class="QuickPad.UI.Controls.Settings.Advanced"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:QuickPad.UI.Controls.Settings"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    mc:Ignorable="d"
+    d:DesignWidth="400">
+
+    <Grid Margin="20">
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="Margin" Value="0,8,0,4"/>
+                <Setter Property="TextWrapping" Value="Wrap"/>
+                <Setter Property="FontFamily" Value="Segoe UI"/>
+            </Style>
+        </Grid.Resources>
+
+        <StackPanel>
+            <TextBlock x:Uid="Advanced" Text="Advanced" FontSize="20"/>
+
+            <TextBlock Text="Acrylic Options" FontSize="16"/>
+            <TextBlock Text="Use acrylic background for the text area"/>
+            <ToggleSwitch/>
+
+            <TextBlock Text="Acrylic tint opacity"/>
+            <Slider Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
+
+            <TextBlock Text="Paste Options" FontSize="16"/>
+            <TextBlock Text="Keep text only"/>
+            <ToggleSwitch/>
+
+            <TextBlock Text="Other" FontSize="16"/>
+            <TextBlock Text="Automatically choose which mode to launch the app in based on the file type"/>
+            <ToggleSwitch/>
+
+            <TextBlock Text="Manage Settings" FontSize="16"/>
+            <StackPanel Orientation="Horizontal">
+                <Button Content="Import" />
+                <Button Content="Export" Margin="5,2"/>
+                <Button Content="Reset"/>
+            </StackPanel>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
