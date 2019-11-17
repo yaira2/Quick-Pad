@@ -7,10 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    d:DesignWidth="400"
+    d:DesignWidth="320"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid Width="320">
+    <Grid HorizontalAlignment="Stretch" Width="320">
         <winui:NavigationView IsPaneOpen="False"
                               x:Name="settingNavView"
                                   IsSettingsVisible="False"
@@ -18,7 +18,8 @@
                                   IsBackButtonVisible="Collapsed"
                                   PaneDisplayMode="Top"
                                   HorizontalAlignment="Stretch"
-                                  OpenPaneLength="200">
+                                  OpenPaneLength="200"
+                                  ItemInvoked="settingNavView_ItemInvoked">
             <winui:NavigationView.MenuItems>
                 <winui:NavigationViewItem Tag="General">
                     <winui:NavigationViewItem.Icon>
@@ -49,7 +50,7 @@
         </winui:NavigationView>
 
         <ScrollViewer Margin="0,40,0,0"  Background="{x:Bind VisualThemeSelector.CurrentItem.SolidBackgroundBrush, Mode=OneWay}">
-            <Frame Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Frame x:Name="SettingsFrame" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </ScrollViewer>
 
     </Grid>

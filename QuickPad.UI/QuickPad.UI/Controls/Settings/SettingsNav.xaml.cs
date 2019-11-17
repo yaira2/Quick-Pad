@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -36,6 +37,36 @@ namespace QuickPad.UI.Controls.Settings
         public SettingsNav()
         {
             this.InitializeComponent();
+        }
+
+        private void settingNavView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
+        {
+            Type pageType;
+            int tmp = 2;
+
+            switch (args.InvokedItemContainer.Tag.ToString())
+            {
+                case "General":
+                    pageType = typeof(General);
+                    break;
+                case "Theme":
+                    pageType = typeof(Theme);
+                    break;
+                case "Font":
+                    pageType = typeof(Font);
+                    break;
+                case "Advanced":
+                    pageType = typeof(Advanced);
+                    break;
+                case "About":
+                    pageType = typeof(About);
+                    break;
+                default:
+                    pageType = typeof(General);
+                    break;
+            }
+
+            SettingsFrame.Navigate(pageType, new SuppressNavigationTransitionInfo());
         }
     }
 }

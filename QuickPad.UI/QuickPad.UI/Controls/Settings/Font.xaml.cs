@@ -19,7 +19,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace QuickPad.UI.Controls.Settings
 {
-    public sealed partial class Font : UserControl
+    public sealed partial class Font : Page
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 

@@ -19,7 +19,7 @@ using Windows.UI.Xaml.Navigation;
 
 namespace QuickPad.UI.Controls.Settings
 {
-    public sealed partial class Advanced : UserControl
+    public sealed partial class Advanced : Page
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 

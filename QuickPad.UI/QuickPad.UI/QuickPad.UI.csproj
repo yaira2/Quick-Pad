@@ -190,6 +190,7 @@
     </AppxManifest>
   </ItemGroup>
   <ItemGroup>
+    <None Include=".editorconfig" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
