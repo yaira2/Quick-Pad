@@ -143,6 +143,12 @@
     <Compile Include="Controls\FindAndReplace.xaml.cs">
       <DependentUpon>FindAndReplace.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Settings\General.xaml.cs">
+      <DependentUpon>General.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Settings\SettingsNav.xaml.cs">
+      <DependentUpon>SettingsNav.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TitleBar.xaml.cs">
       <DependentUpon>TitleBar.xaml</DependentUpon>
     </Compile>
@@ -234,6 +240,14 @@
     <Page Include="Controls\FindAndReplace.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Settings\General.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Settings\SettingsNav.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\TitleBar.xaml">
       <Generator>MSBuild:Compile</Generator>
