@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
 using QuickPad.UI.Common;
-using QuickPad.MVVM;
+using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 
