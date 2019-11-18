@@ -1,9 +1,8 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Windows.UI.Text;
+using QuickPad.MVVM.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.MVVM.Commands.Editing
 {
     public class BulletsCommand : SimpleCommand<DocumentViewModel>
     {
@@ -12,19 +11,16 @@ namespace QuickPad.MVVM
             Executioner = viewModel =>
             {
                 viewModel.Document.BeginUndoGroup();
-                if (viewModel.Document.Selection.ParagraphFormat.ListType == MarkerType.Bullet)
-                {
-                    viewModel.Document.Selection.ParagraphFormat.ListType = MarkerType.None;
-                }
-                else
-                {
-                    viewModel.Document.Selection.ParagraphFormat.ListType = MarkerType.Bullet;
-                }
+                viewModel.Document.Selection.ParagraphFormat.ListType = 
+                    viewModel.Document.Selection.ParagraphFormat.ListType == MarkerType.Bullet 
+                        ? MarkerType.None 
+                        : MarkerType.Bullet;
                 viewModel.Document.EndUndoGroup();
+
+                viewModel.OnPropertyChanged(nameof(viewModel.Text));
 
                 return Task.CompletedTask;
             };
         }
     }
-
 }

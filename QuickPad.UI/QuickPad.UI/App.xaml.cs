@@ -7,10 +7,12 @@ using Windows.UI.Xaml.Navigation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using QuickPad.Mvc;
-using QuickPad.Mvc.Hosting;
+using QuickPad.MVC;
+using QuickPad.MVC.Hosting;
 using QuickPad.UI.Common;
 using QuickPad.MVVM;
+using QuickPad.MVVM.Commands;
+using QuickPad.MVVM.ViewModels;
 
 namespace QuickPad.UI
 {
@@ -23,6 +25,7 @@ namespace QuickPad.UI
         public static ApplicationHost Host { get; set; }
         public static ApplicationController Controller => Host?.Controller;
         public static IServiceProvider Services => Host?.Services;
+        public static SettingsViewModel Settings => Host?.Services.GetService<SettingsViewModel>();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

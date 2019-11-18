@@ -1,12 +1,11 @@
-﻿using Microsoft.AppCenter.Analytics;
-using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Windows.UI.ViewManagement.Core;
 using Windows.UI.Xaml;
+using Microsoft.AppCenter.Analytics;
+using QuickPad.MVVM.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.MVVM.Commands.Editing
 {
     /*
      *
@@ -19,7 +18,7 @@ namespace QuickPad.MVVM
         {
             Executioner = viewModel =>
             {
-                viewModel.InvokeFocusTextbox(FocusState.Programmatic);
+                viewModel.InvokeFocusTextBox(FocusState.Programmatic);
 
                 try //More error here
                 {
@@ -34,5 +33,4 @@ namespace QuickPad.MVVM
             };
         }
     }
-
 }

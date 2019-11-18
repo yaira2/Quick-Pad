@@ -1,9 +1,8 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Windows.UI.Text;
+using QuickPad.MVVM.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.MVVM.Commands.Editing
 {
     public class JustifyCommand : SimpleCommand<DocumentViewModel>
     {
@@ -12,9 +11,10 @@ namespace QuickPad.MVVM
             Executioner = viewModel =>
             {
                 viewModel.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Justify;
+                viewModel.OnPropertyChanged(nameof(viewModel.Text));
+
                 return Task.CompletedTask;
             };
         }
     }
-
 }

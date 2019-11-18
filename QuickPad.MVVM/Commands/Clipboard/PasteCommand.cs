@@ -1,63 +1,65 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System;
+﻿using System;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
+using QuickPad.MVVM.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.MVVM.Commands.Clipboard
 {
     public class PasteCommand : SimpleCommand<DocumentViewModel>
     {
-        private SettingsViewModel _settings;
-        private bool canPasteText;
+        private readonly SettingsViewModel _settings;
+        private bool _canPasteText;
 
-        public PasteCommand(SettingsViewModel settingsViewModel) : base()
+        public PasteCommand(SettingsViewModel settingsViewModel)
         {
             _settings = settingsViewModel;
         }
 
         public PasteCommand()
         {
-            CanExecuteEvaluator = viewModel => viewModel.Document.Selection.Text.Length > 0;
+            Task.Run(CheckClipboardStatus);
+
+            CanExecuteEvaluator = viewModel => CanPasteText;
 
             Executioner = async viewModel =>
             {
                 if (_settings.PasteTextOnly)
                 {
-                    DataPackageView dataPackageView = Clipboard.GetContent();
+                    var dataPackageView = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
                     if (dataPackageView.Contains(StandardDataFormats.Text))
-                    {
-                        //if there is nothing to paste then dont paste anything since it will crash
+                        //if there is nothing to paste then don't paste anything since it will crash
                         if (!string.IsNullOrEmpty(await dataPackageView.GetTextAsync()))
-                        {
-                            viewModel.Document.Selection.TypeText(await dataPackageView.GetTextAsync()); //paste the text from the clipboard
-                        }
-                    }
+                            viewModel.Document.Selection.TypeText(
+                                await dataPackageView.GetTextAsync()); //paste the text from the clipboard
                 }
                 else
                 {
                     viewModel.Document.Selection.Paste(0);
                 }
+
+                viewModel.OnPropertyChanged(nameof(viewModel.Text));
             };
         }
 
         private bool CanPasteText
         {
-            get => canPasteText; 
+            get => _canPasteText;
             set
-            { 
-                canPasteText = value;
+            {
+                _canPasteText = value;
 
                 InvokeCanExecuteChanged(this);
             }
         }
 
-       
-        private async void ClipboardStatusUpdate(object sender, object e)
+        private async void ClipboardStatusUpdate(object sender, object e) => await CheckClipboardStatus();
+
+        private async Task CheckClipboardStatus()
         {
             try
             {
-                DataPackageView clipboardContent = Clipboard.GetContent();
-                Clipboard.ContentChanged -= ClipboardStatusUpdate;
+                var clipboardContent = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
+                Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged -= ClipboardStatusUpdate;
                 var dataPackage = new DataPackage();
                 if (_settings.PasteTextOnly)
                 {
@@ -71,9 +73,10 @@ namespace QuickPad.MVVM
                     else
                         dataPackage.SetText(await clipboardContent.GetTextAsync());
                 }
-                Clipboard.SetContent(dataPackage);
-                Clipboard.Flush();
-                Clipboard.ContentChanged += ClipboardStatusUpdate;
+
+                Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+                Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
+                Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged += ClipboardStatusUpdate;
                 CanPasteText = clipboardContent.Contains(StandardDataFormats.Text);
             }
             catch (Exception)
@@ -81,7 +84,5 @@ namespace QuickPad.MVVM
                 CanPasteText = false;
             }
         }
-
     }
-
 }

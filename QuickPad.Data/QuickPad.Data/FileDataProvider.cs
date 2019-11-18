@@ -35,7 +35,7 @@ namespace QuickPad.Data
                 
                 return $"{file.Name} was saved.";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

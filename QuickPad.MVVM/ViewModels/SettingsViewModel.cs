@@ -1,14 +1,15 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Graphics.Canvas.Text;
-using QuickPad.Mvvm;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Collections.ObjectModel;
+using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
+using Microsoft.Extensions.Logging;
+using Microsoft.Graphics.Canvas.Text;
+using QuickPad.MVVM.Models;
+using Color = Windows.UI.Color;
 
-namespace QuickPad.MVVM
+namespace QuickPad.MVVM.ViewModels
 {
     public class SettingsViewModel : ViewModel
     {
@@ -16,14 +17,22 @@ namespace QuickPad.MVVM
 
         public SettingsViewModel(ILogger logger) : base(logger)
         {
-            AllFonts = new ObservableCollection<FontFamilyModel>(CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font).Select(font => new FontFamilyModel(font)));
+            AllFonts = new ObservableCollection<FontFamilyModel>(
+                CanvasTextFormat.GetSystemFontFamilies()
+                    .OrderBy(font => font)
+                    .Select(font => new FontFamilyModel(font)));
         }
 
         public Action<double> AfterTintOpacityChanged { get; set; }
         public string CustomThemeId { get; set; }
-        public double BackgroundTintOpacity { get; set; }
-        public bool PasteTextOnly { get; internal set; }
+        public double BackgroundTintOpacity { get; set; } = 50.0;
+        public bool PasteTextOnly { get; internal set; } = true;
         public ObservableCollection<FontFamilyModel> AllFonts { get; }
-        public DefaultLanguageModel DefaultLanguage { get; set; }
+        public DefaultLanguageModel DefaultLanguage { get; set; } = new DefaultLanguageModel();
+        public string DefaultFont { get; set; } = "Times New Roman";
+        public bool SpellCheck { get; set; } = true;
+        public bool WordWrap { get; set; } = true;
+        public bool PreventText1ChangeColor { get; set; } = false;
+        public double DefaultFontSize { get; set; } = 14.0;
     }
 }

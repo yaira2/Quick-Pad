@@ -2,39 +2,56 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.Store;
-using Microsoft.Extensions.Configuration;
+using Windows.Foundation.Metadata;
+using Windows.Storage.Pickers;
+using Windows.UI.Popups;
+using Windows.UI.Text;
+using Windows.UI.Xaml;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using QuickPad.Data;
-using QuickPad.Mvvm;
-using Windows.UI.Popups;
-using Windows.Foundation.Metadata;
-using Windows.UI.Xaml;
-using QuickPad.MVVM;
+using QuickPad.MVVM.Commands;
+using QuickPad.MVVM.ViewModels;
 
-namespace QuickPad.Mvc
+namespace QuickPad.MVC
 {
     public class ApplicationController
     {
-        private readonly List<IView> _views = new List<IView>();
+        private const string HARDWARE_BACK_BUTTON = "Windows.Phone.UI.Input.HardwareButtons";
+        private const string RTF_MARKER = "{\\rtf1";
 
-        private ILogger<ApplicationController> Logger { get; }
-        public IServiceProvider ServiceProvider { get; }
+        private readonly Dictionary<ByteOrderMark, byte[]> _byteOrderMarks = new Dictionary<ByteOrderMark, byte[]>
+        {
+            {ByteOrderMark.Utf8, new byte[] {0xEF, 0xBB, 0xBF}},
+            {ByteOrderMark.Utf16Be, new byte[] {0xFE, 0xFF}},
+            {ByteOrderMark.Utf16Le, new byte[] {0xFF, 0xFE}},
+            {ByteOrderMark.Utf32Be, new byte[] {0x00, 0x00, 0xFE, 0xFF}},
+            {ByteOrderMark.Utf32Le, new byte[] {0xFF, 0xFE, 0x00, 0x00}},
+            {ByteOrderMark.Utf7A, new byte[] {0x2B, 0x2F, 0x76, 0x38}},
+            {ByteOrderMark.Utf7B, new byte[] {0x2B, 0x2F, 0x76, 0x39}},
+            {ByteOrderMark.Utf7C, new byte[] {0x2B, 0x2F, 0x76, 0x2B}},
+            {ByteOrderMark.Utf7D, new byte[] {0x2B, 0x2F, 0x76, 0x2F}},
+            {ByteOrderMark.Utf7E, new byte[] {0x2B, 0x2F, 0x76, 0x38, 0x2D}},
+            {ByteOrderMark.Utf1, new byte[] {0xF7, 0x64, 0x46}},
+            {ByteOrderMark.UtfEbcdic, new byte[] {0xDD, 0x73, 0x66, 0x73}},
+            {ByteOrderMark.Scsu, new byte[] {0x0E, 0xFE, 0xFF}},
+            {ByteOrderMark.Bocu1, new byte[] {0xFB, 0xEE, 0x28}},
+            {ByteOrderMark.Gb18030, new byte[] {0x84, 0x31, 0x95, 0x33}}
+        };
+
+        private readonly List<IView> _views = new List<IView>();
 
         public ApplicationController(ILogger<ApplicationController> logger, IServiceProvider serviceProvider)
         {
             Logger = logger;
             ServiceProvider = serviceProvider;
 
-            if (Logger.IsEnabled(LogLevel.Debug))
-            {
-                Logger.LogDebug("Started Application Controller.");
-            }
+            if (Logger.IsEnabled(LogLevel.Debug)) Logger.LogDebug("Started Application Controller.");
         }
+
+        private ILogger<ApplicationController> Logger { get; }
+        public IServiceProvider ServiceProvider { get; }
 
         public void AddView<TView>(TView view) where TView : IView
         {
@@ -46,10 +63,7 @@ namespace QuickPad.Mvc
 
                     if (documentView.ViewModel != null) return;
 
-                    if (Logger.IsEnabled(LogLevel.Debug))
-                    {
-                        Logger.LogDebug("Added IDocumentView to controller.");
-                    }
+                    if (Logger.IsEnabled(LogLevel.Debug)) Logger.LogDebug("Added IDocumentView to controller.");
 
                     _views.Add(view);
 
@@ -62,50 +76,44 @@ namespace QuickPad.Mvc
         private void DocumentInitializer(IDocumentView documentView, QuickPadCommands commands)
         {
             documentView.ViewModel = ServiceProvider.GetService<DocumentViewModel>();
-            var quickPadCommands =
-                Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
 
-            quickPadCommands.NewDocumentCommand.Executioner = NewDocument;
-            quickPadCommands.LoadCommand.Executioner = LoadDocument;
-            quickPadCommands.SaveCommand.Executioner = SaveDocument;
-            quickPadCommands.SaveAsCommand.Executioner = SaveAsDocument;
-            quickPadCommands.ExitCommand.Executioner = ExitApplication;
+            commands.NewDocumentCommand.Executioner = NewDocument;
+            commands.LoadCommand.Executioner = LoadDocument;
+            commands.SaveCommand.Executioner = SaveDocument;
+            commands.SaveAsCommand.Executioner = SaveAsDocument;
+            commands.ExitCommand.Executioner = ExitApplication;
 
             documentView.ViewModel.Initialize = viewModel =>
             {
                 viewModel.HoldUpdates();
-                
+
                 viewModel.File = null;
                 viewModel.Text = "";
                 viewModel.IsDirty = false;
                 viewModel.Encoding = Encoding.UTF8;
-                
+
                 viewModel.ReleaseUpdates();
 
                 viewModel.NotifyAll();
             };
         }
 
-        private Task NewDocument(DocumentViewModel documentViewModel)
+        private static Task NewDocument(DocumentViewModel documentViewModel)
         {
             documentViewModel.Initialize(documentViewModel);
-            
+
             return Task.CompletedTask;
         }
 
         private async Task ExitApplication(DocumentViewModel documentViewModel)
         {
             if (documentViewModel.IsDirty)
-            {
-                await AskSaveDocument(documentViewModel);                
-            }
+                await AskSaveDocument(documentViewModel);
             else
-            {
                 ExitApplication();
-            }
         }
 
-        private void ExitApplication()
+        private static void ExitApplication()
         {
             Application.Current.Exit();
         }
@@ -114,56 +122,43 @@ namespace QuickPad.Mvc
         {
             if (!documentViewModel.IsDirty) return;
 
-            var title = "Pending changes";
-            var content = "There are pending changes.\r\nDo you want to save the modifications?";
+            var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
 
-            var yesCommand = new UICommand("Yes", async cmd => { await SaveDocument(documentViewModel); });
-            var noCommand = new UICommand("No", cmd => { ExitApplication(); });
-            var cancelCommand = new UICommand("Cancel", cmd => {  });
+            var title = resourceLoader.GetString("PendingChangesTitle");
+            var content = resourceLoader.GetString("PendingChangesTitle");
+            var yes = resourceLoader.GetString("Yes");
+            var no = resourceLoader.GetString("No");
+            var cancel = resourceLoader.GetString("Cancel");
 
-            var dialog = new MessageDialog(content, title);
-            dialog.Options = MessageDialogOptions.None;
+            var yesCommand = new UICommand(yes, async cmd => { await SaveDocument(documentViewModel); });
+            var noCommand = new UICommand(no, cmd => { ExitApplication(); });
+            var cancelCommand = new UICommand(cancel, cmd => { });
+
+            var dialog = new MessageDialog(content, title)
+            {
+                Options = MessageDialogOptions.None
+                , DefaultCommandIndex = 0
+                , CancelCommandIndex = 0
+            };
+
             dialog.Commands.Add(yesCommand);
+            dialog.Commands.Add(noCommand);
+            dialog.CancelCommandIndex = (uint)dialog.Commands.Count - 1;
 
-            dialog.DefaultCommandIndex = 0;
-            dialog.CancelCommandIndex = 0;
-
-            if (noCommand != null)
+            if (ApiInformation.IsTypePresent(HARDWARE_BACK_BUTTON))
             {
-                dialog.Commands.Add(noCommand);
-                dialog.CancelCommandIndex = (uint)dialog.Commands.Count - 1;
+                dialog.CancelCommandIndex = uint.MaxValue;
             }
-
-            if (cancelCommand != null)
+            else
             {
-                // Devices with a hardware back button
-                // use the hardware button for Cancel.
-                // for other devices, show a third option
-
-                var t_hardwareBackButton = "Windows.Phone.UI.Input.HardwareButtons";
-
-                if (ApiInformation.IsTypePresent(t_hardwareBackButton))
-                {
-                    // disable the default Cancel command index
-                    // so that dialog.ShowAsync() returns null
-                    // in that case
-
-                    dialog.CancelCommandIndex = UInt32.MaxValue;
-                }
-                else
-                {
-                    dialog.Commands.Add(cancelCommand);
-                    dialog.CancelCommandIndex = (uint)dialog.Commands.Count - 1;
-                }
+                dialog.Commands.Add(cancelCommand);
+                dialog.CancelCommandIndex = (uint) dialog.Commands.Count - 1;
             }
 
             var command = await dialog.ShowAsync();
 
-            if (command == null && cancelCommand != null)
+            if (command == null)
             {
-                // back button was pressed
-                // invoke the UICommand
-
                 cancelCommand.Invoked(cancelCommand);
             }
         }
@@ -172,9 +167,9 @@ namespace QuickPad.Mvc
         {
             documentViewModel.HoldUpdates();
 
-            var loadPicker = new Windows.Storage.Pickers.FileOpenPicker
+            var loadPicker = new FileOpenPicker
             {
-                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                SuggestedStartLocation = PickerLocationId.DocumentsLibrary
             };
 
             loadPicker.FileTypeFilter.Add(".txt");
@@ -186,9 +181,42 @@ namespace QuickPad.Mvc
             if (file == null) return;
 
             var provider = new FileDataProvider();
+            var bytes = await provider.LoadDataAsync(file);
             var reader = new EncodingReader();
-            reader.AddBytes(await provider.LoadDataAsync(file));
+            reader.AddBytes(bytes);
+
+            documentViewModel.Encoding = Encoding.UTF8;
+
+            _byteOrderMarks.ToList().ForEach(pair =>
+            {
+                var (key, value) = pair;
+
+                if (!bytes.AsSpan(0, value.Length).StartsWith(value.AsSpan(0, value.Length))) return;
+
+                var encoding = key switch
+                {
+                    ByteOrderMark.Utf8 => Encoding.UTF8,
+                    ByteOrderMark.Utf16Be => Encoding.BigEndianUnicode,
+                    ByteOrderMark.Utf16Le => Encoding.Unicode,
+                    ByteOrderMark.Utf32Be => Encoding.UTF32,
+                    ByteOrderMark.Utf32Le => Encoding.UTF32,
+                    ByteOrderMark.Utf7A => Encoding.UTF7,
+                    ByteOrderMark.Utf7B => Encoding.UTF7,
+                    ByteOrderMark.Utf7C => Encoding.UTF7,
+                    ByteOrderMark.Utf7D => Encoding.UTF7,
+                    ByteOrderMark.Utf7E => Encoding.UTF7,
+                    _ => Encoding.ASCII
+                };
+
+                documentViewModel.Encoding = encoding;
+            });
+
             var text = reader.Read(documentViewModel.Encoding);
+
+            var isRtf = text.StartsWith(RTF_MARKER, StringComparison.InvariantCultureIgnoreCase);
+
+            documentViewModel.GetOption = isRtf ? TextGetOptions.FormatRtf : TextGetOptions.None;
+            documentViewModel.SetOption = isRtf ? TextSetOptions.FormatRtf : TextSetOptions.None;
 
             documentViewModel.File = file;
             documentViewModel.Text = text;
@@ -197,9 +225,15 @@ namespace QuickPad.Mvc
             documentViewModel.ReleaseUpdates();
         }
 
+        private Task SaveDocument(DocumentViewModel documentViewModel)
+        {
+            return SaveDocument(documentViewModel, false);
+        }
 
-        private Task SaveDocument(DocumentViewModel documentViewModel) => SaveDocument(documentViewModel, false);
-        private Task SaveAsDocument(DocumentViewModel documentViewModel) => SaveDocument(documentViewModel, true);
+        private Task SaveAsDocument(DocumentViewModel documentViewModel)
+        {
+            return SaveDocument(documentViewModel, true);
+        }
 
         private async Task SaveDocument(DocumentViewModel documentViewModel, bool saveAs)
         {
@@ -210,15 +244,15 @@ namespace QuickPad.Mvc
 
             if (documentViewModel.File == null || saveAs)
             {
-                var savePicker = new Windows.Storage.Pickers.FileSavePicker
+                var savePicker = new FileSavePicker
                 {
-                    SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                    SuggestedStartLocation = PickerLocationId.DocumentsLibrary
                 };
 
                 // Dropdown of file types the user can save the file as
-                savePicker.FileTypeChoices.Add("Plain Text", new List<string>() { ".txt" });
-                savePicker.FileTypeChoices.Add("Rich Text", new List<string>() { ".rtf" });
-                savePicker.FileTypeChoices.Add("Any", new List<string>() { "." });
+                savePicker.FileTypeChoices.Add("Plain Text", new List<string> {".txt"});
+                savePicker.FileTypeChoices.Add("Rich Text", new List<string> {".rtf"});
+                savePicker.FileTypeChoices.Add("Any", new List<string> {"."});
 
                 // Default file name if the user does not type one in or select a file to replace
                 savePicker.SuggestedFileName = documentViewModel.File?.DisplayName ?? "Unnamed";
@@ -230,15 +264,36 @@ namespace QuickPad.Mvc
             }
 
             if (Logger.IsEnabled(LogLevel.Debug))
-            {
                 Logger.LogDebug($"Saving {documentViewModel.File.DisplayName}:\n{documentViewModel.Text}");
-            }
 
             await new FileDataProvider().SaveDataAsync(documentViewModel.File, writer, documentViewModel.Encoding);
 
             documentViewModel.IsDirty = false;
 
             documentViewModel.ReleaseUpdates();
+        }
+
+        private enum ByteOrderMark
+        {
+            Utf8,
+            Utf16Be,
+            Utf16Le,
+            Utf32Be,
+            Utf32Le,
+            Utf7A,
+            Utf7B,
+            Utf7C,
+            Utf7D,
+            Utf7E,
+            Utf1,
+            UtfEbcdic,
+
+            // ReSharper disable once IdentifierTypo
+            Scsu,
+
+            // ReSharper disable once IdentifierTypo
+            Bocu1,
+            Gb18030
         }
     }
 }

@@ -3,9 +3,10 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:QuickPad.UI"
+    xmlns:converters="using:QuickPad.UI.Converters"
+    xmlns:controls3="using:QuickPad.UI.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:controls="using:Quick_Pad"
     xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controls2="using:QuickPad.UI.Controls.Settings"
     mc:Ignorable="d"       
@@ -18,7 +19,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
+        <controls3:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
         
         <controls2:SettingsNav Canvas.ZIndex="150" Visibility="Collapsed" ViewModel="{x:Bind ViewModel}" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Stretch" HorizontalAlignment="Right"/>
 
@@ -29,7 +30,7 @@
                                   Grid.Row="1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
-            <controls:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
+            <controls3:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
@@ -39,19 +40,22 @@
                                   VerticalAlignment="Top"
                                   Margin="15"
                                   Visibility="Collapsed">
-            <controls:FindAndReplace Canvas.ZIndex="100"  ViewModel="{x:Bind ViewModel}"/>
+            <controls3:FindAndReplace Canvas.ZIndex="100"  ViewModel="{x:Bind ViewModel}"/>
         </controls1:DropShadowPanel>
 
         <RichEditBox x:Name="RichEditBox" 
-                     Style="{StaticResource RichEditBox}" 
-                     Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  
                      Grid.Row="2" 
                      HorizontalAlignment="Stretch" 
                      VerticalAlignment="Stretch" 
                      BorderBrush="{x:Null}"
                      BorderThickness="0"
-                     TextWrapping="NoWrap"/>
-
+                     TextWrapping="{x:Bind converters:Converter.BoolToTextWrap(ViewModel.Settings.WordWrap), Mode=OneWay}" 
+                     IsSpellCheckEnabled="{x:Bind ViewModel.Settings.SpellCheck, Mode=OneWay}" 
+                     Style="{StaticResource RichEditBox}"
+                     Background="{x:Bind converters:Converter.SelectionBetweenBrush(ViewModel.Settings.PreventText1ChangeColor, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                     IsTapEnabled="True"
+                     FontSize="{x:Bind ViewModel.Settings.DefaultFontSize, Mode=OneWay}"
+                     />
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
                                   OffsetX="0"
@@ -59,7 +63,7 @@
                                   Grid.Row="3"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
-            <controls:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" HorizontalAlignment="Stretch"/>
+            <controls3:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
 
     </Grid>

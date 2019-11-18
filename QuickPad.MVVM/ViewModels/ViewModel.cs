@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using QuickPad.Mvvm.Annotations;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
+using Microsoft.Extensions.Logging;
+using QuickPad.MVVM.Properties;
 
-namespace QuickPad.Mvvm
+namespace QuickPad.MVVM.ViewModels
 {
     public class ViewModel : INotifyPropertyChanged
     {
@@ -29,13 +26,14 @@ namespace QuickPad.Mvvm
         {
             if (!_frozen)
             {
-                DispatchedHandler dh = () => { 
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); 
-                };
+                void DispatchedHandler()
+                {
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                }
 
                 try
                 {
-                    await Dispatch(dh);
+                    await Dispatch(DispatchedHandler);
                 }
                 catch(Exception ex)
                 {
@@ -57,9 +55,9 @@ namespace QuickPad.Mvvm
             OnPropertyChanged(propertyName);
         }
 
-        private ConcurrentQueue<string> _updatesQueue = new ConcurrentQueue<string>();
+        private readonly ConcurrentQueue<string> _updatesQueue = new ConcurrentQueue<string>();
 
-        private bool _frozen = false;
+        private bool _frozen;
 
         public void HoldUpdates() 
         {
@@ -70,7 +68,7 @@ namespace QuickPad.Mvvm
         {
             _frozen = false;
 
-            while(_updatesQueue.TryDequeue(out string propertyName))
+            while(_updatesQueue.TryDequeue(out var propertyName))
             {
                 OnPropertyChanged(propertyName);
             }

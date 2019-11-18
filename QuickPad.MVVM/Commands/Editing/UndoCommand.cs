@@ -1,8 +1,7 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using QuickPad.MVVM.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.MVVM.Commands.Editing
 {
     public class UndoCommand : SimpleCommand<DocumentViewModel>
     {
@@ -20,5 +19,4 @@ namespace QuickPad.MVVM
             };
         }
     }
-
 }

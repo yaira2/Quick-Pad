@@ -1,8 +1,8 @@
 ﻿using System;
-using QuickPad.Mvvm;
-using QuickPad.MVVM;
+using QuickPad.MVVM.Commands;
+using QuickPad.MVVM.ViewModels;
 
-namespace QuickPad.Mvc
+namespace QuickPad.MVC
 {
     public interface IDocumentView : IView
     {

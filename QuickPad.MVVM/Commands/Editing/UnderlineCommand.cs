@@ -1,9 +1,8 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Windows.UI.Text;
+using QuickPad.MVVM.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.MVVM.Commands.Editing
 {
     public class UnderlineCommand : SimpleCommand<DocumentViewModel>
     {
@@ -14,20 +13,17 @@ namespace QuickPad.MVVM
                 viewModel.Document.BeginUndoGroup();
                 //set the selected text to be bold if not already
                 //if the text is already bold it will make it regular
-                ITextSelection selectedText = viewModel.Document.Selection;
+                var selectedText = viewModel.Document.Selection;
                 if (selectedText != null)
                 {
-                    ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+                    var charFormatting = selectedText.CharacterFormat;
                     if (charFormatting.Underline == UnderlineType.None)
-                    {
                         charFormatting.Underline = UnderlineType.Single;
-                    }
                     else
-                    {
                         charFormatting.Underline = UnderlineType.None;
-                    }
                     selectedText.CharacterFormat = charFormatting;
                 }
+
                 viewModel.Document.EndUndoGroup();
 
                 viewModel.OnPropertyChanged(nameof(viewModel.Text));
@@ -36,5 +32,4 @@ namespace QuickPad.MVVM
             };
         }
     }
-
 }

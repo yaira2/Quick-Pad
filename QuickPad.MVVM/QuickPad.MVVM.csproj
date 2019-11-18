@@ -149,7 +149,7 @@
     <Compile Include="Commands\Editing\RightAlignCommand.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Commands\SimpleCommand.cs" />
-    <Compile Include="Commands\Editing\StrikethroughCommand.cs" />
+    <Compile Include="Commands\Editing\StrikeThroughCommand.cs" />
     <Compile Include="Commands\Editing\UnderlineCommand.cs" />
     <Compile Include="Commands\Editing\UndoCommand.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
