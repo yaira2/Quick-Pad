@@ -7,18 +7,20 @@
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
   xmlns:uap5="http://schemas.microsoft.com/appx/manifest/uap/windows10/5"
-  IgnorableNamespaces="uap mp">
+  xmlns:desktop4="http://schemas.microsoft.com/appx/manifest/desktop/windows10/4"
+  xmlns:iot2="http://schemas.microsoft.com/appx/manifest/iot/windows10/2"
+  IgnorableNamespaces="uap mp desktop4 iot2">
   
   <Identity
-    Name="c3691d07-20e9-42d6-a58d-588187b8c385"
-    Publisher="CN=kingd"
-    Version="1.0.0.0" />
+    Name="49306atecsolution.QuickPad"
+    Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7"
+    Version="4.3.20.0" />
 
-  <mp:PhoneIdentity PhoneProductId="c3691d07-20e9-42d6-a58d-588187b8c385" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="05cedd8b-98d1-4335-8c63-8a0589f9a52b" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>QuickPad.UI</DisplayName>
-    <PublisherDisplayName>kingd</PublisherDisplayName>
+    <DisplayName>Quick Pad</DisplayName>
+    <PublisherDisplayName>Yair A</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -33,14 +35,22 @@
   <Applications>
     <Application Id="App"
       Executable="$targetnametoken$.exe"
-      EntryPoint="QuickPad.UI.App">
+      EntryPoint="QuickPad.UI.App"
+      desktop4:SupportsMultipleInstances="true"
+	    iot2:SupportsMultipleInstances="true">
       <uap:VisualElements
-        DisplayName="QuickPad.UI"
+        DisplayName="Quick Pad"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
         Description="QuickPad.UI"
         BackgroundColor="transparent">
-        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png" ShortName="Quick Pad">
+          <uap:ShowNameOnTiles>
+            <uap:ShowOn Tile="square150x150Logo"/>
+            <uap:ShowOn Tile="wide310x150Logo"/>
+            <uap:ShowOn Tile="square310x310Logo"/>
+          </uap:ShowNameOnTiles>
+        </uap:DefaultTile >
         <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true"/>
       </uap:VisualElements>
       <Extensions>

@@ -1,0 +1,153 @@
+﻿<UserControl
+    x:Class="Quick_Pad.FindAndReplace"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Quick_Pad"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    mc:Ignorable="d"
+    DataContext="{Binding RelativeSource={RelativeSource Self}}">
+
+    <Grid x:Name="ContentHolderContent" Width="355" CornerRadius="4" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+              Padding="4">
+        <!-- Grid Definitions -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Find Row (First) -->
+        <!-- Toggle button -->
+        <ToggleButton Grid.Row="0"
+                          Grid.Column="0"
+                          Width="34"
+                          Padding="2"
+                          Height="32.6667"
+                          VerticalAlignment="Center"
+                          BorderThickness="1" 
+                          Margin="4">
+            <FontIcon Glyph="&#xE011;" FontSize="16"/>
+            <ToolTipService.ToolTip>
+                <TextBlock Text="More..."/>
+            </ToolTipService.ToolTip>
+        </ToggleButton>
+
+        <!-- Find TextBox -->
+        <TextBox x:FieldModifier="public" 
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     PlaceholderText="Looking for?"
+                     VerticalAlignment="Center"
+                     Margin="4"/>
+
+        <!-- Next/Previous -->
+        <Button Grid.Row="0"
+                    Grid.Column="2"
+                    Padding="7" 
+                    Margin="4"
+                    Width="34"
+                    Height="32.6667">
+            <StackPanel>
+                <FontIcon Glyph="&#xE0A6;" FontSize="16"/>
+                <FontIcon Glyph="&#xE0AB;" FontSize="16"/>
+            </StackPanel>
+            <ToolTipService.ToolTip>
+                <TextBlock Text="Find option"/>
+            </ToolTipService.ToolTip>
+            <Button.Flyout>
+                <MenuFlyout Placement="BottomEdgeAlignedRight">
+                    <MenuFlyoutItem Text="Find Next">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE0AB;"/>
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="F3" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem Text="Find Previous">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE0A6;" />
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="F3" Modifiers="Shift" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                </MenuFlyout>
+            </Button.Flyout>
+        </Button>
+
+        <!-- Close dialog button-->
+        <Button Grid.Row="0"
+                    Grid.Column="3"
+                    Margin="4" 
+                    Padding="6" 
+                    Width="34"
+                    Height="32.6667">
+            <FontIcon Glyph="&#xE10A;" FontSize="16"/>
+            <ToolTipService.ToolTip>
+                <TextBlock Text="Close"/>
+            </ToolTipService.ToolTip>
+            <Button.KeyboardAccelerators>
+                <KeyboardAccelerator Key="Escape"/>
+            </Button.KeyboardAccelerators>
+        </Button>
+        <!-- END OF Find Row -->
+
+
+        <!-- Replace Row (Second) -->
+        <!-- Replace TextBox -->
+        <TextBox Grid.Row="1"
+                     Grid.Column="1"
+                     HorizontalAlignment="Stretch" 
+                     VerticalAlignment="Center"
+                     Margin="4"
+                     PlaceholderText="Replace with.."/>
+
+        <!-- Replace button -->
+        <Button Grid.Row="1"
+                    Grid.Column="2"                    
+                    Padding="6" 
+                    Margin="4"
+                    Width="34"
+                    Height="32.6667">
+            <FontIcon Glyph="&#xE8AC;" FontSize="16"/>
+            <ToolTipService.ToolTip>
+                <TextBlock Text="Replace"/>
+            </ToolTipService.ToolTip>
+        </Button>
+
+        <!-- Replace all button -->
+        <Button Grid.Row="1"
+                    Grid.Column="3" 
+                    Padding="6" 
+                    Margin="4"
+                    Width="34"
+                    Height="32.6667">
+            <FontIcon Glyph="&#xE8B3;" FontSize="16"/>
+            <ToolTipService.ToolTip>
+                <TextBlock Text="Replace all"/>
+            </ToolTipService.ToolTip>
+        </Button>
+        <!-- END OF Replace Row -->
+
+
+        <!-- Options Row (Third) -->
+        <StackPanel Grid.Row="2"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="4"
+                        Orientation="Vertical"
+                        Margin="4">
+            <CheckBox Content="Match case"/>
+        </StackPanel>
+        <!-- END OF Options -->
+    </Grid>
+    
+</UserControl>

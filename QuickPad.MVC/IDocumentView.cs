@@ -1,5 +1,6 @@
 ﻿using System;
 using QuickPad.Mvvm;
+using QuickPad.MVVM;
 
 namespace QuickPad.Mvc
 {
@@ -7,6 +8,6 @@ namespace QuickPad.Mvc
     {
         DocumentViewModel ViewModel { get; set; }
 
-        event Action<IDocumentView> Initialize;
+        event Action<IDocumentView, QuickPadCommands> Initialize;
     }
 }
