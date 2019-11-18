@@ -4,10 +4,10 @@ using System.Text;
 using Windows.Storage;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
-using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
-namespace QuickPad.MVVM.ViewModels
+namespace QuickPad.Mvvm.ViewModels
 {
     public class DocumentViewModel : ViewModel
     {

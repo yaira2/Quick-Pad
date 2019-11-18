@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace QuickPad.MVVM.Models
+namespace QuickPad.Mvvm.Models
 {
     public class DefaultLanguageModel
     {

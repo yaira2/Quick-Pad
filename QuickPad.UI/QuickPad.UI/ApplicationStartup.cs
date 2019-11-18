@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using QuickPad.MVC;
-using QuickPad.MVVM.Commands;
-using QuickPad.MVVM.Commands.Clipboard;
-using QuickPad.MVVM.ViewModels;
+using QuickPad.Mvc;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Commands.Clipboard;
+using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
 
 namespace QuickPad.UI

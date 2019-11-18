@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;
 using Microsoft.Extensions.Logging;
-using QuickPad.MVVM.Properties;
+using QuickPad.Mvvm.Properties;
 
-namespace QuickPad.MVVM.ViewModels
+namespace QuickPad.Mvvm.ViewModels
 {
     public class ViewModel : INotifyPropertyChanged
     {

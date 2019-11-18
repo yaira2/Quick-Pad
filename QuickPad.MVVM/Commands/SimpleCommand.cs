@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace QuickPad.MVVM.Commands
+namespace QuickPad.Mvvm.Commands
 {
     public class SimpleCommand<TValue> : ICommand
     {

@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using QuickPad.MVVM.ViewModels;
+using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM.Commands.Editing
+namespace QuickPad.Mvvm.Commands.Editing
 {
     public class UndoCommand : SimpleCommand<DocumentViewModel>
     {

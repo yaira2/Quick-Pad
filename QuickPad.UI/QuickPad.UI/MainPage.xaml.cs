@@ -18,10 +18,10 @@ using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI;
-using QuickPad.MVC;
+using QuickPad.Mvc;
 using QuickPad.MVVM;
-using QuickPad.MVVM.Commands;
-using QuickPad.MVVM.ViewModels;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 

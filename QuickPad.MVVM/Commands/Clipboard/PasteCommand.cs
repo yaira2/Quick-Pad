@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
-using QuickPad.MVVM.ViewModels;
+using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM.Commands.Clipboard
+namespace QuickPad.Mvvm.Commands.Clipboard
 {
     public class PasteCommand : SimpleCommand<DocumentViewModel>
     {

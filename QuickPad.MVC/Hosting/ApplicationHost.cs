@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace QuickPad.MVC.Hosting
+namespace QuickPad.Mvc.Hosting
 {
     public class ApplicationHost
     {

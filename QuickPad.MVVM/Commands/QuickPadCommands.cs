@@ -1,8 +1,8 @@
-﻿using QuickPad.MVVM.Commands.Clipboard;
-using QuickPad.MVVM.Commands.Editing;
-using QuickPad.MVVM.ViewModels;
+﻿using QuickPad.Mvvm.Commands.Clipboard;
+using QuickPad.Mvvm.Commands.Editing;
+using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM.Commands
+namespace QuickPad.Mvvm.Commands
 {
     public class QuickPadCommands
     {

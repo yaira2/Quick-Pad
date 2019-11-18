@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace QuickPad.MVVM.Models
+namespace QuickPad.Mvvm.Models
 {
     public class FontFamilyModel : INotifyPropertyChanged, IComparable<FontFamilyModel>
     {

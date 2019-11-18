@@ -6,7 +6,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using System.Linq;
-using QuickPad.MVVM.Models;
+using QuickPad.Mvvm.Models;
 using QuickPad.UI;
 using QuickPad.UI.Common;
 

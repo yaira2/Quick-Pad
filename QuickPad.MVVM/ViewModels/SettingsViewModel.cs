@@ -1,15 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Drawing;
 using System.Linq;
-using Windows.UI;
-using Windows.UI.Xaml.Media;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
-using QuickPad.MVVM.Models;
-using Color = Windows.UI.Color;
+using QuickPad.Mvvm.Models;
 
-namespace QuickPad.MVVM.ViewModels
+namespace QuickPad.Mvvm.ViewModels
 {
     public class SettingsViewModel : ViewModel
     {

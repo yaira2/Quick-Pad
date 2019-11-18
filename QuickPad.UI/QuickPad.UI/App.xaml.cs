@@ -7,12 +7,12 @@ using Windows.UI.Xaml.Navigation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using QuickPad.MVC;
-using QuickPad.MVC.Hosting;
+using QuickPad.Mvc;
+using QuickPad.Mvc.Hosting;
 using QuickPad.UI.Common;
 using QuickPad.MVVM;
-using QuickPad.MVVM.Commands;
-using QuickPad.MVVM.ViewModels;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.UI
 {

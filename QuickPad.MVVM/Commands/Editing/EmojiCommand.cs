@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Windows.UI.ViewManagement.Core;
 using Windows.UI.Xaml;
 using Microsoft.AppCenter.Analytics;
-using QuickPad.MVVM.ViewModels;
+using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM.Commands.Editing
+namespace QuickPad.Mvvm.Commands.Editing
 {
     /*
      *

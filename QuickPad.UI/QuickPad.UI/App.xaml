@@ -4,8 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:QuickPad.UI"
     xmlns:mvvm="using:QuickPad.MVVM"
-    xmlns:commands="using:QuickPad.MVVM.Commands"
-    xmlns:viewModels="using:QuickPad.MVVM.ViewModels">
+    xmlns:commands="using:QuickPad.Mvvm.Commands"
+    xmlns:viewModels="using:QuickPad.Mvvm.ViewModels">
 
     <Application.Resources>
         <ResourceDictionary >

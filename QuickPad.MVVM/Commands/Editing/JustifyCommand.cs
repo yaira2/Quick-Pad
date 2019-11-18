@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Windows.UI.Text;
-using QuickPad.MVVM.ViewModels;
+using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM.Commands.Editing
+namespace QuickPad.Mvvm.Commands.Editing
 {
     public class JustifyCommand : SimpleCommand<DocumentViewModel>
     {
