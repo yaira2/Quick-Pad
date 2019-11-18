@@ -1,24 +1,24 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Windows.UI.Text;
+using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.Mvvm.Commands.Editing
 {
-    public class StrikethroughCommand : SimpleCommand<DocumentViewModel>
+    public class StrikeThroughCommand : SimpleCommand<DocumentViewModel>
     {
-        public StrikethroughCommand()
+        public StrikeThroughCommand()
         {
             Executioner = viewModel =>
             {
                 viewModel.Document.BeginUndoGroup();
-                ITextSelection selectedText = viewModel.Document.Selection;
+                var selectedText = viewModel.Document.Selection;
                 if (selectedText != null)
                 {
-                    ITextCharacterFormat charFormatting = selectedText.CharacterFormat;
+                    var charFormatting = selectedText.CharacterFormat;
                     charFormatting.Strikethrough = FormatEffect.Toggle;
                     selectedText.CharacterFormat = charFormatting;
                 }
+
                 viewModel.Document.EndUndoGroup();
 
                 viewModel.OnPropertyChanged(nameof(viewModel.Text));
@@ -27,5 +27,4 @@ namespace QuickPad.MVVM
             };
         }
     }
-
 }

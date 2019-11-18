@@ -7,8 +7,8 @@
     <ProjectGuid>{E52DCFA1-7AFC-463D-B71E-98B6BF0BD700}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuickPad.MVC</RootNamespace>
-    <AssemblyName>QuickPad.MVC</AssemblyName>
+    <RootNamespace>QuickPad.Mvc</RootNamespace>
+    <AssemblyName>QuickPad.Mvc</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>

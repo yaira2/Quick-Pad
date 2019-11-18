@@ -10,7 +10,9 @@ using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
 using QuickPad.UI.Common;
-using QuickPad.MVVM;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.UI
 {
@@ -23,6 +25,7 @@ namespace QuickPad.UI
         public static ApplicationHost Host { get; set; }
         public static ApplicationController Controller => Host?.Controller;
         public static IServiceProvider Services => Host?.Services;
+        public static SettingsViewModel Settings => Host?.Services.GetService<SettingsViewModel>();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

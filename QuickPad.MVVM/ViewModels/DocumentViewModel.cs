@@ -1,27 +1,21 @@
-﻿using Microsoft.Extensions.Logging;
-using System;
-using System.Buffers.Text;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Input;
-using Windows.Devices.Bluetooth.Advertisement;
 using Windows.Storage;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using QuickPad.MVVM;
 
-namespace QuickPad.Mvvm
+namespace QuickPad.Mvvm.ViewModels
 {
     public class DocumentViewModel : ViewModel
     {
-        private ITextDocument _document = null;
+        private ITextDocument _document;
 
         private Encoding _encoding;
-        private HMAC _md5;
+        private readonly HMAC _md5;
 
         private string _originalHash;
         private string _currentHash;
@@ -39,16 +33,13 @@ namespace QuickPad.Mvvm
 
         public SettingsViewModel Settings => ServiceProvider.GetService<SettingsViewModel>();
 
-        public void InvokeFocusTextbox(FocusState focusState) => RequestFocusTextbox?.Invoke(focusState);
+        public void InvokeFocusTextBox(FocusState focusState) => RequestFocusTextBox?.Invoke(focusState);
         
-        public event Action<FocusState> RequestFocusTextbox;
+        public event Action<FocusState> RequestFocusTextBox;
         public ITextDocument Document
         {
             get => _document;
-            set
-            {
-                Set(ref _document, value);
-            }
+            set => Set(ref _document, value);
         }
 
         public TextGetOptions GetOption { get; set; } = TextGetOptions.None;
@@ -99,21 +90,13 @@ namespace QuickPad.Mvvm
 
         private void CalculateHash()
         {
-            var hash = _md5.ComputeHash(UnicodeEncoding.ASCII.GetBytes(Text));
+            var hash = _md5.ComputeHash(Encoding.ASCII.GetBytes(Text));
 
-            _currentHash = UnicodeEncoding.ASCII.GetString(hash);
+            _currentHash = Encoding.ASCII.GetString(hash);
 
             OnPropertyChanged(nameof(IsDirty));
             OnPropertyChanged(nameof(Title));
         }
-
-        //public SimpleCommand<DocumentViewModel> NewCommand { get; set; }
-        //public SimpleCommand<DocumentViewModel> LoadCommand { get; set; }
-        //public SimpleCommand<DocumentViewModel> SaveCommand { get; set; }
-        //public SimpleCommand<DocumentViewModel> SaveAsCommand { get; set; }
-        //public SimpleCommand<DocumentViewModel> PrintCommand { get; set; }
-        //public SimpleCommand<DocumentViewModel> ShareCommand { get; set; }
-        //public SimpleCommand<DocumentViewModel> ExitCommand { get; set; }
 
         public StorageFile File
         {

@@ -1,15 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using QuickPad.Mvvm;
-using QuickPad.MVVM;
+using QuickPad.Mvc;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Commands.Clipboard;
+using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
 
-namespace QuickPad.Mvc
+namespace QuickPad.UI
 {
     public class ApplicationStartup
     {

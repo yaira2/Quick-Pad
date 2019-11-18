@@ -1,11 +1,11 @@
 ﻿using System.Globalization;
 
-namespace QuickPad.MVVM
+namespace QuickPad.Mvvm.Models
 {
     public class DefaultLanguageModel
     {
-        public string Name;
         public string ID;
+        public string Name;
 
         public DefaultLanguageModel()
         {

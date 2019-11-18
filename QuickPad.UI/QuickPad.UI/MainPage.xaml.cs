@@ -13,14 +13,15 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using QuickPad.Mvc;
-using QuickPad.Mvvm;
 using Windows.UI.Core.Preview;
 using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI;
-using QuickPad.MVVM;
+using QuickPad.Mvc;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -36,7 +37,7 @@ namespace QuickPad.UI
         public MainPage()
         {
             App.Controller.AddView(this);
-            Initialize?.Invoke(this, App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands);
+            Initialize?.Invoke(this, Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands);
 
             this.InitializeComponent();
 
@@ -72,7 +73,7 @@ namespace QuickPad.UI
         private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
             e.Handled = true;
-            var commands = App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
+            var commands = Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
             commands.ExitCommand.Execute(ViewModel);
         }
 

@@ -7,8 +7,8 @@
     <ProjectGuid>{DD33C42D-9DE7-4E74-A44D-2085764CF0C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuickPad.MVVM</RootNamespace>
-    <AssemblyName>QuickPad.MVVM</AssemblyName>
+    <RootNamespace>QuickPad.Mvvm</RootNamespace>
+    <AssemblyName>QuickPad.Mvvm</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
@@ -149,7 +149,7 @@
     <Compile Include="Commands\Editing\RightAlignCommand.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Commands\SimpleCommand.cs" />
-    <Compile Include="Commands\Editing\StrikethroughCommand.cs" />
+    <Compile Include="Commands\Editing\StrikeThroughCommand.cs" />
     <Compile Include="Commands\Editing\UnderlineCommand.cs" />
     <Compile Include="Commands\Editing\UndoCommand.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
