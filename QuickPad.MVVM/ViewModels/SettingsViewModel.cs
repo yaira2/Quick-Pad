@@ -25,5 +25,7 @@ namespace QuickPad.MVVM
         public bool PasteTextOnly { get; internal set; }
         public ObservableCollection<FontFamilyModel> AllFonts { get; }
         public DefaultLanguageModel DefaultLanguage { get; set; }
+        public bool ShowSettings { get; set; }
+
     }
 }

@@ -11,6 +11,8 @@ using Windows.Devices.Bluetooth.Advertisement;
 using Windows.Storage;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
+using Microsoft.Extensions.DependencyInjection;
+using QuickPad.MVVM;
 
 namespace QuickPad.Mvvm
 {
@@ -25,12 +27,17 @@ namespace QuickPad.Mvvm
         private string _currentHash;
 
         private StorageFile _file;
-        
-        public DocumentViewModel(ILogger<DocumentViewModel> logger) : base(logger)
+
+        public DocumentViewModel(ILogger<DocumentViewModel> logger, IServiceProvider serviceProvider) : base(logger)
         {
-            _md5 = HMACMD5.Create("HMACMD5");
-            _md5.Key = UnicodeEncoding.ASCII.GetBytes("12345");
+            _md5 = HMAC.Create("HMACMD5");
+            _md5.Key = Encoding.ASCII.GetBytes("12345");
+            ServiceProvider = serviceProvider;
         }
+
+        private IServiceProvider ServiceProvider { get; }
+
+        public SettingsViewModel Settings => ServiceProvider.GetService<SettingsViewModel>();
 
         public void InvokeFocusTextbox(FocusState focusState) => RequestFocusTextbox?.Invoke(focusState);
         
