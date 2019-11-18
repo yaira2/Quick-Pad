@@ -30,5 +30,6 @@ namespace QuickPad.Mvvm.ViewModels
         public bool WordWrap { get; set; } = true;
         public bool PreventText1ChangeColor { get; set; } = false;
         public double DefaultFontSize { get; set; } = 14.0;
+        public bool ShowSettings { get; set; }
     }
 }

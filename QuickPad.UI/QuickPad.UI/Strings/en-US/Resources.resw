@@ -137,6 +137,62 @@
     <value>Quick Pad</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>Chick</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>Cobalt</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>Crimson</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>Dark</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>Leaf</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>Lettuce</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>Light</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>Random</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>Rose Gold</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>System Default</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>Dark theme</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>Light theme</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>Random theme on startup</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>System-defined theme</value>
+    <comment>Used on Theme Page</comment>
+  </data>
   <data name="AutomaticallyChooseMode.Text" xml:space="preserve">
     <value>Automatically choose which mode to launch the app in based on the file type</value>
     <comment>Used on Settings Page</comment>

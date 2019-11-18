@@ -6,6 +6,7 @@ using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using QuickPad.MVVM;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -20,7 +21,7 @@ namespace QuickPad.Mvvm.ViewModels
         private string _currentHash;
 
         private StorageFile _file;
-        
+
         public DocumentViewModel(ILogger<DocumentViewModel> logger, IServiceProvider serviceProvider) : base(logger)
         {
             _md5 = HMAC.Create("HMACMD5");

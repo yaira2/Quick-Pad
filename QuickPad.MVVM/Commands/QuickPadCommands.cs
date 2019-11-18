@@ -25,7 +25,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> UndoCommand { get; } = new UndoCommand();
         public SimpleCommand<DocumentViewModel> RedoCommand { get; } = new RedoCommand();
 
-        // clipboard
+        //clipboard
         public SimpleCommand<DocumentViewModel> CutCommand { get; } = new CutCommand();
         public SimpleCommand<DocumentViewModel> CopyCommand { get; } = new CopyCommand();
         public SimpleCommand<DocumentViewModel> PasteCommand { get; }
@@ -41,5 +41,8 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> CenterAlignCommand { get; } = new CenterAlignCommand();
         public SimpleCommand<DocumentViewModel> RightAlignCommand { get; } = new RightAlignCommand();
         public SimpleCommand<DocumentViewModel> JustifyCommand { get; } = new JustifyCommand();
+
+      //actions
+        public SimpleCommand<DocumentViewModel> SettingsCommand { get; } = new SettingsCommand();
     }
 }

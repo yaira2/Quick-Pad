@@ -19,9 +19,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls3:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
-        
-        <controls2:SettingsNav Canvas.ZIndex="150" Visibility="Collapsed" ViewModel="{x:Bind ViewModel}" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Stretch" HorizontalAlignment="Right"/>
+        <controls:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
+
+        <controls2:SettingsNav Canvas.ZIndex="150" Visibility="{x:Bind Converters.BoolToVisibility(ViewModel.Settings.ShowSettings)}" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Stretch" HorizontalAlignment="Right"/>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
