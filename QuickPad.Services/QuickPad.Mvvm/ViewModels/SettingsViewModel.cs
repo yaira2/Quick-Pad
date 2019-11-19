@@ -11,13 +11,13 @@ namespace QuickPad.Mvvm.ViewModels
     {
         private bool _showSettings;
         private double _defaultFontSize = 14.0;
-        private bool _preventText1ChangeColor = false;
+        private bool _preventText1ChangeColor = true;
         private bool _wordWrap = true;
         private bool _spellCheck = true;
         private string _defaultFont = "Times New Roman";
         private DefaultLanguageModel _defaultLanguage = new DefaultLanguageModel();
         private bool _pasteTextOnly = true;
-        private double _backgroundTintOpacity = 50.0;
+        private double _backgroundTintOpacity = 0.75;
         private string _customThemeId;
         private Action<double> _afterTintOpacityChanged;
         public SettingsViewModel() : base(null) { }
