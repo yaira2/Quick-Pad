@@ -140,7 +140,6 @@
     <Compile Include="ViewModels\DocumentViewModel.cs" />
     <Compile Include="Commands\Editing\ItalicCommand.cs" />
     <Compile Include="Commands\Editing\EmojiCommand.cs" />
-    <Compile Include="Models\FontFamilyModel.cs" />
     <Compile Include="Commands\Clipboard\PasteCommand.cs" />
     <Compile Include="Commands\Editing\JustifyCommand.cs" />
     <Compile Include="Commands\Editing\LeftAlignCommand.cs" />

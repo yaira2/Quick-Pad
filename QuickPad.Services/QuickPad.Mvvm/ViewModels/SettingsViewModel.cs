@@ -1,8 +1,12 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using Windows.Management.Core;
+using Windows.Storage;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
 using Newtonsoft.Json;
@@ -13,24 +17,14 @@ namespace QuickPad.Mvvm.ViewModels
 {
     public class SettingsViewModel : ViewModel
     {
-        private bool _showSettings;
-        private double _defaultFontSize = 14.0;
-        private bool _useAcrylic = false;
-        private bool _wordWrap = false;
-        private bool _spellCheck = true;
-        private string _defaultFont = "Times New Roman";
-        private DefaultLanguageModel _defaultLanguage = new DefaultLanguageModel();
-        private bool _pasteTextOnly = true;
-        private double _backgroundTintOpacity = 0.75;
-        private string _customThemeId;
-        private Action<double> _afterTintOpacityChanged;
+        readonly ApplicationDataContainer _roamingSettings;
 
         public SettingsViewModel(ILogger<SettingsViewModel> logger) : base(logger)
         {
-            AllFonts = new ObservableCollection<FontFamilyModel>(
-                CanvasTextFormat.GetSystemFontFamilies()
-                    .OrderBy(font => font)
-                    .Select(font => new FontFamilyModel(font)));
+            AllFonts = new ObservableCollection<string>(
+                CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font));
+            
+            _roamingSettings = ApplicationData.Current.RoamingSettings;
 
             var supportedLang = ApplicationLanguages.ManifestLanguages;
             DefaultLanguages = new ObservableCollection<DefaultLanguageModel>();
@@ -38,112 +32,181 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 DefaultLanguages.Add(new DefaultLanguageModel(lang));
             }
+         }
 
-    var roamingSettings =
-                Windows.Storage.ApplicationData.Current.RoamingSettings;
+        protected bool Set<TValue>(TValue value, [CallerMemberName] string propertyName = null)
+        {
+            var originalValue = (TValue)Get(default(TValue), propertyName);
+            var currentValue = originalValue;
 
-            var json = roamingSettings.Values["JSON"] as string ?? string.Empty;
-
-            var settings = JsonConvert.DeserializeObject<SettingsViewModel>(json,
-                new JsonSerializerSettings
-                { ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor });
-
-            if (settings != null)
+            if (!base.Set(ref currentValue, value, propertyName)) return false;
+            
+            if (propertyName != null && (!originalValue?.Equals(currentValue) ?? true))
             {
-                GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).ToList()
-                    .ForEach(pi =>
-                        {
-                            if (!pi.CustomAttributes.Any())
-                            {
-                                pi.SetValue(this, pi.GetValue(settings));
-                            }
-                        });
+                _roamingSettings.Values[propertyName] = value;
             }
 
-            PropertyChanged += (sender, args) =>
+            return true;
+        }
+
+        protected virtual TValue Get<TValue>(TValue defaultValue, [CallerMemberName] string propertyName = null)
+        {
+            if (propertyName != null && _roamingSettings.Values.ContainsKey(propertyName))
             {
-                json = JsonConvert.SerializeObject(this, Formatting.Indented);
-                roamingSettings.Values["JSON"] = json;
-            };
+                return (TValue)_roamingSettings.Values[propertyName];
+            }
+
+            return defaultValue;
         }
 
         private SettingsViewModel() : base(null) { }
 
         [JsonIgnore]
-        public ObservableCollection<FontFamilyModel> AllFonts { get; }
+        public ObservableCollection<string> AllFonts { get; }
+
+        [JsonIgnore]
+        public IEnumerable<double> AllFontSizes { get; } =
+            new double[] {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
+
+        [JsonIgnore]
+        public Action<double> AfterTintOpacityChanged { get; set; }
 
         [JsonIgnore]
         public ObservableCollection<DefaultLanguageModel> DefaultLanguages { get; }
 
-        [JsonIgnore]
-        public Action<double> AfterTintOpacityChanged
-        {
-            get => _afterTintOpacityChanged;
-            set => Set(ref _afterTintOpacityChanged, value);
-        }
-
         public string CustomThemeId
         {
-            get => _customThemeId;
-            set => Set(ref _customThemeId, value);
+            get => Get((string)null);
+            set => Set(value);
         }
 
         public double BackgroundTintOpacity
         {
-            get => _backgroundTintOpacity;
+            get => Get(0.75);
             set
             {
-                Set(ref _backgroundTintOpacity, value);
+                Set(value);
                 AfterTintOpacityChanged?.Invoke(value);
             }
         }
 
         public bool PasteTextOnly
         {
-            get => _pasteTextOnly;
-            internal set => Set(ref _pasteTextOnly, value);
+            get => Get(true);
+            internal set => Set(value);
         }
 
         public DefaultLanguageModel DefaultLanguage
         {
-            get => _defaultLanguage;
-            set => Set(ref _defaultLanguage, value);
+            get => Get((DefaultLanguageModel)null);
+            set => Set(value);
         }
 
         public string DefaultFont
         {
-            get => _defaultFont;
-            set => Set(ref _defaultFont, value);
+            get => Get("Consolas");
+            set => Set(value);
+        }
+
+        public string DefaultRtfFont
+        {
+            get => Get("Calibri");
+            set => Set(value);
         }
 
         public bool SpellCheck
         {
-            get => _spellCheck;
-            set => Set(ref _spellCheck, value);
+            get => Get(false);
+            set => Set(value);
         }
 
         public bool WordWrap
         {
-            get => _wordWrap;
-            set => Set(ref _wordWrap, value);
+            get => Get(false);
+            set => Set(value);
+        }
+
+        public bool RtfSpellCheck
+        {
+            get => Get(true);
+            set => Set(value);
+        }
+
+        public bool RtfWordWrap
+        {
+            get => Get(true);
+            set => Set(value);
         }
 
         public bool UseAcrylic     
         {
-            get => _useAcrylic;
-            set => Set(ref _useAcrylic, value);
+            get => Get(false);
+            set => Set(value);
+        }
+
+        public double DefaultFontRtfSize
+        {
+            get => Get(12.0);
+            set => Set(value);
         }
 
         public double DefaultFontSize
         {
-            get => _defaultFontSize;
-            set => Set(ref _defaultFontSize, value);
+            get => Get(14.0);
+            set => Set(value);
         }
 
         public bool ShowSettings
         {
-            get => _showSettings;
-            set => Set(ref _showSettings, value);
+            get => Get(false);
+            set => Set(value);
         }
+
+        public bool ModeByFileType
+        {
+            get => Get(false);
+            set => Set(value);
+        }
+
+        public bool AutoSave
+        {
+            get => Get(false);
+            set => Set(value);
+        }
+
+        public int AutoSaveFrequency
+        {
+            get => Get(10);
+            set => Set(value);
+        }
+
+        public string DefaultFileType
+        {
+            get => Get(".txt");
+            set => Set(value);
+        }
+
+        public string DefaultEncoding
+        {
+            get => Get("Utf8");
+            set => Set(value);
+        }
+
+        public string DefaultMode
+        {
+            get => Get("Default");
+            set => Set(value);
+        }
+
+        private string _currentMode;
+        public string CurrentMode
+        {
+            get => _currentMode ?? DefaultMode;
+            set => Set(ref _currentMode, value);
+        }
+
+        public bool ShowMenu => CurrentMode.Equals("Classic Mode", StringComparison.InvariantCultureIgnoreCase);
+
+        public bool ShowCommandBar => CurrentMode.Equals("Default", StringComparison.InvariantCultureIgnoreCase);
     }
 }

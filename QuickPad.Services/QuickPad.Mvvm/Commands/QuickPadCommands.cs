@@ -11,10 +11,14 @@ namespace QuickPad.Mvvm.Commands
         {
         }
 
-        public QuickPadCommands(PasteCommand pasteCommand, ShowSettingsCommand settingsCommand)
+        public QuickPadCommands(PasteCommand pasteCommand, ShowSettingsCommand settingsCommand
+            , ShowCommandBarCommand showCommandBarCommand
+            , ShowMenusCommand showMenusCommand)
         {
             PasteCommand = pasteCommand;
             SettingsCommand = settingsCommand;
+            ShowCommandBarCommand = showCommandBarCommand;
+            ShowMenusCommand = showMenusCommand;
         }
 
         public SimpleCommand<DocumentViewModel> SaveCommand { get; } = new SimpleCommand<DocumentViewModel>();
@@ -45,6 +49,8 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> JustifyCommand { get; } = new JustifyCommand();
 
       //actions
-        public SimpleCommand<DocumentViewModel> SettingsCommand { get; } 
+        public SimpleCommand<DocumentViewModel> SettingsCommand { get; }
+        public SimpleCommand<DocumentViewModel> ShowCommandBarCommand { get; }
+        public SimpleCommand<DocumentViewModel> ShowMenusCommand { get; }
     }
 }

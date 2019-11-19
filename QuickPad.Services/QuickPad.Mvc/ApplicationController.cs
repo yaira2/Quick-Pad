@@ -42,10 +42,13 @@ namespace QuickPad.Mvc
 
         private readonly List<IView> _views = new List<IView>();
 
-        public ApplicationController(ILogger<ApplicationController> logger, IServiceProvider serviceProvider)
+        private SettingsViewModel Settings { get; }
+
+        public ApplicationController(ILogger<ApplicationController> logger, IServiceProvider serviceProvider, SettingsViewModel settings)
         {
             Logger = logger;
             ServiceProvider = serviceProvider;
+            Settings = settings;
 
             if (Logger.IsEnabled(LogLevel.Debug)) Logger.LogDebug("Started Application Controller.");
         }
@@ -85,16 +88,7 @@ namespace QuickPad.Mvc
 
             documentView.ViewModel.Initialize = viewModel =>
             {
-                viewModel.HoldUpdates();
-
-                viewModel.File = null;
-                viewModel.Text = "";
-                viewModel.IsDirty = false;
-                viewModel.Encoding = Encoding.UTF8;
-
-                viewModel.ReleaseUpdates();
-
-                viewModel.NotifyAll();
+                viewModel.InitNewDocument();
             };
         }
 
@@ -185,7 +179,7 @@ namespace QuickPad.Mvc
             var reader = new EncodingReader();
             reader.AddBytes(bytes);
 
-            documentViewModel.Encoding = Encoding.UTF8;
+            documentViewModel.CurrentEncoding = Encoding.UTF8;
 
             _byteOrderMarks.ToList().ForEach(pair =>
             {
@@ -208,10 +202,10 @@ namespace QuickPad.Mvc
                     _ => Encoding.ASCII
                 };
 
-                documentViewModel.Encoding = encoding;
+                documentViewModel.CurrentEncoding = encoding;
             });
 
-            var text = reader.Read(documentViewModel.Encoding);
+            var text = reader.Read(documentViewModel.CurrentEncoding);
 
             var isRtf = text.StartsWith(RTF_MARKER, StringComparison.InvariantCultureIgnoreCase);
 
@@ -266,7 +260,7 @@ namespace QuickPad.Mvc
             if (Logger.IsEnabled(LogLevel.Debug))
                 Logger.LogDebug($"Saving {documentViewModel.File.DisplayName}:\n{documentViewModel.Text}");
 
-            await new FileDataProvider().SaveDataAsync(documentViewModel.File, writer, documentViewModel.Encoding);
+            await new FileDataProvider().SaveDataAsync(documentViewModel.File, writer, documentViewModel.CurrentEncoding);
 
             documentViewModel.IsDirty = false;
 

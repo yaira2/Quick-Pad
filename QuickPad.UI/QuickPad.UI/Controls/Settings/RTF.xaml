@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="QuickPad.UI.Controls.Settings.Font"
+    x:Class="QuickPad.UI.Controls.Settings.RTF"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:QuickPad.UI.Controls.Settings"
@@ -20,27 +20,28 @@
         </Grid.Resources>
 
         <StackPanel>
-            <TextBlock Text="Font" FontSize="20" x:Uid="Font"/>
-            <TextBlock Text="Default Font" x:Uid="DefaultFont"/>
+            <TextBlock Text="RTF Settings" FontSize="20" x:Uid="RTF"/>
+            <TextBlock Text="Default RTF Font" x:Uid="DefaultFontRtf"/>
             <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
-                      SelectedItem="{x:Bind Settings.DefaultFont, Mode=TwoWay}" 
+                      SelectedItem="{x:Bind Settings.DefaultRtfFont, Mode=TwoWay}" 
                       ItemsSource="{x:Bind Settings.AllFonts}"
-                      PlaceholderText="{x:Bind Settings.DefaultFont}" 
+                      PlaceholderText="{x:Bind Settings.DefaultRtfFont}" 
                       MinWidth="170"/>
-            <TextBlock Text="Default Font Color" x:Uid="DefaultFontColor"/>
+            <TextBlock Text="Default RTF Font Color" x:Uid="DefaultFontColorRtf"/>
             <!--<local:ColorSelection Margin="5,0,0,0" HorizontalAlignment="Left" x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>-->
 
-            <TextBlock Text="Default Font Size" x:Uid="DefaultFontSize"/>
+            <TextBlock Text="Default RTF Font Size" x:Uid="DefaultFontSizeRtf"/>
             <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
-                      SelectedItem="{x:Bind Settings.DefaultFontSize, Mode=TwoWay}"
+                      SelectedItem="{x:Bind Settings.DefaultFontRtfSize, Mode=TwoWay}"
                       ItemsSource="{x:Bind Settings.AllFontSizes}"
-                      PlaceholderText="{x:Bind Settings.DefaultFontSize}" MinWidth="69"/>
+                      PlaceholderText="{x:Bind Settings.DefaultFontRtfSize}" 
+                      MinWidth="69"/>
 
-            <TextBlock Text="Word Wrap" x:Uid="WordWrapSetting"/>
-            <ToggleSwitch IsOn="{x:Bind Settings.WordWrap, Mode=TwoWay}"/>
+            <TextBlock Text="Word Wrap in RTF" x:Uid="WordWrapSettingRtf"/>
+            <ToggleSwitch IsOn="{x:Bind Settings.RtfWordWrap, Mode=TwoWay}"/>
 
-            <TextBlock Text="Spell Check" x:Uid="SpellCheck"/>
-            <ToggleSwitch IsOn="{x:Bind Settings.SpellCheck, Mode=TwoWay}"/>
+            <TextBlock Text="Spell Check in RTF" x:Uid="SpellCheckRtf"/>
+            <ToggleSwitch IsOn="{x:Bind Settings.RtfSpellCheck, Mode=TwoWay}"/>
         </StackPanel>
 
     </Grid>

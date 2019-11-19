@@ -24,16 +24,6 @@ namespace QuickPad.UI.Controls.Settings
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
         public SettingsViewModel Settings { get; } = App.Settings;
 
-        public DocumentViewModel ViewModel
-        {
-            get => DataContext as DocumentViewModel;
-            set
-            {
-                if (value == null || DataContext == value) return;
-                DataContext = value;
-            }
-        }
-
         public General()
         {
             this.InitializeComponent();
