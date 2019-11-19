@@ -194,7 +194,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         public string DefaultMode
         {
-            get => Get("Default");
+            get => Get("Classic Mode");
             set => Set(value);
         }
 
