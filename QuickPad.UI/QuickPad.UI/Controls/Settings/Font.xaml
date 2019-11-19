@@ -46,10 +46,10 @@
             </ComboBox>
 
             <TextBlock Text="Word Wrap" x:Uid="WordWrapSetting"/>
-            <ToggleSwitch/>
+            <ToggleSwitch IsOn="{x:Bind Settings.WordWrap, Mode=TwoWay}"/>
 
             <TextBlock Text="Spell Check" x:Uid="SpellCheck"/>
-            <ToggleSwitch/>
+            <ToggleSwitch IsOn="{x:Bind Settings.SpellCheck, Mode=TwoWay}"/>
         </StackPanel>
 
     </Grid>
