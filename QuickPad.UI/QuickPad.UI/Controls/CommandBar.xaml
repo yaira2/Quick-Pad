@@ -160,7 +160,9 @@
         <CommandBar DefaultLabelPosition="Collapsed" IsOpen="False" HorizontalAlignment="Right" Height="40" Background="{x:Null}">
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="FocusModeLabel" Label="Focus Mode" Width="Auto" Icon="Caption"/>
-                <AppBarButton x:Uid="ClassicModeLabel" Label="Classic Mode" Width="Auto">
+                <AppBarButton x:Uid="ClassicModeLabel" Label="Classic Mode" Width="Auto" 
+                              Command="{Binding Path=ShowMenusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                              CommandParameter="{x:Bind ViewModel}">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE8C5;" />
                     </AppBarButton.Icon>

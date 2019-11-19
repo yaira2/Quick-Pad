@@ -21,4 +21,36 @@ namespace QuickPad.Mvvm.Commands.Actions
         }
     }
 
+    public class ShowCommandBarCommand : SimpleCommand<DocumentViewModel>
+    {
+        public ShowCommandBarCommand(IServiceProvider serviceProvider)
+        {
+            Executioner = viewModel =>
+            {
+                var settings = serviceProvider.GetService<SettingsViewModel>();
+
+                //open settings page
+                settings.CurrentMode = "Default";
+
+                return Task.CompletedTask;
+            };
+        }
+    }
+
+    public class ShowMenusCommand : SimpleCommand<DocumentViewModel>
+    {
+        public ShowMenusCommand(IServiceProvider serviceProvider)
+        {
+            Executioner = viewModel =>
+            {
+                var settings = serviceProvider.GetService<SettingsViewModel>();
+
+                //open settings page
+                settings.CurrentMode = "Classic Mode";
+
+                return Task.CompletedTask;
+            };
+        }
+    }
+
 }

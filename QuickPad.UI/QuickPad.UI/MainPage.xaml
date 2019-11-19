@@ -31,13 +31,25 @@
                                HorizontalAlignment="Right"/>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
-                                  ShadowOpacity="0.3"
-                                  OffsetX="0"
-                                  OffsetY="1"
-                                  Grid.Row="1"
-                                  HorizontalAlignment="Stretch"
-                                  HorizontalContentAlignment="Stretch">
+                                   ShadowOpacity="0.3"
+                                   OffsetX="0"
+                                   OffsetY="1"
+                                   Grid.Row="1"
+                                   Visibility="{x:Bind Settings.ShowMenu, Converter={StaticResource Converter}}"
+                                   HorizontalAlignment="Stretch"
+                                   HorizontalContentAlignment="Stretch">
             <controls3:MenuBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
+        </controls1:DropShadowPanel>
+
+        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                                   ShadowOpacity="0.3"
+                                   OffsetX="0"
+                                   OffsetY="1"
+                                   Grid.Row="1"
+                                   Visibility="{x:Bind Settings.ShowCommandBar, Converter={StaticResource Converter}}"
+                                   HorizontalAlignment="Stretch"
+                                   HorizontalContentAlignment="Stretch">
+            <controls3:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"

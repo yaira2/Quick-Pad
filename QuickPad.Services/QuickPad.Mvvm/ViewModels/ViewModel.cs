@@ -46,13 +46,15 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }        
 
-        protected void Set<TValue>(ref TValue original, TValue value, [CallerMemberName] string propertyName = null)
+        protected virtual bool Set<TValue>(ref TValue original, TValue value, [CallerMemberName] string propertyName = null)
         {
-            if (original?.Equals(value) ?? false) return;
+            if (original?.Equals(value) ?? false) return false;
 
             original = value;
 
             OnPropertyChanged(propertyName);
+
+            return true;
         }
 
         private readonly ConcurrentQueue<string> _updatesQueue = new ConcurrentQueue<string>();

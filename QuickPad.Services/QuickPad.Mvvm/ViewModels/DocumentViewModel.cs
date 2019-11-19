@@ -6,6 +6,7 @@ using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Microsoft.Graphics.Canvas.Text;
 using QuickPad.Mvvm;
 
 namespace QuickPad.Mvvm.ViewModels
@@ -14,19 +15,30 @@ namespace QuickPad.Mvvm.ViewModels
     {
         private ITextDocument _document;
 
-        private Encoding _encoding;
+        private Encoding _currentEncoding;
         private readonly HMAC _md5;
 
         private string _originalHash;
         private string _currentHash;
 
         private StorageFile _file;
+        private string _currentFontName;
+        private double _currentFontSize;
+        private string _currentFileType;
 
-        public DocumentViewModel(ILogger<DocumentViewModel> logger, IServiceProvider serviceProvider) : base(logger)
+        private SettingsViewModel Settings { get; }
+
+        public DocumentViewModel(ILogger<DocumentViewModel> logger
+            , IServiceProvider serviceProvider
+            , SettingsViewModel settings) : base(logger)
         {
             _md5 = HMAC.Create("HMACMD5");
             _md5.Key = Encoding.ASCII.GetBytes("12345");
             ServiceProvider = serviceProvider;
+
+            Settings = settings;
+
+            InitNewDocument();
         }
 
         private IServiceProvider ServiceProvider { get; }
@@ -45,6 +57,12 @@ namespace QuickPad.Mvvm.ViewModels
         public TextGetOptions GetOption { get; set; } = TextGetOptions.None;
         public TextSetOptions SetOption { get; set; } = TextSetOptions.None;
 
+        public string CurrentFileType
+        {
+            get => _currentFileType;
+            set => Set(ref _currentFileType, value);
+        }
+
         public bool IsDirty
         {
             get => (_originalHash != _currentHash);
@@ -58,6 +76,18 @@ namespace QuickPad.Mvvm.ViewModels
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Title));
             }
+        }
+
+        public string CurrentFontName
+        {
+            get => _currentFontName;
+            set => Set(ref _currentFontName, value);
+        }
+
+        public double CurrentFontSize
+        {
+            get => _currentFontSize;
+            set => Set(ref _currentFontSize, value);
         }
 
         public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? "Untitled")} ").Trim();
@@ -104,15 +134,29 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _file, value);
         }
 
-        public Encoding Encoding
+        public Encoding CurrentEncoding
         {
-            get => _encoding;
-            set => Set(ref _encoding, value);
+            get => _currentEncoding;
+            set => Set(ref _currentEncoding, value);
         }
 
         public void InitNewDocument()
         {
-            Initialize?.Invoke(this);
+            HoldUpdates();
+
+            File = null;
+            Text = "";
+            IsDirty = false;
+            SetEncoding(Settings.DefaultEncoding);
+            CurrentFileType = Settings.DefaultFileType;
+            CurrentFontName =
+                CurrentFileType == ".rtf" ? Settings.DefaultRtfFont : Settings.DefaultFont;
+            CurrentFontSize =
+                CurrentFileType == ".rtf" ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
+
+            ReleaseUpdates();
+
+            NotifyAll();
         }
 
         public Action<DocumentViewModel> Initialize { get; set; }
@@ -122,10 +166,26 @@ namespace QuickPad.Mvvm.ViewModels
             OnPropertyChanged(nameof(Title));
             OnPropertyChanged(nameof(IsDirty));
             OnPropertyChanged(nameof(Document));
-            OnPropertyChanged(nameof(Encoding));
+            OnPropertyChanged(nameof(CurrentEncoding));
             OnPropertyChanged(nameof(File));
             OnPropertyChanged(nameof(GetOption));
             OnPropertyChanged(nameof(SetOption));
+            OnPropertyChanged(nameof(CurrentFontName));
+            OnPropertyChanged(nameof(CurrentFontSize));
+            OnPropertyChanged(nameof(CurrentFileType));
+        }
+
+        public void SetEncoding(string encoding)
+        {
+            CurrentEncoding = encoding switch
+            {
+                "UTF-8" => Encoding.UTF8,
+                "UTF-16 LE" => Encoding.Unicode,
+                "UTF-16 BE" => Encoding.BigEndianUnicode,
+                "UTF-32" => Encoding.UTF32,
+                "ASCII" => Encoding.ASCII,
+                _ => Encoding.UTF8
+            };
         }
     }
 }

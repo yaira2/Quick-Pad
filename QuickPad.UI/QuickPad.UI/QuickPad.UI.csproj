@@ -18,7 +18,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>32A964C56DB90D80B40D32D487476056CA621E70</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>EB705E3F44525A88C8E8E96A04DBEF8DCE07B189</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
@@ -26,8 +26,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <PackageCertificateKeyFile>
-    </PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>QuickPad.UI_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -159,6 +158,9 @@
     <Compile Include="Controls\Settings\Advanced.xaml.cs">
       <DependentUpon>Advanced.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Settings\RTF.xaml.cs">
+      <DependentUpon>RTF.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Settings\Font.xaml.cs">
       <DependentUpon>Font.xaml</DependentUpon>
     </Compile>
@@ -271,6 +273,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Settings\Advanced.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Controls\Settings\RTF.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

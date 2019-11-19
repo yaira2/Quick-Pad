@@ -238,7 +238,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Default File Encoding</value>
+    <value>Default File CurrentEncoding</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFileType.Text" xml:space="preserve">

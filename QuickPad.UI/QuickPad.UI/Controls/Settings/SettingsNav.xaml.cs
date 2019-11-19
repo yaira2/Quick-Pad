@@ -24,16 +24,6 @@ namespace QuickPad.UI.Controls.Settings
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 
-        public DocumentViewModel ViewModel
-        {
-            get => DataContext as DocumentViewModel;
-            set
-            {
-                if (value == null || DataContext == value) return;
-                DataContext = value;
-            }
-        }
-
         public SettingsNav()
         {
             this.InitializeComponent();
@@ -48,6 +38,7 @@ namespace QuickPad.UI.Controls.Settings
                 "General" => typeof(General),
                 "Theme" => typeof(Theme),
                 "Font" => typeof(Font),
+                "RTF" => typeof(RTF),
                 "Advanced" => typeof(Advanced),
                 "About" => typeof(About),
                 _ => null
