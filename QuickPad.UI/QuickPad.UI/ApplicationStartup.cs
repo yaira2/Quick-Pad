@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using QuickPad.Mvvm;
-using QuickPad.MVVM;
+using QuickPad.Mvc;
+using QuickPad.Mvvm.Commands;
+using QuickPad.MVVM.Commands.Actions;
+using QuickPad.Mvvm.Commands.Clipboard;
+using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
 
-namespace QuickPad.Mvc
+namespace QuickPad.UI
 {
     public class ApplicationStartup
     {
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<PasteCommand, PasteCommand>();
+            services.AddSingleton<ShowSettingsCommand, ShowSettingsCommand>();
             services.AddSingleton<QuickPadCommands, QuickPadCommands>();
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();

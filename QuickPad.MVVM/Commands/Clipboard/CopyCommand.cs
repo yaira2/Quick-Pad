@@ -1,9 +1,8 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
+using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.Mvvm.Commands.Clipboard
 {
     public class CopyCommand : SimpleCommand<DocumentViewModel>
     {
@@ -14,15 +13,13 @@ namespace QuickPad.MVVM
             Executioner = viewModel =>
             {
                 //send the selected text to the clipboard
-                DataPackage dataPackage = new DataPackage();
-                dataPackage.RequestedOperation = DataPackageOperation.Copy;
+                var dataPackage = new DataPackage {RequestedOperation = DataPackageOperation.Copy};
                 dataPackage.SetText(viewModel.Document.Selection.Text);
-                Clipboard.SetContent(dataPackage);
-                Clipboard.Flush();
+                Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+                Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
 
                 return Task.CompletedTask;
             };
         }
     }
-
 }

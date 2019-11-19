@@ -130,6 +130,7 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\Actions\ShowSettingsCommand.cs" />
     <Compile Include="Commands\Editing\CenterAlignCommand.cs" />
     <Compile Include="Commands\Editing\BulletsCommand.cs" />
     <Compile Include="Commands\Editing\BoldCommand.cs" />

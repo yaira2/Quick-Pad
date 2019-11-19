@@ -143,11 +143,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApplicationStartup.cs" />
+    <Compile Include="Common\IntCompare.cs" />
     <Compile Include="Common\ThemeChangedEventArgs.cs" />
     <Compile Include="Common\ThemeChangedEventHandler.cs" />
     <Compile Include="Common\VisualTheme.cs" />
     <Compile Include="Common\VisualThemeKind.cs" />
-    <Compile Include="Common\VisualThemes.cs" />
+    <Compile Include="Common\VisualThemeSelector.cs" />
     <Compile Include="Controls\FindAndReplace.xaml.cs">
       <DependentUpon>FindAndReplace.xaml</DependentUpon>
     </Compile>
@@ -178,6 +179,7 @@
     <Compile Include="Controls\CommandBar.xaml.cs">
       <DependentUpon>CommandBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\Converter.cs" />
     <Compile Include="Dialogs\GoToLine.xaml.cs">
       <DependentUpon>GoToLine.xaml</DependentUpon>
     </Compile>
@@ -378,6 +380,7 @@
   <ItemGroup>
     <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

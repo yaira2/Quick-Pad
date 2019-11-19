@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -13,14 +14,15 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
-using QuickPad.Mvc;
-using QuickPad.Mvvm;
 using Windows.UI.Core.Preview;
 using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
 using Windows.UI.ViewManagement;
 using Windows.UI;
-using QuickPad.MVVM;
+using QuickPad.Mvc;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -32,11 +34,12 @@ namespace QuickPad.UI
     public sealed partial class MainPage : Page, IDocumentView
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+        public SettingsViewModel Settings => App.Settings;
 
         public MainPage()
         {
             App.Controller.AddView(this);
-            Initialize?.Invoke(this, App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands);
+            Initialize?.Invoke(this, Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands);
 
             this.InitializeComponent();
 
@@ -55,7 +58,14 @@ namespace QuickPad.UI
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
 
+            Settings.PropertyChanged += Settings_PropertyChanged;
+
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.OnCloseRequest;
+        }
+
+        private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            Bindings.Update();
         }
 
         private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -67,12 +77,14 @@ namespace QuickPad.UI
                     appView.Title = ViewModel.Title;
                     break;
             }
+
+            Bindings.Update();
         }
 
         private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
             e.Handled = true;
-            var commands = App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
+            var commands = Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
             commands.ExitCommand.Execute(ViewModel);
         }
 

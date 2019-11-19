@@ -2,69 +2,47 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace QuickPad.MVVM
+namespace QuickPad.Mvvm.Models
 {
     public class FontFamilyModel : INotifyPropertyChanged, IComparable<FontFamilyModel>
     {
-        private const int previewMaxLenght = 16;
+        private const int PREVIEW_MAX_LENGTH = 16;
         private static string _previewText;
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public string Name
-        {
-            get;
-            private set;
-        }
-        public string PreviewText
-        {
-            get => _previewText ?? Name;
-        }
 
         public FontFamilyModel(string name)
         {
             Name = name;
         }
 
+        public string Name { get; }
+
+        public string PreviewText => _previewText ?? Name;
+
+        public int CompareTo(FontFamilyModel other) => 
+            string.Compare(Name, other.Name, StringComparison.Ordinal);
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public static void ChangeGlobalPreview(string previewText)
         {
-            if (previewText != null)
-            {
-                previewText = previewText.Trim();
-            }
+            previewText = previewText?.Trim();
             if (string.IsNullOrWhiteSpace(previewText))
             {
                 _previewText = null;
             }
             else
             {
-                previewText = previewText.Trim();
-                if (previewText.Length > previewMaxLenght)
-                {
-                    _previewText = $"{previewText.Substring(0, previewMaxLenght)}...";
-                }
-                else
-                {
-                    _previewText = previewText;
-                }
+                _previewText = previewText.Length > PREVIEW_MAX_LENGTH 
+                    ? $"{previewText.Substring(0, PREVIEW_MAX_LENGTH)}..." 
+                    : previewText;
             }
         }
-        public void UpdateLocalPreview()
-        {
-            UpdateProperty(nameof(PreviewText));
-        }
 
-        public int CompareTo(FontFamilyModel other)
-        {
-            return this.Name.CompareTo(other.Name);
-        }
-        public override string ToString()
-        {
-            return Name;
-        }
-        private void UpdateProperty([CallerMemberName]string propertyName = "")
-        {
+        public void UpdateLocalPreview() => UpdateProperty(nameof(PreviewText));
+
+        public override string ToString() => Name;
+
+        private void UpdateProperty([CallerMemberName] string propertyName = "") =>
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
     }
 }

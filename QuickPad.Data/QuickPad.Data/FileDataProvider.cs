@@ -12,16 +12,16 @@ namespace QuickPad.Data
 {
     public class FileDataProvider : IDataProvider
     {
+
         public async Task<byte[]> LoadDataAsync(StorageFile file)
         {
             var buffer = await FileIO.ReadBufferAsync(file);
 
-            using (var reader = DataReader.FromBuffer(buffer))
-            {
-                var bytes = new byte[buffer.Length];
-                reader.ReadBytes(bytes);
-                return bytes;
-            }
+            using var reader = DataReader.FromBuffer(buffer);
+
+            var bytes = new byte[buffer.Length];
+            reader.ReadBytes(bytes);
+            return bytes;
         }
 
         public async Task<string> SaveDataAsync(StorageFile file, IWriter writer, Encoding encoding)
@@ -35,7 +35,7 @@ namespace QuickPad.Data
                 
                 return $"{file.Name} was saved.";
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }

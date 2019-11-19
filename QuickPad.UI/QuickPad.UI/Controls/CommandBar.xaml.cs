@@ -1,27 +1,14 @@
-﻿using QuickPad.Mvvm;
+﻿using Windows.UI.Xaml;
+using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
-namespace Quick_Pad
+namespace QuickPad.UI.Controls
 {
-    public sealed partial class CommandBar : UserControl
+    public sealed partial class CommandBar
     {
-        public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+        public VisualThemeSelector VTSelector { get; } = VisualThemeSelector.Default;
 
         public DocumentViewModel ViewModel
         {
@@ -32,6 +19,9 @@ namespace Quick_Pad
                 DataContext = value;
             }
         }
+
+        public static DependencyProperty ViewModelProperty =
+            DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel), typeof(CommandBar), null);
 
         public CommandBar()
         {

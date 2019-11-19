@@ -1,4 +1,4 @@
-﻿using QuickPad.MVVM;
+﻿using QuickPad.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +14,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.UI.Common
 {

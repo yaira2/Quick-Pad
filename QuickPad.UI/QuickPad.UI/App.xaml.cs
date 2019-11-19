@@ -10,7 +10,9 @@ using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
 using QuickPad.UI.Common;
-using QuickPad.MVVM;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.UI
 {
@@ -20,9 +22,11 @@ namespace QuickPad.UI
     // ReSharper disable once ArrangeTypeModifiers
     sealed partial class App 
     {
+        private static SettingsViewModel _settings;
         public static ApplicationHost Host { get; set; }
         public static ApplicationController Controller => Host?.Controller;
         public static IServiceProvider Services => Host?.Services;
+        public static SettingsViewModel Settings => _settings ??= Host?.Services.GetService<SettingsViewModel>();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

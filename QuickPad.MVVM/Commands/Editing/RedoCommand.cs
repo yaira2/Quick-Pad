@@ -1,8 +1,7 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM
+namespace QuickPad.Mvvm.Commands.Editing
 {
     public class RedoCommand : SimpleCommand<DocumentViewModel>
     {
@@ -20,5 +19,4 @@ namespace QuickPad.MVVM
             };
         }
     }
-
 }

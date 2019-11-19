@@ -1,6 +1,6 @@
 ﻿using System;
-using QuickPad.Mvvm;
-using QuickPad.MVVM;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvc
 {

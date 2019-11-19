@@ -1,5 +1,4 @@
-﻿using QuickPad.Mvvm;
-using QuickPad.UI.Common;
+﻿using QuickPad.UI.Common;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,6 +14,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
+using QuickPad.Mvvm.ViewModels;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -37,6 +37,8 @@ namespace QuickPad.UI.Controls.Settings
         public SettingsNav()
         {
             this.InitializeComponent();
+
+            SettingsFrame.Navigate(typeof(General), new SuppressNavigationTransitionInfo());
         }
 
         private void settingNavView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
