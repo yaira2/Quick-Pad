@@ -37,7 +37,7 @@
                                   Grid.Row="1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
-            <controls3:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
+            <controls3:MenuBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
