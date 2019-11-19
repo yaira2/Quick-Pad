@@ -9,6 +9,8 @@ namespace QuickPad.UI.Controls
     public sealed partial class CommandBar
     {
         public VisualThemeSelector VTSelector { get; } = VisualThemeSelector.Default;
+        public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+        public SettingsViewModel Settings { get; } = App.Settings;
 
         public DocumentViewModel ViewModel
         {
