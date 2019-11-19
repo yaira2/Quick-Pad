@@ -14,7 +14,7 @@ namespace QuickPad.Mvvm.ViewModels
     {
         private bool _showSettings;
         private double _defaultFontSize = 14.0;
-        private bool _useAcrylic = true;
+        private bool _useAcrylic = false;
         private bool _wordWrap = true;
         private bool _spellCheck = true;
         private string _defaultFont = "Times New Roman";
