@@ -10,7 +10,7 @@
     d:DesignWidth="320"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid HorizontalAlignment="Stretch" Width="320">
+    <Grid HorizontalAlignment="Stretch" Width="340">
         <winui:NavigationView IsPaneOpen="False"
                               x:Name="settingNavView"
                                   IsSettingsVisible="False"
@@ -19,8 +19,14 @@
                                   PaneDisplayMode="Top"
                                   HorizontalAlignment="Stretch"
                                   OpenPaneLength="200"
+                                  Margin="0,0,0,0"
                                   ItemInvoked="settingNavView_ItemInvoked">
             <winui:NavigationView.MenuItems>
+                <winui:NavigationViewItem>
+                    <winui:NavigationViewItem.Icon>
+                        <FontIcon Glyph="&#xE72B;" />
+                    </winui:NavigationViewItem.Icon>
+                </winui:NavigationViewItem>
                 <winui:NavigationViewItem Tag="General">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE12A;" />
