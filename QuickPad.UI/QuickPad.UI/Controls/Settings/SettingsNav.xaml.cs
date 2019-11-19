@@ -57,10 +57,12 @@ namespace QuickPad.UI.Controls.Settings
             {
                 SettingsFrame.Navigate(pageType, new SuppressNavigationTransitionInfo());
             }
-            else
-            {
-                App.Settings.ShowSettings = false;
-            }
+        }
+
+        private void settingNavView_BackRequested(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs args)
+        {
+            General.IsSelected = true;
+            App.Settings.ShowSettings = false;
         }
     }
 }

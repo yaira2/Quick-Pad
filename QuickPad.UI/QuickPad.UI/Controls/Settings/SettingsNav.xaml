@@ -14,20 +14,16 @@
         <winui:NavigationView IsPaneOpen="False"
                               x:Name="settingNavView"
                                   IsSettingsVisible="False"
-                                  IsBackEnabled="False"
-                                  IsBackButtonVisible="Collapsed"
+                                  IsBackEnabled="True"
+                                  IsBackButtonVisible="Visible"
                                   PaneDisplayMode="Top"
                                   HorizontalAlignment="Stretch"
                                   OpenPaneLength="200"
                                   Margin="0,0,0,0"
+                                  BackRequested="settingNavView_BackRequested"
                                   ItemInvoked="settingNavView_ItemInvoked">
             <winui:NavigationView.MenuItems>
-                <winui:NavigationViewItem>
-                    <winui:NavigationViewItem.Icon>
-                        <FontIcon Glyph="&#xE72B;" />
-                    </winui:NavigationViewItem.Icon>
-                </winui:NavigationViewItem>
-                <winui:NavigationViewItem Tag="General">
+                <winui:NavigationViewItem Tag="General" x:Name="General" IsSelected="True">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE12A;" />
                     </winui:NavigationViewItem.Icon>
