@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
+using Windows.Management.Core;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
+using Newtonsoft.Json;
 using QuickPad.Mvvm.Models;
 
 namespace QuickPad.Mvvm.ViewModels
@@ -27,10 +30,41 @@ namespace QuickPad.Mvvm.ViewModels
                 CanvasTextFormat.GetSystemFontFamilies()
                     .OrderBy(font => font)
                     .Select(font => new FontFamilyModel(font)));
+
+            var roamingSettings =
+                Windows.Storage.ApplicationData.Current.RoamingSettings;
+
+            var json = roamingSettings.Values["JSON"] as string ?? string.Empty;
+
+            var settings = JsonConvert.DeserializeObject<SettingsViewModel>(json,
+                new JsonSerializerSettings
+                    {ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor});
+
+            if(settings != null)
+            {
+                GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).ToList()
+                    .ForEach(pi =>
+                        {
+                            if (!pi.CustomAttributes.Any())
+                            {
+                                pi.SetValue(this, pi.GetValue(settings));
+                            }
+                        });
+            }
+
+            PropertyChanged += (sender, args) =>
+            {
+                json = JsonConvert.SerializeObject(this, Formatting.Indented);
+                roamingSettings.Values["JSON"] = json;
+            };
         }
 
+        private SettingsViewModel() : base(null) { }
+
+        [JsonIgnore]
         public ObservableCollection<FontFamilyModel> AllFonts { get; }
 
+        [JsonIgnore]
         public Action<double> AfterTintOpacityChanged
         {
             get => _afterTintOpacityChanged;
