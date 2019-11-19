@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="fr-FR" original="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6914.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="AcrylicOptions.Text" translate="yes" xml:space="preserve">
+          <source>Acrylic Options</source>
+          <target state="translated"></target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AcrylicTintOpacity.Text" translate="yes" xml:space="preserve">
+          <source>Acrylic tint opacity</source>
+          <target state="new">Acrylic tint opacity</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="new">Advanced</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
+          <source>App Language</source>
+          <target state="new">App Language</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AppName.Text" translate="yes" xml:space="preserve">
+          <source>Quick Pad</source>
+          <target state="new">Quick Pad</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
+          <source>Chick</source>
+          <target state="new">Chick</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
+          <source>Cobalt</source>
+          <target state="new">Cobalt</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
+          <source>Crimson</source>
+          <target state="new">Crimson</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="new">Dark</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
+          <source>Leaf</source>
+          <target state="new">Leaf</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
+          <source>Lettuce</source>
+          <target state="new">Lettuce</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeLightName" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="new">Light</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeRandomName" translate="yes" xml:space="preserve">
+          <source>Random</source>
+          <target state="new">Random</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
+          <source>Rose Gold</source>
+          <target state="new">Rose Gold</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
+          <source>System Default</source>
+          <target state="new">System Default</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
+          <source>Dark theme</source>
+          <target state="new">Dark theme</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
+          <source>Light theme</source>
+          <target state="new">Light theme</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeRandomDescription" translate="yes" xml:space="preserve">
+          <source>Random theme on startup</source>
+          <target state="new">Random theme on startup</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
+          <source>System-defined theme</source>
+          <target state="new">System-defined theme</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="AutomaticallyChooseMode.Text" translate="yes" xml:space="preserve">
+          <source>Automatically choose which mode to launch the app in based on the file type</source>
+          <target state="new">Automatically choose which mode to launch the app in based on the file type</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AutoSave.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save</source>
+          <target state="new">Auto Save</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
+          <source>Auto save every</source>
+          <target state="new">Auto save every</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AutoSaveSeconds.Text" translate="yes" xml:space="preserve">
+          <source>seconds</source>
+          <target state="new">seconds</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="BackToDefault.Text" translate="yes" xml:space="preserve">
+          <source>Back to Default Mode</source>
+          <target state="new">Back to Default Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
+          <source>Close Compact Overlay</source>
+          <target state="new">Close Compact Overlay</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on TitleBar</note>
+        </trans-unit>
+        <trans-unit id="Contribute.Content" translate="yes" xml:space="preserve">
+          <source>Contribute to the developer</source>
+          <target state="new">Contribute to the developer</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Copy.Text" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="new">Copy</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
+          <source>Developed by Yair Aichenbaum</source>
+          <target state="new">Developed by Yair Aichenbaum</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
+          <source>Cut</source>
+          <target state="new">Cut</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="DateTime.Text" translate="yes" xml:space="preserve">
+          <source>Date/Time</source>
+          <target state="new">Date/Time</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
+          <source>Default File Encoding</source>
+          <target state="new">Default File Encoding</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFileType.Text" translate="yes" xml:space="preserve">
+          <source>Default File Type</source>
+          <target state="new">Default File Type</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
+          <source>Default Font</source>
+          <target state="new">Default Font</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontColor.Text" translate="yes" xml:space="preserve">
+          <source>Default Font Color</source>
+          <target state="new">Default Font Color</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
+          <source>Default Font Size</source>
+          <target state="new">Default Font Size</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Delete.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="new">Delete</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Edit.Title" translate="yes" xml:space="preserve">
+          <source>Edit</source>
+          <target state="new">Edit</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="Exit.Text" translate="yes" xml:space="preserve">
+          <source>Exit</source>
+          <target state="new">Exit</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Export.Content" translate="yes" xml:space="preserve">
+          <source>Export</source>
+          <target state="new">Export</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="File.Title" translate="yes" xml:space="preserve">
+          <source>File</source>
+          <target state="new">File</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="Find.Text" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="new">Find</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FindNext.Text" translate="yes" xml:space="preserve">
+          <source>Find Next</source>
+          <target state="new">Find Next</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
+          <source>Find Previous</source>
+          <target state="new">Find Previous</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FocusMode.Text" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="new">Focus Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
+          <source>Font</source>
+          <target state="new">Font</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Fonts.Text" translate="yes" xml:space="preserve">
+          <source>Fonts...</source>
+          <target state="new">Fonts...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Format.Title" translate="yes" xml:space="preserve">
+          <source>Format</source>
+          <target state="new">Format</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="General.Text" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="new">General</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="GoTo.Text" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Help.Title" translate="yes" xml:space="preserve">
+          <source>Help</source>
+          <target state="new">Help</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
+          <source>Import</source>
+          <target state="new">Import</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
+          <source>Keep text only</source>
+          <target state="new">Keep text only</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchClassicMode.Content" translate="yes" xml:space="preserve">
+          <source>Classic Mode</source>
+          <target state="new">Classic Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchDefaultMode.Content" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="new">Default</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchFocusMode.Content" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="new">Focus Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchMode.Text" translate="yes" xml:space="preserve">
+          <source>Launch Mode</source>
+          <target state="new">Launch Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchModeComboBox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Classic Mode</source>
+          <target state="new">Classic Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchOnTopMode.Content" translate="yes" xml:space="preserve">
+          <source>On Top</source>
+          <target state="new">On Top</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="ManageSettings.Text" translate="yes" xml:space="preserve">
+          <source>Manage Settings</source>
+          <target state="new">Manage Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="New.Text" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="new">New</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Open.Text" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="new">Open</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Other.Text" translate="yes" xml:space="preserve">
+          <source>Other</source>
+          <target state="new">Other</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="OverlayMode.Text" translate="yes" xml:space="preserve">
+          <source>Overlay Mode</source>
+          <target state="new">Overlay Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Paste.Text" translate="yes" xml:space="preserve">
+          <source>Paste</source>
+          <target state="new">Paste</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="PasteOptions.Text" translate="yes" xml:space="preserve">
+          <source>Paste Options</source>
+          <target state="new">Paste Options</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RateAndReview.Text" translate="yes" xml:space="preserve">
+          <source>Rate and Review</source>
+          <target state="new">Rate and Review</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="RateAndReviewLink.Content" translate="yes" xml:space="preserve">
+          <source>Rate and Review</source>
+          <target state="new">Rate and Review</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Redo.Text" translate="yes" xml:space="preserve">
+          <source>Redo</source>
+          <target state="new">Redo</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Replace.Text" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="new">Replace</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
+          <source>Reset</source>
+          <target state="new">Reset</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
+          <source>Restart required to apply the changes.</source>
+          <target state="new">Restart required to apply the changes.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
+          <source>Restore Default Zoom</source>
+          <target state="new">Restore Default Zoom</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SaveAs.Text" translate="yes" xml:space="preserve">
+          <source>Save As...</source>
+          <target state="new">Save As...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SearchBing.Text" translate="yes" xml:space="preserve">
+          <source>Search with Bing...</source>
+          <target state="new">Search with Bing...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SelectAll.Text" translate="yes" xml:space="preserve">
+          <source>Select All</source>
+          <target state="new">Select All</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SendFeedback.Content" translate="yes" xml:space="preserve">
+          <source>Send Feedback</source>
+          <target state="new">Send Feedback</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Settings.Text" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="new">Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Share.Text" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="new">Share</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SpellCheck.Text" translate="yes" xml:space="preserve">
+          <source>Spell Check</source>
+          <target state="new">Spell Check</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
+          <source>Status Bar</source>
+          <target state="new">Status Bar</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
+          <source>Col: </source>
+          <target state="new">Col: </target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusBar</note>
+        </trans-unit>
+        <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
+          <source>Ln: </source>
+          <target state="new">Ln: </target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusBar</note>
+        </trans-unit>
+        <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="new">Theme</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Undo.Text" translate="yes" xml:space="preserve">
+          <source>Undo</source>
+          <target state="new">Undo</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="UseAcrylicOnTextBox.Text" translate="yes" xml:space="preserve">
+          <source>Use acrylic background for the text area</source>
+          <target state="new">Use acrylic background for the text area</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="View.Title" translate="yes" xml:space="preserve">
+          <source>View</source>
+          <target state="new">View</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
+          <source>Word Wrap</source>
+          <target state="new">Word Wrap</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="WordWrapSetting.Text" translate="yes" xml:space="preserve">
+          <source>Word Wrap</source>
+          <target state="new">Word Wrap</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Zoom.Text" translate="yes" xml:space="preserve">
+          <source>Zoom</source>
+          <target state="new">Zoom</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="ZoomIn.Text" translate="yes" xml:space="preserve">
+          <source>Zoom In</source>
+          <target state="new">Zoom In</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="ZoomOut.Text" translate="yes" xml:space="preserve">
+          <source>Zoom Out</source>
+          <target state="new">Zoom Out</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

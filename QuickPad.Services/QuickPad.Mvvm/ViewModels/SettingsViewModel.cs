@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
 using Newtonsoft.Json;
 using QuickPad.Mvvm.Models;
+using Windows.Globalization;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -24,7 +25,14 @@ namespace QuickPad.Mvvm.ViewModels
                 CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font));
             
             _roamingSettings = ApplicationData.Current.RoamingSettings;
-        }
+
+            var supportedLang = ApplicationLanguages.ManifestLanguages;
+            DefaultLanguages = new ObservableCollection<DefaultLanguageModel>();
+            foreach (var lang in supportedLang)
+            {
+                DefaultLanguages.Add(new DefaultLanguageModel(lang));
+            }
+         }
 
         protected bool Set<TValue>(TValue value, [CallerMemberName] string propertyName = null)
         {
@@ -62,6 +70,9 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore]
         public Action<double> AfterTintOpacityChanged { get; set; }
+
+        [JsonIgnore]
+        public ObservableCollection<DefaultLanguageModel> DefaultLanguages { get; }
 
         public string CustomThemeId
         {
