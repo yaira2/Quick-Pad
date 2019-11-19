@@ -86,6 +86,7 @@ namespace QuickPad.UI
             e.Handled = true;
             var commands = Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
             commands.ExitCommand.Execute(ViewModel);
+            App.Settings.ShowSettings = false;
         }
 
         public DocumentViewModel ViewModel { get; set; }
