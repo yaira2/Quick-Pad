@@ -14,9 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{07321F27-2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{46302E28-9160-47F7-89A0-D742E6359546}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.Mvc", "QuickPad.MVC\QuickPad.Mvc.csproj", "{E52DCFA1-7AFC-463D-B71E-98B6BF0BD700}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.Mvc", "QuickPad.Services\QuickPad.Mvc\QuickPad.Mvc.csproj", "{E52DCFA1-7AFC-463D-B71E-98B6BF0BD700}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.Mvvm", "QuickPad.MVVM\QuickPad.Mvvm.csproj", "{DD33C42D-9DE7-4E74-A44D-2085764CF0C8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.Mvvm", "QuickPad.Services\QuickPad.Mvvm\QuickPad.Mvvm.csproj", "{DD33C42D-9DE7-4E74-A44D-2085764CF0C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.Data", "QuickPad.Data\QuickPad.Data\QuickPad.Data.csproj", "{4092441F-4F90-4DF6-B68C-6EC27AC22CA2}"
 EndProject

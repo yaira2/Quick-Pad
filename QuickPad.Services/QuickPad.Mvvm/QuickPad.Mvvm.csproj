@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E52DCFA1-7AFC-463D-B71E-98B6BF0BD700}</ProjectGuid>
+    <ProjectGuid>{DD33C42D-9DE7-4E74-A44D-2085764CF0C8}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuickPad.Mvc</RootNamespace>
-    <AssemblyName>QuickPad.Mvc</AssemblyName>
+    <RootNamespace>QuickPad.Mvvm</RootNamespace>
+    <AssemblyName>QuickPad.Mvvm</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.18362.0</TargetPlatformVersion>
@@ -130,13 +130,32 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ApplicationController.cs" />
-    <Compile Include="Hosting\ApplicationHost.cs" />
-    <Compile Include="Hosting\Extensions.cs" />
-    <Compile Include="IDocumentView.cs" />
-    <Compile Include="IView.cs" />
+    <Compile Include="Commands\Actions\ShowSettingsCommand.cs" />
+    <Compile Include="Commands\Editing\CenterAlignCommand.cs" />
+    <Compile Include="Commands\Editing\BulletsCommand.cs" />
+    <Compile Include="Commands\Editing\BoldCommand.cs" />
+    <Compile Include="Commands\Clipboard\CopyCommand.cs" />
+    <Compile Include="Commands\Clipboard\CutCommand.cs" />
+    <Compile Include="Models\DefaultLanguageModel.cs" />
+    <Compile Include="ViewModels\DocumentViewModel.cs" />
+    <Compile Include="Commands\Editing\ItalicCommand.cs" />
+    <Compile Include="Commands\Editing\EmojiCommand.cs" />
+    <Compile Include="Models\FontFamilyModel.cs" />
+    <Compile Include="Commands\Clipboard\PasteCommand.cs" />
+    <Compile Include="Commands\Editing\JustifyCommand.cs" />
+    <Compile Include="Commands\Editing\LeftAlignCommand.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Commands\QuickPadCommands.cs" />
+    <Compile Include="Commands\Editing\RedoCommand.cs" />
+    <Compile Include="Commands\Editing\RightAlignCommand.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="Commands\SimpleCommand.cs" />
+    <Compile Include="Commands\Editing\StrikeThroughCommand.cs" />
+    <Compile Include="Commands\Editing\UnderlineCommand.cs" />
+    <Compile Include="Commands\Editing\UndoCommand.cs" />
+    <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\QuickPad.MVC.rd.xml" />
+    <EmbeddedResource Include="Properties\QuickPad.MVVM.rd.xml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
@@ -170,16 +189,7 @@
       <Version>2.2.190917002</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\QuickPad.Data\QuickPad.Data\QuickPad.Data.csproj">
-      <Project>{4092441f-4f90-4df6-b68c-6ec27ac22ca2}</Project>
-      <Name>QuickPad.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QuickPad.MVVM\QuickPad.Mvvm.csproj">
-      <Project>{dd33c42d-9de7-4e74-a44d-2085764cf0c8}</Project>
-      <Name>QuickPad.Mvvm</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
