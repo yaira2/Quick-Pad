@@ -38,7 +38,6 @@ namespace QuickPad.UI.Controls.Settings
                 "General" => typeof(General),
                 "Theme" => typeof(Theme),
                 "Font" => typeof(Font),
-                "RTF" => typeof(RTF),
                 "Advanced" => typeof(Advanced),
                 "About" => typeof(About),
                 _ => null

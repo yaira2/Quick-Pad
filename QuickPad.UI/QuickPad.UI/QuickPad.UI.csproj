@@ -158,9 +158,6 @@
     <Compile Include="Controls\Settings\Advanced.xaml.cs">
       <DependentUpon>Advanced.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\Settings\RTF.xaml.cs">
-      <DependentUpon>RTF.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\Settings\Font.xaml.cs">
       <DependentUpon>Font.xaml</DependentUpon>
     </Compile>
@@ -275,10 +272,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\Settings\Advanced.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Controls\Settings\RTF.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

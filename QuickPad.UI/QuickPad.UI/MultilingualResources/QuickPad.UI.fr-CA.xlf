@@ -466,6 +466,31 @@
           <target state="new">Zoom Out</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
+        <trans-unit id="DefaultFontRtf.Text" translate="yes" xml:space="preserve">
+          <source>Default Rich Text Font</source>
+          <target state="new">Default Rich Text Font</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontSizeRtf.Text" translate="yes" xml:space="preserve">
+          <source>Default Rich Text Font Size</source>
+          <target state="new">Default Rich Text Font Size</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RTF.Text" translate="yes" xml:space="preserve">
+          <source>Rich Text Font Settings</source>
+          <target state="new">Rich Text Font Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SpellCheckRtfText" translate="yes" xml:space="preserve">
+          <source>Spell Check in Rich Text</source>
+          <target state="new">Spell Check in Rich Text</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="WordWrapSettingRtf.Text" translate="yes" xml:space="preserve">
+          <source>Word Wrap in Rich Text</source>
+          <target state="new">Word Wrap in Rich Text</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
       </group>
     </body>
   </file>
