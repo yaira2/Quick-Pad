@@ -43,6 +43,10 @@ namespace QuickPad.UI
                     builder.Properties.Add("Logging:Console:IncludeScopes", true);
                 })
                 .ConfigureServices(ApplicationStartup.ConfigureServices)
+                .ConfigureServices(collection =>
+                    {
+                        collection.AddSingleton<ResourceDictionary>(provider => this.Resources);
+                    })
                 .ConfigureLogging(builder => { 
                     builder.AddConsole();
                 })

@@ -77,8 +77,12 @@ namespace QuickPad.UI.Common
             get;
         }
 
-        public VisualThemeSelector(SettingsViewModel settingsViewModel)
+        public ResourceDictionary Resources { get; }
+
+        public VisualThemeSelector(SettingsViewModel settingsViewModel, ResourceDictionary resources)
         {
+            Resources = resources;
+
             _settingsViewModel = settingsViewModel;
             _themes = new List<VisualTheme>();
 
