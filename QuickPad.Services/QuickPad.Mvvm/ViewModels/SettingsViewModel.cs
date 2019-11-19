@@ -7,6 +7,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
 using Newtonsoft.Json;
 using QuickPad.Mvvm.Models;
+using Windows.Globalization;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -31,16 +32,23 @@ namespace QuickPad.Mvvm.ViewModels
                     .OrderBy(font => font)
                     .Select(font => new FontFamilyModel(font)));
 
-            var roamingSettings =
+            var supportedLang = ApplicationLanguages.ManifestLanguages;
+            DefaultLanguages = new ObservableCollection<DefaultLanguageModel>();
+            foreach (var lang in supportedLang)
+            {
+                DefaultLanguages.Add(new DefaultLanguageModel(lang));
+            }
+
+    var roamingSettings =
                 Windows.Storage.ApplicationData.Current.RoamingSettings;
 
             var json = roamingSettings.Values["JSON"] as string ?? string.Empty;
 
             var settings = JsonConvert.DeserializeObject<SettingsViewModel>(json,
                 new JsonSerializerSettings
-                    {ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor});
+                { ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor });
 
-            if(settings != null)
+            if (settings != null)
             {
                 GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).ToList()
                     .ForEach(pi =>
@@ -63,6 +71,9 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore]
         public ObservableCollection<FontFamilyModel> AllFonts { get; }
+
+        [JsonIgnore]
+        public ObservableCollection<DefaultLanguageModel> DefaultLanguages { get; }
 
         [JsonIgnore]
         public Action<double> AfterTintOpacityChanged

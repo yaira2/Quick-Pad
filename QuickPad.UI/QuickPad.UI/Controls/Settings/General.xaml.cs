@@ -22,6 +22,7 @@ namespace QuickPad.UI.Controls.Settings
     public sealed partial class General : Page
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+        public SettingsViewModel Settings { get; } = App.Settings;
 
         public DocumentViewModel ViewModel
         {

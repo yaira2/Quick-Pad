@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    xmlns:q="using:QuickPad.Mvvm.Models"
     mc:Ignorable="d"
     d:DesignWidth="400">
 
@@ -30,10 +31,10 @@
 
             <TextBlock Text="App Language" x:Uid="AppLanguage"/>
 
-            <ComboBox Width="180" PlaceholderText="English (United State)" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+            <ComboBox Width="180" PlaceholderText="English (United State)" ItemsSource="{x:Bind Settings.DefaultLanguages, Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock/>
+                    <DataTemplate x:DataType="q:DefaultLanguageModel">
+                        <TextBlock Text="{x:Bind Name}"/>
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
