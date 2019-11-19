@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm;
-using QuickPad.MVVM.Commands;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 
