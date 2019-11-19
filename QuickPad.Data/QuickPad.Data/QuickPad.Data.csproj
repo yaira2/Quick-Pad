@@ -143,6 +143,9 @@
     <PackageReference Include="Microsoft.AppCenter.Analytics">
       <Version>2.6.1</Version>
     </PackageReference>
+    <PackageReference Include="Microsoft.AppCenter.Crashes">
+      <Version>2.6.1</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration">
       <Version>3.0.1</Version>
     </PackageReference>

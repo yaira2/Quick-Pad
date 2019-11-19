@@ -167,11 +167,9 @@ namespace QuickPad.UI.Converters
 
         public static Brush SelectionBetweenBrush(bool determiner, Brush a, Brush b) => determiner ? a : b;
 
-        public static FontFamilyModel SelectionFromString(string name, IList<FontFamilyModel> fonts)
+        public static string SelectionFromString(string name, IList<string> fonts)
         {
-            if (fonts is null)
-                return new FontFamilyModel(App.Settings.DefaultFont);
-            return fonts.FirstOrDefault(i => i.Name == name);
+            return fonts is null ? App.Settings.DefaultFont : fonts.FirstOrDefault(i => i == name);
         }
 
         public static Color GetColorFromHex(string hex)

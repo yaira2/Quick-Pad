@@ -238,7 +238,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Default File Encoding</value>
+    <value>Default File CurrentEncoding</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFileType.Text" xml:space="preserve">
@@ -484,5 +484,25 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>Zoom Out</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="DefaultFontRtf.Text" xml:space="preserve">
+    <value>Default Rich Text Font</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
+    <value>Default Rich Text Font Size</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RTF.Text" xml:space="preserve">
+    <value>Rich Text Font Settings</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheckRtfText" xml:space="preserve">
+    <value>Spell Check in Rich Text</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
+    <value>Word Wrap in Rich Text</value>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>

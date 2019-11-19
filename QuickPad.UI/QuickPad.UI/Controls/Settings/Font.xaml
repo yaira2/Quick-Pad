@@ -6,6 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
     mc:Ignorable="d"
     d:DesignWidth="400">
 
@@ -21,35 +22,54 @@
         <StackPanel>
             <TextBlock Text="Font" FontSize="20" x:Uid="Font"/>
             <TextBlock Text="Default Font" x:Uid="DefaultFont"/>
-            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" PlaceholderText="Consolas" MinWidth="170"/>
-            <TextBlock Text="Default Font Color" x:Uid="DefaultFontColor"/>
-            <!--<local:ColorSelection Margin="5,0,0,0" HorizontalAlignment="Left" x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>-->
+            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+                      SelectedItem="{x:Bind Settings.DefaultFont, Mode=TwoWay}" 
+                      ItemsSource="{x:Bind Settings.AllFonts}"
+                      PlaceholderText="{x:Bind Settings.DefaultFont}" 
+                      MinWidth="170"/>
 
             <TextBlock Text="Default Font Size" x:Uid="DefaultFontSize"/>
-            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" PlaceholderText="12" MinWidth="69">
-                <x:Int32>4</x:Int32>
-                <x:Int32>6</x:Int32>
-                <x:Int32>8</x:Int32>
-                <x:Int32>10</x:Int32>
-                <x:Int32>12</x:Int32>
-                <x:Int32>14</x:Int32>
-                <x:Int32>16</x:Int32>
-                <x:Int32>18</x:Int32>
-                <x:Int32>20</x:Int32>
-                <x:Int32>22</x:Int32>
-                <x:Int32>24</x:Int32>
-                <x:Int32>26</x:Int32>
-                <x:Int32>28</x:Int32>
-                <x:Int32>36</x:Int32>
-                <x:Int32>48</x:Int32>
-                <x:Int32>72</x:Int32>
-            </ComboBox>
+            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+                      SelectedItem="{x:Bind Settings.DefaultFontSize, Mode=TwoWay}"
+                      ItemsSource="{x:Bind Settings.AllFontSizes}"
+                      PlaceholderText="{x:Bind Settings.DefaultFontSize}" MinWidth="69"/>
 
+            <TextBlock Text="Default Font Color" x:Uid="DefaultFontColor"/>
+
+            <!--<local:ColorSelection Margin="5,0,0,0" HorizontalAlignment="Left" x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>-->
+            
             <TextBlock Text="Word Wrap" x:Uid="WordWrapSetting"/>
             <ToggleSwitch IsOn="{x:Bind Settings.WordWrap, Mode=TwoWay}"/>
 
             <TextBlock Text="Spell Check" x:Uid="SpellCheck"/>
             <ToggleSwitch IsOn="{x:Bind Settings.SpellCheck, Mode=TwoWay}"/>
+
+            <!--Rich Text Font Settings-->
+            
+            <TextBlock Text="Rich Text Font Settings" FontSize="18" x:Uid="RTF" Padding="0,10,0,0"/>
+            
+            <TextBlock Text="Default Rich Text Font" x:Uid="DefaultFontRtf"/>
+            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+                      SelectedItem="{x:Bind Settings.DefaultRtfFont, Mode=TwoWay}" 
+                      ItemsSource="{x:Bind Settings.AllFonts}"
+                      PlaceholderText="{x:Bind Settings.DefaultRtfFont}" 
+                      MinWidth="170"/>
+
+            <TextBlock Text="Default Rich Text Font Size" x:Uid="DefaultFontSizeRtf"/>
+            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+                      SelectedItem="{x:Bind Settings.DefaultFontRtfSize, Mode=TwoWay}"
+                      ItemsSource="{x:Bind Settings.AllFontSizes}"
+                      PlaceholderText="{x:Bind Settings.DefaultFontRtfSize}" 
+                      MinWidth="69"/>
+            
+            <TextBlock Text="Default Rich Text Font Color" x:Uid="DefaultFontColorRtf"/>
+            <!--<local:ColorSelection Margin="5,0,0,0" HorizontalAlignment="Left" x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>-->
+
+            <TextBlock Text="Word Wrap in Rich Text" x:Uid="WordWrapSettingRtf"/>
+            <ToggleSwitch IsOn="{x:Bind Settings.RtfWordWrap, Mode=TwoWay}"/>
+
+            <TextBlock Text="Spell Check in Rich Text" x:Uid="SpellCheckRtf"/>
+            <ToggleSwitch IsOn="{x:Bind Settings.RtfSpellCheck, Mode=TwoWay}"/>
         </StackPanel>
 
     </Grid>

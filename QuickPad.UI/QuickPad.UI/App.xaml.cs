@@ -13,6 +13,9 @@ using QuickPad.UI.Common;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
+using Microsoft.AppCenter.Crashes;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter;
 
 namespace QuickPad.UI
 {
@@ -34,6 +37,8 @@ namespace QuickPad.UI
         /// </summary>
         public App()
         {
+            AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes));
+
             Host = new HostBuilder()
                 .ConfigureAppConfiguration(builder =>
                 {

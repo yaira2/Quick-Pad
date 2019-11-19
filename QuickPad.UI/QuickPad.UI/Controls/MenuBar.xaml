@@ -195,7 +195,9 @@
                 </MenuFlyoutItem>
             </MenuBarItem>
             <MenuBarItem Title="View" AccessKey="V" x:Uid="View">
-                <MenuFlyoutItem Text="Back to Default Mode" AccessKey="D" x:Uid="BackToDefault">
+                <MenuFlyoutItem Text="Back to Default Mode" AccessKey="D" x:Uid="BackToDefault" 
+                                Command="{Binding Path=ShowCommandBarCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Back"/>
                     </MenuFlyoutItem.Icon>
