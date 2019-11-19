@@ -37,6 +37,8 @@ namespace QuickPad.UI.Controls.Settings
         public SettingsNav()
         {
             this.InitializeComponent();
+
+            SettingsFrame.Navigate(typeof(General), new SuppressNavigationTransitionInfo());
         }
 
         private void settingNavView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)

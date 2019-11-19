@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -33,6 +34,7 @@ namespace QuickPad.UI
     public sealed partial class MainPage : Page, IDocumentView
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+        public SettingsViewModel Settings => App.Settings;
 
         public MainPage()
         {
@@ -56,7 +58,14 @@ namespace QuickPad.UI
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
 
+            Settings.PropertyChanged += Settings_PropertyChanged;
+
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.OnCloseRequest;
+        }
+
+        private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            Bindings.Update();
         }
 
         private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -68,6 +77,8 @@ namespace QuickPad.UI
                     appView.Title = ViewModel.Title;
                     break;
             }
+
+            Bindings.Update();
         }
 
         private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)

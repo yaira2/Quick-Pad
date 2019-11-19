@@ -22,10 +22,11 @@ namespace QuickPad.UI
     // ReSharper disable once ArrangeTypeModifiers
     sealed partial class App 
     {
+        private static SettingsViewModel _settings;
         public static ApplicationHost Host { get; set; }
         public static ApplicationController Controller => Host?.Controller;
         public static IServiceProvider Services => Host?.Services;
-        public static SettingsViewModel Settings => Host?.Services.GetService<SettingsViewModel>();
+        public static SettingsViewModel Settings => _settings ??= Host?.Services.GetService<SettingsViewModel>();
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

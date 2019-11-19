@@ -6,7 +6,7 @@ using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using QuickPad.MVVM;
+using QuickPad.Mvvm;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -31,7 +31,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         private IServiceProvider ServiceProvider { get; }
 
-        public SettingsViewModel Settings => ServiceProvider.GetService<SettingsViewModel>();
+        //public SettingsViewModel Settings => ServiceProvider.GetService<SettingsViewModel>();
 
         public void InvokeFocusTextBox(FocusState focusState) => RequestFocusTextBox?.Invoke(focusState);
         

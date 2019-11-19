@@ -178,8 +178,12 @@
                            Key="F" />
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
-                <AppBarButton x:Uid="SettingsLabel" Label="Settings" Width="Auto" Icon="Setting"/>
-                <AppBarButton x:Uid="ExitLabel" Label="Exit" Width="Auto" Icon="Cancel"/>
+                <AppBarButton x:Uid="SettingsLabel" Label="Settings" Width="Auto" Icon="Setting"
+                              Command="{Binding Path=SettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
+                              CommandParameter="{x:Bind ViewModel}"/>
+                <AppBarButton x:Uid="ExitLabel" Label="Exit" Width="Auto" Icon="Cancel"
+                              Command="{Binding Path=ExitCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
+                              CommandParameter="{x:Bind ViewModel}"/>
             </CommandBar.SecondaryCommands>
             <AppBarButton Width="Auto" MinWidth="40" Icon="Undo"
                           Command="{Binding Path=UndoCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      

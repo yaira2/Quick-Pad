@@ -6,13 +6,14 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Markup;
 using Windows.UI.Xaml.Media;
 using System.Linq;
+using Windows.UI.Xaml.Data;
 using QuickPad.Mvvm.Models;
 using QuickPad.UI;
 using QuickPad.UI.Common;
 
 namespace QuickPad.UI.Converters
 {
-    public static class Converter
+    public class Converter : IValueConverter
     {
         public static TextWrapping BoolToTextWrap(bool input)
         {
@@ -183,10 +184,10 @@ namespace QuickPad.UI.Converters
                     return (Color)XamlBindingHelper.ConvertValue(typeof(Color), hex);
             }
             hex = hex.Replace("#", string.Empty);
-            var a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
-            var r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
-            var g = (byte)(Convert.ToUInt32(hex.Substring(4, 2), 16));
-            var b = (byte)(Convert.ToUInt32(hex.Substring(6, 2), 16));
+            var a = (byte)(System.Convert.ToUInt32(hex.Substring(0, 2), 16));
+            var r = (byte)(System.Convert.ToUInt32(hex.Substring(2, 2), 16));
+            var g = (byte)(System.Convert.ToUInt32(hex.Substring(4, 2), 16));
+            var b = (byte)(System.Convert.ToUInt32(hex.Substring(6, 2), 16));
             return Windows.UI.Color.FromArgb(a, r, g, b);
         }
 
@@ -194,5 +195,25 @@ namespace QuickPad.UI.Converters
         {
             return $"#{color.A:X2}{color.R:X2}{color.G:X2}{color.B:X2}";
         }
+
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (targetType == typeof(Visibility) && value is bool visibility) return Converter.BoolToVisibility(visibility);
+            if (targetType == typeof(TextWrapping) && value is bool textWrapping) return Converter.BoolToVisibility(textWrapping);
+            if (targetType == typeof(Color) && value is string hex) return Converter.GetColorFromHex(hex);
+            if (targetType == typeof(string) && value is Color color) return Converter.GetHexFromColor(color);
+            if (targetType == typeof(string) && value is bool overlayIcon) return Converter.SwitchBetweenOverlayIcon(overlayIcon);
+            if (targetType == typeof(SolidColorBrush) && value is Color colorBrush) return Converter.FromColorToBrush(colorBrush);
+            if (targetType == typeof(Visibility)) return Converter.ShowIfItemIsNotNull(value);
+
+            return null;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Converter() { }
     }
 }

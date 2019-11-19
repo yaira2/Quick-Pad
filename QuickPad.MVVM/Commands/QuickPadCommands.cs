@@ -1,4 +1,5 @@
-﻿using QuickPad.Mvvm.Commands.Clipboard;
+﻿using QuickPad.MVVM.Commands.Actions;
+using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.Commands.Editing;
 using QuickPad.Mvvm.ViewModels;
 
@@ -10,9 +11,10 @@ namespace QuickPad.Mvvm.Commands
         {
         }
 
-        public QuickPadCommands(PasteCommand pasteCommand)
+        public QuickPadCommands(PasteCommand pasteCommand, ShowSettingsCommand settingsCommand)
         {
             PasteCommand = pasteCommand;
+            SettingsCommand = settingsCommand;
         }
 
         public SimpleCommand<DocumentViewModel> SaveCommand { get; } = new SimpleCommand<DocumentViewModel>();
@@ -43,6 +45,6 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> JustifyCommand { get; } = new JustifyCommand();
 
       //actions
-        public SimpleCommand<DocumentViewModel> SettingsCommand { get; } = new SettingsCommand();
+        public SimpleCommand<DocumentViewModel> SettingsCommand { get; } 
     }
 }

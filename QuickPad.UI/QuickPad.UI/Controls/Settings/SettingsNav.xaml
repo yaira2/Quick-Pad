@@ -50,7 +50,7 @@
         </winui:NavigationView>
 
         <ScrollViewer Margin="0,40,0,0"  Background="{x:Bind VisualThemeSelector.CurrentItem.SolidBackgroundBrush, Mode=OneWay}">
-            <Frame x:Name="SettingsFrame" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Frame x:Name="SettingsFrame" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </ScrollViewer>
 
     </Grid>

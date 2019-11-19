@@ -11,6 +11,9 @@
     xmlns:controls2="using:QuickPad.UI.Controls.Settings"
     mc:Ignorable="d"       
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <converters:Converter x:Key="Converter" />
+    </Page.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -19,9 +22,13 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
+        <controls3:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
 
-        <controls2:SettingsNav Canvas.ZIndex="150" Visibility="{x:Bind Converters.BoolToVisibility(ViewModel.Settings.ShowSettings)}" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Stretch" HorizontalAlignment="Right"/>
+        <controls2:SettingsNav Canvas.ZIndex="150" 
+                               Visibility="{x:Bind Settings.ShowSettings, Converter={StaticResource Converter}}" 
+                               Grid.Row="1" Grid.RowSpan="3" 
+                               VerticalContentAlignment="Stretch" 
+                               HorizontalAlignment="Right"/>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
@@ -49,12 +56,12 @@
                      VerticalAlignment="Stretch" 
                      BorderBrush="{x:Null}"
                      BorderThickness="0"
-                     TextWrapping="{x:Bind converters:Converter.BoolToTextWrap(ViewModel.Settings.WordWrap), Mode=OneWay}" 
-                     IsSpellCheckEnabled="{x:Bind ViewModel.Settings.SpellCheck, Mode=OneWay}" 
+                     TextWrapping="{x:Bind converters:Converter.BoolToTextWrap(Settings.WordWrap), Mode=OneWay}" 
+                     IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
-                     Background="{x:Bind converters:Converter.SelectionBetweenBrush(ViewModel.Settings.PreventText1ChangeColor, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                     Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.PreventText1ChangeColor, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
-                     FontSize="{x:Bind ViewModel.Settings.DefaultFontSize, Mode=OneWay}"
+                     FontSize="{x:Bind Settings.DefaultFontSize, Mode=OneWay}"
                      />
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
