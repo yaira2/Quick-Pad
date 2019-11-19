@@ -253,7 +253,9 @@
                 </ToggleMenuFlyoutItem>
             </MenuBarItem>
             <MenuBarItem Title="Help" AccessKey="H" x:Uid="Help">
-                <MenuFlyoutItem Text="Settings" AccessKey="S" x:Uid="Settings">
+                <MenuFlyoutItem Text="Settings" AccessKey="S" x:Uid="Settings" 
+                        Command="{Binding Path=SettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
+                        CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Setting"/>
                     </MenuFlyoutItem.Icon>
