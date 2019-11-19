@@ -8,7 +8,7 @@
       <group id="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="AcrylicOptions.Text" translate="yes" xml:space="preserve">
           <source>Acrylic Options</source>
-          <target state="new">Acrylic Options</target>
+          <target state="translated">AAA</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AcrylicTintOpacity.Text" translate="yes" xml:space="preserve">
