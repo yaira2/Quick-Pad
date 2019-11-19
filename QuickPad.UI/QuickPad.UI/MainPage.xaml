@@ -10,39 +10,44 @@
     xmlns:controls2="using:QuickPad.UI.Controls.Settings"
     mc:Ignorable="d"       
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+    <SplitView>
+        <SplitView.Pane>
+            <Grid>
+                <controls2:SettingsNav Canvas.ZIndex="150" ViewModel="{x:Bind ViewModel}" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Stretch" HorizontalAlignment="Right"/>
+            </Grid>
+        </SplitView.Pane>
+        <SplitView.Content>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
 
-        <controls:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
-        
-        <controls2:SettingsNav Canvas.ZIndex="150" Visibility="Collapsed" ViewModel="{x:Bind ViewModel}" Grid.Row="1" Grid.RowSpan="3" VerticalContentAlignment="Stretch" HorizontalAlignment="Right"/>
+                <controls:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
 
-        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
                                   OffsetX="0"
                                   OffsetY="1"
                                   Grid.Row="1"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
-            <controls:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
-        </controls1:DropShadowPanel>
+                    <controls:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
+                </controls1:DropShadowPanel>
 
-        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"                                  
                                   Grid.Row="2"
                                   HorizontalAlignment="Right"
                                   VerticalAlignment="Top"
                                   Margin="15"
                                   Visibility="Collapsed">
-            <controls:FindAndReplace Canvas.ZIndex="100"  ViewModel="{x:Bind ViewModel}"/>
-        </controls1:DropShadowPanel>
+                    <controls:FindAndReplace Canvas.ZIndex="100"  ViewModel="{x:Bind ViewModel}"/>
+                </controls1:DropShadowPanel>
 
-        <RichEditBox x:Name="RichEditBox" 
+                <RichEditBox x:Name="RichEditBox" 
                      Style="{StaticResource RichEditBox}" 
                      Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"  
                      Grid.Row="2" 
@@ -52,15 +57,17 @@
                      BorderThickness="0"
                      TextWrapping="NoWrap"/>
 
-        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
                                   OffsetX="0"
                                   OffsetY="1"
                                   Grid.Row="3"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
-            <controls:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" HorizontalAlignment="Stretch"/>
-        </controls1:DropShadowPanel>
+                    <controls:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" HorizontalAlignment="Stretch"/>
+                </controls1:DropShadowPanel>
 
-    </Grid>
+            </Grid>
+        </SplitView.Content>
+    </SplitView>
 </Page>
