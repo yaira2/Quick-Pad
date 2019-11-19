@@ -11,7 +11,7 @@ namespace QuickPad.Mvvm.ViewModels
     {
         private bool _showSettings;
         private double _defaultFontSize = 14.0;
-        private bool _preventText1ChangeColor = true;
+        private bool _useAcrylic = true;
         private bool _wordWrap = true;
         private bool _spellCheck = true;
         private string _defaultFont = "Times New Roman";
@@ -20,9 +20,8 @@ namespace QuickPad.Mvvm.ViewModels
         private double _backgroundTintOpacity = 0.75;
         private string _customThemeId;
         private Action<double> _afterTintOpacityChanged;
-        public SettingsViewModel() : base(null) { }
 
-        public SettingsViewModel(ILogger logger) : base(logger)
+        public SettingsViewModel(ILogger<SettingsViewModel> logger) : base(logger)
         {
             AllFonts = new ObservableCollection<FontFamilyModel>(
                 CanvasTextFormat.GetSystemFontFamilies()
@@ -47,7 +46,11 @@ namespace QuickPad.Mvvm.ViewModels
         public double BackgroundTintOpacity
         {
             get => _backgroundTintOpacity;
-            set => Set(ref _backgroundTintOpacity, value);
+            set
+            {
+                Set(ref _backgroundTintOpacity, value);
+                AfterTintOpacityChanged?.Invoke(value);
+            }
         }
 
         public bool PasteTextOnly
@@ -80,10 +83,10 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _wordWrap, value);
         }
 
-        public bool PreventText1ChangeColor     
+        public bool UseAcrylic     
         {
-            get => _preventText1ChangeColor;
-            set => Set(ref _preventText1ChangeColor, value);
+            get => _useAcrylic;
+            set => Set(ref _useAcrylic, value);
         }
 
         public double DefaultFontSize

@@ -80,7 +80,6 @@ namespace QuickPad.UI
                 this.Resources.Remove(nameof(QuickPadCommands));
                 this.Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
 
-                this.Resources.Remove(nameof(SettingsViewModel));
                 this.Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
 
                 // Place the frame in the current Window

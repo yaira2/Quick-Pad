@@ -60,7 +60,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? "")} ").Trim();
+        public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? "Untitled")} ").Trim();
 
         public void TextChanged(object sender, RoutedEventArgs e)
         {

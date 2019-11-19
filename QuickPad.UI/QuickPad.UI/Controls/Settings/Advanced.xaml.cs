@@ -22,20 +22,12 @@ namespace QuickPad.UI.Controls.Settings
     public sealed partial class Advanced : Page
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
-
-        public DocumentViewModel ViewModel
-        {
-            get => DataContext as DocumentViewModel;
-            set
-            {
-                if (value == null || DataContext == value) return;
-                DataContext = value;
-            }
-        }
+        public SettingsViewModel Settings { get; } = App.Settings;
 
         public Advanced()
         {
             this.InitializeComponent();
+            DataContext = Settings;
         }
     }
 }

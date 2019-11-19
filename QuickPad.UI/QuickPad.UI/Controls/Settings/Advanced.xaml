@@ -7,8 +7,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+    xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
     mc:Ignorable="d"
-    d:DesignWidth="400">
+    d:DesignWidth="400" d:DataContext="{viewModels:SettingsViewModel }">
 
     <Grid Margin="20,0,20,20">
         <Grid.Resources>
@@ -24,10 +25,10 @@
 
             <TextBlock x:Uid="AcrylicOptions" Text="Acrylic Options" FontSize="16"/>
             <TextBlock x:Uid="UseAcrylicOnTextBox" Text="Use acrylic background for the text area"/>
-            <ToggleSwitch/>
+            <ToggleSwitch IsOn="{Binding UseAcrylic, Mode=TwoWay}" />
 
             <TextBlock x:Uid="AcrylicTintOpacity" Text="Acrylic tint opacity"/>
-            <Slider Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left"/>
+            <Slider Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left" Value="{Binding BackgroundTintOpacity, Mode=TwoWay}"/>
 
             <TextBlock x:Uid="PasteOptions" Text="Paste Options" FontSize="16"/>
             <TextBlock x:Uid="KeepTextOnly" Text="Keep text only"/>
