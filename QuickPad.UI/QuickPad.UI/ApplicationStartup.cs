@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvc;
 using QuickPad.Mvvm.Commands;
-using QuickPad.MVVM.Commands.Actions;
+using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;

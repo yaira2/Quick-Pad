@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
-using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.MVVM.Commands.Actions
+namespace QuickPad.Mvvm.Commands.Actions
 {
     public class ShowSettingsCommand : SimpleCommand<DocumentViewModel>
     {

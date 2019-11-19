@@ -171,7 +171,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QuickPad.Data\QuickPad.Data\QuickPad.Data.csproj">
+    <ProjectReference Include="..\..\QuickPad.Data\QuickPad.Data\QuickPad.Data.csproj">
       <Project>{4092441f-4f90-4df6-b68c-6ec27ac22ca2}</Project>
       <Name>QuickPad.Data</Name>
     </ProjectReference>
