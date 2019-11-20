@@ -202,7 +202,9 @@
                         <SymbolIcon Symbol="Back"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Focus Mode" AccessKey="F" x:Uid="Focus Mode">
+                <MenuFlyoutItem Text="Focus Mode" AccessKey="F" x:Uid="Focus Mode"
+                                Command="{Binding Path=FocusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
+                                CommandParameter="{x:Bind Settings}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Caption"/>
                     </MenuFlyoutItem.Icon>
