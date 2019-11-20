@@ -66,7 +66,7 @@ namespace QuickPad.UI
 
             Task.Run(ViewModel.InitNewDocument).Wait();
 
-            ViewModel.ExitApplication = ExitApplication;
+            ViewModel.ExitApplication = ExitApp;
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
 
@@ -121,7 +121,7 @@ namespace QuickPad.UI
             Settings.NotDeferred = true;
         }
 
-        private void ExitApplication()
+        private void ExitApp()
         {
             var ttv = this.TransformToVisual(Window.Current.Content);
             var windowCoords = ttv.TransformPoint(new Point());
@@ -175,16 +175,20 @@ namespace QuickPad.UI
             Bindings.Update();
         }
 
-        private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
+        private async void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
             ViewModel.Deferral = e.GetDeferral();
 
-            Commands.ExitCommand.Execute(ViewModel);
-
-            e.Handled = !ViewModel.Deferred;
+            if (ExitApplication == null) ViewModel.Deferral.Complete();
+            else
+            {
+                e.Handled = !(await ExitApplication(ViewModel));
+                if (e.Handled) ViewModel.Deferral.Dispose();
+            }
         }
 
         public DocumentViewModel ViewModel { get; set; }
         public event Action<IDocumentView, QuickPadCommands> Initialize;
+        public event Func<DocumentViewModel, Task<bool>> ExitApplication;
     }
 }

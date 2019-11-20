@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation.Metadata;
 using Windows.Storage.Pickers;
+using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
@@ -71,9 +73,15 @@ namespace QuickPad.Mvc
                     _views.Add(view);
 
                     documentView.Initialize += DocumentInitializer;
+                    documentView.ExitApplication += DocumentViewExitApplication;
 
                     break;
             }
+        }
+
+        private Task<bool> DocumentViewExitApplication(DocumentViewModel documentViewModel)
+        {
+            return ExitApp(documentViewModel);
         }
 
         private void DocumentInitializer(IDocumentView documentView, QuickPadCommands commands)
@@ -99,20 +107,21 @@ namespace QuickPad.Mvc
             return Task.CompletedTask;
         }
 
-        private async Task ExitApplication(DocumentViewModel documentViewModel)
+        private Task ExitApplication(DocumentViewModel documentViewModel)
+        {
+            return ExitApp(documentViewModel);
+        }
+
+        private Task<bool> ExitApp(DocumentViewModel documentViewModel)
         {
             Settings.ShowSettings = false;
 
-            if (documentViewModel.IsDirty)
-            {
-                await AskSaveDocument(documentViewModel);
-            }
-            else
-            {
-                Close(documentViewModel);
-            }
+            return documentViewModel.IsDirty ? 
+                AskSaveDocument(documentViewModel) : 
+                Task.FromResult(Close(documentViewModel));
         }
-        private void Close(DocumentViewModel documentViewModel)
+
+        private bool Close(DocumentViewModel documentViewModel)
         {
             if (documentViewModel.Deferral != null)
             {
@@ -123,15 +132,26 @@ namespace QuickPad.Mvc
             else
             {
                 Settings.NotDeferred = true;
+                documentViewModel.Deferred = false;
                 documentViewModel.ExitApplication?.Invoke();
             }
+
+            return documentViewModel.Deferred;
         }
 
-        private async Task AskSaveDocument(DocumentViewModel documentViewModel)
+        private async Task<bool> AskSaveDocument(DocumentViewModel documentViewModel)
         {
-            if (!documentViewModel.IsDirty) return;
+            if (!documentViewModel.IsDirty) return Close(documentViewModel);
 
-            var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+            ResourceLoader resourceLoader = null;
+
+            Task Handler()
+            {
+                resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+                return Task.CompletedTask;
+            }
+
+            await documentViewModel.Dispatch(Handler);
 
             var title = resourceLoader.GetString("PendingChangesTitle");
             var content = resourceLoader.GetString("PendingChangesBody");
@@ -151,14 +171,12 @@ namespace QuickPad.Mvc
 
             var dialog = new MessageDialog(content, title)
             {
-                Options = MessageDialogOptions.None
-                , DefaultCommandIndex = 0
-                , CancelCommandIndex = 0
+                Options = MessageDialogOptions.None, DefaultCommandIndex = 0, CancelCommandIndex = 0
             };
 
             dialog.Commands.Add(yesCommand);
             dialog.Commands.Add(noCommand);
-            dialog.CancelCommandIndex = (uint)dialog.Commands.Count - 1;
+            dialog.CancelCommandIndex = (uint) dialog.Commands.Count - 1;
 
             if (ApiInformation.IsTypePresent(HARDWARE_BACK_BUTTON))
             {
@@ -176,6 +194,8 @@ namespace QuickPad.Mvc
             {
                 cancelCommand.Invoked(cancelCommand);
             }
+
+            return documentViewModel.Deferred;
         }
 
         private async Task LoadDocument(DocumentViewModel documentViewModel)
