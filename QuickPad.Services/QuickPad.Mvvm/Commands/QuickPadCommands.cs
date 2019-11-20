@@ -13,12 +13,13 @@ namespace QuickPad.Mvvm.Commands
 
         public QuickPadCommands(PasteCommand pasteCommand, ShowSettingsCommand settingsCommand
             , ShowCommandBarCommand showCommandBarCommand
-            , ShowMenusCommand showMenusCommand)
+            , ShowMenusCommand showMenusCommand, FocusCommand focusCommand)
         {
             PasteCommand = pasteCommand;
             SettingsCommand = settingsCommand;
             ShowCommandBarCommand = showCommandBarCommand;
             ShowMenusCommand = showMenusCommand;
+            FocusCommand = focusCommand;
         }
 
         public SimpleCommand<DocumentViewModel> SaveCommand { get; } = new SimpleCommand<DocumentViewModel>();
@@ -52,5 +53,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> SettingsCommand { get; }
         public SimpleCommand<DocumentViewModel> ShowCommandBarCommand { get; }
         public SimpleCommand<DocumentViewModel> ShowMenusCommand { get; }
+        public SimpleCommand<DocumentViewModel> FocusCommand { get; }
+
     }
 }

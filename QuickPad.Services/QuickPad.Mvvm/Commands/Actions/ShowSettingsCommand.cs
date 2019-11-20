@@ -53,4 +53,20 @@ namespace QuickPad.Mvvm.Commands.Actions
         }
     }
 
+    public class FocusCommand : SimpleCommand<DocumentViewModel>
+    {
+        public FocusCommand(IServiceProvider serviceProvider)
+        {
+            Executioner = viewModel =>
+            {
+                var settings = serviceProvider.GetService<SettingsViewModel>();
+
+                //open settings page
+                settings.CurrentMode = "Focus Mode";
+
+                return Task.CompletedTask;
+            };
+        }
+    }
+
 }

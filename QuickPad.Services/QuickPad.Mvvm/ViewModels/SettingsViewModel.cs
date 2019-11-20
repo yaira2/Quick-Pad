@@ -208,5 +208,8 @@ namespace QuickPad.Mvvm.ViewModels
         public bool ShowMenu => CurrentMode.Equals("Classic Mode", StringComparison.InvariantCultureIgnoreCase);
 
         public bool ShowCommandBar => CurrentMode.Equals("Default", StringComparison.InvariantCultureIgnoreCase);
+
+        public bool FocusMode => CurrentMode.Equals("Focus Mode", StringComparison.InvariantCultureIgnoreCase);
+
     }
 }

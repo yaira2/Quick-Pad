@@ -17,6 +17,7 @@ namespace QuickPad.UI
             services.AddSingleton<ShowSettingsCommand, ShowSettingsCommand>();
             services.AddSingleton<ShowCommandBarCommand, ShowCommandBarCommand>();
             services.AddSingleton<ShowMenusCommand, ShowMenusCommand>();
+            services.AddSingleton<FocusCommand, FocusCommand>();
             services.AddSingleton<QuickPadCommands, QuickPadCommands>();
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();
