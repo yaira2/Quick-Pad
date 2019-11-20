@@ -30,7 +30,7 @@ namespace QuickPad.Mvvm.Commands
 
         public event EventHandler CanExecuteChanged;
 
-        protected void InvokeCanExecuteChanged(object sender)
+        protected internal void InvokeCanExecuteChanged(object sender)
         {
             CanExecuteChanged?.Invoke(sender, EventArgs.Empty);
         }

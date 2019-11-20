@@ -505,4 +505,24 @@
     <value>Word Wrap in Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="NoButton" xml:space="preserve">
+    <value>No</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesBody" xml:space="preserve">
+    <value>There are unsaved changes.  Do you want to save them now?</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesTitle" xml:space="preserve">
+    <value>Pending Changes</value>
+    <comment>Used on Save Document Dialog</comment>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>Yes</value>
+    <comment>Used on Save Document</comment>
+  </data>
 </root>

@@ -10,6 +10,8 @@ namespace QuickPad.UI.Controls
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
 
+        public SettingsViewModel Settings => App.Settings;
+
         public DocumentViewModel ViewModel
         {
             get => DataContext as DocumentViewModel;

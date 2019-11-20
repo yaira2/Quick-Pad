@@ -2,6 +2,7 @@
 using System.Security.Cryptography;
 using System.Text;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +26,7 @@ namespace QuickPad.Mvvm.ViewModels
         private string _currentFontName;
         private double _currentFontSize;
         private string _currentFileType;
+        private bool _currentWordWrap;
 
         private SettingsViewModel Settings { get; }
 
@@ -90,6 +92,12 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _currentFontSize, value);
         }
 
+        public bool CurrentWordWrap
+        {
+            get => _currentWordWrap;
+            set => Set(ref _currentWordWrap, value);
+        }
+
         public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? "Untitled")} ").Trim();
 
         public void TextChanged(object sender, RoutedEventArgs e)
@@ -126,6 +134,7 @@ namespace QuickPad.Mvvm.ViewModels
 
             OnPropertyChanged(nameof(IsDirty));
             OnPropertyChanged(nameof(Title));
+            OnPropertyChanged(nameof(Text));
         }
 
         public StorageFile File
@@ -145,14 +154,18 @@ namespace QuickPad.Mvvm.ViewModels
             HoldUpdates();
 
             File = null;
-            Text = "";
             IsDirty = false;
+
             SetEncoding(Settings.DefaultEncoding);
             CurrentFileType = Settings.DefaultFileType;
             CurrentFontName =
                 CurrentFileType == ".rtf" ? Settings.DefaultRtfFont : Settings.DefaultFont;
             CurrentFontSize =
                 CurrentFileType == ".rtf" ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
+            CurrentWordWrap =
+                CurrentFileType == ".rtf" ? Settings.RtfWordWrap : Settings.WordWrap;
+
+            Document?.LoadFromStream(SetOption, new InMemoryRandomAccessStream());
 
             ReleaseUpdates();
 
@@ -160,6 +173,7 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         public Action<DocumentViewModel> Initialize { get; set; }
+        public Action ExitApplication { get; set; }
 
         public void NotifyAll()
         {

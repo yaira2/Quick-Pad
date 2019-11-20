@@ -197,7 +197,7 @@
             <MenuBarItem Title="View" AccessKey="V" x:Uid="View">
                 <MenuFlyoutItem Text="Back to Default Mode" AccessKey="D" x:Uid="BackToDefault" 
                                 Command="{Binding Path=ShowCommandBarCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
-                                CommandParameter="{x:Bind ViewModel}">
+                                CommandParameter="{x:Bind Settings}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Back"/>
                     </MenuFlyoutItem.Icon>
@@ -257,7 +257,7 @@
             <MenuBarItem Title="Help" AccessKey="H" x:Uid="Help">
                 <MenuFlyoutItem Text="Settings" AccessKey="S" x:Uid="Settings" 
                         Command="{Binding Path=SettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
-                        CommandParameter="{x:Bind ViewModel}">
+                        CommandParameter="{x:Bind Settings}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Setting"/>
                     </MenuFlyoutItem.Icon>

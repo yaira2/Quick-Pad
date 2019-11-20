@@ -5,14 +5,14 @@ using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
-    public class ShowSettingsCommand : SimpleCommand<SettingsViewModel>
+    public class ShowMenusCommand : SimpleCommand<SettingsViewModel>
     {
-        public ShowSettingsCommand()
+        public ShowMenusCommand()
         {
             Executioner = settings =>
             {
                 //open settings page
-                settings.ShowSettings = !settings.ShowSettings;
+                settings.CurrentMode = "Classic Mode";
 
                 return Task.CompletedTask;
             };

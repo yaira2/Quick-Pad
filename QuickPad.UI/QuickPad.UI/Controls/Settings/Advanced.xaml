@@ -40,9 +40,9 @@
 
             <TextBlock x:Uid="ManageSettings" Text="Manage Settings" FontSize="16"/>
             <StackPanel Orientation="Horizontal">
-                <Button x:Uid="Import" Content="Import" />
-                <Button x:Uid="Export" Content="Export" Margin="5,2"/>
-                <Button x:Uid="Reset" Content="Reset"/>
+                <Button x:Uid="Import" Content="Import" Command="{Binding Path=ImportSettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" CommandParameter="{x:Bind Settings}" />
+                <Button x:Uid="Export" Content="Export" Margin="5,2" Command="{Binding Path=ExportSettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" CommandParameter="{x:Bind Settings}" />
+                <Button x:Uid="Reset" Content="Reset" Command="{Binding Path=ResetSettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" CommandParameter="{x:Bind Settings}" />
             </StackPanel>
         </StackPanel>
 

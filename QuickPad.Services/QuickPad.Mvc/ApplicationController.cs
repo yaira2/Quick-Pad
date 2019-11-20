@@ -101,15 +101,12 @@ namespace QuickPad.Mvc
 
         private async Task ExitApplication(DocumentViewModel documentViewModel)
         {
+            Settings.ShowSettings = false;
+
             if (documentViewModel.IsDirty)
                 await AskSaveDocument(documentViewModel);
-            else
-                ExitApplication();
-        }
 
-        private static void ExitApplication()
-        {
-            Application.Current.Exit();
+            documentViewModel.ExitApplication?.Invoke();
         }
 
         private async Task AskSaveDocument(DocumentViewModel documentViewModel)
@@ -119,14 +116,14 @@ namespace QuickPad.Mvc
             var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
 
             var title = resourceLoader.GetString("PendingChangesTitle");
-            var content = resourceLoader.GetString("PendingChangesTitle");
-            var yes = resourceLoader.GetString("Yes");
-            var no = resourceLoader.GetString("No");
-            var cancel = resourceLoader.GetString("Cancel");
+            var content = resourceLoader.GetString("PendingChangesBody");
+            var yes = resourceLoader.GetString("YesButton");
+            var no = resourceLoader.GetString("NoButton");
+            var cancel = resourceLoader.GetString("CancelButton");
 
-            var yesCommand = new UICommand(yes, async cmd => { await SaveDocument(documentViewModel); });
-            var noCommand = new UICommand(no, cmd => { ExitApplication(); });
-            var cancelCommand = new UICommand(cancel, cmd => { });
+            var yesCommand = new UICommand(yes, async _ => { await SaveDocument(documentViewModel); });
+            var noCommand = new UICommand(no, _ => { documentViewModel.ExitApplication?.Invoke(); });
+            var cancelCommand = new UICommand(cancel, _ => { });
 
             var dialog = new MessageDialog(content, title)
             {

@@ -14,9 +14,6 @@ namespace QuickPad.UI
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<PasteCommand, PasteCommand>();
-            services.AddSingleton<ShowSettingsCommand, ShowSettingsCommand>();
-            services.AddSingleton<ShowCommandBarCommand, ShowCommandBarCommand>();
-            services.AddSingleton<ShowMenusCommand, ShowMenusCommand>();
             services.AddSingleton<QuickPadCommands, QuickPadCommands>();
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();

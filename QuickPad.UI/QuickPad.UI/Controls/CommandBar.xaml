@@ -5,10 +5,22 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+    xmlns:converters="using:QuickPad.UI.Converters"
+    xmlns:local="using:QuickPad.UI"
     mc:Ignorable="d"
     d:DesignHeight="40"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
-    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
+    <UserControl.Resources>
+        <DataTemplate x:Key="FontFamilyComboBoxItem">
+            <TextBlock Text="{Binding}" FontFamily="{Binding}" Margin="2,2,2,2" FontSize="12"/>
+        </DataTemplate>
+        <DataTemplate x:Key="FontSizeComboBoxItem">
+            <TextBlock Text="{Binding}" Margin="2,2,2,2" FontSize="{Binding}"/>
+        </DataTemplate>
+    </UserControl.Resources>
+    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
             <AppBarButton x:Uid="NewLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" 
                           Command="{Binding Path=NewDocumentCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" 
@@ -54,16 +66,55 @@
             </AppBarButton>
             <AppBarSeparator/>
             <AppBarButton x:Name="FontDropdown" LabelPosition="Collapsed" Width="Auto">
+                <AppBarButton.Resources>
+                    <controls:TeachingTip x:Name="FontOptionTip"
+                                               Target="{x:Bind FontDropdown}"
+                                               x:Uid="FontOptionTip"
+                                               CloseButtonCommand="{Binding AcknowledgeFontSelectionChangeCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                               CloseButtonCommandParameter="{x:Bind Settings}">
+                    </controls:TeachingTip>
+                </AppBarButton.Resources>
                 <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
-                    <TextBlock FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                    <TextBlock Text="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
+                <AppBarButton.Flyout>
+                    <Flyout w10v1809:Placement="BottomEdgeAlignedLeft" Opened="OpenFontFlyout">
+                        <Flyout.FlyoutPresenterStyle>
+                            <Style TargetType="FlyoutPresenter">
+                                <Setter Property="Padding" Value="0"/>
+                            </Style>
+                        </Flyout.FlyoutPresenterStyle>
+                        <ListView Width="250" Height="350"
+                                          x:Name="FontListSelection"
+                                          Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+                                          ItemsSource="{x:Bind Settings.AllFonts, Mode=OneWay}"
+                                          ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
+                                          CharacterReceived="TryToFindFont"
+                                          SelectedItem="{x:Bind ViewModel.CurrentFontName, Mode=TwoWay}"/>
+                    </Flyout>
+                </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Name="FontSizeDropdown" LabelPosition="Collapsed" MinWidth="75" Width="Auto">
                 <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
-                    <TextBlock FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                    <TextBlock Text="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
+                <AppBarButton.Flyout>
+                    <Flyout w10v1809:Placement="BottomEdgeAlignedLeft" Opened="OpenFontSizeFlyout">
+                        <Flyout.FlyoutPresenterStyle>
+                            <Style TargetType="FlyoutPresenter">
+                                <Setter Property="Padding" Value="0"/>
+                            </Style>
+                        </Flyout.FlyoutPresenterStyle>
+                        <ListView Width="250" Height="350"
+                                  x:Name="FontSizeListSelection"
+                                  Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+                                  ItemsSource="{x:Bind Settings.AllFontSizes, Mode=OneWay}"
+                                  ItemTemplate="{StaticResource FontSizeComboBoxItem}"
+                                  SelectedItem="{x:Bind ViewModel.CurrentFontSize, Mode=TwoWay}"/>
+                    </Flyout>
+                </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Uid="ColorLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed">
                 <ToolTipService.ToolTip>
@@ -162,7 +213,7 @@
                 <AppBarButton x:Uid="FocusModeLabel" Label="Focus Mode" Width="Auto" Icon="Caption"/>
                 <AppBarButton x:Uid="ClassicModeLabel" Label="Classic Mode" Width="Auto" 
                               Command="{Binding Path=ShowMenusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
-                              CommandParameter="{x:Bind ViewModel}">
+                              CommandParameter="{x:Bind Settings}">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE8C5;" />
                     </AppBarButton.Icon>
@@ -182,7 +233,7 @@
                 </AppBarButton>
                 <AppBarButton x:Uid="SettingsLabel" Label="Settings" Width="Auto" Icon="Setting"
                               Command="{Binding Path=SettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
-                              CommandParameter="{x:Bind ViewModel}"/>
+                              CommandParameter="{x:Bind Settings}"/>
                 <AppBarButton x:Uid="ExitLabel" Label="Exit" Width="Auto" Icon="Cancel"
                               Command="{Binding Path=ExitCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
                               CommandParameter="{x:Bind ViewModel}"/>

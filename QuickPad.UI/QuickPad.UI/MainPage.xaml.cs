@@ -17,8 +17,12 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core.Preview;
 using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
+using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI;
+using Windows.UI.Core;
+using Windows.UI.Popups;
+using Windows.UI.WindowManagement;
 using QuickPad.Mvc;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
@@ -35,13 +39,16 @@ namespace QuickPad.UI
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
         public SettingsViewModel Settings => App.Settings;
+        private QuickPadCommands Commands => App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
 
         public MainPage()
         {
             App.Controller.AddView(this);
-            Initialize?.Invoke(this, Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands);
+            Initialize?.Invoke(this, Commands);
 
             this.InitializeComponent();
+
+            Loaded += OnLoaded;
 
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
@@ -54,6 +61,8 @@ namespace QuickPad.UI
 
             DataContext = ViewModel;
 
+            ViewModel.ExitApplication = ExitApplication;
+
             ViewModel.InitNewDocument();
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
@@ -61,6 +70,48 @@ namespace QuickPad.UI
             Settings.PropertyChanged += Settings_PropertyChanged;
 
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.OnCloseRequest;
+        }
+
+        private async void OnLoaded(object sender, RoutedEventArgs e)
+        {
+            if (!Settings.IsFullScreenMode)
+            {
+                var ttv = this.TransformToVisual(Window.Current.Content);
+                var windowBounds =
+                    ttv.TransformBounds(new Rect(Settings.Left, Settings.Top, Settings.Width, Settings.Height));
+
+                if (ApplicationView.GetForCurrentView()
+                    .TryResizeView(new Size(windowBounds.Width, windowBounds.Height))) return;
+
+                var dialog = new MessageDialog($"Could not set size ({Settings.Width}, {Settings.Height}).", "UWP Refused Setting Size.");
+                await dialog.ShowAsync();
+            }
+            else
+            {
+                if (ApplicationView.GetForCurrentView().TryEnterFullScreenMode()) return;
+
+                var dialog = new MessageDialog("Could not enter full screen.", "UWP Refused Full Screen.");
+                await dialog.ShowAsync();
+            }
+        }
+
+        private void ExitApplication()
+        {
+            var ttv = this.TransformToVisual(Window.Current.Content);
+            var windowCoords = ttv.TransformPoint(new Point());
+            var screenCoordsX = windowCoords.X + ApplicationView.GetForCurrentView().VisibleBounds.Left;
+            var screenCoordsY = windowCoords.Y + ApplicationView.GetForCurrentView().VisibleBounds.Top;
+
+            var windowBounds = ttv.TransformBounds(new Rect());
+
+            Settings.Top = screenCoordsY;
+            Settings.Left = screenCoordsX;
+            Settings.Width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
+            Settings.Height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
+
+            Settings.IsFullScreenMode = ApplicationView.GetForCurrentView().IsFullScreenMode;
+
+            CoreApplication.Exit();
         }
 
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -76,6 +127,10 @@ namespace QuickPad.UI
                     var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
                     appView.Title = ViewModel.Title;
                     break;
+
+                case nameof(ViewModel.Text):
+                    Commands.NotifyChanged(ViewModel, Settings);
+                    break;
             }
 
             Bindings.Update();
@@ -84,9 +139,12 @@ namespace QuickPad.UI
         private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
             e.Handled = true;
-            var commands = Application.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
-            commands.ExitCommand.Execute(ViewModel);
-            App.Settings.ShowSettings = false;
+            
+            Commands.ExitCommand.Execute(ViewModel);
+
+            var deferral = e.GetDeferral();
+
+            deferral.Complete();
         }
 
         public DocumentViewModel ViewModel { get; set; }
