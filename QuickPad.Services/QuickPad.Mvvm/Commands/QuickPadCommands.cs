@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Reflection;
-using QuickPad.Mvvm.Commands.Actions;
+﻿using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.Commands.Editing;
 using QuickPad.Mvvm.ViewModels;
@@ -13,9 +11,15 @@ namespace QuickPad.Mvvm.Commands
         {
         }
 
-        public QuickPadCommands(PasteCommand pasteCommand)
+        public QuickPadCommands(PasteCommand pasteCommand, ShowSettingsCommand settingsCommand
+            , ShowCommandBarCommand showCommandBarCommand
+            , ShowMenusCommand showMenusCommand, FocusCommand focusCommand)
         {
             PasteCommand = pasteCommand;
+            SettingsCommand = settingsCommand;
+            ShowCommandBarCommand = showCommandBarCommand;
+            ShowMenusCommand = showMenusCommand;
+            FocusCommand = focusCommand;
         }
 
         public SimpleCommand<DocumentViewModel> SaveCommand { get; } = new SimpleCommand<DocumentViewModel>();
@@ -46,25 +50,10 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> JustifyCommand { get; } = new JustifyCommand();
 
       //actions
-        public SimpleCommand<SettingsViewModel> SettingsCommand { get; } = new ShowSettingsCommand();
-        public SimpleCommand<SettingsViewModel> ShowCommandBarCommand { get; } = new ShowCommandBarCommand();
-        public SimpleCommand<SettingsViewModel> ShowMenusCommand { get; } = new ShowMenusCommand();
-        public SimpleCommand<SettingsViewModel> ResetSettingsCommand { get; } = new ResetSettingsCommand();
-        public SimpleCommand<SettingsViewModel> ImportSettingsCommand { get; } = new ImportSettingsCommand();
-        public SimpleCommand<SettingsViewModel> ExportSettingsCommand { get; } = new ExportSettingsCommand();
-        public SimpleCommand<SettingsViewModel> AcknowledgeFontSelectionChangeCommand { get; } = new AcknowledgeFontSelectionChangeCommand();
+        public SimpleCommand<DocumentViewModel> SettingsCommand { get; }
+        public SimpleCommand<DocumentViewModel> ShowCommandBarCommand { get; }
+        public SimpleCommand<DocumentViewModel> ShowMenusCommand { get; }
+        public SimpleCommand<DocumentViewModel> FocusCommand { get; }
 
-        public void NotifyChanged(DocumentViewModel documentViewModel, SettingsViewModel settingsViewModel)
-        {
-            GetType().GetProperties(BindingFlags.Instance | BindingFlags.Public).Where(pi => pi.PropertyType == typeof(SimpleCommand<DocumentViewModel>) || pi.PropertyType == typeof(SimpleCommand<SettingsViewModel>))
-                .ToList().ForEach(pi =>
-                {
-                    var documentCommand = pi.GetValue(this) as SimpleCommand<DocumentViewModel>;
-                    documentCommand?.InvokeCanExecuteChanged(documentViewModel);
-
-                    var settingsCommand = pi.GetValue(this) as SimpleCommand<SettingsViewModel>;
-                    settingsCommand?.InvokeCanExecuteChanged(settingsViewModel);
-                });
-        }
     }
 }

@@ -5,12 +5,14 @@ using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
-    public class ShowSettingsCommand : SimpleCommand<SettingsViewModel>
+    public class ShowSettingsCommand : SimpleCommand<DocumentViewModel>
     {
-        public ShowSettingsCommand()
+        public ShowSettingsCommand(IServiceProvider serviceProvider)
         {
-            Executioner = settings =>
+            Executioner = viewModel =>
             {
+                var settings = serviceProvider.GetService<SettingsViewModel>();
+
                 //open settings page
                 settings.ShowSettings = !settings.ShowSettings;
 
@@ -18,4 +20,53 @@ namespace QuickPad.Mvvm.Commands.Actions
             };
         }
     }
+
+    public class ShowCommandBarCommand : SimpleCommand<DocumentViewModel>
+    {
+        public ShowCommandBarCommand(IServiceProvider serviceProvider)
+        {
+            Executioner = viewModel =>
+            {
+                var settings = serviceProvider.GetService<SettingsViewModel>();
+
+                //open settings page
+                settings.CurrentMode = "Default";
+
+                return Task.CompletedTask;
+            };
+        }
+    }
+
+    public class ShowMenusCommand : SimpleCommand<DocumentViewModel>
+    {
+        public ShowMenusCommand(IServiceProvider serviceProvider)
+        {
+            Executioner = viewModel =>
+            {
+                var settings = serviceProvider.GetService<SettingsViewModel>();
+
+                //open settings page
+                settings.CurrentMode = "Classic Mode";
+
+                return Task.CompletedTask;
+            };
+        }
+    }
+
+    public class FocusCommand : SimpleCommand<DocumentViewModel>
+    {
+        public FocusCommand(IServiceProvider serviceProvider)
+        {
+            Executioner = viewModel =>
+            {
+                var settings = serviceProvider.GetService<SettingsViewModel>();
+
+                //open settings page
+                settings.CurrentMode = "Focus Mode";
+
+                return Task.CompletedTask;
+            };
+        }
+    }
+
 }
