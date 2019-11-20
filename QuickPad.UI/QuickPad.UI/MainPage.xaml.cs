@@ -26,6 +26,7 @@ using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Popups;
 using Windows.UI.WindowManagement;
+using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
@@ -43,9 +44,13 @@ namespace QuickPad.UI
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
         public SettingsViewModel Settings => App.Settings;
         private QuickPadCommands Commands => App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
+        private ILogger<MainPage> Logger { get; }
 
-        public MainPage()
+        public MainPage(ILogger<MainPage> logger, DocumentViewModel viewModel)
         {
+            Logger = logger;
+            ViewModel = viewModel;
+
             App.Controller.AddView(this);
             Initialize?.Invoke(this, Commands);
 
@@ -79,6 +84,8 @@ namespace QuickPad.UI
 
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
+
+            SetupFocusMode(Settings.FocusMode);
         }
 
         private void CommandBarOnSetFontSize(double fontSize)
@@ -143,18 +150,26 @@ namespace QuickPad.UI
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             Bindings.Update();
-            var currentView = SystemNavigationManager.GetForCurrentView();
             switch (e.PropertyName)
             {
-                case nameof(Settings.CurrentMode) when Settings.FocusMode:
-                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
-                    var di = DisplayInformation.GetForCurrentView();
-                    Settings.BackButtonWidth = 48.0 * ((double)di.ResolutionScale / 100.0);
+                case nameof(Settings.CurrentMode):
+                    SetupFocusMode(Settings.FocusMode);
                     break;
+            }
+        }
 
-                case nameof(Settings.CurrentMode) when !Settings.FocusMode:
-                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
-                    break;
+        private void SetupFocusMode(bool enabled)
+        {
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            if (enabled)
+            {
+                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                var di = DisplayInformation.GetForCurrentView();
+                Settings.BackButtonWidth = 48.0 * ((double)di.ResolutionScale / 100.0);
+            }
+            else
+            {
+                currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
             }
         }
 
@@ -183,7 +198,17 @@ namespace QuickPad.UI
             else
             {
                 e.Handled = !(await ExitApplication(ViewModel));
-                if (e.Handled) ViewModel.Deferral.Dispose();
+                
+                if (!e.Handled) return;
+
+                try
+                {
+                    ViewModel.Deferral?.Dispose();
+                }
+                catch (ObjectDisposedException)
+                {
+                    Logger.LogDebug("Handled Deferral already disposed.");
+                }
             }
         }
 

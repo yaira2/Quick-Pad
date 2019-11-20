@@ -66,8 +66,6 @@ namespace QuickPad.Mvc
             {
                 case IDocumentView documentView:
 
-                    if (documentView.ViewModel != null) return;
-
                     if (Logger.IsEnabled(LogLevel.Debug)) Logger.LogDebug("Added IDocumentView to controller.");
 
                     _views.Add(view);
@@ -127,7 +125,13 @@ namespace QuickPad.Mvc
             {
                 Settings.NotDeferred = false;
                 documentViewModel.Deferred = true;
-                documentViewModel.Deferral.Complete();
+                try
+                {
+                    documentViewModel.Deferral.Complete();
+                }
+                catch (ObjectDisposedException)
+                {
+                }
             }
             else
             {
@@ -167,7 +171,12 @@ namespace QuickPad.Mvc
 
 
             var noCommand = new UICommand(no, _ => Close(documentViewModel));
-            var cancelCommand = new UICommand(cancel, _ => { });
+            var cancelCommand = new UICommand(cancel, _ =>
+            {
+                //documentViewModel.Deferral.Dispose();
+                //documentViewModel.Deferral = null;
+                documentViewModel.Deferred = false;
+            });
 
             var dialog = new MessageDialog(content, title)
             {

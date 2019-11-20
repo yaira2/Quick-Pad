@@ -23,6 +23,7 @@ namespace QuickPad.UI
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();
             services.AddSingleton<ApplicationController, ApplicationController>();
             services.AddTransient<VisualThemeSelector, VisualThemeSelector>();
+            services.AddSingleton<MainPage, MainPage>();
 
             // Add additional services here.
         }

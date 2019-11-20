@@ -261,23 +261,22 @@ namespace QuickPad.Mvvm.ViewModels
             set
             {
                 var previousMode = _currentMode;
-                if (Set(ref _currentMode, value))
-                {
-                    _previousMode = previousMode;
+                if (!Set(ref _currentMode, value)) return;
 
-                    OnPropertyChanged(nameof(CurrentMode));
-                    OnPropertyChanged(nameof(ShowMenu));
-                    OnPropertyChanged(nameof(ShowCommandBar));
-                    OnPropertyChanged(nameof(FocusMode));
-                    OnPropertyChanged(nameof(ShowStatusBar));
-                    OnPropertyChanged(nameof(TitleMargin));
-                }
+                _previousMode = previousMode;
+
+                OnPropertyChanged(nameof(CurrentMode));
+                OnPropertyChanged(nameof(ShowMenu));
+                OnPropertyChanged(nameof(ShowCommandBar));
+                OnPropertyChanged(nameof(FocusMode));
+                OnPropertyChanged(nameof(ShowStatusBar));
+                OnPropertyChanged(nameof(TitleMargin));
             }
         }
 
         private string _previousMode;
         [JsonIgnore]
-        public string PreviousMode => _previousMode;
+        public string PreviousMode => _previousMode ??= "Classic Mode";
 
         public bool IsFullScreenMode
         {
