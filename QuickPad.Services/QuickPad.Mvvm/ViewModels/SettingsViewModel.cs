@@ -205,11 +205,17 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _currentMode, value);
         }
 
+        [JsonIgnore]
         public bool ShowMenu => CurrentMode.Equals("Classic Mode", StringComparison.InvariantCultureIgnoreCase);
 
+        [JsonIgnore]
         public bool ShowCommandBar => CurrentMode.Equals("Default", StringComparison.InvariantCultureIgnoreCase);
 
+        [JsonIgnore]
         public bool FocusMode => CurrentMode.Equals("Focus Mode", StringComparison.InvariantCultureIgnoreCase);
+
+        [JsonIgnore]
+        public bool ShowStatusBar => CurrentMode.Equals("Classic Mode", StringComparison.InvariantCultureIgnoreCase) || CurrentMode.Equals("Default", StringComparison.InvariantCultureIgnoreCase);
 
     }
 }
