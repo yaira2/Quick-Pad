@@ -49,7 +49,7 @@
                                    Visibility="{x:Bind Settings.ShowCommandBar, Converter={StaticResource Converter}}"
                                    HorizontalAlignment="Stretch"
                                    HorizontalContentAlignment="Stretch">
-            <controls3:CommandBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
+            <controls3:CommandBar x:Name="commandBar" Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
@@ -73,9 +73,11 @@
                      Style="{StaticResource RichEditBox}"
                      Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
-                     FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
-                     FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
-                     />
+                     
+                     >
+        </RichEditBox>
+        <!--FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
+                     FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"-->
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
                                   OffsetX="0"

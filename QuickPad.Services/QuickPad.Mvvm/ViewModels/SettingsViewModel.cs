@@ -257,8 +257,19 @@ namespace QuickPad.Mvvm.ViewModels
         public string CurrentMode
         {
             get => _currentMode ??= DefaultMode;
-            set => Set(ref _currentMode, value);
+            set
+            {
+                var previousMode = _currentMode;
+                if (Set(ref _currentMode, value))
+                {
+                    _previousMode = previousMode;
+                }
+            }
         }
+
+        private string _previousMode;
+        [JsonIgnore]
+        public string PreviousMode => _previousMode;
 
         public bool IsFullScreenMode
         {
@@ -277,6 +288,12 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore] 
         public bool ShowStatusBar => ShowMenu || ShowCommandBar;
+        
+        public bool NotDeferred
+        {
+            get => Get(true);
+            set => Set(value);
+        }
 
         private void NotifyAll()
         {

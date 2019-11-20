@@ -104,9 +104,26 @@ namespace QuickPad.Mvc
             Settings.ShowSettings = false;
 
             if (documentViewModel.IsDirty)
+            {
                 await AskSaveDocument(documentViewModel);
-
-            documentViewModel.ExitApplication?.Invoke();
+            }
+            else
+            {
+                Close(documentViewModel);
+            }
+        }
+        private void Close(DocumentViewModel documentViewModel)
+        {
+            if (documentViewModel.Deferral != null)
+            {
+                Settings.NotDeferred = false;
+                documentViewModel.Deferral.Complete();
+            }
+            else
+            {
+                Settings.NotDeferred = true;
+                documentViewModel.ExitApplication?.Invoke();
+            }
         }
 
         private async Task AskSaveDocument(DocumentViewModel documentViewModel)
@@ -121,8 +138,14 @@ namespace QuickPad.Mvc
             var no = resourceLoader.GetString("NoButton");
             var cancel = resourceLoader.GetString("CancelButton");
 
-            var yesCommand = new UICommand(yes, async _ => { await SaveDocument(documentViewModel); });
-            var noCommand = new UICommand(no, _ => { documentViewModel.ExitApplication?.Invoke(); });
+            var yesCommand = new UICommand(yes, async _ =>
+            {
+                await SaveDocument(documentViewModel);
+                Close(documentViewModel);
+            });
+
+
+            var noCommand = new UICommand(no, _ => Close(documentViewModel));
             var cancelCommand = new UICommand(cancel, _ => { });
 
             var dialog = new MessageDialog(content, title)

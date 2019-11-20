@@ -83,6 +83,8 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
+        public Deferral Deferral { get; set; }
+
         public string CurrentFontName
         {
             get => _currentFontName;

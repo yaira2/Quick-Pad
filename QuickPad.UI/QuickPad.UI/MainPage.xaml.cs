@@ -18,6 +18,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core.Preview;
 using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.Store;
 using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI;
@@ -71,11 +72,32 @@ namespace QuickPad.UI
             Settings.PropertyChanged += Settings_PropertyChanged;
 
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.OnCloseRequest;
+
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            currentView.BackRequested += CurrentView_BackRequested;
+
+            commandBar.SetFontName += CommandBarOnSetFontName;
+            commandBar.SetFontSize += CommandBarOnSetFontSize;
+        }
+
+        private void CommandBarOnSetFontSize(double fontSize)
+        {
+            RichEditBox.FontSize = fontSize;
+        }
+
+        private void CommandBarOnSetFontName(string fontFamilyName)
+        {
+            RichEditBox.FontFamily = new FontFamily(fontFamilyName);
+        }
+
+        private void CurrentView_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            Settings.CurrentMode = Settings.PreviousMode;
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
-            if (!Settings.IsFullScreenMode)
+            if (!Settings.IsFullScreenMode && Settings.NotDeferred)
             {
                 var ttv = this.TransformToVisual(Window.Current.Content);
                 var windowBounds =
@@ -87,13 +109,15 @@ namespace QuickPad.UI
                 var dialog = new MessageDialog($"Could not set size ({Settings.Width}, {Settings.Height}).", "UWP Refused Setting Size.");
                 await dialog.ShowAsync();
             }
-            else
+            else if(Settings.IsFullScreenMode)
             {
                 if (ApplicationView.GetForCurrentView().TryEnterFullScreenMode()) return;
 
                 var dialog = new MessageDialog("Could not enter full screen.", "UWP Refused Full Screen.");
                 await dialog.ShowAsync();
             }
+
+            Settings.NotDeferred = true;
         }
 
         private void ExitApplication()
@@ -118,6 +142,18 @@ namespace QuickPad.UI
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             Bindings.Update();
+            var currentView = SystemNavigationManager.GetForCurrentView();
+            switch (e.PropertyName)
+            {
+                case nameof(Settings.FocusMode) when Settings.FocusMode:
+                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                    break;
+
+                case nameof(Settings.FocusMode) when !Settings.FocusMode:
+                    currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
+                    break;
+
+            }
         }
 
         private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -139,13 +175,9 @@ namespace QuickPad.UI
 
         private void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
-            e.Handled = true;
-            
+            ViewModel.Deferral = e.GetDeferral();
+
             Commands.ExitCommand.Execute(ViewModel);
-
-            var deferral = e.GetDeferral();
-
-            deferral.Complete();
         }
 
         public DocumentViewModel ViewModel { get; set; }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -25,13 +26,44 @@ namespace QuickPad.UI.Controls
             {
                 if (value == null || DataContext == value) return;
                 DataContext = value;
+                value.PropertyChanged += ViewModel_PropertyChanged;
             }
         }
 
+        private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(ViewModel.CurrentFontName):
+                    if(ViewModel.CurrentFileType == ".rtf")
+                    {
+                        ViewModel.Document.Selection.CharacterFormat.Name = ViewModel.CurrentFontName;
+                    }
+                    else
+                    {
+                        SetFontName?.Invoke(ViewModel.CurrentFontName);
+                    }
+                    break;
+
+                case nameof(ViewModel.CurrentFontSize):
+                    if (ViewModel.CurrentFileType == ".rtf")
+                    {
+                        ViewModel.Document.Selection.CharacterFormat.Size = (float)ViewModel.CurrentFontSize;
+                    }
+                    else
+                    {
+                        SetFontSize?.Invoke(ViewModel.CurrentFontSize);
+                    }
+                    break;
+
+            }
+        }
+
+        public event Action<string> SetFontName;
+        public event Action<double> SetFontSize;
+
         public static DependencyProperty ViewModelProperty =
             DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel), typeof(CommandBar), null);
-
-        private string _trySelectSize;
 
         public CommandBar()
         {
@@ -47,7 +79,6 @@ namespace QuickPad.UI.Controls
 
         private void OpenFontSizeFlyout(object sender, object e)
         {
-            _trySelectSize = "";
             FontSizeListSelection.Focus(FocusState.Programmatic);
             FontSizeListSelection.ScrollIntoView(FontSizeListSelection.SelectedItem);
         }
