@@ -37,7 +37,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 DefaultLanguages.Add(new DefaultLanguageModel(lang));
             }
-         }
+        }
 
         protected bool Set<TValue>(TValue value, [CallerMemberName] string propertyName = null)
         {
@@ -229,30 +229,6 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(value);
         }
 
-        public double Top
-        {
-            get => Get(0.0);
-            set => Set(value);
-        }
-
-        public double Left
-        {
-            get => Get(0.0);
-            set => Set(value);
-        }
-
-        public double Width
-        {
-            get => Get(1024.0);
-            set => Set(value);
-        }
-
-        public double Height
-        {
-            get => Get(768.0);
-            set => Set(value);
-        }
-
         private string _currentMode;
         [JsonIgnore]
         public string CurrentMode
@@ -277,12 +253,6 @@ namespace QuickPad.Mvvm.ViewModels
         private string _previousMode;
         [JsonIgnore]
         public string PreviousMode => _previousMode ??= "Classic Mode";
-
-        public bool IsFullScreenMode
-        {
-            get => Get(false);
-            set => Set(value);
-        }
 
         [JsonIgnore]
         [NotifyOnReset]

@@ -103,47 +103,13 @@ namespace QuickPad.UI
             Settings.CurrentMode = Settings.PreviousMode;
         }
 
-        private async void OnLoaded(object sender, RoutedEventArgs e)
+        private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            if (!Settings.IsFullScreenMode && Settings.NotDeferred)
-            {
-                var ttv = this.TransformToVisual(Window.Current.Content);
-                var windowBounds =
-                    ttv.TransformBounds(new Rect(Settings.Left, Settings.Top, Settings.Width, Settings.Height));
-
-                if (ApplicationView.GetForCurrentView()
-                    .TryResizeView(new Size(windowBounds.Width, windowBounds.Height))) return;
-
-                var dialog = new MessageDialog($"Could not set size ({Settings.Width}, {Settings.Height}).", "UWP Refused Setting Size.");
-                await dialog.ShowAsync();
-            }
-            else if(Settings.IsFullScreenMode)
-            {
-                if (ApplicationView.GetForCurrentView().TryEnterFullScreenMode()) return;
-
-                var dialog = new MessageDialog("Could not enter full screen.", "UWP Refused Full Screen.");
-                await dialog.ShowAsync();
-            }
-
             Settings.NotDeferred = true;
         }
 
         private void ExitApp()
         {
-            var ttv = this.TransformToVisual(Window.Current.Content);
-            var windowCoords = ttv.TransformPoint(new Point());
-            var screenCoordsX = windowCoords.X + ApplicationView.GetForCurrentView().VisibleBounds.Left;
-            var screenCoordsY = windowCoords.Y + ApplicationView.GetForCurrentView().VisibleBounds.Top;
-
-            var windowBounds = ttv.TransformBounds(new Rect());
-
-            Settings.Top = screenCoordsY;
-            Settings.Left = screenCoordsX;
-            Settings.Width = ApplicationView.GetForCurrentView().VisibleBounds.Width;
-            Settings.Height = ApplicationView.GetForCurrentView().VisibleBounds.Height;
-
-            Settings.IsFullScreenMode = ApplicationView.GetForCurrentView().IsFullScreenMode;
-
             CoreApplication.Exit();
         }
 
