@@ -63,6 +63,7 @@
                         <Flyout.FlyoutPresenterStyle>
                             <Style TargetType="FlyoutPresenter">
                                 <Setter Property="Padding" Value="0"/>
+                                <Setter Property="CornerRadius" Value="2"/>
                             </Style>
                         </Flyout.FlyoutPresenterStyle>
                         <ListView Width="250" Height="350"
@@ -71,11 +72,24 @@
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-            <AppBarButton x:Name="FontSizeDropdown" LabelPosition="Collapsed" MinWidth="75" Width="Auto">
+            <AppBarButton x:Name="FontSizeDropdown" LabelPosition="Collapsed" MinWidth="50" Width="Auto">
                 <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
                     <TextBlock FontFamily="Segoe UI" Margin="0,0,10,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
+                <AppBarButton.Flyout>
+                    <Flyout Placement="BottomEdgeAlignedLeft">
+                        <Flyout.FlyoutPresenterStyle>
+                            <Style TargetType="FlyoutPresenter">
+                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="CornerRadius" Value="2"/>
+                            </Style>
+                        </Flyout.FlyoutPresenterStyle>
+                        <ListView Width="Auto" Height="350"
+                                          Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+                                          ItemsSource="{x:Bind Settings.AllFontSizes}"/>
+                    </Flyout>
+                </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Uid="ColorLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed">
                 <ToolTipService.ToolTip>
