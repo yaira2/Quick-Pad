@@ -95,7 +95,7 @@
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-            <AppBarButton x:Name="FontSizeDropdown" LabelPosition="Collapsed" MinWidth="75" Width="Auto">
+            <AppBarButton x:Name="FontSizeDropdown" LabelPosition="Collapsed" MinWidth="50" Width="Auto">
                 <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
                     <TextBlock Text="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
@@ -210,7 +210,9 @@
 
         <CommandBar DefaultLabelPosition="Collapsed" IsOpen="False" HorizontalAlignment="Right" Height="40" Background="{x:Null}">
             <CommandBar.SecondaryCommands>
-                <AppBarButton x:Uid="FocusModeLabel" Label="Focus Mode" Width="Auto" Icon="Caption"/>
+                <AppBarButton x:Uid="FocusModeLabel" Label="Focus Mode" Width="Auto" Icon="Caption"
+                              Command="{Binding Path=FocusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                              CommandParameter="{x:Bind ViewModel}"/>
                 <AppBarButton x:Uid="ClassicModeLabel" Label="Classic Mode" Width="Auto" 
                               Command="{Binding Path=ShowMenusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
                               CommandParameter="{x:Bind Settings}">

@@ -81,6 +81,7 @@
                                   OffsetX="0"
                                   OffsetY="1"
                                   Grid.Row="3"
+                                  Visibility="{x:Bind Settings.ShowStatusBar, Converter={StaticResource Converter}}"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
             <controls3:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" HorizontalAlignment="Stretch"/>
