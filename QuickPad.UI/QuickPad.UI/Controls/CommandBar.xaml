@@ -16,9 +16,6 @@
         <DataTemplate x:Key="FontFamilyComboBoxItem">
             <TextBlock Text="{Binding}" FontFamily="{Binding}" Margin="2,2,2,2" FontSize="12"/>
         </DataTemplate>
-        <DataTemplate x:Key="FontSizeComboBoxItem">
-            <TextBlock Text="{Binding}" Margin="2,2,2,2" FontSize="{Binding}"/>
-        </DataTemplate>
     </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
@@ -83,6 +80,7 @@
                         <Flyout.FlyoutPresenterStyle>
                             <Style TargetType="FlyoutPresenter">
                                 <Setter Property="Padding" Value="0"/>
+                                <Setter Property="CornerRadius" Value="2"/>
                             </Style>
                         </Flyout.FlyoutPresenterStyle>
                         <ListView Width="250" Height="350"
@@ -105,13 +103,13 @@
                         <Flyout.FlyoutPresenterStyle>
                             <Style TargetType="FlyoutPresenter">
                                 <Setter Property="Padding" Value="0"/>
+                                <Setter Property="CornerRadius" Value="2"/>
                             </Style>
                         </Flyout.FlyoutPresenterStyle>
-                        <ListView Width="250" Height="350"
+                        <ListView Width="Auto" Height="350"
                                   x:Name="FontSizeListSelection"
                                   Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
                                   ItemsSource="{x:Bind Settings.AllFontSizes, Mode=OneWay}"
-                                  ItemTemplate="{StaticResource FontSizeComboBoxItem}"
                                   SelectedItem="{x:Bind ViewModel.CurrentFontSize, Mode=TwoWay}"/>
                     </Flyout>
                 </AppBarButton.Flyout>
