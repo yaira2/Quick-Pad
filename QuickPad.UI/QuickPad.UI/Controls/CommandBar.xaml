@@ -212,7 +212,7 @@
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="FocusModeLabel" Label="Focus Mode" Width="Auto" Icon="Caption"
                               Command="{Binding Path=FocusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
-                              CommandParameter="{x:Bind ViewModel}"/>
+                              CommandParameter="{x:Bind Settings}"/>
                 <AppBarButton x:Uid="ClassicModeLabel" Label="Classic Mode" Width="Auto" 
                               Command="{Binding Path=ShowMenusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
                               CommandParameter="{x:Bind Settings}">

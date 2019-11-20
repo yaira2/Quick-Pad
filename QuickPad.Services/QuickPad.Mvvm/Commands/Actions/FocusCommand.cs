@@ -3,14 +3,14 @@ using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
-    public class ShowSettingsCommand : SimpleCommand<SettingsViewModel>
+    public class FocusCommand : SimpleCommand<SettingsViewModel>
     {
-        public ShowSettingsCommand()
+        public FocusCommand()
         {
             Executioner = settings =>
             {
                 //open settings page
-                settings.ShowSettings = !settings.ShowSettings;
+                settings.CurrentMode = "Focus Mode";
 
                 return Task.CompletedTask;
             };

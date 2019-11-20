@@ -18,7 +18,7 @@ namespace QuickPad.UI
             services.AddSingleton<ShowCommandBarCommand, ShowCommandBarCommand>();
             services.AddSingleton<ShowMenusCommand, ShowMenusCommand>();
             services.AddSingleton<FocusCommand, FocusCommand>();
-            services.AddSingleton<QuickPadCommands, QuickPadCommands>();
+            services.AddSingleton(provider => new QuickPadCommands(provider.GetService<PasteCommand>()));
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();
             services.AddSingleton<ApplicationController, ApplicationController>();

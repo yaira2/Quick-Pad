@@ -86,9 +86,9 @@ namespace QuickPad.Mvc
             commands.SaveAsCommand.Executioner = SaveAsDocument;
             commands.ExitCommand.Executioner = ExitApplication;
 
-            documentView.ViewModel.Initialize = viewModel =>
+            documentView.ViewModel.Initialize = async viewModel =>
             {
-                viewModel.InitNewDocument();
+                await viewModel.InitNewDocument();
             };
         }
 

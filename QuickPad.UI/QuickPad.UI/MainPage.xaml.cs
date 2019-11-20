@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Text;
@@ -61,9 +62,9 @@ namespace QuickPad.UI
 
             DataContext = ViewModel;
 
-            ViewModel.ExitApplication = ExitApplication;
+            Task.Run(ViewModel.InitNewDocument).Wait();
 
-            ViewModel.InitNewDocument();
+            ViewModel.ExitApplication = ExitApplication;
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
 

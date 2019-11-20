@@ -4,8 +4,10 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.System;
 using Windows.UI.Core;
 using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm.Properties;
 
 namespace QuickPad.Mvvm.ViewModels
@@ -22,7 +24,7 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         [NotifyPropertyChangedInvocator]
-        internal virtual async void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        internal virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             if (!_frozen)
             {
@@ -33,7 +35,7 @@ namespace QuickPad.Mvvm.ViewModels
 
                 try
                 {
-                    await Dispatch(DispatchedHandler);
+                    Dispatch(DispatchedHandler);
                 }
                 catch(Exception ex)
                 {
@@ -76,9 +78,9 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        public async Task Dispatch(DispatchedHandler handler)
+        public void Dispatch(DispatcherQueueHandler handler)
         {
-            await CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, handler);
+            CoreApplication.MainView.DispatcherQueue.TryEnqueue(handler);
         }
     }
 }

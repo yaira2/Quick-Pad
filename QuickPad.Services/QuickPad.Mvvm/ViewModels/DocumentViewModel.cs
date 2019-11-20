@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading.Tasks;
+using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Text;
@@ -9,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
 using QuickPad.Mvvm;
+using Buffer = Windows.Storage.Streams.Buffer;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -39,8 +43,6 @@ namespace QuickPad.Mvvm.ViewModels
             ServiceProvider = serviceProvider;
 
             Settings = settings;
-
-            InitNewDocument();
         }
 
         private IServiceProvider ServiceProvider { get; }
@@ -72,6 +74,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 if (!value)
                 {
+                    CalculateHash();
                     _originalHash = _currentHash;                    
                 }
 
@@ -149,12 +152,11 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _currentEncoding, value);
         }
 
-        public void InitNewDocument()
+        public async Task InitNewDocument()
         {
             HoldUpdates();
 
             File = null;
-            IsDirty = false;
 
             SetEncoding(Settings.DefaultEncoding);
             CurrentFileType = Settings.DefaultFileType;
@@ -165,7 +167,16 @@ namespace QuickPad.Mvvm.ViewModels
             CurrentWordWrap =
                 CurrentFileType == ".rtf" ? Settings.RtfWordWrap : Settings.WordWrap;
 
-            Document?.LoadFromStream(SetOption, new InMemoryRandomAccessStream());
+            var memoryStream = new InMemoryRandomAccessStream();
+            
+            var bytes = Encoding.UTF8.GetBytes("\r");
+            var buffer = bytes.AsBuffer();
+
+            await memoryStream.ReadAsync(buffer, buffer.Length, InputStreamOptions.None);
+
+            Document?.LoadFromStream(SetOption, memoryStream);
+
+            IsDirty = false;
 
             ReleaseUpdates();
 
