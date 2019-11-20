@@ -187,6 +187,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         public Action<DocumentViewModel> Initialize { get; set; }
         public Action ExitApplication { get; set; }
+        public bool Deferred { get; set; }
 
         public void NotifyAll()
         {

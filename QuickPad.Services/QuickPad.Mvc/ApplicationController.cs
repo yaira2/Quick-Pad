@@ -117,6 +117,7 @@ namespace QuickPad.Mvc
             if (documentViewModel.Deferral != null)
             {
                 Settings.NotDeferred = false;
+                documentViewModel.Deferred = true;
                 documentViewModel.Deferral.Complete();
             }
             else

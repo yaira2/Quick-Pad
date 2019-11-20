@@ -19,6 +19,7 @@ using Windows.UI.Core.Preview;
 using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Store;
+using Windows.Graphics.Display;
 using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI;
@@ -145,14 +146,15 @@ namespace QuickPad.UI
             var currentView = SystemNavigationManager.GetForCurrentView();
             switch (e.PropertyName)
             {
-                case nameof(Settings.FocusMode) when Settings.FocusMode:
+                case nameof(Settings.CurrentMode) when Settings.FocusMode:
                     currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+                    var di = DisplayInformation.GetForCurrentView();
+                    Settings.BackButtonWidth = 48.0 * ((double)di.ResolutionScale / 100.0);
                     break;
 
-                case nameof(Settings.FocusMode) when !Settings.FocusMode:
+                case nameof(Settings.CurrentMode) when !Settings.FocusMode:
                     currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
                     break;
-
             }
         }
 
@@ -178,6 +180,8 @@ namespace QuickPad.UI
             ViewModel.Deferral = e.GetDeferral();
 
             Commands.ExitCommand.Execute(ViewModel);
+
+            e.Handled = !ViewModel.Deferred;
         }
 
         public DocumentViewModel ViewModel { get; set; }

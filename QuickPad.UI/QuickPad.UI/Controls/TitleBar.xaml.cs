@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System.ComponentModel;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
@@ -10,6 +11,8 @@ namespace QuickPad.UI.Controls
     public sealed partial class TitleBar : UserControl
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+
+        public SettingsViewModel Settings => App.Settings;
 
         public DocumentViewModel ViewModel
         {
@@ -24,8 +27,18 @@ namespace QuickPad.UI.Controls
         public TitleBar()
         {
             this.InitializeComponent();
+            Settings.PropertyChanged += Settings_PropertyChanged;
             Window.Current.SetTitleBar(trickyTitleBar);
         }
 
+        private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(Settings.TitleMargin):
+                    Bindings.Update();
+                    break;
+            }
+        }
     }
 }

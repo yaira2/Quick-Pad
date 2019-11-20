@@ -22,7 +22,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <controls3:TitleBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
+        <controls3:TitleBar x:Name="titleBar" Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
 
         <controls2:SettingsNav Canvas.ZIndex="150" 
                                Visibility="{x:Bind Settings.ShowSettings, Converter={StaticResource Converter}}" 

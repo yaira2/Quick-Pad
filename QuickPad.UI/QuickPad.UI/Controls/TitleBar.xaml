@@ -27,7 +27,7 @@
 
         <Button Width="48" Height="32" VerticalAlignment="Top" Foreground="Transparent" Background="Transparent" Visibility="Collapsed" CornerRadius="0"/>
                 
-        <Grid x:Name="trickyTitleBar" Grid.Column="1"  Background="Transparent" Height="33">
+        <Grid x:Name="trickyTitleBar" Grid.Column="1"  Background="Transparent" Height="33" Margin="{x:Bind Settings.TitleMargin}">
             <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
         </Grid>
 

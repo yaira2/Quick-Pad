@@ -15,6 +15,7 @@ using Microsoft.Graphics.Canvas.Text;
 using Newtonsoft.Json;
 using QuickPad.Mvvm.Models;
 using Windows.Globalization;
+using Windows.UI.Xaml;
 using Microsoft.Toolkit.Uwp.Helpers;
 
 namespace QuickPad.Mvvm.ViewModels
@@ -263,6 +264,13 @@ namespace QuickPad.Mvvm.ViewModels
                 if (Set(ref _currentMode, value))
                 {
                     _previousMode = previousMode;
+
+                    OnPropertyChanged(nameof(CurrentMode));
+                    OnPropertyChanged(nameof(ShowMenu));
+                    OnPropertyChanged(nameof(ShowCommandBar));
+                    OnPropertyChanged(nameof(FocusMode));
+                    OnPropertyChanged(nameof(ShowStatusBar));
+                    OnPropertyChanged(nameof(TitleMargin));
                 }
             }
         }
@@ -278,16 +286,26 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         [JsonIgnore]
+        [NotifyOnReset]
         public bool ShowMenu => CurrentMode.Equals("Classic Mode", StringComparison.InvariantCultureIgnoreCase);
 
         [JsonIgnore]
+        [NotifyOnReset]
         public bool ShowCommandBar => CurrentMode.Equals("Default", StringComparison.InvariantCultureIgnoreCase);
         
         [JsonIgnore]
+        [NotifyOnReset]
         public bool FocusMode => CurrentMode.Equals("Focus Mode", StringComparison.InvariantCultureIgnoreCase);
 
-        [JsonIgnore] 
+        [JsonIgnore]
+        [NotifyOnReset]
         public bool ShowStatusBar => ShowMenu || ShowCommandBar;
+
+        [JsonIgnore]
+        [NotifyOnReset]
+        public Thickness TitleMargin => FocusMode ? new Thickness(BackButtonWidth, 0, 0, 0) : new Thickness(0);
+
+        public double BackButtonWidth { get; set; }
         
         public bool NotDeferred
         {
