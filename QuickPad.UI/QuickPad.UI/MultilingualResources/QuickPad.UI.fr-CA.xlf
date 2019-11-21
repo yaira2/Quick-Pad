@@ -291,11 +291,6 @@
           <target state="new">Classic Mode</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="LaunchOnTopMode.Content" translate="yes" xml:space="preserve">
-          <source>On Top</source>
-          <target state="new">On Top</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="ManageSettings.Text" translate="yes" xml:space="preserve">
           <source>Manage Settings</source>
           <target state="new">Manage Settings</target>
@@ -515,6 +510,11 @@
           <source>Yes</source>
           <target state="new">Yes</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
+        </trans-unit>
+        <trans-unit id="LaunchCompactOverlay.Content" translate="yes" xml:space="preserve">
+          <source>Compact Overlay</source>
+          <target state="new">Compact Overlay</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>
     </body>

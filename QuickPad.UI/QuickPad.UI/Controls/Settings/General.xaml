@@ -29,7 +29,7 @@
                       HorizontalAlignment="Left">
                 <ComboBoxItem Content="Classic Mode" x:Uid="LaunchClassicMode"/>
                 <ComboBoxItem Content="Default" x:Uid="LaunchDefaultMode"/>
-                <ComboBoxItem Content="On Top" x:Uid="LaunchOnTopMode"/>
+                <ComboBoxItem Content="Compact Overlay" x:Uid="LaunchOnTopMode"/>
                 <ComboBoxItem Content="Focus Mode" x:Uid="LaunchFocusMode"/>
             </ComboBox>
 

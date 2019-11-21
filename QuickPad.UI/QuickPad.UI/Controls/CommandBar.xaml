@@ -260,7 +260,7 @@
                     <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
-                    <TextBlock x:Uid="OnTopTooltip" Text="Keep On Top (Alt + Up)"/>
+                    <TextBlock x:Uid="CompactOverlayTooltip" Text="Compact Overlay (Alt + Up)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
         </CommandBar>

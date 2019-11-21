@@ -345,8 +345,8 @@
     <value>Classic Mode</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="LaunchOnTopMode.Content" xml:space="preserve">
-    <value>On Top</value>
+  <data name="LaunchCompactOverlay.Content" xml:space="preserve">
+    <value>Compact Overlay</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ManageSettings.Text" xml:space="preserve">
