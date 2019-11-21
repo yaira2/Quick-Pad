@@ -1,6 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using QuickPad.Mvvm.ViewModels;
 using Windows.UI.ViewManagement;
+using Windows.Foundation;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
@@ -21,8 +23,6 @@ namespace QuickPad.Mvvm.Commands.Actions
                     settings.CurrentMode = "Compact Overlay";
                     bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay);
                 }
-
-                return Task.CompletedTask;
             };
         }
     }
