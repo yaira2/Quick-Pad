@@ -23,7 +23,7 @@
                           Command="{x:Bind Commands.NewDocumentCommand}" 
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
-                    <TextBlock x:Uid="New" Text="New"/>
+                    <TextBlock x:Uid="NewTip" Text="New (Ctrl+N)"/>
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xE7C3;"/>
@@ -38,7 +38,7 @@
                           Command="{x:Bind Commands.LoadCommand}"
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
-                    <TextBlock x:Uid="Open" Text="Open (Ctrl+O)"/>
+                    <TextBlock x:Uid="OpenTip" Text="Open (Ctrl+O)"/>
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xF12B;"/>
@@ -53,7 +53,7 @@
                           Command="{x:Bind Commands.SaveCommand}"
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
-                    <TextBlock x:Uid="Save" Text="Save (Ctrl+S)"/>
+                    <TextBlock x:Uid="SaveTip" Text="Save (Ctrl+S)"/>
                 </ToolTipService.ToolTip>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator 
@@ -63,14 +63,6 @@
             </AppBarButton>
             <AppBarSeparator/>
             <AppBarButton x:Name="FontDropdown" LabelPosition="Collapsed" Width="Auto">
-                <AppBarButton.Resources>
-                    <controls:TeachingTip x:Name="FontOptionTip"
-                                               Target="{x:Bind FontDropdown}"
-                                               x:Uid="FontOptionTip"
-                                               CloseButtonCommand="{x:Bind Commands.AcknowledgeFontSelectionChangeCommand}"
-                                               CloseButtonCommandParameter="{x:Bind Settings}">
-                    </controls:TeachingTip>
-                </AppBarButton.Resources>
                 <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
                     <TextBlock Text="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>

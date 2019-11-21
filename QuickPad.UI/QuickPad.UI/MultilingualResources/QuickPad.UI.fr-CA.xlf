@@ -511,15 +511,200 @@
           <target state="new">Focus Mode</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="LaunchOnTopMode" translate="yes" xml:space="preserve">
-          <source>On Top</source>
-          <target state="new">On Top</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="LaunchFullUIMode" translate="yes" xml:space="preserve">
           <source>Ninja Mode</source>
           <target state="new">Ninja Mode</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
+        </trans-unit>
+        <trans-unit id="AlignCenter.Text" translate="yes" xml:space="preserve">
+          <source>Align Center (Ctrl+E)</source>
+          <target state="new">Align Center (Ctrl+E)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignCenterLabel.Label" translate="yes" xml:space="preserve">
+          <source>Align Center</source>
+          <target state="new">Align Center</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignLeft.Text" translate="yes" xml:space="preserve">
+          <source>Align Left (Ctrl+L)</source>
+          <target state="new">Align Left (Ctrl+L)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignLeftLabel.Label" translate="yes" xml:space="preserve">
+          <source>Align Left</source>
+          <target state="new">Align Left</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignRight.Text" translate="yes" xml:space="preserve">
+          <source>Align Right (Ctrl+R)</source>
+          <target state="new">Align Right (Ctrl+R)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignRightLabel.Label" translate="yes" xml:space="preserve">
+          <source>Align Right</source>
+          <target state="new">Align Right</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Bold.Text" translate="yes" xml:space="preserve">
+          <source>Bold (Ctrl+B)</source>
+          <target state="new">Bold (Ctrl+B)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="BoldLabel.Label" translate="yes" xml:space="preserve">
+          <source>Bold</source>
+          <target state="new">Bold</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Bullets.Text" translate="yes" xml:space="preserve">
+          <source>Toggle Bullets</source>
+          <target state="new">Toggle Bullets</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="BulletsLabel.Label" translate="yes" xml:space="preserve">
+          <source>Bullets</source>
+          <target state="new">Bullets</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ClassicModeLabel.Label" translate="yes" xml:space="preserve">
+          <source>Classic Mode</source>
+          <target state="new">Classic Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Color.Text" translate="yes" xml:space="preserve">
+          <source>Font Color</source>
+          <target state="new">Font Color</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ColorLabel.Label" translate="yes" xml:space="preserve">
+          <source>Font Color</source>
+          <target state="new">Font Color</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="CompactOverlayTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Compact Overlay (Alt + Up)</source>
+          <target state="new">Compact Overlay (Alt + Up)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
+          <source>Insert Emojis (Win + .)</source>
+          <target state="new">Insert Emojis (Win + .)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="EmojiLabel.Label" translate="yes" xml:space="preserve">
+          <source>Emojis</source>
+          <target state="new">Emojis</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="FindLabel.Label" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="new">Find</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="FocusModeLabel.Label" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="new">Focus Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Italic.Text" translate="yes" xml:space="preserve">
+          <source>Italic (Ctrl+I)</source>
+          <target state="new">Italic (Ctrl+I)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ItalicLabel.Label" translate="yes" xml:space="preserve">
+          <source>Italic</source>
+          <target state="new">Italic</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="JustifyText.Text" translate="yes" xml:space="preserve">
+          <source>Justify Text (Ctrl+J)</source>
+          <target state="new">Justify Text (Ctrl+J)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="JustifyTextLabel.Label" translate="yes" xml:space="preserve">
+          <source>Justify</source>
+          <target state="new">Justify</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="RedoTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Redo (Ctrl+Y)</source>
+          <target state="new">Redo (Ctrl+Y)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="SettingsLabel.Label" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="new">Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ShareLabel.Label" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="new">Share</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="StatusBarLabel.Label" translate="yes" xml:space="preserve">
+          <source>Status Bar</source>
+          <target state="new">Status Bar</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Strikethrough.Text" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="new">Strikethrough</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="StrikethroughLabel.Label" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="new">Strikethrough</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Underline.Text" translate="yes" xml:space="preserve">
+          <source>Underline (Ctrl+U)</source>
+          <target state="new">Underline (Ctrl+U)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="UnderlineLabel.Label" translate="yes" xml:space="preserve">
+          <source>Label</source>
+          <target state="new">Label</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="UndoTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Undo (Ctrl+Z)</source>
+          <target state="new">Undo (Ctrl+Z)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="NewLabel.Label" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="new">New</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="NewTip.Text" translate="yes" xml:space="preserve">
+          <source>New (Ctrl+N)</source>
+          <target state="new">New (Ctrl+N)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="OpenLabel.Label" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="new">Open</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="OpenTip.Text" translate="yes" xml:space="preserve">
+          <source>Open (Ctrl+O)</source>
+          <target state="new">Open (Ctrl+O)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="SaveLabel.Label" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="SaveTip.Text" translate="yes" xml:space="preserve">
+          <source>Save (Ctrl+S)</source>
+          <target state="new">Save (Ctrl+S)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="LaunchCompactOverlay" translate="yes" xml:space="preserve">
+          <source>Compact Overlay</source>
+          <target state="new">Compact Overlay</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>
     </body>

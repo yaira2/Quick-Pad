@@ -4,7 +4,7 @@
     {
         LaunchClassicMode,
         LaunchDefaultMode,
-        LaunchOnTopMode,
+        LaunchCompactOverlay,
         LaunchFocusMode,
         LaunchFullUIMode,
     }

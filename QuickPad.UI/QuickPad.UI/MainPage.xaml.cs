@@ -87,6 +87,7 @@ namespace QuickPad.UI
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
             SetupFocusMode(Settings.FocusMode);
+            SetOverlayMode(Settings.CurrentMode);
         }
 
         private void CommandBarOnSetFontSize(double fontSize)
@@ -122,7 +123,7 @@ namespace QuickPad.UI
 
         private void SetOverlayMode(string mode)
         {
-            if (mode == DisplayModes.LaunchOnTopMode.ToString())
+            if (mode == DisplayModes.LaunchCompactOverlay.ToString())
             {
                 ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay).AsTask();
             }
@@ -212,7 +213,7 @@ namespace QuickPad.UI
             {
                 VirtualKey.Number1 => DisplayModes.LaunchClassicMode.ToString(),
                 VirtualKey.Number2 => DisplayModes.LaunchDefaultMode.ToString(),
-                VirtualKey.Number3 => DisplayModes.LaunchOnTopMode.ToString(),
+                VirtualKey.Number3 => DisplayModes.LaunchCompactOverlay.ToString(),
                 VirtualKey.Number4 => DisplayModes.LaunchFocusMode.ToString(),
                 VirtualKey.F12 => DisplayModes.LaunchFullUIMode.ToString(),
                 VirtualKey.Escape => Settings.DefaultMode,

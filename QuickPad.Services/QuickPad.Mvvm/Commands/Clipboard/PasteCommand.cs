@@ -55,7 +55,6 @@ namespace QuickPad.Mvvm.Commands.Clipboard
         {
             try
             {
-                
                 var clipboardContent = await ViewModel.Dispatch(() => Windows.ApplicationModel.DataTransfer.Clipboard.GetContent());
                 Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged -= ClipboardStatusUpdate;
                 var dataPackage = new DataPackage();

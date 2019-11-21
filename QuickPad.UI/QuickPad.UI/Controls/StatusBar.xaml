@@ -23,13 +23,7 @@
         </Grid.ColumnDefinitions>
         <!--Save status-->
         <Grid Margin="5,0,2,0" Width="32" MaxWidth="32">
-            <FontIcon Glyph="&#xE74E;" FontSize="11" Grid.Column="1" Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}">
-                <ToolTipService.ToolTip>
-                    <StackPanel>
-                        <TextBlock Text="{x:Bind ViewModel.File.Path, Mode=OneWay}"/>
-                    </StackPanel>
-                </ToolTipService.ToolTip>
-            </FontIcon>
+            <FontIcon Glyph="&#xE74E;" FontSize="11" Grid.Column="1" Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"/>
             <Ellipse Width="6" Height="6" Fill="Red" HorizontalAlignment="Left" Margin="8,0,0,8" Visibility="{x:Bind ViewModel.IsDirty,Mode=OneWay}"/>
         </Grid>
         <TextBlock VerticalAlignment="Center"
