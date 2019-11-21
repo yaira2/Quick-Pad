@@ -34,10 +34,6 @@
             <TextBlock x:Uid="KeepTextOnly" Text="Keep text only"/>
             <ToggleSwitch IsOn="{Binding PasteTextOnly, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="Other" Text="Other" FontSize="16"/>
-            <TextBlock x:Uid="AutomaticallyChooseMode" Text="Automatically choose which mode to launch the app in based on the file type"/>
-            <ToggleSwitch IsOn="{Binding ModeByFileType, Mode=TwoWay}"/>
-
             <TextBlock x:Uid="ManageSettings" Text="Manage Settings" FontSize="16"/>
             <StackPanel Orientation="Horizontal">
                 <Button x:Uid="Import" Content="Import" Command="{Binding Path=ImportSettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" CommandParameter="{x:Bind Settings}" />

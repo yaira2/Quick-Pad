@@ -212,13 +212,6 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         [NotifyOnReset]
-        public bool ModeByFileType
-        {
-            get => Get(false);
-            set => Set(value);
-        }
-
-        [NotifyOnReset]
         public bool AutoSave
         {
             get => Get(false);
