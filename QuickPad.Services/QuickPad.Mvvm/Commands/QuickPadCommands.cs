@@ -45,6 +45,7 @@ namespace QuickPad.Mvvm.Commands
         //actions
         public SimpleCommand<SettingsViewModel> FocusCommand { get; } = new FocusCommand();
         public SimpleCommand<SettingsViewModel> SettingsCommand { get; } = new ShowSettingsCommand();
+        public SimpleCommand<SettingsViewModel> CompactOverlayCommand { get; } = new CompactOverlay();
         public SimpleCommand<SettingsViewModel> ShowCommandBarCommand { get; } = new ShowCommandBarCommand();
         public SimpleCommand<SettingsViewModel> ShowMenusCommand { get; } = new ShowMenusCommand();
         public SimpleCommand<SettingsViewModel> ResetSettingsCommand { get; } = new ResetSettingsCommand();

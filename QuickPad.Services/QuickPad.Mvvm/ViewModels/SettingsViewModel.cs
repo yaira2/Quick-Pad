@@ -274,6 +274,10 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore]
         [NotifyOnReset]
+        public bool CompactOverlay => CurrentMode.Equals("Compact Overlay", StringComparison.InvariantCultureIgnoreCase);
+
+        [JsonIgnore]
+        [NotifyOnReset]
         public bool ShowStatusBar => (ShowMenu && StatusBar) || (ShowCommandBar && StatusBar);
 
         [JsonIgnore]

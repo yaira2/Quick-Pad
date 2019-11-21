@@ -136,6 +136,7 @@
     <Compile Include="Commands\Actions\ImportSettingsCommand.cs" />
     <Compile Include="Commands\Actions\ResetSettingsCommand.cs" />
     <Compile Include="Commands\Actions\ShowCommandBarCommand.cs" />
+    <Compile Include="Commands\Actions\CompactOverlay.cs" />
     <Compile Include="Commands\Actions\ShowMenusCommand.cs" />
     <Compile Include="Commands\Actions\ShowSettingsCommand.cs" />
     <Compile Include="Commands\Editing\CenterAlignCommand.cs" />

@@ -253,7 +253,9 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarSeparator/>
-            <AppBarButton MinWidth="40" Width="Auto">
+            <AppBarButton MinWidth="40" Width="Auto" 
+                          Command="{Binding Path=CompactOverlayCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                 </AppBarButton.Icon>
