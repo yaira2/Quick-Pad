@@ -209,7 +209,9 @@
                         <SymbolIcon Symbol="Caption"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Overlay Mode" AccessKey="O" x:Uid="OverlayMode">
+                <MenuFlyoutItem Text="Overlay Mode" AccessKey="O" x:Uid="OverlayMode"
+                          Command="{Binding Path=CompactOverlayCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          CommandParameter="{x:Bind Settings}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                     </MenuFlyoutItem.Icon>
