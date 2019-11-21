@@ -15,12 +15,12 @@
         <converters:Converter x:Key="Converter" />
     </Page.Resources>
     <Page.KeyboardAccelerators>
-        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number1" Invoked="ChangeModeByKey"/>
-        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number2" Invoked="ChangeModeByKey"/>
-        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number3" Invoked="ChangeModeByKey"/>
-        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number4" Invoked="ChangeModeByKey"/>
-        <KeyboardAccelerator Modifiers="Control" Key="F12" Invoked="ChangeModeByKey" />
-        <KeyboardAccelerator Key="Escape" Invoked="ChangeModeByKey" />
+        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number1" Invoked="ChangeModeByKey" ToolTipService.ToolTip="{x:Null}"/>
+        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number2" Invoked="ChangeModeByKey" ToolTipService.ToolTip="{x:Null}"/>
+        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number3" Invoked="ChangeModeByKey" ToolTipService.ToolTip="{x:Null}"/>
+        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number4" Invoked="ChangeModeByKey" ToolTipService.ToolTip="{x:Null}"/>
+        <KeyboardAccelerator Modifiers="Control" Key="F12" Invoked="ChangeModeByKey" ToolTipService.ToolTip="{x:Null}"/>
+        <KeyboardAccelerator Key="Escape" Invoked="ChangeModeByKey" ToolTipService.ToolTip="{x:Null}"/>
     </Page.KeyboardAccelerators>
     <Grid>
         <Grid.RowDefinitions>

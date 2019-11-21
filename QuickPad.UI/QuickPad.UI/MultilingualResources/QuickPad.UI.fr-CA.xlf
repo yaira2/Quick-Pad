@@ -101,11 +101,6 @@
           <target state="new">System-defined theme</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
-        <trans-unit id="AutomaticallyChooseMode.Text" translate="yes" xml:space="preserve">
-          <source>Automatically choose which mode to launch the app in based on the file type</source>
-          <target state="new">Automatically choose which mode to launch the app in based on the file type</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="AutoSave.Text" translate="yes" xml:space="preserve">
           <source>Auto Save</source>
           <target state="new">Auto Save</target>
@@ -290,11 +285,6 @@
           <source>Open</source>
           <target state="new">Open</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-        </trans-unit>
-        <trans-unit id="Other.Text" translate="yes" xml:space="preserve">
-          <source>Other</source>
-          <target state="new">Other</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="OverlayMode.Text" translate="yes" xml:space="preserve">
           <source>Overlay Mode</source>
