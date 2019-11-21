@@ -109,8 +109,13 @@ namespace QuickPad.UI
             Settings.CurrentMode = newMode;
         }
 
-        private void OnLoaded(object sender, RoutedEventArgs e)
+        private async void OnLoaded(object sender, RoutedEventArgs e)
         {
+            if (Settings.DefaultMode == "Compact Overlay")
+            {
+                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay);
+                Settings.CurrentMode = "Compact Overlay";
+            }
             Settings.NotDeferred = true;
             Settings.Status = "Ready";
         }

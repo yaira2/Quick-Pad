@@ -285,6 +285,7 @@ namespace QuickPad.Mvvm.ViewModels
                 OnPropertyChanged(nameof(ShowMenu));
                 OnPropertyChanged(nameof(ShowCommandBar));
                 OnPropertyChanged(nameof(FocusMode));
+                OnPropertyChanged(nameof(CompactOverlay));
                 OnPropertyChanged(nameof(ShowStatusBar));
                 OnPropertyChanged(nameof(TitleMargin));
             }
