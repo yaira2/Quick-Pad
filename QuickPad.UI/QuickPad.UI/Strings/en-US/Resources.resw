@@ -325,15 +325,15 @@
     <value>Keep text only</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="LaunchClassicMode.Content" xml:space="preserve">
+  <data name="LaunchClassicMode" xml:space="preserve">
     <value>Classic Mode</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="LaunchDefaultMode.Content" xml:space="preserve">
+  <data name="LaunchDefaultMode" xml:space="preserve">
     <value>Default</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="LaunchFocusMode.Content" xml:space="preserve">
+  <data name="LaunchFocusMode" xml:space="preserve">
     <value>Focus Mode</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -345,7 +345,7 @@
     <value>Classic Mode</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="LaunchOnTopMode.Content" xml:space="preserve">
+  <data name="LaunchOnTopMode" xml:space="preserve">
     <value>On Top</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -524,5 +524,9 @@
   <data name="YesButton" xml:space="preserve">
     <value>Yes</value>
     <comment>Used on Save Document</comment>
+  </data>
+  <data name="LaunchFullUIMode" xml:space="preserve">
+    <value>Ninja Mode</value>
+    <comment>Used on Settings Pgae</comment>
   </data>
 </root>

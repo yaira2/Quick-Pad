@@ -10,7 +10,7 @@ namespace QuickPad.Mvvm.Commands.Actions
             Executioner = settings =>
             {
                 //open settings page
-                settings.CurrentMode = "Focus Mode";
+                settings.CurrentMode = "LaunchFocusMode";
 
                 return Task.CompletedTask;
             };

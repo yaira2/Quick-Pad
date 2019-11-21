@@ -98,9 +98,11 @@ namespace QuickPad.Mvc
             };
         }
 
-        private static Task NewDocument(DocumentViewModel documentViewModel)
+        private Task NewDocument(DocumentViewModel documentViewModel)
         {
             documentViewModel.Initialize(documentViewModel);
+
+            Settings.Status = $"New document initialized.";
 
             return Task.CompletedTask;
         }
@@ -151,11 +153,11 @@ namespace QuickPad.Mvc
 
             Task Handler()
             {
-                resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+                resourceLoader = ResourceLoader.GetForCurrentView();
                 return Task.CompletedTask;
             }
 
-            await documentViewModel.Dispatch(Handler);
+            await ViewModel.Dispatch(Handler);
 
             var title = resourceLoader.GetString("PendingChangesTitle");
             var content = resourceLoader.GetString("PendingChangesBody");
@@ -231,29 +233,36 @@ namespace QuickPad.Mvc
 
             documentViewModel.CurrentEncoding = Encoding.UTF8;
 
-            _byteOrderMarks.ToList().ForEach(pair =>
+            try
             {
-                var (key, value) = pair;
-
-                if (!bytes.AsSpan(0, value.Length).StartsWith(value.AsSpan(0, value.Length))) return;
-
-                var encoding = key switch
+                _byteOrderMarks.ToList().ForEach(pair =>
                 {
-                    ByteOrderMark.Utf8 => Encoding.UTF8,
-                    ByteOrderMark.Utf16Be => Encoding.BigEndianUnicode,
-                    ByteOrderMark.Utf16Le => Encoding.Unicode,
-                    ByteOrderMark.Utf32Be => Encoding.UTF32,
-                    ByteOrderMark.Utf32Le => Encoding.UTF32,
-                    ByteOrderMark.Utf7A => Encoding.UTF7,
-                    ByteOrderMark.Utf7B => Encoding.UTF7,
-                    ByteOrderMark.Utf7C => Encoding.UTF7,
-                    ByteOrderMark.Utf7D => Encoding.UTF7,
-                    ByteOrderMark.Utf7E => Encoding.UTF7,
-                    _ => Encoding.ASCII
-                };
+                    var (key, value) = pair;
 
-                documentViewModel.CurrentEncoding = encoding;
-            });
+                    if (!bytes.AsSpan(0, value.Length).StartsWith(value.AsSpan(0, value.Length))) return;
+
+                    var encoding = key switch
+                    {
+                        ByteOrderMark.Utf8 => Encoding.UTF8,
+                        ByteOrderMark.Utf16Be => Encoding.BigEndianUnicode,
+                        ByteOrderMark.Utf16Le => Encoding.Unicode,
+                        ByteOrderMark.Utf32Be => Encoding.UTF32,
+                        ByteOrderMark.Utf32Le => Encoding.UTF32,
+                        ByteOrderMark.Utf7A => Encoding.UTF7,
+                        ByteOrderMark.Utf7B => Encoding.UTF7,
+                        ByteOrderMark.Utf7C => Encoding.UTF7,
+                        ByteOrderMark.Utf7D => Encoding.UTF7,
+                        ByteOrderMark.Utf7E => Encoding.UTF7,
+                        _ => Encoding.ASCII
+                    };
+
+                    documentViewModel.CurrentEncoding = encoding;
+                });
+            }
+            catch(Exception ex)
+            {
+                Logger.LogError(new EventId(), $"Error loading {file.Name}.", ex);
+            }
 
             var text = reader.Read(documentViewModel.CurrentEncoding);
 
@@ -266,7 +275,18 @@ namespace QuickPad.Mvc
             documentViewModel.Text = text;
             documentViewModel.IsDirty = false;
 
+            documentViewModel.CurrentFileType =
+                isRtf ? file.FileType : file.DisplayType;
+            documentViewModel.CurrentFontName =
+                isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
+            documentViewModel.CurrentFontSize =
+                isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
+            documentViewModel.CurrentWordWrap =
+                isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
+
             documentViewModel.ReleaseUpdates();
+
+            Settings.Status = $"Loaded {documentViewModel.File.Name}";
         }
 
         private Task SaveDocument(DocumentViewModel documentViewModel)
@@ -282,9 +302,6 @@ namespace QuickPad.Mvc
         private async Task SaveDocument(DocumentViewModel documentViewModel, bool saveAs)
         {
             documentViewModel.HoldUpdates();
-
-            var writer = new EncodingWriter();
-            writer.Write(documentViewModel.Text);
 
             if (documentViewModel.File == null || saveAs)
             {
@@ -305,16 +322,34 @@ namespace QuickPad.Mvc
 
                 if (file == null) return;
                 documentViewModel.File = file;
+                var isRtf = file.FileType == ".rtf";
+                documentViewModel.CurrentFileType =
+                    isRtf ? file.FileType : file.DisplayType;
+                documentViewModel.GetOption =
+                    isRtf ? TextGetOptions.FormatRtf : TextGetOptions.None;
+                documentViewModel.SetOption =
+                    isRtf ? TextSetOptions.FormatRtf : TextSetOptions.None;
+                documentViewModel.CurrentFontName =
+                    isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
+                documentViewModel.CurrentFontSize =
+                    isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
+                documentViewModel.CurrentWordWrap =
+                    isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
             }
 
             if (Logger.IsEnabled(LogLevel.Debug))
                 Logger.LogDebug($"Saving {documentViewModel.File.DisplayName}:\n{documentViewModel.Text}");
+
+            var writer = new EncodingWriter();
+            writer.Write(documentViewModel.Text);
 
             await new FileDataProvider().SaveDataAsync(documentViewModel.File, writer, documentViewModel.CurrentEncoding);
 
             documentViewModel.IsDirty = false;
 
             documentViewModel.ReleaseUpdates();
+
+            Settings.Status = $"Saved {documentViewModel.File.Name}";
         }
 
         private enum ByteOrderMark

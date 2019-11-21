@@ -31,6 +31,7 @@ using QuickPad.Mvc;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
+using Windows.System;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -43,7 +44,7 @@ namespace QuickPad.UI
     {
         public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
         public SettingsViewModel Settings => App.Settings;
-        private QuickPadCommands Commands => App.Current.Resources[nameof(QuickPadCommands)] as QuickPadCommands;
+        public QuickPadCommands Commands => App.Commands;
         private ILogger<MainPage> Logger { get; }
 
         public MainPage(ILogger<MainPage> logger, DocumentViewModel viewModel)
@@ -100,12 +101,30 @@ namespace QuickPad.UI
 
         private void CurrentView_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            Settings.CurrentMode = Settings.PreviousMode;
+            var newMode = Settings.DefaultMode == DisplayModes.LaunchFocusMode.ToString() 
+                ? DisplayModes.LaunchClassicMode.ToString()
+                : Settings.DefaultMode;
+
+            SetOverlayMode(newMode);
+            Settings.CurrentMode = newMode;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             Settings.NotDeferred = true;
+            Settings.Status = "Ready";
+        }
+
+        private void SetOverlayMode(string mode)
+        {
+            if (mode == DisplayModes.LaunchOnTopMode.ToString())
+            {
+                ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay).AsTask();
+            }
+            else
+            {
+                ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default).AsTask();
+            }
         }
 
         private void ExitApp()
@@ -144,7 +163,7 @@ namespace QuickPad.UI
             switch (e.PropertyName)
             {
                 case nameof(ViewModel.Title):
-                    var appView = Windows.UI.ViewManagement.ApplicationView.GetForCurrentView();
+                    var appView = ApplicationView.GetForCurrentView();
                     appView.Title = ViewModel.Title;
                     break;
 
@@ -181,5 +200,28 @@ namespace QuickPad.UI
         public DocumentViewModel ViewModel { get; set; }
         public event Action<IDocumentView, QuickPadCommands> Initialize;
         public event Func<DocumentViewModel, Task<bool>> ExitApplication;
+
+        private void ChangeModeByKey(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
+        {
+            var newMode = args.KeyboardAccelerator.Key switch
+            {
+                VirtualKey.Number1 => DisplayModes.LaunchClassicMode.ToString(),
+                VirtualKey.Number2 => DisplayModes.LaunchDefaultMode.ToString(),
+                VirtualKey.Number3 => DisplayModes.LaunchOnTopMode.ToString(),
+                VirtualKey.Number4 => DisplayModes.LaunchFocusMode.ToString(),
+                VirtualKey.F12 => DisplayModes.LaunchFullUIMode.ToString(),
+                VirtualKey.Escape => Settings.DefaultMode,
+                _ => Settings.CurrentMode
+            };
+
+            if (Settings.CurrentMode == newMode) return;
+
+            SetupFocusMode(newMode == DisplayModes.LaunchFocusMode.ToString());
+            SetOverlayMode(newMode);
+
+            Settings.CurrentMode = newMode;
+
+            Settings.Status = $"{Settings.CurrentModeText} Enabled.";
+        }
     }
 }

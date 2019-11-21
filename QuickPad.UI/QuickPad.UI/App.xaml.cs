@@ -31,6 +31,8 @@ namespace QuickPad.UI
         public static IServiceProvider Services => Host?.Services;
         public static SettingsViewModel Settings => _settings ??= Host?.Services.GetService<SettingsViewModel>();
 
+        public static QuickPadCommands Commands => Services.GetService<QuickPadCommands>();
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -84,9 +86,7 @@ namespace QuickPad.UI
                     //TODO: Load state from previously suspended application
                 }
 
-                this.Resources.Remove(nameof(QuickPadCommands));
                 this.Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
-
                 this.Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
 
                 // Place the frame in the current Window

@@ -14,8 +14,17 @@
     <Page.Resources>
         <converters:Converter x:Key="Converter" />
     </Page.Resources>
+    <Page.KeyboardAccelerators>
+        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number1" Invoked="ChangeModeByKey" />
+        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number2" Invoked="ChangeModeByKey" />
+        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number3" Invoked="ChangeModeByKey" />
+        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number4" Invoked="ChangeModeByKey" />
+        <KeyboardAccelerator Modifiers="Control" Key="F12" Invoked="ChangeModeByKey" />
+        <KeyboardAccelerator Key="Escape" Invoked="ChangeModeByKey" />
+    </Page.KeyboardAccelerators>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
@@ -45,7 +54,7 @@
                                    ShadowOpacity="0.3"
                                    OffsetX="0"
                                    OffsetY="1"
-                                   Grid.Row="1"
+                                   Grid.Row="2"
                                    Visibility="{x:Bind Settings.ShowCommandBar, Converter={StaticResource Converter}}"
                                    HorizontalAlignment="Stretch"
                                    HorizontalContentAlignment="Stretch">
@@ -54,7 +63,7 @@
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"                                  
-                                  Grid.Row="2"
+                                  Grid.Row="3"
                                   HorizontalAlignment="Right"
                                   VerticalAlignment="Top"
                                   Margin="15"
@@ -63,7 +72,7 @@
         </controls1:DropShadowPanel>
 
         <RichEditBox x:Name="RichEditBox" 
-                     Grid.Row="2" 
+                     Grid.Row="3" 
                      HorizontalAlignment="Stretch" 
                      VerticalAlignment="Stretch" 
                      BorderBrush="{x:Null}"
@@ -82,7 +91,7 @@
                                   ShadowOpacity="0.3"
                                   OffsetX="0"
                                   OffsetY="1"
-                                  Grid.Row="3"
+                                  Grid.Row="4"
                                   Visibility="{x:Bind Settings.ShowStatusBar, Converter={StaticResource Converter}}"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">

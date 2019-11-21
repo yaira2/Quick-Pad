@@ -78,12 +78,12 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        public void Dispatch(DispatcherQueueHandler handler)
+        public static void Dispatch(DispatcherQueueHandler handler)
         {
             CoreApplication.MainView.DispatcherQueue.TryEnqueue(handler);
         }
 
-        public Task<TResult> Dispatch<TResult>(Func<TResult> handler)
+        public static Task<TResult> Dispatch<TResult>(Func<TResult> handler)
         {
             return CoreApplication.MainView.Dispatcher.AwaitableRunAsync<TResult>(handler);
         }

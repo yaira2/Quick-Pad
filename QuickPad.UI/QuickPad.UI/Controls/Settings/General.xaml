@@ -22,15 +22,18 @@
         <StackPanel>
             <TextBlock Text="General" FontSize="20" x:Uid="General"/>
             <TextBlock Text="Launch Mode" x:Uid="LaunchMode"/>
-            <ComboBox Width="180" PlaceholderText="{x:Bind Settings.DefaultMode}" x:Uid="LaunchModeComboBox" 
+            <ComboBox Width="180" PlaceholderText="{x:Bind Settings.DefaultModeText}" x:Uid="LaunchModeComboBox" 
                       Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
-                      SelectedValuePath="Content"
+                      ItemsSource="{x:Bind Settings.AllDisplayModes}"
+                      SelectedValuePath="Uid"
                       SelectedValue="{x:Bind Settings.DefaultMode, Mode=TwoWay}"
+                      DisplayMemberPath="Text"
                       HorizontalAlignment="Left">
-                <ComboBoxItem Content="Classic Mode" x:Uid="LaunchClassicMode"/>
+                <!--<ComboBoxItem Content="Classic Mode" x:Uid="LaunchClassicMode"/>
                 <ComboBoxItem Content="Default" x:Uid="LaunchDefaultMode"/>
                 <ComboBoxItem Content="On Top" x:Uid="LaunchOnTopMode"/>
-                <ComboBoxItem Content="Focus Mode" x:Uid="LaunchFocusMode"/>
+                <ComboBoxItem Content="Focus Mode" x:Uid="LaunchFocusMode"/>-->
+                <!--<ComboBoxItem Content="Full UI" x:Uid="LaunchFullUIMode"/>-->
             </ComboBox>
 
             <TextBlock Text="App Language" x:Uid="AppLanguage"/>

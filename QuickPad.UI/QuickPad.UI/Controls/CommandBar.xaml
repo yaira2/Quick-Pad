@@ -20,7 +20,7 @@
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
             <AppBarButton x:Uid="NewLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" 
-                          Command="{Binding Path=NewDocumentCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" 
+                          Command="{x:Bind Commands.NewDocumentCommand}" 
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="New" Text="New"/>
@@ -35,7 +35,7 @@
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarButton x:Uid="OpenLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" 
-                          Command="{Binding Path=LoadCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          Command="{x:Bind Commands.LoadCommand}"
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Open" Text="Open (Ctrl+O)"/>
@@ -50,7 +50,7 @@
                 </AppBarButton.KeyboardAccelerators>
             </AppBarButton>
             <AppBarButton x:Uid="SaveLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Icon="Save" 
-                          Command="{Binding Path=SaveCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          Command="{x:Bind Commands.SaveCommand}"
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Save" Text="Save (Ctrl+S)"/>
@@ -67,7 +67,7 @@
                     <controls:TeachingTip x:Name="FontOptionTip"
                                                Target="{x:Bind FontDropdown}"
                                                x:Uid="FontOptionTip"
-                                               CloseButtonCommand="{Binding AcknowledgeFontSelectionChangeCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                               CloseButtonCommand="{x:Bind Commands.AcknowledgeFontSelectionChangeCommand}"
                                                CloseButtonCommandParameter="{x:Bind Settings}">
                     </controls:TeachingTip>
                 </AppBarButton.Resources>
@@ -123,7 +123,7 @@
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarButton x:Uid="EmojiLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Emoji2" 
-                          Command="{Binding Path=EmojiCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          Command="{x:Bind Commands.EmojiCommand}"
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Emoji" Text="Insert Emojis (Win + .)"/>
@@ -131,28 +131,28 @@
             </AppBarButton>
             <AppBarSeparator/>
             <AppBarToggleButton x:Uid="BoldLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Bold"
-                                Command="{Binding Path=BoldCommand, Source={StaticResource ResourceKey=QuickPadCommands}}" 
+                                Command="{x:Bind Commands.BoldCommand}" 
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Bold" Text="Bold (Ctrl+B)"/>
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="ItalicLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Italic"
-                                Command="{Binding Path=ItalicsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                Command="{x:Bind Commands.ItalicsCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Italic" Text="Italic (Ctrl+I)"/>
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="UnderlineLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Underline"
-                                Command="{Binding Path=UnderlineCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                Command="{x:Bind Commands.UnderlineCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Underline" Text="Underline (Ctrl+U)"/>
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="StrikethroughLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
-                                Command="{Binding Path=StrikeThroughCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                Command="{x:Bind Commands.StrikeThroughCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Strikethrough" Text="Strikethrough"/>
@@ -166,7 +166,7 @@
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="BulletsLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="List"
-                                Command="{Binding Path=BulletsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                Command="{x:Bind Commands.BulletsCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Bullets" Text="Toggle Bullets"/>
@@ -174,28 +174,28 @@
             </AppBarToggleButton>
             <AppBarSeparator/>
             <AppBarButton x:Uid="AlignLeftLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignLeft"
-                                Command="{Binding Path=LeftAlignCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                Command="{x:Bind Commands.LeftAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignLeft" Text="Align Left (Ctrl+L)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton x:Uid="AlignCenterLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignCenter"
-                                Command="{Binding Path=CenterAlignCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                Command="{x:Bind Commands.CenterAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignCenter" Text="Align Center (Ctrl+E)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton x:Uid="AlignRightLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignRight"
-                                Command="{Binding Path=RightAlignCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                Command="{x:Bind Commands.RightAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignRight" Text="Align Right (Ctrl+R)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton x:Uid="JustifyTextLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
-                                Command="{Binding Path=JustifyCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                                Command="{x:Bind Commands.JustifyCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="JustifyText" Text="Justify Text (Ctrl+J)"/>
@@ -209,10 +209,10 @@
         <CommandBar DefaultLabelPosition="Collapsed" IsOpen="False" HorizontalAlignment="Right" Height="40" Background="{x:Null}">
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Uid="FocusModeLabel" Label="Focus Mode" Width="Auto" Icon="Caption"
-                              Command="{Binding Path=FocusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                              Command="{x:Bind Commands.FocusCommand}"
                               CommandParameter="{x:Bind Settings}"/>
                 <AppBarButton x:Uid="ClassicModeLabel" Label="Classic Mode" Width="Auto" 
-                              Command="{Binding Path=ShowMenusCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                              Command="{x:Bind Commands.ShowMenusCommand}"
                               CommandParameter="{x:Bind Settings}">
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE8C5;" />
@@ -232,21 +232,21 @@
                     </AppBarButton.KeyboardAccelerators>
                 </AppBarButton>
                 <AppBarButton x:Uid="SettingsLabel" Label="Settings" Width="Auto" Icon="Setting"
-                              Command="{Binding Path=SettingsCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
+                              Command="{x:Bind Commands.SettingsCommand}"      
                               CommandParameter="{x:Bind Settings}"/>
                 <AppBarButton x:Uid="ExitLabel" Label="Exit" Width="Auto" Icon="Cancel"
-                              Command="{Binding Path=ExitCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
+                              Command="{x:Bind Commands.ExitCommand}"      
                               CommandParameter="{x:Bind ViewModel}"/>
             </CommandBar.SecondaryCommands>
             <AppBarButton Width="Auto" MinWidth="40" Icon="Undo"
-                          Command="{Binding Path=UndoCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"      
+                          Command="{x:Bind Commands.UndoCommand}"      
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="UndoTooltip" Text="Undo (Ctrl+Z)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton Width="Auto" MinWidth="40" Icon="Redo"
-                          Command="{Binding Path=RedoCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          Command="{x:Bind Commands.RedoCommand}"
                           CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="RedoTooltip" Text="Redo (Ctrl+Y)"/>
@@ -254,7 +254,7 @@
             </AppBarButton>
             <AppBarSeparator/>
             <AppBarButton MinWidth="40" Width="Auto" 
-                          Command="{Binding Path=CompactOverlayCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                          Command="{x:Bind Commands.CompactOverlayCommand}"
                           CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>

@@ -26,7 +26,7 @@
                 BorderThickness="0"
                 Visibility="{x:Bind Settings.CompactOverlay, Converter={StaticResource Converter}}"
                 CornerRadius="0"
-                Command="{Binding Path=CompactOverlayCommand, Source={StaticResource ResourceKey=QuickPadCommands}}"
+                Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
             <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
             <Button.KeyboardAccelerators>

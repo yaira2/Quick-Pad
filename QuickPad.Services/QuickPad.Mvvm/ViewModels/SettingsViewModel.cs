@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -8,7 +7,6 @@ using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using Windows.Management.Core;
 using Windows.Storage;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
@@ -17,6 +15,8 @@ using QuickPad.Mvvm.Models;
 using Windows.Globalization;
 using Windows.UI.Xaml;
 using Microsoft.Toolkit.Uwp.Helpers;
+using System.Threading;
+using Windows.ApplicationModel.Resources;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -24,11 +24,20 @@ namespace QuickPad.Mvvm.ViewModels
     {
         readonly ApplicationDataContainer _roamingSettings;
 
+        [JsonIgnore]
+        public ObservableCollection<DisplayMode> AllDisplayModes { get; }
+
         public SettingsViewModel(ILogger<SettingsViewModel> logger) : base(logger)
         {
             AllFonts = new ObservableCollection<string>(
                 CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font));
-            
+
+            AllDisplayModes = new ObservableCollection<DisplayMode>();
+
+            Enum.GetNames(typeof(DisplayModes)).ToList().ForEach(uid => AllDisplayModes.Add(new DisplayMode(uid)));
+
+            AllDisplayModes.Remove(AllDisplayModes.First(dm => dm.Uid == DisplayModes.LaunchFullUIMode.ToString()));
+
             _roamingSettings = ApplicationData.Current.RoamingSettings;
 
             var supportedLang = ApplicationLanguages.ManifestLanguages;
@@ -37,6 +46,8 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 DefaultLanguages.Add(new DefaultLanguageModel(lang));
             }
+
+            _statusCooldown = new Timer(StatusTimerCallback);
         }
 
         protected bool Set<TValue>(TValue value, [CallerMemberName] string propertyName = null)
@@ -45,7 +56,7 @@ namespace QuickPad.Mvvm.ViewModels
             var currentValue = originalValue;
 
             if (!base.Set(ref currentValue, value, propertyName)) return false;
-            
+
             if (propertyName != null && (!originalValue?.Equals(currentValue) ?? true))
             {
                 _roamingSettings.Values[propertyName] = value;
@@ -71,13 +82,32 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore]
         public IEnumerable<double> AllFontSizes { get; } =
-            new double[] {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
+            new double[] { 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
 
         [JsonIgnore]
         public Action<double> AfterTintOpacityChanged { get; set; }
 
         [JsonIgnore]
         public ObservableCollection<DefaultLanguageModel> DefaultLanguages { get; }
+
+        private Timer _statusCooldown;
+
+        private void StatusTimerCallback(object state) 
+        {
+            Set(ref _status, string.Empty, nameof(Status));
+        }
+
+        [JsonIgnore]
+        public string Status { 
+            get => _status;
+            set
+            {
+                if(Set(ref _status, value))
+                {
+                    _statusCooldown.Change(TimeSpan.FromSeconds(30), TimeSpan.Zero);
+                }
+            }
+        }
 
         [NotifyOnReset]
         public string CustomThemeId
@@ -154,7 +184,7 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         [NotifyOnReset]
-        public bool UseAcrylic     
+        public bool UseAcrylic
         {
             get => Get(false);
             set => Set(value);
@@ -219,9 +249,14 @@ namespace QuickPad.Mvvm.ViewModels
         [NotifyOnReset]
         public string DefaultMode
         {
-            get => Get("Classic Mode");
+            get => Get(DisplayModes.LaunchClassicMode.ToString());
             set => Set(value);
         }
+
+        public string DefaultModeText =>
+            AllDisplayModes.FirstOrDefault(dm => dm.Uid == DefaultMode)?.Text ??
+                AllDisplayModes.First().Text;
+
         [NotifyOnReset]
         public bool AcknowledgeFontSelectionChange
         {
@@ -238,10 +273,15 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 var previousMode = _currentMode;
                 if (!Set(ref _currentMode, value)) return;
+                
+                if (_resourceLoader == null) _resourceLoader = ResourceLoader.GetForCurrentView();
+                
+                _currentModeText = _resourceLoader.GetString(_currentMode);
 
                 _previousMode = previousMode;
 
                 OnPropertyChanged(nameof(CurrentMode));
+                OnPropertyChanged(nameof(CurrentModeText));
                 OnPropertyChanged(nameof(ShowMenu));
                 OnPropertyChanged(nameof(ShowCommandBar));
                 OnPropertyChanged(nameof(FocusMode));
@@ -250,6 +290,9 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
+        [JsonIgnore]
+        public string CurrentModeText => _currentModeText;
+
         public bool StatusBar
         {
             get => Get(true);
@@ -257,24 +300,32 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         private string _previousMode;
+        private string _status;
+        private string _currentModeText;
+        private ResourceLoader _resourceLoader;
+
         [JsonIgnore]
-        public string PreviousMode => _previousMode ??= "Classic Mode";
+        public string PreviousMode => _previousMode ??= DisplayModes.LaunchClassicMode.ToString();
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool ShowMenu => CurrentMode.Equals("Classic Mode", StringComparison.InvariantCultureIgnoreCase);
+        public bool ShowFullUI => CurrentMode.Equals(DisplayModes.LaunchFullUIMode.ToString(), StringComparison.InvariantCultureIgnoreCase);
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool ShowCommandBar => CurrentMode.Equals("Default", StringComparison.InvariantCultureIgnoreCase);
-        
-        [JsonIgnore]
-        [NotifyOnReset]
-        public bool FocusMode => CurrentMode.Equals("Focus Mode", StringComparison.InvariantCultureIgnoreCase);
+        public bool ShowMenu => CurrentMode.Equals(DisplayModes.LaunchClassicMode.ToString(), StringComparison.InvariantCultureIgnoreCase) || ShowFullUI;
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool CompactOverlay => CurrentMode.Equals("Compact Overlay", StringComparison.InvariantCultureIgnoreCase);
+        public bool ShowCommandBar => CurrentMode.Equals(DisplayModes.LaunchDefaultMode.ToString(), StringComparison.InvariantCultureIgnoreCase) || ShowFullUI;
+
+        [JsonIgnore]
+        [NotifyOnReset]
+        public bool FocusMode => CurrentMode.Equals(DisplayModes.LaunchFocusMode.ToString(), StringComparison.InvariantCultureIgnoreCase);
+
+        [JsonIgnore]
+        [NotifyOnReset]
+        public bool CompactOverlay => CurrentMode.Equals(DisplayModes.LaunchOnTopMode.ToString(), StringComparison.InvariantCultureIgnoreCase);
 
         [JsonIgnore]
         [NotifyOnReset]
@@ -285,7 +336,7 @@ namespace QuickPad.Mvvm.ViewModels
         public Thickness TitleMargin => FocusMode ? new Thickness(BackButtonWidth, 0, 0, 0) : new Thickness(0);
 
         public double BackButtonWidth { get; set; }
-        
+
         public bool NotDeferred
         {
             get => Get(true);
@@ -357,10 +408,5 @@ namespace QuickPad.Mvvm.ViewModels
             await stream.FlushAsync();
             stream.Close();
         }
-    }
-
-    public class NotifyOnResetAttribute : Attribute
-    {
-        public NotifyOnResetAttribute() { }
     }
 }

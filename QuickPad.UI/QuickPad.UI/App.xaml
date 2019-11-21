@@ -11,7 +11,6 @@
                 <ResourceDictionary Source="/ResourceDictionaries/RichEditBox.xaml"/>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
             </ResourceDictionary.MergedDictionaries>
-            <commands:QuickPadCommands x:Key="QuickPadCommands"/>
         </ResourceDictionary>
         
     </Application.Resources>

@@ -179,7 +179,7 @@
                         <SymbolIcon Symbol="Back"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Focus Mode" AccessKey="F" x:Uid="Focus Mode">
+                <MenuFlyoutItem Text="Focus Mode" AccessKey="F" x:Uid="FocusMode">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Caption"/>
                     </MenuFlyoutItem.Icon>

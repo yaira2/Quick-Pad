@@ -13,10 +13,7 @@ namespace QuickPad.Mvvm.Commands.Clipboard
         public PasteCommand(SettingsViewModel settingsViewModel)
         {
             _settings = settingsViewModel;
-        }
 
-        public PasteCommand()
-        {
             Task.Run(CheckClipboardStatus);
 
             CanExecuteEvaluator = viewModel => CanPasteText;
@@ -58,7 +55,8 @@ namespace QuickPad.Mvvm.Commands.Clipboard
         {
             try
             {
-                var clipboardContent = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
+                
+                var clipboardContent = await ViewModel.Dispatch(() => Windows.ApplicationModel.DataTransfer.Clipboard.GetContent());
                 Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged -= ClipboardStatusUpdate;
                 var dataPackage = new DataPackage();
                 if (_settings.PasteTextOnly)
@@ -74,10 +72,14 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                         dataPackage.SetText(await clipboardContent.GetTextAsync());
                 }
 
-                Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
-                Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
-                Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged += ClipboardStatusUpdate;
-                CanPasteText = clipboardContent.Contains(StandardDataFormats.Text);
+                await ViewModel.Dispatch(() =>
+                {
+                    Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+                    Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
+                    Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged += ClipboardStatusUpdate;
+                    CanPasteText = clipboardContent.Contains(StandardDataFormats.Text);
+                    return null as object;
+                });
             }
             catch (Exception)
             {

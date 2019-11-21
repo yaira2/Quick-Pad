@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Data;
 using QuickPad.Mvvm.Models;
 using QuickPad.UI;
 using QuickPad.UI.Common;
+using System.Text;
 
 namespace QuickPad.UI.Converters
 {
@@ -203,6 +204,7 @@ namespace QuickPad.UI.Converters
             if (targetType == typeof(string) && value is bool overlayIcon) return Converter.SwitchBetweenOverlayIcon(overlayIcon);
             if (targetType == typeof(SolidColorBrush) && value is Color colorBrush) return Converter.FromColorToBrush(colorBrush);
             if (targetType == typeof(Visibility)) return Converter.ShowIfItemIsNotNull(value);
+            if (targetType == typeof(string) && value is Encoding encoding) return encoding.EncodingName;
 
             return null;
         }

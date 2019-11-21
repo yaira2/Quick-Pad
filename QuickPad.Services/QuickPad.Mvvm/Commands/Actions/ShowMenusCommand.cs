@@ -10,7 +10,7 @@ namespace QuickPad.Mvvm.Commands.Actions
             Executioner = settings =>
             {
                 //open settings page
-                settings.CurrentMode = "Classic Mode";
+                settings.CurrentMode = "LaunchClassicMode";
 
                 return Task.CompletedTask;
             };

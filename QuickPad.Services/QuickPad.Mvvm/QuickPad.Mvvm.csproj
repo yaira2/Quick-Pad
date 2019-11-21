@@ -145,6 +145,8 @@
     <Compile Include="Commands\Clipboard\CopyCommand.cs" />
     <Compile Include="Commands\Clipboard\CutCommand.cs" />
     <Compile Include="Models\DefaultLanguageModel.cs" />
+    <Compile Include="ViewModels\DisplayMode.cs" />
+    <Compile Include="ViewModels\DisplayModes.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
     <Compile Include="Commands\Editing\ItalicCommand.cs" />
     <Compile Include="Commands\Editing\EmojiCommand.cs" />
@@ -155,6 +157,7 @@
     <Compile Include="Commands\QuickPadCommands.cs" />
     <Compile Include="Commands\Editing\RedoCommand.cs" />
     <Compile Include="Commands\Editing\RightAlignCommand.cs" />
+    <Compile Include="ViewModels\NotifyOnResetAttribute.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Commands\SimpleCommand.cs" />
     <Compile Include="Commands\Editing\StrikeThroughCommand.cs" />
