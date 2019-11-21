@@ -250,6 +250,12 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
+        public bool StatusBar
+        {
+            get => Get(true);
+            set => Set(value);
+        }
+
         private string _previousMode;
         [JsonIgnore]
         public string PreviousMode => _previousMode ??= "Classic Mode";
@@ -268,7 +274,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool ShowStatusBar => ShowMenu || ShowCommandBar;
+        public bool ShowStatusBar => (ShowMenu && StatusBar) || (ShowCommandBar && StatusBar);
 
         [JsonIgnore]
         [NotifyOnReset]

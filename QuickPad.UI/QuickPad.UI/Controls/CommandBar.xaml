@@ -218,11 +218,11 @@
                         <FontIcon Glyph="&#xE8C5;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
-                <AppBarButton x:Uid="StatusBarLabel" Label="Status Bar" Width="Auto">
-                    <AppBarButton.Icon>
+                <AppBarToggleButton x:Uid="StatusBarLabel" Label="Status Bar" Width="Auto" IsChecked="{x:Bind Settings.StatusBar, Mode=TwoWay}">
+                    <AppBarToggleButton.Icon>
                         <FontIcon Glyph="&#xE75B;" />
-                    </AppBarButton.Icon>
-                </AppBarButton>
+                    </AppBarToggleButton.Icon>
+                </AppBarToggleButton>
                 <AppBarButton x:Uid="ShareLabel" Label="Share" Width="Auto" Icon="Share"/>
                 <AppBarButton x:Uid="FindLabel" Label="Find" Width="Auto" Icon="Find">
                     <AppBarButton.KeyboardAccelerators>
