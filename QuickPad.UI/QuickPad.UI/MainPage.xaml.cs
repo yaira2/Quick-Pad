@@ -70,7 +70,7 @@ namespace QuickPad.UI
 
             DataContext = ViewModel;
 
-            Task.Run(ViewModel.InitNewDocument).Wait();
+            ViewModel.IsDirty = false;
 
             ViewModel.ExitApplication = ExitApp;
 
