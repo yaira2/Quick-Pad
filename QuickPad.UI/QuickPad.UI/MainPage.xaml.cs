@@ -202,7 +202,15 @@ namespace QuickPad.UI
                     break;
             }
 
-            Bindings.Update();
+            try
+            {
+                Bindings.Update();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Error binding objects.");
+            }
+            
         }
 
         private async void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
@@ -275,6 +283,18 @@ namespace QuickPad.UI
 
         private void RichEditBox_OnContextMenuOpening(object sender, ContextMenuEventArgs e)
         {
+        }
+
+        private void TextBox_OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Bindings.Update();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, "Error updating binding on MainPage.");
+            }
         }
     }
 }

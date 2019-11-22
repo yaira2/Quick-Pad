@@ -13,6 +13,7 @@
     d:DesignHeight="40"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.Resources>
+        <converters:Converter x:Key="Converter" />
         <DataTemplate x:Key="FontFamilyComboBoxItem">
             <TextBlock Text="{Binding}" FontFamily="{Binding}" Margin="2,2,2,2" FontSize="12"/>
         </DataTemplate>
@@ -123,6 +124,7 @@
             </AppBarButton>
             <AppBarSeparator/>
             <AppBarToggleButton x:Uid="BoldLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Bold"
+                                Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.BoldCommand}" 
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -130,6 +132,7 @@
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="ItalicLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Italic"
+                                Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.ItalicsCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -137,6 +140,7 @@
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="UnderlineLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Underline"
+                                Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.UnderlineCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -144,6 +148,7 @@
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="StrikethroughLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
+                                Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.StrikeThroughCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -158,6 +163,7 @@
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="BulletsLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="List"
+                                Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.BulletsCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -166,6 +172,7 @@
             </AppBarToggleButton>
             <AppBarSeparator/>
             <AppBarButton x:Uid="AlignLeftLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignLeft"
+                          Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.LeftAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -173,6 +180,7 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton x:Uid="AlignCenterLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignCenter"
+                                Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.CenterAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -180,6 +188,7 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton x:Uid="AlignRightLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignRight"
+                                Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.RightAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -187,6 +196,7 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton x:Uid="JustifyTextLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
+                                Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.JustifyCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>

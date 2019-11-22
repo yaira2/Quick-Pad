@@ -182,7 +182,9 @@
                 </MenuFlyoutItem>
             </MenuBarItem>
             <MenuBarItem Title="Format" AccessKey="O" x:Uid="Format">
-                <ToggleMenuFlyoutItem Text="Word Wrap" x:Uid="WordWrap">
+                <ToggleMenuFlyoutItem Text="Word Wrap" x:Uid="WordWrap"
+                                      Command="{x:Bind Commands.ToggleWordWrapCommand}"
+                                      CommandParameter="{x:Bind ViewModel}">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE751;"/>
                     </ToggleMenuFlyoutItem.Icon>

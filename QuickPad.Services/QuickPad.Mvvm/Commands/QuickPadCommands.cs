@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
 using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.Commands.Editing;
@@ -42,6 +43,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> RightAlignCommand { get; } = new RightAlignCommand();
         public SimpleCommand<DocumentViewModel> JustifyCommand { get; } = new JustifyCommand();
 
+        public SimpleCommand<DocumentViewModel> ToggleWordWrapCommand { get; } = new ToggleWordWrapCommand(); 
         //actions
         public SimpleCommand<SettingsViewModel> FocusCommand { get; } = new FocusCommand();
         public SimpleCommand<SettingsViewModel> SettingsCommand { get; } = new ShowSettingsCommand();
@@ -68,6 +70,19 @@ namespace QuickPad.Mvvm.Commands
                     var settingsCommand = pi.GetValue(this) as SimpleCommand<SettingsViewModel>;
                     settingsCommand?.InvokeCanExecuteChanged(settingsViewModel);
                 });
+        }
+    }
+
+    public class ToggleWordWrapCommand : SimpleCommand<DocumentViewModel>
+    {
+        public ToggleWordWrapCommand()
+        {
+            Executioner = viewModel =>
+            {
+                viewModel.CurrentWordWrap = !viewModel.CurrentWordWrap;
+
+                return Task.CompletedTask;
+            };
         }
     }
 }

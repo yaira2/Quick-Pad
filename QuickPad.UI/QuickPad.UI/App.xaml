@@ -9,6 +9,7 @@
         <ResourceDictionary >
             <ResourceDictionary.MergedDictionaries >
                 <ResourceDictionary Source="/ResourceDictionaries/RichEditBox.xaml"/>
+                <ResourceDictionary Source="/ResourceDictionaries/TextBox.xaml"/>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

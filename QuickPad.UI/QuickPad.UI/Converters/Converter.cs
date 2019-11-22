@@ -170,6 +170,19 @@ namespace QuickPad.UI.Converters
 
         public static Brush SelectionBetweenBrush(bool determiner, Brush a, Brush b) => determiner ? a : b;
 
+        public static Visibility VisibleIfNotRtf(string currentFileType) =>
+            BoolToVisibility(!currentFileType?.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ?? false);
+
+        public static Visibility VisibleIfRtf(string currentFileType) =>
+            BoolToVisibility(currentFileType?.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ?? false);
+
+        public static bool IsRtf(string currentFileType) =>
+            currentFileType?.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ?? false;
+
+        public static bool IsNotRtf(string currentFileType) =>
+            !currentFileType?.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ?? false;
+
+
         public static string SelectionFromString(string name, IList<string> fonts)
         {
             return fonts is null ? App.Settings.DefaultFont : fonts.FirstOrDefault(i => i == name);

@@ -59,6 +59,16 @@ namespace QuickPad.UI.Controls
                     }
                     break;
 
+                case nameof(ViewModel.CurrentFileType):
+                    try
+                    {
+                        Bindings.Update();
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                    }
+                    break;
             }
         }
 

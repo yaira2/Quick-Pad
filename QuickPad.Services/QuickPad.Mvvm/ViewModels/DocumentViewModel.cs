@@ -29,7 +29,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         private StorageFile _file;
         private string _currentFontName;
-        private double _currentFontSize;
+        private double _currentFontSize = 14;
         private string _currentFileType;
         private bool _currentWordWrap;
         private string _currentFileDisplayType;
@@ -65,8 +65,16 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _document, value);
         }
 
-        public TextGetOptions GetOption { get; private set; } = TextGetOptions.None;
-        public TextSetOptions SetOption { get; private set; } = TextSetOptions.None;
+        private const TextGetOptions DEFAULT_TEXT_GET_OPTIONS_TXT = TextGetOptions.None | TextGetOptions.AdjustCrlf | TextGetOptions.NoHidden | TextGetOptions.UseCrlf;
+        private const TextSetOptions DEFAULT_TEXT_SET_OPTIONS_TXT = TextSetOptions.None | TextSetOptions.Unhide;
+
+        private const TextGetOptions DEFAULT_TEXT_GET_OPTIONS_RTF =
+            TextGetOptions.FormatRtf | TextGetOptions.IncludeNumbering | TextGetOptions.NoHidden;
+        private const TextSetOptions DEFAULT_TEXT_SET_OPTIONS_RTF = TextSetOptions.FormatRtf | TextSetOptions.Unhide;
+
+
+        public TextGetOptions GetOption { get; private set; } = DEFAULT_TEXT_GET_OPTIONS_TXT;
+        public TextSetOptions SetOption { get; private set; } = DEFAULT_TEXT_SET_OPTIONS_TXT;
 
         public string CurrentFileType
         {
@@ -86,9 +94,9 @@ namespace QuickPad.Mvvm.ViewModels
                     CurrentWordWrap =
                         isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
                     GetOption =
-                        isRtf ? TextGetOptions.FormatRtf : TextGetOptions.None;
+                        isRtf ? DEFAULT_TEXT_GET_OPTIONS_RTF : DEFAULT_TEXT_GET_OPTIONS_TXT;
                     SetOption =
-                        isRtf ? TextSetOptions.FormatRtf : TextSetOptions.None;
+                        isRtf ? DEFAULT_TEXT_SET_OPTIONS_RTF : DEFAULT_TEXT_SET_OPTIONS_TXT;
                 }
             }
         }
@@ -119,7 +127,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         public string CurrentFontName
         {
-            get => _currentFontName;
+            get => _currentFontName ?? Settings.DefaultFont;
             set => Set(ref _currentFontName, value);
         }
 
