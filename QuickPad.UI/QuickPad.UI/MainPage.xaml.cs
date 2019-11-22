@@ -253,9 +253,9 @@ namespace QuickPad.UI
             {
                 (true, true, false, false, false, VirtualKey.Number1) => DisplayModes.LaunchClassicMode.ToString(),
                 (true, true, false, false, false, VirtualKey.Number2) => DisplayModes.LaunchDefaultMode.ToString(),
+                (true, true, false, false, false, VirtualKey.Number3) => DisplayModes.LaunchFocusMode.ToString(),
                 (false, false, true, false, false, VirtualKey.Up) => DisplayModes.LaunchCompactOverlay.ToString(),
                 (false, false, true, false, false, VirtualKey.Down) => Settings.CurrentMode == DisplayModes.LaunchCompactOverlay.ToString() ? Settings.DefaultMode : Settings.CurrentMode,
-                (true, true, false, false, false, VirtualKey.Number4) => DisplayModes.LaunchFocusMode.ToString(),
                 (true, false, false, false, false, VirtualKey.F12) => DisplayModes.LaunchNinjaMode.ToString(),
                 (false, false, false, false, false, VirtualKey.Escape) => Settings.DefaultMode,
                 _ => Settings.CurrentMode
