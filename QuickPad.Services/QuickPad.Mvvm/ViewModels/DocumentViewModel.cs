@@ -184,9 +184,10 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 if (Set(ref _file, value))
                 {
-                    if (value?.FileType.Equals(CurrentFileType, StringComparison.InvariantCultureIgnoreCase) ?? false)
+                    if (!value?.FileType.Equals(CurrentFileType, StringComparison.InvariantCultureIgnoreCase) ?? false)
                     {
                         CurrentFileType = value.FileType;
+                        CurrentFileDisplayType = value.DisplayType;
                     }
 
                     OnPropertyChanged(nameof(FilePath));
@@ -209,18 +210,26 @@ namespace QuickPad.Mvvm.ViewModels
             SetEncoding(Settings.DefaultEncoding);
             CurrentFileType = Settings.DefaultFileType;
 
-            var memoryStream = new InMemoryRandomAccessStream();
-            
-            var bytes = Encoding.UTF8.GetBytes("\r");
-            var buffer = bytes.AsBuffer();
+            try
+            {
+                var memoryStream = new InMemoryRandomAccessStream();
+                var bytes = Encoding.UTF8.GetBytes("\r");
+                var buffer = bytes.AsBuffer();
+                await memoryStream.WriteAsync(buffer);
 
-            await memoryStream.ReadAsync(buffer, buffer.Length, InputStreamOptions.None);
+                memoryStream.Seek(0);
+                Document?.LoadFromStream(SetOption, memoryStream);
+            }
+            catch (Exception e)
+            {
+                Settings.Status(e.Message, TimeSpan.FromSeconds(60), SettingsViewModel.Verbosity.Error);
+            }
+            finally
+            {
+                IsDirty = false;
 
-            Document?.LoadFromStream(SetOption, memoryStream);
-
-            IsDirty = false;
-
-            ReleaseUpdates();
+                ReleaseUpdates();
+            }
 
             NotifyAll();
         }

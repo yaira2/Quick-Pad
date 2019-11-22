@@ -13,7 +13,7 @@
   
   <Identity
     Name="49306atecsolution.QuickPad"
-    Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7"
+    Publisher="CN=kingd"
     Version="4.3.41.0" />
 
   <mp:PhoneIdentity PhoneProductId="57478161-cfb2-425b-a0c6-7563e9bbab3f" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
@@ -67,6 +67,28 @@
               <uap:SupportsAnyFileType/>
             </uap:SupportedFileTypes>
           </uap:FileOpenPicker>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation" >
+          <uap:FileTypeAssociation Name="quick-pad-file" >
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="application/rtf">.rtf</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>Rich Text Document</uap:DisplayName>
+            <uap:InfoTip>Quick-Pad File</uap:InfoTip>
+            <uap:EditFlags OpenIsSafe="true"/>
+            <uap:Logo>Assets\SmallTile.png</uap:Logo>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="quick-pad-document">
+            <uap:SupportedFileTypes>
+              <uap:FileType ContentType="text/plain">.txt</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>Text Document</uap:DisplayName>
+            <uap:Logo>Assets\SmallTile.png</uap:Logo>
+            <uap:InfoTip>Quick-Pad Document</uap:InfoTip>
+            <uap:EditFlags OpenIsSafe="true"/>
+          </uap:FileTypeAssociation>
         </uap:Extension>
       </Extensions>
     </Application>

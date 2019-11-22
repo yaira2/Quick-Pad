@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.Foundation;
 using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Clipboard
@@ -55,30 +57,123 @@ namespace QuickPad.Mvvm.Commands.Clipboard
         {
             try
             {
-                var clipboardContent = await ViewModel.Dispatch(() => Windows.ApplicationModel.DataTransfer.Clipboard.GetContent());
+                var clipboardContent = await ViewModel.Dispatch(Windows.ApplicationModel.DataTransfer.Clipboard.GetContent);
                 Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged -= ClipboardStatusUpdate;
-                var dataPackage = new DataPackage();
-                if (_settings.PasteTextOnly)
+
+                string GetText()
                 {
-                    dataPackage.SetText(await clipboardContent.GetTextAsync());
-                }
-                else
-                {
-                    dataPackage = new DataPackage();
-                    if (clipboardContent.Contains(StandardDataFormats.Rtf))
-                        dataPackage.SetRtf(await clipboardContent.GetRtfAsync());
-                    else
-                        dataPackage.SetText(await clipboardContent.GetTextAsync());
+                    Task<IAsyncOperation<string>> task;
+                    IAsyncOperation<string> asyncOp;
+
+                    try
+                    {
+                        if (clipboardContent.Contains(StandardDataFormats.Text))
+                        {
+                            task = Task.Run(clipboardContent.GetTextAsync);
+                            task.Wait(TimeSpan.FromMinutes(1));
+                            asyncOp = task.Result;
+
+                            if (asyncOp.ErrorCode != null) throw asyncOp.ErrorCode;
+
+                            if (asyncOp.Status == AsyncStatus.Completed)
+                            {
+                                var text = asyncOp?.GetResults();
+
+                                return text;
+                            }
+                                
+                            if (asyncOp.Status == AsyncStatus.Canceled)
+                            {
+                                throw new OperationCanceledException();
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), SettingsViewModel.Verbosity.Error);
+                    }
+
+                    return null;
                 }
 
-                await ViewModel.Dispatch(() =>
+                string GetRtf()
                 {
-                    Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
-                    Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
-                    Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged += ClipboardStatusUpdate;
-                    CanPasteText = clipboardContent.Contains(StandardDataFormats.Text);
-                    return null as object;
-                });
+                    Task<IAsyncOperation<string>> task;
+                    IAsyncOperation<string> asyncOp;
+
+                    try
+                    {
+                        if (clipboardContent.Contains(StandardDataFormats.Rtf))
+                        {
+                            task = Task.Run(clipboardContent.GetRtfAsync);
+                            task.Wait(TimeSpan.FromMinutes(1));
+                            asyncOp = task.Result;
+
+                            if (asyncOp.ErrorCode != null) throw asyncOp.ErrorCode;
+
+                            if (asyncOp.Status == AsyncStatus.Completed)
+                            {
+                                var text = asyncOp?.GetResults();
+
+                                return text;
+                            }
+
+                            if (asyncOp.Status == AsyncStatus.Canceled)
+                            {
+                                throw new OperationCanceledException();
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), SettingsViewModel.Verbosity.Error);
+                    }
+
+                    return null;
+                }
+
+                void UpdateClipboard()
+                {
+                    var dataPackage = new DataPackage();
+                    if (_settings.PasteTextOnly)
+                    {
+                        var text = GetText();
+                        if(text != null) dataPackage.SetText(text);
+                    }
+                    else
+                    {
+                        dataPackage = new DataPackage();
+                        if (clipboardContent.Contains(StandardDataFormats.Rtf))
+                        {
+                            var text = GetRtf();
+                            if (text != null) dataPackage.SetRtf(text);
+                        }
+                        else if (clipboardContent.Contains(StandardDataFormats.Text))
+                        {
+                            var text = GetText();
+                            if (text != null) dataPackage.SetText(text);
+                        }
+                    }
+
+                    var canPasteText = false;
+                    try
+                    {
+                        Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+                        Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
+                        Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged += ClipboardStatusUpdate;
+                        canPasteText = clipboardContent.Contains(StandardDataFormats.Text);
+                    }
+                    catch (Exception e)
+                    {
+                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), SettingsViewModel.Verbosity.Error);
+                    }
+                    finally
+                    {
+                        CanPasteText = canPasteText;
+                    }
+                }
+
+                ViewModel.Dispatch(UpdateClipboard);
             }
             catch (Exception)
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -54,7 +55,8 @@ namespace QuickPad.UI
                     {
                         collection.AddSingleton<ResourceDictionary>(provider => this.Resources);
                     })
-                .ConfigureLogging(builder => { 
+                .ConfigureLogging(builder =>
+                {
                     builder.AddConsole();
                 })
                 .ConfigureHostConfiguration(ApplicationStartup.Configure)
@@ -86,8 +88,8 @@ namespace QuickPad.UI
                     //TODO: Load state from previously suspended application
                 }
 
-                this.Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
-                this.Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
+                if (!Resources.ContainsKey(nameof(QuickPadCommands))) Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
+                if (!Resources.ContainsKey(nameof(SettingsViewModel))) Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
 
                 // Place the frame in the current Window
                 Window.Current.Content = mainPage;
@@ -105,6 +107,35 @@ namespace QuickPad.UI
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
+        }
+
+        protected override void OnFileActivated(FileActivatedEventArgs args)
+        {
+            MainPage mainPage = null;
+
+            if (Window.Current.Content is MainPage) mainPage = Window.Current.Content as MainPage;
+
+            if (!Resources.ContainsKey(nameof(QuickPadCommands)))
+                Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
+            if (!Resources.ContainsKey(nameof(SettingsViewModel)))
+                Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
+
+            if (mainPage == null)
+            {
+                // Create a Frame to act as the navigation context and navigate to the first page
+                mainPage = Services.GetService<MainPage>();
+            }
+
+            // The number of files received is args.Files.Size
+            // The name of the first file is args.Files[0].Name
+            if (args.Files.Count > 0 && args.Files[0] != null)
+            {
+                mainPage.FileToLoad = args.Files[0] as StorageFile;
+            }
+
+            Window.Current.Content = mainPage;
+            Window.Current.Activate();
+
         }
 
         /// <summary>

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation.Metadata;
+using Windows.Storage;
 using Windows.Storage.Pickers;
 using Windows.System;
 using Windows.UI.Popups;
@@ -72,6 +73,7 @@ namespace QuickPad.Mvc
 
                     documentView.Initialize += DocumentInitializer;
                     documentView.ExitApplication += DocumentViewExitApplication;
+                    documentView.LoadFromFile += LoadFile;
 
                     break;
             }
@@ -224,8 +226,14 @@ namespace QuickPad.Mvc
 
             var file = await loadPicker.PickSingleFileAsync();
 
-            if (file == null) return;
+            if (file != null)
+            {
+                await LoadFile(documentViewModel, file);
+            }
+        }
 
+        public async Task LoadFile(DocumentViewModel documentViewModel, StorageFile file)
+        {
             var provider = new FileDataProvider();
             var bytes = await provider.LoadDataAsync(file);
             var reader = new EncodingReader();

@@ -11,6 +11,8 @@ using QuickPad.Mvvm.Models;
 using QuickPad.UI;
 using QuickPad.UI.Common;
 using System.Text;
+using Windows.UI.Xaml.Controls;
+using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.UI.Converters
 {
@@ -205,7 +207,12 @@ namespace QuickPad.UI.Converters
             if (targetType == typeof(SolidColorBrush) && value is Color colorBrush) return Converter.FromColorToBrush(colorBrush);
             if (targetType == typeof(Visibility)) return Converter.ShowIfItemIsNotNull(value);
             if (targetType == typeof(string) && value is Encoding encoding) return encoding.EncodingName;
-
+            if (targetType == typeof(DisabledFormattingAccelerators) && value is DocumentViewModel viewModel)
+                return viewModel.CurrentFileType switch
+                {
+                    ".rtf" => DisabledFormattingAccelerators.None,
+                    _ => DisabledFormattingAccelerators.All
+                };
             return null;
         }
 

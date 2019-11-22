@@ -669,4 +669,12 @@
     <value>Undo (Ctrl+Z)</value>
     <comment>Used on CommandBar</comment>
   </data>
+  <data name="RichTextDescription" xml:space="preserve">
+    <value>Rich Text Document</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="TextDescription" xml:space="preserve">
+    <value>Text Document</value>
+    <comment>Used on Status Bar</comment>
+  </data>
 </root>

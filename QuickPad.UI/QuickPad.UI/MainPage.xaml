@@ -9,7 +9,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controls2="using:QuickPad.UI.Controls.Settings"
-    mc:Ignorable="d"       
+    xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
+    mc:Ignorable="d"  
     KeyUp="MainPage_OnKeyUp"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
@@ -70,6 +71,7 @@
                      VerticalAlignment="Stretch" 
                      BorderBrush="{x:Null}"
                      BorderThickness="0"
+                     ContextMenuOpening="RichEditBox_OnContextMenuOpening"
                      TextWrapping="{x:Bind converters:Converter.BoolToTextWrap(ViewModel.CurrentWordWrap), Mode=OneWay}" 
                      IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
@@ -78,6 +80,7 @@
                      
                      >
         </RichEditBox>
+        <!--DisabledFormattingAccelerators="{x:Bind ViewModel.CurrentFileType, Converter={StaticResource Converter}}"-->
         <!--FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
                      FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"-->
         <controls1:DropShadowPanel Canvas.ZIndex="75"

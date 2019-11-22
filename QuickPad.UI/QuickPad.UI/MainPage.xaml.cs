@@ -20,6 +20,7 @@ using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Store;
 using Windows.Graphics.Display;
+using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI;
@@ -57,7 +58,8 @@ namespace QuickPad.UI
             Initialize?.Invoke(this, Commands);
 
             this.InitializeComponent();
-            
+            DataContext = ViewModel;
+
             Loaded += OnLoaded;
 
             //extent app in to the title bar
@@ -69,9 +71,7 @@ namespace QuickPad.UI
 
             ViewModel.Document = RichEditBox.Document;
             RichEditBox.TextChanged += ViewModel.TextChanged;
-
-            DataContext = ViewModel;
-
+            
             ViewModel.ExitApplication = ExitApp;
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
@@ -86,12 +86,6 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            SetupFocusMode(Settings.FocusMode);
-
-            SetOverlayMode(Settings.CurrentMode)
-                .ContinueWith(_ =>
-                    ViewModel.InitNewDocument().ContinueWith(_ => 
-                        Mvvm.ViewModels.ViewModel.Dispatch(() => Bindings.Update())));
         }
 
         private void CommandBarOnSetFontSize(double fontSize)
@@ -114,8 +108,17 @@ namespace QuickPad.UI
                 .ContinueWith(_ => { Settings.CurrentMode = newMode; });
         }
 
+        public StorageFile FileToLoad { get; set; }
+
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
+            SetupFocusMode(Settings.FocusMode);
+            
+            await SetOverlayMode(Settings.CurrentMode);
+            await ViewModel.InitNewDocument();
+
+            Mvvm.ViewModels.ViewModel.Dispatch(() => Bindings.Update());
+
             if (Settings.DefaultMode == "Compact Overlay")
             {
                 if(await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
@@ -126,7 +129,15 @@ namespace QuickPad.UI
 
             Settings.NotDeferred = true;
             Settings.Status("Ready", TimeSpan.FromSeconds(10), SettingsViewModel.Verbosity.Release);
+
+            if (FileToLoad != null && LoadFromFile != null)
+            {
+                await LoadFromFile(ViewModel, FileToLoad);
+                FileToLoad = null;
+            }
         }
+
+        public event Func<DocumentViewModel, StorageFile, Task> LoadFromFile;
 
         private async Task SetOverlayMode(string mode)
         {
@@ -242,8 +253,8 @@ namespace QuickPad.UI
             {
                 (true, true, false, false, false, VirtualKey.Number1) => DisplayModes.LaunchClassicMode.ToString(),
                 (true, true, false, false, false, VirtualKey.Number2) => DisplayModes.LaunchDefaultMode.ToString(),
-                (false, false, true, false, false, VirtualKey.Up) => DisplayModes.LaunchOnTopMode.ToString(),
-                (false, false, true, false, false, VirtualKey.Down) => Settings.CurrentMode == DisplayModes.LaunchOnTopMode.ToString() ? Settings.DefaultMode : Settings.CurrentMode,
+                (false, false, true, false, false, VirtualKey.Up) => DisplayModes.LaunchCompactOverlay.ToString(),
+                (false, false, true, false, false, VirtualKey.Down) => Settings.CurrentMode == DisplayModes.LaunchCompactOverlay.ToString() ? Settings.DefaultMode : Settings.CurrentMode,
                 (true, true, false, false, false, VirtualKey.Number4) => DisplayModes.LaunchFocusMode.ToString(),
                 (true, false, false, false, false, VirtualKey.F12) => DisplayModes.LaunchNinjaMode.ToString(),
                 (false, false, false, false, false, VirtualKey.Escape) => Settings.DefaultMode,
@@ -260,6 +271,10 @@ namespace QuickPad.UI
 
             Settings.Status($"{Settings.CurrentModeText} Enabled.", TimeSpan.FromSeconds(5), SettingsViewModel.Verbosity.Debug);
 
+        }
+
+        private void RichEditBox_OnContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
         }
     }
 }
