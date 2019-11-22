@@ -76,7 +76,7 @@
             <uap:DisplayName>Rich Text Document</uap:DisplayName>
             <uap:InfoTip>Quick-Pad File</uap:InfoTip>
             <uap:EditFlags OpenIsSafe="true"/>
-            <uap:Logo>Assets\SmallTile.png</uap:Logo>
+            <uap:Logo>A Unplated.png</uap:Logo>
           </uap:FileTypeAssociation>
         </uap:Extension>
         <uap:Extension Category="windows.fileTypeAssociation">
@@ -85,7 +85,7 @@
               <uap:FileType ContentType="text/plain">.txt</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:DisplayName>Text Document</uap:DisplayName>
-            <uap:Logo>Assets\SmallTile.png</uap:Logo>
+            <uap:Logo>A Unplated.png</uap:Logo>
             <uap:InfoTip>Quick-Pad Document</uap:InfoTip>
             <uap:EditFlags OpenIsSafe="true"/>
           </uap:FileTypeAssociation>

@@ -53,7 +53,7 @@
                    Grid.Column="3"
                    Margin="0,0,15,0"
                    Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"> 
-            <Run Text="{x:Bind ViewModel.CurrentFileDisplayType}"/>
+            <Run Text="{x:Bind ViewModel.CurrentFileType}"/>
         </TextBlock>
         <!--Encoding Info-->
         <TextBlock HorizontalAlignment="Right"
