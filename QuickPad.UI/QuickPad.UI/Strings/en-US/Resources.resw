@@ -438,16 +438,16 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="StatusBar.Text" xml:space="preserve">
-    <value>Status Bar</value>
+    <value>StatusText Bar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
     <value>Col: </value>
-    <comment>Used on StatusBar</comment>
+    <comment>Used on StatusTextBar</comment>
   </data>
   <data name="StatusLnCount.Text" xml:space="preserve">
     <value>Ln: </value>
-    <comment>Used on StatusBar</comment>
+    <comment>Used on StatusTextBar</comment>
   </data>
   <data name="Theme.Text" xml:space="preserve">
     <value>Theme</value>
@@ -525,8 +525,16 @@
     <value>Yes</value>
     <comment>Used on Save Document</comment>
   </data>
-  <data name="LaunchFullUIMode" xml:space="preserve">
+  <data name="LaunchNinjaMode" xml:space="preserve">
     <value>Ninja Mode</value>
     <comment>Used on Settings Pgae</comment>
+  </data>
+  <data name="RichTextDescription" xml:space="preserve">
+    <value>Rich Text Document</value>
+    <comment>Used in Document View Model</comment>
+  </data>
+  <data name="TextDescription" xml:space="preserve">
+    <value>Text Document</value>
+    <comment>Used in Document View Model</comment>
   </data>
 </root>

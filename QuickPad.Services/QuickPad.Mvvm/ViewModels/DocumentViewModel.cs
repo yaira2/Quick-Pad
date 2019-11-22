@@ -3,6 +3,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
@@ -31,8 +32,8 @@ namespace QuickPad.Mvvm.ViewModels
         private double _currentFontSize;
         private string _currentFileType;
         private bool _currentWordWrap;
-
-        private SettingsViewModel Settings { get; }
+        private string _currentFileDisplayType;
+        private ResourceLoader _resourceLoader;
 
         public DocumentViewModel(ILogger<DocumentViewModel> logger
             , IServiceProvider serviceProvider
@@ -43,7 +44,13 @@ namespace QuickPad.Mvvm.ViewModels
             ServiceProvider = serviceProvider;
 
             Settings = settings;
+
+            _resourceLoader = ResourceLoader.GetForCurrentView();
+
+            RichTextDescription = _resourceLoader.GetString("RichTextDescription");
+            TextDescription = _resourceLoader.GetString("TextDescription");
         }
+        private SettingsViewModel Settings { get; }
 
         private IServiceProvider ServiceProvider { get; }
 
@@ -58,13 +65,38 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _document, value);
         }
 
-        public TextGetOptions GetOption { get; set; } = TextGetOptions.None;
-        public TextSetOptions SetOption { get; set; } = TextSetOptions.None;
+        public TextGetOptions GetOption { get; private set; } = TextGetOptions.None;
+        public TextSetOptions SetOption { get; private set; } = TextSetOptions.None;
 
         public string CurrentFileType
         {
             get => _currentFileType;
-            set => Set(ref _currentFileType, value);
+            set
+            {
+                if (Set(ref _currentFileType, value))
+                {
+                    var isRtf = value == ".rtf";
+
+                    CurrentFileDisplayType =
+                        isRtf ? RichTextDescription : TextDescription;
+                    CurrentFontName =
+                        isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
+                    CurrentFontSize =
+                        isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
+                    CurrentWordWrap =
+                        isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
+                    GetOption =
+                        isRtf ? TextGetOptions.FormatRtf : TextGetOptions.None;
+                    SetOption =
+                        isRtf ? TextSetOptions.FormatRtf : TextSetOptions.None;
+                }
+            }
+        }
+
+        public string CurrentFileDisplayType
+        {
+            get => _currentFileDisplayType;
+            set => Set(ref _currentFileDisplayType, value);
         }
 
         public bool IsDirty
@@ -90,6 +122,9 @@ namespace QuickPad.Mvvm.ViewModels
             get => _currentFontName;
             set => Set(ref _currentFontName, value);
         }
+
+        public string FilePath
+            => File?.Path;
 
         public double CurrentFontSize
         {
@@ -145,7 +180,18 @@ namespace QuickPad.Mvvm.ViewModels
         public StorageFile File
         {
             get => _file;
-            set => Set(ref _file, value);
+            set
+            {
+                if (Set(ref _file, value))
+                {
+                    if (value?.FileType.Equals(CurrentFileType, StringComparison.InvariantCultureIgnoreCase) ?? false)
+                    {
+                        CurrentFileType = value.FileType;
+                    }
+
+                    OnPropertyChanged(nameof(FilePath));
+                }
+            }
         }
 
         public Encoding CurrentEncoding
@@ -162,12 +208,6 @@ namespace QuickPad.Mvvm.ViewModels
 
             SetEncoding(Settings.DefaultEncoding);
             CurrentFileType = Settings.DefaultFileType;
-            CurrentFontName =
-                CurrentFileType == ".rtf" ? Settings.DefaultRtfFont : Settings.DefaultFont;
-            CurrentFontSize =
-                CurrentFileType == ".rtf" ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
-            CurrentWordWrap =
-                CurrentFileType == ".rtf" ? Settings.RtfWordWrap : Settings.WordWrap;
 
             var memoryStream = new InMemoryRandomAccessStream();
             
@@ -184,6 +224,10 @@ namespace QuickPad.Mvvm.ViewModels
 
             NotifyAll();
         }
+
+        public string TextDescription { get; set; } = "Text Document";
+
+        public string RichTextDescription { get; set; } = "Rich Text Document";
 
         public Action<DocumentViewModel> Initialize { get; set; }
         public Action ExitApplication { get; set; }

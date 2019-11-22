@@ -34,7 +34,7 @@ namespace QuickPad.UI.Controls
         {
             switch(e.PropertyName)
             {
-                case "Status":
+                case "StatusText":
                     Bindings.Update();
                     break;
             }

@@ -10,19 +10,12 @@
     xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controls2="using:QuickPad.UI.Controls.Settings"
     mc:Ignorable="d"       
+    KeyUp="MainPage_OnKeyUp"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <converters:Converter x:Key="Converter" />
     </Page.Resources>
-    <Page.KeyboardAccelerators>
-        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number1" Invoked="ChangeModeByKey" />
-        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number2" Invoked="ChangeModeByKey" />
-        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number3" Invoked="ChangeModeByKey" />
-        <KeyboardAccelerator Modifiers="Control,Shift" Key="Number4" Invoked="ChangeModeByKey" />
-        <KeyboardAccelerator Modifiers="Control" Key="F12" Invoked="ChangeModeByKey" />
-        <KeyboardAccelerator Key="Escape" Invoked="ChangeModeByKey" />
-    </Page.KeyboardAccelerators>
-    <Grid>
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -47,7 +40,7 @@
                                    Visibility="{x:Bind Settings.ShowMenu, Converter={StaticResource Converter}}"
                                    HorizontalAlignment="Stretch"
                                    HorizontalContentAlignment="Stretch">
-            <controls3:MenuBar Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
+            <controls3:MenuBar x:Name="menuBar" Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel}" Height="40" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
 
         <controls1:DropShadowPanel Canvas.ZIndex="75"
@@ -95,7 +88,7 @@
                                   Visibility="{x:Bind Settings.ShowStatusBar, Converter={StaticResource Converter}}"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
-            <controls3:StatusBar ViewModel="{x:Bind ViewModel}" Height="25" HorizontalAlignment="Stretch"/>
+            <controls3:StatusBar x:Name="statusBar" ViewModel="{x:Bind ViewModel}" Height="25" HorizontalAlignment="Stretch"/>
         </controls1:DropShadowPanel>
 
     </Grid>

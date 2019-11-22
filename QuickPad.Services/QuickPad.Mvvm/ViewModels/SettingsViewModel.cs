@@ -17,18 +17,24 @@ using Windows.UI.Xaml;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System.Threading;
 using Windows.ApplicationModel.Resources;
+using Windows.UI;
+using Windows.UI.Xaml.Media;
 
 namespace QuickPad.Mvvm.ViewModels
 {
     public class SettingsViewModel : ViewModel
     {
         readonly ApplicationDataContainer _roamingSettings;
+        private string _previousMode;
+        private string _statusText;
+        private ResourceLoader _resourceLoader;
+        private Timer _statusCooldown;
 
-        [JsonIgnore]
-        public ObservableCollection<DisplayMode> AllDisplayModes { get; }
+        private IApplication App { get; }
 
-        public SettingsViewModel(ILogger<SettingsViewModel> logger) : base(logger)
+        public SettingsViewModel(ILogger<SettingsViewModel> logger, IApplication app) : base(logger)
         {
+            App = app;
             AllFonts = new ObservableCollection<string>(
                 CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font));
 
@@ -36,7 +42,7 @@ namespace QuickPad.Mvvm.ViewModels
 
             Enum.GetNames(typeof(DisplayModes)).ToList().ForEach(uid => AllDisplayModes.Add(new DisplayMode(uid)));
 
-            AllDisplayModes.Remove(AllDisplayModes.First(dm => dm.Uid == DisplayModes.LaunchFullUIMode.ToString()));
+            AllDisplayModes.Remove(AllDisplayModes.First(dm => dm.Uid == DisplayModes.LaunchNinjaMode.ToString()));
 
             _roamingSettings = ApplicationData.Current.RoamingSettings;
 
@@ -48,6 +54,11 @@ namespace QuickPad.Mvvm.ViewModels
             }
 
             _statusCooldown = new Timer(StatusTimerCallback);
+        }
+
+        private void StatusTimerCallback(object state)
+        {
+            Set(ref _statusText, App.CurrentViewModel.FilePath, nameof(StatusText));
         }
 
         protected bool Set<TValue>(TValue value, [CallerMemberName] string propertyName = null)
@@ -75,7 +86,8 @@ namespace QuickPad.Mvvm.ViewModels
             return defaultValue;
         }
 
-        private SettingsViewModel() : base(null) { }
+        [JsonIgnore]
+        public ObservableCollection<DisplayMode> AllDisplayModes { get; }
 
         [JsonIgnore]
         public ObservableCollection<string> AllFonts { get; }
@@ -90,24 +102,43 @@ namespace QuickPad.Mvvm.ViewModels
         [JsonIgnore]
         public ObservableCollection<DefaultLanguageModel> DefaultLanguages { get; }
 
-        private Timer _statusCooldown;
-
-        private void StatusTimerCallback(object state) 
-        {
-            Set(ref _status, string.Empty, nameof(Status));
-        }
-
         [JsonIgnore]
-        public string Status { 
-            get => _status;
-            set
+        public string StatusText { 
+            get => _statusText;
+            private set
             {
-                if(Set(ref _status, value))
+                if(Set(ref _statusText, value))
                 {
-                    _statusCooldown.Change(TimeSpan.FromSeconds(30), TimeSpan.Zero);
+                    _statusCooldown.Change(_countdown, TimeSpan.Zero);
                 }
             }
         }
+
+        public void Status(string message, TimeSpan countdown, Verbosity verbosity)
+        {
+            if (verbosity == Verbosity.Debug)
+            {
+#if DEBUG
+                StatusText = message;
+                _countdown = countdown;
+#endif
+            }
+
+            if (verbosity != Verbosity.Debug)
+            {
+                StatusText = message;
+                _countdown = countdown;
+
+                StatusTextColor = verbosity == Verbosity.Error ? new SolidColorBrush(Colors.Red) : DefaultStatusColor;
+            }
+        }
+
+        [JsonIgnore]
+        public SolidColorBrush StatusTextColor { get; set; } = new SolidColorBrush(Colors.White);
+
+        public SolidColorBrush DefaultStatusColor { get; set; } = new SolidColorBrush(Colors.White);
+
+        public enum Verbosity { Debug, Release, Error }
 
         [NotifyOnReset]
         public string CustomThemeId
@@ -212,13 +243,6 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         [NotifyOnReset]
-        public bool ModeByFileType
-        {
-            get => Get(false);
-            set => Set(value);
-        }
-
-        [NotifyOnReset]
         public bool AutoSave
         {
             get => Get(false);
@@ -265,6 +289,9 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         private string _currentMode;
+        private string _currentModeText;
+        private TimeSpan _countdown;
+
         [JsonIgnore]
         public string CurrentMode
         {
@@ -300,25 +327,20 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(value);
         }
 
-        private string _previousMode;
-        private string _status;
-        private string _currentModeText;
-        private ResourceLoader _resourceLoader;
-
         [JsonIgnore]
         public string PreviousMode => _previousMode ??= DisplayModes.LaunchClassicMode.ToString();
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool ShowFullUI => CurrentMode.Equals(DisplayModes.LaunchFullUIMode.ToString(), StringComparison.InvariantCultureIgnoreCase);
+        public bool ShowNinjaMode => CurrentMode.Equals(DisplayModes.LaunchNinjaMode.ToString(), StringComparison.InvariantCultureIgnoreCase);
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool ShowMenu => CurrentMode.Equals(DisplayModes.LaunchClassicMode.ToString(), StringComparison.InvariantCultureIgnoreCase) || ShowFullUI;
+        public bool ShowMenu => CurrentMode.Equals(DisplayModes.LaunchClassicMode.ToString(), StringComparison.InvariantCultureIgnoreCase) || ShowNinjaMode;
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool ShowCommandBar => CurrentMode.Equals(DisplayModes.LaunchDefaultMode.ToString(), StringComparison.InvariantCultureIgnoreCase) || ShowFullUI;
+        public bool ShowCommandBar => CurrentMode.Equals(DisplayModes.LaunchDefaultMode.ToString(), StringComparison.InvariantCultureIgnoreCase) || ShowNinjaMode;
 
         [JsonIgnore]
         [NotifyOnReset]
@@ -336,8 +358,10 @@ namespace QuickPad.Mvvm.ViewModels
         [NotifyOnReset]
         public Thickness TitleMargin => FocusMode ? new Thickness(BackButtonWidth, 0, 0, 0) : new Thickness(0);
 
+        [JsonIgnore]
         public double BackButtonWidth { get; set; }
 
+        [JsonIgnore]
         public bool NotDeferred
         {
             get => Get(true);

@@ -6,6 +6,6 @@
         LaunchDefaultMode,
         LaunchOnTopMode,
         LaunchFocusMode,
-        LaunchFullUIMode,
+        LaunchNinjaMode,
     }
 }

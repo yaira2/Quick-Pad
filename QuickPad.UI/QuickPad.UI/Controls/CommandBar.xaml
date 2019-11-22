@@ -218,7 +218,7 @@
                         <FontIcon Glyph="&#xE8C5;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
-                <AppBarToggleButton x:Uid="StatusBarLabel" Label="Status Bar" Width="Auto" IsChecked="{x:Bind Settings.StatusBar, Mode=TwoWay}">
+                <AppBarToggleButton x:Uid="StatusTextBarLabel" Label="StatusText Bar" Width="Auto" IsChecked="{x:Bind Settings.StatusBar, Mode=TwoWay}">
                     <AppBarToggleButton.Icon>
                         <FontIcon Glyph="&#xE75B;" />
                     </AppBarToggleButton.Icon>

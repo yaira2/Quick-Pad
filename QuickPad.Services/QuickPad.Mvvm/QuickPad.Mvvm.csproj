@@ -144,6 +144,7 @@
     <Compile Include="Commands\Editing\BoldCommand.cs" />
     <Compile Include="Commands\Clipboard\CopyCommand.cs" />
     <Compile Include="Commands\Clipboard\CutCommand.cs" />
+    <Compile Include="IApplication.cs" />
     <Compile Include="Models\DefaultLanguageModel.cs" />
     <Compile Include="ViewModels\DisplayMode.cs" />
     <Compile Include="ViewModels\DisplayModes.cs" />

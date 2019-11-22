@@ -1,6 +1,8 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Windows.UI.Xaml;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvc;
+using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
@@ -21,6 +23,7 @@ namespace QuickPad.UI
             services.AddSingleton(provider => new QuickPadCommands(provider.GetService<PasteCommand>()));
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();
+            services.AddSingleton(_ => Application.Current as IApplication);
             services.AddSingleton<ApplicationController, ApplicationController>();
             services.AddTransient<VisualThemeSelector, VisualThemeSelector>();
             services.AddSingleton<MainPage, MainPage>();

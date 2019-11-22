@@ -32,6 +32,7 @@ using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Windows.System;
+using QuickPad.UI.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -56,21 +57,20 @@ namespace QuickPad.UI
             Initialize?.Invoke(this, Commands);
 
             this.InitializeComponent();
-
+            
             Loaded += OnLoaded;
 
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
-            ApplicationViewTitleBar titleBar = ApplicationView.GetForCurrentView().TitleBar;
-            titleBar.ButtonBackgroundColor = Colors.Transparent;
-            titleBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            
+            var tBar = ApplicationView.GetForCurrentView().TitleBar;
+            tBar.ButtonBackgroundColor = Colors.Transparent;
+            tBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
             ViewModel.Document = RichEditBox.Document;
             RichEditBox.TextChanged += ViewModel.TextChanged;
 
             DataContext = ViewModel;
-
-            Task.Run(ViewModel.InitNewDocument).Wait();
 
             ViewModel.ExitApplication = ExitApp;
 
@@ -87,6 +87,11 @@ namespace QuickPad.UI
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
             SetupFocusMode(Settings.FocusMode);
+
+            SetOverlayMode(Settings.CurrentMode)
+                .ContinueWith(_ =>
+                    ViewModel.InitNewDocument().ContinueWith(_ => 
+                        Mvvm.ViewModels.ViewModel.Dispatch(() => Bindings.Update())));
         }
 
         private void CommandBarOnSetFontSize(double fontSize)
@@ -105,30 +110,39 @@ namespace QuickPad.UI
                 ? DisplayModes.LaunchClassicMode.ToString()
                 : Settings.DefaultMode;
 
-            SetOverlayMode(newMode);
-            Settings.CurrentMode = newMode;
+            SetOverlayMode(newMode)
+                .ContinueWith(_ => { Settings.CurrentMode = newMode; });
         }
 
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
             if (Settings.DefaultMode == "Compact Overlay")
             {
-                bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay);
-                Settings.CurrentMode = "Compact Overlay";
+                if(await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
+                {
+                    Settings.CurrentMode = "Compact Overlay";
+                }
             }
+
             Settings.NotDeferred = true;
-            Settings.Status = "Ready";
+            Settings.Status("Ready", TimeSpan.FromSeconds(10), SettingsViewModel.Verbosity.Release);
         }
 
-        private void SetOverlayMode(string mode)
+        private async Task SetOverlayMode(string mode)
         {
             if (mode == DisplayModes.LaunchOnTopMode.ToString())
             {
-                ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay).AsTask();
+                if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
+                {
+                    Settings.CurrentMode = "Compact Overlay";
+                }
             }
             else
             {
-                ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default).AsTask();
+                if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default))
+                {
+                    Settings.CurrentMode = Settings.PreviousMode;
+                }
             }
         }
 
@@ -208,25 +222,44 @@ namespace QuickPad.UI
 
         private void ChangeModeByKey(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
         {
-            var newMode = args.KeyboardAccelerator.Key switch
+        }
+
+        private async void MainPage_OnKeyUp(object sender, KeyRoutedEventArgs args)
+        {
+            var controlDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control)
+                .HasFlag(CoreVirtualKeyStates.Down);
+            var menuDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu).HasFlag(CoreVirtualKeyStates.Down);
+            var shiftDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift)
+                .HasFlag(CoreVirtualKeyStates.Down);
+            var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows)
+                .HasFlag(CoreVirtualKeyStates.Down);
+            var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows)
+                .HasFlag(CoreVirtualKeyStates.Down);
+
+            var option = (c: controlDown, s: shiftDown, m: menuDown, l: leftWindowsDown, r: rightWindowsDown, k: args.Key);
+
+            var newMode = option switch
             {
-                VirtualKey.Number1 => DisplayModes.LaunchClassicMode.ToString(),
-                VirtualKey.Number2 => DisplayModes.LaunchDefaultMode.ToString(),
-                VirtualKey.Number3 => DisplayModes.LaunchOnTopMode.ToString(),
-                VirtualKey.Number4 => DisplayModes.LaunchFocusMode.ToString(),
-                VirtualKey.F12 => DisplayModes.LaunchFullUIMode.ToString(),
-                VirtualKey.Escape => Settings.DefaultMode,
+                (true, true, false, false, false, VirtualKey.Number1) => DisplayModes.LaunchClassicMode.ToString(),
+                (true, true, false, false, false, VirtualKey.Number2) => DisplayModes.LaunchDefaultMode.ToString(),
+                (false, false, true, false, false, VirtualKey.Up) => DisplayModes.LaunchOnTopMode.ToString(),
+                (false, false, true, false, false, VirtualKey.Down) => Settings.CurrentMode == DisplayModes.LaunchOnTopMode.ToString() ? Settings.DefaultMode : Settings.CurrentMode,
+                (true, true, false, false, false, VirtualKey.Number4) => DisplayModes.LaunchFocusMode.ToString(),
+                (true, false, false, false, false, VirtualKey.F12) => DisplayModes.LaunchNinjaMode.ToString(),
+                (false, false, false, false, false, VirtualKey.Escape) => Settings.DefaultMode,
                 _ => Settings.CurrentMode
             };
 
             if (Settings.CurrentMode == newMode) return;
 
             SetupFocusMode(newMode == DisplayModes.LaunchFocusMode.ToString());
-            SetOverlayMode(newMode);
+            
+            await SetOverlayMode(newMode);
 
             Settings.CurrentMode = newMode;
 
-            Settings.Status = $"{Settings.CurrentModeText} Enabled.";
+            Settings.Status($"{Settings.CurrentModeText} Enabled.", TimeSpan.FromSeconds(5), SettingsViewModel.Verbosity.Debug);
+
         }
     }
 }

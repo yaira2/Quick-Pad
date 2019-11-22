@@ -387,19 +387,19 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
-          <source>Status Bar</source>
-          <target state="new">Status Bar</target>
+          <source>StatusText Bar</source>
+          <target state="new">StatusText Bar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Col: </source>
           <target state="new">Col: </target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusBar</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
           <source>Ln: </source>
           <target state="new">Ln: </target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusBar</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
@@ -516,10 +516,20 @@
           <target state="new">On Top</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="LaunchFullUIMode" translate="yes" xml:space="preserve">
+        <trans-unit id="LaunchNinjaMode" translate="yes" xml:space="preserve">
           <source>Ninja Mode</source>
           <target state="new">Ninja Mode</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
+        </trans-unit>
+        <trans-unit id="RichTextDescription" translate="yes" xml:space="preserve">
+          <source>Rich Text Document</source>
+          <target state="new">Rich Text Document</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used in Document View Model</note>
+        </trans-unit>
+        <trans-unit id="TextDescription" translate="yes" xml:space="preserve">
+          <source>Text Document</source>
+          <target state="new">Text Document</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used in Document View Model</note>
         </trans-unit>
       </group>
     </body>

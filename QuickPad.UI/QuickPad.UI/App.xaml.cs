@@ -23,7 +23,7 @@ namespace QuickPad.UI
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
     // ReSharper disable once ArrangeTypeModifiers
-    sealed partial class App 
+    sealed partial class App : IApplication
     {
         private static SettingsViewModel _settings;
         public static ApplicationHost Host { get; set; }
@@ -130,5 +130,7 @@ namespace QuickPad.UI
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }
+
+        public DocumentViewModel CurrentViewModel => Services.GetService<MainPage>().ViewModel;
     }
 }

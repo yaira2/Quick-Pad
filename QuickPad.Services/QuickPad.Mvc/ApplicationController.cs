@@ -102,7 +102,7 @@ namespace QuickPad.Mvc
         {
             documentViewModel.Initialize(documentViewModel);
 
-            Settings.Status = $"New document initialized.";
+            Settings.Status($"New document initialized.", TimeSpan.FromSeconds(10), SettingsViewModel.Verbosity.Debug);
 
             return Task.CompletedTask;
         }
@@ -262,31 +262,20 @@ namespace QuickPad.Mvc
             catch(Exception ex)
             {
                 Logger.LogError(new EventId(), $"Error loading {file.Name}.", ex);
+                Settings.Status(ex.Message, TimeSpan.FromSeconds(60), SettingsViewModel.Verbosity.Error);
             }
 
             var text = reader.Read(documentViewModel.CurrentEncoding);
 
-            var isRtf = text.StartsWith(RTF_MARKER, StringComparison.InvariantCultureIgnoreCase);
-
-            documentViewModel.GetOption = isRtf ? TextGetOptions.FormatRtf : TextGetOptions.None;
-            documentViewModel.SetOption = isRtf ? TextSetOptions.FormatRtf : TextSetOptions.None;
-
             documentViewModel.File = file;
-            documentViewModel.Text = text;
-            documentViewModel.IsDirty = false;
 
-            documentViewModel.CurrentFileType =
-                isRtf ? file.FileType : file.DisplayType;
-            documentViewModel.CurrentFontName =
-                isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
-            documentViewModel.CurrentFontSize =
-                isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
-            documentViewModel.CurrentWordWrap =
-                isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
+            documentViewModel.Text = text;
 
             documentViewModel.ReleaseUpdates();
 
-            Settings.Status = $"Loaded {documentViewModel.File.Name}";
+            Settings.Status($"Loaded {documentViewModel.File.Name}", TimeSpan.FromSeconds(10), SettingsViewModel.Verbosity.Release);
+
+            documentViewModel.IsDirty = false;
         }
 
         private Task SaveDocument(DocumentViewModel documentViewModel)
@@ -310,10 +299,26 @@ namespace QuickPad.Mvc
                     SuggestedStartLocation = PickerLocationId.DocumentsLibrary
                 };
 
+                if (documentViewModel.CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string> { ".rtf" });
+                    savePicker.FileTypeChoices.Add("Plain Text", new List<string> { ".txt" });
+                    savePicker.FileTypeChoices.Add("Any", new List<string> { "." });
+                }
+                else if (documentViewModel.CurrentFileType.Equals(".txt", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    savePicker.FileTypeChoices.Add("Plain Text", new List<string> { ".txt" });
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string> { ".rtf" });
+                    savePicker.FileTypeChoices.Add("Any", new List<string> { "." });
+                }
+                else
+                {
+                    savePicker.FileTypeChoices.Add("Document", new List<string> { documentViewModel.CurrentFileType });
+                    savePicker.FileTypeChoices.Add("Plain Text", new List<string> { ".txt" });
+                    savePicker.FileTypeChoices.Add("Rich Text", new List<string> { ".rtf" });
+                    savePicker.FileTypeChoices.Add("Any", new List<string> { "." });
+                }
                 // Dropdown of file types the user can save the file as
-                savePicker.FileTypeChoices.Add("Plain Text", new List<string> {".txt"});
-                savePicker.FileTypeChoices.Add("Rich Text", new List<string> {".rtf"});
-                savePicker.FileTypeChoices.Add("Any", new List<string> {"."});
 
                 // Default file name if the user does not type one in or select a file to replace
                 savePicker.SuggestedFileName = documentViewModel.File?.DisplayName ?? "Unnamed";
@@ -322,19 +327,6 @@ namespace QuickPad.Mvc
 
                 if (file == null) return;
                 documentViewModel.File = file;
-                var isRtf = file.FileType == ".rtf";
-                documentViewModel.CurrentFileType =
-                    isRtf ? file.FileType : file.DisplayType;
-                documentViewModel.GetOption =
-                    isRtf ? TextGetOptions.FormatRtf : TextGetOptions.None;
-                documentViewModel.SetOption =
-                    isRtf ? TextSetOptions.FormatRtf : TextSetOptions.None;
-                documentViewModel.CurrentFontName =
-                    isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
-                documentViewModel.CurrentFontSize =
-                    isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
-                documentViewModel.CurrentWordWrap =
-                    isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
             }
 
             if (Logger.IsEnabled(LogLevel.Debug))
@@ -349,7 +341,8 @@ namespace QuickPad.Mvc
 
             documentViewModel.ReleaseUpdates();
 
-            Settings.Status = $"Saved {documentViewModel.File.Name}";
+            Settings.Status($"Saved {documentViewModel.File.Name}", TimeSpan.FromSeconds(10), SettingsViewModel.Verbosity.Release);
+
         }
 
         private enum ByteOrderMark

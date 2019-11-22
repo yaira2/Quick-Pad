@@ -26,7 +26,7 @@
             <FontIcon Glyph="&#xE74E;" FontSize="11" Grid.Column="1" Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}">
                 <ToolTipService.ToolTip>
                     <StackPanel>
-                        <TextBlock Text="{x:Bind ViewModel.File.Path, Mode=OneWay}"/>
+                        <TextBlock Text="{x:Bind ViewModel.FilePath, Mode=OneWay}"/>
                     </StackPanel>
                 </ToolTipService.ToolTip>
             </FontIcon>
@@ -38,8 +38,8 @@
                    FontSize="11"
                    Grid.Column="1"
                    Margin="0,0,5,0"
-                   Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"
-                   Text="{x:Bind Settings.Status}"/>
+                   Foreground="{x:Bind Settings.StatusTextColor}"
+                   Text="{x:Bind Settings.StatusText}"/>
 
         <!--Line and character count-->
         <TextBlock VerticalAlignment="Center"
@@ -49,8 +49,8 @@
                    Grid.Column="2"
                    Margin="0,0,5,0"
                    Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}">
-                <Run Text="Ln: " x:Uid="StatusLnCount"/><Run Text="1"/><Run Text=","/>
-                <Run Text="Col: " x:Uid="StatusColCount"/><Run Text="2"/>
+                <Run Text="Ln: " x:Uid="StatusTextLnCount"/><Run Text="1"/><Run Text=","/>
+                <Run Text="Col: " x:Uid="StatusTextColCount"/><Run Text="2"/>
         </TextBlock>
         <!--File Type-->
         <TextBlock HorizontalAlignment="Left"
@@ -59,7 +59,7 @@
                    Grid.Column="3"
                    Margin="0,0,5,0"
                    Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"> 
-            <Run Text="{x:Bind ViewModel.CurrentFileType}"/>
+            <Run Text="{x:Bind ViewModel.CurrentFileDisplayType}"/>
         </TextBlock>
         <!--Encoding Info-->
         <TextBlock HorizontalAlignment="Right"

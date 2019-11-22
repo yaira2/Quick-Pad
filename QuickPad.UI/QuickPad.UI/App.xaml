@@ -12,7 +12,6 @@
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
     </Application.Resources>
     
 </Application>
