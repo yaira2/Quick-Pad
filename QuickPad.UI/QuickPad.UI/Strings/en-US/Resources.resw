@@ -193,10 +193,6 @@
     <value>System-defined theme</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutomaticallyChooseMode.Text" xml:space="preserve">
-    <value>Automatically choose which mode to launch the app in based on the file type</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSave.Text" xml:space="preserve">
     <value>Auto Save</value>
     <comment>Used on Settings Page</comment>
@@ -345,8 +341,8 @@
     <value>Classic Mode</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="LaunchOnTopMode" xml:space="preserve">
-    <value>On Top</value>
+  <data name="LaunchCompactOverlay" xml:space="preserve">
+    <value>Compact Overlay</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ManageSettings.Text" xml:space="preserve">
@@ -360,10 +356,6 @@
   <data name="Open.Text" xml:space="preserve">
     <value>Open</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="Other.Text" xml:space="preserve">
-    <value>Other</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="OverlayMode.Text" xml:space="preserve">
     <value>Overlay Mode</value>
@@ -529,12 +521,152 @@
     <value>Ninja Mode</value>
     <comment>Used on Settings Pgae</comment>
   </data>
-  <data name="RichTextDescription" xml:space="preserve">
-    <value>Rich Text Document</value>
-    <comment>Used in Document View Model</comment>
+  <data name="AlignCenter.Text" xml:space="preserve">
+    <value>Align Center (Ctrl+E)</value>
+    <comment>Used on CommandBar</comment>
   </data>
-  <data name="TextDescription" xml:space="preserve">
-    <value>Text Document</value>
-    <comment>Used in Document View Model</comment>
+  <data name="AlignCenterLabel.Label" xml:space="preserve">
+    <value>Align Center</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeft.Text" xml:space="preserve">
+    <value>Align Left (Ctrl+L)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeftLabel.Label" xml:space="preserve">
+    <value>Align Left</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRight.Text" xml:space="preserve">
+    <value>Align Right (Ctrl+R)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRightLabel.Label" xml:space="preserve">
+    <value>Align Right</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bold.Text" xml:space="preserve">
+    <value>Bold (Ctrl+B)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BoldLabel.Label" xml:space="preserve">
+    <value>Bold</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bullets.Text" xml:space="preserve">
+    <value>Toggle Bullets</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BulletsLabel.Label" xml:space="preserve">
+    <value>Bullets</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ClassicModeLabel.Label" xml:space="preserve">
+    <value>Classic Mode</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Color.Text" xml:space="preserve">
+    <value>Font Color</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ColorLabel.Label" xml:space="preserve">
+    <value>Font Color</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="CompactOverlayTooltip.Text" xml:space="preserve">
+    <value>Compact Overlay (Alt + Up)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Emoji.Text" xml:space="preserve">
+    <value>Insert Emojis (Win + .)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="EmojiLabel.Label" xml:space="preserve">
+    <value>Emojis</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FindLabel.Label" xml:space="preserve">
+    <value>Find</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FocusModeLabel.Label" xml:space="preserve">
+    <value>Focus Mode</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Italic.Text" xml:space="preserve">
+    <value>Italic (Ctrl+I)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ItalicLabel.Label" xml:space="preserve">
+    <value>Italic</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyText.Text" xml:space="preserve">
+    <value>Justify Text (Ctrl+J)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyTextLabel.Label" xml:space="preserve">
+    <value>Justify</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewLabel.Label" xml:space="preserve">
+    <value>New</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewTip.Text" xml:space="preserve">
+    <value>New (Ctrl+N)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenLabel.Label" xml:space="preserve">
+    <value>Open</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenTip.Text" xml:space="preserve">
+    <value>Open (Ctrl+O)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="RedoTooltip.Text" xml:space="preserve">
+    <value>Redo (Ctrl+Y)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveLabel.Label" xml:space="preserve">
+    <value>Save</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveTip.Text" xml:space="preserve">
+    <value>Save (Ctrl+S)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SettingsLabel.Label" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ShareLabel.Label" xml:space="preserve">
+    <value>Share</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StatusBarLabel.Label" xml:space="preserve">
+    <value>Status Bar</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Strikethrough.Text" xml:space="preserve">
+    <value>Strikethrough</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StrikethroughLabel.Label" xml:space="preserve">
+    <value>Strikethrough</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Underline.Text" xml:space="preserve">
+    <value>Underline (Ctrl+U)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UnderlineLabel.Label" xml:space="preserve">
+    <value>Label</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UndoTooltip.Text" xml:space="preserve">
+    <value>Undo (Ctrl+Z)</value>
+    <comment>Used on CommandBar</comment>
   </data>
 </root>

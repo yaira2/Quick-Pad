@@ -348,7 +348,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool CompactOverlay => CurrentMode.Equals(DisplayModes.LaunchOnTopMode.ToString(), StringComparison.InvariantCultureIgnoreCase);
+        public bool CompactOverlay => CurrentMode.Equals(DisplayModes.LaunchCompactOverlay.ToString(), StringComparison.InvariantCultureIgnoreCase);
 
         [JsonIgnore]
         [NotifyOnReset]

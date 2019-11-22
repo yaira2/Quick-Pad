@@ -130,7 +130,7 @@ namespace QuickPad.UI
 
         private async Task SetOverlayMode(string mode)
         {
-            if (mode == DisplayModes.LaunchOnTopMode.ToString())
+            if (mode == DisplayModes.LaunchCompactOverlay.ToString())
             {
                 if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
                 {
