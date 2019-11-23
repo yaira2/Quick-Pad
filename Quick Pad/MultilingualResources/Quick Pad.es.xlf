@@ -620,12 +620,14 @@
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Col: </source>
-          <target state="translated">Col:</target>
+          <target state="needs-review-translation">Columna: </target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Changed to Col:</note>
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
           <source>Ln: </source>
-          <target state="translated">Ln:</target>
+          <target state="needs-review-translation">Línea: </target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Changed to Ln:</note>
         </trans-unit>
         <trans-unit id="GeneralShowStatusOnClassic.Text" translate="yes" xml:space="preserve">
@@ -638,7 +640,8 @@
         </trans-unit>
         <trans-unit id="CmdOnTopTooltip" translate="yes" xml:space="preserve">
           <source>On Top (Alt + Up)</source>
-          <target state="translated">Por encima de todo (Ctrl+Shift+O)</target>
+          <target state="needs-review-translation">Sobre todo (Ctrl+Shift+O)</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="CmdFind.Label" translate="yes" xml:space="preserve">
           <source>Find</source>
@@ -898,7 +901,8 @@
         </trans-unit>
         <trans-unit id="PreventText1ChangeColor.Text" translate="yes" xml:space="preserve">
           <source>Use acrylic background for the text area</source>
-          <target state="translated">Usar fondo acrílico en el área de texto</target>
+          <target state="needs-review-translation">Usar solo tema oscuro o claro para el área de texto.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
           <source>Reset</source>
@@ -986,29 +990,29 @@
         </trans-unit>
         <trans-unit id="FontOptionTip.Title" translate="yes" xml:space="preserve">
           <source>Some options have moved</source>
-          <target state="translated">Algunas opciones se han movido de lugar</target>
+          <target state="new">Some options have moved</target>
         </trans-unit>
         <trans-unit id="FontOptionTip.Subtitle" translate="yes" xml:space="preserve">
           <source>All your options are still here, we just moved them so that you could benefit from having the status bar in default mode as well.</source>
-          <target state="translated">Todas las opciones siguen aquí, solo las movimos de lugar para que pueda sacar provecho de la barra de estad en el modo predeterminado.</target>
+          <target state="new">All your options are still here, we just moved them so that you could benefit from having the status bar in default mode as well.</target>
         </trans-unit>
         <trans-unit id="CustomColor" translate="yes" xml:space="preserve">
           <source>Custom</source>
-          <target state="translated">Personalizado</target>
+          <target state="new">Custom</target>
         </trans-unit>
         <trans-unit id="FontColorGray" translate="yes" xml:space="preserve">
           <source>Gray</source>
-          <target state="translated">Gris</target>
+          <target state="new">Gray</target>
         </trans-unit>
         <trans-unit id="DefaultColorSelected.Text" translate="yes" xml:space="preserve">
           <source>Default font color selected.
 Font color will change based on app theme.</source>
-          <target state="translated">Color predeterminado seleccionado.
-El color de la fuente cambiará según el tema de la app.</target>
+          <target state="new">Default font color selected.
+Font color will change based on app theme.</target>
         </trans-unit>
         <trans-unit id="DefaultEncoding.Text" translate="yes" xml:space="preserve">
           <source>Default File Encoding</source>
-          <target state="translated">Codificación de archivo por defecto</target>
+          <target state="new">Default File Encoding</target>
         </trans-unit>
       </group>
     </body>
