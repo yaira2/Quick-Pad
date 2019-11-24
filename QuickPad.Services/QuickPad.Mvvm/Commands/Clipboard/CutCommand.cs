@@ -8,13 +8,13 @@ namespace QuickPad.Mvvm.Commands.Clipboard
     {
         public CutCommand()
         {
-            CanExecuteEvaluator = viewModel => viewModel.Document.Selection.Text.Length > 0;
+            CanExecuteEvaluator = viewModel => viewModel.SelectedText.Length > 0;
 
             Executioner = viewModel =>
             {
                 //send the selected text to the clipboard
                 var dataPackage = new DataPackage();
-                dataPackage.SetText(viewModel.Document.Selection.Text);
+                dataPackage.SetText(viewModel.SelectedText);
                 viewModel.Document.Selection.Text = "";
                 Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
                 Windows.ApplicationModel.DataTransfer.Clipboard.Flush();

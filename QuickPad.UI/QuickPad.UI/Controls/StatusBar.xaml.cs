@@ -2,6 +2,8 @@
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
 using System.ComponentModel;
+using System.Reflection.Metadata;
+using QuickPad.UI.Common.Theme;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -9,7 +11,7 @@ namespace QuickPad.UI.Controls
 {
     public sealed partial class StatusBar : UserControl
     {
-        public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+        public VisualThemeSelector VisualThemeSelector => VisualThemeSelector.Current;
 
         public SettingsViewModel Settings => App.Settings;
 
@@ -19,7 +21,26 @@ namespace QuickPad.UI.Controls
             set
             {
                 if (value == null || DataContext == value) return;
+
+                if (DataContext is DocumentViewModel documentViewModel)
+                {
+                    documentViewModel.PropertyChanged -= DocumentViewModelOnPropertyChanged;
+                }
+
                 DataContext = value;
+
+                value.PropertyChanged += DocumentViewModelOnPropertyChanged;
+            }
+        }
+
+        private void DocumentViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(DocumentViewModel.CurrentLine):
+                case nameof(DocumentViewModel.CurrentColumn):
+                    Bindings.Update();
+                    break;
             }
         }
 
@@ -34,7 +55,7 @@ namespace QuickPad.UI.Controls
         {
             switch(e.PropertyName)
             {
-                case "StatusText":
+                case nameof(SettingsViewModel.StatusText):
                     Bindings.Update();
                     break;
             }

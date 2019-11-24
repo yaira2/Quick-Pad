@@ -13,6 +13,7 @@ using QuickPad.UI.Common;
 using System.Text;
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Common.Helpers;
 
 namespace QuickPad.UI.Converters
 {
@@ -78,6 +79,11 @@ namespace QuickPad.UI.Converters
                 return Visibility.Collapsed;
             }
             return Visibility.Visible;
+        }
+
+        public static Visibility VisibleIfMenuMode(string currentMode)
+        {
+            return currentMode == DisplayModes.LaunchClassicMode.ToString() ? Visibility.Visible : Visibility.Collapsed;
         }
 
         public static SolidColorBrush FromColorToBrush(Color input)
@@ -213,7 +219,7 @@ namespace QuickPad.UI.Converters
         public object Convert(object value, Type targetType, object parameter, string language)
         {
             if (targetType == typeof(Visibility) && value is bool visibility) return Converter.BoolToVisibility(visibility);
-            if (targetType == typeof(TextWrapping) && value is bool textWrapping) return Converter.BoolToVisibility(textWrapping);
+            if (targetType == typeof(TextWrapping) && value is bool textWrapping) return Converter.BoolToTextWrap(textWrapping);
             if (targetType == typeof(Color) && value is string hex) return Converter.GetColorFromHex(hex);
             if (targetType == typeof(string) && value is Color color) return Converter.GetHexFromColor(color);
             if (targetType == typeof(string) && value is bool overlayIcon) return Converter.SwitchBetweenOverlayIcon(overlayIcon);

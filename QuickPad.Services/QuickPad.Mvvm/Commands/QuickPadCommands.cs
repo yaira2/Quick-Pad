@@ -10,9 +10,17 @@ namespace QuickPad.Mvvm.Commands
 {
     public class QuickPadCommands
     {
+        public static void NotifyAll(DocumentViewModel viewModel, SettingsViewModel settings)
+        {
+            _commands.NotifyChanged(viewModel, settings);
+        }
+
+        private static QuickPadCommands _commands = null;
+
         public QuickPadCommands() { }
         public QuickPadCommands(PasteCommand pasteCommand)
         {
+            _commands = this;
             PasteCommand = pasteCommand;
         }
 
@@ -30,6 +38,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> CutCommand { get; } = new CutCommand();
         public SimpleCommand<DocumentViewModel> CopyCommand { get; } = new CopyCommand();
         public SimpleCommand<DocumentViewModel> PasteCommand { get; }
+        public SimpleCommand<DocumentViewModel> DeleteCommand { get; } = new DeleteCommand();
 
         public SimpleCommand<DocumentViewModel> EmojiCommand { get; } = new EmojiCommand();
 
@@ -50,6 +59,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<SettingsViewModel> CompactOverlayCommand { get; } = new CompactOverlay();
         public SimpleCommand<SettingsViewModel> ShowCommandBarCommand { get; } = new ShowCommandBarCommand();
         public SimpleCommand<SettingsViewModel> ShowMenusCommand { get; } = new ShowMenusCommand();
+        public SimpleCommand<SettingsViewModel> ShowStatusBarCommand { get; } = new ShowStatusBarCommand();
         public SimpleCommand<SettingsViewModel> ResetSettingsCommand { get; } = new ResetSettingsCommand();
         public SimpleCommand<SettingsViewModel> ImportSettingsCommand { get; } = new ImportSettingsCommand();
         public SimpleCommand<SettingsViewModel> ExportSettingsCommand { get; } = new ExportSettingsCommand();

@@ -19,5 +19,10 @@ namespace QuickPad.Mvvm.Models
             ID = info.Name;
             Name = info.DisplayName;
         }
+
+        public override string ToString()
+        {
+            return Name;
+        }
     }
 }

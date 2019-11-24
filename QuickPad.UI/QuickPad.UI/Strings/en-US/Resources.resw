@@ -309,10 +309,6 @@
     <value>Go To</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="Help.Title" xml:space="preserve">
-    <value>Help</value>
-    <comment>Used on Menu Header</comment>
-  </data>
   <data name="Import.Content" xml:space="preserve">
     <value>Import</value>
     <comment>Used on Settings Page</comment>
@@ -368,10 +364,6 @@
   <data name="PasteOptions.Text" xml:space="preserve">
     <value>Paste Options</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="RateAndReview.Text" xml:space="preserve">
-    <value>Rate and Review</value>
-    <comment>Used on Menu Item</comment>
   </data>
   <data name="RateAndReviewLink.Content" xml:space="preserve">
     <value>Rate and Review</value>
@@ -430,7 +422,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="StatusBar.Text" xml:space="preserve">
-    <value>StatusText Bar</value>
+    <value>Status Bar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
@@ -676,5 +668,33 @@
   <data name="TextDescription" xml:space="preserve">
     <value>Text Document</value>
     <comment>Used on Status Bar</comment>
+  </data>
+  <data name="DefaultFontColorRtf.Text" xml:space="preserve">
+    <value>Default Rich Text Font Color</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SaveDialog.CloseButtonText" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Save</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Don't Save</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.Title" xml:space="preserve">
+    <value>Quick Pad</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SpellCheckRtf.Text" xml:space="preserve">
+    <value>Spell Check in Rich Text</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WouldYouLikeToSave.Text" xml:space="preserve">
+    <value>Would you like to save your changes?</value>
+    <comment>Used on Save Dialog</comment>
   </data>
 </root>

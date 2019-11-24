@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -33,6 +34,8 @@ using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Windows.System;
+using Windows.UI.Composition;
+using QuickPad.UI.Common.Theme;
 using QuickPad.UI.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -44,21 +47,27 @@ namespace QuickPad.UI
     /// </summary>
     public sealed partial class MainPage : Page, IDocumentView
     {
-        public VisualThemeSelector VisualThemeSelector { get; } = VisualThemeSelector.Default;
+        private DocumentViewModel _viewModel;
+        private bool _initialized;
+        public VisualThemeSelector VisualThemeSelector { get; }
         public SettingsViewModel Settings => App.Settings;
-        public QuickPadCommands Commands => App.Commands;
+        public QuickPadCommands Commands { get; }
         private ILogger<MainPage> Logger { get; }
 
-        public MainPage(ILogger<MainPage> logger, DocumentViewModel viewModel)
+        public MainPage(ILogger<MainPage> logger, DocumentViewModel viewModel
+            , QuickPadCommands command, VisualThemeSelector vts)
         {
+            VisualThemeSelector = VisualThemeSelector.Current = vts;
             Logger = logger;
-            ViewModel = viewModel;
+            Commands = command;
 
             App.Controller.AddView(this);
             Initialize?.Invoke(this, Commands);
 
             this.InitializeComponent();
-            DataContext = ViewModel;
+            _initialized = true;
+
+            DataContext = ViewModel = viewModel;
 
             Loaded += OnLoaded;
 
@@ -69,8 +78,6 @@ namespace QuickPad.UI
             tBar.ButtonBackgroundColor = Colors.Transparent;
             tBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
-            ViewModel.Document = RichEditBox.Document;
-            RichEditBox.TextChanged += ViewModel.TextChanged;
             
             ViewModel.ExitApplication = ExitApp;
 
@@ -180,7 +187,7 @@ namespace QuickPad.UI
             {
                 currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
                 var di = DisplayInformation.GetForCurrentView();
-                Settings.BackButtonWidth = 48.0 * ((double)di.ResolutionScale / 100.0);
+                Settings.BackButtonWidth = 30 * ((double)di.ResolutionScale / 100.0);
             }
             else
             {
@@ -204,7 +211,10 @@ namespace QuickPad.UI
 
             try
             {
-                Bindings.Update();
+                if(!e.PropertyName.Equals(nameof(ViewModel.Text)))
+                {
+                    Bindings.Update();
+                }
             }
             catch (Exception ex)
             {
@@ -235,13 +245,69 @@ namespace QuickPad.UI
             }
         }
 
-        public DocumentViewModel ViewModel { get; set; }
+        public DocumentViewModel ViewModel
+        {
+            get => _viewModel;
+            set
+            {
+                if (_viewModel != value)
+                {
+                    if(_viewModel != null)
+                    {
+                        RichEditBox.TextChanged -= _viewModel.TextChanged;
+                        TextBox.TextChanged -= _viewModel.TextChanged;
+                        
+                        _viewModel.RedoRequested -= ViewModelOnRedoRequested;
+                        _viewModel.UndoRequested -= ViewModelOnUndoRequested;
+                        _viewModel.PropertyChanged -= ViewModelOnPropertyChanged;
+                    }
+
+                    _viewModel = value;
+
+                    _viewModel.RedoRequested += ViewModelOnRedoRequested;
+                    _viewModel.UndoRequested += ViewModelOnUndoRequested;
+                    _viewModel.PropertyChanged += ViewModelOnPropertyChanged;
+
+                    if(_initialized)
+                    {
+                        ViewModel.Document = RichEditBox.Document;
+                        RichEditBox.TextChanged += _viewModel.TextChanged;
+                        TextBox.TextChanged += _viewModel.TextChanged;
+                    }
+                }
+            }
+        }
+
+        private void ViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(DocumentViewModel.File):
+                    Reindex();
+                    break;
+            }
+        }
+
+        private void ViewModelOnUndoRequested(DocumentViewModel obj)
+        {
+            if(TextBox.CanUndo)
+            {
+                TextBox.Undo();
+                Reindex();
+            }
+        }
+
+        private void ViewModelOnRedoRequested(DocumentViewModel obj)
+        {
+            if(TextBox.CanRedo)
+            {
+                TextBox.Redo();
+                Reindex();
+            }
+        }
+
         public event Action<IDocumentView, QuickPadCommands> Initialize;
         public event Func<DocumentViewModel, Task<bool>> ExitApplication;
-
-        private void ChangeModeByKey(KeyboardAccelerator sender, KeyboardAcceleratorInvokedEventArgs args)
-        {
-        }
 
         private async void MainPage_OnKeyUp(object sender, KeyRoutedEventArgs args)
         {
@@ -265,7 +331,6 @@ namespace QuickPad.UI
                 (false, false, true, false, false, VirtualKey.Up) => DisplayModes.LaunchCompactOverlay.ToString(),
                 (false, false, true, false, false, VirtualKey.Down) => Settings.CurrentMode == DisplayModes.LaunchCompactOverlay.ToString() ? Settings.DefaultMode : Settings.CurrentMode,
                 (true, false, false, false, false, VirtualKey.F12) => DisplayModes.LaunchNinjaMode.ToString(),
-                (false, false, false, false, false, VirtualKey.Escape) => Settings.DefaultMode,
                 _ => Settings.CurrentMode
             };
 
@@ -285,16 +350,84 @@ namespace QuickPad.UI
         {
         }
 
-        private void TextBox_OnGotFocus(object sender, RoutedEventArgs e)
+        private void TextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
-            try
+            ViewModel.BlockUpdates();
+            ViewModel.SelectedText = TextBox.SelectedText;
+            ViewModel.ReleaseUpdates();
+
+            GetPosition();
+        }
+
+        private List<int> LineIndices { get; } = new List<int>();
+
+        private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
+
+            ViewModel.Text = TextBox.Text;
+            
+            Reindex();
+
+            TextBox_OnSelectionChanged(sender, e);
+
+            TextBox.SelectionChanged += TextBox_OnSelectionChanged;
+        }
+
+        private void GetPosition()
+        {
+            var position = TextBox.SelectionStart + TextBox.SelectionLength;
+
+            var target = position;
+
+            //if (position < ViewModel.Text.Length - 1
+            //    && ViewModel.Text[position] != '\r')
+            //{
+            //    --target;
+            //}
+
+
+            var lines = LineIndices.Where(i => i < target).ToList();
+
+            if (lines.Count != 0)
             {
-                Bindings.Update();
+                var lastMarker = lines.Max(i => i);
+
+                ViewModel.CurrentColumn = position - lastMarker;
+                ViewModel.CurrentLine = LineIndices.IndexOf(lastMarker) + 2;
             }
-            catch (Exception ex)
+            else
             {
-                Logger.LogError(ex, "Error updating binding on MainPage.");
+                ViewModel.CurrentLine = 1;
+                ViewModel.CurrentColumn = position + 1;
             }
+        }
+
+        private void TextBox_OnBeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
+        }
+
+        private void TextBox_OnKeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            //if (e.Key == VirtualKey.Enter || e.Key == VirtualKey.Delete)
+            //{
+            //    Reindex();
+            //}
+        }
+
+        private void Reindex()
+        {
+            LineIndices.Clear();
+
+            var index = -1;
+            var text = TextBox.Text;
+            while ((index = text.IndexOf('\r', index + 1)) > -1)
+            {
+                LineIndices.Add(index);
+            }
+
+            GetPosition();
         }
     }
 }

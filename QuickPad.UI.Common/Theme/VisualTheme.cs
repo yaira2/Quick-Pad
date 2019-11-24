@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
-namespace QuickPad.UI.Common
+namespace QuickPad.UI.Common.Theme
 {
     public class VisualTheme
     {

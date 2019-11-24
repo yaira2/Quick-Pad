@@ -5,12 +5,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:converters="using:QuickPad.UI.Converters"
     mc:Ignorable="d"
     d:DesignHeight="40"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
-        <MenuBar Height="40" HorizontalAlignment="Left" Width="268.667">
+        <MenuBar Height="40" HorizontalAlignment="Left" Width="Auto">
             <MenuBarItem Title="File" AccessKey="F" x:Uid="File">
                 <MenuFlyoutItem Text="New" AccessKey="N" x:Uid="New" 
                                 Command="{x:Bind Commands.NewDocumentCommand}"
@@ -114,7 +115,9 @@
                         <SymbolIcon Symbol="Paste"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Delete" AccessKey="L" x:Uid="Delete">
+                <MenuFlyoutItem Text="Delete" AccessKey="L" x:Uid="Delete" 
+                                Command="{x:Bind Commands.DeleteCommand}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Delete"/>
                     </MenuFlyoutItem.Icon>
@@ -183,11 +186,15 @@
             </MenuBarItem>
             <MenuBarItem Title="Format" AccessKey="O" x:Uid="Format">
                 <ToggleMenuFlyoutItem Text="Word Wrap" x:Uid="WordWrap"
+                                      IsChecked="{x:Bind ViewModel.CurrentWordWrap}"
                                       Command="{x:Bind Commands.ToggleWordWrapCommand}"
                                       CommandParameter="{x:Bind ViewModel}">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE751;"/>
                     </ToggleMenuFlyoutItem.Icon>
+                    <ToggleMenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="Z" Modifiers="Menu" />
+                    </ToggleMenuFlyoutItem.KeyboardAccelerators>
                 </ToggleMenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Fonts..." AccessKey="F" x:Uid="Fonts">
@@ -254,27 +261,31 @@
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
                 </MenuFlyoutSubItem>
-                <ToggleMenuFlyoutItem Text="StatusText Bar" AccessKey="S" x:Uid="StatusTextBar" IsChecked="{x:Bind Settings.StatusBar, Mode=TwoWay}">
+                <ToggleMenuFlyoutItem Text="Status Bar" AccessKey="S" x:Uid="StatusBar" 
+                                      IsChecked="{x:Bind Settings.StatusBar}"
+                                      Command="{x:Bind Commands.ShowStatusBarCommand}"      
+                                      CommandParameter="{x:Bind Settings}">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE75B;" />
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
             </MenuBarItem>
-            <MenuBarItem Title="Help" AccessKey="H" x:Uid="Help">
-                <MenuFlyoutItem Text="Settings" AccessKey="S" x:Uid="Settings" 
-                        Command="{x:Bind Commands.SettingsCommand}"      
-                        CommandParameter="{x:Bind Settings}">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Setting"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-                <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Rate and Review" AccessKey="R" x:Uid="RateAndReview">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="SolidStar"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-            </MenuBarItem>
         </MenuBar>
+        <CommandBar DefaultLabelPosition="Collapsed" IsOpen="False" HorizontalAlignment="Right" Height="40" Background="{x:Null}"
+                    Visibility="{x:Bind converters:Converter.VisibleIfMenuMode(Settings.CurrentMode)}">
+            <AppBarButton MinWidth="40" Width="Auto" 
+                          Command="{x:Bind Commands.CompactOverlayCommand}"
+                          CommandParameter="{x:Bind Settings}">
+                <AppBarButton.Icon>
+                    <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                </AppBarButton.Icon>
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="CompactOverlayTooltip" Text="Compact Overlay (Alt + Up)"/>
+                </ToolTipService.ToolTip>
+            </AppBarButton>
+            <AppBarButton x:Uid="SettingsLabel" Width="Auto" MinWidth="40" Icon="Setting"
+                          Command="{x:Bind Commands.SettingsCommand}"      
+                          CommandParameter="{x:Bind Settings}"/>
+        </CommandBar>
     </Grid>
 </UserControl>

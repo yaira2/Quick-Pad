@@ -1,5 +1,4 @@
-﻿using QuickPad.Mvvm;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -13,10 +12,9 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
-using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm.ViewModels;
 
-namespace QuickPad.UI.Common
+namespace QuickPad.UI.Common.Theme
 {
     public class VisualThemeSelector : INotifyPropertyChanged
     {
@@ -28,19 +26,7 @@ namespace QuickPad.UI.Common
         private readonly List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;
 
-        public static VisualThemeSelector Default
-        {
-            get
-            {
-                if (_default != null) return _default;
-
-                _default = App.Services.GetService<VisualThemeSelector>();
-                var s = App.Services.GetService<SettingsViewModel>();
-                _default.SelectFromId(s.CustomThemeId);
-
-                return _default;
-            }
-        }
+        public static VisualThemeSelector Current { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event ThemeChangedEventHandler ThemeChanged

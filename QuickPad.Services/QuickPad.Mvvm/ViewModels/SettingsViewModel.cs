@@ -168,8 +168,23 @@ namespace QuickPad.Mvvm.ViewModels
         [NotifyOnReset]
         public DefaultLanguageModel DefaultLanguage
         {
-            get => Get((DefaultLanguageModel)null);
-            set => Set(value);
+            get
+            {
+                var language = Get((string) null);
+                if (language != null)
+                {
+                    return DefaultLanguages.FirstOrDefault(dl => dl.ID == language) ?? DefaultLanguages.FirstOrDefault();
+                }
+
+                return DefaultLanguages.FirstOrDefault();
+            }
+            set
+            {
+                if (Set(value.ID))
+                {
+                    ApplicationLanguages.PrimaryLanguageOverride = value.ID;
+                }
+            }
         }
 
         [NotifyOnReset]
@@ -235,11 +250,12 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(value);
         }
 
-        [NotifyOnReset]
+        private bool _showSettings;
+        [JsonIgnore]
         public bool ShowSettings
         {
-            get => Get(false);
-            set => Set(value);
+            get => _showSettings;
+            set => Set(ref _showSettings, value);
         }
 
         [NotifyOnReset]
@@ -324,7 +340,13 @@ namespace QuickPad.Mvvm.ViewModels
         public bool StatusBar
         {
             get => Get(true);
-            set => Set(value);
+            set
+            {
+                if (Set(value))
+                {
+                    OnPropertyChanged(nameof(ShowStatusBar));
+                }
+            }
         }
 
         [JsonIgnore]

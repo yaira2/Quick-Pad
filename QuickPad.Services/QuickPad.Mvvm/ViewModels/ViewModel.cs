@@ -15,6 +15,9 @@ namespace QuickPad.Mvvm.ViewModels
     public class ViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private bool _frozen;
+        private bool _blockUpdates;
         
         private ILogger Logger { get; }
 
@@ -26,6 +29,8 @@ namespace QuickPad.Mvvm.ViewModels
         [NotifyPropertyChangedInvocator]
         internal virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
+            if (_blockUpdates) return;
+
             if (!_frozen)
             {
                 void DispatchedHandler()
@@ -61,8 +66,6 @@ namespace QuickPad.Mvvm.ViewModels
 
         private readonly ConcurrentQueue<string> _updatesQueue = new ConcurrentQueue<string>();
 
-        private bool _frozen;
-
         public void HoldUpdates() 
         {
             _frozen = true;
@@ -71,6 +74,7 @@ namespace QuickPad.Mvvm.ViewModels
         public void ReleaseUpdates() 
         {
             _frozen = false;
+            _blockUpdates = false;
 
             while(_updatesQueue.TryDequeue(out var propertyName))
             {
@@ -87,5 +91,11 @@ namespace QuickPad.Mvvm.ViewModels
         {
             return CoreApplication.MainView.Dispatcher.AwaitableRunAsync<TResult>(handler);
         }
+
+        public void BlockUpdates()
+        {
+            _blockUpdates = true;
+        }
+
     }
 }

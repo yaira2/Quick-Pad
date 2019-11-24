@@ -18,8 +18,8 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-
-        <Button Background="Transparent"
+        
+            <Button Background="Transparent"
                 VerticalAlignment="Top"
                 Height="32"
                 Width="40"
@@ -28,18 +28,18 @@
                 CornerRadius="0"
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
-            <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
-            <Button.KeyboardAccelerators>
-                <KeyboardAccelerator Modifiers="Menu" Key="Down"/>
-            </Button.KeyboardAccelerators>
-            <ToolTipService.ToolTip>
-                <TextBlock Text="Close Compact Overlay" x:Uid="CloseCompactOverlay"/>
-            </ToolTipService.ToolTip>
-        </Button>
-                
-        <Grid x:Name="trickyTitleBar" Grid.Column="1"  Background="Transparent" Height="33" Margin="{x:Bind Settings.TitleMargin}">
-            <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
-        </Grid>
+                <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Down"/>
+                </Button.KeyboardAccelerators>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Close Compact Overlay" x:Uid="CloseCompactOverlay"/>
+                </ToolTipService.ToolTip>
+            </Button>
 
+
+            <Grid x:Name="trickyTitleBar" Grid.Column="1" Background="Transparent" Height="33" Margin="{x:Bind Settings.TitleMargin}">
+                <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
+            </Grid>
     </Grid>
 </UserControl>

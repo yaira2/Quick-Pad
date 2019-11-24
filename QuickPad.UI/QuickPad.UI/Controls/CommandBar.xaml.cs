@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Input;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
 using QuickPad.Mvvm.Commands;
+using QuickPad.UI.Common.Theme;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -16,7 +17,7 @@ namespace QuickPad.UI.Controls
     {
         private string _trySelectFontName;
 
-        public VisualThemeSelector VtSelector { get; } = VisualThemeSelector.Default;
+        public VisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
         public SettingsViewModel Settings => App.Settings;
         

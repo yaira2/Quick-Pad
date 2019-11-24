@@ -8,6 +8,8 @@ using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
+using QuickPad.UI.Common.Dialogs;
+using QuickPad.UI.Common.Theme;
 
 namespace QuickPad.UI
 {
@@ -16,10 +18,7 @@ namespace QuickPad.UI
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<PasteCommand, PasteCommand>();
-            services.AddSingleton<ShowSettingsCommand, ShowSettingsCommand>();
-            services.AddSingleton<ShowCommandBarCommand, ShowCommandBarCommand>();
-            services.AddSingleton<ShowMenusCommand, ShowMenusCommand>();
-            services.AddSingleton<FocusCommand, FocusCommand>();
+            services.AddTransient<AskToSave, AskToSave>();
             services.AddSingleton(provider => new QuickPadCommands(provider.GetService<PasteCommand>()));
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();

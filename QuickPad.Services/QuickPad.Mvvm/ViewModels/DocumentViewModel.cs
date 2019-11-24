@@ -9,10 +9,12 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
 using QuickPad.Mvvm;
+using QuickPad.Mvvm.Commands;
 using Buffer = Windows.Storage.Streams.Buffer;
 
 namespace QuickPad.Mvvm.ViewModels
@@ -34,6 +36,13 @@ namespace QuickPad.Mvvm.ViewModels
         private bool _currentWordWrap;
         private string _currentFileDisplayType;
         private ResourceLoader _resourceLoader;
+        private int _currentColumn;
+        private int _currentLine;
+
+        private string _text;
+        private bool _canUndo;
+        private bool _canRedo;
+        private string _selectedText;
 
         public DocumentViewModel(ILogger<DocumentViewModel> logger
             , IServiceProvider serviceProvider
@@ -78,7 +87,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         public string CurrentFileType
         {
-            get => _currentFileType;
+            get => _currentFileType ?? Settings.DefaultFileType;
             set
             {
                 if (Set(ref _currentFileType, value))
@@ -114,7 +123,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 if (!value)
                 {
-                    CalculateHash();
+                    CalculateHash(Text);
                     _originalHash = _currentHash;                    
                 }
 
@@ -150,39 +159,78 @@ namespace QuickPad.Mvvm.ViewModels
 
         public void TextChanged(object sender, RoutedEventArgs e)
         {
-            CalculateHash();
+            CalculateHash(Text);
+
+            if (sender is TextBox textBox)
+            {
+                CanUndo = textBox.CanUndo;
+                CanRedo = textBox.CanRedo;
+            }
+
+            QuickPadCommands.NotifyAll(this, Settings);
         }
 
         public string Text
         {
             get
             {
-                var text = string.Empty;
+                if (CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    Document?.GetText(GetOption, out _text);
+                }
 
-                Document?.GetText(GetOption, out text);
-
-                return text;
+                return _text ??= string.Empty;
             }
             set
             {
-                Document?.SetText(SetOption, value);
+                if(CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    Document?.SetText(SetOption, value);
+                }
 
-                CalculateHash();
-
-                var text = string.Empty;
-                Set(ref text, value);
+                if (Set(ref _text, value))
+                {
+                    CalculateHash(_text);
+                }
             }
         }
 
-        private void CalculateHash()
+        public string SelectedText
         {
-            var hash = _md5.ComputeHash(Encoding.ASCII.GetBytes(Text));
+            get
+            {
+                if (CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    Document?.Selection.GetText(GetOption, out _selectedText);
+                }
 
-            _currentHash = Encoding.ASCII.GetString(hash);
+                return _selectedText ??= string.Empty;
+            }
+            set
+            {
+                if (CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    Document?.Selection.SetText(SetOption, value);
+                }
 
-            OnPropertyChanged(nameof(IsDirty));
-            OnPropertyChanged(nameof(Title));
-            OnPropertyChanged(nameof(Text));
+                Set(ref _selectedText, value);
+            }
+        }
+
+        private void CalculateHash(string text)
+        {
+            var hash = _md5.ComputeHash(Encoding.ASCII.GetBytes(text ?? string.Empty));
+
+            var newHash = Encoding.ASCII.GetString(hash);
+
+            if (newHash != _currentHash)
+            {
+                _currentHash = newHash;
+
+                OnPropertyChanged(nameof(IsDirty));
+                OnPropertyChanged(nameof(Title));
+                OnPropertyChanged(nameof(Text));
+            }
         }
 
         public StorageFile File
@@ -250,6 +298,30 @@ namespace QuickPad.Mvvm.ViewModels
         public Action ExitApplication { get; set; }
         public bool Deferred { get; set; }
 
+        public int CurrentLine  
+        {
+            get => _currentLine;
+            set => Set(ref _currentLine, value);
+        }
+
+        public int CurrentColumn
+        {
+            get => _currentColumn;
+            set => Set(ref _currentColumn, value);
+        }
+
+        public bool CanUndo
+        {
+            get => CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ? Document.CanUndo() : _canUndo;
+            set => Set(ref _canUndo, value);
+        }
+
+        public bool CanRedo {
+            get => CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ? Document.CanRedo() : _canRedo;
+            set => Set(ref _canRedo, value);
+        }
+
+
         public void NotifyAll()
         {
             OnPropertyChanged(nameof(Title));
@@ -262,6 +334,8 @@ namespace QuickPad.Mvvm.ViewModels
             OnPropertyChanged(nameof(CurrentFontName));
             OnPropertyChanged(nameof(CurrentFontSize));
             OnPropertyChanged(nameof(CurrentFileType));
+
+            QuickPadCommands.NotifyAll(this, Settings);
         }
 
         public void SetEncoding(string encoding)
@@ -276,5 +350,19 @@ namespace QuickPad.Mvvm.ViewModels
                 _ => Encoding.UTF8
             };
         }
+
+        public void RequestUndo()
+        {
+            UndoRequested?.Invoke(this);
+        }
+
+        public event Action<DocumentViewModel> UndoRequested;
+
+        public void RequestRedo()
+        {
+            RedoRequested?.Invoke(this);
+        }
+
+        public event Action<DocumentViewModel> RedoRequested;
     }
 }
