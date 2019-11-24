@@ -132,6 +132,7 @@
   <ItemGroup>
     <Compile Include="Commands\Actions\AcknowledgeFontSelectionChangeCommand.cs" />
     <Compile Include="Commands\Actions\ExportSettingsCommand.cs" />
+    <Compile Include="Commands\Actions\RateAndReview.cs" />
     <Compile Include="Commands\Actions\FocusCommand.cs" />
     <Compile Include="Commands\Actions\ImportSettingsCommand.cs" />
     <Compile Include="Commands\Actions\ResetSettingsCommand.cs" />
