@@ -67,7 +67,7 @@ namespace QuickPad.UI
 
             this.Suspending += OnSuspending;
 
-            ApplicationLanguages.PrimaryLanguageOverride = Convert.ToString(Settings.DefaultLanguage);
+            ApplicationLanguages.PrimaryLanguageOverride = Settings.DefaultLanguage?.ID ?? "en-us";
         }
 
         /// <summary>

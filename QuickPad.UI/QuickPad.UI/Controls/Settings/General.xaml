@@ -29,18 +29,13 @@
                       SelectedValue="{x:Bind Settings.DefaultMode, Mode=TwoWay}"
                       DisplayMemberPath="Text"
                       HorizontalAlignment="Left">
-                <!--<ComboBoxItem Content="Classic Mode" x:Uid="LaunchClassicMode"/>
-                <ComboBoxItem Content="Default" x:Uid="LaunchDefaultMode"/>
-                <ComboBoxItem Content="On Top" x:Uid="LaunchCompactOverlay"/>
-                <ComboBoxItem Content="Focus Mode" x:Uid="LaunchFocusMode"/>-->
-                <!--<ComboBoxItem Content="Full UI" x:Uid="LaunchFullUIMode"/>-->
             </ComboBox>
 
             <TextBlock Text="App Language" x:Uid="AppLanguage"/>
 
-            <ComboBox Width="180" PlaceholderText="English (United State)" 
-                      SelectedValue="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}"
-                      ItemsSource="{x:Bind Settings.DefaultLanguages, Mode=OneWay}" 
+            <ComboBox Width="180" PlaceholderText="{x:Bind Settings.DefaultLanguage}" 
+                      SelectedItem="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}"
+                      ItemsSource="{x:Bind Settings.DefaultLanguages}"
                       Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBox.ItemTemplate>
                     <DataTemplate x:DataType="q:DefaultLanguageModel">

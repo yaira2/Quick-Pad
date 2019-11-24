@@ -168,8 +168,23 @@ namespace QuickPad.Mvvm.ViewModels
         [NotifyOnReset]
         public DefaultLanguageModel DefaultLanguage
         {
-            get => Get((DefaultLanguageModel)null);
-            set => Set(value);
+            get
+            {
+                var language = Get((string) null);
+                if (language != null)
+                {
+                    return DefaultLanguages.FirstOrDefault(dl => dl.ID == language) ?? DefaultLanguages.FirstOrDefault();
+                }
+
+                return DefaultLanguages.FirstOrDefault();
+            }
+            set
+            {
+                if (Set(value.ID))
+                {
+                    ApplicationLanguages.PrimaryLanguageOverride = value.ID;
+                }
+            }
         }
 
         [NotifyOnReset]
