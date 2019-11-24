@@ -204,10 +204,6 @@
     <value>Aller à</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="Help.Title" xml:space="preserve">
-    <value>Aide</value>
-    <comment>Used on Menu Header</comment>
-  </data>
   <data name="Import.Content" xml:space="preserve">
     <value>Importer</value>
     <comment>Used on Settings Page</comment>
@@ -247,10 +243,6 @@
   <data name="PasteOptions.Text" xml:space="preserve">
     <value>Options de collage</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="RateAndReview.Text" xml:space="preserve">
-    <value>Évaluer et commenter</value>
-    <comment>Used on Menu Item</comment>
   </data>
   <data name="RateAndReviewLink.Content" xml:space="preserve">
     <value>Évaluer et commenter</value>

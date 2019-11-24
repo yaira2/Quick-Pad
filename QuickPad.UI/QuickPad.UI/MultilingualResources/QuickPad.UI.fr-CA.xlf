@@ -246,11 +246,6 @@
           <target state="translated">Aller à</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="Help.Title" translate="yes" xml:space="preserve">
-          <source>Help</source>
-          <target state="translated" state-qualifier="tm-suggestion">Aide</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
-        </trans-unit>
         <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
           <source>Import</source>
           <target state="translated" state-qualifier="tm-suggestion">Importer</target>
@@ -300,11 +295,6 @@
           <source>Paste Options</source>
           <target state="translated" state-qualifier="tm-suggestion">Options de collage</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="RateAndReview.Text" translate="yes" xml:space="preserve">
-          <source>Rate and Review</source>
-          <target state="translated">Évaluer et commenter</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="RateAndReviewLink.Content" translate="yes" xml:space="preserve">
           <source>Rate and Review</source>

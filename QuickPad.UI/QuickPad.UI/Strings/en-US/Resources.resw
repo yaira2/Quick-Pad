@@ -309,10 +309,6 @@
     <value>Go To</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="Help.Title" xml:space="preserve">
-    <value>Help</value>
-    <comment>Used on Menu Header</comment>
-  </data>
   <data name="Import.Content" xml:space="preserve">
     <value>Import</value>
     <comment>Used on Settings Page</comment>
@@ -368,10 +364,6 @@
   <data name="PasteOptions.Text" xml:space="preserve">
     <value>Paste Options</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="RateAndReview.Text" xml:space="preserve">
-    <value>Rate and Review</value>
-    <comment>Used on Menu Item</comment>
   </data>
   <data name="RateAndReviewLink.Content" xml:space="preserve">
     <value>Rate and Review</value>

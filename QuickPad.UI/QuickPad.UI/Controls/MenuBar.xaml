@@ -11,7 +11,7 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
-        <MenuBar Height="40" HorizontalAlignment="Left" Width="268.667">
+        <MenuBar Height="40" HorizontalAlignment="Left" Width="Auto">
             <MenuBarItem Title="File" AccessKey="F" x:Uid="File">
                 <MenuFlyoutItem Text="New" AccessKey="N" x:Uid="New" 
                                 Command="{x:Bind Commands.NewDocumentCommand}"
@@ -270,13 +270,6 @@
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
             </MenuBarItem>
-            <MenuBarItem Title="Help" AccessKey="H" x:Uid="Help">
-                <MenuFlyoutItem Text="Rate and Review" AccessKey="R" x:Uid="RateAndReview">
-                    <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="SolidStar"/>
-                    </MenuFlyoutItem.Icon>
-                </MenuFlyoutItem>
-            </MenuBarItem>
         </MenuBar>
         <CommandBar DefaultLabelPosition="Collapsed" IsOpen="False" HorizontalAlignment="Right" Height="40" Background="{x:Null}"
                     Visibility="{x:Bind converters:Converter.VisibleIfMenuMode(Settings.CurrentMode)}">
@@ -290,7 +283,7 @@
                     <TextBlock x:Uid="CompactOverlayTooltip" Text="Compact Overlay (Alt + Up)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton x:Uid="SettingsLabel" Label="Settings" Width="Auto" MinWidth="40" Icon="Setting"
+            <AppBarButton x:Uid="SettingsLabel" Width="Auto" MinWidth="40" Icon="Setting"
                           Command="{x:Bind Commands.SettingsCommand}"      
                           CommandParameter="{x:Bind Settings}"/>
         </CommandBar>
