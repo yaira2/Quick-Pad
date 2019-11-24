@@ -8,7 +8,7 @@
       <group id="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="AcrylicOptions.Text" translate="yes" xml:space="preserve">
           <source>Acrylic Options</source>
-          <target state="translated">Options acrylique</target>
+          <target state="translated">Options acryliques</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AcrylicTintOpacity.Text" translate="yes" xml:space="preserve">
@@ -78,7 +78,7 @@
         </trans-unit>
         <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
           <source>System Default</source>
-          <target state="translated">Paramètres de système par défaut</target>
+          <target state="translated">Paramètres du système par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
@@ -88,7 +88,7 @@
         </trans-unit>
         <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
           <source>Light theme</source>
-          <target state="translated" state-qualifier="tm-suggestion">Thème Clair</target>
+          <target state="translated">Thème clair</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRandomDescription" translate="yes" xml:space="preserve">
@@ -108,7 +108,7 @@
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
           <source>Auto save every</source>
-          <target state="translated">Sauvegarder automatiquement à tous les</target>
+          <target state="translated">Sauvegarder automatiquement à toutes les</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSaveSeconds.Text" translate="yes" xml:space="preserve">
@@ -123,7 +123,7 @@
         </trans-unit>
         <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
           <source>Close Compact Overlay</source>
-          <target state="translated">Fermer la superposition compact</target>
+          <target state="translated">Fermer la superposition compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TitleBar</note>
         </trans-unit>
         <trans-unit id="Contribute.Content" translate="yes" xml:space="preserve">
@@ -138,7 +138,7 @@
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
           <source>Developed by Yair Aichenbaum</source>
-          <target state="translated">Développé par Yair Aichenbaum</target>
+          <target state="translated">Développée par Yair Aichenbaum</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
@@ -153,7 +153,7 @@
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
           <source>Default File CurrentEncoding</source>
-          <target state="translated">Fichier par défaut EncodageParDéfaut</target>
+          <target state="translated">Fichier par défaut EncodageActuel</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFileType.Text" translate="yes" xml:space="preserve">
@@ -163,7 +163,7 @@
         </trans-unit>
         <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
           <source>Default Font</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Police par défaut</target>
+          <target state="translated" state-qualifier="tm-suggestion">Police par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontColor.Text" translate="yes" xml:space="preserve">
@@ -173,7 +173,7 @@
         </trans-unit>
         <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Taille de police par défaut</target>
+          <target state="translated" state-qualifier="tm-suggestion">Taille de police par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Delete.Text" translate="yes" xml:space="preserve">
@@ -208,17 +208,17 @@
         </trans-unit>
         <trans-unit id="FindNext.Text" translate="yes" xml:space="preserve">
           <source>Find Next</source>
-          <target state="translated">Trouver suivant</target>
+          <target state="translated">Trouver l'élément suivant</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
           <source>Find Previous</source>
-          <target state="translated">Trouver précédent</target>
+          <target state="translated">Trouver l'élément précédent</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FocusMode.Text" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="translated" state-qualifier="tm-suggestion">Mode Focus</target>
+          <target state="translated">Mode focus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
@@ -328,12 +328,12 @@
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
-          <target state="translated">Redémarrage requis pour appliquer le changement</target>
+          <target state="translated">Redémarrage requis pour appliquer les changements</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="translated">Réstaurer le zoom par défaut</target>
+          <target state="translated">Restaurer le zoom par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
@@ -388,7 +388,7 @@
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
           <source>Ln: </source>
-          <target state="translated">Ln: </target>
+          <target state="translated">Li: </target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
@@ -578,7 +578,7 @@
         </trans-unit>
         <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
           <source>Insert Emojis (Win + .)</source>
-          <target state="translated">Insérer des Emojis (Win + .)</target>
+          <target state="translated">Insérer des emojis (Win + .)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="EmojiLabel.Label" translate="yes" xml:space="preserve">
@@ -623,12 +623,12 @@
         </trans-unit>
         <trans-unit id="SettingsLabel.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres</target>
+          <target state="translated" state-qualifier="tm-suggestion">Paramètres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ShareLabel.Label" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Partager</target>
+          <target state="translated" state-qualifier="tm-suggestion">Partager</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="StatusBarLabel.Label" translate="yes" xml:space="preserve">
