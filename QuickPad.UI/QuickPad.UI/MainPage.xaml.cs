@@ -331,7 +331,6 @@ namespace QuickPad.UI
                 (false, false, true, false, false, VirtualKey.Up) => DisplayModes.LaunchCompactOverlay.ToString(),
                 (false, false, true, false, false, VirtualKey.Down) => Settings.CurrentMode == DisplayModes.LaunchCompactOverlay.ToString() ? Settings.DefaultMode : Settings.CurrentMode,
                 (true, false, false, false, false, VirtualKey.F12) => DisplayModes.LaunchNinjaMode.ToString(),
-                (false, false, false, false, false, VirtualKey.Escape) => Settings.DefaultMode,
                 _ => Settings.CurrentMode
             };
 
