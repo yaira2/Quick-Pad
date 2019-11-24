@@ -53,7 +53,7 @@
                 <x:String>.rtf</x:String>
             </ComboBox>
 
-            <TextBlock Text="Default File Encoding" x:Uid="DefaultFileCurrentEncoding"/>
+            <TextBlock Text="Default File Encoding" x:Uid="DefaultFileEncoding"/>
             <ComboBox PlaceholderText="UTF-8" Width="120"
                       SelectedValuePath="Content"
                       SelectedValue="{x:Bind Settings.DefaultEncoding, Mode=TwoWay}"

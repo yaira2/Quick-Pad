@@ -707,6 +707,41 @@
           <target state="translated" state-qualifier="tm-suggestion">Document texte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
         </trans-unit>
+        <trans-unit id="DefaultFontColorRtf.Text" translate="yes" xml:space="preserve">
+          <source>Default Rich Text Font Color</source>
+          <target state="new">Default Rich Text Font Color</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.CloseButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Don't Save</source>
+          <target state="new">Don't Save</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.Title" translate="yes" xml:space="preserve">
+          <source>Quick Pad</source>
+          <target state="new">Quick Pad</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SpellCheckRtf.Text" translate="yes" xml:space="preserve">
+          <source>Spell Check in Rich Text</source>
+          <target state="new">Spell Check in Rich Text</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="WouldYouLikeToSave.Text" translate="yes" xml:space="preserve">
+          <source>Would you like to save your changes?</source>
+          <target state="new">Would you like to save your changes?</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
       </group>
     </body>
   </file>
