@@ -254,7 +254,7 @@
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
                 </MenuFlyoutSubItem>
-                <ToggleMenuFlyoutItem Text="StatusText Bar" AccessKey="S" x:Uid="StatusTextBar" IsChecked="{x:Bind Settings.StatusBar, Mode=TwoWay}">
+                <ToggleMenuFlyoutItem Text="Status Bar" AccessKey="S" x:Uid="StatusBar" IsChecked="{x:Bind Settings.StatusBar, Mode=TwoWay}">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE75B;" />
                     </ToggleMenuFlyoutItem.Icon>
