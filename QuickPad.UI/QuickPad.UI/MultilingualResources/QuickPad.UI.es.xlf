@@ -152,9 +152,10 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
-          <source>Default File CurrentEncoding</source>
-          <target state="translated">Codificación de archivo por defecto</target>
+          <source>Default File Encoding</source>
+          <target state="needs-review-translation">Codificación de archivo por defecto</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="DefaultFileType.Text" translate="yes" xml:space="preserve">
           <source>Default File Type</source>
@@ -246,11 +247,6 @@
           <target state="translated">Ir a</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="Help.Title" translate="yes" xml:space="preserve">
-          <source>Help</source>
-          <target state="translated">Ayuda</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
-        </trans-unit>
         <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
           <source>Import</source>
           <target state="translated">Importar</target>
@@ -320,11 +316,6 @@
           <source>Paste Options</source>
           <target state="translated">Opciones de pegado</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="RateAndReview.Text" translate="yes" xml:space="preserve">
-          <source>Rate and Review</source>
-          <target state="translated">Evaluar y Opinar</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="RateAndReviewLink.Content" translate="yes" xml:space="preserve">
           <source>Rate and Review</source>
@@ -397,9 +388,10 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
-          <source>StatusText Bar</source>
-          <target state="translated">Barra de estado</target>
+          <source>Status Bar</source>
+          <target state="needs-review-translation">Barra de estado</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Col: </source>
@@ -705,6 +697,46 @@
           <source>Text Document</source>
           <target state="translated">Documento de texto</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontColorRtf.Text" translate="yes" xml:space="preserve">
+          <source>Default Rich Text Font Color</source>
+          <target state="new">Default Rich Text Font Color</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.CloseButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="new">Save</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Don't Save</source>
+          <target state="new">Don't Save</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.Title" translate="yes" xml:space="preserve">
+          <source>Quick Pad</source>
+          <target state="new">Quick Pad</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SpellCheckRtf.Text" translate="yes" xml:space="preserve">
+          <source>Spell Check in Rich Text</source>
+          <target state="new">Spell Check in Rich Text</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="WouldYouLikeToSave.Text" translate="yes" xml:space="preserve">
+          <source>Would you like to save your changes?</source>
+          <target state="new">Would you like to save your changes?</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="PlainText.Text" translate="yes" xml:space="preserve">
+          <source>Plain Text Font Settings</source>
+          <target state="new">Plain Text Font Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>
     </body>
