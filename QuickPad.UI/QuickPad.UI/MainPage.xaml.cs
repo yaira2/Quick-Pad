@@ -187,7 +187,7 @@ namespace QuickPad.UI
             {
                 currentView.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
                 var di = DisplayInformation.GetForCurrentView();
-                Settings.BackButtonWidth = 48.0 * ((double)di.ResolutionScale / 100.0);
+                Settings.BackButtonWidth = 30 * ((double)di.ResolutionScale / 100.0);
             }
             else
             {

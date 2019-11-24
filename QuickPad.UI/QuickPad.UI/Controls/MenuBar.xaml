@@ -79,6 +79,21 @@
                 </MenuFlyoutItem>
             </MenuBarItem>
             <MenuBarItem Title="Edit" AccessKey="E" x:Uid="Edit">
+                <MenuFlyoutItem Text="Undo" AccessKey="U" x:Uid="Undo" 
+                                Command="{x:Bind Commands.UndoCommand}"
+                                CommandParameter="{x:Bind ViewModel}">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Undo"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="Redo" AccessKey="E" x:Uid="Redo" 
+                                Command="{x:Bind Commands.RedoCommand}"
+                                CommandParameter="{x:Bind ViewModel}">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Redo"/>
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Cut" AccessKey="T" x:Uid="Cut" 
                                 Command="{x:Bind Commands.CutCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
