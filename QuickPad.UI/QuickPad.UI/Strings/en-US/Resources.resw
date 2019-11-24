@@ -697,4 +697,8 @@
     <value>Would you like to save your changes?</value>
     <comment>Used on Save Dialog</comment>
   </data>
+  <data name="PlainText.Text" xml:space="preserve">
+    <value>Plain Text Font Settings</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>

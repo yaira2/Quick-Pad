@@ -7,6 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
+    xmlns:Controls="using:QuickPad.UI.Controls"
     mc:Ignorable="d"
     d:DesignWidth="400">
 
@@ -21,6 +22,14 @@
 
         <StackPanel>
             <TextBlock Text="Font" FontSize="20" x:Uid="Font"/>
+            <TextBlock Text="Default Font Color" x:Uid="DefaultFontColor"/>
+
+            <Controls:ColorDialog HorizontalAlignment="Left"/>
+            
+            <!--Plain Text Font Settings-->
+            <TextBlock Text="Plain Text Font Settings" FontSize="18" x:Uid="PlainText" Padding="0,10,0,0"/>
+
+            
             <TextBlock Text="Default Font" x:Uid="DefaultFont"/>
             <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       SelectedItem="{x:Bind Settings.DefaultFont, Mode=TwoWay}" 
@@ -34,18 +43,14 @@
                       ItemsSource="{x:Bind Settings.AllFontSizes}"
                       PlaceholderText="{x:Bind Settings.DefaultFontSize}" MinWidth="69"/>
 
-            <TextBlock Text="Default Font Color" x:Uid="DefaultFontColor"/>
 
-            <!--<local:ColorSelection Margin="5,0,0,0" HorizontalAlignment="Left" x:Name="FontColorSelector" FontColorSelection="{x:Bind QSetting.DefaultFontColor, Mode=TwoWay}" AllowDefault="True"/>-->
-            
             <TextBlock Text="Word Wrap" x:Uid="WordWrapSetting"/>
             <ToggleSwitch IsOn="{x:Bind Settings.WordWrap, Mode=TwoWay}"/>
 
             <TextBlock Text="Spell Check" x:Uid="SpellCheck"/>
             <ToggleSwitch IsOn="{x:Bind Settings.SpellCheck, Mode=TwoWay}"/>
 
-            <!--Rich Text Font Settings-->
-            
+            <!--Rich Text Font Settings--> 
             <TextBlock Text="Rich Text Font Settings" FontSize="18" x:Uid="RTF" Padding="0,10,0,0"/>
             
             <TextBlock Text="Default Rich Text Font" x:Uid="DefaultFontRtf"/>
