@@ -77,8 +77,7 @@
                      Style="{StaticResource RichEditBox}"
                      Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
-                     Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
-                     >
+                     Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}">
         </RichEditBox>
         <TextBox x:Name="TextBox"
                  Grid.Row="3"
