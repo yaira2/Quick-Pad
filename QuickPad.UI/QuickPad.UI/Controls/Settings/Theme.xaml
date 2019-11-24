@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    xmlns:q="using:QuickPad.UI.Common"
+    xmlns:q="using:QuickPad.UI.Common" 
+    xmlns:theme="using:QuickPad.UI.Common.Theme"
     mc:Ignorable="d"
     d:DesignWidth="400">
 
@@ -23,7 +24,7 @@
             <TextBlock Text="Theme" x:Uid="Theme" FontSize="20"/>
             <ListView ItemsSource="{x:Bind VisualThemeSelector.ThemesView}" Margin="0,10,0,0">
                 <ListView.ItemTemplate>
-                    <DataTemplate x:DataType="q:VisualTheme">
+                    <DataTemplate x:DataType="theme:VisualTheme">
                         <StackPanel Spacing="5" Orientation="Horizontal">
                             <Grid Width="36" Height="36" Margin="0,8,8,8">
                                 <Rectangle Fill="{x:Bind PreviewBrush}"/>

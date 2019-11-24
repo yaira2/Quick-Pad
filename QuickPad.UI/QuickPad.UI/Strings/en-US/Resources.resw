@@ -430,7 +430,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="StatusBar.Text" xml:space="preserve">
-    <value>StatusText Bar</value>
+    <value>Status Bar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">

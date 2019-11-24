@@ -18,7 +18,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>E5F40F1F13D0A8E6E7A6158EA5765E73DDFB2DB8</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>EB705E3F44525A88C8E8E96A04DBEF8DCE07B189</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
@@ -26,8 +26,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <PackageCertificateKeyFile>
-    </PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>QuickPad.UI_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -144,12 +143,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApplicationStartup.cs" />
-    <Compile Include="Common\IntCompare.cs" />
-    <Compile Include="Common\ThemeChangedEventArgs.cs" />
-    <Compile Include="Common\ThemeChangedEventHandler.cs" />
-    <Compile Include="Common\VisualTheme.cs" />
-    <Compile Include="Common\VisualThemeKind.cs" />
-    <Compile Include="Common\VisualThemeSelector.cs" />
     <Compile Include="Controls\FindAndReplace.xaml.cs">
       <DependentUpon>FindAndReplace.xaml</DependentUpon>
     </Compile>
@@ -181,12 +174,6 @@
       <DependentUpon>CommandBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\Converter.cs" />
-    <Compile Include="Dialogs\GoToLine.xaml.cs">
-      <DependentUpon>GoToLine.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\AskToSave.xaml.cs">
-      <DependentUpon>AskToSave.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -203,7 +190,6 @@
   <ItemGroup>
     <None Include=".editorconfig" />
     <None Include="Package.StoreAssociation.xml" />
-    <Content Include="A Unplated.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -305,14 +291,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Dialogs\GoToLine.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dialogs\AskToSave.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -377,6 +355,10 @@
     <ProjectReference Include="..\..\QuickPad.Services\QuickPad.Mvvm\QuickPad.Mvvm.csproj">
       <Project>{dd33c42d-9de7-4e74-a44d-2085764cf0c8}</Project>
       <Name>QuickPad.Mvvm</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuickPad.UI.Common\QuickPad.UI.Common.csproj">
+      <Project>{cbc34766-2d70-47eb-8ddb-bf9a57ec4b4d}</Project>
+      <Name>QuickPad.UI.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

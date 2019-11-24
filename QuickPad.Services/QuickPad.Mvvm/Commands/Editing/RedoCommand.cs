@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Editing
@@ -7,13 +8,20 @@ namespace QuickPad.Mvvm.Commands.Editing
     {
         public RedoCommand()
         {
-            CanExecuteEvaluator = viewModel => viewModel.Document.CanRedo();
+            CanExecuteEvaluator = viewModel => viewModel.CanRedo;
 
             Executioner = viewModel =>
             {
-                viewModel.Document.Redo(); //undo changes the user did to the text            
+                if (viewModel.CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    viewModel.Document.Redo(); //undo changes the user did to the text            
 
-                viewModel.OnPropertyChanged(nameof(viewModel.Text));
+                    viewModel.OnPropertyChanged(nameof(viewModel.Text));
+                }
+                else
+                {
+                    viewModel.RequestRedo();
+                }
 
                 return Task.CompletedTask;
             };

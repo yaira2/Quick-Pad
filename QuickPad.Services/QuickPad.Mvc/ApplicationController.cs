@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
@@ -11,11 +12,13 @@ using Windows.System;
 using Windows.UI.Popups;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using QuickPad.Data;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Common.Dialogs;
 
 namespace QuickPad.Mvc
 {
@@ -151,64 +154,27 @@ namespace QuickPad.Mvc
         {
             if (!documentViewModel.IsDirty) return Close(documentViewModel);
 
-            ResourceLoader resourceLoader = null;
-
-            Task Handler()
+            async Task<bool> Yes()
             {
-                resourceLoader = ResourceLoader.GetForCurrentView();
-                return Task.CompletedTask;
+                if (await SaveDocument(documentViewModel))
+                {
+                    return Close(documentViewModel);
+                }
+
+                return false;
             }
 
-            await ViewModel.Dispatch(Handler);
+            var dialog = ServiceProvider.GetService<AskToSave>();
+            dialog.ViewModel = documentViewModel;
 
-            var title = resourceLoader.GetString("PendingChangesTitle");
-            var content = resourceLoader.GetString("PendingChangesBody");
-            var yes = resourceLoader.GetString("YesButton");
-            var no = resourceLoader.GetString("NoButton");
-            var cancel = resourceLoader.GetString("CancelButton");
+            var result = await dialog.ShowAsync();
 
-            var yesCommand = new UICommand(yes, async _ =>
+            return result switch
             {
-                await SaveDocument(documentViewModel);
-                Close(documentViewModel);
-            });
-
-
-            var noCommand = new UICommand(no, _ => Close(documentViewModel));
-            var cancelCommand = new UICommand(cancel, _ =>
-            {
-                //documentViewModel.Deferral.Dispose();
-                //documentViewModel.Deferral = null;
-                documentViewModel.Deferred = false;
-            });
-
-            var dialog = new MessageDialog(content, title)
-            {
-                Options = MessageDialogOptions.None, DefaultCommandIndex = 0, CancelCommandIndex = 0
+                ContentDialogResult.Primary => documentViewModel.Deferred = await Yes(),
+                ContentDialogResult.Secondary => documentViewModel.Deferred = Close(documentViewModel),
+                _ => false
             };
-
-            dialog.Commands.Add(yesCommand);
-            dialog.Commands.Add(noCommand);
-            dialog.CancelCommandIndex = (uint) dialog.Commands.Count - 1;
-
-            if (ApiInformation.IsTypePresent(HARDWARE_BACK_BUTTON))
-            {
-                dialog.CancelCommandIndex = uint.MaxValue;
-            }
-            else
-            {
-                dialog.Commands.Add(cancelCommand);
-                dialog.CancelCommandIndex = (uint) dialog.Commands.Count - 1;
-            }
-
-            var command = await dialog.ShowAsync();
-
-            if (command == null)
-            {
-                cancelCommand.Invoked(cancelCommand);
-            }
-
-            return documentViewModel.Deferred;
         }
 
         private async Task LoadDocument(DocumentViewModel documentViewModel)
@@ -220,9 +186,26 @@ namespace QuickPad.Mvc
                 SuggestedStartLocation = PickerLocationId.DocumentsLibrary
             };
 
-            loadPicker.FileTypeFilter.Add(".txt");
-            loadPicker.FileTypeFilter.Add(".rtf");
-            loadPicker.FileTypeFilter.Add("*");
+            switch (Settings.DefaultFileType.ToLowerInvariant())
+            {
+                case ".rtf":
+                    loadPicker.FileTypeFilter.Add(".rtf");
+                    loadPicker.FileTypeFilter.Add(".txt");
+                    loadPicker.FileTypeFilter.Add("*");
+                    break;
+
+                case ".txt":
+                    loadPicker.FileTypeFilter.Add(".txt");
+                    loadPicker.FileTypeFilter.Add(".rtf");
+                    loadPicker.FileTypeFilter.Add("*");
+                    break;
+
+                default:
+                    loadPicker.FileTypeFilter.Add("*");
+                    loadPicker.FileTypeFilter.Add(".rtf");
+                    loadPicker.FileTypeFilter.Add(".txt");
+                    break;
+            }
 
             var file = await loadPicker.PickSingleFileAsync();
 
@@ -286,17 +269,17 @@ namespace QuickPad.Mvc
             documentViewModel.IsDirty = false;
         }
 
-        private Task SaveDocument(DocumentViewModel documentViewModel)
+        private Task<bool> SaveDocument(DocumentViewModel documentViewModel)
         {
             return SaveDocument(documentViewModel, false);
         }
 
-        private Task SaveAsDocument(DocumentViewModel documentViewModel)
+        private Task<bool> SaveAsDocument(DocumentViewModel documentViewModel)
         {
             return SaveDocument(documentViewModel, true);
         }
 
-        private async Task SaveDocument(DocumentViewModel documentViewModel, bool saveAs)
+        private async Task<bool> SaveDocument(DocumentViewModel documentViewModel, bool saveAs)
         {
             documentViewModel.HoldUpdates();
 
@@ -333,7 +316,7 @@ namespace QuickPad.Mvc
 
                 var file = await savePicker.PickSaveFileAsync();
 
-                if (file == null) return;
+                if (file == null) return false;
                 documentViewModel.File = file;
             }
 
@@ -351,6 +334,7 @@ namespace QuickPad.Mvc
 
             Settings.Status($"Saved {documentViewModel.File.Name}", TimeSpan.FromSeconds(10), SettingsViewModel.Verbosity.Release);
 
+            return true;
         }
 
         private enum ByteOrderMark

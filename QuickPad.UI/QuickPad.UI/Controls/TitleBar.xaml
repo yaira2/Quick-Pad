@@ -13,31 +13,68 @@
         <converters:Converter x:Key="Converter" />
     </UserControl.Resources>
 
-    <Grid Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
+    <Grid Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+          Margin="{x:Bind Settings.TitleMargin}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
+        
+        <StackPanel Orientation="Horizontal" Spacing="0" Grid.Column="0">
+            <Button Background="Transparent"
+                    VerticalAlignment="Top"
+                    Height="32"
+                    Width="40"
+                    BorderThickness="0"
+                    Visibility="{x:Bind Settings.CompactOverlay, Converter={StaticResource Converter}}"
+                    CornerRadius="0"
+                    Command="{x:Bind Commands.CompactOverlayCommand}"
+                    CommandParameter="{x:Bind Settings}">
+                <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Menu" Key="Down"/>
+                </Button.KeyboardAccelerators>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Close Compact Overlay" x:Uid="CloseCompactOverlay"/>
+                </ToolTipService.ToolTip>
+            </Button>
 
-        <Button Background="Transparent"
-                VerticalAlignment="Top"
-                Height="32"
-                Width="40"
-                BorderThickness="0"
-                Visibility="{x:Bind Settings.CompactOverlay, Converter={StaticResource Converter}}"
-                CornerRadius="0"
-                Command="{x:Bind Commands.CompactOverlayCommand}"
-                CommandParameter="{x:Bind Settings}">
-            <FontIcon Glyph="&#xEE47;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
-            <Button.KeyboardAccelerators>
-                <KeyboardAccelerator Modifiers="Menu" Key="Down"/>
-            </Button.KeyboardAccelerators>
-            <ToolTipService.ToolTip>
-                <TextBlock Text="Close Compact Overlay" x:Uid="CloseCompactOverlay"/>
-            </ToolTipService.ToolTip>
-        </Button>
-                
-        <Grid x:Name="trickyTitleBar" Grid.Column="1"  Background="Transparent" Height="33" Margin="{x:Bind Settings.TitleMargin}">
+            <Button Background="Transparent"
+                    VerticalAlignment="Top"
+                    Height="32"
+                    Width="40"
+                    BorderThickness="0"
+                    CornerRadius="0"
+                    Command="{x:Bind Commands.UndoCommand}"
+                    CommandParameter="{x:Bind ViewModel}">
+                <SymbolIcon Symbol="Undo" />
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="Z"/>
+                </Button.KeyboardAccelerators>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Undo (Ctrl+Z)" x:Uid="UndoTooltip"/>
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Background="Transparent"
+                    VerticalAlignment="Top"
+                    Height="32"
+                    Width="40"
+                    BorderThickness="0"
+                    CornerRadius="0"
+                    Command="{x:Bind Commands.RedoCommand}"
+                    CommandParameter="{x:Bind ViewModel}">
+                <SymbolIcon Symbol="Redo" />
+                <Button.KeyboardAccelerators>
+                    <KeyboardAccelerator Modifiers="Control" Key="R"/>
+                </Button.KeyboardAccelerators>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="Redo (Ctrl+R)" x:Uid="RedoTooltip"/>
+                </ToolTipService.ToolTip>
+            </Button>
+        </StackPanel>
+
+
+        <Grid x:Name="trickyTitleBar" Grid.Column="1"  Background="Transparent" Height="33" >
             <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
         </Grid>
 

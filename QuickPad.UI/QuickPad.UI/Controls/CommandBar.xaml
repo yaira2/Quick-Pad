@@ -122,7 +122,7 @@
                     <TextBlock x:Uid="Emoji" Text="Insert Emojis (Win + .)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarSeparator/>
+            <AppBarSeparator Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"/>
             <AppBarToggleButton x:Uid="BoldLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Bold"
                                 Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.BoldCommand}" 
@@ -170,7 +170,7 @@
                     <TextBlock x:Uid="Bullets" Text="Toggle Bullets"/>
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
-            <AppBarSeparator/>
+            <AppBarSeparator Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}" />
             <AppBarButton x:Uid="AlignLeftLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignLeft"
                           Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}"
                                 Command="{x:Bind Commands.LeftAlignCommand}"
@@ -240,21 +240,6 @@
                               Command="{x:Bind Commands.ExitCommand}"      
                               CommandParameter="{x:Bind ViewModel}"/>
             </CommandBar.SecondaryCommands>
-            <AppBarButton Width="Auto" MinWidth="40" Icon="Undo"
-                          Command="{x:Bind Commands.UndoCommand}"      
-                          CommandParameter="{x:Bind ViewModel}">
-                <ToolTipService.ToolTip>
-                    <TextBlock x:Uid="UndoTooltip" Text="Undo (Ctrl+Z)"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton Width="Auto" MinWidth="40" Icon="Redo"
-                          Command="{x:Bind Commands.RedoCommand}"
-                          CommandParameter="{x:Bind ViewModel}">
-                <ToolTipService.ToolTip>
-                    <TextBlock x:Uid="RedoTooltip" Text="Redo (Ctrl+Y)"/>
-                </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarSeparator/>
             <AppBarButton MinWidth="40" Width="Auto" 
                           Command="{x:Bind Commands.CompactOverlayCommand}"
                           CommandParameter="{x:Bind Settings}">

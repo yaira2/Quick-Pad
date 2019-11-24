@@ -1,4 +1,4 @@
-﻿namespace QuickPad.UI.Common
+﻿namespace QuickPad.UI.Common.Theme
 {
     public enum VisualThemeKind
     {

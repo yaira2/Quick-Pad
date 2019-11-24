@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace QuickPad.UI.Common
+namespace QuickPad.UI.Common.Theme
 {
     public class ThemeChangedEventArgs : EventArgs
     {

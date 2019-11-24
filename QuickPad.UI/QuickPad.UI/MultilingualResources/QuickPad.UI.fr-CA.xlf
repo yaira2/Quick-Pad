@@ -377,8 +377,8 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
-          <source>StatusText Bar</source>
-          <target state="new">StatusText Bar</target>
+          <source>Status Bar</source>
+          <target state="new">Status Bar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">

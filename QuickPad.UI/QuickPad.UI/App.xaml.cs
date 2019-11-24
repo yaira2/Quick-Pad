@@ -1,6 +1,7 @@
 ﻿using System;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.Globalization;
 using Windows.Storage;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -65,6 +66,8 @@ namespace QuickPad.UI
             this.InitializeComponent();
 
             this.Suspending += OnSuspending;
+
+            ApplicationLanguages.PrimaryLanguageOverride = Convert.ToString(Settings.DefaultLanguage);
         }
 
         /// <summary>

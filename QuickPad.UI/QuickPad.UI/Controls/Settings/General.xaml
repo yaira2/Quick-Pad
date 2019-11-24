@@ -38,7 +38,10 @@
 
             <TextBlock Text="App Language" x:Uid="AppLanguage"/>
 
-            <ComboBox Width="180" PlaceholderText="English (United State)" ItemsSource="{x:Bind Settings.DefaultLanguages, Mode=OneWay}" Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+            <ComboBox Width="180" PlaceholderText="English (United State)" 
+                      SelectedValue="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}"
+                      ItemsSource="{x:Bind Settings.DefaultLanguages, Mode=OneWay}" 
+                      Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBox.ItemTemplate>
                     <DataTemplate x:DataType="q:DefaultLanguageModel">
                         <TextBlock Text="{x:Bind Name}"/>

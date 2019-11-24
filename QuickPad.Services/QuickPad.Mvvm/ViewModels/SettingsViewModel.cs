@@ -235,11 +235,12 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(value);
         }
 
-        [NotifyOnReset]
+        private bool _showSettings;
+        [JsonIgnore]
         public bool ShowSettings
         {
-            get => Get(false);
-            set => Set(value);
+            get => _showSettings;
+            set => Set(ref _showSettings, value);
         }
 
         [NotifyOnReset]
@@ -324,7 +325,13 @@ namespace QuickPad.Mvvm.ViewModels
         public bool StatusBar
         {
             get => Get(true);
-            set => Set(value);
+            set
+            {
+                if (Set(value))
+                {
+                    OnPropertyChanged(nameof(ShowStatusBar));
+                }
+            }
         }
 
         [JsonIgnore]
