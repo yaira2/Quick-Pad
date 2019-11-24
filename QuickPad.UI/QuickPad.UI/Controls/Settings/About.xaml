@@ -22,7 +22,10 @@
         <StackPanel>
             <Image Source="/Assets/StoreLogo.scale-200.png" Stretch="Fill" Width="80" Height="80" Margin="0,30,0,0"/>
             <TextBlock Text="Quick Pad" HorizontalAlignment="Center" FontSize="16" x:Uid="AppName"/>
-            <TextBlock Text="Version Number" HorizontalAlignment="Center"/>
+            <TextBlock HorizontalAlignment="Center">
+                <Run Text="Version: " x:Uid="AppVersion"/>
+                <Run Text="{x:Bind Settings.VersionNumberText}"/>
+            </TextBlock>
             <TextBlock Text="Developed by Yair Aichenbaum" HorizontalAlignment="Center" x:Uid="CreatedBy"/>
             
             <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Margin="0,20,0,0"/>

@@ -19,6 +19,7 @@ using System.Threading;
 using Windows.ApplicationModel.Resources;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
+using Windows.ApplicationModel;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -55,6 +56,8 @@ namespace QuickPad.Mvvm.ViewModels
 
             _statusCooldown = new Timer(StatusTimerCallback);
         }
+
+        public string VersionNumberText => string.Format("{0}.{1}.{2}.{3}",Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
         private void StatusTimerCallback(object state)
         {

@@ -701,4 +701,8 @@
     <value>Plain Text Font Settings</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="AppVersion.Text" xml:space="preserve">
+    <value>Version:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>
