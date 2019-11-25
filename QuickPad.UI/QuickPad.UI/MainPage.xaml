@@ -71,6 +71,7 @@
                      VerticalAlignment="Stretch" 
                      BorderBrush="{x:Null}"
                      BorderThickness="0"
+                     KeyUp="RichEditBox_KeyUp"
                      ContextMenuOpening="RichEditBox_OnContextMenuOpening"
                      TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}" 
                      IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 

@@ -410,10 +410,10 @@ namespace QuickPad.UI
 
         private void TextBox_OnKeyUp(object sender, KeyRoutedEventArgs e)
         {
-            //if (e.Key == VirtualKey.Enter || e.Key == VirtualKey.Delete)
-            //{
-            //    Reindex();
-            //}
+            if (Settings.AutoSave)
+            {
+                DocumentViewModel.ResetTimer();
+            }
         }
 
         private void Reindex()
@@ -428,6 +428,14 @@ namespace QuickPad.UI
             }
 
             GetPosition();
+        }
+
+        private void RichEditBox_KeyUp(object sender, KeyRoutedEventArgs e)
+        {
+            if (Settings.AutoSave)
+            {
+                DocumentViewModel.ResetTimer();
+            }
         }
     }
 }

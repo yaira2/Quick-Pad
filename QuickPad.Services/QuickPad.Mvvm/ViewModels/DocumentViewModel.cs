@@ -257,6 +257,14 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _currentEncoding, value);
         }
 
+        public void ResetTimer()
+        {
+            if (Settings.AutoSave)
+            {
+                //todo auto save timer
+            }
+        }
+
         public async Task InitNewDocument()
         {
             HoldUpdates();
