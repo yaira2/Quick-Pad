@@ -412,7 +412,7 @@ namespace QuickPad.UI
         {
             if (Settings.AutoSave)
             {
-                DocumentViewModel.ResetTimer();
+                ViewModel.ResetTimer();
             }
         }
 
@@ -434,7 +434,7 @@ namespace QuickPad.UI
         {
             if (Settings.AutoSave)
             {
-                DocumentViewModel.ResetTimer();
+                ViewModel.ResetTimer();
             }
         }
     }

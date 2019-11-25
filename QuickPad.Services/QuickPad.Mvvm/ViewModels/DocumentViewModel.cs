@@ -259,7 +259,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         public void ResetTimer()
         {
-            if (Settings.AutoSave)
+            if (Settings.AutoSave & File != null)
             {
                 //todo auto save timer
             }
