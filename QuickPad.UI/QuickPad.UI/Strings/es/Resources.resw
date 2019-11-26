@@ -372,14 +372,6 @@
     <value>Tamaño de fuente por defecto en texto con formato</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="RTF.Text" xml:space="preserve">
-    <value>Configuración de texto con formato</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtfText" xml:space="preserve">
-    <value>Revisar ortografía en texto con formato</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="WordWrapSettingRtf.Text" xml:space="preserve">
     <value>Ajuste de línea en texto con formato</value>
     <comment>Used on Settings Page</comment>

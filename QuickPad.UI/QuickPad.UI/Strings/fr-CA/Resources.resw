@@ -352,14 +352,6 @@
     <value>Taille du police Texte Riche par défaut</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="RTF.Text" xml:space="preserve">
-    <value>Paramètre pour le police Texte Riche</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtfText" xml:space="preserve">
-    <value>Vérification de l'orthographe dans texte riche</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="WordWrapSettingRtf.Text" xml:space="preserve">
     <value>Retour automatique à la ligne dans texte riche</value>
     <comment>Used on Settings Page</comment>
@@ -559,5 +551,9 @@
   <data name="TextDescription" xml:space="preserve">
     <value>Document texte</value>
     <comment>Used on Status Bar</comment>
+  </data>
+  <data name="PlainTextFontSettings.Text" xml:space="preserve">
+    <value>Paramètres du police de texte ordinaire</value>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>

@@ -16,6 +16,9 @@ using Microsoft.Graphics.Canvas.Text;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using Buffer = Windows.Storage.Streams.Buffer;
+using System.Timers;
+using System.Threading;
+using Timer = System.Threading.Timer;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -44,6 +47,8 @@ namespace QuickPad.Mvvm.ViewModels
         private bool _canRedo;
         private string _selectedText;
 
+        private Timer timer;
+
         public DocumentViewModel(ILogger<DocumentViewModel> logger
             , IServiceProvider serviceProvider
             , SettingsViewModel settings) : base(logger)
@@ -58,6 +63,8 @@ namespace QuickPad.Mvvm.ViewModels
 
             RichTextDescription = _resourceLoader.GetString("RichTextDescription");
             TextDescription = _resourceLoader.GetString("TextDescription");
+
+            timer = new Timer(AutoSaveTimer);
         }
         private SettingsViewModel Settings { get; }
 
@@ -259,9 +266,17 @@ namespace QuickPad.Mvvm.ViewModels
 
         public void ResetTimer()
         {
-            if (Settings.AutoSave & File != null)
+            if (Settings.AutoSave && File != null)
             {
-                //todo auto save timer
+                timer.Change(TimeSpan.FromSeconds(Settings.AutoSaveFrequency), TimeSpan.FromMilliseconds(-1));
+            }
+        }
+
+        private void AutoSaveTimer(object state)
+        {
+            if (Settings.AutoSave && this.File != null && IsDirty == true)
+            {
+                ServiceProvider.GetService<QuickPadCommands>().SaveCommand.Execute(this);
             }
         }
 

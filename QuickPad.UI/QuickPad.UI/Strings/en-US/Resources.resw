@@ -477,14 +477,6 @@
     <value>Default Rich Text Font Size</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="RTF.Text" xml:space="preserve">
-    <value>Rich Text Font Settings</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtfText" xml:space="preserve">
-    <value>Spell Check in Rich Text</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="WordWrapSettingRtf.Text" xml:space="preserve">
     <value>Word Wrap in Rich Text</value>
     <comment>Used on Settings Page</comment>
@@ -669,10 +661,6 @@
     <value>Text Document</value>
     <comment>Used on Status Bar</comment>
   </data>
-  <data name="DefaultFontColorRtf.Text" xml:space="preserve">
-    <value>Default Rich Text Font Color</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="SaveDialog.CloseButtonText" xml:space="preserve">
     <value>Cancel</value>
     <comment>Used on Save Dialog</comment>
@@ -689,20 +677,24 @@
     <value>Quick Pad</value>
     <comment>Used on Save Dialog</comment>
   </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Spell Check in Rich Text</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="WouldYouLikeToSave.Text" xml:space="preserve">
     <value>Would you like to save your changes?</value>
     <comment>Used on Save Dialog</comment>
   </data>
-  <data name="PlainText.Text" xml:space="preserve">
+  <data name="AppVersion.Text" xml:space="preserve">
+    <value>Version:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="PlainTextFontSettings.Text" xml:space="preserve">
     <value>Plain Text Font Settings</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppVersion.Text" xml:space="preserve">
-    <value>Version:</value>
+  <data name="RichTextFontSettings.Text" xml:space="preserve">
+    <value>Rich Text Font Settings</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheckRtf.Text" xml:space="preserve">
+    <value>Spell Check in Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
 </root>

@@ -436,16 +436,6 @@
           <target state="new">Default Rich Text Font Size</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="RTF.Text" translate="yes" xml:space="preserve">
-          <source>Rich Text Font Settings</source>
-          <target state="new">Rich Text Font Settings</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="SpellCheckRtfText" translate="yes" xml:space="preserve">
-          <source>Spell Check in Rich Text</source>
-          <target state="new">Spell Check in Rich Text</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="WordWrapSettingRtf.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap in Rich Text</source>
           <target state="new">Word Wrap in Rich Text</target>
@@ -696,11 +686,6 @@
           <target state="new">Text Document</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
         </trans-unit>
-        <trans-unit id="DefaultFontColorRtf.Text" translate="yes" xml:space="preserve">
-          <source>Default Rich Text Font Color</source>
-          <target state="new">Default Rich Text Font Color</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="SaveDialog.CloseButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
           <target state="new">Cancel</target>
@@ -731,14 +716,19 @@
           <target state="new">Would you like to save your changes?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
-        <trans-unit id="PlainText.Text" translate="yes" xml:space="preserve">
-          <source>Plain Text Font Settings</source>
-          <target state="new">Plain Text Font Settings</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="AppVersion.Text" translate="yes" xml:space="preserve">
           <source>Version:</source>
           <target state="new">Version:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RichTextFontSettings.Text" translate="yes" xml:space="preserve">
+          <source>Rich Text Font Settings</source>
+          <target state="new">Rich Text Font Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="PlainTextFontSettings.Text" translate="yes" xml:space="preserve">
+          <source>Plain Text Font Settings</source>
+          <target state="new">Plain Text Font Settings</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>
