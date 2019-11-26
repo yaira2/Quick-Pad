@@ -264,7 +264,7 @@ namespace QuickPad.Mvvm.ViewModels
         [NotifyOnReset]
         public bool AutoSave
         {
-            get => Get(false);
+            get => Get(true);
             set => Set(value);
         }
 
