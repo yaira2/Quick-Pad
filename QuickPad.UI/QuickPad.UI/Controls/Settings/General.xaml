@@ -68,12 +68,13 @@
             <TextBlock Text="Auto Save" x:Uid="AutoSave"/>
             <ToggleSwitch IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
             
-            <TextBlock>
+            <TextBlock Visibility="{x:Bind Settings.AutoSave, Mode=OneWay}">
                 <Run Text="Auto save every" x:Uid="AutoSaveEvery"/>
-                <Run Text="{x:Bind Settings.AutoSaveFrequency}"/>
+                <Run Text="{x:Bind Settings.AutoSaveFrequency, Mode=OneWay}"/>
                 <Run Text="second(s)" x:Uid="AutoSaveSeconds"/>
             </TextBlock>
             <Slider Minimum="5" Maximum="45" StepFrequency="1" 
+                    Visibility="{x:Bind Settings.AutoSave, Mode=OneWay}"
                     Value="{x:Bind Settings.AutoSaveFrequency, Mode=TwoWay}"
                     TickPlacement="Inline" Width="230" HorizontalAlignment="Left"/>
         </StackPanel>
