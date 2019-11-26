@@ -20,19 +20,31 @@
         </Grid.Resources>
 
         <StackPanel>
-            <Image Source="/Assets/StoreLogo.scale-200.png" Stretch="Fill" Width="80" Height="80" Margin="0,30,0,0"/>
-            <TextBlock Text="Quick Pad" HorizontalAlignment="Center" FontSize="16" x:Uid="AppName"/>
-            <TextBlock HorizontalAlignment="Center">
-                <Run Text="Version: " x:Uid="AppVersion"/>
-                <Run Text="{x:Bind Settings.VersionNumberText}"/>
-            </TextBlock>
-            <TextBlock Text="Developed by Yair Aichenbaum" HorizontalAlignment="Center" x:Uid="CreatedBy"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="90"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                
+            <Image Source="/Assets/StoreLogo.scale-200.png" Stretch="Fill" Width="80" Height="80" HorizontalAlignment="Right" Grid.RowSpan="2"/>
+                <TextBlock Text="Quick Pad" Grid.Column="1" FontSize="18" x:Uid="AppName" Padding="10,0,0,0"/>
+                <TextBlock Text="{x:Bind Settings.VersionNumberText}" Grid.Column="1" Grid.Row="1" Padding="10,0,0,0"/>
+            </Grid>
             
-            <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Margin="0,20,0,0"/>
-            <HyperlinkButton Content="Rate and Review" x:Uid="RateAndReviewLink" HorizontalAlignment="Center"
+                        
+            <TextBlock Text="Developed by Yair Aichenbaum" HorizontalAlignment="Left" x:Uid="CreatedBy" Padding="20,20,0,0"/>
+            <TextBlock Text="Special thanks to:" HorizontalAlignment="Left" Margin="20,10,0,0"/>
+            <TextBlock Text="Sharp Ninja" HorizontalAlignment="Left" Margin="20,5,0,0"/>
+
+            <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Left" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Margin="20,20,0,0"/>
+            <HyperlinkButton Content="Rate and Review" x:Uid="RateAndReviewLink" HorizontalAlignment="Left" Margin="20,0,0,0"
                 Command="{x:Bind Commands.RateAndReview}" 
                 CommandParameter="{x:Bind ViewModel}"/>
-            <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
+            <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Left" Margin="20,0,0,0"/>
         </StackPanel>
 
     </Grid>
