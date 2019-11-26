@@ -372,6 +372,11 @@ namespace QuickPad.UI
             TextBox_OnSelectionChanged(sender, e);
 
             TextBox.SelectionChanged += TextBox_OnSelectionChanged;
+
+            if (Settings.AutoSave)
+            {
+                ViewModel.ResetTimer();
+            }
         }
 
         private void GetPosition()
@@ -408,14 +413,6 @@ namespace QuickPad.UI
             TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
         }
 
-        private void TextBox_OnKeyUp(object sender, KeyRoutedEventArgs e)
-        {
-            if (Settings.AutoSave)
-            {
-                ViewModel.ResetTimer();
-            }
-        }
-
         private void Reindex()
         {
             LineIndices.Clear();
@@ -430,7 +427,7 @@ namespace QuickPad.UI
             GetPosition();
         }
 
-        private void RichEditBox_KeyUp(object sender, KeyRoutedEventArgs e)
+        private void RichEditBox_TextChanged(object sender, RoutedEventArgs e)
         {
             if (Settings.AutoSave)
             {
