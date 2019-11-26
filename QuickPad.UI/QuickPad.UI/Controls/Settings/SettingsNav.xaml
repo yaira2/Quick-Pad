@@ -7,7 +7,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    d:DesignWidth="320"
+    d:DesignWidth="340"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
     <Grid HorizontalAlignment="Stretch" Width="340">
