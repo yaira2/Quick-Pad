@@ -108,10 +108,6 @@
     <value>Fermer la superposition compacte</value>
     <comment>Used on TitleBar</comment>
   </data>
-  <data name="Contribute.Content" xml:space="preserve">
-    <value>Contribuer au développeur</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Copy.Text" xml:space="preserve">
     <value>Copier</value>
     <comment>Used on Menu Item</comment>
@@ -283,10 +279,6 @@
   <data name="SelectAll.Text" xml:space="preserve">
     <value>Sélectionner tout</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="SendFeedback.Content" xml:space="preserve">
-    <value>Envoyer des commentaires</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>Paramètres</value>

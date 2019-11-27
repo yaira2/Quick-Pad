@@ -108,10 +108,6 @@
     <value>Cerrar modo compacto</value>
     <comment>Used on TitleBar</comment>
   </data>
-  <data name="Contribute.Content" xml:space="preserve">
-    <value>Contribuya al desarrollador</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Copy.Text" xml:space="preserve">
     <value>Copiar</value>
     <comment>Used on Menu Item</comment>
@@ -299,10 +295,6 @@
   <data name="SelectAll.Text" xml:space="preserve">
     <value>Seleccionar todo</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="SendFeedback.Content" xml:space="preserve">
-    <value>Enviar Feedback</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>Configuración</value>

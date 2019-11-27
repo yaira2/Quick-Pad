@@ -213,10 +213,6 @@
     <value>Close Compact Overlay</value>
     <comment>Used on TitleBar</comment>
   </data>
-  <data name="Contribute.Content" xml:space="preserve">
-    <value>Contribute to the developer</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Copy.Text" xml:space="preserve">
     <value>Copy</value>
     <comment>Used on Menu Item</comment>
@@ -404,10 +400,6 @@
   <data name="SelectAll.Text" xml:space="preserve">
     <value>Select All</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="SendFeedback.Content" xml:space="preserve">
-    <value>Send Feedback</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>Settings</value>
@@ -695,6 +687,22 @@
   </data>
   <data name="SpellCheckRtf.Text" xml:space="preserve">
     <value>Spell Check in Rich Text</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ReportIssues.Text" xml:space="preserve">
+    <value>Report issues here</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Text" xml:space="preserve">
+    <value>Source Code</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpecialThanks.Text" xml:space="preserve">
+    <value>Special thanks to:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ContributeToDeveloper.Text" xml:space="preserve">
+    <value>Contribute to the developer</value>
     <comment>Used on Settings Page</comment>
   </data>
 </root>
