@@ -133,14 +133,18 @@
                            Key="E" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Find" AccessKey="F" Icon="Find" x:Uid="Find"> 
+                <MenuFlyoutItem Text="Find" AccessKey="F" Icon="Find" x:Uid="Find" 
+                                Command="{x:Bind Commands.ShowFindCommand}"
+                                CommandParameter="{x:Bind ViewModel}"> 
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator
                           Modifiers="Control" 
                            Key="F" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Find Next" AccessKey="N" x:Uid="FindNext">
+                <MenuFlyoutItem Text="Find Next" AccessKey="N" x:Uid="FindNext" 
+                                Command="{x:Bind Commands.FindNextCommand}"
+                                CommandParameter="{x:Bind ViewModel.FindAndReplaceViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE0AB;" />
                     </MenuFlyoutItem.Icon>
@@ -148,7 +152,9 @@
                         <KeyboardAccelerator Key="F3" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Find Previous" AccessKey="V" x:Uid="FindPrevious">
+                <MenuFlyoutItem Text="Find Previous" AccessKey="V" x:Uid="FindPrevious" 
+                                Command="{x:Bind Commands.FindPreviousCommand}"
+                                CommandParameter="{x:Bind ViewModel.FindAndReplaceViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE0A6;" />
                     </MenuFlyoutItem.Icon>
@@ -156,7 +162,9 @@
                         <KeyboardAccelerator Modifiers="Shift" Key="F3" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Replace" AccessKey="R" Icon="Rename" x:Uid="Replace">
+                <MenuFlyoutItem Text="Replace" AccessKey="R" Icon="Rename" x:Uid="Replace" 
+                                Command="{x:Bind Commands.ShowReplaceCommand}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="H"/>
                     </MenuFlyoutItem.KeyboardAccelerators>

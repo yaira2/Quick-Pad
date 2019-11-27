@@ -16,18 +16,4 @@ namespace QuickPad.Mvvm.Commands.Actions
             };
         }
     }
-    public class ShowStatusBarCommand : SimpleCommand<SettingsViewModel>
-    {
-        public ShowStatusBarCommand()
-        {
-            Executioner = settings =>
-            {
-                //open settings page
-                settings.StatusBar = !settings.StatusBar;
-
-                return Task.CompletedTask;
-            };
-        }
-    }
-
 }

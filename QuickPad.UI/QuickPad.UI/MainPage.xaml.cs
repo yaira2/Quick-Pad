@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.AppService;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Text;
@@ -35,6 +36,8 @@ using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Windows.System;
 using Windows.UI.Composition;
+using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Theme;
 using QuickPad.UI.Controls;
 
@@ -49,6 +52,7 @@ namespace QuickPad.UI
     {
         private DocumentViewModel _viewModel;
         private bool _initialized;
+        private IFindAndReplaceView _findAndReplaceViewModel;
         public VisualThemeSelector VisualThemeSelector { get; }
         public SettingsViewModel Settings => App.Settings;
         public QuickPadCommands Commands { get; }
@@ -277,6 +281,7 @@ namespace QuickPad.UI
                 }
             }
         }
+
 
         private void ViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {

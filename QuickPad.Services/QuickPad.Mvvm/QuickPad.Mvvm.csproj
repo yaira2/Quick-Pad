@@ -132,7 +132,7 @@
   <ItemGroup>
     <Compile Include="Commands\Actions\AcknowledgeFontSelectionChangeCommand.cs" />
     <Compile Include="Commands\Actions\ExportSettingsCommand.cs" />
-    <Compile Include="Commands\Actions\RateAndReview.cs" />
+    <Compile Include="Commands\Actions\RateAndReviewCommand.cs" />
     <Compile Include="Commands\Actions\FocusCommand.cs" />
     <Compile Include="Commands\Actions\ImportSettingsCommand.cs" />
     <Compile Include="Commands\Actions\ResetSettingsCommand.cs" />
@@ -159,6 +159,7 @@
     <Compile Include="Commands\QuickPadCommands.cs" />
     <Compile Include="Commands\Editing\RedoCommand.cs" />
     <Compile Include="Commands\Editing\RightAlignCommand.cs" />
+    <Compile Include="ViewModels\FindAndReplaceViewModel.cs" />
     <Compile Include="ViewModels\NotifyOnResetAttribute.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Commands\SimpleCommand.cs" />
@@ -167,6 +168,9 @@
     <Compile Include="Commands\Editing\UndoCommand.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\IDocumentView.cs" />
+    <Compile Include="Views\IFindAndReplaceView.cs" />
+    <Compile Include="Views\IView.cs" />
     <EmbeddedResource Include="Properties\QuickPad.MVVM.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -207,6 +211,7 @@
       <Version>12.0.3</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

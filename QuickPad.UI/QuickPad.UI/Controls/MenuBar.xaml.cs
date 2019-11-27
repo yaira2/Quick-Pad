@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
 using QuickPad.Mvvm.Commands;
 using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Theme;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -16,7 +18,7 @@ namespace QuickPad.UI.Controls
 
         public SettingsViewModel Settings => App.Settings;
 
-        public QuickPadCommands Commands => App.Commands; 
+        public QuickPadCommands Commands => App.Commands;
 
         public DocumentViewModel ViewModel
         {

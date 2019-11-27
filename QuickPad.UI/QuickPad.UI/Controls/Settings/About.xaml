@@ -29,8 +29,8 @@
             <TextBlock Text="Developed by Yair Aichenbaum" HorizontalAlignment="Center" x:Uid="CreatedBy"/>
             
             <HyperlinkButton Content="Send Feedback" x:Uid="SendFeedback" HorizontalAlignment="Center" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Margin="0,20,0,0"/>
-            <HyperlinkButton Content="Rate and Review" x:Uid="RateAndReviewLink" HorizontalAlignment="Center"
-                Command="{x:Bind Commands.RateAndReview}" 
+            <HyperlinkButton Content="Rate and Review" x:Uid="RateAndReviewCommandLink" HorizontalAlignment="Center"
+                Command="{x:Bind Commands.RateAndReviewCommand}" 
                 CommandParameter="{x:Bind ViewModel}"/>
             <HyperlinkButton Content="Contribute to the developer" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Center"/>
         </StackPanel>

@@ -5,6 +5,7 @@ using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.Commands.Editing;
 using QuickPad.Mvvm.ViewModels;
+using QuickPad.Mvvm.Views;
 
 namespace QuickPad.Mvvm.Commands
 {
@@ -59,11 +60,17 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<SettingsViewModel> CompactOverlayCommand { get; } = new CompactOverlay();
         public SimpleCommand<SettingsViewModel> ShowCommandBarCommand { get; } = new ShowCommandBarCommand();
         public SimpleCommand<SettingsViewModel> ShowMenusCommand { get; } = new ShowMenusCommand();
-        public SimpleCommand<SettingsViewModel> ShowStatusBarCommand { get; } = new ShowStatusBarCommand();
         public SimpleCommand<SettingsViewModel> ResetSettingsCommand { get; } = new ResetSettingsCommand();
         public SimpleCommand<SettingsViewModel> ImportSettingsCommand { get; } = new ImportSettingsCommand();
         public SimpleCommand<SettingsViewModel> ExportSettingsCommand { get; } = new ExportSettingsCommand();
-        public SimpleCommand<SettingsViewModel> RateAndReview { get; } = new RateAndReview();
+        public SimpleCommand<SettingsViewModel> RateAndReviewCommand { get; } = new RateAndReviewCommand();
+        public SimpleCommand<DocumentViewModel> ShowFindCommand { get; } = new ShowFindCommand();
+        public SimpleCommand<DocumentViewModel> HideFindCommand { get; } = new HideFindCommand();
+        public SimpleCommand<DocumentViewModel> FindNextCommand { get; } = new FindNextCommand();
+        public SimpleCommand<DocumentViewModel> FindPreviousCommand { get; } = new FindPreviousCommand();
+        public SimpleCommand<DocumentViewModel> ShowReplaceCommand { get; } = new ShowReplaceCommand();
+        public SimpleCommand<DocumentViewModel> ReplaceNextCommand { get; } = new ReplaceNextCommand();
+        public SimpleCommand<DocumentViewModel> ReplaceAllCommand { get; } = new ReplaceAllCommand();
 
         public SimpleCommand<SettingsViewModel> AcknowledgeFontSelectionChangeCommand { get; } =
             new AcknowledgeFontSelectionChangeCommand();

@@ -7,6 +7,7 @@ using Windows.UI.Xaml.Input;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common;
 using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Theme;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -16,6 +17,12 @@ namespace QuickPad.UI.Controls
     public sealed partial class CommandBar
     {
         private string _trySelectFontName;
+
+        public CommandBar()
+        {
+            this.InitializeComponent();
+        }
+
 
         public VisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
@@ -29,10 +36,15 @@ namespace QuickPad.UI.Controls
             set
             {
                 if (value == null || DataContext == value) return;
+
+                SetValue(ViewModelProperty, value);
                 DataContext = value;
                 value.PropertyChanged += ViewModel_PropertyChanged;
             }
         }
+
+        public static DependencyProperty ViewModelProperty =
+            DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel), typeof(CommandBar), null);
 
         private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -75,14 +87,6 @@ namespace QuickPad.UI.Controls
 
         public event Action<string> SetFontName;
         public event Action<double> SetFontSize;
-
-        public static DependencyProperty ViewModelProperty =
-            DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel), typeof(CommandBar), null);
-
-        public CommandBar()
-        {
-            this.InitializeComponent();
-        }
 
         private void OpenFontFlyout(object sender, object e)
         {

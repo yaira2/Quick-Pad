@@ -18,6 +18,7 @@ using QuickPad.Mvvm.Commands;
 using Buffer = Windows.Storage.Streams.Buffer;
 using System.Timers;
 using System.Threading;
+using QuickPad.Mvvm.Views;
 using Timer = System.Threading.Timer;
 
 namespace QuickPad.Mvvm.ViewModels
@@ -48,14 +49,19 @@ namespace QuickPad.Mvvm.ViewModels
         private string _selectedText;
 
         private Timer timer;
+        private IFindAndReplaceView _findAndReplaceViewModel;
+        private bool _showFind;
+        private bool _showReplace;
 
         public DocumentViewModel(ILogger<DocumentViewModel> logger
+            , IFindAndReplaceView findAndReplaceViewModel
             , IServiceProvider serviceProvider
             , SettingsViewModel settings) : base(logger)
         {
             _md5 = HMAC.Create("HMACMD5");
             _md5.Key = Encoding.ASCII.GetBytes("12345");
             ServiceProvider = serviceProvider;
+            FindAndReplaceViewModel = findAndReplaceViewModel;
 
             Settings = settings;
 
@@ -66,6 +72,13 @@ namespace QuickPad.Mvvm.ViewModels
 
             timer = new Timer(AutoSaveTimer);
         }
+
+        public IFindAndReplaceView FindAndReplaceViewModel
+        {
+            get => _findAndReplaceViewModel;
+            set => Set(ref _findAndReplaceViewModel, value);
+        }
+
         private SettingsViewModel Settings { get; }
 
         private IServiceProvider ServiceProvider { get; }
@@ -344,6 +357,23 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _canRedo, value);
         }
 
+        public bool ShowFind
+        {
+            get => _showFind;
+            set => Set(ref _showFind, value);
+        }
+
+        public bool ShowReplace
+        {
+            get => _showReplace;
+            set
+            {
+                if (Set(ref _showReplace, value) && value)
+                {
+                    ShowFind = true;
+                }
+            }
+        }
 
         public void NotifyAll()
         {

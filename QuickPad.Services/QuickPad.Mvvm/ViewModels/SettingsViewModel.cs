@@ -165,7 +165,7 @@ namespace QuickPad.Mvvm.ViewModels
         public bool PasteTextOnly
         {
             get => Get(true);
-            internal set => Set(value);
+            set => Set(value);
         }
 
         [NotifyOnReset]
@@ -310,6 +310,8 @@ namespace QuickPad.Mvvm.ViewModels
         private string _currentMode;
         private string _currentModeText;
         private TimeSpan _countdown;
+        private bool _showFind;
+        private bool _showReplace;
 
         [JsonIgnore]
         public string CurrentMode

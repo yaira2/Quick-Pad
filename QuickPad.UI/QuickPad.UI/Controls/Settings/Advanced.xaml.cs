@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common.Theme;
 
@@ -23,7 +24,10 @@ namespace QuickPad.UI.Controls.Settings
     public sealed partial class Advanced : Page
     {
         public VisualThemeSelector VisualThemeSelector => VisualThemeSelector.Current;
+        
         public SettingsViewModel Settings { get; } = App.Settings;
+
+        public QuickPadCommands Commands => App.Commands;
 
         public Advanced()
         {

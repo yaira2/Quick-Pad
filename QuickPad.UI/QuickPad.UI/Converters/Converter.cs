@@ -19,6 +19,8 @@ namespace QuickPad.UI.Converters
 {
     public class Converter : IValueConverter
     {
+        public static bool Invert(bool toInvert) => !toInvert;
+
         public static TextWrapping BoolToTextWrap(bool input)
         {
             return input ? TextWrapping.Wrap : TextWrapping.NoWrap;
@@ -225,6 +227,8 @@ namespace QuickPad.UI.Converters
             if (targetType == typeof(string) && value is bool overlayIcon) return Converter.SwitchBetweenOverlayIcon(overlayIcon);
             if (targetType == typeof(SolidColorBrush) && value is Color colorBrush) return Converter.FromColorToBrush(colorBrush);
             if (targetType == typeof(Visibility)) return Converter.ShowIfItemIsNotNull(value);
+            if (targetType == typeof(bool) && value is bool toInvert && parameter is string param)
+                return Converter.Invert(toInvert);
             if (targetType == typeof(string) && value is Encoding encoding) return encoding.EncodingName;
             if (targetType == typeof(DisabledFormattingAccelerators) && value is DocumentViewModel viewModel)
                 return viewModel.CurrentFileType switch

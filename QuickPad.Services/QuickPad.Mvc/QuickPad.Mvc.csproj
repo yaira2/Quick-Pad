@@ -131,10 +131,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ApplicationController.cs" />
+    <Compile Include="ApplicationController.DocumentManager.cs" />
+    <Compile Include="ApplicationController.FindAndReplaceManager.cs" />
     <Compile Include="Hosting\ApplicationHost.cs" />
     <Compile Include="Hosting\Extensions.cs" />
-    <Compile Include="IDocumentView.cs" />
-    <Compile Include="IView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\QuickPad.MVC.rd.xml" />
   </ItemGroup>
