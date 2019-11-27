@@ -18,7 +18,7 @@
         </trans-unit>
         <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
           <source>Advanced</source>
-          <target state="translated" state-qualifier="tm-suggestion">Avancé</target>
+          <target state="translated">Avancé</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
@@ -38,52 +38,52 @@
         </trans-unit>
         <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
           <source>Cobalt</source>
-          <target state="translated" state-qualifier="tm-suggestion">Cobalt</target>
+          <target state="translated">Cobalt</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
           <source>Crimson</source>
-          <target state="translated" state-qualifier="tm-suggestion">Pourpre</target>
+          <target state="translated">Pourpre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="translated" state-qualifier="tm-suggestion">Sombre</target>
+          <target state="translated">Sombre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
           <source>Leaf</source>
-          <target state="translated" state-qualifier="tm-suggestion">Feuille</target>
+          <target state="translated">Feuille</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
           <source>Lettuce</source>
-          <target state="translated" state-qualifier="tm-suggestion">Salade</target>
+          <target state="translated">Salade</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLightName" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="translated" state-qualifier="tm-suggestion">Clair</target>
+          <target state="translated">Clair</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRandomName" translate="yes" xml:space="preserve">
           <source>Random</source>
-          <target state="translated" state-qualifier="tm-suggestion">Aléatoire</target>
+          <target state="translated">Aléatoire</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
           <source>Rose Gold</source>
-          <target state="translated" state-qualifier="tm-suggestion">Or rose</target>
+          <target state="translated">Or Rose</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
           <source>System Default</source>
-          <target state="translated">Paramètres du système par défaut</target>
+          <target state="translated">Thème Windows</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
           <source>Dark theme</source>
-          <target state="translated" state-qualifier="tm-suggestion">Thème foncé</target>
+          <target state="translated">Thème sombre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
@@ -98,7 +98,7 @@
         </trans-unit>
         <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
           <source>System-defined theme</source>
-          <target state="translated">Thème défini par système</target>
+          <target state="translated">Thème Windows par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="AutoSave.Text" translate="yes" xml:space="preserve">
@@ -108,27 +108,27 @@
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
           <source>Auto save every</source>
-          <target state="translated">Sauvegarder automatiquement à toutes les</target>
+          <target state="translated">Enregistrement toutes les</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSaveSeconds.Text" translate="yes" xml:space="preserve">
           <source>seconds</source>
-          <target state="translated" state-qualifier="tm-suggestion">secondes</target>
+          <target state="translated">secondes</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="BackToDefault.Text" translate="yes" xml:space="preserve">
           <source>Back to Default Mode</source>
-          <target state="translated">Retourner au mode par défaut</target>
+          <target state="translated">Retour au mode par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
           <source>Close Compact Overlay</source>
-          <target state="translated">Fermer la superposition compacte</target>
+          <target state="translated">Fermer le mode superposé compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TitleBar</note>
         </trans-unit>
         <trans-unit id="Copy.Text" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target state="translated" state-qualifier="tm-suggestion">Copier</target>
+          <target state="translated">Copier</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
@@ -138,53 +138,53 @@
         </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
-          <target state="translated" state-qualifier="tm-suggestion">Couper</target>
+          <target state="translated">Couper</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DateTime.Text" translate="yes" xml:space="preserve">
           <source>Date/Time</source>
-          <target state="translated" state-qualifier="tm-suggestion">Date/Heure</target>
+          <target state="translated">Date/Heure</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
           <source>Default File Encoding</source>
-          <target state="needs-review-translation">Fichier par défaut EncodageActuel</target>
+          <target state="needs-review-translation">Encodage par défaut du fichier</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFileType.Text" translate="yes" xml:space="preserve">
           <source>Default File Type</source>
-          <target state="translated">Type de fichier par défaut</target>
+          <target state="translated">Type par défaut du fichier</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
           <source>Default Font</source>
-          <target state="translated" state-qualifier="tm-suggestion">Police par défaut</target>
+          <target state="translated">Police par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontColor.Text" translate="yes" xml:space="preserve">
           <source>Default Font Color</source>
-          <target state="translated">Couleur du police par défaut</target>
+          <target state="translated">Couleur de police par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
-          <target state="translated" state-qualifier="tm-suggestion">Taille de police par défaut</target>
+          <target state="translated">Taille de police par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Delete.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="translated" state-qualifier="tm-suggestion">Supprimer</target>
+          <target state="translated">Supprimer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Edit.Title" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="translated" state-qualifier="tm-suggestion">Modifier</target>
+          <target state="translated">Modifier</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="Exit.Text" translate="yes" xml:space="preserve">
           <source>Exit</source>
-          <target state="translated" state-qualifier="tm-suggestion">Quitter</target>
+          <target state="translated">Quitter</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Export.Content" translate="yes" xml:space="preserve">
@@ -194,27 +194,27 @@
         </trans-unit>
         <trans-unit id="File.Title" translate="yes" xml:space="preserve">
           <source>File</source>
-          <target state="translated" state-qualifier="tm-suggestion">Fichier</target>
+          <target state="translated">Fichier</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="Find.Text" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="translated" state-qualifier="tm-suggestion">Rechercher</target>
+          <target state="translated">Rechercher</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindNext.Text" translate="yes" xml:space="preserve">
           <source>Find Next</source>
-          <target state="translated">Trouver l'élément suivant</target>
+          <target state="translated">Suivant</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
           <source>Find Previous</source>
-          <target state="translated">Trouver l'élément précédent</target>
+          <target state="translated">Précédent</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FocusMode.Text" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="translated">Mode focus</target>
+          <target state="translated">Mode Focus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
@@ -229,12 +229,12 @@
         </trans-unit>
         <trans-unit id="Format.Title" translate="yes" xml:space="preserve">
           <source>Format</source>
-          <target state="translated" state-qualifier="tm-suggestion">Format</target>
+          <target state="translated">Format</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="General.Text" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target state="translated" state-qualifier="tm-suggestion">Général</target>
+          <target state="translated">Général</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="GoTo.Text" translate="yes" xml:space="preserve">
@@ -244,17 +244,17 @@
         </trans-unit>
         <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
           <source>Import</source>
-          <target state="translated" state-qualifier="tm-suggestion">Importer</target>
+          <target state="translated">Importer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
-          <target state="translated">Garder le texte seulement</target>
+          <target state="translated">Garder seulement le texte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchMode.Text" translate="yes" xml:space="preserve">
           <source>Launch Mode</source>
-          <target state="translated">Mode lancé</target>
+          <target state="translated">Mode de démarrage</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchModeComboBox.PlaceholderText" translate="yes" xml:space="preserve">
@@ -267,29 +267,29 @@
           <target state="translated">Gérer les paramètres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="New.Text" translate="yes" xml:space="preserve">
-          <source>New</source>
-          <target state="translated" state-qualifier="tm-suggestion">Nouveau</target>
+        <trans-unit id="translated.Text" translate="yes" xml:space="preserve">
+          <source>translated</source>
+          <target state="translated">Nouveau</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Open.Text" translate="yes" xml:space="preserve">
           <source>Open</source>
-          <target state="translated" state-qualifier="tm-suggestion">Ouvrir</target>
+          <target state="translated">Ouvrir</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="OverlayMode.Text" translate="yes" xml:space="preserve">
           <source>Overlay Mode</source>
-          <target state="translated">Mode superposé</target>
+          <target state="translated">Mode superposé compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Paste.Text" translate="yes" xml:space="preserve">
           <source>Paste</source>
-          <target state="translated" state-qualifier="tm-suggestion">Coller</target>
+          <target state="translated">Coller</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="PasteOptions.Text" translate="yes" xml:space="preserve">
           <source>Paste Options</source>
-          <target state="translated" state-qualifier="tm-suggestion">Options de collage</target>
+          <target state="translated">Options de collage</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RateAndReviewLink.Content" translate="yes" xml:space="preserve">
@@ -299,12 +299,12 @@
         </trans-unit>
         <trans-unit id="Redo.Text" translate="yes" xml:space="preserve">
           <source>Redo</source>
-          <target state="translated">Refaire</target>
+          <target state="translated">Rétablir</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Replace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="translated" state-qualifier="tm-suggestion">Remplacer</target>
+          <target state="translated">Remplacer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
@@ -314,7 +314,7 @@
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
-          <target state="translated">Redémarrage requis pour appliquer les changements</target>
+          <target state="translated">Redémarrage nécessaire pour appliquer les changements</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
@@ -324,7 +324,7 @@
         </trans-unit>
         <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="translated" state-qualifier="tm-suggestion">Enregistrer</target>
+          <target state="translated">Enregistrer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SaveAs.Text" translate="yes" xml:space="preserve">
@@ -344,73 +344,72 @@
         </trans-unit>
         <trans-unit id="Settings.Text" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="translated" state-qualifier="tm-suggestion">Paramètres</target>
+          <target state="translated">Paramètres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Share.Text" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="translated" state-qualifier="tm-suggestion">Partager</target>
+          <target state="translated">Partager</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SpellCheck.Text" translate="yes" xml:space="preserve">
           <source>Spell Check</source>
-          <target state="translated" state-qualifier="tm-suggestion">Vérification de l'orthographe</target>
+          <target state="translated">Vérifier l'orthographe</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
-          <target state="new">Status Bar</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Barre d'états</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Col: </source>
-          <target state="translated" state-qualifier="tm-suggestion">Col :</target>
+          <target state="translated">Col :</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
           <source>Ln: </source>
-          <target state="translated">Li: </target>
+          <target state="translated">Ln : </target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
-          <target state="translated" state-qualifier="tm-suggestion">Thème</target>
+          <target state="translated">Thème</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Undo.Text" translate="yes" xml:space="preserve">
           <source>Undo</source>
-          <target state="translated" state-qualifier="tm-suggestion">Annuler</target>
+          <target state="translated">Annuler</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="UseAcrylicOnTextBox.Text" translate="yes" xml:space="preserve">
           <source>Use acrylic background for the text area</source>
-          <target state="translated">Utiliser un arrière-plan acrylique pour le zone texte</target>
+          <target state="translated">Utiliser un arrière-plan acrylique pour la zone texte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="View.Title" translate="yes" xml:space="preserve">
           <source>View</source>
-          <target state="translated" state-qualifier="tm-suggestion">Afficher</target>
+          <target state="translated">Afficher</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="translated" state-qualifier="tm-suggestion">Retour automatique à la ligne</target>
+          <target state="translated">Retour automatique à la ligne</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="WordWrapSetting.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="translated" state-qualifier="tm-suggestion">Retour automatique à la ligne</target>
+          <target state="translated">Retour automatique à la ligne</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Zoom.Text" translate="yes" xml:space="preserve">
           <source>Zoom</source>
-          <target state="translated" state-qualifier="tm-suggestion">Zoom</target>
+          <target state="translated">Zoom</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="ZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="translated" state-qualifier="tm-suggestion">Zoom avant</target>
+          <target state="translated">Zoom avant</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="ZoomOut.Text" translate="yes" xml:space="preserve">
@@ -420,32 +419,32 @@
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Text" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font</source>
-          <target state="translated">Police Texte Riche par défaut</target>
+          <target state="translated">Police du texte RTF par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSizeRtf.Text" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font Size</source>
-          <target state="translated">Taille du police Texte Riche par défaut</target>
+          <target state="translated">Taille de police du texte RTF par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSettingRtf.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap in Rich Text</source>
-          <target state="translated">Retour automatique à la ligne dans texte riche</target>
+          <target state="translated">Retour automatique à la ligne dans du texte RTF</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="CancelButton" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="translated" state-qualifier="tm-suggestion">Annuler</target>
+          <target state="translated">Annuler</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="NoButton" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="translated" state-qualifier="tm-suggestion">Non</target>
+          <target state="translated">Non</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
           <source>There are unsaved changes.  Do you want to save them now?</source>
-          <target state="translated">Il y a plusieurs modifications non-enregistrées. Est-ce que vous voulez les sauvegarder maintenant?</target>
+          <target state="translated">Il y a des modifications non-enregistrées. Voulez vous les enregistrer ?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesTitle" translate="yes" xml:space="preserve">
@@ -455,7 +454,7 @@
         </trans-unit>
         <trans-unit id="YesButton" translate="yes" xml:space="preserve">
           <source>Yes</source>
-          <target state="translated" state-qualifier="tm-suggestion">Oui</target>
+          <target state="translated">Oui</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="LaunchClassicMode" translate="yes" xml:space="preserve">
@@ -465,67 +464,67 @@
         </trans-unit>
         <trans-unit id="LaunchDefaultMode" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="translated" state-qualifier="tm-suggestion">Par défaut</target>
+          <target state="translated">Par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchFocusMode" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="translated">Mode focus</target>
+          <target state="translated">Mode Focus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchNinjaMode" translate="yes" xml:space="preserve">
           <source>Ninja Mode</source>
-          <target state="translated">Mode ninja</target>
+          <target state="translated">Mode Ninja</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
         </trans-unit>
         <trans-unit id="AlignCenter.Text" translate="yes" xml:space="preserve">
           <source>Align Center (Ctrl+E)</source>
-          <target state="translated">Aligner au centre (Ctrl+E)</target>
+          <target state="translated">Centrer (Ctrl+E)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignCenterLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Center</source>
-          <target state="translated" state-qualifier="tm-suggestion">Aligner au centre</target>
+          <target state="translated">Centrer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignLeft.Text" translate="yes" xml:space="preserve">
           <source>Align Left (Ctrl+L)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Aligner à gauche (Ctrl+L)</target>
+          <target state="translated">Aligner à gauche (Ctrl+L)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignLeftLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Left</source>
-          <target state="translated" state-qualifier="tm-suggestion">Aligner à gauche</target>
+          <target state="translated">Aligner à gauche</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignRight.Text" translate="yes" xml:space="preserve">
           <source>Align Right (Ctrl+R)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Aligner à droite (Ctrl+R)</target>
+          <target state="translated">Aligner à droite (Ctrl+R)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignRightLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Right</source>
-          <target state="translated" state-qualifier="tm-suggestion">Aligner à droite</target>
+          <target state="translated">Aligner à droite</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Bold.Text" translate="yes" xml:space="preserve">
           <source>Bold (Ctrl+B)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Gras (Ctrl+B)</target>
+          <target state="translated">Gras (Ctrl+B)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="BoldLabel.Label" translate="yes" xml:space="preserve">
           <source>Bold</source>
-          <target state="translated" state-qualifier="tm-suggestion">Gras</target>
+          <target state="translated">Gras</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Bullets.Text" translate="yes" xml:space="preserve">
           <source>Toggle Bullets</source>
-          <target state="translated">Basculer les puces</target>
+          <target state="translated">Puces</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="BulletsLabel.Label" translate="yes" xml:space="preserve">
           <source>Bullets</source>
-          <target state="translated" state-qualifier="tm-suggestion">Puces</target>
+          <target state="translated">Puces</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ClassicModeLabel.Label" translate="yes" xml:space="preserve">
@@ -535,22 +534,22 @@
         </trans-unit>
         <trans-unit id="Color.Text" translate="yes" xml:space="preserve">
           <source>Font Color</source>
-          <target state="translated" state-qualifier="tm-suggestion">Couleur de police</target>
+          <target state="translated">Couleur de police</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ColorLabel.Label" translate="yes" xml:space="preserve">
           <source>Font Color</source>
-          <target state="translated" state-qualifier="tm-suggestion">Couleur de police</target>
+          <target state="translated">Couleur de police</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTooltip.Text" translate="yes" xml:space="preserve">
           <source>Compact Overlay (Alt + Up)</source>
-          <target state="translated">Superposition par défaut (Alt + Haut)</target>
+          <target state="translated">Mode superposé compacte (Alt + Haut)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
           <source>Insert Emojis (Win + .)</source>
-          <target state="translated">Insérer des emojis (Win + .)</target>
+          <target state="translated">Insérer des Emojis (Win + ;)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="EmojiLabel.Label" translate="yes" xml:space="preserve">
@@ -560,187 +559,187 @@
         </trans-unit>
         <trans-unit id="FindLabel.Label" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="translated" state-qualifier="tm-suggestion">Rechercher</target>
+          <target state="translated">Rechercher</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="FocusModeLabel.Label" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="translated" state-qualifier="tm-suggestion">Mode Focus</target>
+          <target state="translated">Mode Focus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Italic.Text" translate="yes" xml:space="preserve">
           <source>Italic (Ctrl+I)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Italique (Ctrl+I)</target>
+          <target state="translated">Italique (Ctrl+I)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ItalicLabel.Label" translate="yes" xml:space="preserve">
           <source>Italic</source>
-          <target state="translated" state-qualifier="tm-suggestion">Italique</target>
+          <target state="translated">Italique</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="JustifyText.Text" translate="yes" xml:space="preserve">
           <source>Justify Text (Ctrl+J)</source>
-          <target state="translated">Texte justifié (Ctrl+J)</target>
+          <target state="translated">Justifier le texte (Ctrl+J)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="JustifyTextLabel.Label" translate="yes" xml:space="preserve">
           <source>Justify</source>
-          <target state="translated" state-qualifier="tm-suggestion">Justifier</target>
+          <target state="translated">Justifier</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="RedoTooltip.Text" translate="yes" xml:space="preserve">
           <source>Redo (Ctrl+Y)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Répéter (Ctrl+Y)</target>
+          <target state="translated">Rétablir (Ctrl+Y)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SettingsLabel.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="translated" state-qualifier="tm-suggestion">Paramètres</target>
+          <target state="translated">Paramètres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ShareLabel.Label" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="translated" state-qualifier="tm-suggestion">Partager</target>
+          <target state="translated">Partager</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="StatusBarLabel.Label" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
-          <target state="translated" state-qualifier="tm-suggestion">Barre d'état</target>
+          <target state="translated">Barre d'états</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Strikethrough.Text" translate="yes" xml:space="preserve">
           <source>Strikethrough</source>
-          <target state="translated" state-qualifier="tm-suggestion">Barré</target>
+          <target state="translated">Barré</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="StrikethroughLabel.Label" translate="yes" xml:space="preserve">
           <source>Strikethrough</source>
-          <target state="translated" state-qualifier="tm-suggestion">Barré</target>
+          <target state="translated">Barré</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Underline.Text" translate="yes" xml:space="preserve">
           <source>Underline (Ctrl+U)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Souligner (Ctrl+U)</target>
+          <target state="translated">Souligné (Ctrl+U)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="UnderlineLabel.Label" translate="yes" xml:space="preserve">
           <source>Label</source>
-          <target state="translated" state-qualifier="tm-suggestion">Étiquette</target>
+          <target state="translated">Étiquette</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="UndoTooltip.Text" translate="yes" xml:space="preserve">
           <source>Undo (Ctrl+Z)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Annuler (Ctrl+Z)</target>
+          <target state="translated">Annuler (Ctrl+Z)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
-        <trans-unit id="NewLabel.Label" translate="yes" xml:space="preserve">
-          <source>New</source>
-          <target state="translated" state-qualifier="tm-suggestion">Nouveau</target>
+        <trans-unit id="translatedLabel.Label" translate="yes" xml:space="preserve">
+          <source>translated</source>
+          <target state="translated">Nouveau</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
-        <trans-unit id="NewTip.Text" translate="yes" xml:space="preserve">
-          <source>New (Ctrl+N)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Nouveau (Ctrl+N)</target>
+        <trans-unit id="translatedTip.Text" translate="yes" xml:space="preserve">
+          <source>translated (Ctrl+N)</source>
+          <target state="translated">Nouveau (Ctrl+N)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="OpenLabel.Label" translate="yes" xml:space="preserve">
           <source>Open</source>
-          <target state="translated" state-qualifier="tm-suggestion">Ouvrir</target>
+          <target state="translated">Ouvrir</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="OpenTip.Text" translate="yes" xml:space="preserve">
           <source>Open (Ctrl+O)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Ouvrir (Ctrl+O)</target>
+          <target state="translated">Ouvrir (Ctrl+O)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SaveLabel.Label" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="translated" state-qualifier="tm-suggestion">Enregistrer</target>
+          <target state="translated">Enregistrer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SaveTip.Text" translate="yes" xml:space="preserve">
           <source>Save (Ctrl+S)</source>
-          <target state="translated" state-qualifier="tm-suggestion">Enregistrer (Ctrl+S)</target>
+          <target state="translated">Enregistrer (Ctrl+S)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="LaunchCompactOverlay" translate="yes" xml:space="preserve">
           <source>Compact Overlay</source>
-          <target state="translated">Superposition compact</target>
+          <target state="translated">Mode superposé compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RichTextDescription" translate="yes" xml:space="preserve">
           <source>Rich Text Document</source>
-          <target state="translated" state-qualifier="tm-suggestion">Document au format RTF</target>
+          <target state="translated">Document au format RTF</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
         </trans-unit>
         <trans-unit id="TextDescription" translate="yes" xml:space="preserve">
           <source>Text Document</source>
-          <target state="translated" state-qualifier="tm-suggestion">Document texte</target>
+          <target state="translated">Document texte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
         </trans-unit>
         <trans-unit id="SaveDialog.CloseButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">Annuler</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="new">Save</target>
+          <target state="translated">Enregistrer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>Don't Save</source>
-          <target state="new">Don't Save</target>
+          <target state="translated">Ne pas Enregistrer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.Title" translate="yes" xml:space="preserve">
           <source>Quick Pad</source>
-          <target state="new">Quick Pad</target>
+          <target state="translated">Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SpellCheckRtf.Text" translate="yes" xml:space="preserve">
           <source>Spell Check in Rich Text</source>
-          <target state="new">Spell Check in Rich Text</target>
+          <target state="translated">Vérifier l'orthographe du texte RTF</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WouldYouLikeToSave.Text" translate="yes" xml:space="preserve">
           <source>Would you like to save your changes?</source>
-          <target state="new">Would you like to save your changes?</target>
+          <target state="translated">Voulez vous enregistrer vos changements ?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="AppVersion.Text" translate="yes" xml:space="preserve">
           <source>Version:</source>
-          <target state="new">Version:</target>
+          <target state="translated">Version:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RichTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Rich Text Font Settings</source>
-          <target state="new">Rich Text Font Settings</target>
+          <target state="translated">Paramètres de police du texte RTF</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="PlainTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Plain Text Font Settings</source>
-          <target state="translated">Paramètres du police de texte ordinaire</target>
+          <target state="translated">Paramètres de police du texte ordinaire</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ReportIssues.Text" translate="yes" xml:space="preserve">
           <source>Report issues here</source>
-          <target state="new">Report issues here</target>
+          <target state="translated">Signaler des problèmes ici</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SourceCode.Text" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <target state="new">Source Code</target>
+          <target state="translated">Code source</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpecialThanks.Text" translate="yes" xml:space="preserve">
           <source>Special thanks to:</source>
-          <target state="new">Special thanks to:</target>
+          <target state="translated">Remerciements:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.Text" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
+          <target state="translated">Contribuer au développeur</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>
