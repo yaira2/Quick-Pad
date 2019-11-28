@@ -144,7 +144,7 @@
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Find Next" AccessKey="N" x:Uid="FindNext" 
                                 Command="{x:Bind Commands.FindNextCommand}"
-                                CommandParameter="{x:Bind ViewModel.FindAndReplaceViewModel}">
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE0AB;" />
                     </MenuFlyoutItem.Icon>
@@ -154,12 +154,12 @@
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Find Previous" AccessKey="V" x:Uid="FindPrevious" 
                                 Command="{x:Bind Commands.FindPreviousCommand}"
-                                CommandParameter="{x:Bind ViewModel.FindAndReplaceViewModel}">
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE0A6;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Shift" Key="F3" />
+                        <KeyboardAccelerator Modifiers="Control" Key="F3" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem Text="Replace" AccessKey="R" Icon="Rename" x:Uid="Replace" 
@@ -178,12 +178,16 @@
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Select All" AccessKey="A" x:Uid="SelectAll">
+                <MenuFlyoutItem Text="Select All" AccessKey="A" x:Uid="SelectAll" 
+                                Command="{x:Bind Commands.SelectAllCommand}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE8B3;"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Date/Time" AccessKey="D" x:Uid="DateTime">
+                <MenuFlyoutItem Text="Date/Time" AccessKey="D" x:Uid="DateTime" 
+                                Command="{x:Bind Commands.InsertDateTimeCommand}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xEC92;"/>
                     </MenuFlyoutItem.Icon>
@@ -209,6 +213,7 @@
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Font"/>
                     </MenuFlyoutItem.Icon>
+                    
                 </MenuFlyoutItem>
             </MenuBarItem>
             <MenuBarItem Title="View" AccessKey="V" x:Uid="View">

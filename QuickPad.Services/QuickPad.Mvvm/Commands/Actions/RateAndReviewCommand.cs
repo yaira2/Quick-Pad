@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using QuickPad.Mvvm.ViewModels;
 using Windows.Services.Store;
@@ -73,9 +74,16 @@ namespace QuickPad.Mvvm.Commands.Actions
         {
             Executioner = documentViewModel =>
             {
-                var findAndReplace = documentViewModel.FindAndReplaceViewModel;
-                findAndReplace.FindPrevious(documentViewModel);
-                return Task.CompletedTask;
+                try
+                {
+                    var findAndReplace = documentViewModel.FindAndReplaceViewModel;
+                    findAndReplace.FindPrevious(documentViewModel);
+                    return Task.CompletedTask;
+                }
+                finally
+                {
+                    documentViewModel.ReleaseUpdates();
+                }
             };
         }
     }
@@ -87,7 +95,8 @@ namespace QuickPad.Mvvm.Commands.Actions
             Executioner = documentViewModel =>
             {
                 var findAndReplace = documentViewModel.FindAndReplaceViewModel;
-                findAndReplace.ReplaceNext(documentViewModel);
+                var result = findAndReplace.ReplaceNext(documentViewModel);
+                if (result.start > -1) documentViewModel.Text = result.text;
                 return Task.CompletedTask;
             };
         }
@@ -100,10 +109,34 @@ namespace QuickPad.Mvvm.Commands.Actions
             Executioner = documentViewModel =>
             {
                 var findAndReplace = documentViewModel.FindAndReplaceViewModel;
-                findAndReplace.ReplaceAll(documentViewModel);
+                var results = findAndReplace.ReplaceAll(documentViewModel);
+                if (results.Length > 0) documentViewModel.Text = results.Last().text;
                 return Task.CompletedTask;
             };
         }
     }
 
+    public class SelectAllCommand : SimpleCommand<DocumentViewModel>
+    {
+        public SelectAllCommand()
+        {
+            Executioner = documentViewModel =>
+            {
+                documentViewModel.SelectText(0, documentViewModel.Text.Length);
+                return Task.CompletedTask;
+            };
+        }
+    }
+
+    public class InsertDateTimeCommand : SimpleCommand<DocumentViewModel>
+    {
+        public InsertDateTimeCommand()
+        {
+            Executioner = documentViewModel =>
+            {
+                documentViewModel.SelectedText = DateTimeOffset.Now.LocalDateTime.ToString("g");
+                return Task.CompletedTask;
+            };
+        }
+    }
 }

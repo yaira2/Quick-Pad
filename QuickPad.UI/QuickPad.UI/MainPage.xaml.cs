@@ -51,8 +51,7 @@ namespace QuickPad.UI
     public sealed partial class MainPage : Page, IDocumentView
     {
         private DocumentViewModel _viewModel;
-        private bool _initialized;
-        private IFindAndReplaceView _findAndReplaceViewModel;
+        private readonly bool _initialized;
         public VisualThemeSelector VisualThemeSelector { get; }
         public SettingsViewModel Settings => App.Settings;
         public QuickPadCommands Commands { get; }
@@ -66,6 +65,7 @@ namespace QuickPad.UI
             Commands = command;
 
             App.Controller.AddView(this);
+
             Initialize?.Invoke(this, Commands);
 
             this.InitializeComponent();
@@ -77,12 +77,12 @@ namespace QuickPad.UI
 
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
-            
+
             var tBar = ApplicationView.GetForCurrentView().TitleBar;
             tBar.ButtonBackgroundColor = Colors.Transparent;
             tBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
-            
+
             ViewModel.ExitApplication = ExitApp;
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
@@ -96,7 +96,6 @@ namespace QuickPad.UI
 
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
-
         }
 
         private void CommandBarOnSetFontSize(double fontSize)
@@ -111,7 +110,7 @@ namespace QuickPad.UI
 
         private void CurrentView_BackRequested(object sender, BackRequestedEventArgs e)
         {
-            var newMode = Settings.DefaultMode == DisplayModes.LaunchFocusMode.ToString() 
+            var newMode = Settings.DefaultMode == DisplayModes.LaunchFocusMode.ToString()
                 ? DisplayModes.LaunchClassicMode.ToString()
                 : Settings.DefaultMode;
 
@@ -124,7 +123,7 @@ namespace QuickPad.UI
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
             SetupFocusMode(Settings.FocusMode);
-            
+
             await SetOverlayMode(Settings.CurrentMode);
             await ViewModel.InitNewDocument();
 
@@ -132,7 +131,7 @@ namespace QuickPad.UI
 
             if (Settings.DefaultMode == "Compact Overlay")
             {
-                if(await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
+                if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
                 {
                     Settings.CurrentMode = "Compact Overlay";
                 }
@@ -215,7 +214,7 @@ namespace QuickPad.UI
 
             try
             {
-                if(!e.PropertyName.Equals(nameof(ViewModel.Text)))
+                if (!e.PropertyName.Equals(nameof(ViewModel.Text)))
                 {
                     Bindings.Update();
                 }
@@ -224,7 +223,7 @@ namespace QuickPad.UI
             {
                 Logger.LogError(ex, "Error binding objects.");
             }
-            
+
         }
 
         private async void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
@@ -235,7 +234,7 @@ namespace QuickPad.UI
             else
             {
                 e.Handled = !(await ExitApplication(ViewModel));
-                
+
                 if (!e.Handled) return;
 
                 try
@@ -256,14 +255,17 @@ namespace QuickPad.UI
             {
                 if (_viewModel != value)
                 {
-                    if(_viewModel != null)
+                    if (_viewModel != null)
                     {
                         RichEditBox.TextChanged -= _viewModel.TextChanged;
                         TextBox.TextChanged -= _viewModel.TextChanged;
-                        
+
                         _viewModel.RedoRequested -= ViewModelOnRedoRequested;
                         _viewModel.UndoRequested -= ViewModelOnUndoRequested;
                         _viewModel.PropertyChanged -= ViewModelOnPropertyChanged;
+                        _viewModel.SetSelection -= ViewModelOnSetSelection;
+                        _viewModel.GetPosition -= ViewModelOnGetPosition;
+                        _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
                     }
 
                     _viewModel = value;
@@ -271,14 +273,59 @@ namespace QuickPad.UI
                     _viewModel.RedoRequested += ViewModelOnRedoRequested;
                     _viewModel.UndoRequested += ViewModelOnUndoRequested;
                     _viewModel.PropertyChanged += ViewModelOnPropertyChanged;
+                    _viewModel.SetSelection += ViewModelOnSetSelection;
+                    _viewModel.GetPosition += ViewModelOnGetPosition;
+                    _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
 
-                    if(_initialized)
-                    {
-                        ViewModel.Document = RichEditBox.Document;
-                        RichEditBox.TextChanged += _viewModel.TextChanged;
-                        TextBox.TextChanged += _viewModel.TextChanged;
-                    }
+                    if (!_initialized) return;
+
+                    ViewModel.Document = RichEditBox.Document;
+                    RichEditBox.TextChanged += _viewModel.TextChanged;
+                    TextBox.TextChanged += _viewModel.TextChanged;
                 }
+            }
+        }
+
+        private void ViewModelOnSetSelectedText(string text)
+        {
+            if (_viewModel.IsRtf)
+            {
+                _viewModel.Document.Selection.SetText(_viewModel.SetOption, text);
+            }
+            else
+            {
+                TextBox.SelectedText = text;
+                ViewModel.Text = TextBox.Text;
+            }
+        }
+
+        private (int start, int length) ViewModelOnGetPosition()
+        {
+            return _viewModel.IsRtf 
+                ? (_viewModel.Document.Selection.StartPosition, _viewModel.Document.Selection.Length) 
+                : (TextBox.SelectionStart, TextBox.SelectionLength);
+        }
+
+        private void ViewModelOnSetSelection(int start, int length)
+        {
+            try
+            {
+                if (_viewModel.IsRtf)
+                {
+                    _viewModel.Document.Selection.StartPosition = start;
+                    _viewModel.Document.Selection.EndPosition = start + length;
+                    FocusManager.TryFocusAsync(RichEditBox, FocusState.Programmatic);
+                }
+                else
+                {
+                    TextBox.SelectionStart = start;
+                    TextBox.SelectionLength = length;
+                    FocusManager.TryFocusAsync(TextBox, FocusState.Programmatic);
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError(ex, $"Invalid position for selection. (start: {start}, length: {length}).");
             }
         }
 
@@ -295,7 +342,7 @@ namespace QuickPad.UI
 
         private void ViewModelOnUndoRequested(DocumentViewModel obj)
         {
-            if(TextBox.CanUndo)
+            if (TextBox.CanUndo)
             {
                 TextBox.Undo();
                 Reindex();
@@ -304,7 +351,7 @@ namespace QuickPad.UI
 
         private void ViewModelOnRedoRequested(DocumentViewModel obj)
         {
-            if(TextBox.CanRedo)
+            if (TextBox.CanRedo)
             {
                 TextBox.Redo();
                 Reindex();
@@ -342,7 +389,7 @@ namespace QuickPad.UI
             if (Settings.CurrentMode == newMode) return;
 
             SetupFocusMode(newMode == DisplayModes.LaunchFocusMode.ToString());
-            
+
             await SetOverlayMode(newMode);
 
             Settings.CurrentMode = newMode;
@@ -357,10 +404,6 @@ namespace QuickPad.UI
 
         private void TextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
-            ViewModel.BlockUpdates();
-            ViewModel.SelectedText = TextBox.SelectedText;
-            ViewModel.ReleaseUpdates();
-
             GetPosition();
         }
 
@@ -371,7 +414,7 @@ namespace QuickPad.UI
             TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
 
             ViewModel.Text = TextBox.Text;
-            
+
             Reindex();
 
             TextBox_OnSelectionChanged(sender, e);
@@ -389,13 +432,6 @@ namespace QuickPad.UI
             var position = TextBox.SelectionStart + TextBox.SelectionLength;
 
             var target = position;
-
-            //if (position < ViewModel.Text.Length - 1
-            //    && ViewModel.Text[position] != '\r')
-            //{
-            //    --target;
-            //}
-
 
             var lines = LineIndices.Where(i => i < target).ToList();
 

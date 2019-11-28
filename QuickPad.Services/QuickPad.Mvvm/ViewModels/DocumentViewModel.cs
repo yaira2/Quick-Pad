@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using System.Text;
@@ -25,6 +26,7 @@ namespace QuickPad.Mvvm.ViewModels
 {
     public class DocumentViewModel : ViewModel
     {
+        private const string RTF_EXTENSION = ".rtf";
         private ITextDocument _document;
 
         private Encoding _currentEncoding;
@@ -112,7 +114,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 if (Set(ref _currentFileType, value))
                 {
-                    var isRtf = value == ".rtf";
+                    var isRtf = value.Equals(RTF_EXTENSION, StringComparison.InvariantCultureIgnoreCase);
 
                     CurrentFileDisplayType =
                         isRtf ? RichTextDescription : TextDescription;
@@ -194,7 +196,7 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get
             {
-                if (CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
+                if (IsRtf)
                 {
                     Document?.GetText(GetOption, out _text);
                 }
@@ -203,7 +205,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
             set
             {
-                if(CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
+                if(IsRtf)
                 {
                     Document?.SetText(SetOption, value);
                 }
@@ -219,23 +221,26 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get
             {
-                if (CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    Document?.Selection.GetText(GetOption, out _selectedText);
-                }
-
-                return _selectedText ??= string.Empty;
+                var position = GetPosition?.Invoke() ?? default;
+                return Text.Substring(position.start, position.length);
             }
-            set
-            {
-                if (CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    Document?.Selection.SetText(SetOption, value);
-                }
-
-                Set(ref _selectedText, value);
-            }
+            set => SetSelectedText?.Invoke(value);
         }
+
+        public bool IsRtf => (CurrentFileType ?? Settings.DefaultFileType)
+            .Equals(RTF_EXTENSION, StringComparison.CurrentCultureIgnoreCase);
+
+        public (int start, int length) CurrentPosition => GetPosition?.Invoke() ?? (0, 0);
+
+        public event Func<(int start, int length)> GetPosition;
+        public event Action<string> SetSelectedText;
+
+        public void SelectText(int start, int length)
+        {
+            SetSelection?.Invoke(start, length);
+        }
+
+        public event Action<int, int> SetSelection;
 
         private void CalculateHash(string text)
         {
@@ -348,12 +353,12 @@ namespace QuickPad.Mvvm.ViewModels
 
         public bool CanUndo
         {
-            get => CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ? Document.CanUndo() : _canUndo;
+            get => IsRtf ? Document.CanUndo() : _canUndo;
             set => Set(ref _canUndo, value);
         }
 
         public bool CanRedo {
-            get => CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ? Document.CanRedo() : _canRedo;
+            get => IsRtf ? Document.CanRedo() : _canRedo;
             set => Set(ref _canRedo, value);
         }
 

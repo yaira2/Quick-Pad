@@ -267,11 +267,6 @@
           <target state="translated">Gérer les paramètres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="translated.Text" translate="yes" xml:space="preserve">
-          <source>translated</source>
-          <target state="translated">Nouveau</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-        </trans-unit>
         <trans-unit id="Open.Text" translate="yes" xml:space="preserve">
           <source>Open</source>
           <target state="translated">Ouvrir</target>
@@ -632,16 +627,6 @@
           <target state="translated">Annuler (Ctrl+Z)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
-        <trans-unit id="translatedLabel.Label" translate="yes" xml:space="preserve">
-          <source>translated</source>
-          <target state="translated">Nouveau</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
-        </trans-unit>
-        <trans-unit id="translatedTip.Text" translate="yes" xml:space="preserve">
-          <source>translated (Ctrl+N)</source>
-          <target state="translated">Nouveau (Ctrl+N)</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
-        </trans-unit>
         <trans-unit id="OpenLabel.Label" translate="yes" xml:space="preserve">
           <source>Open</source>
           <target state="translated">Ouvrir</target>
@@ -741,6 +726,21 @@
           <source>Contribute to the developer</source>
           <target state="translated">Contribuer au développeur</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="New.Text" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="new">New</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="NewLabel.Label" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="new">New</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="NewTip.Text" translate="yes" xml:space="preserve">
+          <source>New (Ctrl+N)</source>
+          <target state="new">New (Ctrl+N)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
       </group>
     </body>

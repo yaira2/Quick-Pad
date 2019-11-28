@@ -71,6 +71,8 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> ShowReplaceCommand { get; } = new ShowReplaceCommand();
         public SimpleCommand<DocumentViewModel> ReplaceNextCommand { get; } = new ReplaceNextCommand();
         public SimpleCommand<DocumentViewModel> ReplaceAllCommand { get; } = new ReplaceAllCommand();
+        public SimpleCommand<DocumentViewModel> SelectAllCommand { get; } = new SelectAllCommand();
+        public SimpleCommand<DocumentViewModel> InsertDateTimeCommand { get; } = new InsertDateTimeCommand();
 
         public SimpleCommand<SettingsViewModel> AcknowledgeFontSelectionChangeCommand { get; } =
             new AcknowledgeFontSelectionChangeCommand();

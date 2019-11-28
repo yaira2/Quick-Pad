@@ -66,7 +66,7 @@
                                   Visibility="{x:Bind ViewModel.ShowFind, Mode=OneWay}"  >
             <controls3:FindAndReplaceView Canvas.ZIndex="100" 
                                           x:Name="FindAndReplaceView"
-                                          ViewModel="{x:Bind ViewModel, Mode=OneWay}"/>
+                                          DocumentViewModel="{x:Bind ViewModel, Mode=OneWay}"/>
         </controls1:DropShadowPanel>
 
         <RichEditBox x:Name="RichEditBox" 
@@ -104,7 +104,8 @@
                  FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
                  Text="{x:Bind ViewModel.Text, Mode=OneWay}"
                  Visibility="{x:Bind converters:Converter.VisibleIfNotRtf(ViewModel.CurrentFileType), Mode=OneWay}"
-            />
+            >
+        </TextBox>
         <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"
                                   OffsetX="0"

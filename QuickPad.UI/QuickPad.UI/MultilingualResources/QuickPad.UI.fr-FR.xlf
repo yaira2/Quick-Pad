@@ -129,7 +129,7 @@
         <trans-unit id="Copy.Text" translate="yes" xml:space="preserve">
           <source>Copy</source>
           <target state="translated">Copier</target>
-          <note from="MultilingualBuild" annotates="asource" priority="2">Used on Menu Item</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
           <source>Developed by Yair Aichenbaum</source>
@@ -302,8 +302,8 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Replace.Text" translate="yes" xml:space="preserve">
-          <source>translated</source>
-          <target state="new">Remplacer</target>
+          <source>Replace</source>
+          <target state="new">Replace</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
