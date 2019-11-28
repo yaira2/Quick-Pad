@@ -17,60 +17,80 @@
         <converters:Converter x:Key="Converter" />
     </Page.Resources>
     <Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+       <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
         <controls3:TitleBar x:Name="titleBar" Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
 
-        <controls2:SettingsNav Canvas.ZIndex="150" 
-                               Visibility="{x:Bind Settings.ShowSettings, Converter={StaticResource Converter}}" 
-                               Grid.Row="1" Grid.RowSpan="3" 
+        <SplitView x:Name="splitView" Grid.Row="1" PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
+            OpenPaneLength="340" PanePlacement="Right" IsPaneOpen="{x:Bind Settings.ShowSettings, Mode=TwoWay}">
+            <SplitView.Pane>
+                <Grid>
+                    <controls2:SettingsNav Canvas.ZIndex="150" 
                                VerticalContentAlignment="Stretch" 
-                               HorizontalAlignment="Right"/>
+                               HorizontalAlignment="Stretch"/>
+                </Grid>
+            </SplitView.Pane>
 
-        <controls1:DropShadowPanel Canvas.ZIndex="75"
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <controls1:DropShadowPanel Canvas.ZIndex="75"
+                                   ShadowOpacity="0.3"
+                                   OffsetX="0"
+                                   OffsetY="1"
+                                   Grid.Row="0"
+                                   Visibility="{x:Bind Settings.ShowMenu, Converter={StaticResource Converter}}"
+                                   HorizontalAlignment="Stretch"
+                                   HorizontalContentAlignment="Stretch">
+                    <controls3:MenuBar x:Name="menuBar" Canvas.ZIndex="100" 
+                               ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="40" HorizontalAlignment="Stretch"/>
+                </controls1:DropShadowPanel>
+
+                <controls1:DropShadowPanel Canvas.ZIndex="70"
                                    ShadowOpacity="0.3"
                                    OffsetX="0"
                                    OffsetY="1"
                                    Grid.Row="1"
-                                   Visibility="{x:Bind Settings.ShowMenu, Converter={StaticResource Converter}}"
-                                   HorizontalAlignment="Stretch"
-                                   HorizontalContentAlignment="Stretch">
-            <controls3:MenuBar x:Name="menuBar" Canvas.ZIndex="100" 
-                               ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="40" HorizontalAlignment="Stretch"/>
-        </controls1:DropShadowPanel>
-
-        <controls1:DropShadowPanel Canvas.ZIndex="70"
-                                   ShadowOpacity="0.3"
-                                   OffsetX="0"
-                                   OffsetY="1"
-                                   Grid.Row="2"
                                    Visibility="{x:Bind Settings.ShowCommandBar, Converter={StaticResource Converter}}"
                                    HorizontalAlignment="Stretch"
                                    HorizontalContentAlignment="Stretch">
-            <controls3:CommandBar x:Name="commandBar" Canvas.ZIndex="100" 
+                    <controls3:CommandBar x:Name="commandBar" Canvas.ZIndex="100" 
                                   ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="40" HorizontalAlignment="Stretch"/>
-        </controls1:DropShadowPanel>
+                </controls1:DropShadowPanel>
 
-        <controls1:DropShadowPanel Canvas.ZIndex="75"
+                <controls1:DropShadowPanel Canvas.ZIndex="75"
                                   ShadowOpacity="0.3"                                  
-                                  Grid.Row="3"
+                                  Grid.Row="2"
                                   HorizontalAlignment="Right"
                                   VerticalAlignment="Top"
                                   Margin="15"
                                   Visibility="{x:Bind ViewModel.ShowFind, Mode=OneWay}"  >
-            <controls3:FindAndReplaceView Canvas.ZIndex="100" 
+                    <controls3:FindAndReplaceView Canvas.ZIndex="100" 
                                           x:Name="FindAndReplaceView"
                                           DocumentViewModel="{x:Bind ViewModel, Mode=OneWay}"/>
-        </controls1:DropShadowPanel>
+                </controls1:DropShadowPanel>
 
-        <RichEditBox x:Name="RichEditBox" 
-                     Grid.Row="3" 
+
+                <controls1:DropShadowPanel Canvas.ZIndex="75"
+                                  ShadowOpacity="0.3"
+                                  OffsetX="0"
+                                  OffsetY="1"
+                                  Grid.Row="3"
+                                  Visibility="{x:Bind Settings.ShowStatusBar, Converter={StaticResource Converter}}"
+                                  HorizontalAlignment="Stretch"
+                                  HorizontalContentAlignment="Stretch">
+                    <controls3:StatusBar x:Name="statusBar" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="25" HorizontalAlignment="Stretch"/>
+                </controls1:DropShadowPanel>
+                
+                <RichEditBox x:Name="RichEditBox" 
+                     Grid.Row="2" 
                      HorizontalAlignment="Stretch" 
                      VerticalAlignment="Stretch" 
                      BorderBrush="{x:Null}"
@@ -83,9 +103,9 @@
                      Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
                      Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}">
-        </RichEditBox>
-        <TextBox x:Name="TextBox"
-                 Grid.Row="3"
+                </RichEditBox>
+                <TextBox x:Name="TextBox"
+                 Grid.Row="2"
                  AcceptsReturn="True"
                  HorizontalAlignment="Stretch"
                  HorizontalTextAlignment="Start"
@@ -105,17 +125,8 @@
                  Text="{x:Bind ViewModel.Text, Mode=OneWay}"
                  Visibility="{x:Bind converters:Converter.VisibleIfNotRtf(ViewModel.CurrentFileType), Mode=OneWay}"
             >
-        </TextBox>
-        <controls1:DropShadowPanel Canvas.ZIndex="75"
-                                  ShadowOpacity="0.3"
-                                  OffsetX="0"
-                                  OffsetY="1"
-                                  Grid.Row="4"
-                                  Visibility="{x:Bind Settings.ShowStatusBar, Converter={StaticResource Converter}}"
-                                  HorizontalAlignment="Stretch"
-                                  HorizontalContentAlignment="Stretch">
-            <controls3:StatusBar x:Name="statusBar" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="25" HorizontalAlignment="Stretch"/>
-        </controls1:DropShadowPanel>
-
+                </TextBox>
+            </Grid>
+        </SplitView>
     </Grid>
 </Page>
