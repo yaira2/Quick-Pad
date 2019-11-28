@@ -16,6 +16,16 @@
 
     <Grid HorizontalAlignment="Center" Width="230" Height="190">
         <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="Button">
+                    <Setter Property="BorderBrush">
+                        <Setter.Value>
+                            <SolidColorBrush Color="{x:Bind VisualThemeSelector.CurrentItem.DefaultTextForeground, Mode=OneWay}" Opacity=".5"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="BorderThickness" Value=".5"/>
+                </Style>
+            </StackPanel.Resources>
             <StackPanel Orientation="Vertical">
                 <Button Height="30" Width="30" Margin="4" CornerRadius="0">
                     <winui:Button.Background>

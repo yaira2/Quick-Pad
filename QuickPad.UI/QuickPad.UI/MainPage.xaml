@@ -12,6 +12,7 @@
     xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
     mc:Ignorable="d"  
     KeyUp="MainPage_OnKeyUp"
+    RequestedTheme="{x:Bind VisualThemeSelector.CurrentItem.Theme, Mode=OneWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <converters:Converter x:Key="Converter" />
