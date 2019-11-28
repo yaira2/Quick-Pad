@@ -331,6 +331,8 @@ namespace QuickPad.UI
                     TextBox.SelectionLength = length;
                     FocusManager.TryFocusAsync(TextBox, FocusState.Programmatic);
                 }
+
+                Reindex();
             }
             catch (Exception ex)
             {
