@@ -142,6 +142,15 @@ namespace QuickPad.UI
                 await LoadFromFile(ViewModel, FileToLoad);
                 FileToLoad = null;
             }
+
+            if (ViewModel.CurrentFileType == ".rtf")
+            {
+                RichEditBox.Focus(FocusState.Programmatic);
+            }
+            else
+            {
+                TextBox.Focus(FocusState.Programmatic);
+            }
         }
 
         public event Func<DocumentViewModel, StorageFile, Task> LoadFromFile;
