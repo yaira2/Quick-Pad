@@ -318,7 +318,7 @@
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="translated">Restorer le zomm par défaut</target>
+          <target state="translated">Restorer le zoom par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
