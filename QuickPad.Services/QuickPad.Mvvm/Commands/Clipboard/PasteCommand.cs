@@ -135,9 +135,10 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                 void UpdateClipboard()
                 {
                     var dataPackage = new DataPackage();
+                    string text = null;
                     if (_settings.PasteTextOnly)
                     {
-                        var text = GetText();
+                        text = GetText();
                         if(text != null) dataPackage.SetText(text);
                     }
                     else
@@ -145,12 +146,12 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                         dataPackage = new DataPackage();
                         if (clipboardContent.Contains(StandardDataFormats.Rtf))
                         {
-                            var text = GetRtf();
+                            text = GetRtf();
                             if (text != null) dataPackage.SetRtf(text);
                         }
                         else if (clipboardContent.Contains(StandardDataFormats.Text))
                         {
-                            var text = GetText();
+                            text = GetText();
                             if (text != null) dataPackage.SetText(text);
                         }
                     }
@@ -158,9 +159,9 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                     var canPasteText = false;
                     try
                     {
+                        if (text == null) return;
                         Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
                         Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
-                        Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged += ClipboardStatusUpdate;
                         canPasteText = clipboardContent.Contains(StandardDataFormats.Text);
                     }
                     catch (Exception e)
@@ -169,6 +170,7 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                     }
                     finally
                     {
+                        Windows.ApplicationModel.DataTransfer.Clipboard.ContentChanged += ClipboardStatusUpdate;
                         CanPasteText = canPasteText;
                     }
                 }
