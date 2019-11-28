@@ -10,7 +10,7 @@
     mc:Ignorable="d"
     d:DesignWidth="400">
 
-    <Grid Margin="20,0,20,20">
+    <Grid Margin="20,0,20,20" >
         <Grid.Resources>
             <Style TargetType="TextBlock">
                 <Setter Property="Margin" Value="0,8,0,4"/>
