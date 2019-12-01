@@ -225,10 +225,6 @@
     <value>Cut</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DateTime.Text" xml:space="preserve">
-    <value>Date/Time</value>
-    <comment>Used on Menu Item</comment>
-  </data>
   <data name="DefaultFileEncoding.Text" xml:space="preserve">
     <value>Default File Encoding</value>
     <comment>Used on Settings Page</comment>
@@ -704,5 +700,9 @@
   <data name="ContributeToDeveloper.Text" xml:space="preserve">
     <value>Contribute to the developer</value>
     <comment>Used on Settings Page</comment>
+  </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>Time/Date</value>
+    <comment>Used on Menu Item</comment>
   </data>
 </root>
