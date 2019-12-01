@@ -123,7 +123,9 @@
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Search with Bing..." AccessKey="S" x:Uid="SearchBing">
+                <MenuFlyoutItem Text="Search with Bing..." AccessKey="S" x:Uid="SearchBing"
+                                Command="{x:Bind Commands.SearchWithBing}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12B;" />
                     </MenuFlyoutItem.Icon>
@@ -212,8 +214,7 @@
                 <MenuFlyoutItem Text="Fonts..." AccessKey="F" x:Uid="Fonts">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Font"/>
-                    </MenuFlyoutItem.Icon>
-                    
+                    </MenuFlyoutItem.Icon>                    
                 </MenuFlyoutItem>
             </MenuBarItem>
             <MenuBarItem Title="View" AccessKey="V" x:Uid="View">
