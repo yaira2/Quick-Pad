@@ -183,6 +183,11 @@ namespace QuickPad.Mvc
 
             private static async Task LoadDocument(DocumentViewModel documentViewModel)
             {
+                if (documentViewModel.IsDirty)
+                {
+                    if ((await AskSaveDocument(documentViewModel, false)) == SaveState.Canceled) return;
+                }
+
                 documentViewModel.HoldUpdates();
 
                 var loadPicker = new FileOpenPicker
