@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using QuickPad.Mvvm.ViewModels;
 using Windows.Services.Store;
 using QuickPad.Mvvm.Views;
+using System.Globalization;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
@@ -123,13 +124,14 @@ namespace QuickPad.Mvvm.Commands.Actions
         }
     }
 
-    public class InsertDateTimeCommand : SimpleCommand<DocumentViewModel>
+    public class InsertTimeDateCommand : SimpleCommand<DocumentViewModel>
     {
-        public InsertDateTimeCommand()
+        public InsertTimeDateCommand()
         {
             Executioner = documentViewModel =>
             {
-                documentViewModel.SelectedText = DateTimeOffset.Now.LocalDateTime.ToString("g");
+                var current = CultureInfo.CurrentUICulture.DateTimeFormat;
+                documentViewModel.SelectedText = DateTime.Now.ToString(current.ShortTimePattern) + " " + DateTime.Now.ToString(current.ShortDatePattern);
                 return Task.CompletedTask;
             };
         }
