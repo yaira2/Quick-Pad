@@ -64,6 +64,8 @@ namespace QuickPad.UI
             Logger = logger;
             Commands = command;
 
+            GotFocus += OnGotFocus;
+
             App.Controller.AddView(this);
 
             Initialize?.Invoke(this, Commands);
@@ -96,6 +98,11 @@ namespace QuickPad.UI
 
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
+        }
+
+        private void OnGotFocus(object sender, RoutedEventArgs e)
+        {
+            GainedFocus?.Invoke(e);
         }
 
         private void CommandBarOnSetFontSize(double fontSize)
@@ -157,6 +164,7 @@ namespace QuickPad.UI
         }
 
         public event Func<DocumentViewModel, StorageFile, Task> LoadFromFile;
+        public event Action<RoutedEventArgs> GainedFocus;
 
         private async Task SetOverlayMode(string mode)
         {

@@ -137,6 +137,7 @@
     <Compile Include="Commands\Actions\FocusCommand.cs" />
     <Compile Include="Commands\Actions\ImportSettingsCommand.cs" />
     <Compile Include="Commands\Actions\ResetSettingsCommand.cs" />
+    <Compile Include="Commands\Actions\ShareCommand.cs" />
     <Compile Include="Commands\Actions\ShowCommandBarCommand.cs" />
     <Compile Include="Commands\Actions\CompactOverlay.cs" />
     <Compile Include="Commands\Actions\ShowMenusCommand.cs" />

@@ -223,13 +223,14 @@ namespace QuickPad.Mvvm.ViewModels
             QuickPadCommands.NotifyAll(this, Settings);
         }
 
+        // Gets raw text from document, not formatted with control characters.
         public string Text
         {
             get
             {
                 if (IsRtf)
                 {
-                    Document?.GetText(GetOption, out _text);
+                    Document?.GetText(DEFAULT_TEXT_GET_OPTIONS_TXT, out _text);
                 }
 
                 return _text ??= string.Empty;
@@ -238,7 +239,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 if (IsRtf)
                 {
-                    Document?.SetText(SetOption, value);
+                    Document?.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);
                 }
 
                 if (Set(ref _text, value))
@@ -432,6 +433,28 @@ namespace QuickPad.Mvvm.ViewModels
                 if (Set(ref _showReplace, value) && value)
                 {
                     ShowFind = true;
+                }
+            }
+        }
+
+        public string RtfText
+        {
+            get
+            {
+                if (!IsRtf) return Text;
+
+                Document.GetText(DEFAULT_TEXT_GET_OPTIONS_RTF, out var rtf);
+
+                return rtf;
+            }
+            set
+            {
+                if (!IsRtf) Text = value;
+                else if (value != RtfText)
+                {
+                    Document.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);
+
+                    CalculateHash(_text);
                 }
             }
         }

@@ -29,7 +29,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> SaveAsCommand { get; } = new SimpleCommand<DocumentViewModel>();
         public SimpleCommand<DocumentViewModel> LoadCommand { get; } = new SimpleCommand<DocumentViewModel>();
         public SimpleCommand<DocumentViewModel> NewDocumentCommand { get; } = new SimpleCommand<DocumentViewModel>();
-        public SimpleCommand<DocumentViewModel> ShareCommand { get; } = new SimpleCommand<DocumentViewModel>();
+        public SimpleCommand<DocumentViewModel> ShareCommand { get; } = new ShareCommand();
         public SimpleCommand<DocumentViewModel> ExitCommand { get; } = new SimpleCommand<DocumentViewModel>();
 
         public SimpleCommand<DocumentViewModel> UndoCommand { get; } = new UndoCommand();
