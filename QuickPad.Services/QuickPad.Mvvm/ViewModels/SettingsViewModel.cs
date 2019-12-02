@@ -137,9 +137,13 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         [JsonIgnore]
-        public SolidColorBrush StatusTextColor { get; set; } = new SolidColorBrush(Colors.White);
+        public SolidColorBrush StatusTextColor
+        {
+            get => _statusTextColor ??= DefaultStatusColor;
+            set => _statusTextColor = value;
+        }
 
-        public SolidColorBrush DefaultStatusColor { get; set; } = new SolidColorBrush(Colors.White);
+        public SolidColorBrush DefaultStatusColor => Application.Current.Resources["SystemControlForegroundBaseMediumHighBrush"] as SolidColorBrush;
 
         public enum Verbosity { Debug, Release, Error }
 
@@ -310,8 +314,7 @@ namespace QuickPad.Mvvm.ViewModels
         private string _currentMode;
         private string _currentModeText;
         private TimeSpan _countdown;
-        private bool _showFind;
-        private bool _showReplace;
+        private SolidColorBrush _statusTextColor;
 
         [JsonIgnore]
         public string CurrentMode

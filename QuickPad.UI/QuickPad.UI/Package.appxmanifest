@@ -13,7 +13,7 @@
   
   <Identity
     Name="49306atecsolution.QuickPad"
-    Publisher="CN=Leisvan"
+    Publisher="CN=kingd"
     Version="4.3.52.0" />
 
   <mp:PhoneIdentity PhoneProductId="e8f74566-491c-47fd-9ec2-73a9fc1f28a5" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>

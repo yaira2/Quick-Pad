@@ -59,11 +59,10 @@ namespace QuickPad.Mvvm.Commands.Actions
     {
         public FindNextCommand()
         {
-            Executioner = documentViewModel =>
+            Executioner = async documentViewModel =>
             {
                 var findAndReplace = documentViewModel.FindAndReplaceViewModel;
-                findAndReplace.FindNext(documentViewModel);
-                return Task.CompletedTask;
+                await findAndReplace.FindNext(documentViewModel);
             };
         }
     }
@@ -72,13 +71,12 @@ namespace QuickPad.Mvvm.Commands.Actions
     {
         public FindPreviousCommand()
         {
-            Executioner = documentViewModel =>
+            Executioner = async documentViewModel =>
             {
                 try
                 {
                     var findAndReplace = documentViewModel.FindAndReplaceViewModel;
-                    findAndReplace.FindPrevious(documentViewModel);
-                    return Task.CompletedTask;
+                    await findAndReplace.FindPrevious(documentViewModel);
                 }
                 finally
                 {
@@ -92,12 +90,11 @@ namespace QuickPad.Mvvm.Commands.Actions
     {
         public ReplaceNextCommand()
         {
-            Executioner = documentViewModel =>
+            Executioner = async documentViewModel =>
             {
                 var findAndReplace = documentViewModel.FindAndReplaceViewModel;
-                var result = findAndReplace.ReplaceNext(documentViewModel);
+                var result = await findAndReplace.ReplaceNext(documentViewModel);
                 if (result.start > -1) documentViewModel.Text = result.text;
-                return Task.CompletedTask;
             };
         }
     }
@@ -106,12 +103,11 @@ namespace QuickPad.Mvvm.Commands.Actions
     {
         public ReplaceAllCommand()
         {
-            Executioner = documentViewModel =>
+            Executioner = async documentViewModel =>
             {
                 var findAndReplace = documentViewModel.FindAndReplaceViewModel;
-                var results = findAndReplace.ReplaceAll(documentViewModel);
+                var results = await findAndReplace.ReplaceAll(documentViewModel);
                 if (results.Length > 0) documentViewModel.Text = results.Last().text;
-                return Task.CompletedTask;
             };
         }
     }
@@ -120,10 +116,9 @@ namespace QuickPad.Mvvm.Commands.Actions
     {
         public SelectAllCommand()
         {
-            Executioner = documentViewModel =>
+            Executioner = async documentViewModel =>
             {
-                documentViewModel.SelectText(0, documentViewModel.Text.Length);
-                return Task.CompletedTask;
+                await documentViewModel.SelectText(0, documentViewModel.Text.Length);
             };
         }
     }

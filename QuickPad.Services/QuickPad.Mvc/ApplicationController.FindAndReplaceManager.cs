@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Core;
 using QuickPad.Mvvm.ViewModels;
@@ -13,14 +14,14 @@ namespace QuickPad.Mvc
     {
         private static class FindAndReplaceManager
         {
-            public static (string text, string match, int start, int length)[] ReplaceAll(SettingsViewModel settings, string text, DocumentViewModel arg)
+            public static async Task<(string text, string match, int start, int length)[]> ReplaceAll(SettingsViewModel settings, string text, DocumentViewModel arg)
             {
-                arg.SelectText(0, 0);
+                await arg.SelectText(0, 0);
                 (string text, string match, int start, int length) current = default;
 
                 var results = new List<(string text, string match, int start, int length)>();
 
-                while ((current = ReplaceNext(settings, text, arg)).start > -1)
+                while ((current = await ReplaceNext(settings, text, arg)).start > -1)
                 {
                     text = current.text;
                     results.Add(current);
@@ -29,9 +30,9 @@ namespace QuickPad.Mvc
                 return results.ToArray();
             }
 
-            public static (string text, string match, int start, int length) ReplaceNext(SettingsViewModel settings, string text, DocumentViewModel arg)
+            public static async Task<(string text, string match, int start, int length)> ReplaceNext(SettingsViewModel settings, string text, DocumentViewModel arg)
             {
-                var (txt, match, start, length) = SearchNext(settings, text, arg);
+                var (txt, match, start, length) = await SearchNext(settings, text, arg);
 
                 if (start > -1)
                 {
@@ -46,7 +47,7 @@ namespace QuickPad.Mvc
                 return (txt, match, start, length);
             }
 
-            public static (string text, string match, int start, int length) SearchPrevious(SettingsViewModel settings, string text, DocumentViewModel arg)
+            public static async Task<(string text, string match, int start, int length)> SearchPrevious(SettingsViewModel settings, string text, DocumentViewModel arg)
             {
                 if (string.IsNullOrWhiteSpace(arg.FindAndReplaceViewModel.SearchPattern))
                     return default;
@@ -65,12 +66,12 @@ namespace QuickPad.Mvc
                 if (result.start == -1) return result;
 
                 result.text = txt;
-                arg.SelectText(result.start, result.length);
+                await arg.SelectText(result.start, result.length);
 
                 return result;
             }
 
-            public static (string text, string match, int start, int length) SearchNext(SettingsViewModel settings, string text,
+            public static async Task<(string text, string match, int start, int length)> SearchNext(SettingsViewModel settings, string text,
                 DocumentViewModel arg)
             {
                 if (string.IsNullOrWhiteSpace(arg.FindAndReplaceViewModel.SearchPattern))
@@ -91,7 +92,7 @@ namespace QuickPad.Mvc
 
                 result.text = txt;
                 result.start += start + 1;
-                arg.SelectText(result.start, result.length);
+                await arg.SelectText(result.start, result.length);
 
                 return result;
             }

@@ -253,7 +253,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestoreDefaultZoom.Text" xml:space="preserve">
-    <value>Restorer le zomm par défaut</value>
+    <value>Restorer le zoom par défaut</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Save.Text" xml:space="preserve">

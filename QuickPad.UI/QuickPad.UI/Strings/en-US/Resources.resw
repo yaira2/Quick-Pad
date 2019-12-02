@@ -705,4 +705,8 @@
     <value>Contribute to the developer</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Untitled</value>
+    <comment>Used on Title Bar</comment>
+  </data>
 </root>

@@ -69,6 +69,8 @@ namespace QuickPad.Mvc
 
             private static Task NewDocument(DocumentViewModel documentViewModel)
             {
+                documentViewModel.Initialize = async viewModel => { await viewModel.InitNewDocument(); };
+
                 documentViewModel.Initialize(documentViewModel);
 
                 Settings.Status($"New document initialized.", TimeSpan.FromSeconds(10),
@@ -280,7 +282,7 @@ namespace QuickPad.Mvc
                     // Dropdown of file types the user can save the file as
 
                     // Default file name if the user does not type one in or select a file to replace
-                    savePicker.SuggestedFileName = documentViewModel.File?.DisplayName ?? "Untitled";
+                    savePicker.SuggestedFileName = documentViewModel.File?.DisplayName ?? DocumentViewModel.Untitled;
 
                     var file = await savePicker.PickSaveFileAsync();
 

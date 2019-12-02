@@ -315,7 +315,7 @@ namespace QuickPad.UI
                 : (TextBox.SelectionStart, TextBox.SelectionLength);
         }
 
-        private void ViewModelOnSetSelection(int start, int length)
+        private async Task ViewModelOnSetSelection(int start, int length)
         {
             try
             {
@@ -323,13 +323,13 @@ namespace QuickPad.UI
                 {
                     _viewModel.Document.Selection.StartPosition = start;
                     _viewModel.Document.Selection.EndPosition = start + length;
-                    FocusManager.TryFocusAsync(RichEditBox, FocusState.Programmatic);
+                    await FocusManager.TryFocusAsync(RichEditBox, FocusState.Programmatic);
                 }
                 else
                 {
                     TextBox.SelectionStart = start;
                     TextBox.SelectionLength = length;
-                    FocusManager.TryFocusAsync(TextBox, FocusState.Programmatic);
+                    await FocusManager.TryFocusAsync(TextBox, FocusState.Programmatic);
                 }
 
                 Reindex();

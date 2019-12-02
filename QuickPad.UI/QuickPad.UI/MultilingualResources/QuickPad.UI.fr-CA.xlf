@@ -742,6 +742,11 @@
           <target state="new">New (Ctrl+N)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
+        <trans-unit id="Untitled" translate="yes" xml:space="preserve">
+          <source>Untitled</source>
+          <target state="new">Untitled</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
+        </trans-unit>
       </group>
     </body>
   </file>

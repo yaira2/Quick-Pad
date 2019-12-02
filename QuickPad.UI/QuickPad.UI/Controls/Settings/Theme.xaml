@@ -28,7 +28,7 @@
                         <StackPanel Spacing="5" Orientation="Horizontal">
                             <Grid Width="36" Height="36" Margin="0,8,8,8" BorderThickness=".5">
                                 <Grid.BorderBrush>
-                                    <SolidColorBrush Color="{x:Bind DefaultTextForeground, Mode=OneWay}" Opacity=".5"/>
+                                    <SolidColorBrush Color="{x:Bind DefaultTextForeground}" Opacity=".5"/>
                                 </Grid.BorderBrush>
                                 <Rectangle Fill="{x:Bind PreviewBrush}"/>
                                 <Rectangle>

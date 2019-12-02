@@ -48,9 +48,8 @@ namespace QuickPad.Mvvm.ViewModels
         private string _text;
         private bool _canUndo;
         private bool _canRedo;
-        private string _selectedText;
 
-        private Timer timer;
+        private readonly Timer timer;
         private IFindAndReplaceView _findAndReplaceViewModel;
         private bool _showFind;
         private bool _showReplace;
@@ -71,9 +70,12 @@ namespace QuickPad.Mvvm.ViewModels
 
             RichTextDescription = _resourceLoader.GetString("RichTextDescription");
             TextDescription = _resourceLoader.GetString("TextDescription");
+            Untitled = _resourceLoader.GetString("Untitled");
 
             timer = new Timer(AutoSaveTimer);
         }
+
+        public static string Untitled { get; private set; }
 
         public IFindAndReplaceView FindAndReplaceViewModel
         {
@@ -173,11 +175,21 @@ namespace QuickPad.Mvvm.ViewModels
 
         public bool CurrentWordWrap
         {
-            get => _currentWordWrap;
-            set => Set(ref _currentWordWrap, value);
+            get => IsRtf ? Settings.RtfWordWrap : Settings.WordWrap;
+            set
+            {
+                if(IsRtf)
+                {
+                    Settings.RtfWordWrap = value;
+                }
+                else
+                {
+                    Settings.WordWrap = value;
+                }
+            }
         }
 
-        public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? "Untitled")} ").Trim();
+        public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? Untitled)} ").Trim();
 
         public void TextChanged(object sender, RoutedEventArgs e)
         {
@@ -235,12 +247,15 @@ namespace QuickPad.Mvvm.ViewModels
         public event Func<(int start, int length)> GetPosition;
         public event Action<string> SetSelectedText;
 
-        public void SelectText(int start, int length)
+        public async Task SelectText(int start, int length)
         {
-            SetSelection?.Invoke(start, length);
+            if(SetSelection != null)
+            {
+                await SetSelection?.Invoke(start, length);
+            }
         }
 
-        public event Action<int, int> SetSelection;
+        public event Func<int, int, Task> SetSelection;
 
         private void CalculateHash(string text)
         {

@@ -21,7 +21,6 @@ namespace QuickPad.UI.Common.Theme
         private readonly ResourceLoader _loader = ResourceLoader.GetForViewIndependentUse();
         private const string LIGHT_KEY = "light";
         private const string DARK_KEY = "dark";
-        private static VisualThemeSelector _default;
         private readonly SettingsViewModel _settingsViewModel;
         private readonly List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;

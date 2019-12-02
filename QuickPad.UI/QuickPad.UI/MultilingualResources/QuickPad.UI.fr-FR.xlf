@@ -741,6 +741,11 @@
           <target state="translated">Contribuer au développeur</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
+        <trans-unit id="Untitled" translate="yes" xml:space="preserve">
+          <source>Untitled</source>
+          <target state="new">Untitled</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
+        </trans-unit>
       </group>
     </body>
   </file>
