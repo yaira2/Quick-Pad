@@ -125,6 +125,7 @@
                  FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
                  Text="{x:Bind ViewModel.Text, Mode=OneWay}"
                  Visibility="{x:Bind converters:Converter.VisibleIfNotRtf(ViewModel.CurrentFileType), Mode=OneWay}"
+                 KeyDown="TextBox_OnKeyDown"
             >
                 </TextBox>
             </Grid>

@@ -120,10 +120,6 @@
     <value>Cortar</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DateTime.Text" xml:space="preserve">
-    <value>Fecha/Hora</value>
-    <comment>Used on Menu Item</comment>
-  </data>
   <data name="DefaultFileEncoding.Text" xml:space="preserve">
     <value>Codificación de archivo por defecto</value>
     <comment>Used on Settings Page</comment>

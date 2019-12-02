@@ -486,5 +486,15 @@ namespace QuickPad.UI
                 ViewModel.ResetTimer();
             }
         }
+
+        private async void TextBox_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        {
+            if (e.Key != VirtualKey.Tab || Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift)
+                    .HasFlag(CoreVirtualKeyStates.Down)) return;
+
+            await ViewModel.AddTab();
+
+            e.Handled = true;
+        }
     }
 }

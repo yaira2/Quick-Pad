@@ -120,10 +120,6 @@
     <value>Couper</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DateTime.Text" xml:space="preserve">
-    <value>Date/Heure</value>
-    <comment>Used on Menu Item</comment>
-  </data>
   <data name="DefaultFileEncoding.Text" xml:space="preserve">
     <value>Encodage par défaut du fichier</value>
     <comment>Used on Settings Page</comment>

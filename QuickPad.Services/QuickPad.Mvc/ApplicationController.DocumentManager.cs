@@ -49,9 +49,9 @@ namespace QuickPad.Mvc
             internal static SettingsViewModel Settings { get; set; }
 
 
-            internal static Task<bool> DocumentViewExitApplication(DocumentViewModel documentViewModel)
+            internal static async Task<bool> DocumentViewExitApplication(DocumentViewModel documentViewModel)
             {
-                return ExitApp(documentViewModel);
+                return await ExitApp(documentViewModel) != SaveState.Canceled;
             }
 
             internal static void Initializer(IDocumentView documentView, QuickPadCommands commands)
@@ -67,16 +67,25 @@ namespace QuickPad.Mvc
                 documentView.ViewModel.Initialize = async viewModel => { await viewModel.InitNewDocument(); };
             }
 
-            private static Task NewDocument(DocumentViewModel documentViewModel)
+            private static async Task NewDocument(DocumentViewModel documentViewModel)
             {
-                documentViewModel.Initialize = async viewModel => { await viewModel.InitNewDocument(); };
+                var canceled = false;
+                if (documentViewModel.IsDirty)
+                {
+                    var saved = await AskSaveDocument(documentViewModel, false);
+                    canceled = saved == SaveState.Canceled;
+                }
 
-                documentViewModel.Initialize(documentViewModel);
+                if(!canceled)
+                {
+                    documentViewModel.Initialize = async viewModel => 
+                        { await viewModel.InitNewDocument(); };
 
-                Settings.Status($"New document initialized.", TimeSpan.FromSeconds(10),
-                    SettingsViewModel.Verbosity.Debug);
+                    documentViewModel.Initialize(documentViewModel);
 
-                return Task.CompletedTask;
+                    Settings.Status("New document initialized.", TimeSpan.FromSeconds(10),
+                        SettingsViewModel.Verbosity.Debug);
+                }
             }
 
             private static Task ExitApplication(DocumentViewModel documentViewModel)
@@ -84,16 +93,21 @@ namespace QuickPad.Mvc
                 return ExitApp(documentViewModel);
             }
 
-            private static Task<bool> ExitApp(DocumentViewModel documentViewModel)
+            private static Task<SaveState> ExitApp(DocumentViewModel documentViewModel)
             {
                 Settings.ShowSettings = false;
 
                 return documentViewModel.IsDirty
-                    ? AskSaveDocument(documentViewModel)
-                    : Task.FromResult(Close(documentViewModel));
+                    ? AskSaveDocument(documentViewModel, true)
+                    : Task.FromResult(Close(documentViewModel) == DeferredState.Deferred ? SaveState.Saved : SaveState.Unsaved);
             }
 
-            private static bool Close(DocumentViewModel documentViewModel)
+            public enum DeferredState
+            {
+                NotDeferred, Deferred
+            }
+
+            private static DeferredState Close(DocumentViewModel documentViewModel)
             {
                 if (documentViewModel.Deferral != null)
                 {
@@ -102,6 +116,7 @@ namespace QuickPad.Mvc
                     try
                     {
                         documentViewModel.Deferral.Complete();
+                        return DeferredState.Deferred;
                     }
                     catch (ObjectDisposedException)
                     {
@@ -114,21 +129,39 @@ namespace QuickPad.Mvc
                     documentViewModel.ExitApplication?.Invoke();
                 }
 
-                return documentViewModel.Deferred;
+                return DeferredState.NotDeferred;
             }
 
-            private static async Task<bool> AskSaveDocument(DocumentViewModel documentViewModel)
+            public enum SaveState
             {
-                if (!documentViewModel.IsDirty) return Close(documentViewModel);
+                Canceled, Saved, Unsaved, DeferredSaved, UnDeferredSaved, DeferredNotSaved, UnDeferredNotSaved
+            }
 
-                async Task<bool> Yes()
+            private static async Task<SaveState> AskSaveDocument(DocumentViewModel documentViewModel, bool isClosing = true)
+            {
+                if (!documentViewModel.IsDirty && isClosing) 
+                    return (Close(documentViewModel) == DeferredState.Deferred 
+                        ? SaveState.DeferredSaved 
+                        : SaveState.UnDeferredSaved);
+
+                async Task<SaveState> Yes()
                 {
-                    if (await SaveDocument(documentViewModel))
-                    {
-                        return Close(documentViewModel);
-                    }
+                    var saved = await SaveDocument(documentViewModel);
 
-                    return false;
+                    return saved switch
+                    {
+                        SaveState.Saved => (isClosing 
+                            ? (Close(documentViewModel) == DeferredState.Deferred
+                                ? SaveState.DeferredSaved
+                                : SaveState.UnDeferredSaved) 
+                            : SaveState.Saved),
+                        SaveState.Unsaved => (isClosing 
+                            ? (Close(documentViewModel) == DeferredState.Deferred
+                                ? SaveState.DeferredNotSaved
+                                : SaveState.UnDeferredNotSaved) 
+                            : SaveState.Unsaved),
+                        _ => saved
+                    };
                 }
 
                 var dialog = ServiceProvider.GetService<AskToSave>();
@@ -138,9 +171,13 @@ namespace QuickPad.Mvc
 
                 return result switch
                 {
-                    ContentDialogResult.Primary => documentViewModel.Deferred = await Yes(),
-                    ContentDialogResult.Secondary => documentViewModel.Deferred = Close(documentViewModel),
-                    _ => false
+                    ContentDialogResult.Primary => await Yes(),
+                    ContentDialogResult.Secondary => (isClosing 
+                        ? (Close(documentViewModel) == DeferredState.Deferred 
+                            ? SaveState.DeferredNotSaved 
+                            : SaveState.UnDeferredNotSaved) 
+                        : SaveState.Unsaved),
+                    _ => SaveState.Canceled
                 };
             }
 
@@ -237,17 +274,17 @@ namespace QuickPad.Mvc
                 documentViewModel.IsDirty = false;
             }
 
-            private static Task<bool> SaveDocument(DocumentViewModel documentViewModel)
+            private static Task<SaveState> SaveDocument(DocumentViewModel documentViewModel)
             {
                 return SaveDocument(documentViewModel, false);
             }
 
-            private static Task<bool> SaveAsDocument(DocumentViewModel documentViewModel)
+            private static Task<SaveState> SaveAsDocument(DocumentViewModel documentViewModel)
             {
                 return SaveDocument(documentViewModel, true);
             }
 
-            private static async Task<bool> SaveDocument(DocumentViewModel documentViewModel, bool saveAs)
+            private static async Task<SaveState> SaveDocument(DocumentViewModel documentViewModel, bool saveAs)
             {
                 documentViewModel.HoldUpdates();
 
@@ -286,7 +323,7 @@ namespace QuickPad.Mvc
 
                     var file = await savePicker.PickSaveFileAsync();
 
-                    if (file == null) return false;
+                    if (file == null) return SaveState.Canceled;
                     documentViewModel.File = file;
                 }
 
@@ -306,7 +343,7 @@ namespace QuickPad.Mvc
                 Settings.Status($"Saved {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
                     SettingsViewModel.Verbosity.Release);
 
-                return true;
+                return SaveState.Saved;
             }
 
             private enum ByteOrderMark

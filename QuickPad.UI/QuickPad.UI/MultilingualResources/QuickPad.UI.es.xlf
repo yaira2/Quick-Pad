@@ -141,11 +141,6 @@
           <target state="translated">Cortar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="DateTime.Text" translate="yes" xml:space="preserve">
-          <source>Date/Time</source>
-          <target state="translated">Fecha/Hora</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-        </trans-unit>
         <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
           <source>Default File Encoding</source>
           <target state="needs-review-translation">Codificación de archivo por defecto</target>
@@ -747,6 +742,11 @@
           <source>Untitled</source>
           <target state="new">Untitled</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
+        </trans-unit>
+        <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
+          <source>Time/Date</source>
+          <target state="new">Time/Date</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
       </group>
     </body>

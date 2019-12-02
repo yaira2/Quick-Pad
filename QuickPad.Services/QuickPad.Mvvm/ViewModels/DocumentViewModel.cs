@@ -90,7 +90,7 @@ namespace QuickPad.Mvvm.ViewModels
         //public SettingsViewModel Settings => ServiceProvider.GetService<SettingsViewModel>();
 
         public void InvokeFocusTextBox(FocusState focusState) => RequestFocusTextBox?.Invoke(focusState);
-        
+
         public event Action<FocusState> RequestFocusTextBox;
         public ITextDocument Document
         {
@@ -148,7 +148,7 @@ namespace QuickPad.Mvvm.ViewModels
                 if (!value)
                 {
                     CalculateHash(Text);
-                    _originalHash = _currentHash;                    
+                    _originalHash = _currentHash;
                 }
 
                 OnPropertyChanged();
@@ -178,7 +178,7 @@ namespace QuickPad.Mvvm.ViewModels
             get => IsRtf ? Settings.RtfWordWrap : Settings.WordWrap;
             set
             {
-                if(IsRtf)
+                if (IsRtf)
                 {
                     Settings.RtfWordWrap = value;
                 }
@@ -188,6 +188,25 @@ namespace QuickPad.Mvvm.ViewModels
                 }
             }
         }
+
+        public async Task AddTab()
+        {
+            // Add tab
+            if (SelectedText.Length > 0)
+            {
+                var currentPosition = CurrentPosition;
+                var text = '\t' + SelectedText;
+                text = text.Replace("\r", "\r\t").TrimEnd('\t');
+                SelectedText = text;
+                await SelectText(currentPosition.start + 1, currentPosition.length);
+            }
+            else
+            {
+                SelectedText = "\t";
+                await SelectText(CurrentPosition.start + 1, 0);
+            }
+        }
+
 
         public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? Untitled)} ").Trim();
 
@@ -217,7 +236,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
             set
             {
-                if(IsRtf)
+                if (IsRtf)
                 {
                     Document?.SetText(SetOption, value);
                 }
@@ -234,6 +253,13 @@ namespace QuickPad.Mvvm.ViewModels
             get
             {
                 var position = GetPosition?.Invoke() ?? default;
+
+                if (position.length < 0)
+                {
+                    position.start -= position.length;
+                    position.length = Math.Abs(position.length);
+                }
+
                 return Text.Substring(position.start, position.length);
             }
             set => SetSelectedText?.Invoke(value);
@@ -242,14 +268,18 @@ namespace QuickPad.Mvvm.ViewModels
         public bool IsRtf => (CurrentFileType ?? Settings.DefaultFileType)
             .Equals(RTF_EXTENSION, StringComparison.CurrentCultureIgnoreCase);
 
-        public (int start, int length) CurrentPosition => GetPosition?.Invoke() ?? (0, 0);
+        public (int start, int length) CurrentPosition
+        {
+            get => GetPosition?.Invoke() ?? (0, 0);
+            set => SetSelection?.Invoke(value.start, value.length);
+        }
 
         public event Func<(int start, int length)> GetPosition;
         public event Action<string> SetSelectedText;
 
         public async Task SelectText(int start, int length)
         {
-            if(SetSelection != null)
+            if (SetSelection != null)
             {
                 await SetSelection?.Invoke(start, length);
             }
@@ -324,13 +354,23 @@ namespace QuickPad.Mvvm.ViewModels
 
             try
             {
-                var memoryStream = new InMemoryRandomAccessStream();
-                var bytes = Encoding.UTF8.GetBytes("\r");
-                var buffer = bytes.AsBuffer();
-                await memoryStream.WriteAsync(buffer);
+                if (IsRtf)
+                {
+                    var memoryStream = new InMemoryRandomAccessStream();
+                    var bytes = Encoding.UTF8.GetBytes("\r");
+                    var buffer = bytes.AsBuffer();
+                    await memoryStream.WriteAsync(buffer);
 
-                memoryStream.Seek(0);
-                Document?.LoadFromStream(SetOption, memoryStream);
+                    memoryStream.Seek(0);
+
+                    Document?.LoadFromStream(SetOption, memoryStream);
+                }
+                else
+                {
+                    Text = string.Empty;
+                }
+
+                CurrentPosition = (0, 0);
             }
             catch (Exception e)
             {
@@ -354,7 +394,7 @@ namespace QuickPad.Mvvm.ViewModels
         public Action ExitApplication { get; set; }
         public bool Deferred { get; set; }
 
-        public int CurrentLine  
+        public int CurrentLine
         {
             get => _currentLine;
             set => Set(ref _currentLine, value);
@@ -372,7 +412,8 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _canUndo, value);
         }
 
-        public bool CanRedo {
+        public bool CanRedo
+        {
             get => IsRtf ? Document.CanRedo() : _canRedo;
             set => Set(ref _canRedo, value);
         }
