@@ -198,7 +198,7 @@
         </trans-unit>
         <trans-unit id="FindNext.Text" translate="yes" xml:space="preserve">
           <source>Find Next</source>
-          <target state="new">Suivant</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Rechercher le suivant</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
@@ -298,7 +298,7 @@
         </trans-unit>
         <trans-unit id="Replace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Replace</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Remplacer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
@@ -738,7 +738,7 @@
         </trans-unit>
         <trans-unit id="Untitled" translate="yes" xml:space="preserve">
           <source>Untitled</source>
-          <target state="new">Untitled</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Sans titre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
         </trans-unit>
         <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">

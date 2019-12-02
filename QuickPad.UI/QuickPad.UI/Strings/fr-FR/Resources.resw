@@ -164,6 +164,10 @@
     <value>Rechercher</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="FindNext.Text" xml:space="preserve">
+    <value>Rechercher le suivant</value>
+    <comment>Used on Menu Item</comment>
+  </data>
   <data name="FindPrevious.Text" xml:space="preserve">
     <value>Précédent</value>
     <comment>Used on Menu Item</comment>
@@ -238,6 +242,10 @@
   </data>
   <data name="Redo.Text" xml:space="preserve">
     <value>Rétablir</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Replace.Text" xml:space="preserve">
+    <value>Remplacer</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Reset.Content" xml:space="preserve">
@@ -587,5 +595,9 @@
   <data name="ContributeToDeveloper.Text" xml:space="preserve">
     <value>Contribuer au développeur</value>
     <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Sans titre</value>
+    <comment>Used on Title Bar</comment>
   </data>
 </root>
