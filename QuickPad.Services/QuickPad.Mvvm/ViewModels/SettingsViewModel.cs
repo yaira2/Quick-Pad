@@ -262,7 +262,25 @@ namespace QuickPad.Mvvm.ViewModels
         public bool ShowSettings
         {
             get => _showSettings;
-            set => Set(ref _showSettings, value);
+            set
+            {
+                if (Set(ref _showSettings, value))
+                {
+                    ShowSettingsTab = SettingsTabs.General;
+                }
+            }
+        }
+
+        [JsonIgnore]
+        public SettingsTabs ShowSettingsTab 
+        {
+            get => _showSettingsTab;
+            set => Set(ref _showSettingsTab, value);
+        }
+
+        public enum SettingsTabs
+        {
+            General, Theme, Fonts, Advanced, About
         }
 
         [NotifyOnReset]
@@ -315,6 +333,7 @@ namespace QuickPad.Mvvm.ViewModels
         private string _currentModeText;
         private TimeSpan _countdown;
         private SolidColorBrush _statusTextColor;
+        private SettingsTabs _showSettingsTab = SettingsTabs.General;
 
         [JsonIgnore]
         public string CurrentMode

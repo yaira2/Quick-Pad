@@ -1,6 +1,7 @@
 ﻿using QuickPad.UI.Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -30,24 +31,52 @@ namespace QuickPad.UI.Controls.Settings
             this.InitializeComponent();
 
             SettingsFrame.Navigate(typeof(General), new SuppressNavigationTransitionInfo());
+
+            App.Settings.PropertyChanged += SettingsOnPropertyChanged;
+        }
+
+        private void SettingsOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(SettingsViewModel.ShowSettingsTab):
+                    settingNavView.SelectedItem = settingNavView.MenuItems[(int)App.Settings.ShowSettingsTab];
+                    ShowTab(App.Settings.ShowSettingsTab);
+                    break;
+            }
+        }
+
+        private Type ShowTab(SettingsViewModel.SettingsTabs settingsTab)
+        {
+            var pageType = settingsTab switch
+            {
+                SettingsViewModel.SettingsTabs.General => typeof(General),
+                SettingsViewModel.SettingsTabs.Theme => typeof(Theme),
+                SettingsViewModel.SettingsTabs.Fonts => typeof(Font),
+                SettingsViewModel.SettingsTabs.Advanced => typeof(Advanced),
+                SettingsViewModel.SettingsTabs.About => typeof(About),
+                _ => null
+            };
+
+            if (pageType != null)
+            {
+                SettingsFrame.Navigate(pageType, new SuppressNavigationTransitionInfo());
+            }
+
+            return pageType;
         }
 
         private void settingNavView_ItemInvoked(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewItemInvokedEventArgs args)
         {
-            var pageType = (args.InvokedItemContainer.Tag?.ToString()) switch
+            _ = args.InvokedItemContainer.Tag?.ToString() switch
             {
-                "General" => typeof(General),
-                "Theme" => typeof(Theme),
-                "Font" => typeof(Font),
-                "Advanced" => typeof(Advanced),
-                "About" => typeof(About),
+                "General" => ShowTab(SettingsViewModel.SettingsTabs.General),
+                "Theme" => ShowTab(SettingsViewModel.SettingsTabs.Theme),
+                "Font" => ShowTab(SettingsViewModel.SettingsTabs.Fonts),
+                "Advanced" => ShowTab(SettingsViewModel.SettingsTabs.Advanced),
+                "About" => ShowTab(SettingsViewModel.SettingsTabs.About),
                 _ => null
             };
-
-            if(pageType != null)
-            {
-                SettingsFrame.Navigate(pageType, new SuppressNavigationTransitionInfo());
-            }
         }
 
         private void settingNavView_BackRequested(Microsoft.UI.Xaml.Controls.NavigationView sender, Microsoft.UI.Xaml.Controls.NavigationViewBackRequestedEventArgs args)

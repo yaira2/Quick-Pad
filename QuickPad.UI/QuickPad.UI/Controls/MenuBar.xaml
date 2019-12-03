@@ -211,7 +211,9 @@
                     </ToggleMenuFlyoutItem.KeyboardAccelerators>
                 </ToggleMenuFlyoutItem>
                 <MenuFlyoutSeparator/>
-                <MenuFlyoutItem Text="Fonts..." AccessKey="F" x:Uid="Fonts">
+                <MenuFlyoutItem Text="Fonts..." AccessKey="F" x:Uid="Fonts" 
+                                Command="{x:Bind Commands.ShowFontsCommand}"
+                                CommandParameter="{x:Bind Settings}">
                     <MenuFlyoutItem.Icon>
                         <SymbolIcon Symbol="Font"/>
                     </MenuFlyoutItem.Icon>                    
