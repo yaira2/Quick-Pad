@@ -257,6 +257,14 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(value);
         }
 
+        public FlowDirection FlowDirection
+        {
+            get => FlowDirection.TryParse(Get(nameof(FlowDirection.LeftToRight)), out FlowDirection result)
+                ? result
+                : FlowDirection.LeftToRight;
+            set => Set(value.ToString());
+        }
+
         private bool _showSettings;
         [JsonIgnore]
         public bool ShowSettings

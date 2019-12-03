@@ -310,8 +310,10 @@ namespace QuickPad.UI
 
         private void ViewModelOnClearUndoRedo()
         {
-            TextBox.ClearUndoRedoHistory();
-            
+            if (TextBox.CanUndo || TextBox.CanRedo)
+            {
+                TextBox.ClearUndoRedoHistory();
+            }
         }
 
         private void ViewModelOnSetSelectedText(string text)
@@ -329,8 +331,8 @@ namespace QuickPad.UI
 
         private (int start, int length) ViewModelOnGetPosition()
         {
-            return _viewModel.IsRtf 
-                ? (_viewModel.Document.Selection.StartPosition, _viewModel.Document.Selection.Length) 
+            return _viewModel.IsRtf
+                ? (_viewModel.Document.Selection.StartPosition, _viewModel.Document.Selection.Length)
                 : (TextBox.SelectionStart, TextBox.SelectionLength);
         }
 
@@ -441,19 +443,22 @@ namespace QuickPad.UI
 
         private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
-            TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
-
-            ViewModel.Text = TextBox.Text;
-
-            Reindex();
-
-            TextBox_OnSelectionChanged(sender, e);
-
-            TextBox.SelectionChanged += TextBox_OnSelectionChanged;
-
-            if (Settings.AutoSave)
+            if (!ViewModel.IsRtf)
             {
-                ViewModel.ResetTimer();
+                TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
+
+                ViewModel.Text = TextBox.Text;
+
+                Reindex();
+
+                TextBox_OnSelectionChanged(sender, e);
+
+                TextBox.SelectionChanged += TextBox_OnSelectionChanged;
+
+                if (Settings.AutoSave)
+                {
+                    ViewModel.ResetTimer();
+                }
             }
         }
 
@@ -489,7 +494,7 @@ namespace QuickPad.UI
             LineIndices.Clear();
 
             var index = -1;
-            var text = TextBox.Text;
+            var text = ViewModel.Text;
             while ((index = text.IndexOf('\r', index + 1)) > -1)
             {
                 LineIndices.Add(index);
@@ -500,9 +505,14 @@ namespace QuickPad.UI
 
         private void RichEditBox_TextChanged(object sender, RoutedEventArgs e)
         {
-            if (Settings.AutoSave)
+            if(ViewModel.IsRtf)
             {
-                ViewModel.ResetTimer();
+                Reindex();
+
+                if (Settings.AutoSave)
+                {
+                    ViewModel.ResetTimer();
+                }
             }
         }
 

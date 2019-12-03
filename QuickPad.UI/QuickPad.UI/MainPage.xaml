@@ -11,6 +11,7 @@
     xmlns:controls2="using:QuickPad.UI.Controls.Settings"
     xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
     mc:Ignorable="d"  
+    FlowDirection="{x:Bind Settings.FlowDirection, Mode=OneWay}"
     KeyUp="MainPage_OnKeyUp"
     RequestedTheme="{x:Bind VisualThemeSelector.CurrentItem.Theme, Mode=OneWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">

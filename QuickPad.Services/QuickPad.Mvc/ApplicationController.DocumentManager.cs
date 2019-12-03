@@ -321,6 +321,7 @@ namespace QuickPad.Mvc
                     else
                     {
                         documentViewModel.Text = text;
+                        documentViewModel.InvokeClearUndoRedo();
                     }
 
                     documentViewModel.ReleaseUpdates();

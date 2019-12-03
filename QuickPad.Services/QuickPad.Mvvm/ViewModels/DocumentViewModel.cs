@@ -153,15 +153,12 @@ namespace QuickPad.Mvvm.ViewModels
                     _originalHash = _currentHash;
                 }
 
-                if (!IsDirty)
-                {
-                    ClearUndoRedo?.Invoke();
-                }
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Title));
             }
         }
 
+        public void InvokeClearUndoRedo() => ClearUndoRedo?.Invoke();
         public Action ClearUndoRedo;
 
         public Deferral Deferral { get; set; }
@@ -245,7 +242,10 @@ namespace QuickPad.Mvvm.ViewModels
             }
             set
             {
-                Document?.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);
+                if(!IsRtf)
+                {
+                    Document?.SetText(DEFAULT_TEXT_SET_OPTIONS_TXT, value);
+                }
 
                 if (Set(ref _text, value))
                 {
