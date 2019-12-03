@@ -69,7 +69,7 @@
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
                 <AppBarButton.Flyout>
-                    <Flyout w10v1809:Placement="BottomEdgeAlignedLeft" Opened="OpenFontFlyout">
+                    <Flyout w10v1809:Placement="BottomEdgeAlignedLeft" Opened="OpenFontFlyout" x:Name="FontNameFlyout">
                         <Flyout.FlyoutPresenterStyle>
                             <Style TargetType="FlyoutPresenter">
                                 <Setter Property="Padding" Value="0"/>
@@ -92,7 +92,7 @@
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
                 <AppBarButton.Flyout>
-                    <Flyout w10v1809:Placement="BottomEdgeAlignedLeft" Opened="OpenFontSizeFlyout">
+                    <Flyout w10v1809:Placement="BottomEdgeAlignedLeft" Opened="OpenFontSizeFlyout" x:Name="FontSizeFlyout">
                         <Flyout.FlyoutPresenterStyle>
                             <Style TargetType="FlyoutPresenter">
                                 <Setter Property="Padding" Value="0"/>

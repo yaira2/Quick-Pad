@@ -59,6 +59,7 @@ namespace QuickPad.UI.Controls
                     {
                         SetFontName?.Invoke(ViewModel.CurrentFontName);
                     }
+                    FontNameFlyout.Hide();
                     break;
 
                 case nameof(ViewModel.CurrentFontSize):
@@ -70,6 +71,8 @@ namespace QuickPad.UI.Controls
                     {
                         SetFontSize?.Invoke(ViewModel.CurrentFontSize);
                     }
+
+                    FontSizeFlyout.Hide();
                     break;
 
                 case nameof(ViewModel.CurrentFileType):
