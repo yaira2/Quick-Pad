@@ -40,6 +40,7 @@ using Windows.UI.Composition;
 using Windows.UI.Xaml.Media.Imaging;
 using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm.Views;
+using QuickPad.UI.Common.Dialogs;
 using QuickPad.UI.Common.Theme;
 using QuickPad.UI.Controls;
 

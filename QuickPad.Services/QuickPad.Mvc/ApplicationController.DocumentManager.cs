@@ -228,98 +228,108 @@ namespace QuickPad.Mvc
 
             public static async Task LoadFile(DocumentViewModel documentViewModel, StorageFile file)
             {
-                var provider = new FileDataProvider();
-                var bytes = await provider.LoadDataAsync(file);
-                var reader = new EncodingReader();
-                reader.AddBytes(bytes);
-
-                documentViewModel.CurrentEncoding = Settings.DefaultEncoding switch
+                var canceled = false;
+                if (documentViewModel.IsDirty)
                 {
-                    "UTF-8" => Encoding.UTF8,
-                    "UTF-16 LE" => Encoding.Unicode,
-                    "UTF-16 BE" => Encoding.BigEndianUnicode,
-                    "UTF-32" => Encoding.UTF32,
-                    _ => Encoding.ASCII
-                };
+                    var saved = await AskSaveDocument(documentViewModel, false);
+                    canceled = saved == SaveState.Canceled;
+                }
 
-                try
+                if (!canceled)
                 {
-                    _byteOrderMarks.ToList().ForEach(pair =>
+                    var provider = new FileDataProvider();
+                    var bytes = await provider.LoadDataAsync(file);
+                    var reader = new EncodingReader();
+                    reader.AddBytes(bytes);
+
+                    documentViewModel.CurrentEncoding = Settings.DefaultEncoding switch
                     {
-                        var (key, value) = pair;
-
-                        if (!bytes.AsSpan(0, value.Length).StartsWith(value.AsSpan(0, value.Length))) return;
-
-                        var encoding = key switch
-                        {
-                            ByteOrderMark.Utf8 => Encoding.UTF8,
-                            ByteOrderMark.Utf16Be => Encoding.BigEndianUnicode,
-                            ByteOrderMark.Utf16Le => Encoding.Unicode,
-                            ByteOrderMark.Utf32Be => Encoding.UTF32,
-                            ByteOrderMark.Utf32Le => Encoding.UTF32,
-                            ByteOrderMark.Utf7A => Encoding.UTF7,
-                            ByteOrderMark.Utf7B => Encoding.UTF7,
-                            ByteOrderMark.Utf7C => Encoding.UTF7,
-                            ByteOrderMark.Utf7D => Encoding.UTF7,
-                            ByteOrderMark.Utf7E => Encoding.UTF7,
-                            _ => Encoding.ASCII
-                        };
-
-                        documentViewModel.CurrentEncoding = encoding;
-                    });
-                }
-                catch (Exception ex)
-                {
-                    Logger.LogError(new EventId(), $"Error loading {file.Name}.", ex);
-                    Settings.Status(ex.Message, TimeSpan.FromSeconds(60), SettingsViewModel.Verbosity.Error);
-                }
-
-                var text = reader.Read(documentViewModel.CurrentEncoding);
-                documentViewModel.File = file;
-
-                // Ensure valid RTF
-                if (documentViewModel.IsRtf
-                    && !text.StartsWith("{\\rtf1", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    text = "{\\rtf1" + text;
-                }
-
-                // Ensure valid RTF
-                if (documentViewModel.IsRtf
-                    && !text.EndsWith("}", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    text += "}";
-                }
-
-                if (documentViewModel.IsRtf)
-                {
-                    var memoryStream = new InMemoryRandomAccessStream();
-                    var b = documentViewModel.CurrentEncoding.GetBytes(text);
-                    var buffer = b.AsBuffer();
-                    await memoryStream.WriteAsync(buffer);
-
-                    memoryStream.Seek(0);
+                        "UTF-8" => Encoding.UTF8,
+                        "UTF-16 LE" => Encoding.Unicode,
+                        "UTF-16 BE" => Encoding.BigEndianUnicode,
+                        "UTF-32" => Encoding.UTF32,
+                        _ => Encoding.ASCII
+                    };
 
                     try
                     {
-                        documentViewModel.Document?.LoadFromStream(documentViewModel.SetOption, memoryStream);
+                        _byteOrderMarks.ToList().ForEach(pair =>
+                        {
+                            var (key, value) = pair;
+
+                            if (!bytes.AsSpan(0, value.Length).StartsWith(value.AsSpan(0, value.Length))) return;
+
+                            var encoding = key switch
+                            {
+                                ByteOrderMark.Utf8 => Encoding.UTF8,
+                                ByteOrderMark.Utf16Be => Encoding.BigEndianUnicode,
+                                ByteOrderMark.Utf16Le => Encoding.Unicode,
+                                ByteOrderMark.Utf32Be => Encoding.UTF32,
+                                ByteOrderMark.Utf32Le => Encoding.UTF32,
+                                ByteOrderMark.Utf7A => Encoding.UTF7,
+                                ByteOrderMark.Utf7B => Encoding.UTF7,
+                                ByteOrderMark.Utf7C => Encoding.UTF7,
+                                ByteOrderMark.Utf7D => Encoding.UTF7,
+                                ByteOrderMark.Utf7E => Encoding.UTF7,
+                                _ => Encoding.ASCII
+                            };
+
+                            documentViewModel.CurrentEncoding = encoding;
+                        });
                     }
                     catch (Exception ex)
                     {
-                        Logger.LogError(ex, $"Error loading {file.Path}");
+                        Logger.LogError(new EventId(), $"Error loading {file.Name}.", ex);
+                        Settings.Status(ex.Message, TimeSpan.FromSeconds(60), SettingsViewModel.Verbosity.Error);
                     }
+
+                    var text = reader.Read(documentViewModel.CurrentEncoding);
+                    documentViewModel.File = file;
+
+                    // Ensure valid RTF
+                    if (documentViewModel.IsRtf
+                        && !text.StartsWith("{\\rtf1", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        text = "{\\rtf1" + text;
+                    }
+
+                    // Ensure valid RTF
+                    if (documentViewModel.IsRtf
+                        && !text.EndsWith("}", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        text += "}";
+                    }
+
+                    if (documentViewModel.IsRtf)
+                    {
+                        var memoryStream = new InMemoryRandomAccessStream();
+                        var b = documentViewModel.CurrentEncoding.GetBytes(text);
+                        var buffer = b.AsBuffer();
+                        await memoryStream.WriteAsync(buffer);
+
+                        memoryStream.Seek(0);
+
+                        try
+                        {
+                            documentViewModel.Document?.LoadFromStream(documentViewModel.SetOption, memoryStream);
+                        }
+                        catch (Exception ex)
+                        {
+                            Logger.LogError(ex, $"Error loading {file.Path}");
+                        }
+                    }
+                    else
+                    {
+                        documentViewModel.Text = text;
+                    }
+
+                    documentViewModel.ReleaseUpdates();
+
+                    Settings.Status($"Loaded {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
+                        SettingsViewModel.Verbosity.Release);
+
+                    documentViewModel.IsDirty = false;
                 }
-                else
-                {
-                    documentViewModel.Text = text;
-                }
-
-                documentViewModel.ReleaseUpdates();
-
-                Settings.Status($"Loaded {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
-                    SettingsViewModel.Verbosity.Release);
-
-                documentViewModel.IsDirty = false;
             }
 
             private static Task<SaveState> SaveDocument(DocumentViewModel documentViewModel)
