@@ -26,7 +26,7 @@ namespace QuickPad.Mvvm.ViewModels
 {
     public class DocumentViewModel : ViewModel
     {
-        private const string RTF_EXTENSION = ".rtf";
+        public const string RTF_EXTENSION = ".rtf";
         private ITextDocument _document;
 
         private Encoding _currentEncoding;
@@ -245,10 +245,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
             set
             {
-                if (IsRtf)
-                {
-                    Document?.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);
-                }
+                Document?.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);
 
                 if (Set(ref _text, value))
                 {

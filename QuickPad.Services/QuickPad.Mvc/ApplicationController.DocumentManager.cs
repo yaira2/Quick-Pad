@@ -233,7 +233,14 @@ namespace QuickPad.Mvc
                 var reader = new EncodingReader();
                 reader.AddBytes(bytes);
 
-                documentViewModel.CurrentEncoding = Encoding.UTF8;
+                documentViewModel.CurrentEncoding = Settings.DefaultEncoding switch
+                {
+                    "UTF-8" => Encoding.UTF8,
+                    "UTF-16 LE" => Encoding.Unicode,
+                    "UTF-16 BE" => Encoding.BigEndianUnicode,
+                    "UTF-32" => Encoding.UTF32,
+                    _ => Encoding.ASCII
+                };
 
                 try
                 {
@@ -268,19 +275,39 @@ namespace QuickPad.Mvc
                 }
 
                 var text = reader.Read(documentViewModel.CurrentEncoding);
-
                 documentViewModel.File = file;
+
+                // Ensure valid RTF
+                if (documentViewModel.IsRtf
+                    && !text.StartsWith("{\\rtf1", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    text = "{\\rtf1" + text;
+                }
+
+                // Ensure valid RTF
+                if (documentViewModel.IsRtf
+                    && !text.EndsWith("}", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    text += "}";
+                }
 
                 if (documentViewModel.IsRtf)
                 {
                     var memoryStream = new InMemoryRandomAccessStream();
-                    var b = Encoding.UTF8.GetBytes(text);
+                    var b = documentViewModel.CurrentEncoding.GetBytes(text);
                     var buffer = b.AsBuffer();
                     await memoryStream.WriteAsync(buffer);
 
                     memoryStream.Seek(0);
 
-                    documentViewModel.Document?.LoadFromStream(documentViewModel.SetOption, memoryStream);
+                    try
+                    {
+                        documentViewModel.Document?.LoadFromStream(documentViewModel.SetOption, memoryStream);
+                    }
+                    catch (Exception ex)
+                    {
+                        Logger.LogError(ex, $"Error loading {file.Path}");
+                    }
                 }
                 else
                 {
@@ -352,7 +379,7 @@ namespace QuickPad.Mvc
                     Logger.LogDebug($"Saving {documentViewModel.File.DisplayName}:\n{documentViewModel.Text}");
 
                 var writer = new EncodingWriter();
-                writer.Write(documentViewModel.Text);
+                writer.Write(documentViewModel.IsRtf ? documentViewModel.RtfText : documentViewModel.Text);
 
                 await new FileDataProvider().SaveDataAsync(documentViewModel.File, writer,
                     documentViewModel.CurrentEncoding);
