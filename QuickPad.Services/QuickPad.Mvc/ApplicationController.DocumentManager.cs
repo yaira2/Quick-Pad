@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Pickers;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -269,7 +271,21 @@ namespace QuickPad.Mvc
 
                 documentViewModel.File = file;
 
-                documentViewModel.Text = text;
+                if (documentViewModel.IsRtf)
+                {
+                    var memoryStream = new InMemoryRandomAccessStream();
+                    var b = Encoding.UTF8.GetBytes(text);
+                    var buffer = b.AsBuffer();
+                    await memoryStream.WriteAsync(buffer);
+
+                    memoryStream.Seek(0);
+
+                    documentViewModel.Document?.LoadFromStream(documentViewModel.SetOption, memoryStream);
+                }
+                else
+                {
+                    documentViewModel.Text = text;
+                }
 
                 documentViewModel.ReleaseUpdates();
 

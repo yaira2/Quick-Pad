@@ -20,6 +20,7 @@ using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core.Preview;
 using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.ApplicationModel.Store;
 using Windows.Graphics.Display;
 using Windows.Storage;
@@ -36,6 +37,7 @@ using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Windows.System;
 using Windows.UI.Composition;
+using Windows.UI.Xaml.Media.Imaging;
 using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Theme;
@@ -172,14 +174,14 @@ namespace QuickPad.UI
             {
                 if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
                 {
-                    Settings.CurrentMode = "Compact Overlay";
+                    Settings.CurrentMode = mode;
                 }
             }
             else
             {
                 if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default))
                 {
-                    Settings.CurrentMode = Settings.PreviousMode;
+                    Settings.CurrentMode = Settings.ReturnToMode;
                 }
             }
         }
@@ -282,7 +284,8 @@ namespace QuickPad.UI
                         _viewModel.PropertyChanged -= ViewModelOnPropertyChanged;
                         _viewModel.SetSelection -= ViewModelOnSetSelection;
                         _viewModel.GetPosition -= ViewModelOnGetPosition;
-                        _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
+                        _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
+                        _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
                     }
 
                     _viewModel = value;
@@ -293,6 +296,7 @@ namespace QuickPad.UI
                     _viewModel.SetSelection += ViewModelOnSetSelection;
                     _viewModel.GetPosition += ViewModelOnGetPosition;
                     _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
+                    _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
 
                     if (!_initialized) return;
 
@@ -301,6 +305,12 @@ namespace QuickPad.UI
                     TextBox.TextChanged += _viewModel.TextChanged;
                 }
             }
+        }
+
+        private void ViewModelOnClearUndoRedo()
+        {
+            TextBox.ClearUndoRedoHistory();
+            
         }
 
         private void ViewModelOnSetSelectedText(string text)
@@ -503,6 +513,22 @@ namespace QuickPad.UI
             await ViewModel.AddTab();
 
             e.Handled = true;
+        }
+
+        private void OnDragOver(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Copy | DataPackageOperation.Link | DataPackageOperation.Move;
+        }
+
+        private async void OnDrop(object sender, DragEventArgs e)
+        {
+            if (!e.DataView.Contains(StandardDataFormats.StorageItems)) return;
+
+            var items = await e.DataView.GetStorageItemsAsync();
+            if (items.Count <= 0) return;
+
+            var storageFile = items[0] as StorageFile;
+            LoadFromFile?.Invoke(ViewModel, storageFile);
         }
     }
 }

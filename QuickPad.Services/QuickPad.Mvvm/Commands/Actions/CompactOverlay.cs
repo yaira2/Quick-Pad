@@ -13,15 +13,15 @@ namespace QuickPad.Mvvm.Commands.Actions
             Executioner = async settings =>
             {
                 //open settings page
-                if (settings.CurrentMode == DisplayModes.LaunchCompactOverlay.ToString())
+                if (settings.CurrentMode == nameof(DisplayModes.LaunchCompactOverlay))
                 {
-                    settings.CurrentMode = settings.PreviousMode;
-                    bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
+                    settings.CurrentMode = settings.ReturnToMode;
+                    var modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.Default);
                 }
                 else
                 {
-                    settings.CurrentMode = DisplayModes.LaunchCompactOverlay.ToString();
-                    bool modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay);
+                    settings.CurrentMode = nameof(DisplayModes.LaunchCompactOverlay);
+                    var modeSwitched = await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay);
                 }
             };
         }

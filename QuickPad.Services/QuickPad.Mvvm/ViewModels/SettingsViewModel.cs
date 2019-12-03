@@ -324,12 +324,15 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 var previousMode = _currentMode;
                 if (!Set(ref _currentMode, value)) return;
+
+                if (value == nameof(DisplayModes.LaunchCompactOverlay))
+                {
+                    ReturnToMode = previousMode;
+                }
                 
                 if (_resourceLoader == null) _resourceLoader = ResourceLoader.GetForCurrentView();
                 
                 _currentModeText = _resourceLoader.GetString(_currentMode);
-
-                _previousMode = previousMode;
 
                 OnPropertyChanged(nameof(CurrentMode));
                 OnPropertyChanged(nameof(CurrentModeText));
@@ -341,6 +344,9 @@ namespace QuickPad.Mvvm.ViewModels
                 OnPropertyChanged(nameof(TitleMargin));
             }
         }
+
+        [JsonIgnore]
+        public string ReturnToMode { get; set; } = nameof(DisplayModes.LaunchClassicMode);
 
         [JsonIgnore]
         public string CurrentModeText => _currentModeText;
@@ -356,9 +362,6 @@ namespace QuickPad.Mvvm.ViewModels
                 }
             }
         }
-
-        [JsonIgnore]
-        public string PreviousMode => _previousMode ??= DisplayModes.LaunchClassicMode.ToString();
 
         [JsonIgnore]
         [NotifyOnReset]

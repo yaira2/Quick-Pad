@@ -130,6 +130,8 @@ namespace QuickPad.Mvvm.ViewModels
                         isRtf ? DEFAULT_TEXT_GET_OPTIONS_RTF : DEFAULT_TEXT_GET_OPTIONS_TXT;
                     SetOption =
                         isRtf ? DEFAULT_TEXT_SET_OPTIONS_RTF : DEFAULT_TEXT_SET_OPTIONS_TXT;
+
+                    OnPropertyChanged(nameof(IsRtf));
                 }
             }
         }
@@ -151,10 +153,16 @@ namespace QuickPad.Mvvm.ViewModels
                     _originalHash = _currentHash;
                 }
 
+                if (!IsDirty)
+                {
+                    ClearUndoRedo?.Invoke();
+                }
                 OnPropertyChanged();
                 OnPropertyChanged(nameof(Title));
             }
         }
+
+        public Action ClearUndoRedo;
 
         public Deferral Deferral { get; set; }
 
@@ -257,8 +265,8 @@ namespace QuickPad.Mvvm.ViewModels
 
                 if (position.length < 0)
                 {
-                    position.start -= position.length;
                     position.length = Math.Abs(position.length);
+                    position.start = Math.Max(position.start - position.length, position.start);
                 }
 
                 return Text.Substring(position.start, position.length);
