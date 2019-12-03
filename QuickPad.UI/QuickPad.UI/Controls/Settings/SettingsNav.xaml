@@ -7,10 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"
-    d:DesignWidth="340"
+    d:DesignWidth="360"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid HorizontalAlignment="Stretch" Width="340">
+    <Grid HorizontalAlignment="Stretch" Width="360">
         <winui:NavigationView IsPaneOpen="False"
                               x:Name="settingNavView"
                                   IsSettingsVisible="False"
