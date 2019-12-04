@@ -9,6 +9,7 @@
     xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     xmlns:converters="using:QuickPad.UI.Converters"
     xmlns:local="using:QuickPad.UI"
+    xmlns:controls1="using:QuickPad.UI.Controls"
     mc:Ignorable="d"
     d:DesignHeight="40"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
@@ -114,6 +115,11 @@
                 <AppBarButton.Icon>
                     <FontIcon Glyph="&#xE790;"/>
                 </AppBarButton.Icon>
+                <AppBarButton.Flyout>
+                    <Flyout>
+                        <controls1:ColorDialog/>
+                    </Flyout>
+                </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Uid="EmojiLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Emoji2" 
                           Command="{x:Bind Commands.EmojiCommand}"

@@ -709,4 +709,36 @@
     <value>Untitled</value>
     <comment>Used on Title Bar</comment>
   </data>
+  <data name="FindClose.Text" xml:space="preserve">
+    <value>Close</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindFilter.PlaceholderText" xml:space="preserve">
+    <value>Looking for?</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMatchCase.Text" xml:space="preserve">
+    <value>Match Case</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMode.Text" xml:space="preserve">
+    <value>More...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindRegEx.Text" xml:space="preserve">
+    <value>Regular Expression</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplace.Text" xml:space="preserve">
+    <value>Replace</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceAll.Text" xml:space="preserve">
+    <value>Replace all</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FintReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>Replace with...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
 </root>

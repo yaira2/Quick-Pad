@@ -430,6 +430,13 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _showFind, value);
         }
 
+        public string _ShowReplaceIcon = ""; //this is the expand icon
+        public string ShowReplaceIcon
+        {
+            get => _ShowReplaceIcon;
+            set => Set(ref _ShowReplaceIcon, value);
+        }
+
         public bool ShowReplace
         {
             get => _showReplace;
@@ -438,7 +445,9 @@ namespace QuickPad.Mvvm.ViewModels
                 if (Set(ref _showReplace, value) && value)
                 {
                     ShowFind = true;
+                    ShowReplaceIcon = ""; //this is the collapse button
                 }
+                else {ShowReplaceIcon = ""; } //this is the expand button
             }
         }
 
