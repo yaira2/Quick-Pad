@@ -208,6 +208,14 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(value);
         }
 
+
+        //[NotifyOnReset]
+        //public Color DefaultFontColor
+        //{
+        //    get => Get();
+        //    set => Set(value);
+        //}
+
         [NotifyOnReset]
         public bool SpellCheck
         {

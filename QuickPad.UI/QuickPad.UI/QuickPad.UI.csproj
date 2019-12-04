@@ -165,9 +165,6 @@
     <Compile Include="Controls\Settings\SettingsNav.xaml.cs">
       <DependentUpon>SettingsNav.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\ColorDialog.xaml.cs">
-      <DependentUpon>ColorDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\TitleBar.xaml.cs">
       <DependentUpon>TitleBar.xaml</DependentUpon>
     </Compile>
@@ -284,10 +281,6 @@
     <Page Include="Controls\Settings\SettingsNav.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\ColorDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="Controls\TitleBar.xaml">
       <Generator>MSBuild:Compile</Generator>

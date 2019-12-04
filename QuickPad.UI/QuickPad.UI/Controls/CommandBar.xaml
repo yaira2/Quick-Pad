@@ -117,7 +117,7 @@
                 </AppBarButton.Icon>
                 <AppBarButton.Flyout>
                     <Flyout>
-                        <controls1:ColorDialog/>
+                        <ColorPicker IsHexInputVisible="False" IsColorChannelTextInputVisible="False"/>
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
