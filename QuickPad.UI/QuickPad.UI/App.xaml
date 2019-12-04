@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="/ResourceDictionaries/TextBox.xaml"/>
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>
             </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="RegExIcon">/Assets/Font/codicon.ttf#codicon</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
     

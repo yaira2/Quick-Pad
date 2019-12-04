@@ -202,13 +202,13 @@
                 Height="32.6667"
                 IsChecked="{x:Bind ViewModel.UseRegex, Mode=TwoWay}"
                 Style="{ThemeResource ToggleButtonRevealStyle}">
-                    <FontIcon FontFamily="Assets/Fonts/codicon.ttf#codicon" Glyph="&#xEB38;" FontSize="16"/>
+                    <FontIcon FontFamily="{StaticResource RegExIcon}" Glyph="&#xEB38;" FontSize="16"/>
                     <ToolTipService.ToolTip>
                         <TextBlock x:Uid="FindRegEx" Text="Regular Expression"/>
                     </ToolTipService.ToolTip>
                 </ToggleButton>
             </StackPanel>
-        <!-- END OF Options -->
+            <!-- END OF Options -->
 
        
         <!-- END OF Replace Row -->
