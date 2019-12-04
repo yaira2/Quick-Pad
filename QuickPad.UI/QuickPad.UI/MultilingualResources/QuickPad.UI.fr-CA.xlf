@@ -747,6 +747,46 @@
           <target state="new">Time/Date</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
+        <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="new">Close</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindFilter.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Looking for?</source>
+          <target state="new">Looking for?</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindMatchCase.Text" translate="yes" xml:space="preserve">
+          <source>Match Case</source>
+          <target state="new">Match Case</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindMode.Text" translate="yes" xml:space="preserve">
+          <source>More...</source>
+          <target state="new">More...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
+          <source>Regular Expression</source>
+          <target state="new">Regular Expression</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindReplace.Text" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="new">Replace</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindReplaceAll.Text" translate="yes" xml:space="preserve">
+          <source>Replace all</source>
+          <target state="new">Replace all</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FintReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Replace with...</source>
+          <target state="new">Replace with...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
       </group>
     </body>
   </file>
