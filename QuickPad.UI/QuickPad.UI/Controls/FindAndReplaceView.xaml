@@ -41,7 +41,7 @@
                           IsChecked="{x:Bind DocumentViewModel.ShowReplace, Mode=TwoWay}"
                           Style="{ThemeResource ToggleButtonRevealStyle}"
                           Margin="4">
-            <FontIcon Glyph="&#xE011;" FontSize="16"/>
+            <FontIcon Glyph="{x:Bind DocumentViewModel.ShowReplaceIcon, Mode=OneWay}" FontSize="16"/>
             <ToolTipService.ToolTip>
                 <TextBlock x:Uid="FindMore" Text="More..."/>
             </ToolTipService.ToolTip>
