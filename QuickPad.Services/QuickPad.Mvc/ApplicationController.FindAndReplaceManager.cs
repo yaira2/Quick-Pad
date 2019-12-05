@@ -8,12 +8,23 @@ using Windows.ApplicationModel.Activation;
 using Windows.UI.Core;
 using QuickPad.Mvvm.ViewModels;
 
+
 namespace QuickPad.Mvc
 {
+    /// <summary>
+    /// </summary>
     public partial class ApplicationController
     {
+        /// <summary>
+        /// </summary>
         private static class FindAndReplaceManager
         {
+            /// <summary>
+            /// </summary>
+            /// <param name="settings"></param>
+            /// <param name="text"></param>
+            /// <param name="arg"></param>
+            /// <returns></returns>
             public static async Task<(string text, string match, int start, int length)[]> ReplaceAll(SettingsViewModel settings, string text, DocumentViewModel arg)
             {
                 await arg.SelectText(0, 0);
@@ -21,6 +32,7 @@ namespace QuickPad.Mvc
 
                 var results = new List<(string text, string match, int start, int length)>();
 
+                // ReSharper disable once ComplexConditionExpression
                 while ((current = await ReplaceNext(settings, text, arg)).start > -1)
                 {
                     text = current.text;
@@ -30,6 +42,12 @@ namespace QuickPad.Mvc
                 return results.ToArray();
             }
 
+            /// <summary>
+            /// </summary>
+            /// <param name="settings"></param>
+            /// <param name="text"></param>
+            /// <param name="arg"></param>
+            /// <returns></returns>
             public static async Task<(string text, string match, int start, int length)> ReplaceNext(SettingsViewModel settings, string text, DocumentViewModel arg)
             {
                 var (txt, match, start, length) = await SearchNext(settings, text, arg);
@@ -38,10 +56,17 @@ namespace QuickPad.Mvc
                 {
                     //arg.SelectText(match.start, match.length);
                     //arg.SelectedText = arg.FindAndReplaceViewModel.ReplacePattern;
-                    
-                    var sb = new StringBuilder(txt);
-                    sb.Replace(match, arg.FindAndReplaceViewModel.ReplacePattern, start, length);
-                    txt = sb.ToString();
+
+                    if (!arg.FindAndReplaceViewModel.UseRegex)
+                    {
+                        var sb = new StringBuilder(txt);
+                        sb.Replace(match, arg.FindAndReplaceViewModel.ReplacePattern, start, length);
+                        txt = sb.ToString();
+                    }
+                    else
+                    {
+                        
+                    }
                 }
 
                 return (txt, match, start, length);

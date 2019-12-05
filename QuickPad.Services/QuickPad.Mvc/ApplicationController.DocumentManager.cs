@@ -16,6 +16,7 @@ using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 
+
 namespace QuickPad.Mvc
 {
     public partial class ApplicationController

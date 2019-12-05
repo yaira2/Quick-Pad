@@ -20,6 +20,7 @@ using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter;
 using System.Runtime.InteropServices;
 
+
 namespace QuickPad.UI
 {
     /// <summary>

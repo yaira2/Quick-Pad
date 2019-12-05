@@ -14,6 +14,7 @@ using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 
+
 namespace QuickPad.Mvc
 {
     public partial class ApplicationController

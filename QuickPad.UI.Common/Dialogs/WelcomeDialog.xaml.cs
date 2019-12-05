@@ -1,5 +1,6 @@
 ﻿using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common.Theme;
 
@@ -9,7 +10,7 @@ namespace QuickPad.UI.Common.Dialogs
 {
     public sealed partial class WelcomeDialog
     {
-        public VisualThemeSelector VisualThemeSelector => VisualThemeSelector.Current;
+        public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
         public QuickPadCommands Commands { get; }
 
         public WelcomeDialog(QuickPadCommands commands)

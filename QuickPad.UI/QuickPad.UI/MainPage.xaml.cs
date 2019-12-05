@@ -39,10 +39,12 @@ using Windows.System;
 using Windows.UI.Composition;
 using Windows.UI.Xaml.Media.Imaging;
 using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using QuickPad.UI.Common.Theme;
 using QuickPad.UI.Controls;
+
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -55,15 +57,15 @@ namespace QuickPad.UI
     {
         private DocumentViewModel _viewModel;
         private readonly bool _initialized;
-        public VisualThemeSelector VisualThemeSelector { get; }
+        public IVisualThemeSelector VTSelector { get; }
         public SettingsViewModel Settings => App.Settings;
         public QuickPadCommands Commands { get; }
         private ILogger<MainPage> Logger { get; }
 
         public MainPage(ILogger<MainPage> logger, DocumentViewModel viewModel
-            , QuickPadCommands command, VisualThemeSelector vts)
+            , QuickPadCommands command, IVisualThemeSelector vts)
         {
-            VisualThemeSelector = VisualThemeSelector.Current = vts;
+            VTSelector = vts;
             Logger = logger;
             Commands = command;
 

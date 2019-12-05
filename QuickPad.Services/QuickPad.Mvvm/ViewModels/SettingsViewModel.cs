@@ -20,10 +20,13 @@ using Windows.ApplicationModel.Resources;
 using Windows.UI;
 using Windows.UI.Xaml.Media;
 using Windows.ApplicationModel;
+using Windows.Storage.Pickers;
+using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm.Models.Theme;
 
 namespace QuickPad.Mvvm.ViewModels
 {
-    public class SettingsViewModel : ViewModel
+    public partial class SettingsViewModel : ViewModel
     {
         readonly ApplicationDataContainer _roamingSettings;
         private string _previousMode;
@@ -32,10 +35,12 @@ namespace QuickPad.Mvvm.ViewModels
         private Timer _statusCooldown;
 
         private IApplication App { get; }
+        private IServiceProvider _serviceProvider;
 
-        public SettingsViewModel(ILogger<SettingsViewModel> logger, IApplication app) : base(logger)
+        public SettingsViewModel(ILogger<SettingsViewModel> logger, IApplication app, IServiceProvider serviceProvider) : base(logger)
         {
             App = app;
+            _serviceProvider = serviceProvider;
             AllFonts = new ObservableCollection<string>(
                 CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font));
 
@@ -57,7 +62,7 @@ namespace QuickPad.Mvvm.ViewModels
             _statusCooldown = new Timer(StatusTimerCallback);
         }
 
-        public string VersionNumberText => string.Format("{0}.{1}.{2}.{3}",Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
+        public string VersionNumberText => String.Format("{0}.{1}.{2}.{3}",Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
         private void StatusTimerCallback(object state)
         {
@@ -152,6 +157,31 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get => Get((string)null);
             set => Set(value);
+        }
+
+        public Color DefaultTextForegroundColor {
+            get
+            {
+                var current = _serviceProvider.GetService<DefaultTextForegroundColor>().Color;
+
+                var hex = Get(current.ToHex());
+                hex = hex.Replace("#", string.Empty);
+                var a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
+                var r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
+                var g = (byte)(Convert.ToUInt32(hex.Substring(4, 2), 16));
+                var b = (byte)(Convert.ToUInt32(hex.Substring(6, 2), 16));
+
+                return Color.FromArgb(a, r, g, b);
+            }
+            set
+            {
+                var current = _serviceProvider.GetService<DefaultTextForegroundColor>().Color;
+
+                if (!Set(ref current, value)) return;
+
+                _serviceProvider.GetService<DefaultTextForegroundColor>().Color = current;
+                Set(value.ToHex());
+            }
         }
 
         [NotifyOnReset]
@@ -456,10 +486,10 @@ namespace QuickPad.Mvvm.ViewModels
 
         public async Task ImportSettings()
         {
-            var picker = new Windows.Storage.Pickers.FileOpenPicker
+            var picker = new FileOpenPicker
             {
-                ViewMode = Windows.Storage.Pickers.PickerViewMode.Thumbnail,
-                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.PicturesLibrary
+                ViewMode = PickerViewMode.Thumbnail,
+                SuggestedStartLocation = PickerLocationId.PicturesLibrary
             };
 
             picker.FileTypeFilter.Add(".json");
@@ -483,9 +513,9 @@ namespace QuickPad.Mvvm.ViewModels
             var json = JsonConvert.SerializeObject(this, Formatting.Indented);
             var bytes = Encoding.UTF8.GetBytes(json);
 
-            var savePicker = new Windows.Storage.Pickers.FileSavePicker
+            var savePicker = new FileSavePicker
             {
-                SuggestedStartLocation = Windows.Storage.Pickers.PickerLocationId.DocumentsLibrary
+                SuggestedStartLocation = PickerLocationId.DocumentsLibrary
             };
 
             // Dropdown of file types the user can save the file as

@@ -13,6 +13,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common.Theme;
 
@@ -22,7 +23,8 @@ namespace QuickPad.UI.Controls.Settings
 {
     public sealed partial class Theme : Page
     {
-        public VisualThemeSelector VisualThemeSelector => VisualThemeSelector.Current;
+        public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
+        public SettingsViewModel Settings => App.Settings;
 
         public Theme()
         {
