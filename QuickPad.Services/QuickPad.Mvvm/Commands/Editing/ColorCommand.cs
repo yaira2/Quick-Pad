@@ -10,8 +10,10 @@ namespace QuickPad.Mvvm.Commands.Editing
         {
             Executioner = viewModel =>
             {
+                if (viewModel == null) return Task.CompletedTask;
+
                 viewModel.Document.Selection.CharacterFormat.ForegroundColor = viewModel.FontColor;
-                viewModel.OnPropertyChanged(nameof(viewModel.Text));
+                viewModel.OnPropertyChanged(nameof(viewModel.RtfText));
 
                 return Task.CompletedTask;
             };
