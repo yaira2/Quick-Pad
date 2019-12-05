@@ -272,7 +272,7 @@ namespace QuickPad.Mvvm.ViewModels
 
                 if (position.length < 0)
                 {
-                    position.length = Math.Abs(position.length);
+                    position.length = Math.Min(Math.Abs(position.length), Text.Length - position.start);
                     position.start = Math.Max(position.start - position.length, position.start);
                 }
 
