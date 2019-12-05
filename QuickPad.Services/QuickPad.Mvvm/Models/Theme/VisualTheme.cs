@@ -24,6 +24,7 @@ namespace QuickPad.Mvvm.Models.Theme
 
                 return _foreground.Value;
             }
+            set => _foreground = value;
         }
 
         public string ThemeId

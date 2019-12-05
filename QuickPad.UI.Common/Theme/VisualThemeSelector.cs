@@ -38,7 +38,7 @@ namespace QuickPad.UI.Common.Theme
         {
             add
             {
-                _themeChanged += value;
+                _themeChanged = value;
                 NotifyThemeChanged();
             }
             remove

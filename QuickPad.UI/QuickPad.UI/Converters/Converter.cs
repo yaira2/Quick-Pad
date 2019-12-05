@@ -225,7 +225,7 @@ namespace QuickPad.UI.Converters
             if (targetType == typeof(Color) && value is string hex) return Converter.GetColorFromHex(hex);
             if (targetType == typeof(string) && value is Color color) return Converter.GetHexFromColor(color);
             if (targetType == typeof(string) && value is bool overlayIcon) return Converter.SwitchBetweenOverlayIcon(overlayIcon);
-            if (targetType == typeof(SolidColorBrush) && value is Color colorBrush) return Converter.FromColorToBrush(colorBrush);
+            if (targetType == typeof(Brush) && value is Color colorBrush) return Converter.FromColorToBrush(colorBrush);
             if (targetType == typeof(Visibility)) return Converter.ShowIfItemIsNotNull(value);
             if (targetType == typeof(bool) && value is bool toInvert && parameter is string param)
                 return Converter.Invert(toInvert);

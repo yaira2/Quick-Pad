@@ -12,6 +12,20 @@ namespace QuickPad.Mvvm.Models.Theme
             _visualThemeSelector = visualThemeSelector;
         }
 
-        public Color Color => _visualThemeSelector.CurrentItem.DefaultTextForegroundColor;
+        public Color Color {
+            get => _visualThemeSelector.CurrentItem.DefaultTextForegroundColor;
+            set
+            {
+                _visualThemeSelector.CurrentItem.DefaultTextForegroundColor = value;
+                if(!Application.Current.Resources.ContainsKey("DefaultTextForegroundColor"))
+                {
+                    Application.Current.Resources.Add("DefaultTextForegroundColor", value);
+                }
+                else
+                {
+                    Application.Current.Resources["DefaultTextForegroundColor"] = value;
+                }
+            }
+        }
     }
 }

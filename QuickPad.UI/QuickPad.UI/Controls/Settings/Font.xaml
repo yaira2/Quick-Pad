@@ -25,7 +25,7 @@
             <TextBlock Text="Default Font Color" x:Uid="DefaultFontColor"/>
 
             <!--<ColorPicker IsHexInputVisible="False" IsColorChannelTextInputVisible="False" Color="{x:Bind Settings.DefaultFontColor, Mode=TwoWay}"/>-->
-            <ColorPicker IsHexInputVisible="False" IsColorChannelTextInputVisible="False"/>
+            <ColorPicker IsHexInputVisible="False" IsColorChannelTextInputVisible="False" Color="{x:Bind Settings.DefaultTextForegroundColor, Mode=TwoWay}"/>
 
             <!--Plain Text Font Settings-->
             <TextBlock Text="Plain Text Font Settings" FontSize="18" x:Uid="PlainTextFontSettings" Padding="0,10,0,0"/>

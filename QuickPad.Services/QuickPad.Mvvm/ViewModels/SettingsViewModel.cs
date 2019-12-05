@@ -159,7 +159,30 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(value);
         }
 
-        public Color DefaultTextForegroundColor => _serviceProvider.GetService<DefaultTextForegroundColor>().Color;
+        public Color DefaultTextForegroundColor {
+            get
+            {
+                var current = _serviceProvider.GetService<DefaultTextForegroundColor>().Color;
+
+                var hex = Get(current.ToHex());
+                hex = hex.Replace("#", string.Empty);
+                var a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
+                var r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
+                var g = (byte)(Convert.ToUInt32(hex.Substring(4, 2), 16));
+                var b = (byte)(Convert.ToUInt32(hex.Substring(6, 2), 16));
+
+                return Color.FromArgb(a, r, g, b);
+            }
+            set
+            {
+                var current = _serviceProvider.GetService<DefaultTextForegroundColor>().Color;
+
+                if (!Set(ref current, value)) return;
+
+                _serviceProvider.GetService<DefaultTextForegroundColor>().Color = current;
+                Set(value.ToHex());
+            }
+        }
 
         [NotifyOnReset]
         public double BackgroundTintOpacity

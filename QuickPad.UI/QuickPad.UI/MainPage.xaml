@@ -110,6 +110,7 @@
                      Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}">
                 </RichEditBox>
                 <TextBox x:Name="TextBox"
+                         Foreground="{x:Bind Settings.DefaultTextForegroundColor, Converter={StaticResource Converter}}"
                  Grid.Row="2"
                  AcceptsReturn="True"
                  HorizontalAlignment="Stretch"
