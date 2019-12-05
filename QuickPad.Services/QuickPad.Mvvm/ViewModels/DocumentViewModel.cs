@@ -22,6 +22,7 @@ using System.Threading;
 using QuickPad.Mvvm.Views;
 using Timer = System.Threading.Timer;
 using Windows.UI;
+using QuickPad.Mvvm.Models.Theme;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -143,11 +144,11 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _currentFileDisplayType, value);
         }
 
-        private Color _fontColor = Colors.White;
+        private Color? _fontColor;
 
         public Color FontColor
         {
-            get => _fontColor;
+            get => _fontColor ??= Settings.DefaultTextForegroundColor;
             set => Set(ref _fontColor, value);
         }
 
