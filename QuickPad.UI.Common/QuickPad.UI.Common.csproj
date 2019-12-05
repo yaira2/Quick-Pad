@@ -120,6 +120,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Dialogs\WelcomeDialog.xaml.cs">
+      <DependentUpon>WelcomeDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Dialogs\AskToSave.xaml.cs">
       <DependentUpon>AskToSave.xaml</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Dialogs\WelcomeDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Dialogs\AskToSave.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
