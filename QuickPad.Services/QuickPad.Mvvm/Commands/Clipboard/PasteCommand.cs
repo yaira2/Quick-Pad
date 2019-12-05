@@ -5,6 +5,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using QuickPad.Mvvm.ViewModels;
 
+
 namespace QuickPad.Mvvm.Commands.Clipboard
 {
     public class PasteCommand : SimpleCommand<DocumentViewModel>

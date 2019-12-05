@@ -2,7 +2,7 @@
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
-namespace QuickPad.UI.Common.Theme
+namespace QuickPad.Mvvm.Models.Theme
 {
     public class VisualTheme
     {
@@ -10,6 +10,21 @@ namespace QuickPad.UI.Common.Theme
             Color.FromArgb(255, 28, 28, 28);
         public static readonly Color LightColor = Colors.White;
         private Color? _foreground;
+
+        public Color? Foreground => _foreground;
+
+        public Color DefaultTextForegroundColor 
+        {
+            get
+            {
+                if (!_foreground.HasValue)
+                {
+                    return (Theme == ElementTheme.Dark) ? VisualTheme.LightColor : VisualTheme.DarkColor;
+                }
+
+                return _foreground.Value;
+            }
+        }
 
         public string ThemeId
         {
@@ -66,21 +81,7 @@ namespace QuickPad.UI.Common.Theme
             get;
             set;
         }
-        public Color DefaultTextForeground
-        {
-            get
-            {
-                if (!_foreground.HasValue)
-                {
-                    return (Theme == ElementTheme.Dark) ? LightColor : DarkColor;
-                }
-                return _foreground.Value;
-            }
-            set
-            {
-                _foreground = value;
-            }
-        }
+
         public override string ToString()
         {
             return FriendlyName;

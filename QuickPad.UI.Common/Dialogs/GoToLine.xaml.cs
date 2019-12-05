@@ -1,4 +1,5 @@
 ﻿using Windows.UI.Xaml.Controls;
+using QuickPad.Mvvm.Models.Theme;
 using QuickPad.UI.Common.Theme;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -7,11 +8,11 @@ namespace QuickPad.UI.Common.Dialogs
 {
     public sealed partial class GoToLine : ContentDialog
     {
-        public VisualThemeSelector VisualThemeSelector { get; }
+        public IVisualThemeSelector VTSelector { get; }
 
-        public GoToLine(VisualThemeSelector vts)
+        public GoToLine(IVisualThemeSelector vts)
         {
-            VisualThemeSelector = vts;
+            VTSelector = vts;
             this.InitializeComponent();
         }
 

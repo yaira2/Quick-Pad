@@ -6,6 +6,7 @@ using Windows.Services.Store;
 using QuickPad.Mvvm.Views;
 using System.Globalization;
 
+
 namespace QuickPad.Mvvm.Commands.Actions
 {
     public class RateAndReviewCommand : SimpleCommand<SettingsViewModel>

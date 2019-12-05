@@ -6,6 +6,8 @@ using QuickPad.UI.Common;
 using QuickPad.Mvvm.Commands;
 using QuickPad.UI.Common.Theme;
 using System;
+using QuickPad.Mvvm.Models.Theme;
+
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -13,7 +15,7 @@ namespace QuickPad.UI.Controls
 {
     public sealed partial class ColorDialog : UserControl
     {
-        public VisualThemeSelector VisualThemeSelector => VisualThemeSelector.Current;
+        public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
 
         public SettingsViewModel Settings => App.Settings;
 

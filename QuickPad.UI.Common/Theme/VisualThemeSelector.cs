@@ -12,11 +12,17 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
+using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm.Models;
+using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
+
 
 namespace QuickPad.UI.Common.Theme
 {
-    public class VisualThemeSelector : INotifyPropertyChanged
+    /// <summary>
+    /// </summary>
+    public class VisualThemeSelector : IVisualThemeSelector
     {
         private readonly ResourceLoader _loader = ResourceLoader.GetForViewIndependentUse();
         private const string LIGHT_KEY = "light";
@@ -25,7 +31,7 @@ namespace QuickPad.UI.Common.Theme
         private readonly List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;
 
-        public static VisualThemeSelector Current { get; set; }
+        public static IVisualThemeSelector Current => ServiceProvider?.GetService<IVisualThemeSelector>();
 
         public event PropertyChangedEventHandler PropertyChanged;
         public event ThemeChangedEventHandler ThemeChanged
@@ -62,10 +68,15 @@ namespace QuickPad.UI.Common.Theme
             get;
         }
 
+        public static IServiceProvider ServiceProvider { get; private set; }
         public ResourceDictionary Resources { get; }
 
-        public VisualThemeSelector(SettingsViewModel settingsViewModel, ResourceDictionary resources)
+        public VisualThemeSelector(
+            IServiceProvider serviceProvider
+            , SettingsViewModel settingsViewModel
+            , ResourceDictionary resources)
         {
+            ServiceProvider = serviceProvider;
             Resources = resources;
 
             _settingsViewModel = settingsViewModel;

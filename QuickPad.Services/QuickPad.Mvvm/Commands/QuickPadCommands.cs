@@ -7,6 +7,7 @@ using QuickPad.Mvvm.Commands.Editing;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 
+
 namespace QuickPad.Mvvm.Commands
 {
     public class QuickPadCommands

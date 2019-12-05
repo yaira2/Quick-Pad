@@ -31,14 +31,14 @@
 
             
             <TextBlock Text="Default Font" x:Uid="DefaultFont"/>
-            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+            <ComboBox Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       SelectedItem="{x:Bind Settings.DefaultFont, Mode=TwoWay}" 
                       ItemsSource="{x:Bind Settings.AllFonts}"
                       PlaceholderText="{x:Bind Settings.DefaultFont}" 
                       MinWidth="170"/>
 
             <TextBlock Text="Default Font Size" x:Uid="DefaultFontSize"/>
-            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+            <ComboBox Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       SelectedItem="{x:Bind Settings.DefaultFontSize, Mode=TwoWay}"
                       ItemsSource="{x:Bind Settings.AllFontSizes}"
                       PlaceholderText="{x:Bind Settings.DefaultFontSize}" MinWidth="69"/>
@@ -54,14 +54,14 @@
             <TextBlock Text="Rich Text Font Settings" FontSize="18" x:Uid="RichTextFontSettings" Padding="0,10,0,0"/>
             
             <TextBlock Text="Default Rich Text Font" x:Uid="DefaultFontRtf"/>
-            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+            <ComboBox Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       SelectedItem="{x:Bind Settings.DefaultRtfFont, Mode=TwoWay}" 
                       ItemsSource="{x:Bind Settings.AllFonts}"
                       PlaceholderText="{x:Bind Settings.DefaultRtfFont}" 
                       MinWidth="170"/>
 
             <TextBlock Text="Default Rich Text Font Size" x:Uid="DefaultFontSizeRtf"/>
-            <ComboBox Background="{x:Bind VisualThemeSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+            <ComboBox Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       SelectedItem="{x:Bind Settings.DefaultFontRtfSize, Mode=TwoWay}"
                       ItemsSource="{x:Bind Settings.AllFontSizes}"
                       PlaceholderText="{x:Bind Settings.DefaultFontRtfSize}" 

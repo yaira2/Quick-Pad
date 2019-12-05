@@ -6,6 +6,7 @@ using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
+using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common;
@@ -24,9 +25,10 @@ namespace QuickPad.UI
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddTransient<IFindAndReplaceView, FindAndReplaceViewModel>();
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();
+            services.AddSingleton<DefaultTextForegroundColor, DefaultTextForegroundColor>();
             services.AddSingleton(_ => Application.Current as IApplication);
             services.AddSingleton<ApplicationController, ApplicationController>();
-            services.AddTransient<VisualThemeSelector, VisualThemeSelector>();
+            services.AddSingleton<IVisualThemeSelector, VisualThemeSelector>();
             services.AddSingleton<MainPage, MainPage>();
 
             // Add additional services here.

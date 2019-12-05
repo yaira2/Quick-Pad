@@ -13,7 +13,7 @@
     mc:Ignorable="d"  
     FlowDirection="{x:Bind Settings.FlowDirection, Mode=OneWay}"
     KeyUp="MainPage_OnKeyUp"
-    RequestedTheme="{x:Bind VisualThemeSelector.CurrentItem.Theme, Mode=OneWay}"
+    RequestedTheme="{x:Bind VTSelector.CurrentItem.Theme, Mode=OneWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <converters:Converter x:Key="Converter" />
@@ -105,7 +105,7 @@
                      TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}" 
                      IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
-                     Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                     Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
                      Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}">
                 </RichEditBox>
@@ -126,7 +126,7 @@
                  TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
                  IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}"
                  Style="{StaticResource TextBox}"
-                 Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush, VisualThemeSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                 Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                  IsTapEnabled="True"
                  FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
                  FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"

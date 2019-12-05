@@ -13,7 +13,7 @@
         <converters:Converter x:Key="Converter" />
     </UserControl.Resources>
     <Grid x:Name="ContentHolderContent" Width="356" CornerRadius="4" 
-          Background="{x:Bind VisualThemeSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+          Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
           Padding="4" 
           d:DataContext="{d:DesignInstance viewModels:FindAndReplaceViewModel}">
         <!-- Grid Definitions -->
@@ -65,7 +65,9 @@
                     CornerRadius="2"
                     Width="Auto"
                     Height="32.6667"
-                    Style="{ThemeResource SplitButtonRevealStyle}">
+                    Style="{ThemeResource SplitButtonRevealStyle}" 
+                    Command="{x:Bind Commands.FindNextCommand}"
+                    CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}">
             <StackPanel>
                 <FontIcon Glyph="&#xE0AB;" FontSize="16"/>
                 <ToolTipService.ToolTip>

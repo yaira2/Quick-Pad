@@ -430,11 +430,11 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _showFind, value);
         }
 
-        public string _ShowReplaceIcon = ""; //this is the expand icon
+        private string _showReplaceIcon = ""; //this is the expand icon
         public string ShowReplaceIcon
         {
-            get => _ShowReplaceIcon;
-            set => Set(ref _ShowReplaceIcon, value);
+            get => _showReplaceIcon;
+            set => Set(ref _showReplaceIcon, value);
         }
 
         public bool ShowReplace
