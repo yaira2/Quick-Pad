@@ -21,6 +21,7 @@ using System.Timers;
 using System.Threading;
 using QuickPad.Mvvm.Views;
 using Timer = System.Threading.Timer;
+using Windows.UI;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -140,6 +141,14 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get => _currentFileDisplayType;
             set => Set(ref _currentFileDisplayType, value);
+        }
+
+        private Color _fontColor = Colors.White;
+
+        public Color FontColor
+        {
+            get => _fontColor;
+            set => Set(ref _fontColor, value);
         }
 
         public bool IsDirty

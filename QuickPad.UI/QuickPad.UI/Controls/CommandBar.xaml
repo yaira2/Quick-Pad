@@ -10,6 +10,8 @@
     xmlns:converters="using:QuickPad.UI.Converters"
     xmlns:local="using:QuickPad.UI"
     xmlns:controls1="using:QuickPad.UI.Controls"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"
     d:DesignHeight="40"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
@@ -108,7 +110,7 @@
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>
-            <AppBarButton x:Uid="ColorLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed">
+            <AppBarButton x:Uid="ColorLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Color" Text="Font Color"/>
                 </ToolTipService.ToolTip>
@@ -117,7 +119,13 @@
                 </AppBarButton.Icon>
                 <AppBarButton.Flyout>
                     <Flyout>
-                        <ColorPicker IsHexInputVisible="False" IsColorChannelTextInputVisible="False"/>
+                        <ColorPicker IsHexInputVisible="False" IsColorChannelTextInputVisible="False" Color="{x:Bind ViewModel.FontColor, Mode=TwoWay}">
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="ColorChanged">
+                                    <core:InvokeCommandAction Command="{x:Bind Commands.ColorCommand}" CommandParameter="{x:Bind ViewModel}"/>
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+                        </ColorPicker>
                     </Flyout>
                 </AppBarButton.Flyout>
             </AppBarButton>

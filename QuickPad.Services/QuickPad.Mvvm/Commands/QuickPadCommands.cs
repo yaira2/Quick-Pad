@@ -52,6 +52,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> CenterAlignCommand { get; } = new CenterAlignCommand();
         public SimpleCommand<DocumentViewModel> RightAlignCommand { get; } = new RightAlignCommand();
         public SimpleCommand<DocumentViewModel> JustifyCommand { get; } = new JustifyCommand();
+        public SimpleCommand<DocumentViewModel> ColorCommand { get; } = new ColorCommand();
 
         public SimpleCommand<DocumentViewModel> ToggleWordWrapCommand { get; } = new ToggleWordWrapCommand(); 
         //actions
