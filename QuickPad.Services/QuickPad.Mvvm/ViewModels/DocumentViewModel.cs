@@ -172,6 +172,41 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _selStrikethrough, value);
         }
 
+        private bool _selCenter;
+        public bool SelCenter
+        {
+            get => _selCenter;
+            set => Set(ref _selCenter, value);
+        }
+
+        private bool _selRight;
+        public bool SelRight
+        {
+            get => _selRight;
+            set => Set(ref _selRight, value);
+        }
+
+        private bool _selLeft;
+        public bool SelLeft
+        {
+            get => _selLeft;
+            set => Set(ref _selLeft, value);
+        }
+
+        private bool _selJustify;
+        public bool SelJustify
+        {
+            get => _selJustify;
+            set => Set(ref _selJustify, value);
+        }
+
+        private bool _selBullets;
+        public bool SelBullets
+        {
+            get => _selBullets;
+            set => Set(ref _selBullets, value);
+        }
+
         private Color? _fontColor;
         public Color FontColor
         {

@@ -13,14 +13,16 @@ namespace QuickPad.Mvvm.Commands.Editing
             Executioner = viewModel =>
             {
                 var selectedText = viewModel.Document.Selection;
-                if (selectedText != null)
-                {
                     viewModel.SelBold =  Convert.ToBoolean(selectedText.CharacterFormat.Bold);
                     viewModel.SelItalic = Convert.ToBoolean(selectedText.CharacterFormat.Italic);
-                    if (selectedText.CharacterFormat.Underline == UnderlineType.Single) { viewModel.SelUnderline = true; } else { viewModel.SelUnderline = false; }
+                    viewModel.SelUnderline = (selectedText.CharacterFormat.Underline == UnderlineType.Single);
                     viewModel.SelStrikethrough = Convert.ToBoolean(selectedText.CharacterFormat.Strikethrough);
+                    viewModel.SelBullets = (selectedText.ParagraphFormat.ListType == MarkerType.Bullet);
                     viewModel.FontColor = selectedText.CharacterFormat.ForegroundColor;
-                }
+                    viewModel.SelCenter = (selectedText.ParagraphFormat.Alignment == ParagraphAlignment.Center);
+                    viewModel.SelLeft = (selectedText.ParagraphFormat.Alignment == ParagraphAlignment.Left);
+                    viewModel.SelRight = (selectedText.ParagraphFormat.Alignment == ParagraphAlignment.Right);
+                    viewModel.SelJustify = (selectedText.ParagraphFormat.Alignment == ParagraphAlignment.Justify);
 
                 return Task.CompletedTask;
             };
