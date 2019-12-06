@@ -10,6 +10,8 @@
     xmlns:controls1="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:controls2="using:QuickPad.UI.Controls.Settings"
     xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
+    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+    xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"  
     FlowDirection="{x:Bind Settings.FlowDirection, Mode=OneWay}"
     KeyUp="MainPage_OnKeyUp"
@@ -108,6 +110,11 @@
                      Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
                      Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}">
+                    <interactivity:Interaction.Behaviors>
+                        <core:EventTriggerBehavior EventName="SelectionChanged">
+                            <core:InvokeCommandAction Command="{x:Bind Commands.UpdateToolbar}" CommandParameter="{x:Bind ViewModel}"/>
+                        </core:EventTriggerBehavior>
+                    </interactivity:Interaction.Behaviors>
                 </RichEditBox>
                 <TextBox x:Name="TextBox"
                          Foreground="{x:Bind Settings.DefaultTextForegroundColor, Converter={StaticResource Converter}}"

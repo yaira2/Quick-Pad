@@ -144,8 +144,35 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _currentFileDisplayType, value);
         }
 
-        private Color? _fontColor;
+        private bool _selBold;
+        public bool SelBold
+        {
+            get => _selBold;
+            set => Set(ref _selBold, value);
+        }
 
+        private bool _selItalic;
+        public bool SelItalic
+        {
+            get => _selItalic;
+            set => Set(ref _selItalic, value);
+        }
+
+        private bool _selUnderline;
+        public bool SelUnderline
+        {
+            get => _selUnderline;
+            set => Set(ref _selUnderline, value);
+        }
+
+        private bool _selStrikethrough;
+        public bool SelStrikethrough
+        {
+            get => _selStrikethrough;
+            set => Set(ref _selStrikethrough, value);
+        }
+
+        private Color? _fontColor;
         public Color FontColor
         {
             get => _fontColor ??= Settings.DefaultTextForegroundColor;

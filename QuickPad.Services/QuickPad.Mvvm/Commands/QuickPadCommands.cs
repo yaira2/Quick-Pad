@@ -77,7 +77,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> SelectAllCommand { get; } = new SelectAllCommand();
         public SimpleCommand<DocumentViewModel> InsertTimeDateCommand { get; } = new InsertTimeDateCommand();
         public SimpleCommand<DocumentViewModel> SearchWithBing { get; } = new SearchWithBing();
-
+        public SimpleCommand<DocumentViewModel> UpdateToolbar { get; } = new UpdateToolbar();
 
         public SimpleCommand<SettingsViewModel> AcknowledgeFontSelectionChangeCommand { get; } =
             new AcknowledgeFontSelectionChangeCommand();

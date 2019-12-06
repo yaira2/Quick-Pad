@@ -139,6 +139,7 @@
             <AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"/>
             <AppBarToggleButton x:Uid="BoldLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Bold"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelBold, Mode=TwoWay}"
                                 Command="{x:Bind Commands.BoldCommand}" 
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -147,6 +148,7 @@
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="ItalicLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Italic"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelItalic, Mode=TwoWay}"
                                 Command="{x:Bind Commands.ItalicsCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -155,6 +157,7 @@
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="UnderlineLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Underline"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelUnderline, Mode=TwoWay}"
                                 Command="{x:Bind Commands.UnderlineCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -163,6 +166,7 @@
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="StrikethroughLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelStrikethrough, Mode=TwoWay}"
                                 Command="{x:Bind Commands.StrikeThroughCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>

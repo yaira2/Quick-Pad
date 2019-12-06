@@ -131,6 +131,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\Actions\AcknowledgeFontSelectionChangeCommand.cs" />
+    <Compile Include="Commands\Actions\UpdateToolbar.cs" />
     <Compile Include="Commands\Actions\SearchWithBing.cs" />
     <Compile Include="Commands\Actions\ExportSettingsCommand.cs" />
     <Compile Include="Commands\Actions\RateAndReviewCommand.cs" />
