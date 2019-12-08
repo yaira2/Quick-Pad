@@ -13,7 +13,7 @@ namespace QuickPad.Mvvm.Commands.Editing
             {
                 if (viewModel.ScaleValue >= 0.5)
                 {
-                    viewModel.ScaleValue = viewModel.ScaleValue - (10 / 100);
+                    viewModel.ScaleValue -= 0.1f;
                 }
 
                 return Task.CompletedTask;
