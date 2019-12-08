@@ -92,11 +92,9 @@
                                   HorizontalContentAlignment="Stretch">
                     <controls3:StatusBar x:Name="statusBar" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="25" HorizontalAlignment="Stretch"/>
                 </controls1:DropShadowPanel>
-                
-                <RichEditBox x:Name="RichEditBox" 
-                     Grid.Row="2" 
-                     HorizontalAlignment="Stretch" 
-                     VerticalAlignment="Stretch" 
+
+                <ScrollViewer Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType), Mode=OneWay}">
+                    <RichEditBox x:Name="RichEditBox" 
                      BorderBrush="{x:Null}"
                      BorderThickness="0"
                      AllowDrop="True"
@@ -108,40 +106,39 @@
                      IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
                      Style="{StaticResource RichEditBox}"
                      Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                     IsTapEnabled="True">
+                        <interactivity:Interaction.Behaviors>
+                            <core:EventTriggerBehavior EventName="SelectionChanged">
+                                <core:InvokeCommandAction Command="{x:Bind Commands.UpdateToolbar}" CommandParameter="{x:Bind ViewModel}"/>
+                            </core:EventTriggerBehavior>
+                        </interactivity:Interaction.Behaviors>
+                    </RichEditBox>
+                </ScrollViewer>
+
+                <ScrollViewer Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" Visibility="{x:Bind converters:Converter.VisibleIfNotRtf(ViewModel.CurrentFileType), Mode=OneWay}">
+                    <TextBox x:Name="TextBox"
+                     Foreground="{x:Bind Settings.DefaultTextForegroundColor, Converter={StaticResource Converter}}"
+                     AcceptsReturn="True"
+                     HorizontalTextAlignment="Start"
+                     BorderBrush="{x:Null}"
+                     BorderThickness="0"
+                     AllowDrop="True"
+                     DragOver="OnDragOver"
+                     Drop="OnDrop"
+                     BeforeTextChanging="TextBox_OnBeforeTextChanging"
+                     TextChanged="TextBox_OnTextChanged"
+                     SelectionChanged="TextBox_OnSelectionChanged"
+                     TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
+                     IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}"
+                     Style="{StaticResource TextBox}"
+                     Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                      IsTapEnabled="True"
-                     Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType)}">
-                    <interactivity:Interaction.Behaviors>
-                        <core:EventTriggerBehavior EventName="SelectionChanged">
-                            <core:InvokeCommandAction Command="{x:Bind Commands.UpdateToolbar}" CommandParameter="{x:Bind ViewModel}"/>
-                        </core:EventTriggerBehavior>
-                    </interactivity:Interaction.Behaviors>
-                </RichEditBox>
-                <TextBox x:Name="TextBox"
-                         Foreground="{x:Bind Settings.DefaultTextForegroundColor, Converter={StaticResource Converter}}"
-                 Grid.Row="2"
-                 AcceptsReturn="True"
-                 HorizontalAlignment="Stretch"
-                 HorizontalTextAlignment="Start"
-                 VerticalAlignment="Stretch"
-                 BorderBrush="{x:Null}"
-                 BorderThickness="0"
-                 AllowDrop="True"
-                 DragOver="OnDragOver"
-                 Drop="OnDrop"
-                 BeforeTextChanging="TextBox_OnBeforeTextChanging"
-                 TextChanged="TextBox_OnTextChanged"
-                 SelectionChanged="TextBox_OnSelectionChanged"
-                 TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
-                 IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}"
-                 Style="{StaticResource TextBox}"
-                 Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
-                 IsTapEnabled="True"
-                 FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
-                 FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
-                 Text="{x:Bind ViewModel.Text, Mode=OneWay}"
-                 Visibility="{x:Bind converters:Converter.VisibleIfNotRtf(ViewModel.CurrentFileType), Mode=OneWay}"
-                 KeyDown="TextBox_OnKeyDown">
-                </TextBox>
+                     FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
+                     FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
+                     Text="{x:Bind ViewModel.Text, Mode=OneWay}"                     
+                     KeyDown="TextBox_OnKeyDown">
+                    </TextBox>
+                </ScrollViewer>
             </Grid>
         </SplitView>
     </Grid>
