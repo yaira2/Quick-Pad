@@ -600,4 +600,8 @@
     <value>Sans titre</value>
     <comment>Used on Title Bar</comment>
   </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>Heure/Date</value>
+    <comment>Used on Menu Item</comment>
+  </data>
 </root>

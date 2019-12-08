@@ -187,7 +187,7 @@
                         <FontIcon Glyph="&#xE8B3;"/>
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Time/Date" AccessKey="D" x:Uid="TimeDatedat" 
+                <MenuFlyoutItem Text="Time/Date" AccessKey="D" x:Uid="TimeDate" 
                                 Command="{x:Bind Commands.InsertTimeDateCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
