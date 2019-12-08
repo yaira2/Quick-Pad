@@ -131,6 +131,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\Actions\AcknowledgeFontSelectionChangeCommand.cs" />
+    <Compile Include="Commands\Actions\ResetZoom.cs" />
+    <Compile Include="Commands\Actions\ZoomOut.cs" />
+    <Compile Include="Commands\Actions\ZoomIn.cs" />
     <Compile Include="Commands\Actions\UpdateToolbar.cs" />
     <Compile Include="Commands\Actions\SearchWithBing.cs" />
     <Compile Include="Commands\Actions\ExportSettingsCommand.cs" />
