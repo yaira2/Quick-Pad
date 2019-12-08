@@ -123,7 +123,7 @@
         </trans-unit>
         <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
           <source>Close Compact Overlay</source>
-          <target state="translated">Fermer le mode superposé compacte</target>
+          <target state="translated">Fermer le mode Compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TitleBar</note>
         </trans-unit>
         <trans-unit id="Copy.Text" translate="yes" xml:space="preserve">
@@ -273,7 +273,7 @@
         </trans-unit>
         <trans-unit id="OverlayMode.Text" translate="yes" xml:space="preserve">
           <source>Overlay Mode</source>
-          <target state="translated">Mode du superposition</target>
+          <target state="translated">Mode Compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Paste.Text" translate="yes" xml:space="preserve">
@@ -308,12 +308,12 @@
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
-          <target state="translated">Redémarrage nécessaire pour appliquer les paramètres</target>
+          <target state="translated">Redémarrage nécessaire pour appliquer les changements</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="translated">Restorer le zoom par défaut</target>
+          <target state="translated">Restaurer le zoom par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
@@ -403,12 +403,12 @@
         </trans-unit>
         <trans-unit id="ZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="translated">Zoom Avant</target>
+          <target state="translated">Zoom avant</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="ZoomOut.Text" translate="yes" xml:space="preserve">
           <source>Zoom Out</source>
-          <target state="translated">Zoom Arrière</target>
+          <target state="translated">Zoom arrière</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Text" translate="yes" xml:space="preserve">
@@ -438,7 +438,7 @@
         </trans-unit>
         <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
           <source>There are unsaved changes.  Do you want to save them now?</source>
-          <target state="translated">Il y a des modifications non-enrigistrées. Voulez vous les enregistrer ?</target>
+          <target state="translated">Il y a des modifications non-enregistrées. Voulez vous les enregistrer ?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesTitle" translate="yes" xml:space="preserve">
@@ -538,7 +538,7 @@
         </trans-unit>
         <trans-unit id="CompactOverlayTooltip.Text" translate="yes" xml:space="preserve">
           <source>Compact Overlay (Alt + Up)</source>
-          <target state="translated">Mode superposé compacte (Alt + Haut)</target>
+          <target state="translated">Mode Compacte (Alt + Haut)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
@@ -658,7 +658,7 @@
         </trans-unit>
         <trans-unit id="LaunchCompactOverlay" translate="yes" xml:space="preserve">
           <source>Compact Overlay</source>
-          <target state="translated">Mode superposé compacte</target>
+          <target state="translated">Mode Compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RichTextDescription" translate="yes" xml:space="preserve">
@@ -743,7 +743,7 @@
         </trans-unit>
         <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
           <source>Time/Date</source>
-          <target state="translated">Heure/Date</target>
+          <target state="new">Heure/Date</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
