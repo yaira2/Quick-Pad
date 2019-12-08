@@ -7,7 +7,6 @@ namespace QuickPad.Mvvm.Commands.Editing
 {
     public class UpdateToolbar : SimpleCommand<DocumentViewModel>
     {
-        private DocumentViewModel _viewModel;
         public UpdateToolbar()
         {
             Executioner = viewModel =>

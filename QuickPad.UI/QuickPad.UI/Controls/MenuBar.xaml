@@ -246,7 +246,9 @@
                     <MenuFlyoutSubItem.Icon>
                         <FontIcon Glyph="&#xE92D;"/>
                     </MenuFlyoutSubItem.Icon>
-                    <MenuFlyoutItem Text="Zoom In" AccessKey="I" x:Uid="ZoomIn">
+                    <MenuFlyoutItem Text="Zoom In" AccessKey="I" x:Uid="ZoomIn"
+                                Command="{x:Bind Commands.ZoomIn}"
+                                CommandParameter="{x:Bind Settings}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE8A3;"/>
                         </MenuFlyoutItem.Icon>
@@ -256,7 +258,9 @@
                            Key="Add"/>
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Zoom Out" AccessKey="O" x:Uid="ZoomOut">
+                    <MenuFlyoutItem Text="Zoom Out" AccessKey="O" x:Uid="ZoomOut"
+                                Command="{x:Bind Commands.ZoomOut}"
+                                CommandParameter="{x:Bind Settings}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE71F;"/>
                         </MenuFlyoutItem.Icon>
@@ -266,7 +270,9 @@
                            Key="Subtract"/>
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
-                    <MenuFlyoutItem Text="Restore Default Zoom" AccessKey="R" x:Uid="RestoreDefaultZoom">
+                    <MenuFlyoutItem Text="Restore Default Zoom" AccessKey="R" x:Uid="RestoreDefaultZoom"
+                                Command="{x:Bind Commands.ResetZoom}"
+                                CommandParameter="{x:Bind Settings}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE71E;"/>
                         </MenuFlyoutItem.Icon>
