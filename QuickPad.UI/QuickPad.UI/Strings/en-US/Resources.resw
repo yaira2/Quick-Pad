@@ -701,10 +701,6 @@
     <value>Contribute to the developer</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="TimeDate.Text" xml:space="preserve">
-    <value>Time/Date</value>
-    <comment>Used on Menu Item</comment>
-  </data>
   <data name="Untitled" xml:space="preserve">
     <value>Untitled</value>
     <comment>Used on Title Bar</comment>
@@ -740,5 +736,9 @@
   <data name="FintReplaceWith.PlaceholderText" xml:space="preserve">
     <value>Replace with...</value>
     <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>Time/Date</value>
+    <comment>Used on Menu Item</comment>
   </data>
 </root>

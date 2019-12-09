@@ -743,11 +743,6 @@
           <target state="new">Untitled</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
         </trans-unit>
-        <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
-          <source>Time/Date</source>
-          <target state="new">Time/Date</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-        </trans-unit>
         <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
           <target state="new">Close</target>
@@ -787,6 +782,11 @@
           <source>Replace with...</source>
           <target state="new">Replace with...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
+          <source>Time/Date</source>
+          <target state="new">Time/Date</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
       </group>
     </body>
