@@ -758,11 +758,6 @@
           <target state="new">Match Case</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
-        <trans-unit id="FindMode.Text" translate="yes" xml:space="preserve">
-          <source>More...</source>
-          <target state="new">More...</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
-        </trans-unit>
         <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
           <source>Regular Expression</source>
           <target state="new">Regular Expression</target>
@@ -778,15 +773,20 @@
           <target state="new">Replace all</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
-        <trans-unit id="FintReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
-          <source>Replace with...</source>
-          <target state="new">Replace with...</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
-        </trans-unit>
         <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
           <source>Time/Date</source>
           <target state="new">Time/Date</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
+          <source>More...</source>
+          <target state="new">More...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Replace with...</source>
+          <target state="new">Replace with...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
       </group>
     </body>

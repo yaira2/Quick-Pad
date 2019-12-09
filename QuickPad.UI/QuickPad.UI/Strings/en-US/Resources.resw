@@ -717,7 +717,7 @@
     <value>Match Case</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
-  <data name="FindMode.Text" xml:space="preserve">
+  <data name="FindMore.Text" xml:space="preserve">
     <value>More...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
@@ -733,7 +733,7 @@
     <value>Replace all</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
-  <data name="FintReplaceWith.PlaceholderText" xml:space="preserve">
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
     <value>Replace with...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
