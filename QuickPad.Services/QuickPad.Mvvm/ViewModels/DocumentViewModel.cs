@@ -207,11 +207,19 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _selBullets, value);
         }
 
+        public event Action<float> SetScale;
+
         private float _scaleValue = 1;
         public float ScaleValue
         {
             get => _scaleValue;
-            set => Set(ref _scaleValue, value);
+            set
+            {
+                if (Set(ref _scaleValue, value))
+                {
+                    SetScale?.Invoke(value);
+                }
+            }
         }
 
         private Color? _fontColor;

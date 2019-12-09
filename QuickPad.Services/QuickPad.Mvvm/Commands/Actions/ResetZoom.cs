@@ -11,7 +11,7 @@ namespace QuickPad.Mvvm.Commands.Editing
         {
             Executioner = viewModel =>
             {
-                viewModel.ScaleValue = 0;
+                viewModel.ScaleValue = 1;
 
                 return Task.CompletedTask;
             };

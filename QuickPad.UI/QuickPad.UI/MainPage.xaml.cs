@@ -96,6 +96,8 @@ namespace QuickPad.UI
 
             Settings.PropertyChanged += Settings_PropertyChanged;
 
+            ViewModel.SetScale += ViewModel_SetScale;
+
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.OnCloseRequest;
 
             var currentView = SystemNavigationManager.GetForCurrentView();
@@ -103,6 +105,16 @@ namespace QuickPad.UI
 
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
+        }
+
+        public void ViewModel_SetScale(float scale)
+        {
+            TextScrollViewer.ChangeView(0.0, 0.0, ViewModel.ScaleValue);
+        }
+
+        private void TextScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+            ViewModel.ScaleValue = TextScrollViewer.ZoomFactor;
         }
 
         private void OnGotFocus(object sender, RoutedEventArgs e)

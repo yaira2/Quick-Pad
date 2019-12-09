@@ -81,7 +81,6 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> ZoomIn { get; } = new ZoomIn();
         public SimpleCommand<DocumentViewModel> ZoomOut { get; } = new ZoomOut();
         public SimpleCommand<DocumentViewModel> ResetZoom { get; } = new ResetZoom();
-
         public SimpleCommand<SettingsViewModel> AcknowledgeFontSelectionChangeCommand { get; } =
             new AcknowledgeFontSelectionChangeCommand();
 
