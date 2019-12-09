@@ -111,6 +111,9 @@
                          Style="{StaticResource RichEditBox}"
                          Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                          IsTapEnabled="True">
+                            <RichEditBox.SelectionHighlightColorWhenNotFocused>
+                                <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
+                            </RichEditBox.SelectionHighlightColorWhenNotFocused>
                             <interactivity:Interaction.Behaviors>
                                 <core:EventTriggerBehavior EventName="SelectionChanged">
                                     <core:InvokeCommandAction Command="{x:Bind Commands.UpdateToolbar}" CommandParameter="{x:Bind ViewModel}"/>
@@ -142,6 +145,9 @@
                          FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
                          Text="{x:Bind ViewModel.Text, Mode=OneWay}"                     
                          KeyDown="TextBox_OnKeyDown">
+                            <TextBox.SelectionHighlightColorWhenNotFocused>
+                                <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
+                            </TextBox.SelectionHighlightColorWhenNotFocused>
                         </TextBox>
                     </Grid>
                 </ScrollViewer>
