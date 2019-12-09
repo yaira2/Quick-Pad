@@ -142,7 +142,7 @@
                      Margin="4"
                      Text="{x:Bind ViewModel.ReplacePattern, Mode=TwoWay}"
                      PlaceholderText="Replace with.."
-                     x:Uid="FintReplaceWith"/>
+                     x:Uid="FindReplaceWith"/>
 
         <!-- Replace button -->
         <Button Grid.Row="0"
