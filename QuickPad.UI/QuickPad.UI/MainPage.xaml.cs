@@ -44,6 +44,7 @@ using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using QuickPad.UI.Common.Theme;
 using QuickPad.UI.Controls;
+using Microsoft.Toolkit.Uwp.Helpers;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -105,11 +106,18 @@ namespace QuickPad.UI
 
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
+
+            //if (SystemInformation.IsAppUpdated)
+            //{
+            //    WelcomeDialog dialog = new WelcomeDialog();
+            //    _ = dialog.ShowAsync();
+            //}
         }
 
         public void ViewModel_SetScale(float scale)
         {
             TextScrollViewer.ChangeView(0.0, 0.0, ViewModel.ScaleValue);
+
         }
 
         private void TextScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
