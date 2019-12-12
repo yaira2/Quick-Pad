@@ -10,7 +10,7 @@
     mc:Ignorable="d"
     d:DesignWidth="400">
 
-    <Grid Margin="10">
+    <Grid Margin="12">
         <Grid.Resources>
             <Style TargetType="TextBlock">
                 <Setter Property="Margin" Value="0,8,0,4"/>
@@ -31,25 +31,25 @@
                 </Grid.RowDefinitions>
                 
             <Image Source="/Assets/StoreLogo.scale-200.png" Stretch="Fill" Width="80" Height="80" HorizontalAlignment="Right" Grid.RowSpan="2"/>
-                <TextBlock Text="Quick Pad" Grid.Column="1" FontSize="22" x:Uid="AppName" Padding="10,0,0,0"/>
-                <TextBlock Text="{x:Bind Settings.VersionNumberText}" Grid.Column="1" Grid.Row="1" Padding="10,0,0,0"/>
+                <TextBlock Text="Quick Pad" Grid.Column="1" FontSize="22" x:Uid="AppName" Padding="12,0,0,0"/>
+                <TextBlock Text="{x:Bind Settings.VersionNumberText}" Grid.Column="1" Grid.Row="1" Padding="12,0,0,0"/>
             </Grid>            
                         
-            <TextBlock Text="Developed by Yair Aichenbaum" FontSize="16" HorizontalAlignment="Left" x:Uid="CreatedBy" Padding="0,10,0,0"/>
+            <TextBlock Text="Developed by Yair Aichenbaum" FontSize="16" HorizontalAlignment="Left" x:Uid="CreatedBy" Padding="0,12,0,0"/>
 
-            <TextBlock Text="Source Code" HorizontalAlignment="Left" Padding="0,5,0,0" x:Uid="SourceCode"/>
+            <TextBlock Text="Source Code" HorizontalAlignment="Left" Padding="0,4,0,0" x:Uid="SourceCode"/>
             <HyperlinkButton Content="https://github.com/UWPCommunity/Quick-Pad" NavigateUri="https://github.com/UWPCommunity/Quick-Pad" FontSize="13" Padding="0"/>
 
-            <TextBlock Text="Report issues here" HorizontalAlignment="Left" x:Uid="ReportIssues" Padding="0,5,0,0"/>
+            <TextBlock Text="Report issues here" HorizontalAlignment="Left" x:Uid="ReportIssues" Padding="0,4,0,0"/>
             <HyperlinkButton Content="https://github.com/UWPCommunity/Quick-Pad/issues" FontSize="13" HorizontalAlignment="Left" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Padding="0"/>
 
-            <TextBlock Text="Contribute to the developer" x:Uid="ContributeToDeveloper" Padding="0,5,0,0"/>
-            <HyperlinkButton Content="https://paypall.me/yaichenbaum" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" FontSize="13" HorizontalAlignment="Left" Padding="0,0,0,0"/>
+            <TextBlock Text="Contribute to the developer" x:Uid="ContributeToDeveloper" Padding="0,4,0,0"/>
+            <HyperlinkButton Content="https://paypall.me/yaichenbaum" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" FontSize="13" HorizontalAlignment="Left" Padding="0"/>
 
-            <TextBlock Text="Special thanks to:" HorizontalAlignment="Left" Padding="0,10,0,0" FontSize="16" x:Uid="SpecialThanks"/>
-            <TextBlock Text="The Sharp Ninja" Margin="0,5,0,0" FontSize="13"/>
-            <TextBlock Text="Toon Werawat" Margin="0,5,0,0" FontSize="13"/>
-            <TextBlock Text="Ikarago" Margin="0,5,0,0" FontSize="13"/>
+            <TextBlock Text="Special thanks to:" HorizontalAlignment="Left" Padding="0,12,0,0" FontSize="16" x:Uid="SpecialThanks"/>
+            <TextBlock Text="The Sharp Ninja" Margin="0,4,0,0" FontSize="13"/>
+            <TextBlock Text="Toon Werawat" Margin="0,4,0,0" FontSize="13"/>
+            <TextBlock Text="Ikarago" Margin="0,4,0,0" FontSize="13"/>
         </StackPanel>
 
     </Grid>

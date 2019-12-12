@@ -7,7 +7,7 @@
     xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:converters="using:QuickPad.UI.Converters"
     mc:Ignorable="d"
-    d:DesignHeight="33"
+    d:DesignHeight="32"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
     <UserControl.Resources>
         <converters:Converter x:Key="Converter" />
@@ -38,8 +38,8 @@
             </Button>
 
 
-            <Grid x:Name="trickyTitleBar" Grid.Column="1" Background="Transparent" Height="33" Margin="{x:Bind Settings.TitleMargin}">
-                <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="14"/>
+            <Grid x:Name="trickyTitleBar" Grid.Column="1" Background="Transparent" Height="32" Margin="{x:Bind Settings.TitleMargin}">
+                <TextBlock Text="{x:Bind ViewModel.Title, Mode=OneWay}" Style="{ThemeResource CaptionTextBlockStyle}" VerticalAlignment="Center" Margin="12,0,0,0" FontSize="14"/>
             </Grid>
     </Grid>
 </UserControl>
