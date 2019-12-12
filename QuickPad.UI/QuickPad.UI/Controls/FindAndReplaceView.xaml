@@ -21,11 +21,12 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
@@ -57,10 +58,9 @@
                      Margin="4"
                      Text="{x:Bind ViewModel.SearchPattern, Mode=TwoWay}"/>
 
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
         <!-- Next/Previous -->
-        <muxc:SplitButton Grid.Row="0"
-                    Grid.Column="2"
-                    Padding="4" 
+        <muxc:SplitButton Padding="4" 
                     Margin="4"
                     CornerRadius="2"
                     Width="Auto"
@@ -103,9 +103,7 @@
         </muxc:SplitButton>
 
         <!-- Close dialog button-->
-        <Button Grid.Row="0"
-                    Grid.Column="3"
-                    Margin="4" 
+        <Button Margin="4" 
                     Padding="4" 
                     Width="32"
                     Height="32" 
@@ -120,34 +118,29 @@
                 <KeyboardAccelerator Key="Escape"/>
             </Button.KeyboardAccelerators>
         </Button>
+        </StackPanel>
         <!-- END OF Find Row -->
 
-        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
-              Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="191.333" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+        <!--<Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
+              Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">-->
+
+        <Grid></Grid>
         <!-- Replace Row (Second) -->
         <!-- Replace TextBox -->
-        <TextBox Grid.Row="0"
-                     Grid.Column="0"
+        <TextBox Grid.Row="1"
+                     Grid.Column="1"
                      HorizontalAlignment="Stretch" 
                      VerticalAlignment="Center"
                      Margin="4"
                      Text="{x:Bind ViewModel.ReplacePattern, Mode=TwoWay}"
                      PlaceholderText="Replace with.."
-                     x:Uid="FindReplaceWith"/>
+                     x:Uid="FindReplaceWith"
+                     Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}"/>
 
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2" Orientation="Horizontal" Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
         <!-- Replace button -->
-        <Button Grid.Row="0"
-                    Grid.Column="1"                    
-                    Padding="4" 
+        <Button Padding="4" 
                     Margin="4"
                     Width="32"
                     Height="32" 
@@ -161,9 +154,7 @@
         </Button>
 
         <!-- Replace all button -->
-        <Button Grid.Row="0"
-                    Grid.Column="2" 
-                    Padding="4" 
+        <Button Padding="4" 
                     Margin="4"
                     Width="34"
                     Height="32" 
@@ -175,11 +166,12 @@
                 <TextBlock x:Uid="FindReplaceAll" Text="Replace all"/>
             </ToolTipService.ToolTip>
         </Button>
+        </StackPanel>
         <!-- END OF Replace Row -->
 
 
         <!-- Options Row (Third) -->
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToggleButton Content="&#xE8E9;"
                       FontFamily="Segoe MDL2 Assets"
                       IsEnabled="{Binding UseRegex, Converter={StaticResource Converter}, ConverterParameter=Invert, Mode=OneWay}"
@@ -214,11 +206,6 @@
 
        
         <!-- END OF Replace Row -->
-
-
-
         </Grid>
-
-    </Grid>
     
 </UserControl>
