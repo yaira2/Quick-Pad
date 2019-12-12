@@ -14,7 +14,7 @@
   <Identity
     Name="49306atecsolution.QuickPad"
     Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7"
-    Version="4.3.77.0" />
+    Version="4.3.78.0" />
 
   <mp:PhoneIdentity PhoneProductId="ebdd657c-a08c-42fd-a71a-136226dba487" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
