@@ -22,7 +22,7 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
-        <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
+        <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,208,0">
             <AppBarButton x:Uid="NewLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" 
                           Command="{x:Bind Commands.NewDocumentCommand}" 
                           CommandParameter="{x:Bind ViewModel}">
@@ -67,8 +67,8 @@
             </AppBarButton>
             <AppBarSeparator/>
             <AppBarButton x:Name="FontDropdown" LabelPosition="Collapsed" Width="Auto">
-                <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
-                    <TextBlock Text="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                <StackPanel Orientation="Horizontal" Padding="8,0">
+                    <TextBlock Text="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,12,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
                 <AppBarButton.Flyout>
@@ -90,8 +90,8 @@
                 </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Name="FontSizeDropdown" LabelPosition="Collapsed" MinWidth="50" Width="Auto">
-                <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
-                    <TextBlock Text="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                <StackPanel Orientation="Horizontal" Padding="8,0">
+                    <TextBlock Text="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,12,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
                 <AppBarButton.Flyout>

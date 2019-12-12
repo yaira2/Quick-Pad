@@ -33,9 +33,9 @@
         <!-- Toggle button -->
         <ToggleButton Grid.Row="0"
                           Grid.Column="0"
-                          Width="34"
+                          Width="32"
                           Padding="2"
-                          Height="32.6667"
+                          Height="32"
                           VerticalAlignment="Center"
                           BorderThickness="1" 
                           IsChecked="{x:Bind DocumentViewModel.ShowReplace, Mode=TwoWay}"
@@ -60,11 +60,11 @@
         <!-- Next/Previous -->
         <muxc:SplitButton Grid.Row="0"
                     Grid.Column="2"
-                    Padding="6" 
+                    Padding="4" 
                     Margin="4"
                     CornerRadius="2"
                     Width="Auto"
-                    Height="32.6667"
+                    Height="32"
                     Style="{ThemeResource SplitButtonRevealStyle}" 
                     Command="{x:Bind Commands.FindNextCommand}"
                     CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}">
@@ -106,9 +106,9 @@
         <Button Grid.Row="0"
                     Grid.Column="3"
                     Margin="4" 
-                    Padding="6" 
-                    Width="34"
-                    Height="32.6667" 
+                    Padding="4" 
+                    Width="32"
+                    Height="32" 
                     Command="{x:Bind Commands.HideFindCommand}"
                     CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
@@ -147,10 +147,10 @@
         <!-- Replace button -->
         <Button Grid.Row="0"
                     Grid.Column="1"                    
-                    Padding="6" 
+                    Padding="4" 
                     Margin="4"
-                    Width="34"
-                    Height="32.6667" 
+                    Width="32"
+                    Height="32" 
                     Command="{x:Bind Commands.ReplaceNextCommand}"
                     CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
@@ -163,10 +163,10 @@
         <!-- Replace all button -->
         <Button Grid.Row="0"
                     Grid.Column="2" 
-                    Padding="6" 
+                    Padding="4" 
                     Margin="4"
                     Width="34"
-                    Height="32.6667" 
+                    Height="32" 
                     Command="{x:Bind Commands.ReplaceAllCommand}"
                     CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
@@ -184,10 +184,10 @@
                       FontFamily="Segoe MDL2 Assets"
                       IsEnabled="{Binding UseRegex, Converter={StaticResource Converter}, ConverterParameter=Invert, Mode=OneWay}"
                       IsChecked="{x:Bind ViewModel.MatchCase, Mode=TwoWay}" 
-                      Padding="6" 
+                      Padding="4" 
                       Margin="4"
-                      Width="34"
-                      Height="32.6667"
+                      Width="32"
+                      Height="32"
                       FontSize="16"
                       Style="{ThemeResource ToggleButtonRevealStyle}">
                     <ToolTipService.ToolTip>
@@ -198,10 +198,10 @@
                 <!-- Regex button -->
                 <ToggleButton Grid.Row="1"
                 Grid.Column="1" 
-                Padding="6" 
+                Padding="4" 
                 Margin="4"
-                Width="34"
-                Height="32.6667"
+                Width="32"
+                Height="32"
                 IsChecked="{x:Bind ViewModel.UseRegex, Mode=TwoWay}"
                 Style="{ThemeResource ToggleButtonRevealStyle}">
                     <FontIcon FontFamily="{StaticResource RegExIcon}" Glyph="&#xEB38;" FontSize="16"/>

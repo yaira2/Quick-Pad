@@ -26,7 +26,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <controls3:TitleBar x:Name="titleBar" Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Grid.Row="0" Height="33" HorizontalAlignment="Stretch"/>
+        <controls3:TitleBar x:Name="titleBar" Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Grid.Row="0" Height="32" HorizontalAlignment="Stretch"/>
 
         <SplitView x:Name="splitView" Grid.Row="1" PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
             OpenPaneLength="360" PanePlacement="Right" IsPaneOpen="{x:Bind Settings.ShowSettings, Mode=TwoWay}">
@@ -74,7 +74,7 @@
                                   Grid.Row="2"
                                   HorizontalAlignment="Right"
                                   VerticalAlignment="Top"
-                                  Margin="15"
+                                  Margin="16"
                                   Visibility="{x:Bind ViewModel.ShowFind, Mode=OneWay}"  >
                     <controls3:FindAndReplaceView Canvas.ZIndex="100" 
                                           x:Name="FindAndReplaceView"
@@ -90,7 +90,7 @@
                                   Visibility="{x:Bind Settings.ShowStatusBar, Converter={StaticResource Converter}}"
                                   HorizontalAlignment="Stretch"
                                   HorizontalContentAlignment="Stretch">
-                    <controls3:StatusBar x:Name="statusBar" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="25" HorizontalAlignment="Stretch"/>
+                    <controls3:StatusBar x:Name="statusBar" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="24" HorizontalAlignment="Stretch"/>
                 </controls1:DropShadowPanel>
 
                 <ScrollViewer x:Name="TextScrollViewer" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" ViewChanged="TextScrollViewer_ViewChanged">
