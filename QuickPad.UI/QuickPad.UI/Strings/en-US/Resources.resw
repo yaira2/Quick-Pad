@@ -741,4 +741,20 @@
     <value>Time/Date</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="CmdCancel.Content" xml:space="preserve">
+    <value>Cancel</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CmdGoTo.Content" xml:space="preserve">
+    <value>Go To</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.Title" xml:space="preserve">
+    <value>Go To</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToLineNumber.Header" xml:space="preserve">
+    <value>Line number:</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
 </root>

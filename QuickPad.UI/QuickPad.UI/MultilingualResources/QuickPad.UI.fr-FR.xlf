@@ -786,6 +786,26 @@
           <target state="new">Replace with...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
+        <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
+          <source>Line number:</source>
+          <target state="new">Line number:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
       </group>
     </body>
   </file>
