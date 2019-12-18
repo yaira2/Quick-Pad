@@ -757,4 +757,12 @@
     <value>Line number:</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
+  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
+    <value>With compact overlay you can make Quick Pad stay on top of other windows.</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="CompactOverlayTip.Title" xml:space="preserve">
+    <value>Keep on top of other Windows</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
 </root>

@@ -64,6 +64,8 @@ namespace QuickPad.Mvvm.ViewModels
 
         public string VersionNumberText => String.Format("{0}.{1}.{2}.{3}",Package.Current.Id.Version.Major, Package.Current.Id.Version.Minor, Package.Current.Id.Version.Build, Package.Current.Id.Version.Revision);
 
+        public bool ShowCompactOverlayTip = SystemInformation.IsFirstRun;
+
         private void StatusTimerCallback(object state)
         {
             Set(ref _statusText, App.CurrentViewModel.FilePath, nameof(StatusText));
