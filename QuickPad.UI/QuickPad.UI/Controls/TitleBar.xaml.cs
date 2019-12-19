@@ -35,6 +35,16 @@ namespace QuickPad.UI.Controls
             this.InitializeComponent();
             Settings.PropertyChanged += Settings_PropertyChanged;
             Window.Current.SetTitleBar(trickyTitleBar);
+
+            var flowDirectionSetting = Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView().QualifierValues["LayoutDirection"];
+            if (flowDirectionSetting == "LTR")
+            {
+                Settings.FlowDirection = Windows.UI.Xaml.FlowDirection.LeftToRight;
+            }
+            else
+            {
+                Settings.FlowDirection = Windows.UI.Xaml.FlowDirection.RightToLeft;
+            }
         }
 
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
