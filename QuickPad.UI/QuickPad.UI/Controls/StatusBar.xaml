@@ -43,8 +43,8 @@
                    Grid.Column="2"
                    Margin="0,0,4,0"
                    Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}">
-                <Run Text="Ln: " x:Uid="StatusTextLnCount"/><Run Text="{x:Bind ViewModel.CurrentLine}"/><Run Text=","/>
-                <Run Text="Col: " x:Uid="StatusTextColCount"/><Run Text="{x:Bind ViewModel.CurrentColumn}"/>
+                <Run Text="Ln: " x:Uid="StatusLnCount"/><Run Text="{x:Bind ViewModel.CurrentLine}"/><Run Text=","/>
+                <Run Text="Col: " x:Uid="StatusColCount"/><Run Text="{x:Bind ViewModel.CurrentColumn}"/>
         </TextBlock>
         <!--File Type-->
         <TextBlock HorizontalAlignment="Left"
