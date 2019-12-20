@@ -52,6 +52,7 @@
     * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
     * [fr-CA][French] [PhilLB1239](https://github.com/PhilLB1239)
     * [es][Spanish] [Leisvan](https://github.com/Leisvan)
+    * [ar-EG][Arabic] [Ahmed Walid](https://github.com/ahmed605)
     * [ar-SA][Arabic] [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
     * [fr-FR][French] [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
     * [it][Italian] [Leonardo Di Stasio](https://github.com/YohskDista)
