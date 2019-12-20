@@ -32,7 +32,7 @@
 
 ## Downloads:
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
-* Download the latest release from [Github Releases](https://github.com/UWPCommunity/Quick-Pad/releases).
+* Download the latest release from [GitHub Releases](https://github.com/UWPCommunity/Quick-Pad/releases).
 
 ## Dependencies and References:
 * [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
