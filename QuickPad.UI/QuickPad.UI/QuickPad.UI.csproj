@@ -384,6 +384,7 @@
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-FR.xlf" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
