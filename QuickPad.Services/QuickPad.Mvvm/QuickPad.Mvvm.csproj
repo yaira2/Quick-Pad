@@ -161,7 +161,6 @@
     <Compile Include="Models\Theme\VisualTheme.cs" />
     <Compile Include="Models\Theme\VisualThemeKind.cs" />
     <Compile Include="Models\Theme\DefaultTextForegroundColor.cs" />
-    <Compile Include="QuickPad\UI.cs" />
     <Compile Include="ViewModels\DisplayMode.cs" />
     <Compile Include="ViewModels\DisplayModes.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />
