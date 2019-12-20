@@ -131,11 +131,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Commands\Actions\AcknowledgeFontSelectionChangeCommand.cs" />
-    <Compile Include="Commands\Actions\ResetZoom.cs" />
-    <Compile Include="Commands\Actions\ZoomOut.cs" />
-    <Compile Include="Commands\Actions\ZoomIn.cs" />
-    <Compile Include="Commands\Actions\UpdateToolbar.cs" />
-    <Compile Include="Commands\Actions\SearchWithBing.cs" />
+    <Compile Include="Commands\Actions\ResetZoomCommand.cs" />
+    <Compile Include="Commands\Actions\ShowGoToCommand.cs" />
+    <Compile Include="Commands\Actions\ZoomOutCommand.cs" />
+    <Compile Include="Commands\Actions\ZoomInCommand.cs" />
+    <Compile Include="Commands\Actions\UpdateToolbarCommand.cs" />
+    <Compile Include="Commands\Actions\SearchWithBingCommand.cs" />
     <Compile Include="Commands\Actions\ExportSettingsCommand.cs" />
     <Compile Include="Commands\Actions\RateAndReviewCommand.cs" />
     <Compile Include="Commands\Actions\FocusCommand.cs" />
@@ -160,6 +161,7 @@
     <Compile Include="Models\Theme\VisualTheme.cs" />
     <Compile Include="Models\Theme\VisualThemeKind.cs" />
     <Compile Include="Models\Theme\DefaultTextForegroundColor.cs" />
+    <Compile Include="QuickPad\UI.cs" />
     <Compile Include="ViewModels\DisplayMode.cs" />
     <Compile Include="ViewModels\DisplayModes.cs" />
     <Compile Include="ViewModels\DocumentViewModel.cs" />

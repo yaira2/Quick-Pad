@@ -76,11 +76,13 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> ReplaceAllCommand { get; } = new ReplaceAllCommand();
         public SimpleCommand<DocumentViewModel> SelectAllCommand { get; } = new SelectAllCommand();
         public SimpleCommand<DocumentViewModel> InsertTimeDateCommand { get; } = new InsertTimeDateCommand();
-        public SimpleCommand<DocumentViewModel> SearchWithBing { get; } = new SearchWithBing();
-        public SimpleCommand<DocumentViewModel> UpdateToolbar { get; } = new UpdateToolbar();
-        public SimpleCommand<DocumentViewModel> ZoomIn { get; } = new ZoomIn();
-        public SimpleCommand<DocumentViewModel> ZoomOut { get; } = new ZoomOut();
-        public SimpleCommand<DocumentViewModel> ResetZoom { get; } = new ResetZoom();
+        public SimpleCommand<DocumentViewModel> SearchWithBingCommand { get; } = new SearchWithBingCommand();
+        public SimpleCommand<DocumentViewModel> UpdateToolbarCommand { get; } = new UpdateToolbarCommand();
+        public SimpleCommand<DocumentViewModel> ZoomInCommand { get; } = new ZoomInCommand();
+        public SimpleCommand<DocumentViewModel> ZoomOutCommand { get; } = new ZoomOutCommand();
+        public SimpleCommand<DocumentViewModel> ResetZoomCommand { get; } = new ResetZoomCommand();
+        public SimpleCommand<DocumentViewModel> ShowGoToCommand { get; } = new ShowGoToCommand();
+
         public SimpleCommand<SettingsViewModel> AcknowledgeFontSelectionChangeCommand { get; } =
             new AcknowledgeFontSelectionChangeCommand();
 

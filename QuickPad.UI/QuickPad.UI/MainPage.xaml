@@ -116,7 +116,7 @@
                             </RichEditBox.SelectionHighlightColorWhenNotFocused>
                             <interactivity:Interaction.Behaviors>
                                 <core:EventTriggerBehavior EventName="SelectionChanged">
-                                    <core:InvokeCommandAction Command="{x:Bind Commands.UpdateToolbar}" CommandParameter="{x:Bind ViewModel}"/>
+                                    <core:InvokeCommandAction Command="{x:Bind Commands.UpdateToolbarCommand}" CommandParameter="{x:Bind ViewModel}"/>
                                 </core:EventTriggerBehavior>
                             </interactivity:Interaction.Behaviors>
                         </RichEditBox>

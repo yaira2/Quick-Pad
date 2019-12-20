@@ -5,9 +5,9 @@ using System;
 
 namespace QuickPad.Mvvm.Commands.Editing
 {
-    public class ZoomOut : SimpleCommand<DocumentViewModel>
+    public class ZoomOutCommand : SimpleCommand<DocumentViewModel>
     {
-        public ZoomOut()
+        public ZoomOutCommand()
         {
             Executioner = viewModel =>
             {

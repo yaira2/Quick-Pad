@@ -5,9 +5,9 @@ using System;
 
 namespace QuickPad.Mvvm.Commands.Editing
 {
-    public class ResetZoom : SimpleCommand<DocumentViewModel>
+    public class ResetZoomCommand : SimpleCommand<DocumentViewModel>
     {
-        public ResetZoom()
+        public ResetZoomCommand()
         {
             Executioner = viewModel =>
             {

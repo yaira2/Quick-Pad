@@ -125,7 +125,7 @@
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Search with Bing..." AccessKey="S" x:Uid="SearchBing"
-                                Command="{x:Bind Commands.SearchWithBing}"
+                                Command="{x:Bind Commands.SearchWithBingCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12B;" />
@@ -172,7 +172,9 @@
                         <KeyboardAccelerator Modifiers="Control" Key="H"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="Go To" AccessKey="G" x:Uid="GoTo">
+                <MenuFlyoutItem Text="Go To" AccessKey="G" x:Uid="GoTo"
+                                Command="{x:Bind Commands.ShowGoToCommand}"
+                                CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="G"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
@@ -248,7 +250,7 @@
                         <FontIcon Glyph="&#xE92D;"/>
                     </MenuFlyoutSubItem.Icon>
                     <MenuFlyoutItem Text="Zoom In" AccessKey="I" x:Uid="ZoomIn"
-                                Command="{x:Bind Commands.ZoomIn}"
+                                Command="{x:Bind Commands.ZoomInCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE8A3;"/>
@@ -260,7 +262,7 @@
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
                     <MenuFlyoutItem Text="Zoom Out" AccessKey="O" x:Uid="ZoomOut"
-                                Command="{x:Bind Commands.ZoomOut}"
+                                Command="{x:Bind Commands.ZoomOutCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE71F;"/>
@@ -272,7 +274,7 @@
                         </MenuFlyoutItem.KeyboardAccelerators>
                     </MenuFlyoutItem>
                     <MenuFlyoutItem Text="Restore Default Zoom" AccessKey="R" x:Uid="RestoreDefaultZoom"
-                                Command="{x:Bind Commands.ResetZoom}"
+                                Command="{x:Bind Commands.ResetZoomCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE71E;"/>

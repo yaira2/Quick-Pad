@@ -425,17 +425,17 @@ namespace QuickPad.UI
 
             if (controlDown & args.Key == (VirtualKey)187)
             {
-                Commands.ZoomIn.Execute(ViewModel);
+                Commands.ZoomInCommand.Execute(ViewModel);
             }
 
             if (controlDown & args.Key == (VirtualKey)189)
             {
-                Commands.ZoomOut.Execute(ViewModel);
+                Commands.ZoomOutCommand.Execute(ViewModel);
             }
 
             if (controlDown & args.Key == (VirtualKey)48)
             {
-                Commands.ResetZoom.Execute(ViewModel);
+                Commands.ResetZoomCommand.Execute(ViewModel);
             }
 
             var option = (c: controlDown, s: shiftDown, m: menuDown, l: leftWindowsDown, r: rightWindowsDown, k: args.Key);
