@@ -293,6 +293,7 @@
                 </ToggleMenuFlyoutItem>
             </MenuBarItem>
         </MenuBar>
+        
         <controls:TeachingTip 
             x:Uid="CompactOverlayTip"
             Title="Keep on top of other Windows" 
