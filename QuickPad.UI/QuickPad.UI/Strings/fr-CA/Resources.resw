@@ -105,7 +105,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CloseCompactOverlay.Text" xml:space="preserve">
-    <value>Fermer le mode superposé compacte</value>
+    <value>Fermer le mode superposé compact</value>
     <comment>Used on TitleBar</comment>
   </data>
   <data name="Copy.Text" xml:space="preserve">
@@ -121,7 +121,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Encodage par défaut du fichier</value>
+    <value>Encodage du fichier par défaut</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFileType.Text" xml:space="preserve">
@@ -221,7 +221,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="OverlayMode.Text" xml:space="preserve">
-    <value>Mode superposé compacte</value>
+    <value>Mode superposé compact</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Paste.Text" xml:space="preserve">
@@ -433,7 +433,7 @@
     <comment>Used on CommandBar</comment>
   </data>
   <data name="CompactOverlayTooltip.Text" xml:space="preserve">
-    <value>Mode superposé compacte (Alt + Haut)</value>
+    <value>Mode superposé compact (Alt + Haut)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Emoji.Text" xml:space="preserve">
@@ -521,7 +521,7 @@
     <comment>Used on CommandBar</comment>
   </data>
   <data name="LaunchCompactOverlay" xml:space="preserve">
-    <value>Mode superposé compacte</value>
+    <value>Mode superposé compact</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RichTextDescription" xml:space="preserve">
@@ -583,5 +583,81 @@
   <data name="ContributeToDeveloper.Text" xml:space="preserve">
     <value>Contribuer au développeur</value>
     <comment>Used on Settings Page</comment>
+  </data>
+  <data name="New.Text" xml:space="preserve">
+    <value>Nouveau</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="NewLabel.Label" xml:space="preserve">
+    <value>Nouveau</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewTip.Text" xml:space="preserve">
+    <value>Nouveau (Ctrl+N)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Sans titre</value>
+    <comment>Used on Title Bar</comment>
+  </data>
+  <data name="FindClose.Text" xml:space="preserve">
+    <value>Fermer</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindFilter.PlaceholderText" xml:space="preserve">
+    <value>À la recherche de?</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMatchCase.Text" xml:space="preserve">
+    <value>Respecter les caractères</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindRegEx.Text" xml:space="preserve">
+    <value>Expression régulière</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplace.Text" xml:space="preserve">
+    <value>Remplacer</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceAll.Text" xml:space="preserve">
+    <value>Tout remplacer</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>Temps/Date</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindMore.Text" xml:space="preserve">
+    <value>Plus...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>Remplacer par...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="CmdCancel.Content" xml:space="preserve">
+    <value>Annuler</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CmdGoTo.Content" xml:space="preserve">
+    <value>Aller à</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.Title" xml:space="preserve">
+    <value>Aller à</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToLineNumber.Header" xml:space="preserve">
+    <value>Numéro de ligne :</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CompactOverlayTip.Title" xml:space="preserve">
+    <value>La garder par dessus des autres fenêtres</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
+    <value>Avec le mode superposé compact, vous pouvez garder Quick Pad par dessus des autres fenêtres.</value>
+    <comment>Used on TeachingTip</comment>
   </data>
 </root>
