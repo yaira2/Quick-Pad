@@ -41,6 +41,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> CopyCommand { get; } = new CopyCommand();
         public SimpleCommand<DocumentViewModel> PasteCommand { get; }
         public SimpleCommand<DocumentViewModel> DeleteCommand { get; } = new DeleteCommand();
+        public SimpleCommand<DocumentViewModel> ContentChangedCommand { get; } = new ContentChangedCommand();
 
         public SimpleCommand<DocumentViewModel> EmojiCommand { get; } = new EmojiCommand();
 

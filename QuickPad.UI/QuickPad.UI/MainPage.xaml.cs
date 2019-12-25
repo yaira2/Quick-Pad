@@ -70,6 +70,8 @@ namespace QuickPad.UI
             Logger = logger;
             Commands = command;
 
+            Clipboard.ContentChanged += Clipboard_ContentChanged;
+
             GotFocus += OnGotFocus;
 
             App.Controller.AddView(this);
@@ -112,6 +114,11 @@ namespace QuickPad.UI
                 WelcomeDialog dialog = new WelcomeDialog();
                 _ = dialog.ShowAsync();
             }
+        }
+
+        private void Clipboard_ContentChanged(object sender, object e)
+        {
+            Commands.ContentChangedCommand.Execute(ViewModel);
         }
 
         public void ViewModel_SetScale(float scale)
