@@ -13,16 +13,16 @@ namespace QuickPad.Mvvm.Views
         string SearchPattern { get; set; }
         string ReplacePattern { get; set; }
 
-        Task<(string text, string match, int start, int length)> FindNext(DocumentViewModel viewModel);
-        Task<(string text, string match, int start, int length)> FindPrevious(DocumentViewModel viewModel);
+        (string text, string match, int start, int length) FindNext(DocumentViewModel viewModel);
+        (string text, string match, int start, int length) FindPrevious(DocumentViewModel viewModel);
 
-        Task<(string text, string match, int start, int length)> ReplaceNext(DocumentViewModel viewModel);
-        Task<(string text, string match, int start, int length)[]> ReplaceAll(DocumentViewModel viewModel);
+        (string text, string match, int start, int length) ReplaceNext(DocumentViewModel viewModel);
+        (string text, string match, int start, int length)[] ReplaceAll(DocumentViewModel viewModel);
 
-        event Func<SettingsViewModel, string, DocumentViewModel, Task<(string text, string match, int start, int length)>> SearchNext;
-        event Func<SettingsViewModel, string, DocumentViewModel, Task<(string text, string match, int start, int length)>> SearchPrevious;
+        event Func<SettingsViewModel, string, int, DocumentViewModel, (string text, string match, int start, int length)> SearchNext;
+        event Func<SettingsViewModel, string, int, DocumentViewModel, (string text, string match, int start, int length)> SearchPrevious;
 
-        event Func<SettingsViewModel, string, DocumentViewModel, Task<(string text, string match, int start, int length)>> SearchReplaceNext;
-        event Func<SettingsViewModel, string, DocumentViewModel, Task<(string text, string match, int start, int length)[]>> SearchReplaceAll;
+        event Func<SettingsViewModel, string, int, DocumentViewModel, (string text, string match, int start, int length)> SearchReplaceNext;
+        event Func<SettingsViewModel, string, int, DocumentViewModel, (string text, string match, int start, int length)[]> SearchReplaceAll;
     }
 }

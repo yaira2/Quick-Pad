@@ -281,7 +281,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        public async Task AddTab()
+        public void AddTab()
         {
             // Add tab
             if (SelectedText.Length > 0)
@@ -290,12 +290,12 @@ namespace QuickPad.Mvvm.ViewModels
                 var text = '\t' + SelectedText;
                 text = text.Replace("\r", "\r\t").TrimEnd('\t');
                 SelectedText = text;
-                await SelectText(currentPosition.start + 1, currentPosition.length);
+                SelectText(currentPosition.start + 1, currentPosition.length);
             }
             else
             {
                 SelectedText = "\t";
-                await SelectText(CurrentPosition.start + 1, 0);
+                SelectText(CurrentPosition.start + 1, 0);
             }
         }
 
@@ -370,12 +370,9 @@ namespace QuickPad.Mvvm.ViewModels
         public event Func<(int start, int length)> GetPosition;
         public event Action<string> SetSelectedText;
 
-        public async Task SelectText(int start, int length)
+        public void SelectText(int start, int length)
         {
-            if (SetSelection != null)
-            {
-                await SetSelection?.Invoke(start, length);
-            }
+            SetSelection?.Invoke(start, length);
         }
 
         public event Func<int, int, Task> SetSelection;

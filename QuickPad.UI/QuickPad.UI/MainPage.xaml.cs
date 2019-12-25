@@ -570,12 +570,12 @@ namespace QuickPad.UI
             }
         }
 
-        private async void TextBox_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        private void TextBox_OnKeyDown(object sender, KeyRoutedEventArgs e)
         {
             if (e.Key != VirtualKey.Tab || Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift)
                     .HasFlag(CoreVirtualKeyStates.Down)) return;
 
-            await ViewModel.AddTab();
+            ViewModel.AddTab();
 
             e.Handled = true;
         }
