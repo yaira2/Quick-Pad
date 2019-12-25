@@ -43,10 +43,7 @@ namespace QuickPad.UI
         /// </summary>
         public App()
         {
-            if (RuntimeInformation.ProcessArchitecture != Architecture.Arm64)
-            {
-                AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes));
-            }
+            AppCenter.Start("64a87afd-a838-4cd0-a46d-b3ea528dd53d", typeof(Analytics), typeof(Crashes));
 
             Host = new HostBuilder()
                 .ConfigureAppConfiguration(builder =>

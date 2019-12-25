@@ -7,22 +7,22 @@
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
     Title="Quick Pad is back with a complete rewrite!"
-    Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
+    Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}" Windows10version1809:CornerRadius="4">
 
-    <Grid Width="375">
+    <Grid Width="376">
         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
-            <TextBlock FontSize="14" Text="We rewrote Quick Pad in a way that's more modular and stable that will allow us to add new features as well as fix bugs faster." TextWrapping="Wrap"/>
+            <TextBlock FontSize="14" Text="We rewrote Quick Pad in a way that's more modular and stable. The new version will allow us to fix and add new features at a faster pace." TextWrapping="Wrap"/>
+            
+            <TextBlock FontSize="14" Margin="0,8,0,0" Text="You may need to redo some of the options you customized as a result of rewriting Quick Pad." TextWrapping="Wrap"/>
 
-            <TextBlock Margin="0,5,0,0" Text="All the options are still available as well some new features and experiences," TextWrapping="Wrap"/>
-            <TextBlock Margin="0,5,0,0" FontSize="12" Text=" - Encoding options"/>
-            <TextBlock FontSize="12" Text=" - Txt and rtf files now have separate behaviors, for example you can set the default font separately for plain text and and another font for rich text." TextWrapping="Wrap"/>
-            <TextBlock FontSize="12" Text=" - There is a hidden mode called Ninja Mode that shows both the toolbar and drop down menus at the same time. Ninja Mode can be accessed with the Ctrl + F12 shortcut keys." TextWrapping="Wrap"/>
-            <TextBlock FontSize="12" Text=" - Fixed many bugs reported in previous versions."/>
+            <TextBlock Margin="0,8,0,0" Text="All of the options are still available and we included some new features and experiences," TextWrapping="Wrap"/>
+            <TextBlock Margin="12,4,0,0" FontSize="14" Text="• Encoding options"/>
+            <TextBlock Margin="12,0,0,0" FontSize="14" Text="• Txt and rtf files now have separate behaviors, for example you can set the default font separately for plain text and and another font for rich text." TextWrapping="Wrap"/>
+            <TextBlock Margin="12,0,0,0" FontSize="14" Text="• There is a hidden mode called Ninja Mode that shows both the toolbar and drop down menus at the same time. Ninja Mode can be accessed with the Ctrl + F12 shortcut keys." TextWrapping="Wrap"/>
+            <TextBlock Margin="12,0,0,0" FontSize="14" Text="• Fixed many bugs that were in previous versions."/>
 
-            <TextBlock FontSize="14" Margin="0,10,0,0" Text="You may need to redo any of the options you customized as a result of rewriting Quick Pad." TextWrapping="Wrap"/>
-
-            <Button Margin="0,10,0,0" Style="{StaticResource ButtonRevealStyle}" 
-                    Content="Lets go!" HorizontalAlignment="Stretch">
+            <Button Margin="0,12,0,0" Style="{StaticResource ButtonRevealStyle}" 
+                    Content="Lets go!" HorizontalAlignment="Stretch" Height="48" x:Name="CmdClose" Click="CmdClose_Click">
                 <Button.Foreground>
                     <SolidColorBrush Color="{x:Bind VTSelector.CurrentItem.DefaultTextForegroundColor, Mode=OneWay}" />
                 </Button.Foreground>

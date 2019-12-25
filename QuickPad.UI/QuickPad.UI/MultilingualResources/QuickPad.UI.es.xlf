@@ -743,11 +743,6 @@
           <target state="new">Untitled</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
         </trans-unit>
-        <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
-          <source>Time/Date</source>
-          <target state="new">Time/Date</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-        </trans-unit>
         <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
           <target state="new">Close</target>
@@ -761,11 +756,6 @@
         <trans-unit id="FindMatchCase.Text" translate="yes" xml:space="preserve">
           <source>Match Case</source>
           <target state="new">Match Case</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
-        </trans-unit>
-        <trans-unit id="FindMode.Text" translate="yes" xml:space="preserve">
-          <source>More...</source>
-          <target state="new">More...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
@@ -783,10 +773,50 @@
           <target state="new">Replace all</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
-        <trans-unit id="FintReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
+        <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
+          <source>Time/Date</source>
+          <target state="new">Time/Date</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
+          <source>More...</source>
+          <target state="new">More...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with...</source>
           <target state="new">Replace with...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
+          <source>Line number:</source>
+          <target state="new">Line number:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="CompactOverlayTip.Title" translate="yes" xml:space="preserve">
+          <source>Keep on top of other Windows</source>
+          <target state="new">Keep on top of other Windows</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
+        </trans-unit>
+        <trans-unit id="CompactOverlayTip.Subtitle" translate="yes" xml:space="preserve">
+          <source>With compact overlay you can make Quick Pad stay on top of other windows.</source>
+          <target state="new">With compact overlay you can make Quick Pad stay on top of other windows.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
       </group>
     </body>

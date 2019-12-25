@@ -22,7 +22,7 @@
         </DataTemplate>
     </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
-        <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,210,0">
+        <CommandBar DefaultLabelPosition="Right" IsOpen="False" HorizontalAlignment="Left" Background="{x:Null}" VerticalAlignment="Top" Height="40" Margin="0,0,208,0">
             <AppBarButton x:Uid="NewLabel" Width="Auto" MinWidth="40" LabelPosition="Collapsed" 
                           Command="{x:Bind Commands.NewDocumentCommand}" 
                           CommandParameter="{x:Bind ViewModel}">
@@ -67,8 +67,8 @@
             </AppBarButton>
             <AppBarSeparator/>
             <AppBarButton x:Name="FontDropdown" LabelPosition="Collapsed" Width="Auto">
-                <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
-                    <TextBlock Text="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                <StackPanel Orientation="Horizontal" Padding="8,0">
+                    <TextBlock Text="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,12,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
                 <AppBarButton.Flyout>
@@ -90,8 +90,8 @@
                 </AppBarButton.Flyout>
             </AppBarButton>
             <AppBarButton x:Name="FontSizeDropdown" LabelPosition="Collapsed" MinWidth="50" Width="Auto">
-                <StackPanel Orientation="Horizontal" Padding="10,0,10,0">
-                    <TextBlock Text="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,10,0"/>
+                <StackPanel Orientation="Horizontal" Padding="8,0">
+                    <TextBlock Text="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}" FontFamily="Segoe UI" Margin="0,0,12,0"/>
                     <FontIcon Glyph="&#xE70D;" FontSize="12"/>
                 </StackPanel>
                 <AppBarButton.Flyout>
@@ -139,6 +139,7 @@
             <AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"/>
             <AppBarToggleButton x:Uid="BoldLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Bold"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelBold, Mode=TwoWay}"
                                 Command="{x:Bind Commands.BoldCommand}" 
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -147,6 +148,7 @@
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="ItalicLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Italic"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelItalic, Mode=TwoWay}"
                                 Command="{x:Bind Commands.ItalicsCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -155,6 +157,7 @@
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="UnderlineLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="Underline"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelUnderline, Mode=TwoWay}"
                                 Command="{x:Bind Commands.UnderlineCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -163,6 +166,7 @@
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="StrikethroughLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelStrikethrough, Mode=TwoWay}"
                                 Command="{x:Bind Commands.StrikeThroughCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -178,6 +182,7 @@
             </AppBarToggleButton>
             <AppBarToggleButton x:Uid="BulletsLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="List"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelBullets, Mode=TwoWay}"
                                 Command="{x:Bind Commands.BulletsCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
@@ -185,41 +190,45 @@
                 </ToolTipService.ToolTip>
             </AppBarToggleButton>
             <AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"/>
-            <AppBarButton x:Uid="AlignLeftLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignLeft"
-                          Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+            <AppBarToggleButton x:Uid="AlignLeftLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignLeft"
+                                Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelLeft, Mode=TwoWay}"
                                 Command="{x:Bind Commands.LeftAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignLeft" Text="Align Left (Ctrl+L)"/>
                 </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Uid="AlignCenterLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignCenter"
+            </AppBarToggleButton>
+            <AppBarToggleButton x:Uid="AlignCenterLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignCenter"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelCenter, Mode=TwoWay}"
                                 Command="{x:Bind Commands.CenterAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignCenter" Text="Align Center (Ctrl+E)"/>
                 </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Uid="AlignRightLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignRight"
+            </AppBarToggleButton>
+            <AppBarToggleButton x:Uid="AlignRightLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40" Icon="AlignRight"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelRight, Mode=TwoWay}"
                                 Command="{x:Bind Commands.RightAlignCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignRight" Text="Align Right (Ctrl+R)"/>
                 </ToolTipService.ToolTip>
-            </AppBarButton>
-            <AppBarButton x:Uid="JustifyTextLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
+            </AppBarToggleButton>
+            <AppBarToggleButton x:Uid="JustifyTextLabel" LabelPosition="Collapsed" Width="Auto" MinWidth="40"
                                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}"
+                                IsChecked="{x:Bind ViewModel.SelJustify, Mode=TwoWay}"
                                 Command="{x:Bind Commands.JustifyCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="JustifyText" Text="Justify Text (Ctrl+J)"/>
                 </ToolTipService.ToolTip>
-                <AppBarButton.Icon>
+                <AppBarToggleButton.Icon>
                     <FontIcon FontFamily="/Assets/Font/FabExMDL2.ttf#Fabric External MDL2 Assets" Glyph=""/>
-                </AppBarButton.Icon>
-            </AppBarButton>
+                </AppBarToggleButton.Icon>
+            </AppBarToggleButton>
         </CommandBar>
 
         <CommandBar DefaultLabelPosition="Collapsed" IsOpen="False" HorizontalAlignment="Right" Height="40" Background="{x:Null}">

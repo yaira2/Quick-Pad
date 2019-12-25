@@ -25,7 +25,7 @@
             <ToggleSwitch IsOn="{x:Bind Settings.UseAcrylic, Mode=TwoWay}" />
 
             <TextBlock x:Uid="AcrylicTintOpacity" Text="Acrylic tint opacity"/>
-            <Slider Minimum="0" Maximum="1" StepFrequency="0.01" Width="230" HorizontalAlignment="Left" 
+            <Slider Minimum="0" Maximum="1" StepFrequency="0.01" Width="240" HorizontalAlignment="Left" 
                     Value="{x:Bind Settings.BackgroundTintOpacity, Mode=TwoWay}"/>
 
             <TextBlock x:Uid="PasteOptions" Text="Paste Options" FontSize="16"/>

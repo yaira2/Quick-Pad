@@ -105,7 +105,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CloseCompactOverlay.Text" xml:space="preserve">
-    <value>Fermer le mode superposé compacte</value>
+    <value>Fermer le mode Compacte</value>
     <comment>Used on TitleBar</comment>
   </data>
   <data name="Copy.Text" xml:space="preserve">
@@ -169,7 +169,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FindPrevious.Text" xml:space="preserve">
-    <value>Précédent</value>
+    <value>Rechercher le précédent</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FocusMode.Text" xml:space="preserve">
@@ -225,7 +225,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="OverlayMode.Text" xml:space="preserve">
-    <value>Mode du superposition</value>
+    <value>Mode Compacte</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Paste.Text" xml:space="preserve">
@@ -253,11 +253,11 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestatRequired.Text" xml:space="preserve">
-    <value>Redémarrage nécessaire pour appliquer les paramètres</value>
+    <value>Redémarrage nécessaire pour appliquer les changements</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestoreDefaultZoom.Text" xml:space="preserve">
-    <value>Restorer le zoom par défaut</value>
+    <value>Restaurer le zoom par défaut</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Save.Text" xml:space="preserve">
@@ -329,11 +329,11 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="ZoomIn.Text" xml:space="preserve">
-    <value>Zoom Avant</value>
+    <value>Zoom avant</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="ZoomOut.Text" xml:space="preserve">
-    <value>Zoom Arrière</value>
+    <value>Zoom arrière</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="DefaultFontRtf.Text" xml:space="preserve">
@@ -357,7 +357,7 @@
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesBody" xml:space="preserve">
-    <value>Il y a des modifications non-enrigistrées. Voulez vous les enregistrer ?</value>
+    <value>Il y a des modifications non-enregistrées. Voulez vous les enregistrer ?</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesTitle" xml:space="preserve">
@@ -437,7 +437,7 @@
     <comment>Used on CommandBar</comment>
   </data>
   <data name="CompactOverlayTooltip.Text" xml:space="preserve">
-    <value>Mode superposé compacte (Alt + Haut)</value>
+    <value>Mode Compacte (Alt + Haut)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Emoji.Text" xml:space="preserve">
@@ -533,7 +533,7 @@
     <comment>Used on CommandBar</comment>
   </data>
   <data name="LaunchCompactOverlay" xml:space="preserve">
-    <value>Mode superposé compacte</value>
+    <value>Mode Compacte</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RichTextDescription" xml:space="preserve">
@@ -599,5 +599,9 @@
   <data name="Untitled" xml:space="preserve">
     <value>Sans titre</value>
     <comment>Used on Title Bar</comment>
+  </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>Heure/Date</value>
+    <comment>Used on Menu Item</comment>
   </data>
 </root>

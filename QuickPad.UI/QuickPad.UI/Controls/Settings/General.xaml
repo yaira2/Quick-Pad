@@ -66,17 +66,17 @@
             </ComboBox>
 
             <TextBlock Text="Auto Save" x:Uid="AutoSave"/>
-            <ToggleSwitch IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
+            <ToggleSwitch x:Name="AutoSave"  IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
             
-            <TextBlock Visibility="{x:Bind Settings.AutoSave, Mode=OneWay}">
+            <TextBlock Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}">
                 <Run Text="Auto save every" x:Uid="AutoSaveEvery"/>
                 <Run Text="{x:Bind Settings.AutoSaveFrequency, Mode=OneWay}"/>
                 <Run Text="second(s)" x:Uid="AutoSaveSeconds"/>
             </TextBlock>
             <Slider Minimum="5" Maximum="45" StepFrequency="1" 
-                    Visibility="{x:Bind Settings.AutoSave, Mode=OneWay}"
+                    Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}"
                     Value="{x:Bind Settings.AutoSaveFrequency, Mode=TwoWay}"
-                    TickPlacement="Inline" Width="230" HorizontalAlignment="Left"/>
+                    TickPlacement="Inline" Width="240" HorizontalAlignment="Left"/>
         </StackPanel>
 
     </Grid>

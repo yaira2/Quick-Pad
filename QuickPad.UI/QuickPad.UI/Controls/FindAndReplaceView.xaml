@@ -21,11 +21,12 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
@@ -33,9 +34,9 @@
         <!-- Toggle button -->
         <ToggleButton Grid.Row="0"
                           Grid.Column="0"
-                          Width="34"
+                          Width="32"
                           Padding="2"
-                          Height="32.6667"
+                          Height="32"
                           VerticalAlignment="Center"
                           BorderThickness="1" 
                           IsChecked="{x:Bind DocumentViewModel.ShowReplace, Mode=TwoWay}"
@@ -57,14 +58,13 @@
                      Margin="4"
                      Text="{x:Bind ViewModel.SearchPattern, Mode=TwoWay}"/>
 
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
         <!-- Next/Previous -->
-        <muxc:SplitButton Grid.Row="0"
-                    Grid.Column="2"
-                    Padding="6" 
+        <muxc:SplitButton Padding="4" 
                     Margin="4"
                     CornerRadius="2"
                     Width="Auto"
-                    Height="32.6667"
+                    Height="32"
                     Style="{ThemeResource SplitButtonRevealStyle}" 
                     Command="{x:Bind Commands.FindNextCommand}"
                     CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}">
@@ -103,12 +103,10 @@
         </muxc:SplitButton>
 
         <!-- Close dialog button-->
-        <Button Grid.Row="0"
-                    Grid.Column="3"
-                    Margin="4" 
-                    Padding="6" 
-                    Width="34"
-                    Height="32.6667" 
+        <Button Margin="4" 
+                    Padding="4" 
+                    Width="32"
+                    Height="32" 
                     Command="{x:Bind Commands.HideFindCommand}"
                     CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
@@ -120,37 +118,32 @@
                 <KeyboardAccelerator Key="Escape"/>
             </Button.KeyboardAccelerators>
         </Button>
+        </StackPanel>
         <!-- END OF Find Row -->
 
-        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
-              Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="191.333" />
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
+        <!--<Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" 
+              Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">-->
+
+        <Grid></Grid>
         <!-- Replace Row (Second) -->
         <!-- Replace TextBox -->
-        <TextBox Grid.Row="0"
-                     Grid.Column="0"
+        <TextBox Grid.Row="1"
+                     Grid.Column="1"
                      HorizontalAlignment="Stretch" 
                      VerticalAlignment="Center"
                      Margin="4"
                      Text="{x:Bind ViewModel.ReplacePattern, Mode=TwoWay}"
                      PlaceholderText="Replace with.."
-                     x:Uid="FintReplaceWith"/>
+                     x:Uid="FindReplaceWith"
+                     Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}"/>
 
+        <StackPanel Grid.Row="1"
+                    Grid.Column="2" Orientation="Horizontal" Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
         <!-- Replace button -->
-        <Button Grid.Row="0"
-                    Grid.Column="1"                    
-                    Padding="6" 
+        <Button Padding="4" 
                     Margin="4"
-                    Width="34"
-                    Height="32.6667" 
+                    Width="32"
+                    Height="32" 
                     Command="{x:Bind Commands.ReplaceNextCommand}"
                     CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
@@ -161,12 +154,10 @@
         </Button>
 
         <!-- Replace all button -->
-        <Button Grid.Row="0"
-                    Grid.Column="2" 
-                    Padding="6" 
+        <Button Padding="4" 
                     Margin="4"
                     Width="34"
-                    Height="32.6667" 
+                    Height="32" 
                     Command="{x:Bind Commands.ReplaceAllCommand}"
                     CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
@@ -175,19 +166,20 @@
                 <TextBlock x:Uid="FindReplaceAll" Text="Replace all"/>
             </ToolTipService.ToolTip>
         </Button>
+        </StackPanel>
         <!-- END OF Replace Row -->
 
 
         <!-- Options Row (Third) -->
-        <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToggleButton Content="&#xE8E9;"
                       FontFamily="Segoe MDL2 Assets"
                       IsEnabled="{Binding UseRegex, Converter={StaticResource Converter}, ConverterParameter=Invert, Mode=OneWay}"
                       IsChecked="{x:Bind ViewModel.MatchCase, Mode=TwoWay}" 
-                      Padding="6" 
+                      Padding="4" 
                       Margin="4"
-                      Width="34"
-                      Height="32.6667"
+                      Width="32"
+                      Height="32"
                       FontSize="16"
                       Style="{ThemeResource ToggleButtonRevealStyle}">
                     <ToolTipService.ToolTip>
@@ -198,10 +190,10 @@
                 <!-- Regex button -->
                 <ToggleButton Grid.Row="1"
                 Grid.Column="1" 
-                Padding="6" 
+                Padding="4" 
                 Margin="4"
-                Width="34"
-                Height="32.6667"
+                Width="32"
+                Height="32"
                 IsChecked="{x:Bind ViewModel.UseRegex, Mode=TwoWay}"
                 Style="{ThemeResource ToggleButtonRevealStyle}">
                     <FontIcon FontFamily="{StaticResource RegExIcon}" Glyph="&#xEB38;" FontSize="16"/>
@@ -214,11 +206,6 @@
 
        
         <!-- END OF Replace Row -->
-
-
-
         </Grid>
-
-    </Grid>
     
 </UserControl>

@@ -13,10 +13,14 @@ namespace QuickPad.UI.Common.Dialogs
         public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
         public QuickPadCommands Commands { get; }
 
-        public WelcomeDialog(QuickPadCommands commands)
+        public WelcomeDialog()
         {
-            Commands = commands;
             this.InitializeComponent();
+        }
+
+        private void CmdClose_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Hide();
         }
     }
 }

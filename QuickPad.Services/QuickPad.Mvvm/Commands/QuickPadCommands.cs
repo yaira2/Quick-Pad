@@ -41,6 +41,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> CopyCommand { get; } = new CopyCommand();
         public SimpleCommand<DocumentViewModel> PasteCommand { get; }
         public SimpleCommand<DocumentViewModel> DeleteCommand { get; } = new DeleteCommand();
+        public SimpleCommand<DocumentViewModel> ContentChangedCommand { get; } = new ContentChangedCommand();
 
         public SimpleCommand<DocumentViewModel> EmojiCommand { get; } = new EmojiCommand();
 
@@ -76,8 +77,14 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> ReplaceAllCommand { get; } = new ReplaceAllCommand();
         public SimpleCommand<DocumentViewModel> SelectAllCommand { get; } = new SelectAllCommand();
         public SimpleCommand<DocumentViewModel> InsertTimeDateCommand { get; } = new InsertTimeDateCommand();
-        public SimpleCommand<DocumentViewModel> SearchWithBing { get; } = new SearchWithBing();
-
+        public SimpleCommand<DocumentViewModel> SearchWithBingCommand { get; } = new SearchWithBingCommand();
+        public SimpleCommand<DocumentViewModel> UpdateToolbarCommand { get; } = new UpdateToolbarCommand();
+        public SimpleCommand<DocumentViewModel> ZoomInCommand { get; } = new ZoomInCommand();
+        public SimpleCommand<DocumentViewModel> ZoomOutCommand { get; } = new ZoomOutCommand();
+        public SimpleCommand<DocumentViewModel> ResetZoomCommand { get; } = new ResetZoomCommand();
+        public SimpleCommand<DocumentViewModel> ShowGoToCommand { get; } = new ShowGoToCommand();
+        public SimpleCommand<DocumentViewModel> SuperscriptCommand { get; } = new SuperscriptCommand();
+        public SimpleCommand<DocumentViewModel> SubscriptCommand { get; } = new SubscriptCommand();
 
         public SimpleCommand<SettingsViewModel> AcknowledgeFontSelectionChangeCommand { get; } =
             new AcknowledgeFontSelectionChangeCommand();

@@ -30,9 +30,25 @@
 * File Print.
 * Tabs.
 
+## Shortcuts:
+* Save - Ctrl + S
+* Save As - Ctrl + Shift + S
+* Open - Ctrl + O
+* New Document - Ctrl + N
+* Zoom In - Ctrl + +
+* Zoom Out - Ctrl + -
+* Reset Zoom - Ctrl + 0
+* Superscript - Alt + +
+* Subscript - Alt + -
+* Classic Mode - Ctrl + Shift + 1
+* Default Mode - Ctrl + Shift + 2
+* Focus Mode - Ctrl + Shift + 3
+* Ninja Mode - Ctrl + F12
+* Compact Overlay - Alt + Up
+
 ## Downloads:
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
-* Download the latest release from [Github Releases](https://github.com/UWPCommunity/Quick-Pad/releases).
+* Download the latest release from [GitHub Releases](https://github.com/UWPCommunity/Quick-Pad/releases).
 
 ## Dependencies and References:
 * [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
@@ -52,6 +68,7 @@
     * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
     * [fr-CA][French] [PhilLB1239](https://github.com/PhilLB1239)
     * [es][Spanish] [Leisvan](https://github.com/Leisvan)
+    * [ar-EG][Arabic] [Ahmed Walid](https://github.com/ahmed605)
     * [ar-SA][Arabic] [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
     * [fr-FR][French] [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
     * [it][Italian] [Leonardo Di Stasio](https://github.com/YohskDista)

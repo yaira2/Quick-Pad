@@ -44,6 +44,7 @@ using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using QuickPad.UI.Common.Theme;
 using QuickPad.UI.Controls;
+using Microsoft.Toolkit.Uwp.Helpers;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -68,6 +69,8 @@ namespace QuickPad.UI
             VTSelector = vts;
             Logger = logger;
             Commands = command;
+
+            Clipboard.ContentChanged += Clipboard_ContentChanged;
 
             GotFocus += OnGotFocus;
 
@@ -96,6 +99,8 @@ namespace QuickPad.UI
 
             Settings.PropertyChanged += Settings_PropertyChanged;
 
+            ViewModel.SetScale += ViewModel_SetScale;
+
             SystemNavigationManagerPreview.GetForCurrentView().CloseRequested += this.OnCloseRequest;
 
             var currentView = SystemNavigationManager.GetForCurrentView();
@@ -103,6 +108,28 @@ namespace QuickPad.UI
 
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
+
+            if (SystemInformation.IsAppUpdated && Settings.VersionNumberText == "4.3.78.0")
+            {
+                WelcomeDialog dialog = new WelcomeDialog();
+                _ = dialog.ShowAsync();
+            }
+        }
+
+        private void Clipboard_ContentChanged(object sender, object e)
+        {
+            Commands.ContentChangedCommand.Execute(ViewModel);
+        }
+
+        public void ViewModel_SetScale(float scale)
+        {
+            TextScrollViewer.ChangeView(0.0, 0.0, ViewModel.ScaleValue);
+
+        }
+
+        private void TextScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
+        {
+            ViewModel.ScaleValue = TextScrollViewer.ZoomFactor;
         }
 
         private void OnGotFocus(object sender, RoutedEventArgs e)
@@ -397,15 +424,41 @@ namespace QuickPad.UI
 
         private async void MainPage_OnKeyUp(object sender, KeyRoutedEventArgs args)
         {
-            var controlDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control)
-                .HasFlag(CoreVirtualKeyStates.Down);
+            var controlDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control) .HasFlag(CoreVirtualKeyStates.Down);
             var menuDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu).HasFlag(CoreVirtualKeyStates.Down);
-            var shiftDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift)
-                .HasFlag(CoreVirtualKeyStates.Down);
-            var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows)
-                .HasFlag(CoreVirtualKeyStates.Down);
-            var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows)
-                .HasFlag(CoreVirtualKeyStates.Down);
+            var shiftDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) .HasFlag(CoreVirtualKeyStates.Down);
+            var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows) .HasFlag(CoreVirtualKeyStates.Down);
+            var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows) .HasFlag(CoreVirtualKeyStates.Down);
+
+            //ctrl + +
+            if (controlDown & args.Key == (VirtualKey)187)
+            {
+                Commands.ZoomInCommand.Execute(ViewModel);
+            }
+
+            //ctrl + -
+            if (controlDown & args.Key == (VirtualKey)189)
+            {
+                Commands.ZoomOutCommand.Execute(ViewModel);
+            }
+
+            //ctrl + 0
+            if (controlDown & args.Key == (VirtualKey)48)
+            {
+                Commands.ResetZoomCommand.Execute(ViewModel);
+            }
+
+            //alt + +
+            if (menuDown & args.Key == (VirtualKey)187)
+            {
+                Commands.SuperscriptCommand.Execute(ViewModel);
+            }
+
+            //alt + -
+            if (menuDown & args.Key == (VirtualKey)189)
+            {
+                Commands.SubscriptCommand.Execute(ViewModel);
+            }
 
             var option = (c: controlDown, s: shiftDown, m: menuDown, l: leftWindowsDown, r: rightWindowsDown, k: args.Key);
 
@@ -429,7 +482,6 @@ namespace QuickPad.UI
             Settings.CurrentMode = newMode;
 
             Settings.Status($"{Settings.CurrentModeText} Enabled.", TimeSpan.FromSeconds(5), SettingsViewModel.Verbosity.Debug);
-
         }
 
         private void RichEditBox_OnContextMenuOpening(object sender, ContextMenuEventArgs e)

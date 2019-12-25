@@ -7,16 +7,23 @@
     xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
     mc:Ignorable="d"
     Title="Go To Line"
-    PrimaryButtonText="Go To"
-    CloseButtonText="Cancel"
-    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
-    SecondaryButtonClick="ContentDialog_SecondaryButtonClick"
+    x:Uid="GoToDialog"
     Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
 
     <Grid>
-        <TextBox Header="Line number:" 
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Header="Line number:"
+                 x:Uid="GoToLineNumber"
                  InputScope="Number" 
                  extensions:TextBoxRegex.ValidationMode="Dynamic" 
                  extensions:TextBoxRegex.ValidationType="Number"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Padding="0,16,0,0">
+            <Button Content="Go To" Width="132" Margin="0,0,2,0" x:Uid="CmdGoTo"/>
+            <Button Content="Cancel" Width="132" Margin="2,0,0,0" x:Uid="CmdCancel"/>
+        </StackPanel>
     </Grid>
 </ContentDialog>

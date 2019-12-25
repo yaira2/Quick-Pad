@@ -123,7 +123,7 @@
         </trans-unit>
         <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
           <source>Close Compact Overlay</source>
-          <target state="translated">Fermer le mode superposé compacte</target>
+          <target state="translated">Fermer le mode Compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TitleBar</note>
         </trans-unit>
         <trans-unit id="Copy.Text" translate="yes" xml:space="preserve">
@@ -203,7 +203,7 @@
         </trans-unit>
         <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
           <source>Find Previous</source>
-          <target state="translated">Précédent</target>
+          <target state="translated">Rechercher le précédent</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FocusMode.Text" translate="yes" xml:space="preserve">
@@ -273,7 +273,7 @@
         </trans-unit>
         <trans-unit id="OverlayMode.Text" translate="yes" xml:space="preserve">
           <source>Overlay Mode</source>
-          <target state="translated">Mode du superposition</target>
+          <target state="translated">Mode Compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Paste.Text" translate="yes" xml:space="preserve">
@@ -308,12 +308,12 @@
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
           <source>Restart required to apply the changes.</source>
-          <target state="translated">Redémarrage nécessaire pour appliquer les paramètres</target>
+          <target state="translated">Redémarrage nécessaire pour appliquer les changements</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="translated">Restorer le zoom par défaut</target>
+          <target state="translated">Restaurer le zoom par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
@@ -403,12 +403,12 @@
         </trans-unit>
         <trans-unit id="ZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="translated">Zoom Avant</target>
+          <target state="translated">Zoom avant</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="ZoomOut.Text" translate="yes" xml:space="preserve">
           <source>Zoom Out</source>
-          <target state="translated">Zoom Arrière</target>
+          <target state="translated">Zoom arrière</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Text" translate="yes" xml:space="preserve">
@@ -438,7 +438,7 @@
         </trans-unit>
         <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
           <source>There are unsaved changes.  Do you want to save them now?</source>
-          <target state="translated">Il y a des modifications non-enrigistrées. Voulez vous les enregistrer ?</target>
+          <target state="translated">Il y a des modifications non-enregistrées. Voulez vous les enregistrer ?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesTitle" translate="yes" xml:space="preserve">
@@ -538,7 +538,7 @@
         </trans-unit>
         <trans-unit id="CompactOverlayTooltip.Text" translate="yes" xml:space="preserve">
           <source>Compact Overlay (Alt + Up)</source>
-          <target state="translated">Mode superposé compacte (Alt + Haut)</target>
+          <target state="translated">Mode Compacte (Alt + Haut)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
@@ -658,7 +658,7 @@
         </trans-unit>
         <trans-unit id="LaunchCompactOverlay" translate="yes" xml:space="preserve">
           <source>Compact Overlay</source>
-          <target state="translated">Mode superposé compacte</target>
+          <target state="translated">Mode Compacte</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RichTextDescription" translate="yes" xml:space="preserve">
@@ -741,50 +741,80 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Sans titre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
         </trans-unit>
-        <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
-          <source>Time/Date</source>
-          <target state="new">Time/Date</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-        </trans-unit>
         <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="new">Close</target>
+          <target state="new">Fermer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindFilter.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Looking for?</source>
-          <target state="new">Looking for?</target>
+          <target state="new">Regarder pour?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindMatchCase.Text" translate="yes" xml:space="preserve">
           <source>Match Case</source>
-          <target state="new">Match Case</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
-        </trans-unit>
-        <trans-unit id="FindMode.Text" translate="yes" xml:space="preserve">
-          <source>More...</source>
-          <target state="new">More...</target>
+          <target state="new">Cas de correspondance</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
           <source>Regular Expression</source>
-          <target state="new">Regular Expression</target>
+          <target state="new">Expressions régulières</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Replace</target>
+          <target state="new">Remplacer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceAll.Text" translate="yes" xml:space="preserve">
           <source>Replace all</source>
-          <target state="new">Replace all</target>
+          <target state="new">Remplacer tout</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
-        <trans-unit id="FintReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
+        <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
+          <source>Time/Date</source>
+          <target state="translated">Heure/Date</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
+          <source>More...</source>
+          <target state="new">More...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with...</source>
           <target state="new">Replace with...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
+          <source>Line number:</source>
+          <target state="new">Line number:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="CompactOverlayTip.Title" translate="yes" xml:space="preserve">
+          <source>Keep on top of other Windows</source>
+          <target state="new">Keep on top of other Windows</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
+        </trans-unit>
+        <trans-unit id="CompactOverlayTip.Subtitle" translate="yes" xml:space="preserve">
+          <source>With compact overlay you can make Quick Pad stay on top of other windows.</source>
+          <target state="new">With compact overlay you can make Quick Pad stay on top of other windows.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
       </group>
     </body>

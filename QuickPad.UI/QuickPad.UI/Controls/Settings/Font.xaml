@@ -28,7 +28,7 @@
             <ColorPicker IsHexInputVisible="False" IsColorChannelTextInputVisible="False" Color="{x:Bind Settings.DefaultTextForegroundColor, Mode=TwoWay}"/>
 
             <!--Plain Text Font Settings-->
-            <TextBlock Text="Plain Text Font Settings" FontSize="18" x:Uid="PlainTextFontSettings" Padding="0,10,0,0"/>
+            <TextBlock Text="Plain Text Font Settings" FontSize="18" x:Uid="PlainTextFontSettings" Padding="0,12,0,0"/>
 
             
             <TextBlock Text="Default Font" x:Uid="DefaultFont"/>
@@ -36,13 +36,13 @@
                       SelectedItem="{x:Bind Settings.DefaultFont, Mode=TwoWay}" 
                       ItemsSource="{x:Bind Settings.AllFonts}"
                       PlaceholderText="{x:Bind Settings.DefaultFont}" 
-                      MinWidth="170"/>
+                      MinWidth="180"/>
 
             <TextBlock Text="Default Font Size" x:Uid="DefaultFontSize"/>
             <ComboBox Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       SelectedItem="{x:Bind Settings.DefaultFontSize, Mode=TwoWay}"
                       ItemsSource="{x:Bind Settings.AllFontSizes}"
-                      PlaceholderText="{x:Bind Settings.DefaultFontSize}" MinWidth="69"/>
+                      PlaceholderText="{x:Bind Settings.DefaultFontSize}" MinWidth="68"/>
 
 
             <TextBlock Text="Word Wrap" x:Uid="WordWrapSetting"/>
@@ -52,21 +52,21 @@
             <ToggleSwitch IsOn="{x:Bind Settings.SpellCheck, Mode=TwoWay}"/>
 
             <!--Rich Text Font Settings--> 
-            <TextBlock Text="Rich Text Font Settings" FontSize="18" x:Uid="RichTextFontSettings" Padding="0,10,0,0"/>
+            <TextBlock Text="Rich Text Font Settings" FontSize="18" x:Uid="RichTextFontSettings" Padding="0,12,0,0"/>
             
             <TextBlock Text="Default Rich Text Font" x:Uid="DefaultFontRtf"/>
             <ComboBox Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       SelectedItem="{x:Bind Settings.DefaultRtfFont, Mode=TwoWay}" 
                       ItemsSource="{x:Bind Settings.AllFonts}"
                       PlaceholderText="{x:Bind Settings.DefaultRtfFont}" 
-                      MinWidth="170"/>
+                      MinWidth="180"/>
 
             <TextBlock Text="Default Rich Text Font Size" x:Uid="DefaultFontSizeRtf"/>
             <ComboBox Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       SelectedItem="{x:Bind Settings.DefaultFontRtfSize, Mode=TwoWay}"
                       ItemsSource="{x:Bind Settings.AllFontSizes}"
                       PlaceholderText="{x:Bind Settings.DefaultFontRtfSize}" 
-                      MinWidth="69"/>
+                      MinWidth="68"/>
                       
             <TextBlock Text="Word Wrap in Rich Text" x:Uid="WordWrapSettingRtf"/>
             <ToggleSwitch IsOn="{x:Bind Settings.RtfWordWrap, Mode=TwoWay}"/>

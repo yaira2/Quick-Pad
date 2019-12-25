@@ -6,9 +6,9 @@ using System;
 namespace QuickPad.Mvvm.Commands.Clipboard
 {
 
-    public class SearchWithBing : SimpleCommand<DocumentViewModel>
+    public class SearchWithBingCommand : SimpleCommand<DocumentViewModel>
     {
-        public SearchWithBing()
+        public SearchWithBingCommand()
         {
             CanExecuteEvaluator = viewModel => viewModel.SelectedText.Length > 0;
 

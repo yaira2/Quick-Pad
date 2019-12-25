@@ -18,15 +18,16 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>EB705E3F44525A88C8E8E96A04DBEF8DCE07B189</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>10EF406F2BC44E3C8E8F85988D53990173626FC1</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
-    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <GenerateTestArtifacts>True</GenerateTestArtifacts>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|x64|arm|arm64</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <PackageCertificateKeyFile>QuickPad.UI_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>
+    </PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -242,6 +243,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
     <None Include="QuickPad.UI_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\ar-EG\Resources.resw" />
     <PRIResource Include="Strings\es\Resources.resw" />
     <PRIResource Include="Strings\fr-FR\Resources.resw" />
     <PRIResource Include="Strings\fr-CA\Resources.resw" />
@@ -310,10 +312,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>2.6.2</Version>
+      <Version>2.6.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>2.6.2</Version>
+      <Version>2.6.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration">
       <Version>3.1.0</Version>
@@ -343,7 +345,7 @@
       <Version>6.0.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.3.191129002</Version>
+      <Version>2.3.191211002</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -377,10 +379,12 @@
     <PRIResource Include="Strings\en-US\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
+    <XliffResource Include="MultilingualResources\QuickPad.UI.ar-EG.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.es.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-FR.xlf" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
