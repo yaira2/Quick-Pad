@@ -430,19 +430,34 @@ namespace QuickPad.UI
             var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows) .HasFlag(CoreVirtualKeyStates.Down);
             var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows) .HasFlag(CoreVirtualKeyStates.Down);
 
+            //ctrl + +
             if (controlDown & args.Key == (VirtualKey)187)
             {
                 Commands.ZoomInCommand.Execute(ViewModel);
             }
 
+            //ctrl + -
             if (controlDown & args.Key == (VirtualKey)189)
             {
                 Commands.ZoomOutCommand.Execute(ViewModel);
             }
 
+            //ctrl + 0
             if (controlDown & args.Key == (VirtualKey)48)
             {
                 Commands.ResetZoomCommand.Execute(ViewModel);
+            }
+
+            //alt + +
+            if (menuDown & args.Key == (VirtualKey)187)
+            {
+                Commands.SuperscriptCommand.Execute(ViewModel);
+            }
+
+            //alt + -
+            if (menuDown & args.Key == (VirtualKey)189)
+            {
+                Commands.SubscriptCommand.Execute(ViewModel);
             }
 
             var option = (c: controlDown, s: shiftDown, m: menuDown, l: leftWindowsDown, r: rightWindowsDown, k: args.Key);

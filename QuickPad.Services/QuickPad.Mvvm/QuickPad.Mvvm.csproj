@@ -148,6 +148,8 @@
     <Compile Include="Commands\Actions\ShowMenusCommand.cs" />
     <Compile Include="Commands\Actions\ShowSettingsCommand.cs" />
     <Compile Include="Commands\Clipboard\ContentChangedCommand.cs" />
+    <Compile Include="Commands\Editing\SuperscriptCommand.cs" />
+    <Compile Include="Commands\Editing\SubscriptCommand.cs" />
     <Compile Include="Commands\Editing\CenterAlignCommand.cs" />
     <Compile Include="Commands\Editing\BulletsCommand.cs" />
     <Compile Include="Commands\Editing\BoldCommand.cs" />
