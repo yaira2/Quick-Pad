@@ -290,12 +290,12 @@ namespace QuickPad.Mvvm.ViewModels
                 var text = '\t' + SelectedText;
                 text = text.Replace("\r", "\r\t").TrimEnd('\t');
                 SelectedText = text;
-                SelectText(currentPosition.start + 1, currentPosition.length);
+                SelectText(currentPosition.start + 1, currentPosition.length, true);
             }
             else
             {
                 SelectedText = "\t";
-                SelectText(CurrentPosition.start + 1, 0);
+                SelectText(CurrentPosition.start + 1, 0, true);
             }
         }
 
@@ -364,18 +364,18 @@ namespace QuickPad.Mvvm.ViewModels
         public (int start, int length) CurrentPosition
         {
             get => GetPosition?.Invoke() ?? (0, 0);
-            set => SetSelection?.Invoke(value.start, value.length);
+            set => SetSelection?.Invoke(value.start, value.length, false);
         }
 
         public event Func<(int start, int length)> GetPosition;
         public event Action<string> SetSelectedText;
 
-        public void SelectText(int start, int length)
+        public void SelectText(int start, int length, bool reindex = true)
         {
-            SetSelection?.Invoke(start, length);
+            SetSelection?.Invoke(start, length, reindex);
         }
 
-        public event Func<int, int, Task> SetSelection;
+        public event Action<int, int, bool> SetSelection;
 
         private void CalculateHash(string text)
         {
