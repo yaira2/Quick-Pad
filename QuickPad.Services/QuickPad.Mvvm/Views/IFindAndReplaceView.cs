@@ -23,6 +23,6 @@ namespace QuickPad.Mvvm.Views
         event Func<SettingsViewModel, string, int, DocumentViewModel, (string text, string match, int start, int length)> SearchPrevious;
 
         event Func<SettingsViewModel, string, int, DocumentViewModel, (string text, string match, int start, int length)> SearchReplaceNext;
-        event Func<SettingsViewModel, string, int, DocumentViewModel, (string text, string match, int start, int length)[]> SearchReplaceAll;
+        event Func<SettingsViewModel, string, DocumentViewModel, (string text, string match, int start, int length)[]> SearchReplaceAll;
     }
 }

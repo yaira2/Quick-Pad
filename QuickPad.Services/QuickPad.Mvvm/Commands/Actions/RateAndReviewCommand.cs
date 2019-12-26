@@ -124,7 +124,7 @@ namespace QuickPad.Mvvm.Commands.Actions
         {
             Executioner = documentViewModel =>
             {
-                documentViewModel.SelectText(0, documentViewModel.Text.Length);
+                documentViewModel.SelectText(0, documentViewModel.Text.Length, false);
                 return Task.CompletedTask;
             };
         }
