@@ -28,13 +28,20 @@
 
         <controls3:TitleBar x:Name="titleBar" Canvas.ZIndex="100" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Grid.Row="0" Height="32" HorizontalAlignment="Stretch"/>
 
-        <SplitView x:Name="splitView" Grid.Row="1" PaneBackground="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"
-            OpenPaneLength="360" PanePlacement="Right" IsPaneOpen="{x:Bind Settings.ShowSettings, Mode=TwoWay}">
+        <SplitView x:Name="splitView" Grid.Row="1" PaneBackground="Transparent"
+            OpenPaneLength="364" PanePlacement="Right" IsPaneOpen="{x:Bind Settings.ShowSettings, Mode=TwoWay}">
             <SplitView.Pane>
-                <Grid>
-                    <controls2:SettingsNav Canvas.ZIndex="150" 
-                               VerticalContentAlignment="Stretch" 
-                               HorizontalAlignment="Stretch"/>
+
+                <Grid Margin="4,0,0,0">
+                    <controls1:DropShadowPanel
+                    ShadowOpacity="0.3"
+                    OffsetX="0"
+                    OffsetY="0">
+                        <controls2:SettingsNav Canvas.ZIndex="150" 
+                                   VerticalContentAlignment="Stretch" 
+                                   HorizontalAlignment="Stretch"/>
+                    </controls1:DropShadowPanel>
+
                 </Grid>
             </SplitView.Pane>
 
