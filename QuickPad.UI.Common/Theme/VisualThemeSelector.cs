@@ -143,8 +143,6 @@ namespace QuickPad.UI.Common.Theme
                     break;
             }
 
-
-
             RaisePropertyChanged(nameof(SettingsItem));
             RaisePropertyChanged(nameof(CurrentItem));
             NotifyThemeChanged();
