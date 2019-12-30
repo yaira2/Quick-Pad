@@ -91,6 +91,7 @@ namespace QuickPad.UI
             var tBar = ApplicationView.GetForCurrentView().TitleBar;
             tBar.ButtonBackgroundColor = Colors.Transparent;
             tBar.ButtonInactiveBackgroundColor = Colors.Transparent;
+            tBar.ButtonForegroundColor = VisualThemeSelector.Current.CurrentItem.DefaultTextForegroundColor;
 
 
             ViewModel.ExitApplication = ExitApp;
