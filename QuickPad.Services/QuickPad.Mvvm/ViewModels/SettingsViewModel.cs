@@ -26,21 +26,25 @@ using QuickPad.Mvvm.Models.Theme;
 
 namespace QuickPad.Mvvm.ViewModels
 {
-    public partial class SettingsViewModel : ViewModel
+    public class SettingsViewModel : ViewModel
     {
         readonly ApplicationDataContainer _roamingSettings;
-        private string _previousMode;
         private string _statusText;
         private ResourceLoader _resourceLoader;
         private Timer _statusCooldown;
+        private string _currentMode;
+        private string _currentModeText;
+        private TimeSpan _countdown;
+        private SolidColorBrush _statusTextColor;
+        private SettingsTabs _showSettingsTab = SettingsTabs.General;
 
         private IApplication App { get; }
-        private IServiceProvider _serviceProvider;
+        private IServiceProvider ServiceProvider { get; }
 
         public SettingsViewModel(ILogger<SettingsViewModel> logger, IApplication app, IServiceProvider serviceProvider) : base(logger)
         {
             App = app;
-            _serviceProvider = serviceProvider;
+            ServiceProvider = serviceProvider;
             AllFonts = new ObservableCollection<string>(
                 CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font));
 
@@ -73,7 +77,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         protected bool Set<TValue>(TValue value, [CallerMemberName] string propertyName = null)
         {
-            var originalValue = (TValue)Get(default(TValue), propertyName);
+            var originalValue = Get(default(TValue), propertyName);
             var currentValue = originalValue;
 
             if (!base.Set(ref currentValue, value, propertyName)) return false;
@@ -164,9 +168,8 @@ namespace QuickPad.Mvvm.ViewModels
         public Color DefaultTextForegroundColor {
             get
             {
-                var current = _serviceProvider.GetService<DefaultTextForegroundColor>().Color;
+                var hex = Get(Colors.White.ToHex());
 
-                var hex = Get(current.ToHex());
                 hex = hex.Replace("#", string.Empty);
                 var a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
                 var r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
@@ -177,13 +180,36 @@ namespace QuickPad.Mvvm.ViewModels
             }
             set
             {
-                var current = _serviceProvider.GetService<DefaultTextForegroundColor>().Color;
+                var obj = ServiceProvider.GetService<DefaultTextForegroundColor>();
+                var current = obj.Color;
 
                 if (!Set(ref current, value)) return;
 
-                _serviceProvider.GetService<DefaultTextForegroundColor>().Color = current;
-                Set(value.ToHex());
+                obj.Color = current;
+                if (Set(value.ToHex()))
+                {
+                    NotifyThemeChanged();
+                }
             }
+        }
+
+        public SolidColorBrush DefaultTextForegroundBrush
+        {
+            get
+            {
+                _defaultColor ??= ServiceProvider.GetService<IVisualThemeSelector>().CurrentItem
+                    .DefaultTextForegroundColor.ToHex();
+                var hex = Get(_defaultColor);
+
+                hex = hex.Replace("#", string.Empty);
+                var a = (byte)(Convert.ToUInt32(hex.Substring(0, 2), 16));
+                var r = (byte)(Convert.ToUInt32(hex.Substring(2, 2), 16));
+                var g = (byte)(Convert.ToUInt32(hex.Substring(4, 2), 16));
+                var b = (byte)(Convert.ToUInt32(hex.Substring(6, 2), 16));
+
+                return new SolidColorBrush(Color.FromArgb(a, r, g, b));
+            }
+            set => Set(value.Color.ToHex());
         }
 
         [NotifyOnReset]
@@ -291,13 +317,15 @@ namespace QuickPad.Mvvm.ViewModels
 
         public FlowDirection FlowDirection
         {
-            get => FlowDirection.TryParse(Get(nameof(FlowDirection.LeftToRight)), out FlowDirection result)
+            get => Enum.TryParse(Get(nameof(FlowDirection.LeftToRight)), out FlowDirection result)
                 ? result
                 : FlowDirection.LeftToRight;
             set => Set(value.ToString());
         }
 
         private bool _showSettings;
+        private string _defaultColor;
+
         [JsonIgnore]
         public bool ShowSettings
         {
@@ -368,12 +396,6 @@ namespace QuickPad.Mvvm.ViewModels
             get => Get(false);
             set => Set(value);
         }
-
-        private string _currentMode;
-        private string _currentModeText;
-        private TimeSpan _countdown;
-        private SolidColorBrush _statusTextColor;
-        private SettingsTabs _showSettingsTab = SettingsTabs.General;
 
         [JsonIgnore]
         public string CurrentMode
@@ -496,7 +518,7 @@ namespace QuickPad.Mvvm.ViewModels
 
                 var json = await jsonFile.ReadTextAsync();
 
-                JsonConvert.DeserializeAnonymousType<SettingsViewModel>(json, this);
+                JsonConvert.DeserializeAnonymousType(json, this);
 
                 NotifyAll();
             }
@@ -524,6 +546,12 @@ namespace QuickPad.Mvvm.ViewModels
             stream.Write(bytes, 0, bytes.Length);
             await stream.FlushAsync();
             stream.Close();
+        }
+
+        public void NotifyThemeChanged()
+        {
+            OnPropertyChanged(nameof(DefaultTextForegroundColor));
+            OnPropertyChanged(nameof(DefaultTextForegroundBrush));
         }
     }
 }

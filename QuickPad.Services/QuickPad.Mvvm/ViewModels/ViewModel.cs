@@ -5,7 +5,6 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.System;
-using Windows.UI.Core;
 using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm.Properties;

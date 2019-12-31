@@ -13,7 +13,7 @@
         <converters:Converter x:Key="Converter" />
     </UserControl.Resources>
 
-    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
+    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>

@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using QuickPad.Mvvm.ViewModels;
+﻿using QuickPad.Mvvm.ViewModels;
 
 
 namespace QuickPad.Mvvm.Commands.Actions

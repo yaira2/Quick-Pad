@@ -1,8 +1,6 @@
 ﻿using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Common;
 using System.ComponentModel;
-using System.Reflection.Metadata;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.UI.Common.Theme;
 
@@ -13,7 +11,7 @@ namespace QuickPad.UI.Controls
 {
     public sealed partial class StatusBar : UserControl
     {
-        public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
+        public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
         public SettingsViewModel Settings => App.Settings;
 

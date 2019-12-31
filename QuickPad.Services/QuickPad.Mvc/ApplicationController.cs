@@ -1,14 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Reflection.Metadata.Ecma335;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.ApplicationModel.Resources;
-using Windows.Foundation.Metadata;
-using Windows.System;
-using Windows.UI.Popups;
-using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.ViewModels;

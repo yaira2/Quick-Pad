@@ -1,49 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using System.Threading.Tasks;
-using Windows.ApplicationModel.AppService;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
-using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 using Windows.UI.Core.Preview;
-using QuickPad.UI.Common;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
-using Windows.ApplicationModel.Store;
 using Windows.Graphics.Display;
 using Windows.Storage;
-using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI;
 using Windows.UI.Core;
-using Windows.UI.Popups;
-using Windows.UI.WindowManagement;
 using Microsoft.Extensions.Logging;
-using QuickPad.Mvc;
-using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Windows.System;
-using Windows.UI.Composition;
-using Windows.UI.Xaml.Media.Imaging;
 using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
-using QuickPad.UI.Common.Theme;
-using QuickPad.UI.Controls;
 using Microsoft.Toolkit.Uwp.Helpers;
 
 
@@ -54,19 +33,20 @@ namespace QuickPad.UI
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page, IDocumentView
+    public sealed partial class MainPage : IDocumentView
     {
         private DocumentViewModel _viewModel;
         private readonly bool _initialized;
-        public IVisualThemeSelector VTSelector { get; }
+        public IVisualThemeSelector VtSelector { get; }
         public SettingsViewModel Settings => App.Settings;
         public QuickPadCommands Commands { get; }
         private ILogger<MainPage> Logger { get; }
 
-        public MainPage(ILogger<MainPage> logger, DocumentViewModel viewModel
+        public MainPage(IServiceProvider provider
+            , ILogger<MainPage> logger, DocumentViewModel viewModel
             , QuickPadCommands command, IVisualThemeSelector vts)
         {
-            VTSelector = vts;
+            VtSelector = vts;
             Logger = logger;
             Commands = command;
 
@@ -91,7 +71,6 @@ namespace QuickPad.UI
             var tBar = ApplicationView.GetForCurrentView().TitleBar;
             tBar.ButtonBackgroundColor = Colors.Transparent;
             tBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-            tBar.ButtonForegroundColor = VisualThemeSelector.Current.CurrentItem.DefaultTextForegroundColor;
 
 
             ViewModel.ExitApplication = ExitApp;
@@ -112,8 +91,8 @@ namespace QuickPad.UI
 
             if (SystemInformation.IsAppUpdated && Settings.VersionNumberText == "4.3.78.0")
             {
-                WelcomeDialog dialog = new WelcomeDialog();
-                _ = dialog.ShowAsync();
+                var dialog = provider.GetService<WelcomeDialog>();
+                dialog.ShowAsync();
             }
         }
 
@@ -248,7 +227,7 @@ namespace QuickPad.UI
             }
         }
 
-        private void ViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {

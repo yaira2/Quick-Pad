@@ -13,9 +13,10 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
     mc:Ignorable="d"  
+    Foreground="{x:Bind Settings.DefaultTextForegroundBrush, Mode=OneWay}"
     FlowDirection="{x:Bind Settings.FlowDirection, Mode=OneWay}"
     KeyUp="MainPage_OnKeyUp"
-    RequestedTheme="{x:Bind VTSelector.CurrentItem.Theme, Mode=OneWay}"
+    RequestedTheme="{x:Bind VtSelector.CurrentItem.Theme, Mode=OneWay}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <converters:Converter x:Key="Converter" />
@@ -129,7 +130,7 @@
                         </RichEditBox>
 
                         <TextBox x:Name="TextBox"
-                         Foreground="{x:Bind Settings.DefaultTextForegroundColor, Converter={StaticResource Converter}}"
+                         Foreground="{x:Bind Settings.DefaultTextForegroundBrush, Mode=OneWay}"
                          AcceptsReturn="True"
                          HorizontalAlignment="Stretch"
                          VerticalAlignment="Stretch"
