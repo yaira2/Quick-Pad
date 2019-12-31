@@ -117,7 +117,7 @@
                          TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}" 
                          IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
                          Style="{StaticResource RichEditBox}"
-                         Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                         Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                          IsTapEnabled="True">
                             <RichEditBox.SelectionHighlightColorWhenNotFocused>
                                 <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
@@ -147,7 +147,7 @@
                          TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
                          IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}"
                          Style="{StaticResource TextBox}"
-                         Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VTSelector.CurrentItem.BackgroundAcrylicBrush, VTSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                         Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                          IsTapEnabled="True"
                          FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
                          FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
