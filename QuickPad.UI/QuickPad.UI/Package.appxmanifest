@@ -13,10 +13,10 @@
   
   <Identity
     Name="49306atecsolution.QuickPad"
-    Publisher="CN=kingd"
-    Version="4.3.80.0" />
+    Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7"
+    Version="4.3.81.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ebdd657c-a08c-42fd-a71a-136226dba487" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="f3fa7c64-7ce7-495c-ac68-03d0392a03e2" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Quick Pad</DisplayName>
