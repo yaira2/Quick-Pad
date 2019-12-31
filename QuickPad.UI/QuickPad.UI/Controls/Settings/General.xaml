@@ -23,7 +23,7 @@
             <TextBlock Text="General" FontSize="20" x:Uid="General"/>
             <TextBlock Text="Launch Mode" x:Uid="LaunchMode"/>
             <ComboBox Width="180" PlaceholderText="{x:Bind Settings.DefaultModeText}" x:Uid="LaunchModeComboBox" 
-                      Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
+                      Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" 
                       ItemsSource="{x:Bind Settings.AllDisplayModes}"
                       SelectedValuePath="Uid"
                       SelectedValue="{x:Bind Settings.DefaultMode, Mode=TwoWay}"
@@ -36,7 +36,7 @@
             <ComboBox Width="180" PlaceholderText="{x:Bind Settings.DefaultLanguage}" 
                       SelectedItem="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}"
                       ItemsSource="{x:Bind Settings.DefaultLanguages}"
-                      Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+                      Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBox.ItemTemplate>
                     <DataTemplate x:DataType="q:DefaultLanguageModel">
                         <TextBlock Text="{x:Bind Name}"/>
@@ -48,7 +48,7 @@
             <TextBlock Text="Default File Type" x:Uid="DefaultFileType"/>
             <ComboBox PlaceholderText=".txt" Width="120" 
                       SelectedItem="{x:Bind Settings.DefaultFileType, Mode=TwoWay}"
-                      Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+                      Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <x:String>.txt</x:String>
                 <x:String>.rtf</x:String>
             </ComboBox>
@@ -57,7 +57,7 @@
             <ComboBox PlaceholderText="UTF-8" Width="120"
                       SelectedValuePath="Content"
                       SelectedValue="{x:Bind Settings.DefaultEncoding, Mode=TwoWay}"
-                      Background="{x:Bind VTSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
+                      Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBoxItem Content="UTF-8" Tag="UTF-8" x:Uid="DefaultCurrentEncodingUTF8" x:Name="DefaultEncodingUTF8"/>
                 <ComboBoxItem Content="UTF-16 LE" Tag="UTF-16 LE" x:Uid="DefaultCurrentEncodingUTF16_LE" x:Name="DefaultEncodingUTF16_LE"/>
                 <ComboBoxItem Content="UTF-16 BE" Tag="UTF-16 BE" x:Uid="DefaultCurrentEncodingUTF16_BE" x:Name="DefaultEncodingUTF8_BE"/>

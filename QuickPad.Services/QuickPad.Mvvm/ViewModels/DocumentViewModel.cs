@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection.Metadata.Ecma335;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Security.Cryptography;
 using System.Text;
@@ -13,22 +12,16 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Graphics.Canvas.Text;
-using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
-using Buffer = Windows.Storage.Streams.Buffer;
-using System.Timers;
-using System.Threading;
 using QuickPad.Mvvm.Views;
 using Timer = System.Threading.Timer;
 using Windows.UI;
-using QuickPad.Mvvm.Models.Theme;
 
 namespace QuickPad.Mvvm.ViewModels
 {
     public class DocumentViewModel : ViewModel
     {
-        public const string RTF_EXTENSION = ".rtf";
+        public const string RtfExtension = ".rtf";
         private ITextDocument _document;
 
         private Encoding _currentEncoding;
@@ -51,7 +44,7 @@ namespace QuickPad.Mvvm.ViewModels
         private bool _canUndo;
         private bool _canRedo;
 
-        private readonly Timer timer;
+        private readonly Timer _timer;
         private IFindAndReplaceView _findAndReplaceViewModel;
         private bool _showFind;
         private bool _showReplace;
@@ -74,7 +67,7 @@ namespace QuickPad.Mvvm.ViewModels
             TextDescription = _resourceLoader.GetString("TextDescription");
             Untitled = _resourceLoader.GetString("Untitled");
 
-            timer = new Timer(AutoSaveTimer);
+            _timer = new Timer(AutoSaveTimer);
         }
 
         public static string Untitled { get; private set; }
@@ -118,7 +111,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 if (Set(ref _currentFileType, value))
                 {
-                    var isRtf = value.Equals(RTF_EXTENSION, StringComparison.InvariantCultureIgnoreCase);
+                    var isRtf = value.Equals(RtfExtension, StringComparison.InvariantCultureIgnoreCase);
 
                     CurrentFileDisplayType =
                         isRtf ? RichTextDescription : TextDescription;
@@ -359,7 +352,7 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         public bool IsRtf => (CurrentFileType ?? Settings.DefaultFileType)
-            .Equals(RTF_EXTENSION, StringComparison.CurrentCultureIgnoreCase);
+            .Equals(RtfExtension, StringComparison.CurrentCultureIgnoreCase);
 
         public (int start, int length) CurrentPosition
         {
@@ -421,7 +414,7 @@ namespace QuickPad.Mvvm.ViewModels
         {
             if (Settings.AutoSave && File != null)
             {
-                timer.Change(TimeSpan.FromSeconds(Settings.AutoSaveFrequency), TimeSpan.FromMilliseconds(-1));
+                _timer.Change(TimeSpan.FromSeconds(Settings.AutoSaveFrequency), TimeSpan.FromMilliseconds(-1));
             }
         }
 

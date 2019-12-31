@@ -7,7 +7,7 @@
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
     Title="Quick Pad is back with a complete rewrite!"
-    Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}" Windows10version1809:CornerRadius="4">
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}" Windows10version1809:CornerRadius="4">
 
     <Grid Width="376">
         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
@@ -22,10 +22,8 @@
             <TextBlock Margin="12,0,0,0" FontSize="14" Text="• Fixed many bugs that were in previous versions."/>
 
             <Button Margin="0,12,0,0" Style="{StaticResource ButtonRevealStyle}" 
+                    Foreground="{x:Bind Settings.DefaultTextForegroundBrush, Mode=OneWay}"
                     Content="Lets go!" HorizontalAlignment="Stretch" Height="48" x:Name="CmdClose" Click="CmdClose_Click">
-                <Button.Foreground>
-                    <SolidColorBrush Color="{x:Bind VTSelector.CurrentItem.DefaultTextForegroundColor, Mode=OneWay}" />
-                </Button.Foreground>
                 <Button.Background>
                     <SolidColorBrush Color="{ThemeResource SystemAccentColor}"/> 
                 </Button.Background>

@@ -1,6 +1,4 @@
-﻿using System.Threading.Tasks;
-using Windows.ApplicationModel.DataTransfer;
-using QuickPad.Mvvm.ViewModels;
+﻿using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {

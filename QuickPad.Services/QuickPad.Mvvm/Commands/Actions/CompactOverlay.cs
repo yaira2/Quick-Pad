@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using QuickPad.Mvvm.ViewModels;
 using Windows.UI.ViewManagement;
-using Windows.Foundation;
 
 
 namespace QuickPad.Mvvm.Commands.Actions

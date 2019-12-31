@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Common;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.UI.Common.Theme;
@@ -14,7 +14,7 @@ namespace QuickPad.UI.Controls
 {
     public sealed partial class TitleBar : UserControl
     {
-        public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
+        public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
         public SettingsViewModel Settings => App.Settings;
 
@@ -53,6 +53,16 @@ namespace QuickPad.UI.Controls
             {
                 case nameof(Settings.TitleMargin):
                     Bindings.Update();
+                    break;
+
+                case nameof(Settings.DefaultTextForegroundBrush):
+                    var titleBar = ApplicationView.GetForCurrentView().TitleBar;
+
+                    titleBar.ForegroundColor = Settings.DefaultTextForegroundBrush.Color;
+                    titleBar.ButtonForegroundColor = Settings.DefaultTextForegroundBrush.Color;
+                    titleBar.ButtonHoverForegroundColor = Settings.DefaultTextForegroundBrush.Color;
+                    titleBar.ButtonPressedForegroundColor = Settings.DefaultTextForegroundBrush.Color;
+
                     break;
             }
         }

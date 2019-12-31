@@ -1,12 +1,8 @@
 ﻿using System.ComponentModel;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Common;
 using QuickPad.Mvvm.Commands;
-using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm.Models.Theme;
-using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Theme;
 
 
@@ -16,7 +12,7 @@ namespace QuickPad.UI.Controls
 {
     public sealed partial class MenuBar : UserControl
     {
-        public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
+        public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
         public SettingsViewModel Settings => App.Settings;
 
