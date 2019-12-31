@@ -13,7 +13,6 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
 using Microsoft.Extensions.DependencyInjection;
-using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
 
@@ -80,6 +79,8 @@ namespace QuickPad.UI.Common.Theme
             Resources = resources;
 
             _settingsViewModel = settingsViewModel;
+            _settingsViewModel.PropertyChanged += SettingsViewModelOnPropertyChanged;
+
             _themes = new List<VisualTheme>();
 
             Fill();
@@ -99,9 +100,18 @@ namespace QuickPad.UI.Common.Theme
             }
             else
             {
-                ThemesView.MoveCurrentTo(_themes.FirstOrDefault(t => t.ThemeId == _settingsViewModel.CustomThemeId));
+                SelectFromId(_settingsViewModel.CustomThemeId);
             }
             //
+        }
+
+        private void SettingsViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == nameof(SettingsViewModel.CustomThemeId) &&
+                CurrentItem.ThemeId != _settingsViewModel.CustomThemeId)
+            {
+                SelectFromId(_settingsViewModel.CustomThemeId);
+            }
         }
 
         private async void SystemThemeChanged(UISettings sender, object args)
@@ -116,6 +126,8 @@ namespace QuickPad.UI.Common.Theme
         private void ThemesView_CurrentChanged(object sender, object e)
         {
             if (!(ThemesView.CurrentItem is VisualTheme theme)) return;
+
+            if (theme.ThemeId == CurrentItem?.ThemeId) return;
 
             SettingsItem = theme;
             _settingsViewModel.CustomThemeId = theme.ThemeId;
@@ -143,7 +155,8 @@ namespace QuickPad.UI.Common.Theme
                     break;
             }
 
-
+            _settingsViewModel.DefaultTextForegroundBrush = 
+                new SolidColorBrush(CurrentItem.DefaultTextForegroundColor);
 
             RaisePropertyChanged(nameof(SettingsItem));
             RaisePropertyChanged(nameof(CurrentItem));
@@ -154,6 +167,7 @@ namespace QuickPad.UI.Common.Theme
         {
             _themeChanged?.Invoke(this
                 , new ThemeChangedEventArgs(CurrentItem, SettingsItem));
+            _settingsViewModel.NotifyThemeChanged();
         }
 
         private void SelectFromId(string id)
@@ -218,11 +232,15 @@ namespace QuickPad.UI.Common.Theme
 
             _themes.Add(rdm);
 
+            //disabled until we can get it to be slightly different then the controls that use the accent color
+            //System Accent Color
+            //_themes.Add(BuildTheme("accent", "ThemeAccentName", true, (Color)Resources["SystemAccentColor"]));
+
             //Custom light themes:
             _themes.Add(BuildTheme("chick", "ThemeChickName", true, Color.FromArgb(255, 254, 255, 177)));
             _themes.Add(BuildTheme("lettuce", "ThemeLettuceName", true, Color.FromArgb(255, 177, 234, 175)));
             _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215)));
-            
+
             //Custom dark themes:
             _themes.Add(BuildTheme("cobalt", "ThemeCobaltName", false, Color.FromArgb(255, 0, 71, 171)));
             _themes.Add(BuildTheme("leaf", "ThemeLeafName", false, Color.FromArgb(255, 56, 111, 54)));

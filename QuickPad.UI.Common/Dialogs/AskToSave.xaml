@@ -15,7 +15,7 @@
     PrimaryButtonCommand="{x:Bind Commands.SaveCommand}"
     PrimaryButtonCommandParameter="{Binding ViewModel}"    
     SecondaryButtonClick="AskToSave_OnSecondaryButtonClick"
-    Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
 
     <Grid>
         <TextBlock Text="Would you like to save your changes?" x:Uid="WouldYouLikeToSave"/>

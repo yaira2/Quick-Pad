@@ -29,7 +29,7 @@ namespace QuickPad.Mvc
             internal static ILogger<ApplicationController> Logger { get; set; }
             internal static IServiceProvider ServiceProvider { get; set; }
 
-            private static readonly Dictionary<ByteOrderMark, byte[]> _byteOrderMarks = 
+            private static readonly Dictionary<ByteOrderMark, byte[]> ByteOrderMarks = 
                 new Dictionary<ByteOrderMark, byte[]>
             {
                 {ByteOrderMark.Utf8, new byte[] {0xEF, 0xBB, 0xBF}},
@@ -254,7 +254,7 @@ namespace QuickPad.Mvc
 
                     try
                     {
-                        _byteOrderMarks.ToList().ForEach(pair =>
+                        ByteOrderMarks.ToList().ForEach(pair =>
                         {
                             var (key, value) = pair;
 

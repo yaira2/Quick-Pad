@@ -11,7 +11,7 @@
     d:DesignHeight="40"
     DataContext="{Binding RelativeSource={RelativeSource Self}}">
 
-    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
+    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <MenuBar Height="40" HorizontalAlignment="Left" Width="Auto">
             <MenuBarItem Title="File" AccessKey="F" x:Uid="File">
                 <MenuFlyoutItem Text="New" AccessKey="N" x:Uid="New" 

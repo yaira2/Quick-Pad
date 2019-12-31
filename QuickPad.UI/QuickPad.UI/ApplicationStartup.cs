@@ -4,12 +4,10 @@ using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvc;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
-using QuickPad.UI.Common;
 using QuickPad.UI.Common.Dialogs;
 using QuickPad.UI.Common.Theme;
 

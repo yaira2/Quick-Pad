@@ -5,10 +5,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Common;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models.Theme;
-using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Theme;
 
 

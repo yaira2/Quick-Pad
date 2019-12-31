@@ -2,8 +2,6 @@
 using System.Linq;
 using System.Threading.Tasks;
 using QuickPad.Mvvm.ViewModels;
-using Windows.Services.Store;
-using QuickPad.Mvvm.Views;
 using System.Globalization;
 
 

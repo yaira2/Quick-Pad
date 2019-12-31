@@ -8,7 +8,7 @@
     mc:Ignorable="d"
     Title="Go To Line"
     x:Uid="GoToDialog"
-    Background="{x:Bind VTSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
 
     <Grid>
         <Grid.RowDefinitions>

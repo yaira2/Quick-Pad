@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using Windows.ApplicationModel.DataTransfer;
+﻿using Windows.ApplicationModel.DataTransfer;
 using QuickPad.Mvvm.ViewModels;
 using System;
 

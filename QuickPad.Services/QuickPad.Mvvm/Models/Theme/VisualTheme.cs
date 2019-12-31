@@ -1,17 +1,18 @@
-﻿using Windows.UI;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
+using QuickPad.Mvvm.Annotations;
 
 namespace QuickPad.Mvvm.Models.Theme
 {
-    public class VisualTheme
+    public class VisualTheme : INotifyPropertyChanged
     {
         public static readonly Color DarkColor = 
             Color.FromArgb(255, 28, 28, 28);
         public static readonly Color LightColor = Colors.White;
         private Color? _foreground;
-
-        public Color? Foreground => _foreground;
 
         public Color DefaultTextForegroundColor 
         {
@@ -24,7 +25,12 @@ namespace QuickPad.Mvvm.Models.Theme
 
                 return _foreground.Value;
             }
-            set => _foreground = value;
+            set
+            {
+                _foreground = value;
+
+                OnPropertyChanged();
+            }
         }
 
         public string ThemeId
@@ -102,6 +108,14 @@ namespace QuickPad.Mvvm.Models.Theme
                 Application.Current.RequestedTheme == ApplicationTheme.Dark 
                     ? new SolidColorBrush(Colors.Black) 
                     : new SolidColorBrush(Colors.White);
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        [NotifyPropertyChangedInvocator]
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

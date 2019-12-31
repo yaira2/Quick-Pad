@@ -1,7 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Windows.UI.Text;
 using QuickPad.Mvvm.ViewModels;
-using System;
 
 namespace QuickPad.Mvvm.Commands.Editing
 {

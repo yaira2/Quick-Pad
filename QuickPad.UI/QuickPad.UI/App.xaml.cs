@@ -4,21 +4,18 @@ using Windows.ApplicationModel.Activation;
 using Windows.Globalization;
 using Windows.Storage;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
-using QuickPad.UI.Common;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter;
-using System.Runtime.InteropServices;
 
 
 namespace QuickPad.UI

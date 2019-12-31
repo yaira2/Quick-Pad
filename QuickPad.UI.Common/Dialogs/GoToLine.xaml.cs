@@ -9,7 +9,7 @@ namespace QuickPad.UI.Common.Dialogs
 {
     public sealed partial class GoToLine : ContentDialog
     {
-        public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
+        public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
         public QuickPadCommands Commands { get; }
         public GoToLine()
         {

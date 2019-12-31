@@ -11,7 +11,7 @@ namespace QuickPad.UI.Common.Dialogs
     public sealed partial class AskToSave
     {
         private DocumentViewModel _viewModel;
-        public IVisualThemeSelector VTSelector => VisualThemeSelector.Current;
+        public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
         public QuickPadCommands Commands { get; }
 
         public DocumentViewModel ViewModel
