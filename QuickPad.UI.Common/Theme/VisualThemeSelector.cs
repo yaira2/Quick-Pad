@@ -216,8 +216,9 @@ namespace QuickPad.UI.Common.Theme
 
             _themes.Add(rdm);
 
+            //disabled until we can get it to be slightly different then the controls that use the accent color
             //System Accent Color
-            _themes.Add(BuildTheme("accent", "ThemeAccentName", true, (Color)Resources["SystemAccentColor"]));
+            //_themes.Add(BuildTheme("accent", "ThemeAccentName", true, (Color)Resources["SystemAccentColor"]));
 
             //Custom light themes:
             _themes.Add(BuildTheme("chick", "ThemeChickName", true, Color.FromArgb(255, 254, 255, 177)));
