@@ -51,7 +51,7 @@
             </winui:NavigationView.MenuItems>
         </winui:NavigationView>
 
-        <ScrollViewer Margin="0,40,0,0"  Background="{x:Bind VtSelector.CurrentItem.SolidBackgroundBrush, Mode=OneWay}">
+        <ScrollViewer Margin="0,40,0,0"  Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicAccent, Mode=OneWay}">
             <Frame x:Name="SettingsFrame" Height="Auto" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
         </ScrollViewer>
 
