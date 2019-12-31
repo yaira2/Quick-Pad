@@ -232,11 +232,14 @@ namespace QuickPad.UI.Common.Theme
 
             _themes.Add(rdm);
 
+            //System Accent Color
+            _themes.Add(BuildTheme("accent", "ThemeAccentName", true, (Color)Resources["SystemAccentColor"]));
+
             //Custom light themes:
             _themes.Add(BuildTheme("chick", "ThemeChickName", true, Color.FromArgb(255, 254, 255, 177)));
             _themes.Add(BuildTheme("lettuce", "ThemeLettuceName", true, Color.FromArgb(255, 177, 234, 175)));
             _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215)));
-            
+
             //Custom dark themes:
             _themes.Add(BuildTheme("cobalt", "ThemeCobaltName", false, Color.FromArgb(255, 0, 71, 171)));
             _themes.Add(BuildTheme("leaf", "ThemeLeafName", false, Color.FromArgb(255, 56, 111, 54)));

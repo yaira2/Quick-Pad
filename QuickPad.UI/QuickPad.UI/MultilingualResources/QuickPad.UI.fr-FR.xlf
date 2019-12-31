@@ -816,6 +816,11 @@
           <target state="new">With compact overlay you can make Quick Pad stay on top of other windows.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
+        <trans-unit id="ThemeAccentName" translate="yes" xml:space="preserve">
+          <source>System Accent Color</source>
+          <target state="new">System Accent Color</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
       </group>
     </body>
   </file>
