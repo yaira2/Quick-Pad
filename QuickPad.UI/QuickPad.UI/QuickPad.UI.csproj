@@ -241,8 +241,11 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="priconfig.defaul.xml" />
+    <Content Include="priconfig.packaging.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <None Include="QuickPad.UI_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\ar-EG\Resources.resw" />
     <PRIResource Include="Strings\es\Resources.resw" />
     <PRIResource Include="Strings\fr-FR\Resources.resw" />
     <PRIResource Include="Strings\fr-CA\Resources.resw" />
@@ -375,7 +378,9 @@
     <Content Include="Assets\Font\FabExMDL2.ttf" />
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
   </ItemGroup>
   <ItemGroup>
     <XliffResource Include="MultilingualResources\QuickPad.UI.ar-EG.xlf" />
@@ -383,9 +388,7 @@
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-FR.xlf" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Strings\ar-EG\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
