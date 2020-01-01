@@ -201,11 +201,23 @@ namespace QuickPad.UI
                         int index = arg.IndexOf("\"", 3) + 2;
                         arg = arg.Remove(0, index);
                         arg = arg.Replace("\"", "");
+
+                        if(!arg.Contains(":"))
+                        {
+                            return GetAbsolutePath(baseb, arg);
+                        }
+
                         return arg;
                     }
                     else
                     {
                         arg = arg.Replace("\"", "");
+
+                        if(!arg.Contains(":"))
+                        {
+                            return GetAbsolutePath(baseb, arg);
+                        }
+
                         return arg;
                     }
                 }
@@ -254,21 +266,15 @@ namespace QuickPad.UI
                 commandLine.Operation == null) return;
 
             var operation = commandLine.Operation;
-            var arguments = commandLine.Operation.Arguments.Split(' ');
-            if (arguments.Length != 2) return;
+            var filename = commandLine.Operation.Arguments.Substring(commandLine.Operation.Arguments.IndexOf(' ') + 1);
 
             try
             {
-                // Leave the loop.  When we add tabs we will use it to open multiple documents
-                // at once.
-                foreach(var filename in arguments.AsSpan(1).ToArray())
-                {
-                    var storageFile =
-                        await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath,
-                            filename));
+                var storageFile =
+                    await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath,
+                        filename));
 
-                    await ApplicationController.DocumentManager.LoadFile(mainPage.ViewModel, storageFile);
-                }
+                await ApplicationController.DocumentManager.LoadFile(mainPage.ViewModel, storageFile);
             }
             catch (Exception e)
             {

@@ -600,7 +600,7 @@ namespace QuickPad.UI
         {
             if (!primaryCommands.Any(b => b is AppBarButton button && button.Name == "Bing"))
             {
-                var iconBing = new BitmapIcon {UriSource = new Uri("ms-appx:///Assets/BingIcon.png")};
+                var iconBing = new BitmapIcon {UriSource = new Uri("ms-appx:///Assets/bingo.png")};
 
                 var searchCommandBarBing = new AppBarButton
                 {
@@ -616,7 +616,7 @@ namespace QuickPad.UI
             if (Settings.EnableGoogleSearch != true || 
                 primaryCommands.Any(b => b is AppBarButton button && button.Name == "Google")) return;
 
-            var iconGoogle = new BitmapIcon {UriSource = new Uri("ms-appx:///Assets/GoogleIcon.png")};
+            var iconGoogle = new BitmapIcon {UriSource = new Uri("ms-appx:///Assets/googleo.png")};
             var searchCommandBarGoogle = new AppBarButton
             {
                 Name = "Google",

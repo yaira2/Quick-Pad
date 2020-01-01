@@ -41,6 +41,7 @@ namespace QuickPad.Mvvm.ViewModels
         private SolidColorBrush _statusTextColor;
 
         public bool ShowCompactOverlayTip = SystemInformation.IsFirstRun;
+        private string _returnToMode = null;
 
         public SettingsViewModel(ILogger<SettingsViewModel> logger, IApplication app, IServiceProvider serviceProvider)
             : base(logger)
@@ -342,8 +343,14 @@ namespace QuickPad.Mvvm.ViewModels
         [NotifyOnReset]
         public string DefaultMode
         {
-            get => Get(DisplayModes.LaunchClassicMode.ToString());
-            set => Set(value);
+            get => Get(DisplayModes.LaunchDefaultMode.ToString());
+            set
+            {
+                if (Set(value))
+                {
+                    CurrentMode = value;
+                }
+            }
         }
 
         [JsonIgnore]
@@ -384,8 +391,12 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        [JsonIgnore] 
-        public string ReturnToMode { get; set; } = nameof(DisplayModes.LaunchClassicMode);
+        [JsonIgnore]
+        public string ReturnToMode
+        {
+            get => _returnToMode ??= DefaultMode;
+            set => _returnToMode = value;
+        }
 
         [JsonIgnore] 
         public string CurrentModeText { get; private set; }
