@@ -22,7 +22,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.Data", "QuickPad.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.UI", "QuickPad.UI\QuickPad.UI\QuickPad.UI.csproj", "{963E0DD1-CAC9-490B-B38B-2F05CAC306C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.UI.Common", "QuickPad.UI.Common\QuickPad.UI.Common.csproj", "{CBC34766-2D70-47EB-8DDB-BF9A57EC4B4D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickPad.UI.Common", "QuickPad.UI\QuickPad.UI.Common\QuickPad.UI.Common.csproj", "{CBC34766-2D70-47EB-8DDB-BF9A57EC4B4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
