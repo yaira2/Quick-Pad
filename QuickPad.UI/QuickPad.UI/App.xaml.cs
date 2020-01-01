@@ -58,9 +58,9 @@ namespace QuickPad.UI
                 })
                 .ConfigureServices(ApplicationStartup.ConfigureServices)
                 .ConfigureServices(collection =>
-                    {
-                        collection.AddSingleton<ResourceDictionary>(provider => this.Resources);
-                    })
+                {
+                    collection.AddSingleton<ResourceDictionary>(provider => this.Resources);
+                })
                 .ConfigureLogging(builder =>
                 {
                     builder.AddConsole();
@@ -188,14 +188,26 @@ namespace QuickPad.UI
         {
             arg = arg.Trim();
 
-            arg = RemoveExecutableNameOrPathFromCommandLineArgs(arg, "QuickPad");
+            arg = arg.ToLower();
+
+            arg = RemoveExecutableNameOrPathFromCommandLineArgs(arg, "quickpad");
 
             if (arg.Contains(":"))
             {
                 if (arg.Contains("\""))
                 {
-                    arg = arg.Replace("\"", "");
-                    return arg;
+                    if (arg.Contains("quickpad.exe"))
+                    {
+                        int index = arg.IndexOf("\"", 3) + 2;
+                        arg = arg.Remove(0, index);
+                        arg = arg.Replace("\"", "");
+                        return arg;
+                    }
+                    else
+                    {
+                        arg = arg.Replace("\"", "");
+                        return arg;
+                    }
                 }
                 else
                 {
@@ -292,3 +304,4 @@ namespace QuickPad.UI
         public DocumentViewModel CurrentViewModel => Services.GetService<MainPage>().ViewModel;
     }
 }
+

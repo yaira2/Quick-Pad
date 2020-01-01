@@ -80,6 +80,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> SelectAllCommand { get; } = new SelectAllCommand();
         public SimpleCommand<DocumentViewModel> InsertTimeDateCommand { get; } = new InsertTimeDateCommand();
         public SimpleCommand<DocumentViewModel> SearchWithBingCommand { get; } = new SearchWithBingCommand();
+        public SimpleCommand<DocumentViewModel> SearchWithGoogleCommand { get; } = new SearchWithGoogleCommand();
         public SimpleCommand<DocumentViewModel> UpdateToolbarCommand { get; } = new UpdateToolbarCommand();
         public SimpleCommand<DocumentViewModel> ZoomInCommand { get; } = new ZoomInCommand();
         public SimpleCommand<DocumentViewModel> ZoomOutCommand { get; } = new ZoomOutCommand();
