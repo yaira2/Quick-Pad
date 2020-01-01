@@ -90,7 +90,7 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                     }
                     catch (Exception e)
                     {
-                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), SettingsViewModel.Verbosity.Error);
+                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), Verbosity.Error);
                     }
 
                     return null;
@@ -126,7 +126,7 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                     }
                     catch (Exception e)
                     {
-                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), SettingsViewModel.Verbosity.Error);
+                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), Verbosity.Error);
                     }
 
                     return null;
@@ -166,7 +166,7 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                     }
                     catch (Exception e)
                     {
-                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), SettingsViewModel.Verbosity.Error);
+                        _settings.Status(e.Message, TimeSpan.FromSeconds(30), Verbosity.Error);
                     }
                     finally
                     {

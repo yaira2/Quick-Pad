@@ -35,15 +35,15 @@ namespace QuickPad.UI.Controls.Settings
             }
         }
 
-        private Type ShowTab(SettingsViewModel.SettingsTabs settingsTab)
+        private Type ShowTab(SettingsTabs settingsTab)
         {
             var pageType = settingsTab switch
             {
-                SettingsViewModel.SettingsTabs.General => typeof(General),
-                SettingsViewModel.SettingsTabs.Theme => typeof(Theme),
-                SettingsViewModel.SettingsTabs.Fonts => typeof(Font),
-                SettingsViewModel.SettingsTabs.Advanced => typeof(Advanced),
-                SettingsViewModel.SettingsTabs.About => typeof(About),
+                SettingsTabs.General => typeof(General),
+                SettingsTabs.Theme => typeof(Theme),
+                SettingsTabs.Fonts => typeof(Font),
+                SettingsTabs.Advanced => typeof(Advanced),
+                SettingsTabs.About => typeof(About),
                 _ => null
             };
 
@@ -59,11 +59,11 @@ namespace QuickPad.UI.Controls.Settings
         {
             _ = args.InvokedItemContainer.Tag?.ToString() switch
             {
-                "General" => ShowTab(SettingsViewModel.SettingsTabs.General),
-                "Theme" => ShowTab(SettingsViewModel.SettingsTabs.Theme),
-                "Font" => ShowTab(SettingsViewModel.SettingsTabs.Fonts),
-                "Advanced" => ShowTab(SettingsViewModel.SettingsTabs.Advanced),
-                "About" => ShowTab(SettingsViewModel.SettingsTabs.About),
+                "General" => ShowTab(SettingsTabs.General),
+                "Theme" => ShowTab(SettingsTabs.Theme),
+                "Font" => ShowTab(SettingsTabs.Fonts),
+                "Advanced" => ShowTab(SettingsTabs.Advanced),
+                "About" => ShowTab(SettingsTabs.About),
                 _ => null
             };
         }

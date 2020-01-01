@@ -10,6 +10,7 @@ using Windows.UI.Xaml.Media;
 using Windows.UI.Core.Preview;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
 using Windows.Storage;
 using Windows.UI.ViewManagement;
@@ -64,6 +65,7 @@ namespace QuickPad.UI
             DataContext = ViewModel = viewModel;
 
             Loaded += OnLoaded;
+            Unloaded += OnUnloaded;
 
             //extent app in to the title bar
             CoreApplication.GetCurrentView().TitleBar.ExtendViewIntoTitleBar = true;
@@ -89,11 +91,18 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            if (SystemInformation.IsAppUpdated && Settings.VersionNumberText == "4.3.78.0")
-            {
-                var dialog = provider.GetService<WelcomeDialog>();
-                dialog.ShowAsync();
-            }
+            if (!SystemInformation.IsAppUpdated || Settings.VersionNumberText != "4.3.78.0") return;
+
+            var dialog = provider.GetService<WelcomeDialog>();
+            dialog.ShowAsync();
+        }
+
+        private void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            TextBox.SelectionFlyout.Opening -= Menu_Opening;
+            TextBox.ContextFlyout.Opening -= Menu_Opening;
+            RichEditBox.SelectionFlyout.Opening -= Menu_Opening;
+            RichEditBox.ContextFlyout.Opening -= Menu_Opening;
         }
 
         private void Clipboard_ContentChanged(object sender, object e)
@@ -137,14 +146,16 @@ namespace QuickPad.UI
                 .ContinueWith(_ => { Settings.CurrentMode = newMode; });
         }
 
-        public StorageFile FileToLoad { get; set; }
-
         private async void OnLoaded(object sender, RoutedEventArgs e)
         {
             SetupFocusMode(Settings.FocusMode);
 
             await SetOverlayMode(Settings.CurrentMode);
-            await ViewModel.InitNewDocument();
+
+            if(ViewModel.File == null)
+            {
+                await ViewModel.InitNewDocument();
+            }
 
             Mvvm.ViewModels.ViewModel.Dispatch(() => Bindings.Update());
 
@@ -157,22 +168,7 @@ namespace QuickPad.UI
             }
 
             Settings.NotDeferred = true;
-            Settings.Status("Ready", TimeSpan.FromSeconds(10), SettingsViewModel.Verbosity.Release);
-
-            if (FileToLoad != null && !FileToLoad.Name.Equals("QuickPad.exe", StringComparison.InvariantCultureIgnoreCase) && LoadFromFile != null)
-            {
-                try
-                {
-                    await LoadFromFile(ViewModel, FileToLoad);
-                    FileToLoad = null;
-                }
-                catch (Exception exception)
-                {
-                    Logger.LogCritical(exception, exception.ToString());
-                    Settings?.Status($"{exception.Message}", TimeSpan.Zero, SettingsViewModel.Verbosity.Error);
-                }
-            }
-
+            Settings.Status("Ready", TimeSpan.FromSeconds(10), Verbosity.Release);
 
             if (ViewModel.CurrentFileType == ".rtf")
             {
@@ -182,6 +178,11 @@ namespace QuickPad.UI
             {
                 TextBox.Focus(FocusState.Programmatic);
             }
+
+            TextBox.SelectionFlyout.Opening += Menu_Opening;
+            TextBox.ContextFlyout.Opening += Menu_Opening;
+            RichEditBox.SelectionFlyout.Opening += Menu_Opening;
+            RichEditBox.ContextFlyout.Opening += Menu_Opening;
         }
 
         public event Func<DocumentViewModel, StorageFile, Task> LoadFromFile;
@@ -468,7 +469,7 @@ namespace QuickPad.UI
 
             Settings.CurrentMode = newMode;
 
-            Settings.Status($"{Settings.CurrentModeText} Enabled.", TimeSpan.FromSeconds(5), SettingsViewModel.Verbosity.Debug);
+            Settings.Status($"{Settings.CurrentModeText} Enabled.", TimeSpan.FromSeconds(5), Verbosity.Debug);
         }
 
         private void RichEditBox_OnContextMenuOpening(object sender, ContextMenuEventArgs e)
@@ -581,6 +582,50 @@ namespace QuickPad.UI
 
             var storageFile = items[0] as StorageFile;
             LoadFromFile?.Invoke(ViewModel, storageFile);
+        }
+
+        private void Menu_Opening(object sender, object e)
+        {
+            if (!(sender is TextCommandBarFlyout myFlyout) || myFlyout.Target != TextBox) return;
+            AddSearchMenuItems(myFlyout.PrimaryCommands);
+        }
+
+        private void RMenu_Opening(object sender, object e)
+        {
+            if (!(sender is TextCommandBarFlyout myFlyout) || myFlyout.Target != RichEditBox) return;
+            AddSearchMenuItems(myFlyout.PrimaryCommands);
+        }
+
+        private void AddSearchMenuItems(IObservableVector<ICommandBarElement> primaryCommands)
+        {
+            if (!primaryCommands.Any(b => b is AppBarButton button && button.Name == "Bing"))
+            {
+                var iconBing = new BitmapIcon {UriSource = new Uri("ms-appx:///Assets/bingo.png")};
+
+                var searchCommandBarBing = new AppBarButton
+                {
+                    Name = "Bing",
+                    Icon = iconBing,
+                    Label = "Search with Bing",
+                    Command = Commands.BingCommand,
+                    CommandParameter = ViewModel
+                };
+                primaryCommands.Add(searchCommandBarBing);
+            }
+
+            if (Settings.EnableGoogleSearch != true || 
+                primaryCommands.Any(b => b is AppBarButton button && button.Name == "Google")) return;
+
+            var iconGoogle = new BitmapIcon {UriSource = new Uri("ms-appx:///Assets/googleo.png")};
+            var searchCommandBarGoogle = new AppBarButton
+            {
+                Name = "Google",
+                Icon = iconGoogle,
+                Label = "Search with Google",
+                Command = Commands.GoogleCommand,
+                CommandParameter = ViewModel
+            };
+            primaryCommands.Add(searchCommandBarGoogle);
         }
     }
 }

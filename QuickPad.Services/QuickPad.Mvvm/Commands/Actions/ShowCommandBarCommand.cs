@@ -17,19 +17,4 @@ namespace QuickPad.Mvvm.Commands.Actions
             };
         }
     }
-    public class ShowFontsCommand : SimpleCommand<SettingsViewModel>
-    {
-        public ShowFontsCommand()
-        {
-            Executioner = settings =>
-            {
-                //open settings page
-                settings.ShowSettings = true;
-                settings.ShowSettingsTab = SettingsViewModel.SettingsTabs.Fonts;
-
-                return Task.CompletedTask;
-            };
-        }
-    }
-
 }

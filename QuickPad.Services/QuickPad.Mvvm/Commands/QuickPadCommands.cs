@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
 using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.Commands.Editing;
@@ -42,6 +41,9 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> DeleteCommand { get; } = new DeleteCommand();
         public SimpleCommand<DocumentViewModel> ContentChangedCommand { get; } = new ContentChangedCommand();
 
+        public SimpleCommand<DocumentViewModel> BingCommand { get; } = new SearchWithBingCommand();
+        public SimpleCommand<DocumentViewModel> GoogleCommand { get; } = new SearchWithGoogleCommand();
+
         public SimpleCommand<DocumentViewModel> EmojiCommand { get; } = new EmojiCommand();
 
         public SimpleCommand<DocumentViewModel> BoldCommand { get; } = new BoldCommand();
@@ -76,8 +78,6 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> ReplaceAllCommand { get; } = new ReplaceAllCommand();
         public SimpleCommand<DocumentViewModel> SelectAllCommand { get; } = new SelectAllCommand();
         public SimpleCommand<DocumentViewModel> InsertTimeDateCommand { get; } = new InsertTimeDateCommand();
-        public SimpleCommand<DocumentViewModel> SearchWithBingCommand { get; } = new SearchWithBingCommand();
-        public SimpleCommand<DocumentViewModel> SearchWithGoogleCommand { get; } = new SearchWithGoogleCommand();
         public SimpleCommand<DocumentViewModel> UpdateToolbarCommand { get; } = new UpdateToolbarCommand();
         public SimpleCommand<DocumentViewModel> ZoomInCommand { get; } = new ZoomInCommand();
         public SimpleCommand<DocumentViewModel> ZoomOutCommand { get; } = new ZoomOutCommand();
@@ -102,19 +102,6 @@ namespace QuickPad.Mvvm.Commands
                     var settingsCommand = pi.GetValue(this) as SimpleCommand<SettingsViewModel>;
                     settingsCommand?.InvokeCanExecuteChanged(settingsViewModel);
                 });
-        }
-    }
-
-    public class ToggleWordWrapCommand : SimpleCommand<DocumentViewModel>
-    {
-        public ToggleWordWrapCommand()
-        {
-            Executioner = viewModel =>
-            {
-                viewModel.CurrentWordWrap = !viewModel.CurrentWordWrap;
-
-                return Task.CompletedTask;
-            };
         }
     }
 }

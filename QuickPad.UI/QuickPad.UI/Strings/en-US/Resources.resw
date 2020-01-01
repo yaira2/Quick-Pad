@@ -769,4 +769,8 @@
     <value>System Accent Color</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="SearchWithGoogle.Text" xml:space="preserve">
+    <value>Enable Google Search</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
 </root>

@@ -35,8 +35,10 @@ namespace QuickPad.UI
         public static ApplicationController Controller => Host?.Controller;
         public static IServiceProvider Services => Host?.Services;
         public static SettingsViewModel Settings => _settings ??= Host?.Services.GetService<SettingsViewModel>();
-
+        
         public static QuickPadCommands Commands => Services.GetService<QuickPadCommands>();
+
+        private ILogger<App> Logger { get; set; }
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -65,6 +67,8 @@ namespace QuickPad.UI
                 })
                 .ConfigureHostConfiguration(ApplicationStartup.Configure)
                 .BuildApplicationHost();
+
+            Logger = Services.GetService<ILogger<App>>();
 
             this.InitializeComponent();
 
@@ -115,7 +119,7 @@ namespace QuickPad.UI
             }
         }
 
-        protected override void OnFileActivated(FileActivatedEventArgs args)
+        protected override async void OnFileActivated(FileActivatedEventArgs args)
         {
             MainPage mainPage = null;
 
@@ -136,7 +140,7 @@ namespace QuickPad.UI
             // The name of the first file is args.Files[0].Name
             if (args.Files.Count > 0 && args.Files[0] != null)
             {
-                mainPage.FileToLoad = args.Files[0] as StorageFile;
+                await ApplicationController.DocumentManager.LoadFile(mainPage.ViewModel, args.Files[0] as StorageFile);
             }
 
             Window.Current.Content = mainPage;
@@ -226,8 +230,6 @@ namespace QuickPad.UI
 
         protected override async void OnActivated(IActivatedEventArgs args)
         {
-            string argment = "OnActivated";
-
             MainPage mainPage = null;
 
             if (Window.Current.Content is MainPage) mainPage = Window.Current.Content as MainPage;
@@ -243,23 +245,36 @@ namespace QuickPad.UI
                 mainPage = Services.GetService<MainPage>();
             }
 
-            if (args.Kind == ActivationKind.CommandLineLaunch)
-            {
-                var commandLine = args as CommandLineActivatedEventArgs;
-                if (commandLine != null)
-                {
-                    var operation = commandLine.Operation;
-                    if (operation != null && !String.IsNullOrWhiteSpace(operation.Arguments.ToLower().Replace("quickpad", "").Replace(".exe", "")))
-                    {
-                        var path = GetPath(operation.CurrentDirectoryPath, operation.Arguments);
-                        StorageFile storageFile = await StorageFile.GetFileFromPathAsync(path);
-                        mainPage.FileToLoad = storageFile;
-                    }
-                }
-            }
             Window.Current.Content = mainPage;
             Window.Current.Activate();
             base.OnActivated(args);
+
+            if (args.Kind != ActivationKind.CommandLineLaunch ||
+                !(args is CommandLineActivatedEventArgs commandLine) ||
+                commandLine.Operation == null) return;
+
+            var operation = commandLine.Operation;
+            var arguments = commandLine.Operation.Arguments.Split(' ');
+            if (arguments.Length != 2) return;
+
+            try
+            {
+                // Leave the loop.  When we add tabs we will use it to open multiple documents
+                // at once.
+                foreach(var filename in arguments.AsSpan(1).ToArray())
+                {
+                    var storageFile =
+                        await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath,
+                            filename));
+
+                    await ApplicationController.DocumentManager.LoadFile(mainPage.ViewModel, storageFile);
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogCritical(e, e.ToString());
+                Settings?.Status($"{e.Message}", TimeSpan.Zero, Verbosity.Error);
+            }
         }
 
         /// <summary>

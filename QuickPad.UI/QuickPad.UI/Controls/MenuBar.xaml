@@ -125,7 +125,7 @@
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator/>
                 <MenuFlyoutItem Text="Search with Bing..." AccessKey="S" x:Uid="SearchBing"
-                                Command="{x:Bind Commands.SearchWithBingCommand}"
+                                Command="{x:Bind Commands.BingCommand}"
                                 CommandParameter="{x:Bind ViewModel}">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12B;" />
