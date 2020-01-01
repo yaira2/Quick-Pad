@@ -237,8 +237,11 @@ namespace QuickPad.UI
                 if (commandLine != null)
                 {
                     var operation = commandLine.Operation;
-                    StorageFile storageFile = await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath, operation.Arguments));
-                    mainPage.FileToLoad = storageFile;
+                    if (operation != null && !String.IsNullOrWhiteSpace(operation.Arguments.Replace("QuickPad", "").Replace(".exe", "")))
+                    {
+                        StorageFile storageFile = await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath, operation.Arguments));
+                        mainPage.FileToLoad = storageFile;
+                    }
                 }
             }
             Window.Current.Content = mainPage;
