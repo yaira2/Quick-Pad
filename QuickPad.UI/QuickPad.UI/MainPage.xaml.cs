@@ -478,7 +478,12 @@ namespace QuickPad.UI
 
         private void TextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
-            GetPosition();
+            GetPosition(TextBox.SelectionStart + TextBox.SelectionLength);
+        }
+
+        private void RichEditBox_OnSelectionChanged(object sender, RoutedEventArgs e)
+        {
+            GetPosition(RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length);
         }
 
         private List<int> LineIndices { get; } = new List<int>();
@@ -504,10 +509,8 @@ namespace QuickPad.UI
             }
         }
 
-        private void GetPosition()
+        private void GetPosition(int position)
         {
-            var position = TextBox.SelectionStart + TextBox.SelectionLength;
-
             var target = position;
 
             var lines = LineIndices.Where(i => i < target).ToList();
@@ -541,8 +544,10 @@ namespace QuickPad.UI
             {
                 LineIndices.Add(index);
             }
-
-            GetPosition();
+            
+            GetPosition(ViewModel.IsRtf 
+                ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length 
+                : TextBox.SelectionStart + TextBox.SelectionLength);
         }
 
         private void RichEditBox_TextChanged(object sender, RoutedEventArgs e)
