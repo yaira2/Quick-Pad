@@ -57,6 +57,7 @@
 
 ## Special Thanks:
 
+* Application Architecture: [The Sharp Ninja](https://github.com/sharpninja)
 * Code Contributors: [Toon Werawat](https://github.com/ray199), 
 [Leisvan](https://github.com/Leisvan), 
 [AVK](https://github.com/avknaidu), 
