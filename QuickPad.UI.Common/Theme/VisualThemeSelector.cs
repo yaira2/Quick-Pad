@@ -212,6 +212,9 @@ namespace QuickPad.UI.Common.Theme
             //Dark
             _themes.Add(BuildTheme(DARK_KEY, "ThemeDarkName", false, VisualTheme.DarkColor));
 
+            //System Accent Color
+            _themes.Add(BuildTheme("accent", "ThemeAccentName", false, (Color)Resources["SystemAccentColor"]));
+
             //Random:
             var rdmPreview = new LinearGradientBrush { StartPoint = new Point(0, 0), EndPoint = new Point(1, 1), };
             rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Red, Offset = 0d });
@@ -231,10 +234,6 @@ namespace QuickPad.UI.Common.Theme
             };
 
             _themes.Add(rdm);
-
-            //disabled until we can get it to be slightly different then the controls that use the accent color
-            //System Accent Color
-            //_themes.Add(BuildTheme("accent", "ThemeAccentName", true, (Color)Resources["SystemAccentColor"]));
 
             //Custom light themes:
             _themes.Add(BuildTheme("chick", "ThemeChickName", true, Color.FromArgb(255, 254, 255, 177)));
@@ -265,6 +264,14 @@ namespace QuickPad.UI.Common.Theme
                 TintOpacity = (_settingsViewModel.BackgroundTintOpacity + .15) > 1 ? 1 : _settingsViewModel.BackgroundTintOpacity + .15
             };
 
+            var backgroundAcrylicAccent = new AcrylicBrush
+            {
+                BackgroundSource = AcrylicBackgroundSource.Backdrop,
+                FallbackColor = accentColor,
+                TintColor = accentColor,
+                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + - .25) < 0 ? 0 : _settingsViewModel.BackgroundTintOpacity - .25
+            };
+
             var inAppAcrylic = new AcrylicBrush
             {
                 BackgroundSource = AcrylicBackgroundSource.Backdrop,
@@ -287,6 +294,7 @@ namespace QuickPad.UI.Common.Theme
                 Theme = etheme,
                 BackgroundAcrylicBrush = backgroundAcrylic,
                 BackgroundAcrylicBrush2 = backgroundAcrylic2,
+                BackgroundAcrylicAccent = backgroundAcrylicAccent,
                 InAppAcrylicBrush = inAppAcrylic,
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
                 PreviewBrush = new SolidColorBrush(accentColor),

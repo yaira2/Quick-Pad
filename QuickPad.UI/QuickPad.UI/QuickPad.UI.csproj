@@ -18,15 +18,16 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>EB705E3F44525A88C8E8E96A04DBEF8DCE07B189</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>A34AC26050025E1A82220BC41D93713EB036DDBB</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
-    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <GenerateTestArtifacts>False</GenerateTestArtifacts>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <PackageCertificateKeyFile>QuickPad.UI_TemporaryKey.pfx</PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>
+    </PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -189,6 +190,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <Content Include="Assets\File Icons\General Small.png" />
+    <Content Include="Assets\File Icons\MD Small.png" />
+    <Content Include="Assets\File Icons\RTF Small.png" />
+    <Content Include="Assets\File Icons\TXT C Small.png" />
     <Content Include="Assets\Font\codicon.ttf" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\LargeTile.scale-100.png" />
@@ -217,6 +222,7 @@
     <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-32.png" />
     <Content Include="Assets\Square44x44Logo.altform-lightunplated_targetsize-48.png" />
     <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-24.png" />
     <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
     <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
     <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />

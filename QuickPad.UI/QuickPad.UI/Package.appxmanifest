@@ -13,10 +13,10 @@
   
   <Identity
     Name="49306atecsolution.QuickPad"
-    Publisher="CN=kingd"
-    Version="4.3.80.0" />
+    Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7"
+    Version="4.3.87.0" />
 
-  <mp:PhoneIdentity PhoneProductId="ebdd657c-a08c-42fd-a71a-136226dba487" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+  <mp:PhoneIdentity PhoneProductId="3137e236-0478-4509-9fe4-f5785c206d0a" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
     <DisplayName>Quick Pad</DisplayName>
@@ -59,6 +59,14 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true"/>
       </uap:VisualElements>
       <Extensions>
+        <uap5:Extension
+            Category="windows.appExecutionAlias"
+            Executable="QuickPad.UI.exe"
+            EntryPoint="QuickPad.UI.App">
+              <uap5:AppExecutionAlias>
+                <uap5:ExecutionAlias Alias="QuickPad.exe" />
+              </uap5:AppExecutionAlias>
+        </uap5:Extension>
         <uap:Extension Category="windows.fileSavePicker">
           <uap:FileSavePicker>
             <uap:SupportedFileTypes>
@@ -81,7 +89,7 @@
             <uap:DisplayName>Rich Text Document</uap:DisplayName>
             <uap:InfoTip>Quick-Pad File</uap:InfoTip>
             <uap:EditFlags OpenIsSafe="true"/>
-            <uap:Logo>A Unplated.png</uap:Logo>
+            <uap:Logo>Assets\File Icons\RTF Small.png</uap:Logo>
           </uap:FileTypeAssociation>
         </uap:Extension>
         <uap:Extension Category="windows.fileTypeAssociation">
@@ -90,9 +98,35 @@
               <uap:FileType ContentType="text/plain">.txt</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:DisplayName>Text Document</uap:DisplayName>
-            <uap:Logo>A Unplated.png</uap:Logo>
+            <uap:Logo>Assets\File Icons\TXT C Small.png</uap:Logo>
             <uap:InfoTip>Quick-Pad Document</uap:InfoTip>
             <uap:EditFlags OpenIsSafe="true"/>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="quick-pad-markdown">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.md</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:DisplayName>Markdown File</uap:DisplayName>
+            <uap:Logo>Assets\File Icons\MD Small.png</uap:Logo>
+          </uap:FileTypeAssociation>
+        </uap:Extension>
+        <uap:Extension Category="windows.fileTypeAssociation">
+          <uap:FileTypeAssociation Name="quick-pad-general">
+            <uap:SupportedFileTypes>
+              <uap:FileType>.json</uap:FileType>
+              <uap:FileType>.xml</uap:FileType>
+              <uap:FileType>.gitignore</uap:FileType>
+              <uap:FileType>.js</uap:FileType>
+              <uap:FileType>.log</uap:FileType>
+              <uap:FileType>.sh</uap:FileType>
+              <uap:FileType>.html</uap:FileType>
+              <uap:FileType>.htm</uap:FileType>
+              <uap:FileType>.php</uap:FileType>
+              <uap:FileType>.css</uap:FileType>
+            </uap:SupportedFileTypes>
+            <uap:Logo>Assets\File Icons\General Small.png</uap:Logo>
           </uap:FileTypeAssociation>
         </uap:Extension>
       </Extensions>

@@ -4,19 +4,23 @@ using Windows.ApplicationModel.Activation;
 using Windows.Globalization;
 using Windows.Storage;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
+using QuickPad.UI.Common;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Microsoft.AppCenter.Crashes;
 using Microsoft.AppCenter.Analytics;
 using Microsoft.AppCenter;
-
+using System.Runtime.InteropServices;
+using System.IO;
+using System.Linq;
 
 namespace QuickPad.UI
 {
@@ -138,6 +142,111 @@ namespace QuickPad.UI
             Window.Current.Content = mainPage;
             Window.Current.Activate();
 
+        }
+
+        public static String GetAbsolutePath(String basePath, String path)
+        {
+            String finalPath;
+            if (!Path.IsPathRooted(path) || "\\".Equals(Path.GetPathRoot(path)))
+            {
+                if (path.StartsWith(Path.DirectorySeparatorChar.ToString()))
+                    finalPath = Path.Combine(Path.GetPathRoot(basePath), path.TrimStart(Path.DirectorySeparatorChar));
+                else
+                    finalPath = Path.Combine(basePath, path);
+            }
+            else
+                finalPath = path;
+            return Path.GetFullPath(finalPath);
+        }
+
+        private static string RemoveExecutableNameOrPathFromCommandLineArgs(string args, string appName)
+        {
+            if (!args.StartsWith('\"'))
+            {
+                if (args.StartsWith($"{appName}.exe",
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    args = args.Substring($"{appName}.exe".Length);
+                }
+
+                if (args.StartsWith(appName,
+                    StringComparison.OrdinalIgnoreCase))
+                {
+                    args = args.Substring(appName.Length);
+                }
+            }
+
+            args = args.Trim();
+            return args;
+        }
+
+        public string GetPath(string baseb, string arg)
+        {
+            arg = arg.Trim();
+
+            arg = RemoveExecutableNameOrPathFromCommandLineArgs(arg, "QuickPad");
+
+            if (arg.Contains(":"))
+            {
+                if (arg.Contains("\""))
+                {
+                    arg = arg.Replace("\"", "");
+                    return arg;
+                }
+                else
+                {
+                    return arg;
+                }
+            }
+            else
+            {
+                if (arg.Contains("\""))
+                {
+                    arg = arg.Replace("\"", "");
+                    return GetAbsolutePath(baseb, arg);
+                }
+                else
+                {
+                    return GetAbsolutePath(baseb, arg);
+                }
+            }
+        }
+
+        protected override async void OnActivated(IActivatedEventArgs args)
+        {
+            string argment = "OnActivated";
+
+            MainPage mainPage = null;
+
+            if (Window.Current.Content is MainPage) mainPage = Window.Current.Content as MainPage;
+
+            if (!Resources.ContainsKey(nameof(QuickPadCommands)))
+                Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
+            if (!Resources.ContainsKey(nameof(SettingsViewModel)))
+                Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
+
+            if (mainPage == null)
+            {
+                // Create a Frame to act as the navigation context and navigate to the first page
+                mainPage = Services.GetService<MainPage>();
+            }
+
+            if (args.Kind == ActivationKind.CommandLineLaunch)
+            {
+                var commandLine = args as CommandLineActivatedEventArgs;
+                if (commandLine != null)
+                {
+                    var operation = commandLine.Operation;
+                    if (operation != null && !String.IsNullOrWhiteSpace(operation.Arguments.Replace("QuickPad", "").Replace(".exe", "")))
+                    {
+                        StorageFile storageFile = await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath, operation.Arguments));
+                        mainPage.FileToLoad = storageFile;
+                    }
+                }
+            }
+            Window.Current.Content = mainPage;
+            Window.Current.Activate();
+            base.OnActivated(args);
         }
 
         /// <summary>

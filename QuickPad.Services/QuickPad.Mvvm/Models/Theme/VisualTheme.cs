@@ -88,6 +88,11 @@ namespace QuickPad.Mvvm.Models.Theme
             get;
             set;
         }
+        public Brush BackgroundAcrylicAccent
+        {
+            get;
+            set;
+        }
 
         public override string ToString()
         {
@@ -99,6 +104,7 @@ namespace QuickPad.Mvvm.Models.Theme
         {
             ((AcrylicBrush) BackgroundAcrylicBrush).TintOpacity = to;
             ((AcrylicBrush) BackgroundAcrylicBrush2).TintOpacity = to + .15;
+            ((AcrylicBrush)BackgroundAcrylicAccent).TintOpacity = to - .25;
             ((AcrylicBrush) InAppAcrylicBrush).TintOpacity = to;
         }
 
