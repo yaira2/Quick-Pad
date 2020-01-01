@@ -56,9 +56,9 @@ namespace QuickPad.UI
                 })
                 .ConfigureServices(ApplicationStartup.ConfigureServices)
                 .ConfigureServices(collection =>
-                    {
-                        collection.AddSingleton<ResourceDictionary>(provider => this.Resources);
-                    })
+                {
+                    collection.AddSingleton<ResourceDictionary>(provider => this.Resources);
+                })
                 .ConfigureLogging(builder =>
                 {
                     builder.AddConsole();
@@ -184,7 +184,9 @@ namespace QuickPad.UI
         {
             arg = arg.Trim();
 
-            arg = RemoveExecutableNameOrPathFromCommandLineArgs(arg, "QuickPad");
+            arg = arg.ToLower();
+
+            arg = RemoveExecutableNameOrPathFromCommandLineArgs(arg, "quickpad");
 
             if (arg.Contains(":"))
             {
@@ -237,7 +239,7 @@ namespace QuickPad.UI
                 if (commandLine != null)
                 {
                     var operation = commandLine.Operation;
-                    if (operation != null && !String.IsNullOrWhiteSpace(operation.Arguments.Replace("QuickPad", "").Replace(".exe", "")))
+                    if (operation != null && !String.IsNullOrWhiteSpace(operation.Arguments.ToLower().Replace("quickpad", "").Replace(".exe", "")))
                     {
                         StorageFile storageFile = await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath, operation.Arguments));
                         mainPage.FileToLoad = storageFile;

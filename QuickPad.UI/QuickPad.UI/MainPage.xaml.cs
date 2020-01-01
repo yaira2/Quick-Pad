@@ -159,11 +159,20 @@ namespace QuickPad.UI
             Settings.NotDeferred = true;
             Settings.Status("Ready", TimeSpan.FromSeconds(10), SettingsViewModel.Verbosity.Release);
 
-            if (FileToLoad != null && LoadFromFile != null)
+            if (FileToLoad != null && !FileToLoad.Name.Equals("QuickPad.exe", StringComparison.InvariantCultureIgnoreCase) && LoadFromFile != null)
             {
-                await LoadFromFile(ViewModel, FileToLoad);
-                FileToLoad = null;
+                try
+                {
+                    await LoadFromFile(ViewModel, FileToLoad);
+                    FileToLoad = null;
+                }
+                catch (Exception exception)
+                {
+                    Logger.LogCritical(exception, exception.ToString());
+                    Settings?.Status($"{exception.Message}", TimeSpan.Zero, SettingsViewModel.Verbosity.Error);
+                }
             }
+
 
             if (ViewModel.CurrentFileType == ".rtf")
             {
