@@ -192,8 +192,18 @@ namespace QuickPad.UI
             {
                 if (arg.Contains("\""))
                 {
-                    arg = arg.Replace("\"", "");
-                    return arg;
+                    if (arg.Contains("quickpad.exe"))
+                    {
+                        int index = arg.IndexOf("\"", 3) + 2;
+                        arg = arg.Remove(0, index);
+                        arg = arg.Replace("\"", "");
+                        return arg;
+                    }
+                    else
+                    {
+                        arg = arg.Replace("\"", "");
+                        return arg;
+                    }
                 }
                 else
                 {
@@ -241,7 +251,8 @@ namespace QuickPad.UI
                     var operation = commandLine.Operation;
                     if (operation != null && !String.IsNullOrWhiteSpace(operation.Arguments.ToLower().Replace("quickpad", "").Replace(".exe", "")))
                     {
-                        StorageFile storageFile = await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath, operation.Arguments));
+                        var path = GetPath(operation.CurrentDirectoryPath, operation.Arguments);
+                        StorageFile storageFile = await StorageFile.GetFileFromPathAsync(path);
                         mainPage.FileToLoad = storageFile;
                     }
                 }
@@ -278,3 +289,4 @@ namespace QuickPad.UI
         public DocumentViewModel CurrentViewModel => Services.GetService<MainPage>().ViewModel;
     }
 }
+
