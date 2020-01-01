@@ -306,7 +306,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 AreDifferent();
             }
-            else
+            else if(_lastText.Length == current.Length)
             {
                 for (var i = 0; i < (_lastText?.Length ?? 0); ++i)
                 {
@@ -316,6 +316,10 @@ namespace QuickPad.Mvvm.ViewModels
 
                     break;
                 }
+            }
+            else
+            {
+                AreDifferent();
             }
 
             void AreDifferent()
