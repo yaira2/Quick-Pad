@@ -71,4 +71,4 @@
     * [ar-EG][Arabic] [Ahmed Walid](https://github.com/ahmed605)
     * [ar-SA][Arabic] [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
     * [fr-FR][French] [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
-    * [it][Italian] [Leonardo Di Stasio](https://github.com/YohskDista)
+    * [it][Italian] [Massimo Savazzi](https://github.com/msavazzi)
