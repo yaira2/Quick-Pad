@@ -1,17 +1,17 @@
 ﻿using System.Threading.Tasks;
 using QuickPad.Mvvm.ViewModels;
 
-
 namespace QuickPad.Mvvm.Commands.Actions
 {
-    public class ShowCommandBarCommand : SimpleCommand<SettingsViewModel>
+    public class ShowFontsCommand : SimpleCommand<SettingsViewModel>
     {
-        public ShowCommandBarCommand()
+        public ShowFontsCommand()
         {
             Executioner = settings =>
             {
                 //open settings page
-                settings.CurrentMode = "LaunchDefaultMode";
+                settings.ShowSettings = true;
+                settings.ShowSettingsTab = SettingsTabs.Fonts;
 
                 return Task.CompletedTask;
             };

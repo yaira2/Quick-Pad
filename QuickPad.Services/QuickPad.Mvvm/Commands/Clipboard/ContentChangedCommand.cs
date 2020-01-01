@@ -13,7 +13,7 @@ namespace QuickPad.Mvvm.Commands.Clipboard
             Executioner = async viewModel =>
             {
                 //send the selected text to the clipboard
-                DataPackageView clipboardContent = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
+                var clipboardContent = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
                 var dataPackage = new DataPackage();
                 dataPackage.SetText(await clipboardContent.GetTextAsync());
                 Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
