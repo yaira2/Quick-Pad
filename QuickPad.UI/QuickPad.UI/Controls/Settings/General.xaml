@@ -76,11 +76,7 @@
             <Slider Minimum="5" Maximum="45" StepFrequency="1" 
                     Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}"
                     Value="{x:Bind Settings.AutoSaveFrequency, Mode=TwoWay}"
-                    TickPlacement="Inline" Width="240" HorizontalAlignment="Left"/>
-
-            <TextBlock Text="Enable Google Search" x:Uid="SearchWithGoogle"/>
-            <ToggleSwitch IsOn="{x:Bind Settings.EnableGoogleSearch, Mode=TwoWay}" HorizontalAlignment="Left"/>
-
+                    TickPlacement="Inline" Width="240" HorizontalAlignment="Left"/>        
         </StackPanel>
     </Grid>
 </Page>
