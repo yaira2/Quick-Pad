@@ -773,4 +773,8 @@
     <value>Enable Google Search</value>
     <comment>Used on General Settings Page</comment>
   </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>Other</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>

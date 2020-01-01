@@ -67,7 +67,7 @@
 
             <TextBlock Text="Auto Save" x:Uid="AutoSave"/>
             <ToggleSwitch x:Name="AutoSave"  IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" HorizontalAlignment="Left"/>
-            
+
             <TextBlock Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}">
                 <Run Text="Auto save every" x:Uid="AutoSaveEvery"/>
                 <Run Text="{x:Bind Settings.AutoSaveFrequency, Mode=OneWay}"/>
@@ -82,6 +82,5 @@
             <ToggleSwitch IsOn="{x:Bind Settings.EnableGoogleSearch, Mode=TwoWay}" HorizontalAlignment="Left"/>
 
         </StackPanel>
-
     </Grid>
 </Page>

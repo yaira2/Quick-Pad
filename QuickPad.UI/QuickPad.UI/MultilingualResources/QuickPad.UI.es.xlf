@@ -828,6 +828,11 @@
           <target state="new">Enable Google Search</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
         </trans-unit>
+        <trans-unit id="OtherOptions.Text" translate="yes" xml:space="preserve">
+          <source>Other</source>
+          <target state="new">Other</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
       </group>
     </body>
   </file>

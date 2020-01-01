@@ -32,6 +32,10 @@
             <TextBlock x:Uid="KeepTextOnly" Text="Keep text only"/>
             <ToggleSwitch IsOn="{x:Bind Settings.PasteTextOnly, Mode=TwoWay}" />
 
+            <TextBlock x:Uid="OtherOptions" Text="Other" FontSize="16"/>
+            <TextBlock Text="Enable Google Search" x:Uid="SearchWithGoogle"/>
+            <ToggleSwitch IsOn="{x:Bind Settings.EnableGoogleSearch, Mode=TwoWay}" HorizontalAlignment="Left"/>
+            
             <TextBlock x:Uid="ManageSettings" Text="Manage Settings" FontSize="16"/>
             <StackPanel Orientation="Horizontal">
                 <Button x:Uid="Import" Content="Import" 
