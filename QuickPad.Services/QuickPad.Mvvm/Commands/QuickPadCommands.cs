@@ -42,6 +42,9 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> DeleteCommand { get; } = new DeleteCommand();
         public SimpleCommand<DocumentViewModel> ContentChangedCommand { get; } = new ContentChangedCommand();
 
+        public SimpleCommand<DocumentViewModel> BingCommand { get; } = new BingCommand();
+        public SimpleCommand<DocumentViewModel> GoogleCommand { get; } = new GoogleCommand();
+
         public SimpleCommand<DocumentViewModel> EmojiCommand { get; } = new EmojiCommand();
 
         public SimpleCommand<DocumentViewModel> BoldCommand { get; } = new BoldCommand();

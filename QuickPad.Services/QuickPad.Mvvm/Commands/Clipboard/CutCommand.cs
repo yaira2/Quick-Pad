@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
+using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Clipboard

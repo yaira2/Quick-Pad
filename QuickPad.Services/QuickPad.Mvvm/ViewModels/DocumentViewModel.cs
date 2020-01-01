@@ -295,17 +295,43 @@ namespace QuickPad.Mvvm.ViewModels
 
         public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? Untitled)} ").Trim();
 
+        private string _lastText = null;
         public void TextChanged(object sender, RoutedEventArgs e)
         {
-            CalculateHash(Text);
+            var current = Text;
 
-            if (sender is TextBox textBox)
+            if (_lastText == current) return;
+
+            if (_lastText == null)
             {
-                CanUndo = textBox.CanUndo;
-                CanRedo = textBox.CanRedo;
+                AreDifferent();
+            }
+            else
+            {
+                for (var i = 0; i < (_lastText?.Length ?? 0); ++i)
+                {
+                    if (_lastText[i] == current[i]) continue;
+
+                    AreDifferent();
+
+                    break;
+                }
             }
 
-            QuickPadCommands.NotifyAll(this, Settings);
+            void AreDifferent()
+            {
+                _lastText = current;
+
+                CalculateHash(current);
+
+                if (sender is TextBox textBox)
+                {
+                    CanUndo = textBox.CanUndo;
+                    CanRedo = textBox.CanRedo;
+                }
+
+                QuickPadCommands.NotifyAll(this, Settings);
+            }
         }
 
         // Gets raw text from document, not formatted with control characters.
@@ -457,7 +483,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
             catch (Exception e)
             {
-                Settings.Status(e.Message, TimeSpan.FromSeconds(60), SettingsViewModel.Verbosity.Error);
+                Settings.Status(e.Message, TimeSpan.FromSeconds(60), Verbosity.Error);
             }
             finally
             {

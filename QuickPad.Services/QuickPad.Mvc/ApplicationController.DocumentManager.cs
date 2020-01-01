@@ -21,7 +21,7 @@ namespace QuickPad.Mvc
 {
     public partial class ApplicationController
     {
-        private static class DocumentManager
+        public static class DocumentManager
         {
             private const string HARDWARE_BACK_BUTTON = "Windows.Phone.UI.Input.HardwareButtons";
             private const string RTF_MARKER = "{\\rtf1";
@@ -87,7 +87,7 @@ namespace QuickPad.Mvc
                     documentViewModel.Initialize(documentViewModel);
 
                     Settings.Status("New document initialized.", TimeSpan.FromSeconds(10),
-                        SettingsViewModel.Verbosity.Debug);
+                        Verbosity.Debug);
                 }
             }
 
@@ -281,7 +281,7 @@ namespace QuickPad.Mvc
                     catch (Exception ex)
                     {
                         Logger.LogError(new EventId(), $"Error loading {file.Name}.", ex);
-                        Settings.Status(ex.Message, TimeSpan.FromSeconds(60), SettingsViewModel.Verbosity.Error);
+                        Settings.Status(ex.Message, TimeSpan.FromSeconds(60), Verbosity.Error);
                     }
 
                     var text = reader.Read(documentViewModel.CurrentEncoding);
@@ -328,7 +328,7 @@ namespace QuickPad.Mvc
                     documentViewModel.ReleaseUpdates();
 
                     Settings.Status($"Loaded {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
-                        SettingsViewModel.Verbosity.Release);
+                        Verbosity.Release);
 
                     documentViewModel.IsDirty = false;
                 }
@@ -401,7 +401,7 @@ namespace QuickPad.Mvc
                 documentViewModel.ReleaseUpdates();
 
                 Settings.Status($"Saved {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
-                    SettingsViewModel.Verbosity.Release);
+                    Verbosity.Release);
 
                 return SaveState.Saved;
             }

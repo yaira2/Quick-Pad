@@ -34,7 +34,7 @@ namespace QuickPad.Mvc
 
                 settings.Status($"Made {count} replacements."
                     , TimeSpan.FromMinutes(1)
-                    , SettingsViewModel.Verbosity.Release);
+                    , Verbosity.Release);
 
                 return results.ToArray();
             }
@@ -181,7 +181,7 @@ namespace QuickPad.Mvc
 
                     settings.Status(
                         $"Matched {pattern}.",
-                        TimeSpan.FromSeconds(30), SettingsViewModel.Verbosity.Debug);
+                        TimeSpan.FromSeconds(30), Verbosity.Debug);
                 }
                 else
                 {
@@ -205,7 +205,7 @@ namespace QuickPad.Mvc
 
                     settings.Status(
                         $"Matched {pattern} with {result} at {index}.",
-                        TimeSpan.FromSeconds(30), SettingsViewModel.Verbosity.Debug);
+                        TimeSpan.FromSeconds(30), Verbosity.Debug);
                 }
 
                 return (null, result, index, length);

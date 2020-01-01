@@ -25,7 +25,7 @@ namespace QuickPad.Mvvm.Commands.Actions
             {
                 //open settings page
                 settings.ShowSettings = true;
-                settings.ShowSettingsTab = SettingsViewModel.SettingsTabs.Fonts;
+                settings.ShowSettingsTab = SettingsTabs.Fonts;
 
                 return Task.CompletedTask;
             };

@@ -147,7 +147,9 @@
     <Compile Include="Commands\Actions\CompactOverlay.cs" />
     <Compile Include="Commands\Actions\ShowMenusCommand.cs" />
     <Compile Include="Commands\Actions\ShowSettingsCommand.cs" />
+    <Compile Include="Commands\Clipboard\BingCommand.cs" />
     <Compile Include="Commands\Clipboard\ContentChangedCommand.cs" />
+    <Compile Include="Commands\Clipboard\GoogleCommand.cs" />
     <Compile Include="Commands\Editing\SuperscriptCommand.cs" />
     <Compile Include="Commands\Editing\SubscriptCommand.cs" />
     <Compile Include="Commands\Editing\CenterAlignCommand.cs" />
@@ -179,11 +181,13 @@
     <Compile Include="Commands\Editing\RightAlignCommand.cs" />
     <Compile Include="ViewModels\FindAndReplaceViewModel.cs" />
     <Compile Include="ViewModels\NotifyOnResetAttribute.cs" />
+    <Compile Include="ViewModels\SettingsTabs.cs" />
     <Compile Include="ViewModels\SettingsViewModel.cs" />
     <Compile Include="Commands\SimpleCommand.cs" />
     <Compile Include="Commands\Editing\StrikeThroughCommand.cs" />
     <Compile Include="Commands\Editing\UnderlineCommand.cs" />
     <Compile Include="Commands\Editing\UndoCommand.cs" />
+    <Compile Include="ViewModels\Verbosity.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IDocumentView.cs" />
