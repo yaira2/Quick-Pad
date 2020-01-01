@@ -59,6 +59,14 @@
         <uap:SplashScreen Image="Assets\SplashScreen.png" uap5:Optional="true"/>
       </uap:VisualElements>
       <Extensions>
+        <uap5:Extension
+            Category="windows.appExecutionAlias"
+            Executable="QuickPad.UI.exe"
+            EntryPoint="QuickPad.UI.App">
+              <uap5:AppExecutionAlias>
+                <uap5:ExecutionAlias Alias="QuickPad.exe" />
+              </uap5:AppExecutionAlias>
+        </uap5:Extension>
         <uap:Extension Category="windows.fileSavePicker">
           <uap:FileSavePicker>
             <uap:SupportedFileTypes>
