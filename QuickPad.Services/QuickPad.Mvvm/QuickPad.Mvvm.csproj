@@ -132,6 +132,7 @@
   <ItemGroup>
     <Compile Include="Commands\Actions\AcknowledgeFontSelectionChangeCommand.cs" />
     <Compile Include="Commands\Actions\ResetZoomCommand.cs" />
+    <Compile Include="Commands\Actions\SearchWithGoogleCommand.cs" />
     <Compile Include="Commands\Actions\ShowGoToCommand.cs" />
     <Compile Include="Commands\Actions\ZoomOutCommand.cs" />
     <Compile Include="Commands\Actions\ZoomInCommand.cs" />
