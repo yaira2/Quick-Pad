@@ -189,14 +189,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
-    <Content Include="Assets\bingo.png" />
     <Content Include="Assets\File Icons\General Small.png" />
     <Content Include="Assets\File Icons\MD Small.png" />
     <Content Include="Assets\File Icons\RTF Small.png" />
     <Content Include="Assets\File Icons\TXT C Small.png" />
     <Content Include="Assets\Font\codicon.ttf" />
     <None Include="Package.StoreAssociation.xml" />
-    <Content Include="Assets\googleo.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
