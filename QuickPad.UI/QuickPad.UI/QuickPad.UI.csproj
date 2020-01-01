@@ -250,7 +250,6 @@
     <Content Include="priconfig.packaging.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <None Include="QuickPad.UI_TemporaryKey.pfx" />
-    <PRIResource Include="Strings\it-IT\Resources.resw" />
     <PRIResource Include="Strings\ar-EG\Resources.resw" />
     <PRIResource Include="Strings\es\Resources.resw" />
     <PRIResource Include="Strings\fr-FR\Resources.resw" />
@@ -393,7 +392,6 @@
     <XliffResource Include="MultilingualResources\QuickPad.UI.es.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-FR.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.it-IT.xlf" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
