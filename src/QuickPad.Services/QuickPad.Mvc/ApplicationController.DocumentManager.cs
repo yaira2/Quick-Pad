@@ -15,7 +15,7 @@ using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
-
+using Windows.Storage.AccessCache;
 
 namespace QuickPad.Mvc
 {
@@ -238,6 +238,9 @@ namespace QuickPad.Mvc
 
                 if (!canceled)
                 {
+                    //add file to most recently used list
+                    var mru = StorageApplicationPermissions.MostRecentlyUsedList.Add(file, file.Name, RecentStorageItemVisibility.AppAndSystem);
+
                     var provider = new FileDataProvider();
                     var bytes = await provider.LoadDataAsync(file);
                     var reader = new EncodingReader();
@@ -382,6 +385,9 @@ namespace QuickPad.Mvc
                     savePicker.SuggestedFileName = documentViewModel.File?.DisplayName ?? DocumentViewModel.Untitled;
 
                     var file = await savePicker.PickSaveFileAsync();
+
+                    //add file to most recently used list
+                    var mru = StorageApplicationPermissions.MostRecentlyUsedList.Add(file, file.Name, RecentStorageItemVisibility.AppAndSystem);
 
                     if (file == null) return SaveState.Canceled;
                     documentViewModel.File = file;
