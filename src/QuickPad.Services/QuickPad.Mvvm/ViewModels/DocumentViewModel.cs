@@ -38,6 +38,7 @@ namespace QuickPad.Mvvm.ViewModels
         private ResourceLoader _resourceLoader;
         private int _currentColumn;
         private int _currentLine;
+        private int _lineToGoTo;
 
         private string _text;
         private bool _canUndo;
@@ -516,6 +517,12 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get => _currentColumn;
             set => Set(ref _currentColumn, value);
+        }
+
+        public int LineToGoTo
+        {
+            get => _lineToGoTo;
+            set => Set(ref _lineToGoTo, value);
         }
 
         public bool CanUndo
