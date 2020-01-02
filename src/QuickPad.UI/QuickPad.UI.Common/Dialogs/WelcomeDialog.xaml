@@ -6,9 +6,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
+    Windows10version1809:CornerRadius="4"
     Title="Welcome back to Quick Pad!"
     x:Uid="WelcomeDialogTitle"
-    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}" Windows10version1809:CornerRadius="4">
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
 
     <Grid Width="376">
         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
@@ -20,7 +21,7 @@
                     x:Uid="CmdLetsGo"
                     Content="Lets go!" HorizontalAlignment="Stretch" Height="48" x:Name="CmdClose" Click="CmdClose_Click">
                 <Button.Background>
-                    <SolidColorBrush Color="{ThemeResource SystemAccentColor}"/> 
+                    <SolidColorBrush Color="{ThemeResource SystemAccentColor}"/>
                 </Button.Background>
             </Button>
         </StackPanel>
