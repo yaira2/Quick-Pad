@@ -15,5 +15,10 @@ namespace QuickPad.UI.Common.Dialogs
         {
             this.InitializeComponent();
         }
+
+        private void Button_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Hide();
+        }
     }
 }

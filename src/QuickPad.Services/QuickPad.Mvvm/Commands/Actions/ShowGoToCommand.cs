@@ -1,4 +1,5 @@
 ﻿using QuickPad.Mvvm.ViewModels;
+using System;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
@@ -6,7 +7,7 @@ namespace QuickPad.Mvvm.Commands.Actions
     {
         public ShowGoToCommand()
         {
-
+           
         }
     }
 }

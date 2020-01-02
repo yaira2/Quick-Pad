@@ -91,9 +91,9 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            //remove if statement before final release
-            //if (!SystemInformation.IsAppUpdated) return;
+            if (!SystemInformation.IsAppUpdated) return;
 
+            //show the welcome dialog
             var dialog = provider.GetService<WelcomeDialog>();
             _ = dialog.ShowAsync();
         }
