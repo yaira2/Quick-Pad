@@ -182,8 +182,8 @@ namespace QuickPad.UI
 
             TextBox.SelectionFlyout.Opening += Menu_Opening;
             TextBox.ContextFlyout.Opening += Menu_Opening;
-            RichEditBox.SelectionFlyout.Opening += Menu_Opening;
-            RichEditBox.ContextFlyout.Opening += Menu_Opening;
+            RichEditBox.SelectionFlyout.Opening += RMenu_Opening;
+            RichEditBox.ContextFlyout.Opening += RMenu_Opening;
         }
 
         public event Func<DocumentViewModel, StorageFile, Task> LoadFromFile;
