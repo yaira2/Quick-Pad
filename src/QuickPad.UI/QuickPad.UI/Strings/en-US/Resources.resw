@@ -374,7 +374,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestatRequired.Text" xml:space="preserve">
-    <value>Restart required to apply the changes.</value>
+    <value>You will need to restart Quick Pad to apply changes.</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestoreDefaultZoom.Text" xml:space="preserve">

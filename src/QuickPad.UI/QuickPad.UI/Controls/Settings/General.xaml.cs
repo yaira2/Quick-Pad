@@ -12,7 +12,7 @@ namespace QuickPad.UI.Controls.Settings
     {
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
         public SettingsViewModel Settings { get; } = App.Settings;
-
+     
         public General()
         {
             this.InitializeComponent();

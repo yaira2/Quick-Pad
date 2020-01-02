@@ -328,8 +328,9 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
-          <source>Restart required to apply the changes.</source>
-          <target state="translated">Se requiere reiniciar para aplicar los cambios</target>
+          <source>You will need to restart Quick Pad to apply changes.</source>
+          <target state="needs-review-translation">Se requiere reiniciar para aplicar los cambios</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
