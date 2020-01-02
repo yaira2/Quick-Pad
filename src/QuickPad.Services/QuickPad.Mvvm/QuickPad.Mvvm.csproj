@@ -168,7 +168,7 @@
     <Compile Include="Commands\Clipboard\CopyCommand.cs" />
     <Compile Include="Commands\Clipboard\CutCommand.cs" />
     <Compile Include="Commands\Editing\ColorCommand.cs" />
-    <Compile Include="Commands\ToggleWordWrapCommand.cs" />
+    <Compile Include="Commands\Editing\ToggleWordWrapCommand.cs" />
     <Compile Include="IApplication.cs" />
     <Compile Include="Models\DefaultLanguageModel.cs" />
     <Compile Include="Models\Theme\IVisualThemeSelector.cs" />
