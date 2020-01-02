@@ -91,7 +91,7 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            if (!SystemInformation.IsAppUpdated || Settings.VersionNumberText != "4.3.78.0") return;
+            //if (!SystemInformation.IsAppUpdated || Settings.VersionNumberText != "4.3.78.0") return;
 
             var dialog = provider.GetService<WelcomeDialog>();
             dialog.ShowAsync();

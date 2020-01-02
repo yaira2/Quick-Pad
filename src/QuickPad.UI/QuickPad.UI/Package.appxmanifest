@@ -125,6 +125,7 @@
               <uap:FileType>.htm</uap:FileType>
               <uap:FileType>.php</uap:FileType>
               <uap:FileType>.css</uap:FileType>
+              <uap:FileType>.cs</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:Logo>Assets\File Icons\General Small.png</uap:Logo>
           </uap:FileTypeAssociation>
