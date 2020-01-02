@@ -6,10 +6,10 @@ namespace QuickPad.Mvvm.Commands.Actions
 {
     public class ShowGoToCommand : SimpleCommand<DocumentViewModel>
     {
-        public ShowGoToCommand(IServiceProvider provider)
+        public ShowGoToCommand()
         {
-            var dialog = provider.GetService<GoToLine>();
-            _ = dialog.ShowAsync();
+            //var dialog = provider.GetService<GoToLine>();
+            //_ = dialog.ShowAsync();
         }
     }
 }
