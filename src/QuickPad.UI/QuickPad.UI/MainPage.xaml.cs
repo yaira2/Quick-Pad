@@ -91,10 +91,11 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            //if (!SystemInformation.IsAppUpdated || Settings.VersionNumberText != "4.3.78.0") return;
+            //remove if statement before final release
+            //if (!SystemInformation.IsAppUpdated) return;
 
             var dialog = provider.GetService<WelcomeDialog>();
-            //dialog.ShowAsync();
+            _ = dialog.ShowAsync();
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
