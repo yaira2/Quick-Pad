@@ -777,12 +777,20 @@
     <value>Other</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="CmdLetsGo.Content" xml:space="preserve">
+    <value>Lets go!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
     <value>Quick Pad is back, after a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
     <value>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for the inconvenience but I hope that you find it worth it and enjoy the new version.</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
+    <value>Welcome back to Quick Pad!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
 </root>

@@ -94,7 +94,7 @@ namespace QuickPad.UI
             //if (!SystemInformation.IsAppUpdated || Settings.VersionNumberText != "4.3.78.0") return;
 
             var dialog = provider.GetService<WelcomeDialog>();
-            dialog.ShowAsync();
+            //dialog.ShowAsync();
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
