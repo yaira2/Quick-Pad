@@ -45,6 +45,5 @@ namespace QuickPad.UI.Controls
                 DataContext = ViewModel;
             }
         }
-
     }
 }
