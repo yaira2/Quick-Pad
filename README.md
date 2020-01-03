@@ -38,8 +38,8 @@
 * Zoom In - Ctrl + +
 * Zoom Out - Ctrl + -
 * Reset Zoom - Ctrl + 0
-* Superscript - Alt + +
-* Subscript - Alt + -
+* Superscript - Alt + + (rtf mode only)
+* Subscript - Alt + - (rtf mode only)
 * Classic Mode - Ctrl + Shift + 1
 * Default Mode - Ctrl + Shift + 2
 * Focus Mode - Ctrl + Shift + 3
