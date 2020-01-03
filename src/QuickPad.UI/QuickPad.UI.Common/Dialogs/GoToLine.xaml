@@ -1,0 +1,38 @@
+﻿<ContentDialog
+    x:Class="QuickPad.UI.Common.Dialogs.GoToLine"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:extensions="using:Microsoft.Toolkit.Uwp.UI.Extensions"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    mc:Ignorable="d"
+    Title="Go To Line"
+    x:Uid="GoToDialog"
+    Windows10version1809:CornerRadius="4"
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBox Header="Line number:"
+                 x:Uid="GoToLineNumber"
+                 InputScope="Number"
+                 Text="{x:Bind ViewModel.LineToGoTo, Mode=TwoWay}"
+                 extensions:TextBoxRegex.ValidationMode="Dynamic" 
+                 extensions:TextBoxRegex.ValidationType="Number"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Padding="0,16,0,0">
+            <Button Content="Go To" Width="132" Margin="0,0,2,0" x:Uid="CmdGoTo"/>
+            <Button Content="Cancel" 
+                    Width="132"
+                    Margin="2,0,0,0" 
+                    x:Uid="CmdCancel" 
+                    Click="CmdClose_Click"
+                    Command="{x:Bind Commands.GoToLineCommand}" 
+                    CommandParameter="{x:Bind ViewModel}"/>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

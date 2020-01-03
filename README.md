@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Quick Pad Logo" src="QuickPad.UI/QuickPad.UI/Assets/StoreLogo.scale-400.png" width="100px" />
+  <img alt="Quick Pad Logo" src="src/QuickPad.UI/QuickPad.UI/Assets/StoreLogo.scale-400.png" width="100px" />
   <h1 align="center">Quick-Pad</h1>
 </p>
 
@@ -30,6 +30,22 @@
 * File Print.
 * Tabs.
 
+## Shortcuts:
+* Save - Ctrl + S
+* Save As - Ctrl + Shift + S
+* Open - Ctrl + O
+* New Document - Ctrl + N
+* Zoom In - Ctrl + +
+* Zoom Out - Ctrl + -
+* Reset Zoom - Ctrl + 0
+* Superscript - Alt + +
+* Subscript - Alt + -
+* Classic Mode - Ctrl + Shift + 1
+* Default Mode - Ctrl + Shift + 2
+* Focus Mode - Ctrl + Shift + 3
+* Ninja Mode - Ctrl + F12
+* Compact Overlay - Alt + Up
+
 ## Downloads:
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
 * Download the latest release from [GitHub Releases](https://github.com/UWPCommunity/Quick-Pad/releases).
@@ -41,6 +57,7 @@
 
 ## Special Thanks:
 
+* Application Architecture: [The Sharp Ninja](https://github.com/sharpninja)
 * Code Contributors: [Toon Werawat](https://github.com/ray199), 
 [Leisvan](https://github.com/Leisvan), 
 [AVK](https://github.com/avknaidu), 
@@ -55,4 +72,4 @@
     * [ar-EG][Arabic] [Ahmed Walid](https://github.com/ahmed605)
     * [ar-SA][Arabic] [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
     * [fr-FR][French] [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
-    * [it][Italian] [Leonardo Di Stasio](https://github.com/YohskDista)
+    * [it][Italian] [Massimo Savazzi](https://github.com/msavazzi)
