@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Quick Pad Logo" src="src/QuickPad.UI/QuickPad.UI/Assets/StoreLogo.scale-400.png" width="100px" />
+  <img alt="Quick Pad Logo" src="src/QuickPad.UI/QuickPad.UI/Assets/Square44x44Logo.scale-100.png" width="100px" />
   <h1 align="center">Quick-Pad</h1>
 </p>
 
@@ -38,8 +38,8 @@
 * Zoom In - Ctrl + +
 * Zoom Out - Ctrl + -
 * Reset Zoom - Ctrl + 0
-* Superscript - Alt + +
-* Subscript - Alt + -
+* Superscript - Alt + + (rtf mode only)
+* Subscript - Alt + - (rtf mode only)
 * Classic Mode - Ctrl + Shift + 1
 * Default Mode - Ctrl + Shift + 2
 * Focus Mode - Ctrl + Shift + 3

@@ -1,4 +1,6 @@
-﻿using QuickPad.Mvvm.ViewModels;
+﻿using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm.ViewModels;
+using System;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
@@ -6,7 +8,8 @@ namespace QuickPad.Mvvm.Commands.Actions
     {
         public ShowGoToCommand()
         {
-
+            //var dialog = provider.GetService<GoToLine>();
+            //_ = dialog.ShowAsync();
         }
     }
 }

@@ -19,6 +19,8 @@ namespace QuickPad.UI
         {
             services.AddSingleton<PasteCommand, PasteCommand>();
             services.AddTransient<AskToSave, AskToSave>();
+            services.AddTransient<WelcomeDialog, WelcomeDialog>();
+            services.AddTransient<GoToLine, GoToLine>();
             services.AddSingleton(provider => new QuickPadCommands(provider.GetService<PasteCommand>()));
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddTransient<IFindAndReplaceView, FindAndReplaceViewModel>();

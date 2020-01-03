@@ -32,10 +32,10 @@
             </ComboBox>
 
             <TextBlock Text="App Language" x:Uid="AppLanguage"/>
-
             <ComboBox Width="180" PlaceholderText="{x:Bind Settings.DefaultLanguage}" 
                       SelectedItem="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}"
                       ItemsSource="{x:Bind Settings.DefaultLanguages}"
+                      x:Name="ComboAppLanguage"
                       Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}" HorizontalAlignment="Left">
                 <ComboBox.ItemTemplate>
                     <DataTemplate x:DataType="q:DefaultLanguageModel">
@@ -43,7 +43,7 @@
                     </DataTemplate>
                 </ComboBox.ItemTemplate>
             </ComboBox>
-            <TextBlock Visibility="Collapsed" Style="{ThemeResource CaptionTextBlockStyle}" Margin="0" Text="Restart required to apply the changes." x:Uid="RestatRequired"/>
+            <TextBlock Style="{ThemeResource CaptionTextBlockStyle}" Padding="0,8,0,0" Text="You will need to restart Quick Pad to apply changes." x:Uid="RestatRequired"/>
 
             <TextBlock Text="Default File Type" x:Uid="DefaultFileType"/>
             <ComboBox PlaceholderText=".txt" Width="120" 

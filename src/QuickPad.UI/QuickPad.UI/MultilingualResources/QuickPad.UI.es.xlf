@@ -143,9 +143,8 @@
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
           <source>Default File Encoding</source>
-          <target state="needs-review-translation">Codificación de archivo por defecto</target>
+          <target state="translated">Codificación de archivo por defecto</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="DefaultFileType.Text" translate="yes" xml:space="preserve">
           <source>Default File Type</source>
@@ -328,8 +327,8 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
-          <source>Restart required to apply the changes.</source>
-          <target state="translated">Se requiere reiniciar para aplicar los cambios</target>
+          <source>You will need to restart Quick Pad to apply changes.</source>
+          <target state="translated">Para ver los cambios reinicie Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
@@ -374,9 +373,8 @@
         </trans-unit>
         <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
-          <target state="needs-review-translation">Barra de estado</target>
+          <target state="translated">Barra de estado</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Col: </source>
@@ -675,163 +673,183 @@
         </trans-unit>
         <trans-unit id="SaveDialog.CloseButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">Cancelar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="new">Save</target>
+          <target state="translated">Guardar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>Don't Save</source>
-          <target state="new">Don't Save</target>
+          <target state="translated">No guardar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.Title" translate="yes" xml:space="preserve">
           <source>Quick Pad</source>
-          <target state="new">Quick Pad</target>
+          <target state="translated">Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SpellCheckRtf.Text" translate="yes" xml:space="preserve">
           <source>Spell Check in Rich Text</source>
-          <target state="new">Spell Check in Rich Text</target>
+          <target state="translated">Verificar ortografía en texto con formato.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WouldYouLikeToSave.Text" translate="yes" xml:space="preserve">
           <source>Would you like to save your changes?</source>
-          <target state="new">Would you like to save your changes?</target>
+          <target state="translated">¿Quiere guardar los cambios?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="AppVersion.Text" translate="yes" xml:space="preserve">
           <source>Version:</source>
-          <target state="new">Version:</target>
+          <target state="translated">Versión:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RichTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Rich Text Font Settings</source>
-          <target state="new">Rich Text Font Settings</target>
+          <target state="translated">Configuración de Fuente en texto con formato</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="PlainTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Plain Text Font Settings</source>
-          <target state="new">Plain Text Font Settings</target>
+          <target state="translated">Configuración de Fuente en texto sin formato</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ReportIssues.Text" translate="yes" xml:space="preserve">
           <source>Report issues here</source>
-          <target state="new">Report issues here</target>
+          <target state="translated">Reporte cualquier problema aquí</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SourceCode.Text" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <target state="new">Source Code</target>
+          <target state="translated">Código fuente</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpecialThanks.Text" translate="yes" xml:space="preserve">
           <source>Special thanks to:</source>
-          <target state="new">Special thanks to:</target>
+          <target state="translated">Agradecimientos especiales a:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.Text" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
+          <target state="translated">Contribuya con el desarrollador</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Untitled" translate="yes" xml:space="preserve">
           <source>Untitled</source>
-          <target state="new">Untitled</target>
+          <target state="translated">Sin título</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
         </trans-unit>
         <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="new">Close</target>
+          <target state="translated">Cerrar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindFilter.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Looking for?</source>
-          <target state="new">Looking for?</target>
+          <target state="translated">¿Busca algo?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindMatchCase.Text" translate="yes" xml:space="preserve">
           <source>Match Case</source>
-          <target state="new">Match Case</target>
+          <target state="translated">Coicidir Mayúsculas/Minúsculas</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
           <source>Regular Expression</source>
-          <target state="new">Regular Expression</target>
+          <target state="translated">Expresiones regulares</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Replace</target>
+          <target state="translated">Reemplazar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceAll.Text" translate="yes" xml:space="preserve">
           <source>Replace all</source>
-          <target state="new">Replace all</target>
+          <target state="translated">Reemplazar todo</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
           <source>Time/Date</source>
-          <target state="new">Time/Date</target>
+          <target state="translated">Fecha/Hora</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
           <source>More...</source>
-          <target state="new">More...</target>
+          <target state="translated">Más...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with...</source>
-          <target state="new">Replace with...</target>
+          <target state="translated">Reemplazar con...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">Cancelar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="translated">Ir a</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="translated">Ir a</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
-          <target state="new">Line number:</target>
+          <target state="translated">Número de línea:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Title" translate="yes" xml:space="preserve">
           <source>Keep on top of other Windows</source>
-          <target state="new">Keep on top of other Windows</target>
+          <target state="translated">Mantener por encima del resto de las ventanas.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Subtitle" translate="yes" xml:space="preserve">
           <source>With compact overlay you can make Quick Pad stay on top of other windows.</source>
-          <target state="new">With compact overlay you can make Quick Pad stay on top of other windows.</target>
+          <target state="translated">En modo compacto Quick Pad estará visible por encima del resto de las ventanas.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
         <trans-unit id="ThemeAccentName" translate="yes" xml:space="preserve">
           <source>System Accent Color</source>
-          <target state="new">System Accent Color</target>
+          <target state="translated">Color principal del sistema</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="SearchWithGoogle.Text" translate="yes" xml:space="preserve">
           <source>Enable Google Search</source>
-          <target state="new">Enable Google Search</target>
+          <target state="translated">Habilitar búsqueda en Google</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
         </trans-unit>
         <trans-unit id="OtherOptions.Text" translate="yes" xml:space="preserve">
           <source>Other</source>
-          <target state="new">Other</target>
+          <target state="translated">Otro</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="CmdLetsGo.Content" translate="yes" xml:space="preserve">
+          <source>Lets go!</source>
+          <target state="translated">¡Vamos!</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
+          <source>Quick Pad is back, after a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
+          <target state="translated">Quick Pad ha vuelto despues de algunos meses sin actualizaciones, me emociona mucho anunciar que Quick Pad ha sido completamente reescrito.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
+          <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for the inconvenience but I hope that you find it worth it and enjoy the new version.</source>
+          <target state="translated">Todas las antiguas opciones están disponibles, así como algunas nuevas. A causa de la reescritura de la aplicación la configuración ha vuelto a su estado inicial. Me disculpo por las inconveniencias que esto pueda ocasionarle. Espero que valga la pena y que disfrute la nueva versión.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
+          <source>Welcome back to Quick Pad!</source>
+          <target state="translated">¡Bienvenido de vuelta a Quick Pad!</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
       </group>
     </body>

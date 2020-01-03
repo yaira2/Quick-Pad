@@ -307,8 +307,9 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
-          <source>Restart required to apply the changes.</source>
-          <target state="translated">Redémarrage nécessaire pour appliquer les changements</target>
+          <source>You will need to restart Quick Pad to apply changes.</source>
+          <target state="needs-review-translation">Redémarrage nécessaire pour appliquer les changements</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
@@ -778,58 +779,78 @@
         </trans-unit>
         <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
           <source>More...</source>
-          <target state="new">More...</target>
+          <target state="new">Plus...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with...</source>
-          <target state="new">Replace with...</target>
+          <target state="new">Remplacer par...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="new">Annuler</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="new">Aller à</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="new">Aller à</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
-          <target state="new">Line number:</target>
+          <target state="new">Line numéro:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Title" translate="yes" xml:space="preserve">
           <source>Keep on top of other Windows</source>
-          <target state="new">Keep on top of other Windows</target>
+          <target state="new">Garder au dessus des autres fenêtres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Subtitle" translate="yes" xml:space="preserve">
           <source>With compact overlay you can make Quick Pad stay on top of other windows.</source>
-          <target state="new">With compact overlay you can make Quick Pad stay on top of other windows.</target>
+          <target state="new">Avec une superposition compacte, vous pouvez faire en sorte que Quick Pad reste au-dessus des autres fenêtres.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
         <trans-unit id="ThemeAccentName" translate="yes" xml:space="preserve">
           <source>System Accent Color</source>
-          <target state="new">System Accent Color</target>
+          <target state="new">Couleur d'accentuation système</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="SearchWithGoogle.Text" translate="yes" xml:space="preserve">
           <source>Enable Google Search</source>
-          <target state="new">Enable Google Search</target>
+          <target state="new">Activer Google Search</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
         </trans-unit>
         <trans-unit id="OtherOptions.Text" translate="yes" xml:space="preserve">
           <source>Other</source>
-          <target state="new">Other</target>
+          <target state="new">Autre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="CmdLetsGo.Content" translate="yes" xml:space="preserve">
+          <source>Lets go!</source>
+          <target state="new">Allons-y!</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
+          <source>Quick Pad is back, after a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
+          <target state="new">Quick Pad est de retour, après quelques mois sans mises à jour, je suis très heureux d'annoncer que Quick Pad a été entièrement réécrit à partir de zéro!</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
+          <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for the inconvenience but I hope that you find it worth it and enjoy the new version.</source>
+          <target state="new">Chaque option est toujours disponible ainsi que quelques nouvelles. À la suite de la réécriture de l'application à partir de zéro, vous devrez définir à nouveau l'une des personnalisations faites dans la version précédente, je m'excuse pour le désagrément, mais j'espère que vous en trouverez la peine et que vous apprécierez la nouvelle version.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
+          <source>Welcome back to Quick Pad!</source>
+          <target state="new">Bienvenue dans Quick-Pad</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
       </group>
     </body>

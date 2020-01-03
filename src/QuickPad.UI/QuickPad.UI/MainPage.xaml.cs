@@ -91,10 +91,11 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            //if (!SystemInformation.IsAppUpdated || Settings.VersionNumberText != "4.3.78.0") return;
+            if (!SystemInformation.IsAppUpdated) return;
 
+            //show the welcome dialog
             var dialog = provider.GetService<WelcomeDialog>();
-            //dialog.ShowAsync();
+            _ = dialog.ShowAsync();
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
@@ -181,8 +182,8 @@ namespace QuickPad.UI
 
             TextBox.SelectionFlyout.Opening += Menu_Opening;
             TextBox.ContextFlyout.Opening += Menu_Opening;
-            RichEditBox.SelectionFlyout.Opening += Menu_Opening;
-            RichEditBox.ContextFlyout.Opening += Menu_Opening;
+            RichEditBox.SelectionFlyout.Opening += RMenu_Opening;
+            RichEditBox.ContextFlyout.Opening += RMenu_Opening;
         }
 
         public event Func<DocumentViewModel, StorageFile, Task> LoadFromFile;

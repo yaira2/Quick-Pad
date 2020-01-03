@@ -83,6 +83,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> ZoomOutCommand { get; } = new ZoomOutCommand();
         public SimpleCommand<DocumentViewModel> ResetZoomCommand { get; } = new ResetZoomCommand();
         public SimpleCommand<DocumentViewModel> ShowGoToCommand { get; } = new ShowGoToCommand();
+        public SimpleCommand<DocumentViewModel> GoToLineCommand { get; } = new GoToLineCommand();
         public SimpleCommand<DocumentViewModel> SuperscriptCommand { get; } = new SuperscriptCommand();
         public SimpleCommand<DocumentViewModel> SubscriptCommand { get; } = new SubscriptCommand();
 
