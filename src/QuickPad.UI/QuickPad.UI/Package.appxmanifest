@@ -13,7 +13,7 @@
   
   <Identity
     Name="49306atecsolution.QuickPad"
-    Publisher="CN=53EC4384-7F5B-4CF6-8C23-513FFE9D1AB7"
+    Publisher="CN=kingd"
     Version="4.3.89.0" />
 
   <mp:PhoneIdentity PhoneProductId="e072e038-6560-4c09-9699-bffadb06adcf" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>

@@ -644,4 +644,24 @@
     <value>رقم السطر:</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
+  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
+    <value>بالوضع المضغوط تستطيع أن تجعل Quick Pad يظهر فوق النوافذ الأخرى</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="CompactOverlayTip.Title" xml:space="preserve">
+    <value>البقاء فوق النوافذ الأخرى</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="ThemeAccentName" xml:space="preserve">
+    <value>لون واجهة النظام</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SearchWithGoogle.Text" xml:space="preserve">
+    <value>تفعيل البحث بجوجل</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>أخرى</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>

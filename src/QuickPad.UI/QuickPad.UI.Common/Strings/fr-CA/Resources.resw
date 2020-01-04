@@ -660,4 +660,16 @@
     <value>La garder par dessus des autres fenêtres</value>
     <comment>Used on TeachingTip</comment>
   </data>
+  <data name="ThemeAccentName" xml:space="preserve">
+    <value>Couleur d'accent du système</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SearchWithGoogle.Text" xml:space="preserve">
+    <value>Activer recherche Google</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>Autre</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>

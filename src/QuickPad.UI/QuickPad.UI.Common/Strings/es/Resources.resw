@@ -552,13 +552,89 @@
     <value>Guardar</value>
     <comment>Used on Save Dialog</comment>
   </data>
+  <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
+    <value>No guardar</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
   <data name="SaveDialog.Title" xml:space="preserve">
     <value>Quick Pad</value>
     <comment>Used on Save Dialog</comment>
   </data>
+  <data name="WouldYouLikeToSave.Text" xml:space="preserve">
+    <value>¿Quiere guardar los cambios?</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="AppVersion.Text" xml:space="preserve">
+    <value>Versión:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="PlainTextFontSettings.Text" xml:space="preserve">
+    <value>Configuración de Fuente en texto sin formato</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RichTextFontSettings.Text" xml:space="preserve">
+    <value>Configuración de Fuente en texto con formato</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheckRtf.Text" xml:space="preserve">
+    <value>Verificar ortografía en texto con formato.</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ReportIssues.Text" xml:space="preserve">
+    <value>Reporte cualquier problema aquí</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Text" xml:space="preserve">
+    <value>Código fuente</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpecialThanks.Text" xml:space="preserve">
+    <value>Agradecimientos especiales a:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ContributeToDeveloper.Text" xml:space="preserve">
+    <value>Contribuya con el desarrollador</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Sin título</value>
+    <comment>Used on Title Bar</comment>
+  </data>
+  <data name="FindClose.Text" xml:space="preserve">
+    <value>Cerrar</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindFilter.PlaceholderText" xml:space="preserve">
+    <value>¿Busca algo?</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMatchCase.Text" xml:space="preserve">
+    <value>Coicidir Mayúsculas/Minúsculas</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMore.Text" xml:space="preserve">
+    <value>Más...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindRegEx.Text" xml:space="preserve">
+    <value>Expresiones regulares</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
   <data name="FindReplace.Text" xml:space="preserve">
     <value>Reemplazar</value>
     <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceAll.Text" xml:space="preserve">
+    <value>Reemplazar todo</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>Reemplazar con...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>Fecha/Hora</value>
+    <comment>Used on Menu Item</comment>
   </data>
   <data name="CmdCancel.Content" xml:space="preserve">
     <value>Cancelar</value>
@@ -571,5 +647,29 @@
   <data name="GoToDialog.Title" xml:space="preserve">
     <value>Ir a</value>
     <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToLineNumber.Header" xml:space="preserve">
+    <value>Número de línea:</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
+    <value>En modo compacto Quick Pad estará visible por encima del resto de las ventanas.</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="CompactOverlayTip.Title" xml:space="preserve">
+    <value>Mantener por encima del resto de las ventanas.</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="ThemeAccentName" xml:space="preserve">
+    <value>Color principal del sistema</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SearchWithGoogle.Text" xml:space="preserve">
+    <value>Habilitar búsqueda en Google</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>Otro</value>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>
