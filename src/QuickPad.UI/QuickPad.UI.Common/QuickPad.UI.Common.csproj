@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" InitialTargets="CopyMAT" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -119,6 +119,12 @@
   <PropertyGroup>
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
+  <PropertyGroup Label="MultilingualAppToolkit">
+    <MultilingualAppToolkitVersion>4.0</MultilingualAppToolkitVersion>
+    <MultilingualFallbackLanguage>en-US</MultilingualFallbackLanguage>
+    <TranslationReport Condition="'$(Configuration)' == 'Release'">true</TranslationReport>
+    <SuppressPseudoWarning Condition="'$(Configuration)' == 'Debug'">true</SuppressPseudoWarning>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Dialogs\WelcomeDialog.xaml.cs">
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
@@ -191,12 +197,64 @@
       <Project>{dd33c42d-9de7-4e74-a44d-2085764cf0c8}</Project>
       <Name>QuickPad.Mvvm</Name>
     </ProjectReference>
+    <PRIResource Include="Strings\ar-EG\Resources.resw">
+      <Link>Strings\ar-EG\Resources.resw</Link>
+    </PRIResource>
+    <PRIResource Include="Strings\en-US\Resources.resw">
+      <Link>Strings\en-US\Resources.resw</Link>
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\es\Resources.resw">
+      <Link>Strings\es\Resources.resw</Link>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-CA\Resources.resw">
+      <Link>Strings\fr-CA\Resources.resw</Link>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Resources.resw">
+      <Link>Strings\fr-FR\Resources.resw</Link>
+    </PRIResource>
+    <PRIResource Include="Strings\it\Resources.resw">
+      <Link>Strings\it\Resources.resw</Link>
+    </PRIResource>
+    <XliffResource Include="MultilingualResources\QuickPad.UI.Common.ar-EG.xlf" />
+    <XliffResource Include="MultilingualResources\QuickPad.UI.Common.es.xlf" />
+    <XliffResource Include="MultilingualResources\QuickPad.UI.Common.fr-CA.xlf" />
+    <XliffResource Include="MultilingualResources\QuickPad.UI.Common.fr-FR.xlf" />
+    <XliffResource Include="MultilingualResources\QuickPad.UI.Common.it.xlf" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ar-EG\Resources.resw" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\es\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\fr-CA\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\it\Resources.resw" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.PriResources.targets" Label="MultilingualAppToolkit" Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\v$(MultilingualAppToolkitVersion)\Microsoft.Multilingual.PriResources.targets')" />
+  <Target Name="MATPrerequisite" BeforeTargets="PrepareForBuild" Condition="!Exists('$(MSBuildExtensionsPath)\Microsoft\Multilingual App Toolkit\Microsoft.Multilingual.PriResources.targets')" Label="MultilingualAppToolkit">
+    <Warning Text="$(MSBuildProjectFile) is Multilingual build enabled, but the Multilingual App Toolkit is unavailable during the build. If building with Visual Studio, please check to ensure that toolkit is properly installed." />
+  </Target>
+  <Target Name="CopyMAT">
+    <Exec Command="xcopy /E /I /F /R /Y  $(SolutionDir)QuickPad.UI\QuickPad.UI\Strings\ $(SolutionDir)QuickPad.UI\QuickPad.UI.Common\Strings"/>
+</Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

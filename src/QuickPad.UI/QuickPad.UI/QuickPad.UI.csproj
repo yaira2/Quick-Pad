@@ -18,7 +18,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-    <PackageCertificateThumbprint>D71906DDA172190F13775AC8A151E064DB9A70EF</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>EB705E3F44525A88C8E8E96A04DBEF8DCE07B189</PackageCertificateThumbprint>
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
@@ -26,8 +26,7 @@
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
-    <PackageCertificateKeyFile>
-    </PackageCertificateKeyFile>
+    <PackageCertificateKeyFile>QuickPad.UI_TemporaryKey.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -253,10 +252,11 @@
     <Content Include="Properties\Default.rd.xml" />
     <None Include="QuickPad.UI_TemporaryKey.pfx" />
     <PRIResource Include="Strings\it\Resources.resw" />
-    <PRIResource Include="Strings\ar-EG\Resources.resw" />
-    <PRIResource Include="Strings\es\Resources.resw" />
     <PRIResource Include="Strings\fr-FR\Resources.resw" />
     <PRIResource Include="Strings\fr-CA\Resources.resw" />
+    <PRIResource Include="Strings\es\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\ar-EG\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -386,11 +386,25 @@
     <Content Include="Assets\Font\FabExMDL2.ttf" />
   </ItemGroup>
   <ItemGroup>
+    <PRIResource Include="Strings\ar-EG\Resources.resw">
+      <Link>Strings\ar-EG\Resources.resw</Link>
+    </PRIResource>
     <PRIResource Include="Strings\en-US\Resources.resw">
+      <Link>Strings\en-US\Resources.resw</Link>
       <SubType>Designer</SubType>
     </PRIResource>
-  </ItemGroup>
-  <ItemGroup>
+    <PRIResource Include="Strings\es\Resources.resw">
+      <Link>Strings\es\Resources.resw</Link>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-CA\Resources.resw">
+      <Link>Strings\fr-CA\Resources.resw</Link>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Resources.resw">
+      <Link>Strings\fr-FR\Resources.resw</Link>
+    </PRIResource>
+    <PRIResource Include="Strings\it\Resources.resw">
+      <Link>Strings\it\Resources.resw</Link>
+    </PRIResource>
     <XliffResource Include="MultilingualResources\QuickPad.UI.ar-EG.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.es.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-CA.xlf" />

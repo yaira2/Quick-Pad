@@ -12,10 +12,9 @@ namespace QuickPad.UI.Common.Dialogs
     {
         private DocumentViewModel _viewModel;
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
-        public QuickPadCommands Commands { get; }
 
-        private SettingsViewModel _settings;
-        public SettingsViewModel Settings => _settings;
+        public QuickPadCommands Commands { get; }
+        public SettingsViewModel Settings { get; }
 
         public DocumentViewModel ViewModel
         {
@@ -28,8 +27,9 @@ namespace QuickPad.UI.Common.Dialogs
             }
         }
 
-        public WelcomeDialog(QuickPadCommands commands)
+        public WelcomeDialog(QuickPadCommands commands, SettingsViewModel settings)
         {
+            Settings = settings;
             Commands = commands;
             this.InitializeComponent();
         }

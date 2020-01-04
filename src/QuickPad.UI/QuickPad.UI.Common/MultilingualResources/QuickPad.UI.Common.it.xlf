@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
-  <file datatype="xml" source-language="en-US" target-language="it" original="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+  <file datatype="xml" source-language="en-US" target-language="it" original="QUICKPAD.UI.COMMON/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
       <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6915.0" tool-company="Microsoft" />
     </header>
     <body>
-      <group id="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+      <group id="QUICKPAD.UI.COMMON/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="AcrylicOptions.Text" translate="yes" xml:space="preserve">
           <source>Acrylic Options</source>
           <target state="translated">Acrilico - Opzioni</target>
@@ -28,7 +28,7 @@
         </trans-unit>
         <trans-unit id="AppName.Text" translate="yes" xml:space="preserve">
           <source>Quick Pad</source>
-          <target state="new">Quick Pad</target>
+          <target state="translated">Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
@@ -259,7 +259,7 @@
         </trans-unit>
         <trans-unit id="LaunchFocusMode" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="translated">Modalità Focalizzata</target>
+          <target state="translated" state-qualifier="tm-suggestion">Modalità messa a fuoco</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchMode.Text" translate="yes" xml:space="preserve">
@@ -561,12 +561,12 @@
         </trans-unit>
         <trans-unit id="FindLabel.Label" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="translated">Trova</target>
+          <target state="translated" state-qualifier="tm-suggestion">Trova</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="FocusModeLabel.Label" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="translated">Modalità messa a fuoco</target>
+          <target state="translated" state-qualifier="tm-suggestion">Modalità messa a fuoco</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Italic.Text" translate="yes" xml:space="preserve">
@@ -591,7 +591,7 @@
         </trans-unit>
         <trans-unit id="NewLabel.Label" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target state="translated">Nuovo</target>
+          <target state="translated" state-qualifier="tm-suggestion">Nuovo</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="NewTip.Text" translate="yes" xml:space="preserve">
@@ -601,7 +601,7 @@
         </trans-unit>
         <trans-unit id="OpenLabel.Label" translate="yes" xml:space="preserve">
           <source>Open</source>
-          <target state="translated">Apri</target>
+          <target state="translated" state-qualifier="tm-suggestion">Apri</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="OpenTip.Text" translate="yes" xml:space="preserve">
@@ -771,7 +771,7 @@
         </trans-unit>
         <trans-unit id="FindReplace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="translated">Sostituisci</target>
+          <target state="translated" state-qualifier="tm-suggestion">Sostituisci</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceAll.Text" translate="yes" xml:space="preserve">
@@ -796,12 +796,12 @@
         </trans-unit>
         <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="translated">Vai a</target>
+          <target state="translated" state-qualifier="tm-suggestion">Vai a</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="translated">Vai a</target>
+          <target state="translated" state-qualifier="tm-suggestion">Vai a</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">

@@ -1,0 +1,667 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcrylicOptions.Text" xml:space="preserve">
+    <value>خيارات الاكريليك</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
+    <value>شفافية صبغة الاكريليك</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>متقدم</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AppLanguage.Text" xml:space="preserve">
+    <value>لغة التطبيق</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>أصفر</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>الكوبالت</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>قرمزي</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>مظلم</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>ورقة الشجر</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>الخس</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>مضئ</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>عشوائي</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>ذهبي وردي(نحاسي)</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>إفتراضي النظلم</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>ثيم مظلم</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>ثيم مضئ</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>ثيم عشوائي عند الفتح</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>ثيم محدد من النظام</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="AutoSave.Text" xml:space="preserve">
+    <value>حفظ تلقائي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>حفظ تلقائي كل</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSaveSeconds.Text" xml:space="preserve">
+    <value>ثانية</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="BackToDefault.Text" xml:space="preserve">
+    <value>العودة إلى الوضع الإفتراضي</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CloseCompactOverlay.Text" xml:space="preserve">
+    <value>إغلاق الوضغ المضغوط</value>
+    <comment>Used on TitleBar</comment>
+  </data>
+  <data name="Copy.Text" xml:space="preserve">
+    <value>نسخ</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CreatedBy.Text" xml:space="preserve">
+    <value>تم تطويره بواسطة يائير أيكينباوم</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Cut.Text" xml:space="preserve">
+    <value>قص</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="DefaultFileEncoding.Text" xml:space="preserve">
+    <value>ترميز الملف الإفتراضي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFileType.Text" xml:space="preserve">
+    <value>نوع الملف الإفتراضي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFont.Text" xml:space="preserve">
+    <value>الخط الإفتراضي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontColor.Text" xml:space="preserve">
+    <value>لون الخط الإفتراضي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Text" xml:space="preserve">
+    <value>حجم الخط الإفتراضي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Delete.Text" xml:space="preserve">
+    <value>حذف</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Edit.Title" xml:space="preserve">
+    <value>تعديل</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="Exit.Text" xml:space="preserve">
+    <value>خروج</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>تصدير</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="File.Title" xml:space="preserve">
+    <value>ملف</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="Find.Text" xml:space="preserve">
+    <value>إيجاد</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindNext.Text" xml:space="preserve">
+    <value>إيجاد التالي</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindPrevious.Text" xml:space="preserve">
+    <value>إيجاد السابق</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FocusMode.Text" xml:space="preserve">
+    <value>وضع التركيز</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>الخط</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Fonts.Text" xml:space="preserve">
+    <value>الخطوط...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Format.Title" xml:space="preserve">
+    <value>تنسيق</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>عام</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="GoTo.Text" xml:space="preserve">
+    <value>ذهاب إلى</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>استيراد</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>الحفاظ على النص فقط</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchClassicMode" xml:space="preserve">
+    <value>الوضع الكلاسيكي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchDefaultMode" xml:space="preserve">
+    <value>إفتراضي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchFocusMode" xml:space="preserve">
+    <value>وضع التركيز</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchMode.Text" xml:space="preserve">
+    <value>وضع الإقلاع</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
+    <value>الوضع الكلاسيكي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchCompactOverlay" xml:space="preserve">
+    <value>الوضع المضغوط</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>إدارة الإعدادات</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="New.Text" xml:space="preserve">
+    <value>جديد</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Open.Text" xml:space="preserve">
+    <value>فتح</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="OverlayMode.Text" xml:space="preserve">
+    <value>وضع التراكب</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Paste.Text" xml:space="preserve">
+    <value>لصق</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="PasteOptions.Text" xml:space="preserve">
+    <value>إعدادات اللصق</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RateAndReviewLink.Content" xml:space="preserve">
+    <value>تقييم ومراجعة</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Redo.Text" xml:space="preserve">
+    <value>إعادة الفعل</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Replace.Text" xml:space="preserve">
+    <value>إستبدال</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>إعادة تعيين</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RestatRequired.Text" xml:space="preserve">
+    <value>إعادة التشغيل مطلوبة لتطبيق التغييرات</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RestoreDefaultZoom.Text" xml:space="preserve">
+    <value>استعادة التكبير الافتراضي</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Save.Text" xml:space="preserve">
+    <value>حفظ</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SaveAs.Text" xml:space="preserve">
+    <value>حفظ كـ...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SearchBing.Text" xml:space="preserve">
+    <value>إبحث بواسطة بينج...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SelectAll.Text" xml:space="preserve">
+    <value>تحديد الكل</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>الإعدادات</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Share.Text" xml:space="preserve">
+    <value>مشاركة</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SpellCheck.Text" xml:space="preserve">
+    <value>التدقيق الإملائي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="StatusBar.Text" xml:space="preserve">
+    <value>شريط الحالة</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>عمود:</value>
+    <comment>Used on StatusTextBar</comment>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>سطر:</value>
+    <comment>Used on StatusTextBar</comment>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>الثيم</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Undo.Text" xml:space="preserve">
+    <value>تراجع</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
+    <value>استخدام خلفية الاكريليك لمنطقة النص</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="View.Title" xml:space="preserve">
+    <value>الرؤية</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="WordWrap.Text" xml:space="preserve">
+    <value>إلتفاف الكلمات</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="WordWrapSetting.Text" xml:space="preserve">
+    <value>إلتفاف الكلمات</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Zoom.Text" xml:space="preserve">
+    <value>تكبير</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ZoomIn.Text" xml:space="preserve">
+    <value>تكبير للداخل</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ZoomOut.Text" xml:space="preserve">
+    <value>تكبير للخارج</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="DefaultFontRtf.Text" xml:space="preserve">
+    <value>خط النص المنسق الإفتراضي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
+    <value>حجم خط النص المنسق الإفتراضي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
+    <value>إلتفاف الكلمات في النص المنسق</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>إلغاء</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="NoButton" xml:space="preserve">
+    <value>لا</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesBody" xml:space="preserve">
+    <value>هناك تغييرات لم يتم حفظها. هل تريد حفظها الآن؟</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesTitle" xml:space="preserve">
+    <value>تغييرات معلقة</value>
+    <comment>Used on Save Document Dialog</comment>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>نعم</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="LaunchNinjaMode" xml:space="preserve">
+    <value>وضع النينجا</value>
+    <comment>Used on Settings Pgae</comment>
+  </data>
+  <data name="AlignCenter.Text" xml:space="preserve">
+    <value>محاذاة المركز (Ctrl + E)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignCenterLabel.Label" xml:space="preserve">
+    <value>محاذاة المركز</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeft.Text" xml:space="preserve">
+    <value>محاذاة اليسار (Ctrl + L)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeftLabel.Label" xml:space="preserve">
+    <value>محاذاة اليسار</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRight.Text" xml:space="preserve">
+    <value>محاذاة اليمين (Ctrl + R)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRightLabel.Label" xml:space="preserve">
+    <value>محاذاة اليمين</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bold.Text" xml:space="preserve">
+    <value>عريض (Ctrl+B)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BoldLabel.Label" xml:space="preserve">
+    <value>عريض</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bullets.Text" xml:space="preserve">
+    <value>تبديل الرصاص</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BulletsLabel.Label" xml:space="preserve">
+    <value>الرصاص</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ClassicModeLabel.Label" xml:space="preserve">
+    <value>الوضع الكلاسيكي</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Color.Text" xml:space="preserve">
+    <value>لون الخط</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ColorLabel.Label" xml:space="preserve">
+    <value>لون الخط</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="CompactOverlayTooltip.Text" xml:space="preserve">
+    <value>الوضع المضغوط (Alt + Up)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Emoji.Text" xml:space="preserve">
+    <value>إدراج رموز تعبيرية (Win + .) </value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="EmojiLabel.Label" xml:space="preserve">
+    <value>الرموز التعبيرية</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FindLabel.Label" xml:space="preserve">
+    <value>إيجاد</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FocusModeLabel.Label" xml:space="preserve">
+    <value>وضع التركيز</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Italic.Text" xml:space="preserve">
+    <value>مائل (Ctrl + I)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ItalicLabel.Label" xml:space="preserve">
+    <value>مائل</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyText.Text" xml:space="preserve">
+    <value>ضبط النص (Ctrl + J)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyTextLabel.Label" xml:space="preserve">
+    <value>ضبط النص</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewLabel.Label" xml:space="preserve">
+    <value>جديد</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewTip.Text" xml:space="preserve">
+    <value>جديد (Ctrl + N)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenLabel.Label" xml:space="preserve">
+    <value>فتح</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenTip.Text" xml:space="preserve">
+    <value>فتح (Ctrl + O)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="RedoTooltip.Text" xml:space="preserve">
+    <value>إعادة الفعل (Ctrl + Y)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveLabel.Label" xml:space="preserve">
+    <value>حفظ</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveTip.Text" xml:space="preserve">
+    <value>حفظ (Ctrl + S)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SettingsLabel.Label" xml:space="preserve">
+    <value>الإعدادات</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ShareLabel.Label" xml:space="preserve">
+    <value>مشاركة</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StatusBarLabel.Label" xml:space="preserve">
+    <value>شريط الحالة</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Strikethrough.Text" xml:space="preserve">
+    <value>تشريط</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StrikethroughLabel.Label" xml:space="preserve">
+    <value>تشريط</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Underline.Text" xml:space="preserve">
+    <value>تسطير (Ctrl + U)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UnderlineLabel.Label" xml:space="preserve">
+    <value>وسم</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UndoTooltip.Text" xml:space="preserve">
+    <value>تراجع (Ctrl + Z)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="RichTextDescription" xml:space="preserve">
+    <value>مستند النص المنسق (RTF)</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="TextDescription" xml:space="preserve">
+    <value>مستند نصي</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="SaveDialog.CloseButtonText" xml:space="preserve">
+    <value>إلغاء</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.PrimaryButtonText" xml:space="preserve">
+    <value>حفظ</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
+    <value>لا تحفظ</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="WouldYouLikeToSave.Text" xml:space="preserve">
+    <value>هل ترغب في حفظ تغييراتك؟</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="AppVersion.Text" xml:space="preserve">
+    <value>إصدار:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="PlainTextFontSettings.Text" xml:space="preserve">
+    <value>إعدادات خط النص العادي</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RichTextFontSettings.Text" xml:space="preserve">
+    <value>إعدادات خط النص المنسق (RTF)</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheckRtf.Text" xml:space="preserve">
+    <value>التدقيق الإملائي في النص المنسق</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ReportIssues.Text" xml:space="preserve">
+    <value>الإبلاغ عن المشاكل هنا</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Text" xml:space="preserve">
+    <value>كود المصدر</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpecialThanks.Text" xml:space="preserve">
+    <value>شكر خاص ل:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ContributeToDeveloper.Text" xml:space="preserve">
+    <value>المساهمة للمطور</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>بدون عنوان</value>
+    <comment>Used on Title Bar</comment>
+  </data>
+  <data name="FindClose.Text" xml:space="preserve">
+    <value>إغلاق</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindFilter.PlaceholderText" xml:space="preserve">
+    <value>تبحث عن؟</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMatchCase.Text" xml:space="preserve">
+    <value>حالة مطابقة النص</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMore.Text" xml:space="preserve">
+    <value>المزيد...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindRegEx.Text" xml:space="preserve">
+    <value>تعبير عادي (RegEx)</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplace.Text" xml:space="preserve">
+    <value>إستبدال</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceAll.Text" xml:space="preserve">
+    <value>إستبدال الكل</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>إستبدل بـ...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>الوقت/التاريخ</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CmdCancel.Content" xml:space="preserve">
+    <value>إلغاء</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CmdGoTo.Content" xml:space="preserve">
+    <value>ذهاب إلى</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.Title" xml:space="preserve">
+    <value>ذهاب إلى</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToLineNumber.Header" xml:space="preserve">
+    <value>رقم السطر:</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
+    <value>بالوضع المضغوط تستطيع أن تجعل Quick Pad يظهر فوق النوافذ الأخرى</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="CompactOverlayTip.Title" xml:space="preserve">
+    <value>البقاء فوق النوافذ الأخرى</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="ThemeAccentName" xml:space="preserve">
+    <value>لون واجهة النظام</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SearchWithGoogle.Text" xml:space="preserve">
+    <value>تفعيل البحث بجوجل</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>أخرى</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+</root>
