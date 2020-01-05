@@ -307,6 +307,7 @@ namespace QuickPad.UI
                         _viewModel.GetPosition -= ViewModelOnGetPosition;
                         _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
                         _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
+                        _viewModel.Focus -= ViewModelOnFocus; 
                     }
 
                     _viewModel = value;
@@ -318,6 +319,7 @@ namespace QuickPad.UI
                     _viewModel.GetPosition += ViewModelOnGetPosition;
                     _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
                     _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
+                    _viewModel.Focus += ViewModelOnFocus;
 
                     if (!_initialized) return;
 
@@ -325,6 +327,18 @@ namespace QuickPad.UI
                     RichEditBox.TextChanged += _viewModel.TextChanged;
                     TextBox.TextChanged += _viewModel.TextChanged;
                 }
+            }
+        }
+
+        private void ViewModelOnFocus()
+        {
+            if(ViewModel.IsRtf)
+            {
+                RichEditBox.Focus(FocusState.Programmatic);
+            }
+            else
+            {
+                TextBox.Focus(FocusState.Programmatic);
             }
         }
 
@@ -487,7 +501,7 @@ namespace QuickPad.UI
             GetPosition(RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length);
         }
 
-        private List<int> LineIndices { get; } = new List<int>();
+        private List<int> LineIndices => ViewModel.LineIndices;
 
         private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
@@ -540,10 +554,13 @@ namespace QuickPad.UI
             LineIndices.Clear();
 
             var index = -1;
-            var text = ViewModel.Text;
+            var text = ViewModel.Text.Replace(Environment.NewLine, "\r");
             while ((index = text.IndexOf('\r', index + 1)) > -1)
             {
+                index++;
                 LineIndices.Add(index);
+
+                if (index + 1 >= text.Length) break;
             }
             
             GetPosition(ViewModel.IsRtf 

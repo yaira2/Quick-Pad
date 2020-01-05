@@ -277,6 +277,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IDocumentView.cs" />
     <Compile Include="Views\IFindAndReplaceView.cs" />
+    <Compile Include="Views\IGoToLineView.cs" />
     <Compile Include="Views\IView.cs" />
     <EmbeddedResource Include="Properties\QuickPad.MVVM.rd.xml" />
   </ItemGroup>

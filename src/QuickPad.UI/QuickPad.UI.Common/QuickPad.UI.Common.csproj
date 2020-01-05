@@ -214,7 +214,13 @@
   <ItemGroup>
     <PRIResource Include="Strings\ar-EG\Resources.resw" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Strings\en-US\" />
+    <Folder Include="Strings\es\" />
+    <Folder Include="Strings\fr-CA\" />
+    <Folder Include="Strings\fr-FR\" />
+    <Folder Include="Strings\it\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

@@ -16,6 +16,7 @@ using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Views;
 using Timer = System.Threading.Timer;
 using Windows.UI;
+using System.Collections.Generic;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -398,6 +399,10 @@ namespace QuickPad.Mvvm.ViewModels
             SetSelection?.Invoke(start, length, reindex);
         }
 
+        public event Action Focus;
+
+        public void SetFocus() => Focus?.Invoke();
+
         public event Action<int, int, bool> SetSelection;
 
         private void CalculateHash(string text)
@@ -625,6 +630,13 @@ namespace QuickPad.Mvvm.ViewModels
         public void RequestRedo()
         {
             RedoRequested?.Invoke(this);
+        }
+
+        public List<int> LineIndices { get; } = new List<int>();
+
+        internal void GoToLine(int lineToGoTo)
+        {
+            SelectText(lineToGoTo > 1 ? LineIndices[lineToGoTo - 2] : 0, 0, false);
         }
 
         public event Action<DocumentViewModel> RedoRequested;
