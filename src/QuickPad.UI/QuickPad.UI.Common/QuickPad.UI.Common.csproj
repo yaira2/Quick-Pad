@@ -211,9 +211,6 @@
       <Link>Strings\it\Resources.resw</Link>
     </PRIResource>
   </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ar-EG\Resources.resw" />
-  </ItemGroup>
   <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
