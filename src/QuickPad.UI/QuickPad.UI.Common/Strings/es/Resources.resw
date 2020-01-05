@@ -269,7 +269,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestatRequired.Text" xml:space="preserve">
-    <value>Se requiere reiniciar para aplicar los cambios</value>
+    <value>Para ver los cambios reinicie Quick Pad</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestoreDefaultZoom.Text" xml:space="preserve">
@@ -457,7 +457,7 @@
     <comment>Used on CommandBar</comment>
   </data>
   <data name="FocusModeLabel.Label" xml:space="preserve">
-    <value>Modo enfocado</value>
+    <value>Modo enfoque</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Italic.Text" xml:space="preserve">
@@ -560,6 +560,10 @@
     <value>Quick Pad</value>
     <comment>Used on Save Dialog</comment>
   </data>
+  <data name="SpellCheckRtf.Text" xml:space="preserve">
+    <value>Verificar ortografía en texto con formato.</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="WouldYouLikeToSave.Text" xml:space="preserve">
     <value>¿Quiere guardar los cambios?</value>
     <comment>Used on Save Dialog</comment>
@@ -568,16 +572,12 @@
     <value>Versión:</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="PlainTextFontSettings.Text" xml:space="preserve">
-    <value>Configuración de Fuente en texto sin formato</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>Configuración de Fuente en texto con formato</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Verificar ortografía en texto con formato.</value>
+  <data name="PlainTextFontSettings.Text" xml:space="preserve">
+    <value>Configuración de Fuente en texto sin formato</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Text" xml:space="preserve">
@@ -612,10 +612,6 @@
     <value>Coicidir Mayúsculas/Minúsculas</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
-  <data name="FindMore.Text" xml:space="preserve">
-    <value>Más...</value>
-    <comment>Used on Find and Replace Dialog</comment>
-  </data>
   <data name="FindRegEx.Text" xml:space="preserve">
     <value>Expresiones regulares</value>
     <comment>Used on Find and Replace Dialog</comment>
@@ -628,13 +624,17 @@
     <value>Reemplazar todo</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
-  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
-    <value>Reemplazar con...</value>
-    <comment>Used on Find and Replace Dialog</comment>
-  </data>
   <data name="TimeDate.Text" xml:space="preserve">
     <value>Fecha/Hora</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindMore.Text" xml:space="preserve">
+    <value>Más...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>Reemplazar con...</value>
+    <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="CmdCancel.Content" xml:space="preserve">
     <value>Cancelar</value>
@@ -652,12 +652,12 @@
     <value>Número de línea:</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
-  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
-    <value>En modo compacto Quick Pad estará visible por encima del resto de las ventanas.</value>
-    <comment>Used on TeachingTip</comment>
-  </data>
   <data name="CompactOverlayTip.Title" xml:space="preserve">
     <value>Mantener por encima del resto de las ventanas.</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
+    <value>En modo compacto Quick Pad estará visible por encima del resto de las ventanas.</value>
     <comment>Used on TeachingTip</comment>
   </data>
   <data name="ThemeAccentName" xml:space="preserve">

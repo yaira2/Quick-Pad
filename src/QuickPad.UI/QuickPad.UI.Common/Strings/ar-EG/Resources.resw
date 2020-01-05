@@ -217,7 +217,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
-    <value>الوضع الكلاسيكي</value>
+    <value>الوضغ الكلاسيكي</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchCompactOverlay" xml:space="preserve">
@@ -425,7 +425,7 @@
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ClassicModeLabel.Label" xml:space="preserve">
-    <value>الوضع الكلاسيكي</value>
+    <value>الوضغ الكلاسيكي</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Color.Text" xml:space="preserve">

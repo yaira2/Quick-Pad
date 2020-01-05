@@ -204,28 +204,12 @@
     <value>Garder seulement le texte</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="LaunchClassicMode" xml:space="preserve">
-    <value>Mode Classique</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchDefaultMode" xml:space="preserve">
-    <value>Par défaut</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchFocusMode" xml:space="preserve">
-    <value>Mode Focus</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchMode.Text" xml:space="preserve">
     <value>Mode de démarrage</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
     <value>Mode Classique</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchCompactOverlay" xml:space="preserve">
-    <value>Mode Compacte</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ManageSettings.Text" xml:space="preserve">
@@ -384,6 +368,18 @@
     <value>Oui</value>
     <comment>Used on Save Document</comment>
   </data>
+  <data name="LaunchClassicMode" xml:space="preserve">
+    <value>Mode Classique</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchDefaultMode" xml:space="preserve">
+    <value>Par défaut</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchFocusMode" xml:space="preserve">
+    <value>Mode Focus</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="LaunchNinjaMode" xml:space="preserve">
     <value>Mode Ninja</value>
     <comment>Used on Settings Pgae</comment>
@@ -476,32 +472,8 @@
     <value>Justifier</value>
     <comment>Used on CommandBar</comment>
   </data>
-  <data name="NewLabel.Label" xml:space="preserve">
-    <value>Nouveau</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="NewTip.Text" xml:space="preserve">
-    <value>Nouveau (Ctrl+N)</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="OpenLabel.Label" xml:space="preserve">
-    <value>Ouvrir</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="OpenTip.Text" xml:space="preserve">
-    <value>Ouvrir (Ctrl+O)</value>
-    <comment>Used on CommandBar</comment>
-  </data>
   <data name="RedoTooltip.Text" xml:space="preserve">
     <value>Rétablir (Ctrl+Y)</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="SaveLabel.Label" xml:space="preserve">
-    <value>Enregistrer</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="SaveTip.Text" xml:space="preserve">
-    <value>Enregistrer (Ctrl+S)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SettingsLabel.Label" xml:space="preserve">
@@ -536,6 +508,34 @@
     <value>Annuler (Ctrl+Z)</value>
     <comment>Used on CommandBar</comment>
   </data>
+  <data name="NewLabel.Label" xml:space="preserve">
+    <value>Nouveau</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewTip.Text" xml:space="preserve">
+    <value>Nouveau (Ctrl+N)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenLabel.Label" xml:space="preserve">
+    <value>Ouvrir</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenTip.Text" xml:space="preserve">
+    <value>Ouvrir (Ctrl+O)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveLabel.Label" xml:space="preserve">
+    <value>Enregistrer</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveTip.Text" xml:space="preserve">
+    <value>Enregistrer (Ctrl+S)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="LaunchCompactOverlay" xml:space="preserve">
+    <value>Mode Compacte</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="RichTextDescription" xml:space="preserve">
     <value>Document en texte RTF</value>
     <comment>Used on Status Bar</comment>
@@ -560,6 +560,10 @@
     <value>Quick Pad</value>
     <comment>Used on Save Dialog</comment>
   </data>
+  <data name="SpellCheckRtf.Text" xml:space="preserve">
+    <value>Vérifier l'orthographe pour le texte RTF</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="WouldYouLikeToSave.Text" xml:space="preserve">
     <value>Voulez vous enregistrer vos modifications ?</value>
     <comment>Used on Save Dialog</comment>
@@ -568,16 +572,12 @@
     <value>Version:</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="PlainTextFontSettings.Text" xml:space="preserve">
-    <value>Paramètres de police du texte ordinaire</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>Paramètre de police du texte RTF</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Vérifier l'orthographe pour le texte RTF</value>
+  <data name="PlainTextFontSettings.Text" xml:space="preserve">
+    <value>Paramètres de police du texte ordinaire</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Text" xml:space="preserve">
@@ -600,24 +600,8 @@
     <value>Sans titre</value>
     <comment>Used on Title Bar</comment>
   </data>
-  <data name="FindReplace.Text" xml:space="preserve">
-    <value>Remplacer</value>
-    <comment>Used on Find and Replace Dialog</comment>
-  </data>
   <data name="TimeDate.Text" xml:space="preserve">
     <value>Heure/Date</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="CmdCancel.Content" xml:space="preserve">
-    <value>Annuler</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>Aller à</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="GoToDialog.Title" xml:space="preserve">
-    <value>Aller à</value>
-    <comment>Used on GoTo Dialog</comment>
   </data>
 </root>

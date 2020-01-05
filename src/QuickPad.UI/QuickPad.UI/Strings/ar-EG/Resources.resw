@@ -664,20 +664,4 @@
     <value>أخرى</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="CmdLetsGo.Content" xml:space="preserve">
-    <value>لنذهب!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Quick Pad عاد من جديد بعد، بعد شهور قليلة بدون تحديثات أنا متحمس جدا لأعلن أن Quick Pad تمت اعادة كتابته من نقطة الصفر!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>لا يزال كل خيار متاحًا بالإضافة إلى بعض الخيارات الجديدة.  نتيجة لإعادة كتابة التطبيق من نقطة الصفر، ستحتاج إلى تعيين أي من التخصيصات التي تم إجراؤها في الإصدار السابق مرة أخرى ، أعتذر عن أي إزعاج ولكني آمل أن تجد أنه يستحق ذلك والاستمتاع بالإصدار الجديد.</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
-    <value>مرحباً بعودتك إلى Quick Pad!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
 </root>
