@@ -457,8 +457,9 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
-          <source>There are unsaved changes.  Do you want to save them now?</source>
-          <target state="translated">Hay cambios sin guardar. ¿Quiere guardarlos ahora?</target>
+          <source>There are unsaved changes. Do you want to save them now?</source>
+          <target state="needs-review-translation">Hay cambios sin guardar. ¿Quiere guardarlos ahora?</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesTitle" translate="yes" xml:space="preserve">
@@ -833,22 +834,22 @@
         </trans-unit>
         <trans-unit id="CmdLetsGo.Content" translate="yes" xml:space="preserve">
           <source>Lets go!</source>
-          <target state="translated">¡Vamos!</target>
+          <target state="new">Lets go!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Quick Pad is back, after a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
-          <target state="translated">Quick Pad ha vuelto despues de algunos meses sin actualizaciones, me emociona mucho anunciar que Quick Pad ha sido completamente reescrito.</target>
+          <target state="new">Quick Pad is back, after a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
           <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for the inconvenience but I hope that you find it worth it and enjoy the new version.</source>
-          <target state="translated">Todas las antiguas opciones están disponibles, así como algunas nuevas. A causa de la reescritura de la aplicación la configuración ha vuelto a su estado inicial. Me disculpo por las inconveniencias que esto pueda ocasionarle. Espero que valga la pena y que disfrute la nueva versión.</target>
+          <target state="new">Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for the inconvenience but I hope that you find it worth it and enjoy the new version.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
           <source>Welcome back to Quick Pad!</source>
-          <target state="translated">¡Bienvenido de vuelta a Quick Pad!</target>
+          <target state="new">Welcome back to Quick Pad!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
       </group>
