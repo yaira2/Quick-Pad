@@ -10,13 +10,8 @@ namespace QuickPad.Mvvm.Commands.Actions
         {
             Executioner = viewModel =>
             {
-                viewModel.Document.BeginUndoGroup();
-
-                viewModel.Document.Selection.StartPosition = viewModel.LineToGoTo;
-
-                viewModel.Document.EndUndoGroup();
-
-                viewModel.OnPropertyChanged(nameof(viewModel.Text));
+                viewModel.GoToLine(viewModel.LineToGoTo);
+                viewModel.SetFocus();
 
                 return Task.CompletedTask;
             };

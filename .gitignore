@@ -262,10 +262,4 @@ __pycache__/
 /720 by 1080 editable file.afphoto
 /720 by 1080 store image.png
 /CHANGELOG.txt
-/QuickPad.UI/QuickPad.UI
-src/QuickPad.UI/QuickPad.UI.Common/Strings/ar-EG/Resources.resw
-src/QuickPad.UI/QuickPad.UI.Common/Strings/ar-EG/Resources.resw
-src/QuickPad.UI/QuickPad.UI.Common/Strings/es/Resources.resw
-src/QuickPad.UI/QuickPad.UI.Common/Strings/fr-CA/Resources.resw
-src/QuickPad.UI/QuickPad.UI.Common/Strings/fr-FR/Resources.resw
-src/QuickPad.UI/QuickPad.UI.Common/Strings/it/Resources.resw
+/src/QuickPad.UI/QuickPad.UI.Common/Strings

@@ -10,6 +10,7 @@ using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using QuickPad.UI.Common.Theme;
+using QuickPad.Mvvm.Commands.Actions;
 
 namespace QuickPad.UI
 {
@@ -20,8 +21,10 @@ namespace QuickPad.UI
             services.AddSingleton<PasteCommand, PasteCommand>();
             services.AddTransient<AskToSave, AskToSave>();
             services.AddTransient<WelcomeDialog, WelcomeDialog>();
-            services.AddTransient<GoToLine, GoToLine>();
-            services.AddSingleton(provider => new QuickPadCommands(provider.GetService<PasteCommand>()));
+            services.AddTransient<ShowGoToCommand, ShowGoToCommand>();
+            services.AddSingleton(provider => new QuickPadCommands(
+                provider.GetService<PasteCommand>(),
+                provider.GetService<ShowGoToCommand>()));
             services.AddTransient<DocumentViewModel, DocumentViewModel>();
             services.AddTransient<IFindAndReplaceView, FindAndReplaceViewModel>();
             services.AddSingleton<SettingsViewModel, SettingsViewModel>();
@@ -29,6 +32,7 @@ namespace QuickPad.UI
             services.AddSingleton(_ => Application.Current as IApplication);
             services.AddSingleton<ApplicationController, ApplicationController>();
             services.AddSingleton<IVisualThemeSelector, VisualThemeSelector>();
+            services.AddTransient<IGoToLineView, GoToLine>();
             services.AddSingleton<MainPage, MainPage>();
 
             // Add additional services here.
