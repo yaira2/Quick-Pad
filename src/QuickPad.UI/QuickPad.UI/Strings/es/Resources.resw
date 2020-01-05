@@ -672,4 +672,20 @@
     <value>Otro</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="CmdLetsGo.Content" xml:space="preserve">
+    <value>¡A por ello!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar1.Text" xml:space="preserve">
+    <value>¡Quick Pad ha vuelto luego de algunos meses sin actualizaciones. Me emociona mucho anunciar que la aplicación se ha reescrito completamente!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar2.Text" xml:space="preserve">
+    <value>Todas las opciones están disponibles, incluyendo algunas nuevas. Como resultado de la reescritura de la aplicación las opciones se reestablecieron a la configuración por defecto. Tendrá que volver a establecer su configuración, pero le aseguro que vale la pena. Me disculpo por las molestias que esto pueda ocacionar.</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
+    <value>¡Bienvenido de vuelta a Quick Pad!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
 </root>
