@@ -343,7 +343,7 @@ namespace QuickPad.Mvvm.ViewModels
         [NotifyOnReset]
         public string DefaultMode
         {
-            get => Get(DisplayModes.LaunchDefaultMode.ToString());
+            get => Get(DisplayModes.LaunchClassicMode.ToString());
             set
             {
                 if (Set(value))
