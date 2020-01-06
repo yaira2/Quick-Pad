@@ -211,7 +211,9 @@
       <Link>Strings\it\Resources.resw</Link>
     </PRIResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <PRIResource Include="Strings\ar-EG\Resources.resw" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
@@ -220,14 +222,10 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ItemGroup>
-    <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\en-US\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\es\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\fr-CA\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\fr-FR\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\it\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ar-EG\Resources.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\en-US\Resources.resw" />
