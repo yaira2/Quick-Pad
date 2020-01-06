@@ -25,6 +25,7 @@ using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using Microsoft.Toolkit.Uwp.Helpers;
+using Windows.UI.StartScreen;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -96,6 +97,20 @@ namespace QuickPad.UI
             //show the welcome dialog
             var dialog = provider.GetService<WelcomeDialog>();
             _ = dialog.ShowAsync();
+
+            ClearJumplist();
+        }
+
+        private async void ClearJumplist()
+        {
+            var all = await JumpList.LoadCurrentAsync();
+
+            all.SystemGroupKind = JumpListSystemGroupKind.Recent;
+            if (all.Items != null)
+            {
+                //Clear Jumplist
+                all.Items.Clear();
+            }
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
