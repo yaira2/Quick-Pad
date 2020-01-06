@@ -839,13 +839,13 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>Quick Pad is back, after a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
-          <target state="new">Quick Pad is back, after a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</target>
+          <source>After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
+          <target state="new">After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
-          <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for the inconvenience but I hope that you find it worth it and enjoy the new version.</source>
-          <target state="new">Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for the inconvenience but I hope that you find it worth it and enjoy the new version.</target>
+          <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!</source>
+          <target state="new">Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">

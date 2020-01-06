@@ -220,12 +220,29 @@
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
   <ItemGroup>
-    <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\ar-EG\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\en-US\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\es\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\fr-CA\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\fr-FR\Resources.resw" />
     <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\it\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\ar-EG\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\es\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\fr-CA\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <PRIResource Include="Strings\it\Resources.resw" />
   </ItemGroup>
   <Target Name="CopyMAT">
     <Copy SourceFiles="@(MySourceFiles)" DestinationFiles="@(MySourceFiles->'$(SolutionDir)QuickPad.UI\QuickPad.UI.Common\Strings\%(RecursiveDir)%(Filename)%(Extension)')" />
