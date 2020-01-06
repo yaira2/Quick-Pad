@@ -103,6 +103,7 @@ namespace QuickPad.UI
 
         private async void ClearJumplist()
         {
+            //Quick Pad used to add items to the jumplist, this removes them if they were added in previous versions
             var all = await JumpList.LoadCurrentAsync();
 
             all.SystemGroupKind = JumpListSystemGroupKind.Recent;
