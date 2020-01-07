@@ -793,4 +793,20 @@
     <value>Other</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="RichText" xml:space="preserve">
+    <value>Rich Text</value>
+    <comment>Used on Share Dialog</comment>
+  </data>
+  <data name="SharedFromQuickPad" xml:space="preserve">
+    <value>Shared from Quick-Pad</value>
+    <comment>Used on Share Dialog</comment>
+  </data>
+  <data name="Sharing" xml:space="preserve">
+    <value>Sharing</value>
+    <comment>Used on Share Dialog</comment>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+    <comment>Used on Share Dialog</comment>
+  </data>
 </root>

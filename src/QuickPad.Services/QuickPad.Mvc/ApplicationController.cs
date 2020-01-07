@@ -93,9 +93,11 @@ namespace QuickPad.Mvc
 
             request.Data.Properties.ApplicationName = "Quick-Pad";
 
+            var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForCurrentView();
+
             if (viewModel.File == null)
             {
-                request.Data.Properties.Title = $"Sharing {(viewModel.IsRtf ? "Rich Text" : "Text")}";
+                request.Data.Properties.Title = $"{resourceLoader.GetString("Sharing")} {(viewModel.IsRtf ? resourceLoader.GetString("RichText") : resourceLoader.GetString("Text"))}";
 
                 request.Data.SetText(viewModel.Text);
 
@@ -106,12 +108,12 @@ namespace QuickPad.Mvc
             }
             else
             {
-                request.Data.Properties.Title = $"Sharing {viewModel.File.DisplayName}";
+                request.Data.Properties.Title = $"{resourceLoader.GetString("Sharing")} {viewModel.File.DisplayName}";
                 request.Data.SetStorageItems(new []{viewModel.File});
             }
 
             request.Data.Properties.FileTypes.Add(viewModel.CurrentFileType);
-            request.Data.Properties.Description = "Shared from Quick-Pad\n\n";
+            request.Data.Properties.Description = resourceLoader.GetString("SharedFromQuickPad");
         }
     }
 }
