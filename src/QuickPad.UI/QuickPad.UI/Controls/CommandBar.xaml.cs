@@ -6,6 +6,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.UI.Common.Theme;
 
@@ -43,6 +44,8 @@ namespace QuickPad.UI.Controls
             }
         }
 
+        public DocumentModel ViewModelDocument => ViewModel.Document;
+
         public static DependencyProperty ViewModelProperty =
             DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel), typeof(CommandBar), null);
 
@@ -50,28 +53,13 @@ namespace QuickPad.UI.Controls
         {
             switch (e.PropertyName)
             {
-                case nameof(ViewModel.CurrentFontName):
-                    if(ViewModel.CurrentFileType == ".rtf")
-                    {
-                        ViewModel.Document.Selection.CharacterFormat.Name = ViewModel.CurrentFontName;
-                    }
-                    else
-                    {
-                        SetFontName?.Invoke(ViewModel.CurrentFontName);
-                    }
+                case nameof(ViewModel.Document.CurrentFontName):
+                    SetFontName?.Invoke(ViewModel.Document.CurrentFontName);
                     FontNameFlyout.Hide();
                     break;
 
-                case nameof(ViewModel.CurrentFontSize):
-                    if (ViewModel.CurrentFileType == ".rtf")
-                    {
-                        ViewModel.Document.Selection.CharacterFormat.Size = (float)ViewModel.CurrentFontSize;
-                    }
-                    else
-                    {
-                        SetFontSize?.Invoke(ViewModel.CurrentFontSize);
-                    }
-
+                case nameof(ViewModel.Document.CurrentFontSize):
+                    SetFontSize?.Invoke(ViewModel.Document.CurrentFontSize);
                     FontSizeFlyout.Hide();
                     break;
 

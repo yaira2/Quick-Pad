@@ -73,7 +73,7 @@ namespace QuickPad.Mvc
             private static async Task NewDocument(DocumentViewModel documentViewModel)
             {
                 var canceled = false;
-                if (documentViewModel.IsDirty)
+                if (documentViewModel.Document.IsDirty)
                 {
                     var saved = await AskSaveDocument(documentViewModel, false);
                     canceled = saved == SaveState.Canceled;
@@ -100,7 +100,7 @@ namespace QuickPad.Mvc
             {
                 Settings.ShowSettings = false;
 
-                return documentViewModel.IsDirty
+                return documentViewModel.Document.IsDirty
                     ? AskSaveDocument(documentViewModel, true)
                     : Task.FromResult(Close(documentViewModel) == DeferredState.Deferred ? SaveState.Saved : SaveState.Unsaved);
             }
@@ -142,7 +142,7 @@ namespace QuickPad.Mvc
 
             private static async Task<SaveState> AskSaveDocument(DocumentViewModel documentViewModel, bool isClosing = true)
             {
-                if (!documentViewModel.IsDirty && isClosing) 
+                if (!documentViewModel.Document.IsDirty && isClosing) 
                     return (Close(documentViewModel) == DeferredState.Deferred 
                         ? SaveState.DeferredSaved 
                         : SaveState.UnDeferredSaved);
@@ -186,7 +186,7 @@ namespace QuickPad.Mvc
 
             private static async Task LoadDocument(DocumentViewModel documentViewModel)
             {
-                if (documentViewModel.IsDirty)
+                if (documentViewModel.Document.IsDirty)
                 {
                     if ((await AskSaveDocument(documentViewModel, false)) == SaveState.Canceled) return;
                 }
@@ -230,7 +230,7 @@ namespace QuickPad.Mvc
             public static async Task LoadFile(DocumentViewModel documentViewModel, StorageFile file)
             {
                 var canceled = false;
-                if (documentViewModel.IsDirty)
+                if (documentViewModel.Document.IsDirty)
                 {
                     var saved = await AskSaveDocument(documentViewModel, false);
                     canceled = saved == SaveState.Canceled;
@@ -333,7 +333,7 @@ namespace QuickPad.Mvc
                     Settings.Status($"Loaded {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
                         Verbosity.Release);
 
-                    documentViewModel.IsDirty = false;
+                    documentViewModel.Document.IsDirty = false;
                 }
             }
 
@@ -402,7 +402,7 @@ namespace QuickPad.Mvc
                 await new FileDataProvider().SaveDataAsync(documentViewModel.File, writer,
                     documentViewModel.CurrentEncoding);
 
-                documentViewModel.IsDirty = false;
+                documentViewModel.Document.IsDirty = false;
 
                 documentViewModel.ReleaseUpdates();
 

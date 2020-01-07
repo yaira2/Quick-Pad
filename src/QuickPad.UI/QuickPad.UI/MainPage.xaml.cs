@@ -25,6 +25,9 @@ using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using Microsoft.Toolkit.Uwp.Helpers;
+using Windows.UI.StartScreen;
+using QuickPad.Mvvm.Models;
+using QuickPad.UI.Common.Helpers;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -96,6 +99,21 @@ namespace QuickPad.UI
             //show the welcome dialog
             var dialog = provider.GetService<WelcomeDialog>();
             _ = dialog.ShowAsync();
+
+            ClearJumplist();
+        }
+
+        private async void ClearJumplist()
+        {
+            //Quick Pad used to add items to the jumplist, this removes them if they were added in previous versions
+            var all = await JumpList.LoadCurrentAsync();
+
+            all.SystemGroupKind = JumpListSystemGroupKind.Recent;
+            if (all.Items != null)
+            {
+                //Clear Jumplist
+                all.Items.Clear();
+            }
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
@@ -307,6 +325,7 @@ namespace QuickPad.UI
                         _viewModel.GetPosition -= ViewModelOnGetPosition;
                         _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
                         _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
+                        _viewModel.Focus -= ViewModelOnFocus; 
                     }
 
                     _viewModel = value;
@@ -318,13 +337,33 @@ namespace QuickPad.UI
                     _viewModel.GetPosition += ViewModelOnGetPosition;
                     _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
                     _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
+                    _viewModel.Focus += ViewModelOnFocus;
 
                     if (!_initialized) return;
 
-                    ViewModel.Document = RichEditBox.Document;
+                    ViewModel.Document = new RtfDocument(
+                        RichEditBox.Document
+                        , App.Services.GetService<ILogger<RtfDocument>>()
+                        , ViewModel
+                        , Settings);
+
                     RichEditBox.TextChanged += _viewModel.TextChanged;
                     TextBox.TextChanged += _viewModel.TextChanged;
                 }
+            }
+        }
+
+        public DocumentModel ViewModelDocument => _viewModel.Document;
+
+        private void ViewModelOnFocus()
+        {
+            if(ViewModel.IsRtf)
+            {
+                RichEditBox.Focus(FocusState.Programmatic);
+            }
+            else
+            {
+                TextBox.Focus(FocusState.Programmatic);
             }
         }
 
@@ -338,38 +377,19 @@ namespace QuickPad.UI
 
         private void ViewModelOnSetSelectedText(string text)
         {
-            if (_viewModel.IsRtf)
-            {
-                _viewModel.Document.Selection.SetText(_viewModel.SetOption, text);
-            }
-            else
-            {
-                TextBox.SelectedText = text;
-                ViewModel.Text = TextBox.Text;
-            }
+            ViewModel.Document.SetSelectedText(text);
         }
 
         private (int start, int length) ViewModelOnGetPosition()
         {
-            return _viewModel.IsRtf
-                ? (_viewModel.Document.Selection.StartPosition, _viewModel.Document.Selection.Length)
-                : (TextBox.SelectionStart, TextBox.SelectionLength);
+            return _viewModel.Document.GetSelectionBounds();
         }
 
         private void ViewModelOnSetSelection(int start, int length, bool reindex = true)
         {
             try
             {
-                if (_viewModel.IsRtf)
-                {
-                    _viewModel.Document.Selection.StartPosition = start;
-                    _viewModel.Document.Selection.EndPosition = start + length;
-                }
-                else
-                {
-                    TextBox.SelectionStart = start;
-                    TextBox.SelectionLength = length;
-                }
+                _viewModel.Document.SetSelectionBound(start, length);
 
                 if(reindex) Reindex();
             }
@@ -487,7 +507,7 @@ namespace QuickPad.UI
             GetPosition(RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length);
         }
 
-        private List<int> LineIndices { get; } = new List<int>();
+        private List<int> LineIndices => ViewModel.Document.LineIndices;
 
         private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
@@ -535,19 +555,12 @@ namespace QuickPad.UI
             TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
         }
 
-        private void Reindex()
+        public void Reindex()
         {
-            LineIndices.Clear();
+            ViewModel.Document.Reindex();
 
-            var index = -1;
-            var text = ViewModel.Text;
-            while ((index = text.IndexOf('\r', index + 1)) > -1)
-            {
-                LineIndices.Add(index);
-            }
-            
-            GetPosition(ViewModel.IsRtf 
-                ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length 
+            GetPosition(ViewModel.IsRtf
+                ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length
                 : TextBox.SelectionStart + TextBox.SelectionLength);
         }
 

@@ -10,7 +10,7 @@ namespace QuickPad.Mvvm.Commands.Editing
         {
             Executioner = viewModel =>
             {
-                viewModel.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Left;
+                viewModel.Document.SelLeft = true;
                 viewModel.OnPropertyChanged(nameof(viewModel.Text));
 
                 return Task.CompletedTask;

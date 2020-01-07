@@ -2,6 +2,7 @@
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.UI.Common.Theme;
 
@@ -28,6 +29,8 @@ namespace QuickPad.UI.Controls
                 DataContext = value;
             }
         }
+
+        public DocumentModel ViewModelDocument => ViewModel.Document;
 
         public MenuBar()
         {

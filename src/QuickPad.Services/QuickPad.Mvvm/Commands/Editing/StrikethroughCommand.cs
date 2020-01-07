@@ -11,12 +11,10 @@ namespace QuickPad.Mvvm.Commands.Editing
             Executioner = viewModel =>
             {
                 viewModel.Document.BeginUndoGroup();
-                var selectedText = viewModel.Document.Selection;
-                if (selectedText != null)
+                var selectedText = viewModel.SelectedText;
+                if (string.IsNullOrWhiteSpace(selectedText))
                 {
-                    var charFormatting = selectedText.CharacterFormat;
-                    charFormatting.Strikethrough = FormatEffect.Toggle;
-                    selectedText.CharacterFormat = charFormatting;
+                    viewModel.Document.SelStrikethrough = !viewModel.Document.SelStrikethrough;
                 }
 
                 viewModel.Document.EndUndoGroup();

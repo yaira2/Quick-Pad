@@ -10,7 +10,7 @@ namespace QuickPad.Mvvm.Commands.Editing
         {
             Executioner = viewModel =>
             {
-                viewModel.Document.Selection.ParagraphFormat.Alignment = ParagraphAlignment.Center;
+                viewModel.Document.SelCenter = true;
 
                 viewModel.OnPropertyChanged(nameof(viewModel.Text));
 

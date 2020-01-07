@@ -11,10 +11,7 @@ namespace QuickPad.Mvvm.Commands.Editing
             Executioner = viewModel =>
             {
                 viewModel.Document.BeginUndoGroup();
-                viewModel.Document.Selection.ParagraphFormat.ListType = 
-                    viewModel.Document.Selection.ParagraphFormat.ListType == MarkerType.Bullet 
-                        ? MarkerType.None 
-                        : MarkerType.Bullet;
+                viewModel.Document.SelBullets = !viewModel.Document.SelBullets;
                 viewModel.Document.EndUndoGroup();
 
                 viewModel.OnPropertyChanged(nameof(viewModel.Text));

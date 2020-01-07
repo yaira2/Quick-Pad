@@ -1,15 +1,24 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm.ViewModels;
+using QuickPad.Mvvm.Views;
 using System;
+using System.Threading.Tasks;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
     public class ShowGoToCommand : SimpleCommand<DocumentViewModel>
     {
-        public ShowGoToCommand()
+        public ShowGoToCommand(IServiceProvider provider)
         {
-            //var dialog = provider.GetService<GoToLine>();
-            //_ = dialog.ShowAsync();
+            Executioner = viewModel =>
+            {
+                var dialog = provider.GetService<IGoToLineView>();
+                dialog.ViewModel = viewModel;
+                viewModel.LineToGoTo = viewModel.CurrentLine;
+                _ = dialog.ShowAsync();
+
+                return Task.CompletedTask;
+            };
         }
     }
 }

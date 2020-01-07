@@ -1,48 +1,36 @@
 ﻿using System;
+using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
-using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.UI.Text;
+using Windows.UI;
 using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.Views;
-using Timer = System.Threading.Timer;
-using Windows.UI;
 
 namespace QuickPad.Mvvm.ViewModels
 {
     public class DocumentViewModel : ViewModel
     {
         public const string RtfExtension = ".rtf";
-        private ITextDocument _document;
+        private DocumentModel _document;
 
         private Encoding _currentEncoding;
-        private readonly HMAC _md5;
-
-        private string _originalHash;
-        private string _currentHash;
 
         private StorageFile _file;
-        private string _currentFontName;
-        private double _currentFontSize = 14;
         private string _currentFileType;
         private string _currentFileDisplayType;
-        private ResourceLoader _resourceLoader;
         private int _currentColumn;
         private int _currentLine;
         private int _lineToGoTo;
-
-        private string _text;
-        private bool _canUndo;
-        private bool _canRedo;
 
         private readonly Timer _timer;
         private IFindAndReplaceView _findAndReplaceViewModel;
@@ -54,18 +42,16 @@ namespace QuickPad.Mvvm.ViewModels
             , IServiceProvider serviceProvider
             , SettingsViewModel settings) : base(logger)
         {
-            _md5 = HMAC.Create("HMACMD5");
-            _md5.Key = Encoding.ASCII.GetBytes("12345");
             ServiceProvider = serviceProvider;
             FindAndReplaceViewModel = findAndReplaceViewModel;
 
             Settings = settings;
 
-            _resourceLoader = ResourceLoader.GetForCurrentView();
+            var resourceLoader = ResourceLoader.GetForCurrentView();
 
-            RichTextDescription = _resourceLoader.GetString("RichTextDescription");
-            TextDescription = _resourceLoader.GetString("TextDescription");
-            Untitled = _resourceLoader.GetString("Untitled");
+            RichTextDescription = resourceLoader.GetString("RichTextDescription");
+            TextDescription = resourceLoader.GetString("TextDescription");
+            Untitled = resourceLoader.GetString("Untitled");
 
             _timer = new Timer(AutoSaveTimer);
         }
@@ -87,47 +73,48 @@ namespace QuickPad.Mvvm.ViewModels
         public void InvokeFocusTextBox(FocusState focusState) => RequestFocusTextBox?.Invoke(focusState);
 
         public event Action<FocusState> RequestFocusTextBox;
-        public ITextDocument Document
+
+        public DocumentModel Document
         {
             get => _document;
             set => Set(ref _document, value);
         }
 
-        private const TextGetOptions DEFAULT_TEXT_GET_OPTIONS_TXT = TextGetOptions.None | TextGetOptions.AdjustCrlf | TextGetOptions.NoHidden | TextGetOptions.UseCrlf;
-        private const TextSetOptions DEFAULT_TEXT_SET_OPTIONS_TXT = TextSetOptions.None | TextSetOptions.Unhide;
+        private const QuickPadTextGetOptions DEFAULT_TEXT_GET_OPTIONS_TXT = QuickPadTextGetOptions.None | QuickPadTextGetOptions.AdjustCrlf | QuickPadTextGetOptions.NoHidden | QuickPadTextGetOptions.UseCrlf;
+        private const QuickPadTextSetOptions DEFAULT_TEXT_SET_OPTIONS_TXT = QuickPadTextSetOptions.None | QuickPadTextSetOptions.Unhide;
 
-        private const TextGetOptions DEFAULT_TEXT_GET_OPTIONS_RTF =
-            TextGetOptions.FormatRtf | TextGetOptions.IncludeNumbering | TextGetOptions.NoHidden;
-        private const TextSetOptions DEFAULT_TEXT_SET_OPTIONS_RTF = TextSetOptions.FormatRtf | TextSetOptions.Unhide;
+        private const QuickPadTextGetOptions DEFAULT_TEXT_GET_OPTIONS_RTF =
+            QuickPadTextGetOptions.FormatRtf | QuickPadTextGetOptions.IncludeNumbering | QuickPadTextGetOptions.NoHidden;
+        private const QuickPadTextSetOptions DEFAULT_TEXT_SET_OPTIONS_RTF = QuickPadTextSetOptions.FormatRtf | QuickPadTextSetOptions.Unhide;
 
 
-        public TextGetOptions GetOption { get; private set; } = DEFAULT_TEXT_GET_OPTIONS_TXT;
-        public TextSetOptions SetOption { get; private set; } = DEFAULT_TEXT_SET_OPTIONS_TXT;
+        public QuickPadTextGetOptions GetOption { get; private set; } = DEFAULT_TEXT_GET_OPTIONS_TXT;
+        public QuickPadTextSetOptions SetOption { get; private set; } = DEFAULT_TEXT_SET_OPTIONS_TXT;
 
         public string CurrentFileType
         {
             get => _currentFileType ?? Settings.DefaultFileType;
             set
             {
-                if (Set(ref _currentFileType, value))
-                {
-                    var isRtf = value.Equals(RtfExtension, StringComparison.InvariantCultureIgnoreCase);
+                if (!Set(ref _currentFileType, value)) return;
 
-                    CurrentFileDisplayType =
-                        isRtf ? RichTextDescription : TextDescription;
-                    CurrentFontName =
-                        isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
-                    CurrentFontSize =
-                        isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
-                    CurrentWordWrap =
-                        isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
-                    GetOption =
-                        isRtf ? DEFAULT_TEXT_GET_OPTIONS_RTF : DEFAULT_TEXT_GET_OPTIONS_TXT;
-                    SetOption =
-                        isRtf ? DEFAULT_TEXT_SET_OPTIONS_RTF : DEFAULT_TEXT_SET_OPTIONS_TXT;
+                var isRtf = value.Equals(RtfExtension, StringComparison.InvariantCultureIgnoreCase);
 
-                    OnPropertyChanged(nameof(IsRtf));
-                }
+                CurrentFileDisplayType =
+                    isRtf ? RichTextDescription : TextDescription;
+
+                Document.CurrentFontName =
+                    isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
+                Document.CurrentFontSize =
+                    isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
+                Document.CurrentWordWrap =
+                    isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
+                Document.GetOptions =
+                    isRtf ? DEFAULT_TEXT_GET_OPTIONS_RTF : DEFAULT_TEXT_GET_OPTIONS_TXT;
+                Document.SetOptions =
+                    isRtf ? DEFAULT_TEXT_SET_OPTIONS_RTF : DEFAULT_TEXT_SET_OPTIONS_TXT;
+
+                OnPropertyChanged(nameof(IsRtf));
             }
         }
 
@@ -135,69 +122,6 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get => _currentFileDisplayType;
             set => Set(ref _currentFileDisplayType, value);
-        }
-
-        private bool _selBold;
-        public bool SelBold
-        {
-            get => _selBold;
-            set => Set(ref _selBold, value);
-        }
-
-        private bool _selItalic;
-        public bool SelItalic
-        {
-            get => _selItalic;
-            set => Set(ref _selItalic, value);
-        }
-
-        private bool _selUnderline;
-        public bool SelUnderline
-        {
-            get => _selUnderline;
-            set => Set(ref _selUnderline, value);
-        }
-
-        private bool _selStrikethrough;
-        public bool SelStrikethrough
-        {
-            get => _selStrikethrough;
-            set => Set(ref _selStrikethrough, value);
-        }
-
-        private bool _selCenter;
-        public bool SelCenter
-        {
-            get => _selCenter;
-            set => Set(ref _selCenter, value);
-        }
-
-        private bool _selRight;
-        public bool SelRight
-        {
-            get => _selRight;
-            set => Set(ref _selRight, value);
-        }
-
-        private bool _selLeft;
-        public bool SelLeft
-        {
-            get => _selLeft;
-            set => Set(ref _selLeft, value);
-        }
-
-        private bool _selJustify;
-        public bool SelJustify
-        {
-            get => _selJustify;
-            set => Set(ref _selJustify, value);
-        }
-
-        private bool _selBullets;
-        public bool SelBullets
-        {
-            get => _selBullets;
-            set => Set(ref _selBullets, value);
         }
 
         public event Action<float> SetScale;
@@ -222,57 +146,14 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _fontColor, value);
         }
 
-        public bool IsDirty
-        {
-            get => (_originalHash != _currentHash);
-            set
-            {
-                if (!value)
-                {
-                    CalculateHash(Text);
-                    _originalHash = _currentHash;
-                }
-
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(Title));
-            }
-        }
 
         public void InvokeClearUndoRedo() => ClearUndoRedo?.Invoke();
         public Action ClearUndoRedo;
 
         public Deferral Deferral { get; set; }
 
-        public string CurrentFontName
-        {
-            get => _currentFontName ?? Settings.DefaultFont;
-            set => Set(ref _currentFontName, value);
-        }
-
         public string FilePath
             => File?.Path;
-
-        public double CurrentFontSize
-        {
-            get => _currentFontSize;
-            set => Set(ref _currentFontSize, value);
-        }
-
-        public bool CurrentWordWrap
-        {
-            get => IsRtf ? Settings.RtfWordWrap : Settings.WordWrap;
-            set
-            {
-                if (IsRtf)
-                {
-                    Settings.RtfWordWrap = value;
-                }
-                else
-                {
-                    Settings.WordWrap = value;
-                }
-            }
-        }
 
         public void AddTab()
         {
@@ -283,19 +164,19 @@ namespace QuickPad.Mvvm.ViewModels
                 var text = '\t' + SelectedText;
                 text = text.Replace("\r", "\r\t").TrimEnd('\t');
                 SelectedText = text;
-                SelectText(currentPosition.start + 1, currentPosition.length, true);
+                SelectText(currentPosition.start + 1, currentPosition.length);
             }
             else
             {
                 SelectedText = "\t";
-                SelectText(CurrentPosition.start + 1, 0, true);
+                SelectText(CurrentPosition.start + 1, 0);
             }
         }
 
+        public string Title => ($" {(Document.IsDirty ? "*" : "")} {((File?.DisplayName) ?? Untitled)} ").Trim();
 
-        public string Title => ($" {(IsDirty ? "*" : "")} {((File?.DisplayName) ?? Untitled)} ").Trim();
+        private string _lastText;
 
-        private string _lastText = null;
         public void TextChanged(object sender, RoutedEventArgs e)
         {
             var current = Text;
@@ -308,13 +189,9 @@ namespace QuickPad.Mvvm.ViewModels
             }
             else if(_lastText.Length == current.Length)
             {
-                for (var i = 0; i < (_lastText?.Length ?? 0); ++i)
+                if (_lastText.Where((t, i) => t != current[i]).Any())
                 {
-                    if (_lastText[i] == current[i]) continue;
-
                     AreDifferent();
-
-                    break;
                 }
             }
             else
@@ -326,13 +203,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 _lastText = current;
 
-                CalculateHash(current);
-
-                if (sender is TextBox textBox)
-                {
-                    CanUndo = textBox.CanUndo;
-                    CanRedo = textBox.CanRedo;
-                }
+                Document.CalculateHash(current);
 
                 QuickPadCommands.NotifyAll(this, Settings);
             }
@@ -341,25 +212,17 @@ namespace QuickPad.Mvvm.ViewModels
         // Gets raw text from document, not formatted with control characters.
         public string Text
         {
-            get
-            {
-                if (IsRtf)
-                {
-                    Document?.GetText(DEFAULT_TEXT_GET_OPTIONS_TXT, out _text);
-                }
+            get => Document.Text ?? string.Empty;
 
-                return _text ??= string.Empty;
-            }
             set
             {
-                if(!IsRtf)
-                {
-                    Document?.SetText(DEFAULT_TEXT_SET_OPTIONS_TXT, value);
-                }
+                Document.Text = value;
 
-                if (Set(ref _text, value))
+                var text = Document.Text ?? string.Empty;
+
+                if (Set(ref text, value))
                 {
-                    CalculateHash(_text);
+                    Document.CalculateHash();
                 }
             }
         }
@@ -368,15 +231,15 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get
             {
-                var position = GetPosition?.Invoke() ?? default;
+                var (start, length) = GetPosition?.Invoke() ?? default;
 
-                if (position.length < 0)
+                if (length < 0)
                 {
-                    position.length = Math.Min(Math.Abs(position.length), Text.Length - position.start);
-                    position.start = Math.Max(position.start - position.length, position.start);
+                    length = Math.Min(Math.Abs(length), Text.Length - start);
+                    start = Math.Max(start - length, start);
                 }
 
-                return Text.Substring(position.start, position.length);
+                return Text.Substring(start, length);
             }
             set => SetSelectedText?.Invoke(value);
         }
@@ -398,39 +261,26 @@ namespace QuickPad.Mvvm.ViewModels
             SetSelection?.Invoke(start, length, reindex);
         }
 
+        public event Action Focus;
+
+        public void SetFocus() => Focus?.Invoke();
+
         public event Action<int, int, bool> SetSelection;
-
-        private void CalculateHash(string text)
-        {
-            var hash = _md5.ComputeHash(Encoding.ASCII.GetBytes(text ?? string.Empty));
-
-            var newHash = Encoding.ASCII.GetString(hash);
-
-            if (newHash != _currentHash)
-            {
-                _currentHash = newHash;
-
-                OnPropertyChanged(nameof(IsDirty));
-                OnPropertyChanged(nameof(Title));
-                OnPropertyChanged(nameof(Text));
-            }
-        }
 
         public StorageFile File
         {
             get => _file;
             set
             {
-                if (Set(ref _file, value))
-                {
-                    if (!value?.FileType.Equals(CurrentFileType, StringComparison.InvariantCultureIgnoreCase) ?? false)
-                    {
-                        CurrentFileType = value.FileType;
-                        CurrentFileDisplayType = value.DisplayType;
-                    }
+                if (!Set(ref _file, value)) return;
 
-                    OnPropertyChanged(nameof(FilePath));
+                if (!value?.FileType.Equals(CurrentFileType, StringComparison.InvariantCultureIgnoreCase) ?? false)
+                {
+                    CurrentFileType = value.FileType;
+                    CurrentFileDisplayType = value.DisplayType;
                 }
+
+                OnPropertyChanged(nameof(FilePath));
             }
         }
 
@@ -450,7 +300,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         private void AutoSaveTimer(object state)
         {
-            if (Settings.AutoSave && this.File != null && IsDirty == true)
+            if (Settings.AutoSave && File != null && Document.IsDirty)
             {
                 ServiceProvider.GetService<QuickPadCommands>().SaveCommand.Execute(this);
             }
@@ -469,14 +319,14 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 if (IsRtf)
                 {
-                    var memoryStream = new InMemoryRandomAccessStream();
+                    IRandomAccessStream memoryStream = new InMemoryRandomAccessStream();
                     var bytes = Encoding.UTF8.GetBytes("\r");
                     var buffer = bytes.AsBuffer();
                     await memoryStream.WriteAsync(buffer);
 
                     memoryStream.Seek(0);
 
-                    Document?.LoadFromStream(SetOption, memoryStream);
+                    Document.LoadFromStream(SetOption, memoryStream);
                 }
                 else
                 {
@@ -491,7 +341,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
             finally
             {
-                IsDirty = false;
+                Document.IsDirty = false;
 
                 ReleaseUpdates();
             }
@@ -499,9 +349,9 @@ namespace QuickPad.Mvvm.ViewModels
             NotifyAll();
         }
 
-        public string TextDescription { get; set; } = "Text Document";
+        public string TextDescription { get; set; }
 
-        public string RichTextDescription { get; set; } = "Rich Text Document";
+        public string RichTextDescription { get; set; }
 
         public Action<DocumentViewModel> Initialize { get; set; }
         public Action ExitApplication { get; set; }
@@ -525,17 +375,8 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _lineToGoTo, value);
         }
 
-        public bool CanUndo
-        {
-            get => IsRtf ? Document.CanUndo() : _canUndo;
-            set => Set(ref _canUndo, value);
-        }
-
-        public bool CanRedo
-        {
-            get => IsRtf ? Document.CanRedo() : _canRedo;
-            set => Set(ref _canRedo, value);
-        }
+        public bool CanUndo => Document.CanUndo;
+        public bool CanRedo => Document.CanRedo;
 
         public bool ShowFind
         {
@@ -581,7 +422,7 @@ namespace QuickPad.Mvvm.ViewModels
                 {
                     Document.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);
 
-                    CalculateHash(_text);
+                    Document.CalculateHash();
                 }
             }
         }
@@ -589,14 +430,14 @@ namespace QuickPad.Mvvm.ViewModels
         public void NotifyAll()
         {
             OnPropertyChanged(nameof(Title));
-            OnPropertyChanged(nameof(IsDirty));
+            OnPropertyChanged(nameof(Document.IsDirty));
             OnPropertyChanged(nameof(Document));
             OnPropertyChanged(nameof(CurrentEncoding));
             OnPropertyChanged(nameof(File));
             OnPropertyChanged(nameof(GetOption));
             OnPropertyChanged(nameof(SetOption));
-            OnPropertyChanged(nameof(CurrentFontName));
-            OnPropertyChanged(nameof(CurrentFontSize));
+            OnPropertyChanged(nameof(Document.CurrentFontName));
+            OnPropertyChanged(nameof(Document.CurrentFontSize));
             OnPropertyChanged(nameof(CurrentFileType));
 
             QuickPadCommands.NotifyAll(this, Settings);
@@ -615,18 +456,22 @@ namespace QuickPad.Mvvm.ViewModels
             };
         }
 
+        public event Action<DocumentViewModel> RedoRequested;
+        public event Action<DocumentViewModel> UndoRequested;
+
         public void RequestUndo()
         {
             UndoRequested?.Invoke(this);
         }
-
-        public event Action<DocumentViewModel> UndoRequested;
 
         public void RequestRedo()
         {
             RedoRequested?.Invoke(this);
         }
 
-        public event Action<DocumentViewModel> RedoRequested;
+        internal void GoToLine(int lineToGoTo)
+        {
+            SelectText(lineToGoTo > 1 ? Document.LineIndices[lineToGoTo - 2] : 0, 0, false);
+        }
     }
 }

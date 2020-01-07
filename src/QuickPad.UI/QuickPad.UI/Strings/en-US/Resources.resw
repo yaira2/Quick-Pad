@@ -478,7 +478,7 @@
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesBody" xml:space="preserve">
-    <value>There are unsaved changes.  Do you want to save them now?</value>
+    <value>There are unsaved changes. Do you want to save them now?</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesTitle" xml:space="preserve">
@@ -596,6 +596,22 @@
   <data name="OpenTip.Text" xml:space="preserve">
     <value>Open (Ctrl+O)</value>
     <comment>Used on CommandBar</comment>
+  </data>
+  <data name="CmdLetsGo.Content" xml:space="preserve">
+    <value>Lets go!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar1.Text" xml:space="preserve">
+    <value>After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar2.Text" xml:space="preserve">
+    <value>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
+    <value>Welcome back to Quick Pad!</value>
+    <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="RedoTooltip.Text" xml:space="preserve">
     <value>Redo (Ctrl+Y)</value>

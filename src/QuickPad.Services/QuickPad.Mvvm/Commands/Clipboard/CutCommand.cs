@@ -16,7 +16,7 @@ namespace QuickPad.Mvvm.Commands.Clipboard
                 //send the selected text to the clipboard
                 var dataPackage = new DataPackage();
                 dataPackage.SetText(viewModel.SelectedText);
-                viewModel.Document.Selection.Text = "";
+                viewModel.SelectedText = "";
                 Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
                 Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
                 

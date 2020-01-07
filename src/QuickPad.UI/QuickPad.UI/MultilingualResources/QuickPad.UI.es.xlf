@@ -457,7 +457,7 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
-          <source>There are unsaved changes.  Do you want to save them now?</source>
+          <source>There are unsaved changes. Do you want to save them now?</source>
           <target state="translated">Hay cambios sin guardar. ¿Quiere guardarlos ahora?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
@@ -833,17 +833,19 @@
         </trans-unit>
         <trans-unit id="CmdLetsGo.Content" translate="yes" xml:space="preserve">
           <source>Lets go!</source>
-          <target state="translated">¡Vamos!</target>
+          <target state="translated">¡A por ello!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>Quick Pad is back, after a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
-          <target state="translated">Quick Pad ha vuelto despues de algunos meses sin actualizaciones, me emociona mucho anunciar que Quick Pad ha sido completamente reescrito.</target>
+          <source>After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
+          <target state="needs-review-translation">¡Quick Pad ha vuelto luego de algunos meses sin actualizaciones. Me emociona mucho anunciar que la aplicación se ha reescrito completamente!</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
-          <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for the inconvenience but I hope that you find it worth it and enjoy the new version.</source>
-          <target state="translated">Todas las antiguas opciones están disponibles, así como algunas nuevas. A causa de la reescritura de la aplicación la configuración ha vuelto a su estado inicial. Me disculpo por las inconveniencias que esto pueda ocasionarle. Espero que valga la pena y que disfrute la nueva versión.</target>
+          <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!</source>
+          <target state="needs-review-translation">Todas las opciones están disponibles, incluyendo algunas nuevas. Como resultado de la reescritura de la aplicación las opciones se reestablecieron a la configuración por defecto. Tendrá que volver a establecer su configuración, pero le aseguro que vale la pena. Me disculpo por las molestias que esto pueda ocacionar.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">

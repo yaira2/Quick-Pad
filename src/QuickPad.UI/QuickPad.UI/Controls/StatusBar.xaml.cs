@@ -1,6 +1,7 @@
 ﻿using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
 using System.ComponentModel;
+using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.UI.Common.Theme;
 
@@ -32,6 +33,8 @@ namespace QuickPad.UI.Controls
                 value.PropertyChanged += DocumentViewModelOnPropertyChanged;
             }
         }
+
+        public DocumentModel ViewModelDocument => ViewModel.Document;
 
         private void DocumentViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {

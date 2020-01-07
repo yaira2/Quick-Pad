@@ -203,7 +203,7 @@
             </MenuBarItem>
             <MenuBarItem Title="Format" AccessKey="O" x:Uid="Format">
                 <ToggleMenuFlyoutItem Text="Word Wrap" x:Uid="WordWrap"
-                                      IsChecked="{x:Bind ViewModel.CurrentWordWrap}"
+                                      IsChecked="{x:Bind ViewModelDocument.CurrentWordWrap}"
                                       Command="{x:Bind Commands.ToggleWordWrapCommand}"
                                       CommandParameter="{x:Bind ViewModel}">
                     <ToggleMenuFlyoutItem.Icon>

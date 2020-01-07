@@ -12,7 +12,7 @@ namespace QuickPad.Mvvm.Commands.Editing
             {
                 viewModel.Document.BeginUndoGroup();
 
-                viewModel.Document.Selection.CharacterFormat.Subscript = FormatEffect.Toggle;
+                viewModel.Document.SelSubscript = !viewModel.Document.SelSubscript;
 
                 viewModel.Document.EndUndoGroup();
 

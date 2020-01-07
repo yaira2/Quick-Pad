@@ -147,7 +147,6 @@
     <Compile Include="Commands\Actions\ShowReplaceCommand.cs" />
     <Compile Include="Commands\Actions\ZoomOutCommand.cs" />
     <Compile Include="Commands\Actions\ZoomInCommand.cs" />
-    <Compile Include="Commands\Actions\UpdateToolbarCommand.cs" />
     <Compile Include="Commands\Actions\SearchWithBingCommand.cs" />
     <Compile Include="Commands\Actions\ExportSettingsCommand.cs" />
     <Compile Include="Commands\Actions\RateAndReviewCommand.cs" />
@@ -172,6 +171,10 @@
     <Compile Include="Commands\Editing\ToggleWordWrapCommand.cs" />
     <Compile Include="IApplication.cs" />
     <Compile Include="Models\DefaultLanguageModel.cs" />
+    <Compile Include="Models\DocumentModel.cs" />
+    <Compile Include="Models\IDocumentModel.cs" />
+    <Compile Include="Models\QuickPadTextGetOptions.cs" />
+    <Compile Include="Models\QuickPadTextSetOptions.cs" />
     <Compile Include="Models\Theme\IVisualThemeSelector.cs" />
     <Compile Include="Models\Theme\ThemeChangedEventArgs.cs" />
     <Compile Include="Models\Theme\ThemeChangedEventHandler.cs" />
@@ -277,6 +280,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\IDocumentView.cs" />
     <Compile Include="Views\IFindAndReplaceView.cs" />
+    <Compile Include="Views\IGoToLineView.cs" />
     <Compile Include="Views\IView.cs" />
     <EmbeddedResource Include="Properties\QuickPad.MVVM.rd.xml" />
   </ItemGroup>

@@ -189,6 +189,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
+    <Content Include="Assets\QuickPadIcon.png" />
     <Content Include="Assets\BingIcon.png" />
     <Content Include="Assets\File Icons\General Small.png" />
     <Content Include="Assets\File Icons\MD Small.png" />

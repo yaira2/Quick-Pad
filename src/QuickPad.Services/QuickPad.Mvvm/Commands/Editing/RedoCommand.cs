@@ -12,16 +12,7 @@ namespace QuickPad.Mvvm.Commands.Editing
 
             Executioner = viewModel =>
             {
-                if (viewModel.CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    viewModel.Document.Redo(); //undo changes the user did to the text            
-
-                    viewModel.OnPropertyChanged(nameof(viewModel.Text));
-                }
-                else
-                {
-                    viewModel.RequestRedo();
-                }
+                viewModel.RequestRedo();
 
                 return Task.CompletedTask;
             };

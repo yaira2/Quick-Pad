@@ -9,7 +9,7 @@ namespace QuickPad.Mvvm.Commands
         {
             Executioner = viewModel =>
             {
-                viewModel.CurrentWordWrap = !viewModel.CurrentWordWrap;
+                viewModel.Document.CurrentWordWrap = !viewModel.Document.CurrentWordWrap;
 
                 return Task.CompletedTask;
             };

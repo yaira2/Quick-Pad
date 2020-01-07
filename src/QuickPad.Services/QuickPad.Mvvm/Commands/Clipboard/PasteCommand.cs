@@ -22,19 +22,11 @@ namespace QuickPad.Mvvm.Commands.Clipboard
 
             Executioner = async viewModel =>
             {
-                if (_settings.PasteTextOnly)
-                {
-                    var dataPackageView = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
-                    if (dataPackageView.Contains(StandardDataFormats.Text))
-                        //if there is nothing to paste then don't paste anything since it will crash
-                        if (!string.IsNullOrEmpty(await dataPackageView.GetTextAsync()))
-                            viewModel.Document.Selection.TypeText(
-                                await dataPackageView.GetTextAsync()); //paste the text from the clipboard
-                }
-                else
-                {
-                    viewModel.Document.Selection.Paste(0);
-                }
+                var dataPackageView = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
+                if (dataPackageView.Contains(StandardDataFormats.Text))
+                    //if there is nothing to paste then don't paste anything since it will crash
+                    if (!string.IsNullOrEmpty(await dataPackageView.GetTextAsync()))
+                        viewModel.Document.Paste?.Invoke(await dataPackageView.GetTextAsync(), _settings.PasteTextOnly); //paste the text from the clipboard
 
                 viewModel.OnPropertyChanged(nameof(viewModel.Text));
             };

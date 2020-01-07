@@ -13,15 +13,10 @@ namespace QuickPad.Mvvm.Commands.Editing
                 viewModel.Document.BeginUndoGroup();
                 //set the selected text to be bold if not already
                 //if the text is already bold it will make it regular
-                var selectedText = viewModel.Document.Selection;
-                if (selectedText != null)
+                var selectedText = viewModel.SelectedText;
+                if (string.IsNullOrWhiteSpace(selectedText))
                 {
-                    var charFormatting = selectedText.CharacterFormat;
-                    if (charFormatting.Underline == UnderlineType.None)
-                        charFormatting.Underline = UnderlineType.Single;
-                    else
-                        charFormatting.Underline = UnderlineType.None;
-                    selectedText.CharacterFormat = charFormatting;
+                    viewModel.Document.SelUnderline = !viewModel.Document.SelUnderline;
                 }
 
                 viewModel.Document.EndUndoGroup();

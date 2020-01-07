@@ -12,17 +12,8 @@ namespace QuickPad.Mvvm.Commands.Editing
 
             Executioner = viewModel =>
             {
-                if (viewModel.CurrentFileType.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    viewModel.Document.Undo(); //undo changes the user did to the text            
-
-                    viewModel.OnPropertyChanged(nameof(viewModel.Text));
-                }
-                else
-                {
-                    viewModel.RequestUndo();
-                }
-
+                viewModel.RequestUndo();
+                
                 return Task.CompletedTask;
             };
         }

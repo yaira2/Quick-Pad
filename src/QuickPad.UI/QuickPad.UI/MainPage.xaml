@@ -115,7 +115,7 @@
                          SelectionChanged="RichEditBox_OnSelectionChanged"
                          ContextMenuOpening="RichEditBox_OnContextMenuOpening"
                          Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType), Mode=OneWay}"
-                         TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}" 
+                         TextWrapping="{x:Bind ViewModelDocument.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}" 
                          IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
                          Style="{StaticResource RichEditBox}"
                          Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
@@ -123,11 +123,6 @@
                             <RichEditBox.SelectionHighlightColorWhenNotFocused>
                                 <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
                             </RichEditBox.SelectionHighlightColorWhenNotFocused>
-                            <interactivity:Interaction.Behaviors>
-                                <core:EventTriggerBehavior EventName="SelectionChanged">
-                                    <core:InvokeCommandAction Command="{x:Bind Commands.UpdateToolbarCommand}" CommandParameter="{x:Bind ViewModel}"/>
-                                </core:EventTriggerBehavior>
-                            </interactivity:Interaction.Behaviors>
                         </RichEditBox>
 
                         <TextBox x:Name="TextBox"
@@ -145,13 +140,13 @@
                          BeforeTextChanging="TextBox_OnBeforeTextChanging"
                          TextChanged="TextBox_OnTextChanged"
                          SelectionChanged="TextBox_OnSelectionChanged"
-                         TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
+                         TextWrapping="{x:Bind ViewModelDocument.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
                          IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}"
                          Style="{StaticResource TextBox}"
                          Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                          IsTapEnabled="True"
-                         FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
-                         FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
+                         FontFamily="{x:Bind ViewModelDocument.CurrentFontName, Mode=OneWay}"
+                         FontSize="{x:Bind ViewModelDocument.CurrentFontSize, Mode=OneWay}"
                          Text="{x:Bind ViewModel.Text, Mode=OneWay}"                     
                          KeyDown="TextBox_OnKeyDown">
                             <TextBox.SelectionHighlightColorWhenNotFocused>

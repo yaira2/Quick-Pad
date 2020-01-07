@@ -353,7 +353,7 @@
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesBody" xml:space="preserve">
-    <value>Il y a des modifications non-enregistrées. Voulez vous les enregistrer ?</value>
+    <value>Il y a des modifications non-enregistrées. Voulez-vous les enregistrer?</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesTitle" xml:space="preserve">
@@ -677,11 +677,11 @@
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Quick Pad est de retour et après des mois sans mise à jour, je suis vraiment excité d'annoncer que Quick Pad est réécrit du début!</value>
+    <value>Quick Pad est de retour et après quelques mois sans mise à jour, je suis excité d'annoncer que Quick Pad a été réécrit au complet du début!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>Toutes les options sont toujours disponibles ainsi que quelques nouvelles fonctionnalités. À cause de la réécriture de l'application du début, vous avez besoin de refaire toutes les personnalisations faites dans la version précédente. Je m'excuse de l'inconvénient, mais j'espère que vous allez penser que les changements valent la peine et que vous allez profiter de la nouvelle version.</value>
+    <value>Chaque option est toujours disponible en plus des nouveautés. À cause de la réécriture de l'application du début, vous avez besoin de refaire toutes les personnalisations que vous avez faites dans les versions précédentes. Je suis désolé pour les inconvénients, mais j'espère que vous trouvez qu'ils valent la peine et profitez de la nouvelle version.</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogTitle.Title" xml:space="preserve">
