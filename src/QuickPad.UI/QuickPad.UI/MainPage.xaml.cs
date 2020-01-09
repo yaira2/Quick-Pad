@@ -450,6 +450,12 @@ namespace QuickPad.UI
             var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows) .HasFlag(CoreVirtualKeyStates.Down);
             var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows) .HasFlag(CoreVirtualKeyStates.Down);
 
+            //ctrl + alt + c
+            if (controlDown & menuDown & args.Key == VirtualKey.C)
+            {
+                ViewModel.ShowClippy = true;
+            }
+
             //ctrl + +
             if (controlDown & args.Key == (VirtualKey)187)
             {

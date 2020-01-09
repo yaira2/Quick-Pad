@@ -49,6 +49,7 @@ namespace QuickPad.Mvvm.ViewModels
         private IFindAndReplaceView _findAndReplaceViewModel;
         private bool _showFind;
         private bool _showReplace;
+        private bool _showClippy;
 
         public DocumentViewModel(ILogger<DocumentViewModel> logger
             , IFindAndReplaceView findAndReplaceViewModel
@@ -546,6 +547,12 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get => _showFind;
             set => Set(ref _showFind, value);
+        }
+
+        public bool ShowClippy
+        {
+            get => _showClippy;
+            set => Set(ref _showClippy, value);
         }
 
         private string _showReplaceIcon = ""; //this is the expand icon
