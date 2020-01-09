@@ -193,6 +193,9 @@
     <Content Include="Assets\Clippy\Animation1.gif" />
     <Content Include="Assets\Clippy\Animation2.gif" />
     <Content Include="Assets\Clippy\Animation3.gif" />
+    <Content Include="Assets\Clippy\Animation4.gif" />
+    <Content Include="Assets\Clippy\Animation5.gif" />
+    <Content Include="Assets\Clippy\Animation6.gif" />
     <Content Include="Assets\QuickPadIcon.png" />
     <Content Include="Assets\BingIcon.png" />
     <Content Include="Assets\File Icons\General Small.png" />
