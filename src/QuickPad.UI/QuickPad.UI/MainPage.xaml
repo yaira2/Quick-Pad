@@ -170,7 +170,7 @@
                     <Image x:Name="Clippy" Source="/Assets/clippy/clip.gif" Width="120" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                         <Image.ContextFlyout>
                             <MenuFlyout>
-                                <MenuFlyoutItem Text="Animate" x:Name="AnimateClippy" Click="AnimateClippy_Click"/>
+                                <MenuFlyoutItem Text="Animate" x:Name="AnimateClippy" Click="AnimateClippy_Click" x:Uid="Animate"/>
                             </MenuFlyout>
                         </Image.ContextFlyout>
                     </Image>

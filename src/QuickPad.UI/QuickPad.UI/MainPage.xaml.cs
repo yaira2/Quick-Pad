@@ -451,36 +451,42 @@ namespace QuickPad.UI
             var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows) .HasFlag(CoreVirtualKeyStates.Down);
 
             //ctrl + alt + c
+            //show clippy
             if (controlDown & menuDown & args.Key == VirtualKey.C)
             {
                 ViewModel.ShowClippy = true;
             }
 
             //ctrl + +
+            //zoom in
             if (controlDown & args.Key == (VirtualKey)187)
             {
                 Commands.ZoomInCommand.Execute(ViewModel);
             }
 
             //ctrl + -
+            //zoom out
             if (controlDown & args.Key == (VirtualKey)189)
             {
                 Commands.ZoomOutCommand.Execute(ViewModel);
             }
 
             //ctrl + 0
+            //reset zoom
             if (controlDown & args.Key == (VirtualKey)48)
             {
                 Commands.ResetZoomCommand.Execute(ViewModel);
             }
 
             //alt + +
+            //superscript
             if (menuDown & args.Key == (VirtualKey)187)
             {
                 Commands.SuperscriptCommand.Execute(ViewModel);
             }
 
             //alt + -
+            //subscript
             if (menuDown & args.Key == (VirtualKey)189)
             {
                 Commands.SubscriptCommand.Execute(ViewModel);
@@ -682,10 +688,12 @@ namespace QuickPad.UI
 
         private async void AnimateClippy_Click(object sender, RoutedEventArgs e)
         {
+            //generate a random number
             Random r = new Random();
-            int rInt = r.Next(0, 6); //for ints
+            int rInt = r.Next(0, 6);
 
-            AnimateClippy.IsEnabled = false; //disable the animate button untill the animation is complete
+            //disable the animate button untill the animation is complete
+            AnimateClippy.IsEnabled = false;
 
             switch (rInt)
             {

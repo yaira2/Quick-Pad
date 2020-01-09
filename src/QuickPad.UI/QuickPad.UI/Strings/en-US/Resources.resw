@@ -809,4 +809,8 @@
     <value>Text</value>
     <comment>Used on Share Dialog</comment>
   </data>
+  <data name="Animate.Text" xml:space="preserve">
+    <value>Animate</value>
+    <comment>Used on Clippy</comment>
+  </data>
 </root>

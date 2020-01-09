@@ -873,6 +873,11 @@
           <target state="new">Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Share Dialog</note>
         </trans-unit>
+        <trans-unit id="Animate.Text" translate="yes" xml:space="preserve">
+          <source>Animate</source>
+          <target state="new">Animate</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Clippy</note>
+        </trans-unit>
       </group>
     </body>
   </file>
