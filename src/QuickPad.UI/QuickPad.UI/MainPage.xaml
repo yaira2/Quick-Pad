@@ -12,6 +12,7 @@
     xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
     mc:Ignorable="d"  
     Foreground="{x:Bind Settings.DefaultTextForegroundBrush, Mode=OneWay}"
     FlowDirection="{x:Bind Settings.FlowDirection, Mode=OneWay}"
@@ -160,6 +161,20 @@
                         </TextBox>
                     </Grid>
                 </ScrollViewer>
+
+                <Grid x:Name="ClippyGrid" Visibility="Collapsed" Grid.Row="2" Width="300" Height="300" HorizontalAlignment="Right" VerticalAlignment="Bottom" ManipulationMode="TranslateX, TranslateY, Scale" ManipulationDelta="ClippyGrid_ManipulationDelta">
+                    <Grid.RenderTransform>
+                        <CompositeTransform x:Name="ClippyGrid_Transform" />
+                    </Grid.RenderTransform>
+
+                    <Image x:Name="Clippy" Source="/Assets/clippy/clip.gif" Width="100" Margin="20" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Image.ContextFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Animate" x:Name="AnimateClippy" Click="AnimateClippy_Click"/>
+                            </MenuFlyout>
+                        </Image.ContextFlyout>
+                    </Image>
+                </Grid>
             </Grid>
         </SplitView>
     </Grid>

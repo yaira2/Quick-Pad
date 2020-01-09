@@ -26,6 +26,7 @@ using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.UI.StartScreen;
+using Windows.UI.Xaml.Media.Imaging;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -665,6 +666,36 @@ namespace QuickPad.UI
                 CommandParameter = ViewModel
             };
             primaryCommands.Add(searchCommandBarGoogle);
+        }
+
+        private void ClippyGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            this.ClippyGrid_Transform.TranslateX += e.Delta.Translation.X;
+            this.ClippyGrid_Transform.TranslateY += e.Delta.Translation.Y;
+        }
+
+        private async void AnimateClippy_Click(object sender, RoutedEventArgs e)
+        {
+            Random r = new Random();
+            int rInt = r.Next(0, 3); //for ints
+
+            if (rInt == 0)
+            {
+                Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation1.gif"));
+                await Task.Delay(2000);
+            }
+            if (rInt == 1)
+            {
+                Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation2.gif"));
+                await Task.Delay(4000);
+            }
+            if (rInt == 2)
+            {
+                Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation3.gif"));
+                await Task.Delay(3500);
+            }
+
+            Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///clip.gif"));
         }
     }
 }
