@@ -101,7 +101,7 @@
                     <controls3:StatusBar x:Name="statusBar" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="24" HorizontalAlignment="Stretch"/>
                 </controls1:DropShadowPanel>
 
-                <ScrollViewer x:Name="TextScrollViewer" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" ViewChanged="TextScrollViewer_ViewChanged">
+                <ScrollViewer x:Name="TextScrollViewer" MinZoomFactor="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" ViewChanged="TextScrollViewer_ViewChanged">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <RichEditBox x:Name="RichEditBox"
                          BorderBrush="{x:Null}"
