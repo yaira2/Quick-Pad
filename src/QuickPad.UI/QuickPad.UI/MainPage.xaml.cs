@@ -181,13 +181,17 @@ namespace QuickPad.UI
             {
                 if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
                 {
-                    Settings.CurrentMode = "Compact Overlay";
+                    //set the current mode to be the launch mode
+                    Settings.CurrentMode = Settings.DefaultMode;
                 }
             }
 
             if (Settings.DefaultMode == "LaunchFocusMode")
             {
+                //set return mode in case the user wants to leave focus mode
                 Settings.ReturnToMode = nameof(DisplayModes.LaunchClassicMode);
+
+                //set the current mode to be the launch mode
                 Settings.CurrentMode = Settings.DefaultMode;
             }
 
