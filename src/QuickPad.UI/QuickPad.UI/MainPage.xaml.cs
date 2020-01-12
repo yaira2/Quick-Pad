@@ -212,6 +212,8 @@ namespace QuickPad.UI
             {
                 if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
                 {
+                    //set a return mode so the user can get out of compact overlay mode
+                    Settings.ReturnToMode = nameof(DisplayModes.LaunchClassicMode);
                     Settings.CurrentMode = mode;
                 }
             }
