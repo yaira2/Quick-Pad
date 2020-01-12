@@ -120,6 +120,7 @@
                          IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
                          Style="{StaticResource RichEditBox}"
                          Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                         KeyDown="Text_OnKeyDown"
                          IsTapEnabled="True">
                             <RichEditBox.SelectionHighlightColorWhenNotFocused>
                                 <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
@@ -154,7 +155,7 @@
                          FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
                          FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
                          Text="{x:Bind ViewModel.Text, Mode=OneWay}"                     
-                         KeyDown="TextBox_OnKeyDown">
+                         KeyDown="Text_OnKeyDown">
                             <TextBox.SelectionHighlightColorWhenNotFocused>
                                 <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
                             </TextBox.SelectionHighlightColorWhenNotFocused>
