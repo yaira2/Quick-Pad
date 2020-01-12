@@ -185,6 +185,12 @@ namespace QuickPad.UI
                 }
             }
 
+            if (Settings.DefaultMode == "LaunchFocusMode")
+            {
+                Settings.ReturnToMode = nameof(DisplayModes.LaunchClassicMode);
+                Settings.CurrentMode = Settings.DefaultMode;
+            }
+
             Settings.NotDeferred = true;
             Settings.Status("Ready", TimeSpan.FromSeconds(10), Verbosity.Release);
 
