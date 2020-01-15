@@ -701,11 +701,11 @@
     <value>Spell Check in Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ReportIssues.Text" xml:space="preserve">
+  <data name="ReportIssues.Content" xml:space="preserve">
     <value>Report issues here</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="SourceCode.Text" xml:space="preserve">
+  <data name="SourceCode.Content" xml:space="preserve">
     <value>Source Code</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -713,7 +713,7 @@
     <value>Special thanks to:</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ContributeToDeveloper.Text" xml:space="preserve">
+  <data name="ContributeToDeveloper.Content" xml:space="preserve">
     <value>Contribute to the developer</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -812,5 +812,9 @@
   <data name="Animate.Text" xml:space="preserve">
     <value>Animate</value>
     <comment>Used on Clippy</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Privacy Policy</value>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>

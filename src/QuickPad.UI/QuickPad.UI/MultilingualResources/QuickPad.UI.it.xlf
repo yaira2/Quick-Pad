@@ -720,24 +720,9 @@
           <target state="translated">Controllo Ortografia per Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="ReportIssues.Text" translate="yes" xml:space="preserve">
-          <source>Report issues here</source>
-          <target state="translated">Segnala un problema qui</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="SourceCode.Text" translate="yes" xml:space="preserve">
-          <source>Source Code</source>
-          <target state="translated">Codice sorgente</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="SpecialThanks.Text" translate="yes" xml:space="preserve">
           <source>Special thanks to:</source>
           <target state="translated">Ringraziamenti speciali a:</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="ContributeToDeveloper.Text" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="translated">Sostieni lo sviluppatore</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Untitled" translate="yes" xml:space="preserve">
@@ -879,6 +864,26 @@
           <source>Animate</source>
           <target state="new">Animate</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Clippy</note>
+        </trans-unit>
+        <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
+          <source>Contribute to the developer</source>
+          <target state="new">Contribute to the developer</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="ReportIssues.Content" translate="yes" xml:space="preserve">
+          <source>Report issues here</source>
+          <target state="new">Report issues here</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
+          <source>Source Code</source>
+          <target state="new">Source Code</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
+          <source>Privacy Policy</source>
+          <target state="new">Privacy Policy</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>
     </body>

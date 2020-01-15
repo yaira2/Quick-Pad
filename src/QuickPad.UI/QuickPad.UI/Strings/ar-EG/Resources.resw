@@ -572,20 +572,8 @@
     <value>التدقيق الإملائي في النص المنسق</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ReportIssues.Text" xml:space="preserve">
-    <value>الإبلاغ عن المشاكل هنا</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SourceCode.Text" xml:space="preserve">
-    <value>كود المصدر</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="SpecialThanks.Text" xml:space="preserve">
     <value>شكر خاص ل:</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="ContributeToDeveloper.Text" xml:space="preserve">
-    <value>المساهمة للمطور</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Untitled" xml:space="preserve">
