@@ -6,7 +6,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
-    x:Uid="SaveDialog"
     Title="Quick Pad"
     PrimaryButtonText="Save"
     SecondaryButtonText="Don't Save"
@@ -18,6 +17,6 @@
     Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
 
     <Grid>
-        <TextBlock Text="Would you like to save your changes?" x:Uid="WouldYouLikeToSave"/>
+        <TextBlock x:Name="Content" Text="Would you like to save your changes?"/>
     </Grid>
 </ContentDialog>

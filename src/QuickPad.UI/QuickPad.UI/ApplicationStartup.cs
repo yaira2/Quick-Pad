@@ -12,6 +12,7 @@ using QuickPad.UI.Common.Dialogs;
 using QuickPad.UI.Common.Theme;
 using QuickPad.Mvvm.Commands.Actions;
 using Windows.ApplicationModel.Resources;
+using Windows.UI;
 
 namespace QuickPad.UI
 {
@@ -35,7 +36,8 @@ namespace QuickPad.UI
             services.AddSingleton<IVisualThemeSelector, VisualThemeSelector>();
             services.AddTransient<IGoToLineView, GoToLine>();
             services.AddSingleton<MainPage, MainPage>();
-            services.AddSingleton<ResourceLoader>(_ => ResourceLoader.GetForCurrentView());
+            services.AddSingleton<ResourceLoader>(provider =>
+                (ResourceLoader)(Application.Current.Resources.TryGetValue(nameof(ResourceLoader), out var value) ? value : null));
 
             // Add additional services here.
         }
