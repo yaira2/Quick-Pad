@@ -11,6 +11,7 @@ using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using QuickPad.UI.Common.Theme;
 using QuickPad.Mvvm.Commands.Actions;
+using Windows.ApplicationModel.Resources;
 
 namespace QuickPad.UI
 {
@@ -34,6 +35,7 @@ namespace QuickPad.UI
             services.AddSingleton<IVisualThemeSelector, VisualThemeSelector>();
             services.AddTransient<IGoToLineView, GoToLine>();
             services.AddSingleton<MainPage, MainPage>();
+            services.AddSingleton<ResourceLoader>(_ => ResourceLoader.GetForCurrentView());
 
             // Add additional services here.
         }
