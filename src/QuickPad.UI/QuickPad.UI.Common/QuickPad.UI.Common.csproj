@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" InitialTargets="CopyMAT" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -191,25 +191,6 @@
       <Project>{dd33c42d-9de7-4e74-a44d-2085764cf0c8}</Project>
       <Name>QuickPad.Mvvm</Name>
     </ProjectReference>
-    <PRIResource Include="Strings\ar-EG\Resources.resw">
-      <Link>Strings\ar-EG\Resources.resw</Link>
-    </PRIResource>
-    <PRIResource Include="Strings\en-US\Resources.resw">
-      <Link>Strings\en-US\Resources.resw</Link>
-      <SubType>Designer</SubType>
-    </PRIResource>
-    <PRIResource Include="Strings\es\Resources.resw">
-      <Link>Strings\es\Resources.resw</Link>
-    </PRIResource>
-    <PRIResource Include="Strings\fr-CA\Resources.resw">
-      <Link>Strings\fr-CA\Resources.resw</Link>
-    </PRIResource>
-    <PRIResource Include="Strings\fr-FR\Resources.resw">
-      <Link>Strings\fr-FR\Resources.resw</Link>
-    </PRIResource>
-    <PRIResource Include="Strings\it\Resources.resw">
-      <Link>Strings\it\Resources.resw</Link>
-    </PRIResource>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
@@ -218,33 +199,6 @@
     <StartupObject />
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <ItemGroup>
-    <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\es\Resources.resw" />
-    <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\fr-CA\Resources.resw" />
-    <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\fr-FR\Resources.resw" />
-    <MySourceFiles Include="C:\Users\explo\source\repos\Quick-Pad\src\QuickPad.UI\QuickPad.UI\Strings\it\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ar-EG\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\en-US\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\fr-CA\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\fr-FR\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\it\Resources.resw" />
-  </ItemGroup>
-  <Target Name="CopyMAT">
-    <Copy SourceFiles="@(MySourceFiles)" DestinationFiles="@(MySourceFiles->'$(SolutionDir)QuickPad.UI\QuickPad.UI.Common\Strings\%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
