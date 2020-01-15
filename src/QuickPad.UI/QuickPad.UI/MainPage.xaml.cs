@@ -112,6 +112,7 @@ namespace QuickPad.UI
             {
                 //Clear Jumplist
                 all.Items.Clear();
+                await all.SaveAsync();
             }
         }
 
