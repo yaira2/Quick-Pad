@@ -8,22 +8,19 @@
     mc:Ignorable="d"
     Windows10version1809:CornerRadius="4"
     Title="Welcome back to Quick Pad!"
-    x:Uid="WelcomeDialogTitle"
     Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
 
     <Grid Width="376">
         <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
-            <TextBlock FontSize="14" x:Uid="WelcomeDialogPar1" Text="After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!" TextWrapping="Wrap"/>
-            <TextBlock FontSize="14" x:Uid="WelcomeDialogPar2" Padding="0,4,0,0" Text="Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!" TextWrapping="Wrap"/>
+            <TextBlock FontSize="14" x:Name="Par1" Text="After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!" TextWrapping="Wrap"/>
+            <TextBlock FontSize="14" x:Name="Par2"  Padding="0,4,0,0" Text="Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!" TextWrapping="Wrap"/>
 
-            <Button Margin="0,12,0,0" Style="{StaticResource ButtonRevealStyle}" 
-                    Foreground="{x:Bind Settings.DefaultTextForegroundBrush, Mode=OneWay}"
-                    x:Uid="CmdLetsGo"
-                    Content="Lets go!" HorizontalAlignment="Stretch" Height="48" x:Name="CmdClose" Click="CmdClose_Click">
-                <Button.Background>
-                    <SolidColorBrush Color="{ThemeResource SystemAccentColor}"/>
-                </Button.Background>
-            </Button>
+            <Button Margin="0,12,0,0" Style="{StaticResource AccentButtonStyle}"
+                    HorizontalAlignment="Stretch" 
+                    Height="48" 
+                    Content="Lets go!"
+                    x:Name="CmdClose" 
+                    Click="CmdClose_Click"/>
         </StackPanel>
     </Grid>
 </ContentDialog>

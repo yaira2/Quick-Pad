@@ -15,6 +15,7 @@ namespace QuickPad.UI.Common.Dialogs
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
         public QuickPadCommands Commands { get; }
+        public ResourceLoader ResourceLoader { get; }
         public SettingsViewModel Settings { get; }
 
         public DocumentViewModel ViewModel
@@ -28,13 +29,17 @@ namespace QuickPad.UI.Common.Dialogs
             }
         }
 
-        public WelcomeDialog(QuickPadCommands commands
-            , SettingsViewModel settings
-            , ResourceLoader resourceLoader)
+        public WelcomeDialog(QuickPadCommands commands, SettingsViewModel settings, ResourceLoader resourceLoader)
         {
             Settings = settings;
             Commands = commands;
+            ResourceLoader = resourceLoader;
             this.InitializeComponent();
+
+            //this.Title = ResourceLoader.GetString("WelcomeDialogTitle/Title");
+            //Par1.Text = ResourceLoader.GetString("WelcomeDialogPar1/Text");
+            //Par2.Text = ResourceLoader.GetString("WelcomeDialogPar2/Text");
+            //CmdClose.Content = ResourceLoader.GetString("CmdLetsGo/Content");
         }
 
         private void CmdClose_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
