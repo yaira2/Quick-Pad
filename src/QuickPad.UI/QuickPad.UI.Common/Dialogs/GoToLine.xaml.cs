@@ -3,6 +3,7 @@ using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
+using Windows.ApplicationModel.Resources;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -25,7 +26,7 @@ namespace QuickPad.UI.Common.Dialogs
             }
         }
 
-        public GoToLine(QuickPadCommands commands)
+        public GoToLine(QuickPadCommands commands, ResourceLoader resourceLoader)
         {
             Commands = commands;
             this.InitializeComponent();

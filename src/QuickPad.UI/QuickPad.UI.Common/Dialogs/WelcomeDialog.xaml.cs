@@ -3,6 +3,7 @@ using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common.Theme;
+using Windows.ApplicationModel.Resources;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -27,7 +28,9 @@ namespace QuickPad.UI.Common.Dialogs
             }
         }
 
-        public WelcomeDialog(QuickPadCommands commands, SettingsViewModel settings)
+        public WelcomeDialog(QuickPadCommands commands
+            , SettingsViewModel settings
+            , ResourceLoader resourceLoader)
         {
             Settings = settings;
             Commands = commands;
