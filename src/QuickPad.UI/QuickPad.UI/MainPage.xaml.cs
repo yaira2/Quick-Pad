@@ -93,7 +93,7 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            //if (!SystemInformation.IsAppUpdated) return;
+            if (!SystemInformation.IsAppUpdated) return;
 
             //show the welcome dialog
             var dialog = provider.GetService<WelcomeDialog>();
