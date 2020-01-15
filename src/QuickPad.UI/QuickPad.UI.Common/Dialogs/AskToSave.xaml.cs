@@ -32,6 +32,10 @@ namespace QuickPad.UI.Common.Dialogs
             Commands = commands;
             ResourceLoader = resourceLoader;
             this.InitializeComponent();
+
+            var contentText = ResourceLoader.GetString("WouldYouLikeToSave/Text");
+
+            Content.Text = contentText;
         }
 
         private void AskToSave_OnSecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)

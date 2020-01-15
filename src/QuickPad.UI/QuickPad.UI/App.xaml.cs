@@ -21,6 +21,7 @@ using Microsoft.AppCenter;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Linq;
+using Windows.ApplicationModel.Resources;
 
 namespace QuickPad.UI
 {
@@ -100,6 +101,9 @@ namespace QuickPad.UI
 
                 if (!Resources.ContainsKey(nameof(QuickPadCommands))) Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
                 if (!Resources.ContainsKey(nameof(SettingsViewModel))) Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
+                if (!Resources.ContainsKey(nameof(ResourceLoader))) Resources.Add(nameof(ResourceLoader), ResourceLoader.GetForViewIndependentUse());
+
+                var resourceLoader = Resources[nameof(ResourceLoader)] as ResourceLoader;
 
                 // Place the frame in the current Window
                 Window.Current.Content = mainPage;
