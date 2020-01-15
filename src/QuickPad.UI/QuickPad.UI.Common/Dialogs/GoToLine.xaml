@@ -8,7 +8,6 @@
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     mc:Ignorable="d"
     Title="Go To Line"
-    x:Uid="GoToDialog"
     Windows10version1809:CornerRadius="4"    
     Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
 
@@ -19,7 +18,6 @@
         </Grid.RowDefinitions>
         <TextBox Name="GotoTextBox"
                  Header="Line number:"
-                 x:Uid="GoToLineNumber"
                  InputScope="Number"
                  TabIndex="0"
                  TextChanged="GotoTextBox_TextChanged"
@@ -31,7 +29,8 @@
         <StackPanel Orientation="Horizontal" Grid.Row="1" Padding="0,16,0,0">
             <Button Content="Go To" 
                     Width="132" 
-                    Margin="0,0,2,0" x:Uid="CmdGoTo"    
+                    Margin="0,0,2,0"
+                    x:Name="CmdGoTo"
                     Click="CmdClose_Click"
                     TabIndex="1"
                     Command="{x:Bind Commands.GoToLineCommand}" 
@@ -44,7 +43,7 @@
                     TabIndex="2"
                     Width="132"
                     Margin="2,0,0,0" 
-                    x:Uid="CmdCancel" 
+                    x:Name="CmdCancel"
                     Click="CmdClose_Click">
                 <Button.KeyboardAccelerators>
                     <KeyboardAccelerator Key="Escape" />

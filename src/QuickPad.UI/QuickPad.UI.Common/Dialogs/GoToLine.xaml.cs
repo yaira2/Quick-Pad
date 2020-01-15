@@ -13,6 +13,7 @@ namespace QuickPad.UI.Common.Dialogs
     {
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
         public QuickPadCommands Commands { get; }
+        public ResourceLoader ResourceLoader { get; }
 
         private DocumentViewModel _viewModel;
         public DocumentViewModel ViewModel
@@ -29,7 +30,13 @@ namespace QuickPad.UI.Common.Dialogs
         public GoToLine(QuickPadCommands commands, ResourceLoader resourceLoader)
         {
             Commands = commands;
+            ResourceLoader = resourceLoader;
             this.InitializeComponent();
+
+            this.Title = ResourceLoader.GetString("GoToLine/Title");
+            GotoTextBox.Header = ResourceLoader.GetString("GoToLineNumber/Header");
+            CmdGoTo.Content = ResourceLoader.GetString("CmdGoTo/Content");
+            CmdCancel.Content = ResourceLoader.GetString("CmdCancel/Content");
         }
 
         private void CmdClose_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
