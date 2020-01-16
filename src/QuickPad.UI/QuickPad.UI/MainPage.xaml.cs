@@ -529,6 +529,10 @@ namespace QuickPad.UI
             Settings.Status($"{Settings.CurrentModeText} Enabled.", TimeSpan.FromSeconds(5), Verbosity.Debug);
         }
 
+        private void RichEditBox_OnContextMenuOpening(object sender, ContextMenuEventArgs e)
+        {
+        }
+
         private void TextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             GetPosition(TextBox.SelectionStart + TextBox.SelectionLength);

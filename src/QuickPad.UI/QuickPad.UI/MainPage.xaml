@@ -114,6 +114,7 @@
                          Drop="OnDrop"
                          TextChanged="RichEditBox_TextChanged"
                          SelectionChanged="RichEditBox_OnSelectionChanged"
+                         ContextMenuOpening="RichEditBox_OnContextMenuOpening"
                          Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType), Mode=OneWay}"
                          TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}" 
                          IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
