@@ -46,6 +46,12 @@
                     <KeyboardAccelerator Key="Enter" />
                 </Button.KeyboardAccelerators>
             </Button>
+            <Button
+                x:Uid="CmdCancel"
+                Width="132"
+                Margin="4,0,0,0"
+                Click="CmdClose_Click"
+                Content="Cancel"/>
         </StackPanel>
     </Grid>
 </ContentDialog>
