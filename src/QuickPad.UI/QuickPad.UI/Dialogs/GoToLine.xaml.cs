@@ -38,6 +38,8 @@ namespace QuickPad.UI.Dialogs
         {
             Commands = commands;
             this.InitializeComponent();
+
+            base.Closed += (sender, args) => this.Closed?.Invoke();
         }
 
         private void CmdClose_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
@@ -76,5 +78,7 @@ namespace QuickPad.UI.Dialogs
                 }
             }
         }
+
+        public new event Action Closed;
     }
 }

@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using QuickPad.Data;
 using QuickPad.Mvc;
 using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Managers;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
@@ -192,7 +193,10 @@ namespace QuickPad.UI.Helpers
                     };
                 }
 
-                var dialog = ServiceProvider.GetService<AskToSave>();
+                var (success, dialog) = ServiceProvider.GetService<DialogManager>().RequestDialog<AskToSave>();
+
+                if (!success) return SaveState.Canceled;
+
                 dialog.ViewModel = documentViewModel;
 
                 var result = await dialog.ShowAsync();
@@ -200,10 +204,10 @@ namespace QuickPad.UI.Helpers
                 return result switch
                 {
                     ContentDialogResult.Primary => await Yes(),
-                    ContentDialogResult.Secondary => (isClosing 
-                        ? (Close(documentViewModel) == DeferredState.Deferred 
-                            ? SaveState.DeferredNotSaved 
-                            : SaveState.UnDeferredNotSaved) 
+                    ContentDialogResult.Secondary => (isClosing
+                        ? (Close(documentViewModel) == DeferredState.Deferred
+                            ? SaveState.DeferredNotSaved
+                            : SaveState.UnDeferredNotSaved)
                         : SaveState.Unsaved),
                     _ => SaveState.Canceled
                 };
@@ -211,7 +215,14 @@ namespace QuickPad.UI.Helpers
 
             protected override async Task LoadDocument(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel)
             {
+                if (ServiceProvider.GetService<DialogManager>().CurrentDialogView != null)
+                {
+                    Logger.LogCritical("There is already a dialog open.");
+                    return;
+                }
+
                 if (documentViewModel.Document.IsDirty)
+
                 {
                     if ((await AskSaveDocument(documentViewModel, false)) == SaveState.Canceled) return;
                 }
@@ -375,6 +386,8 @@ namespace QuickPad.UI.Helpers
 
             protected override async Task<SaveState> SaveDocument(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel, bool saveAs)
             {
+                if (ServiceProvider.GetService<DialogManager>().CurrentDialogView != null) return SaveState.Canceled;
+
                 documentViewModel.HoldUpdates();
 
                 if (documentViewModel.File == null || saveAs)

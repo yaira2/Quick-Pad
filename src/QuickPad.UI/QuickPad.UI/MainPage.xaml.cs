@@ -28,9 +28,12 @@ using Windows.UI.StartScreen;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
 using Windows.UI.Xaml.Media.Imaging;
+using QuickPad.Mvc;
+using QuickPad.Mvvm.Managers;
 using QuickPad.UI.Dialogs;
 using QuickPad.UI.Helpers;
 using QuickPad.UI.Theme;
+using Microsoft.Extensions.DependencyInjection;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -100,7 +103,10 @@ namespace QuickPad.UI
             if (!SystemInformation.IsAppUpdated) return;
 
             //show the welcome dialog
-            var dialog = provider.GetService<WelcomeDialog>();
+            var (success, dialog) = provider.GetService<DialogManager>().RequestDialog<WelcomeDialog>();
+
+            if (!success) return;
+            
             _ = dialog.ShowAsync();
 
             ClearJumplist();
@@ -302,6 +308,13 @@ namespace QuickPad.UI
 
         private async void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
+            if (App.Services.GetService<DialogManager>().CurrentDialogView != null)
+            {
+                e.Handled = true;
+                Logger.LogCritical("Already a dialog open.");
+                return;
+            }
+
             ViewModel.Deferral = e.GetDeferral();
 
             if (ExitApplication == null) ((Windows.Foundation.Deferral)ViewModel.Deferral).Complete();

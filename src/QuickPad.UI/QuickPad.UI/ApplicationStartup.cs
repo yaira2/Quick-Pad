@@ -8,6 +8,7 @@ using QuickPad.Mvc;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Commands.Actions;
+using QuickPad.Mvvm.Managers;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Commands;
@@ -38,6 +39,7 @@ namespace QuickPad.UI
 
             services.AddSingleton<IVisualThemeSelector, VisualThemeSelector>();
 
+            services.AddSingleton<DialogManager, DialogManager>();
             services.AddTransient<AskToSave, AskToSave>();
             services.AddTransient<WelcomeDialog, WelcomeDialog>();
             services.AddTransient<IGoToLineView<StorageFile, IRandomAccessStream>, GoToLine>();
