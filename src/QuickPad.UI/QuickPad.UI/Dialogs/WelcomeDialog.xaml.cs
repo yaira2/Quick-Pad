@@ -1,8 +1,10 @@
-﻿using Windows.ApplicationModel.Resources;
+﻿using System;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
+using QuickPad.Mvvm.Views;
 using QuickPad.UI.Helpers;
 using QuickPad.UI.Theme;
 
@@ -10,7 +12,7 @@ using QuickPad.UI.Theme;
 
 namespace QuickPad.UI.Dialogs
 {
-    public sealed partial class WelcomeDialog
+    public sealed partial class WelcomeDialog : IDialogView
     {
         private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
@@ -44,11 +46,15 @@ namespace QuickPad.UI.Dialogs
             //Par1.Text = ResourceLoader.GetString("WelcomeDialogPar1/Text");
             //Par2.Text = ResourceLoader.GetString("WelcomeDialogPar2/Text");
             //CmdClose.Content = ResourceLoader.GetString("CmdLetsGo/Content");
+
+            base.Closed += (sender, args) => this.Closed?.Invoke();
         }
 
         private void CmdClose_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Hide();
         }
+
+        public new event Action Closed;
     }
 }

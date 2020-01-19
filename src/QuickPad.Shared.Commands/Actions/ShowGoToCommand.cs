@@ -3,6 +3,7 @@ using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using System;
 using System.Threading.Tasks;
+using QuickPad.Mvvm.Managers;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {
@@ -13,7 +14,10 @@ namespace QuickPad.Mvvm.Commands.Actions
         {
             Executioner = viewModel =>
             {
-                var dialog = provider.GetService<IGoToLineView<TStorageFile, TStream>>();
+                var (status, dialog) = provider.GetService<DialogManager>().RequestDialog<IGoToLineView<TStorageFile, TStream>>();
+
+                if (!status) return Task.FromException(new ApplicationException("There is already an open dialog."));
+
                 dialog.ViewModel = viewModel;
                 viewModel.LineToGoTo = viewModel.CurrentLine;
                 _ = dialog.ShowAsyncByTask();

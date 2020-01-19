@@ -20,7 +20,9 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Graphics.Canvas.Text;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Newtonsoft.Json;
+using QuickPad.Mvc;
 using QuickPad.Mvvm;
+using QuickPad.Mvvm.Managers;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Theme;
@@ -211,6 +213,12 @@ namespace QuickPad.UI.Helpers
 
         public override async Task ImportSettings()
         {
+            if (ServiceProvider.GetService<DialogManager>().CurrentDialogView != null)
+            {
+                Logger.LogCritical("There is already a dialog open.");
+                return;
+            }
+
             var picker = new FileOpenPicker
             {
                 ViewMode = PickerViewMode.Thumbnail,
@@ -240,6 +248,12 @@ namespace QuickPad.UI.Helpers
 
         public override async Task ExportSettings()
         {
+            if (ServiceProvider.GetService<DialogManager>().CurrentDialogView != null)
+            {
+                Logger.LogCritical("There is a dialog already open.  Cannot open another.");
+                return;
+            }
+
             var savePicker = new FileSavePicker
             {
                 SuggestedStartLocation = PickerLocationId.DocumentsLibrary

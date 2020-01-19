@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace QuickPad.Mvvm.Views
 {
-    public interface IGoToLineView<TStorageFile, TStream>
+    public interface IGoToLineView<TStorageFile, TStream> : IDialogView
         where TStream : class
     {
         DocumentViewModel<TStorageFile, TStream> ViewModel { get; set; }

@@ -61,5 +61,12 @@ namespace QuickPad.Mvvm.ViewModels
                 : viewModel.CurrentPosition.start;
         
         private enum SearchDirection { Forwards = 1, Backwards = 0 }
+
+        public void InvokeClosed()
+        {
+            Closed?.Invoke();
+        }
+
+        public event Action Closed;
     }
 }
