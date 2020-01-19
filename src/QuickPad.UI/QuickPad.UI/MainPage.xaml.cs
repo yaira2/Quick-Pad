@@ -456,13 +456,6 @@ namespace QuickPad.UI
             var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows) .HasFlag(CoreVirtualKeyStates.Down);
             var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows) .HasFlag(CoreVirtualKeyStates.Down);
 
-            //ctrl + alt + c
-            //show clippy
-            if (controlDown & menuDown & args.Key == VirtualKey.C)
-            {
-                ViewModel.ShowClippy = true;
-            }
-
             //ctrl + +
             //zoom in
             if (controlDown & args.Key == (VirtualKey)187)
@@ -685,59 +678,6 @@ namespace QuickPad.UI
                 CommandParameter = ViewModel
             };
             primaryCommands.Add(searchCommandBarGoogle);
-        }
-
-        private void ClippyGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
-        {
-            this.ClippyGrid_Transform.TranslateX += e.Delta.Translation.X;
-            this.ClippyGrid_Transform.TranslateY += e.Delta.Translation.Y;
-        }
-
-        private async void AnimateClippy_Click(object sender, RoutedEventArgs e)
-        {
-            //generate a random number
-            Random r = new Random();
-            int rInt = r.Next(0, 6);
-
-            //disable the animate button untill the animation is complete
-            AnimateClippy.IsEnabled = false;
-
-            switch (rInt)
-            {
-                case 0:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation1.gif"));
-                    await Task.Delay(2000);
-                    break;
-                case 1:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation2.gif"));
-                    await Task.Delay(4000);
-                    break;
-                case 2:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation3.gif"));
-                    await Task.Delay(3500);
-                    break;
-                case 3:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation4.gif"));
-                    await Task.Delay(8000);
-                    break;
-                case 4:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation5.gif"));
-                    await Task.Delay(6000);
-                    break;
-                case 5:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation6.gif"));
-                    await Task.Delay(4000);
-                    break;
-                default:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///clip.gif"));
-                    break;
-            }
-
-            //set clippy to show the main animation
-            Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///clip.gif"));
-
-            //enable the animate button since animation is complete
-            AnimateClippy.IsEnabled = true;
         }
     }
 }
