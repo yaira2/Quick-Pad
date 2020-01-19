@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common.Theme;
 using QuickPad.Mvvm.Commands;
@@ -12,12 +14,12 @@ namespace QuickPad.UI.Controls.Settings
     public sealed partial class About : Page
     {
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
-        public SettingsViewModel Settings => App.Settings;
-        public QuickPadCommands Commands => App.Commands;
+        public WindowsSettingsViewModel Settings => App.Settings;
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands => App.Commands;
 
-        public DocumentViewModel ViewModel
+        public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
-            get => DataContext as DocumentViewModel;
+            get => DataContext as DocumentViewModel<StorageFile, IRandomAccessStream>;
             set
             {
                 if (value == null || DataContext == value) return;

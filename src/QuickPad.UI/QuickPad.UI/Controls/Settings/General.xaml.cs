@@ -11,7 +11,7 @@ namespace QuickPad.UI.Controls.Settings
     public sealed partial class General : Page
     {
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
-        public SettingsViewModel Settings { get; } = App.Settings;
+        public WindowsSettingsViewModel Settings { get; } = App.Settings;
      
         public General()
         {

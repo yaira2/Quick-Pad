@@ -33,7 +33,7 @@
                     <KeyboardAccelerator Modifiers="Menu" Key="Down"/>
                 </Button.KeyboardAccelerators>
                 <ToolTipService.ToolTip>
-                    <TextBlock Text="Close Compact Overlay" x:Uid="CloseCompactOverlay"/>
+                    <TextBlock Text="Close Compact Overlay" x:Uid="CloseCompactOverlayCommand"/>
                 </ToolTipService.ToolTip>
             </Button>
 

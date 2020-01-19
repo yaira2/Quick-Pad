@@ -10,7 +10,7 @@ namespace QuickPad.UI.Controls.Settings
     public sealed partial class Theme : Page
     {
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
-        public SettingsViewModel Settings => App.Settings;
+        public WindowsSettingsViewModel Settings => App.Settings;
 
         public Theme()
         {

@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
@@ -12,27 +14,27 @@ namespace QuickPad.UI.Controls
 {
     public sealed partial class FindAndReplaceView : UserControl
     {
-        private DocumentViewModel _documentViewModel;
+        private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
-        public SettingsViewModel Settings => App.Settings;
+        public WindowsSettingsViewModel Settings => App.Settings;
 
-        public QuickPadCommands Commands => App.Commands;
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands => App.Commands;
 
-        public IFindAndReplaceView ViewModel => DocumentViewModel?.FindAndReplaceViewModel;
+        public IFindAndReplaceView<StorageFile, IRandomAccessStream> FindReplaceViewModel => ViewModel?.FindAndReplaceViewModel;
         
-        public DocumentViewModel DocumentViewModel
+        public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
-            get => _documentViewModel;
+            get => _viewModel;
             set
             {
-                if (_documentViewModel == value || value == null) return;
+                if (_viewModel == value || value == null) return;
 
-                _documentViewModel = value;
+                _viewModel = value;
 
-                DataContext = _documentViewModel.FindAndReplaceViewModel;
+                DataContext = _viewModel.FindAndReplaceViewModel;
 
-                App.Controller.AddView(ViewModel);
+                App.Controller.AddView(FindReplaceViewModel);
             }
         }
 
@@ -40,9 +42,9 @@ namespace QuickPad.UI.Controls
         {
             this.InitializeComponent();
 
-            if (ViewModel != null)
+            if (FindReplaceViewModel != null)
             {
-                DataContext = ViewModel;
+                DataContext = FindReplaceViewModel;
             }
         }
     }

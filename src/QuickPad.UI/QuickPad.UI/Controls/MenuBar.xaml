@@ -295,7 +295,7 @@
         </MenuBar>
         
         <controls:TeachingTip 
-            x:Uid="CompactOverlayTip"
+            x:Uid="CompactOverlayCommandTip"
             Title="Keep on top of other Windows" 
             Target="{x:Bind CompactOverlayButton}" 
             PreferredPlacement="LeftBottom"                   
@@ -312,7 +312,7 @@
                     <FontIcon Glyph="&#xEE49;" FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets"/>
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
-                    <TextBlock x:Uid="CompactOverlayTooltip" Text="Compact Overlay (Alt + Up)"/>
+                    <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)"/>
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton x:Uid="SettingsLabel" Width="Auto" MinWidth="40" Icon="Setting"

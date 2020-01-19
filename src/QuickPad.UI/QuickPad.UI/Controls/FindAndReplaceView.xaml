@@ -16,8 +16,7 @@
     </UserControl.Resources>
     <Grid x:Name="ContentHolderContent" Width="356" CornerRadius="4" 
           Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
-          Padding="4" 
-          d:DataContext="{d:DesignInstance viewModels:FindAndReplaceViewModel}">
+          Padding="4">
         <!-- Grid Definitions -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -41,10 +40,10 @@
                           Height="32"
                           VerticalAlignment="Center"
                           BorderThickness="1" 
-                          IsChecked="{x:Bind DocumentViewModel.ShowReplace, Mode=TwoWay}"
+                          IsChecked="{x:Bind ViewModel.ShowReplace, Mode=TwoWay}"
                           Style="{ThemeResource ToggleButtonRevealStyle}"
                           Margin="4">
-            <FontIcon Glyph="{x:Bind DocumentViewModel.ShowReplaceIcon, Mode=OneWay}" FontSize="16"/>
+            <FontIcon Glyph="{x:Bind ViewModel.ShowReplaceIcon, Mode=OneWay}" FontSize="16"/>
             <ToolTipService.ToolTip>
                 <TextBlock x:Uid="FindMore" Text="More..."/>
             </ToolTipService.ToolTip>
@@ -58,10 +57,10 @@
                      VerticalAlignment="Center"
                      x:Uid="FindFilter"
                      Margin="4"
-                     Text="{x:Bind ViewModel.SearchPattern, Mode=TwoWay}">
+                     Text="{x:Bind FindReplaceViewModel.SearchPattern, Mode=TwoWay}">
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="TextChanged">
-                    <core:InvokeCommandAction Command="{x:Bind Commands.FindNextCommand}" CommandParameter="{x:Bind DocumentViewModel}"/>
+                    <core:InvokeCommandAction Command="{x:Bind Commands.FindNextCommand}" CommandParameter="{x:Bind ViewModel}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
         </TextBox>
@@ -75,7 +74,7 @@
                     Height="32"
                     Style="{ThemeResource SplitButtonRevealStyle}" 
                     Command="{x:Bind Commands.FindNextCommand}"
-                    CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}">
+                    CommandParameter="{x:Bind ViewModel, Mode=OneWay}">
             <StackPanel>
                 <FontIcon Glyph="&#xE0AB;" FontSize="16"/>
                 <ToolTipService.ToolTip>
@@ -87,7 +86,7 @@
                     <MenuFlyoutItem x:Uid="FindNext"
                                     Text="Find Next" 
                                     Command="{x:Bind Commands.FindNextCommand}"
-                                    CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}">
+                                    CommandParameter="{x:Bind ViewModel, Mode=OneWay}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE0AB;"/>
                         </MenuFlyoutItem.Icon>
@@ -98,7 +97,7 @@
                     <MenuFlyoutItem x:Uid="FindPrevious"
                                     Text="Find Previous" 
                                     Command="{x:Bind Commands.FindPreviousCommand}"
-                                    CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}">
+                                    CommandParameter="{x:Bind ViewModel, Mode=OneWay}">
                         <MenuFlyoutItem.Icon>
                             <FontIcon Glyph="&#xE0A6;" />
                         </MenuFlyoutItem.Icon>
@@ -116,7 +115,7 @@
                     Width="32"
                     Height="32" 
                     Command="{x:Bind Commands.HideFindCommand}"
-                    CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
+                    CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
             <FontIcon Glyph="&#xE10A;" FontSize="16"/>
             <ToolTipService.ToolTip>
@@ -140,20 +139,20 @@
                      HorizontalAlignment="Stretch" 
                      VerticalAlignment="Center"
                      Margin="4"
-                     Text="{x:Bind ViewModel.ReplacePattern, Mode=TwoWay}"
+                     Text="{x:Bind FindReplaceViewModel.ReplacePattern, Mode=TwoWay}"
                      PlaceholderText="Replace with.."
                      x:Uid="FindReplaceWith"
-                     Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}"/>
+                     Visibility="{x:Bind ViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}"/>
 
         <StackPanel Grid.Row="1"
-                    Grid.Column="2" Orientation="Horizontal" Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
+                    Grid.Column="2" Orientation="Horizontal" Visibility="{x:Bind ViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
         <!-- Replace button -->
         <Button Padding="4" 
                     Margin="4"
                     Width="32"
                     Height="32" 
                     Command="{x:Bind Commands.ReplaceNextCommand}"
-                    CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
+                    CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
             <FontIcon Glyph="&#xE8AC;" FontSize="16"/>
             <ToolTipService.ToolTip>
@@ -167,7 +166,7 @@
                     Width="34"
                     Height="32" 
                     Command="{x:Bind Commands.ReplaceAllCommand}"
-                    CommandParameter="{x:Bind DocumentViewModel, Mode=OneWay}"
+                    CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
                     Style="{ThemeResource ButtonRevealStyle}">
             <FontIcon Glyph="&#xE8B3;" FontSize="16"/>
             <ToolTipService.ToolTip>
@@ -179,11 +178,11 @@
 
 
         <!-- Options Row (Third) -->
-        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Visibility="{x:Bind DocumentViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
+        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Visibility="{x:Bind ViewModel.ShowReplace, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToggleButton Content="&#xE8E9;"
                       FontFamily="Segoe MDL2 Assets"
                       IsEnabled="{Binding UseRegex, Converter={StaticResource Converter}, ConverterParameter=Invert, Mode=OneWay}"
-                      IsChecked="{x:Bind ViewModel.MatchCase, Mode=TwoWay}" 
+                      IsChecked="{x:Bind FindReplaceViewModel.MatchCase, Mode=TwoWay}" 
                       Padding="4" 
                       Margin="4"
                       Width="32"
@@ -202,7 +201,7 @@
                 Margin="4"
                 Width="32"
                 Height="32"
-                IsChecked="{x:Bind ViewModel.UseRegex, Mode=TwoWay}"
+                IsChecked="{x:Bind FindReplaceViewModel.UseRegex, Mode=TwoWay}"
                 Style="{ThemeResource ToggleButtonRevealStyle}">
                     <FontIcon FontFamily="{StaticResource RegExIcon}" Glyph="&#xEB38;" FontSize="16"/>
                     <ToolTipService.ToolTip>

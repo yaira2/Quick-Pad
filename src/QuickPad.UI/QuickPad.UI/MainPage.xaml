@@ -86,7 +86,7 @@
                                   Visibility="{x:Bind ViewModel.ShowFind, Mode=OneWay}"  >
                     <controls3:FindAndReplaceView Canvas.ZIndex="100" 
                                           x:Name="FindAndReplaceView"
-                                          DocumentViewModel="{x:Bind ViewModel, Mode=OneWay}"/>
+                                          ViewModel="{x:Bind ViewModel, Mode=OneWay}"/>
                 </controls1:DropShadowPanel>
 
 

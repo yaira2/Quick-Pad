@@ -1,4 +1,6 @@
-﻿using Windows.UI.Xaml.Controls;
+﻿using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
@@ -13,9 +15,9 @@ namespace QuickPad.UI.Controls.Settings
     {
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
         
-        public SettingsViewModel Settings { get; } = App.Settings;
+        public WindowsSettingsViewModel Settings { get; } = App.Settings;
 
-        public QuickPadCommands Commands => App.Commands;
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands => App.Commands;
 
         public Advanced()
         {

@@ -28,7 +28,7 @@ namespace QuickPad.UI.Controls.Settings
         {
             switch (e.PropertyName)
             {
-                case nameof(SettingsViewModel.ShowSettingsTab):
+                case nameof(WindowsSettingsViewModel.ShowSettingsTab):
                     settingNavView.SelectedItem = settingNavView.MenuItems[(int)App.Settings.ShowSettingsTab];
                     ShowTab(App.Settings.ShowSettingsTab);
                     break;

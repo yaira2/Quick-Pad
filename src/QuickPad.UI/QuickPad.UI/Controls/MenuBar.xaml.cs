@@ -1,4 +1,6 @@
 ﻿using System.ComponentModel;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Commands;
@@ -15,13 +17,13 @@ namespace QuickPad.UI.Controls
     {
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
-        public SettingsViewModel Settings => App.Settings;
+        public WindowsSettingsViewModel Settings => App.Settings;
 
-        public QuickPadCommands Commands => App.Commands;
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands => App.Commands;
 
-        public DocumentViewModel ViewModel
+        public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
-            get => DataContext as DocumentViewModel;
+            get => DataContext as DocumentViewModel<StorageFile, IRandomAccessStream>;
             set
             {
                 if (value == null || DataContext == value) return;
@@ -30,7 +32,7 @@ namespace QuickPad.UI.Controls
             }
         }
 
-        public DocumentModel ViewModelDocument => ViewModel.Document;
+        public DocumentModel<StorageFile, IRandomAccessStream> ViewModelDocument => ViewModel.Document;
 
         public MenuBar()
         {
@@ -43,7 +45,7 @@ namespace QuickPad.UI.Controls
         {
             switch (e.PropertyName)
             {
-                case nameof(SettingsViewModel.CurrentMode):
+                case nameof(WindowsSettingsViewModel.CurrentMode):
                     Bindings.Update();
                     break;
             }

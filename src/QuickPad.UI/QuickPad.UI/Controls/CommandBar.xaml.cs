@@ -1,6 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
@@ -27,13 +29,13 @@ namespace QuickPad.UI.Controls
 
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
-        public SettingsViewModel Settings => App.Settings;
+        public WindowsSettingsViewModel Settings => App.Settings;
         
-        public QuickPadCommands Commands => App.Commands;
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands => App.Commands;
 
-        public DocumentViewModel ViewModel
+        public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
-            get => DataContext as DocumentViewModel;
+            get => DataContext as DocumentViewModel<StorageFile, IRandomAccessStream>;
             set
             {
                 if (value == null || DataContext == value) return;
@@ -44,10 +46,10 @@ namespace QuickPad.UI.Controls
             }
         }
 
-        public DocumentModel ViewModelDocument => ViewModel.Document;
+        public DocumentModel<StorageFile, IRandomAccessStream> ViewModelDocument => ViewModel.Document;
 
         public static DependencyProperty ViewModelProperty =
-            DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel), typeof(CommandBar), null);
+            DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel<StorageFile, IRandomAccessStream>), typeof(CommandBar), null);
 
         private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {

@@ -16,6 +16,7 @@
     <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -120,6 +121,15 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Commands\Clipboard\ContentChangedCommand.cs" />
+    <Compile Include="Commands\Clipboard\CopyCommand.cs" />
+    <Compile Include="Commands\Clipboard\CutCommand.cs" />
+    <Compile Include="Commands\Clipboard\DeleteCommand.cs" />
+    <Compile Include="Commands\Clipboard\PasteCommand.cs" />
+    <Compile Include="Commands\CompactOverlayCommand.cs" />
+    <Compile Include="Commands\EmojiCommand.cs" />
+    <Compile Include="Commands\RateAndReviewCommand.cs" />
+    <Compile Include="Commands\ShareCommand.cs" />
     <Compile Include="Dialogs\WelcomeDialog.xaml.cs">
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
     </Compile>
@@ -129,10 +139,21 @@
     <Compile Include="Dialogs\GoToLine.xaml.cs">
       <DependentUpon>GoToLine.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\WindowsDocumentManager.cs" />
+    <Compile Include="Helpers\DisplayMode.cs" />
     <Compile Include="Helpers\IntCompare.cs" />
     <Compile Include="Helpers\RtfDocument.cs" />
     <Compile Include="Helpers\TextDocument.cs" />
     <Compile Include="Helpers\TextOptionsConverters.cs" />
+    <Compile Include="Helpers\WindowsDocumentViewModelStrings.cs" />
+    <Compile Include="Helpers\WindowsSettingsModel.cs" />
+    <Compile Include="Helpers\WindowsSettingsViewModel.cs" />
+    <Compile Include="Theme\DefaultTextForegroundColor.cs" />
+    <Compile Include="Theme\IVisualThemeSelector.cs" />
+    <Compile Include="Theme\ThemeChangedEventArgs.cs" />
+    <Compile Include="Theme\ThemeChangedEventHandler.cs" />
+    <Compile Include="Theme\VisualTheme.cs" />
+    <Compile Include="Theme\VisualThemeKind.cs" />
     <Compile Include="Theme\VisualThemeSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\QuickPad.UI.Common.rd.xml" />
@@ -190,10 +211,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\QuickPad.Services\QuickPad.Mvvm\QuickPad.Mvvm.csproj">
-      <Project>{dd33c42d-9de7-4e74-a44d-2085764cf0c8}</Project>
-      <Name>QuickPad.Mvvm</Name>
-    </ProjectReference>
     <PRIResource Include="Strings\ar-EG\Resources.resw">
       <Link>Strings\ar-EG\Resources.resw</Link>
     </PRIResource>
@@ -252,6 +269,25 @@
       <HintPath>C:\Program Files (x86)\Windows Kits\10\References\10.0.18362.0\Windows.Foundation.UniversalApiContract\8.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\QuickPad.Data\QuickPad.Data\QuickPad.Data.csproj">
+      <Project>{4092441F-4F90-4DF6-B68C-6EC27AC22CA2}</Project>
+      <Name>QuickPad.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuickPad.Standard.Data\QuickPad.Standard.Data.csproj">
+      <Project>{ef407a85-3916-4b4d-ac88-59709e3e9542}</Project>
+      <Name>QuickPad.Standard.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuickPad.Standard.Mvc\QuickPad.Standard.Mvc.csproj">
+      <Project>{6F4E3759-FF34-4ABE-BCE2-35078E27A681}</Project>
+      <Name>QuickPad.Standard.Mvc</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuickPad.Standard.Mvvm\QuickPad.Standard.Mvvm.csproj">
+      <Project>{E6A773FB-DBF3-4E5A-A585-400E8A83FE7C}</Project>
+      <Name>QuickPad.Standard.Mvvm</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\..\QuickPad.Shared.Commands\QuickPad.Shared.Commands.projitems" Label="Shared" />
   <Target Name="CopyMAT">
     <Copy SourceFiles="@(MySourceFiles)" DestinationFiles="@(MySourceFiles->'$(SolutionDir)QuickPad.UI\QuickPad.UI.Common\Strings\%(RecursiveDir)%(Filename)%(Extension)')" />
   </Target>

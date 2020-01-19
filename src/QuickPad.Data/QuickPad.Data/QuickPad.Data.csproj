@@ -132,10 +132,7 @@
   <ItemGroup>
     <Compile Include="EncodingReader.cs" />
     <Compile Include="EncodingWriter.cs" />
-    <Compile Include="FileDataProvider.cs" />
-    <Compile Include="Interfaces\IDataProvider.cs" />
-    <Compile Include="Interfaces\IReader.cs" />
-    <Compile Include="Interfaces\IWriter.cs" />
+    <Compile Include="StorageFileDataProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\QuickPad.Data.rd.xml" />
   </ItemGroup>
@@ -174,7 +171,12 @@
       <Version>2.3.191211002</Version>
     </PackageReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\QuickPad.Standard.Data\QuickPad.Standard.Data.csproj">
+      <Project>{ef407a85-3916-4b4d-ac88-59709e3e9542}</Project>
+      <Name>QuickPad.Standard.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

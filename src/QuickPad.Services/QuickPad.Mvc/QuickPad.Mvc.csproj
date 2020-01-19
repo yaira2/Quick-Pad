@@ -130,11 +130,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ApplicationController.cs" />
-    <Compile Include="ApplicationController.DocumentManager.cs" />
-    <Compile Include="ApplicationController.FindAndReplaceManager.cs" />
-    <Compile Include="Hosting\ApplicationHost.cs" />
-    <Compile Include="Hosting\Extensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\QuickPad.MVC.rd.xml" />
   </ItemGroup>
@@ -177,6 +172,10 @@
     <ProjectReference Include="..\..\QuickPad.Data\QuickPad.Data\QuickPad.Data.csproj">
       <Project>{4092441f-4f90-4df6-b68c-6ec27ac22ca2}</Project>
       <Name>QuickPad.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\QuickPad.Standard.Data\QuickPad.Standard.Data.csproj">
+      <Project>{ef407a85-3916-4b4d-ac88-59709e3e9542}</Project>
+      <Name>QuickPad.Standard.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\\QuickPad.UI\QuickPad.UI.Common\QuickPad.UI.Common.csproj">
       <Project>{cbc34766-2d70-47eb-8ddb-bf9a57ec4b4d}</Project>

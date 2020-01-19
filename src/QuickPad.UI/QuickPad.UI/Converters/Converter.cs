@@ -8,6 +8,8 @@ using Windows.UI.Xaml.Media;
 using System.Linq;
 using Windows.UI.Xaml.Data;
 using System.Text;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Common.Helpers;
@@ -227,7 +229,7 @@ namespace QuickPad.UI.Converters
             if (targetType == typeof(bool) && value is bool toInvert && parameter is string param)
                 return Converter.Invert(toInvert);
             if (targetType == typeof(string) && value is Encoding encoding) return encoding.EncodingName;
-            if (targetType == typeof(DisabledFormattingAccelerators) && value is DocumentViewModel viewModel)
+            if (targetType == typeof(DisabledFormattingAccelerators) && value is DocumentViewModel<StorageFile, IRandomAccessStream> viewModel)
                 return viewModel.CurrentFileType switch
                 {
                     ".rtf" => DisabledFormattingAccelerators.None,

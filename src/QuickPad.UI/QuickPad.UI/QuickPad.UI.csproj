@@ -364,13 +364,14 @@
       <Project>{4092441f-4f90-4df6-b68c-6ec27ac22ca2}</Project>
       <Name>QuickPad.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\QuickPad.Services\QuickPad.Mvc\QuickPad.Mvc.csproj">
-      <Project>{e52dcfa1-7afc-463d-b71e-98b6bf0bd700}</Project>
-      <Name>QuickPad.Mvc</Name>
+    <ProjectReference Include="..\..\QuickPad.Standard.Mvc\QuickPad.Standard.Mvc.csproj">
+      <Project>{6F4E3759-FF34-4ABE-BCE2-35078E27A681}</Project>
+      <Name>QuickPad.Standard.Mvc</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\QuickPad.Services\QuickPad.Mvvm\QuickPad.Mvvm.csproj">
-      <Project>{dd33c42d-9de7-4e74-a44d-2085764cf0c8}</Project>
-      <Name>QuickPad.Mvvm</Name>
+    <ProjectReference Include="..\..\QuickPad.Standard.Mvvm\QuickPad.Standard.Mvvm.csproj">
+      <Project>{E6A773FB-DBF3-4E5A-A585-400E8A83FE7C}</Project>
+      <Name>QuickPad.Standard.Mvvm</Name>
+      <Aliases>global</Aliases>
     </ProjectReference>
     <ProjectReference Include="..\..\QuickPad.UI\QuickPad.UI.Common\QuickPad.UI.Common.csproj">
       <Project>{cbc34766-2d70-47eb-8ddb-bf9a57ec4b4d}</Project>

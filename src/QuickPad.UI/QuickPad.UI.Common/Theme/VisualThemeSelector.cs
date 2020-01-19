@@ -6,6 +6,8 @@ using System.Runtime.CompilerServices;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources;
 using Windows.Foundation;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.ViewManagement;
@@ -26,7 +28,7 @@ namespace QuickPad.UI.Common.Theme
         private readonly ResourceLoader _loader = ResourceLoader.GetForViewIndependentUse();
         private const string LIGHT_KEY = "light";
         private const string DARK_KEY = "dark";
-        private readonly SettingsViewModel _settingsViewModel;
+        private readonly WindowsSettingsViewModel _settingsViewModel;
         private readonly List<VisualTheme> _themes;
         private ThemeChangedEventHandler _themeChanged;
 
@@ -72,7 +74,7 @@ namespace QuickPad.UI.Common.Theme
 
         public VisualThemeSelector(
             IServiceProvider serviceProvider
-            , SettingsViewModel settingsViewModel
+            , WindowsSettingsViewModel settingsViewModel
             , ResourceDictionary resources)
         {
             ServiceProvider = serviceProvider;
@@ -107,7 +109,7 @@ namespace QuickPad.UI.Common.Theme
 
         private void SettingsViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if (e.PropertyName == nameof(SettingsViewModel.CustomThemeId) &&
+            if (e.PropertyName == nameof(WindowsSettingsViewModel.CustomThemeId) &&
                 CurrentItem.ThemeId != _settingsViewModel.CustomThemeId)
             {
                 SelectFromId(_settingsViewModel.CustomThemeId);

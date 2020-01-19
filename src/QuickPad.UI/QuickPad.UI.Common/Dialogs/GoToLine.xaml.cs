@@ -1,4 +1,9 @@
-﻿using QuickPad.UI.Common.Theme;
+﻿using System;
+using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Controls;
+using QuickPad.UI.Common.Theme;
 using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
@@ -8,13 +13,13 @@ using QuickPad.Mvvm.Views;
 
 namespace QuickPad.UI.Common.Dialogs
 {
-    public sealed partial class GoToLine : IGoToLineView
+    public sealed partial class GoToLine : IGoToLineView<StorageFile, IRandomAccessStream>
     {
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
-        public QuickPadCommands Commands { get; }
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands { get; }
 
-        private DocumentViewModel _viewModel;
-        public DocumentViewModel ViewModel
+        private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
+        public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
             get => _viewModel;
             set
@@ -25,7 +30,12 @@ namespace QuickPad.UI.Common.Dialogs
             }
         }
 
-        public GoToLine(QuickPadCommands commands)
+        public async Task<bool> ShowAsyncByTask()
+        {
+            return (await ShowAsync(ContentDialogPlacement.Popup).AsTask<ContentDialogResult>()) == ContentDialogResult.Primary;
+        }
+
+        public GoToLine(QuickPadCommands<StorageFile, IRandomAccessStream> commands)
         {
             Commands = commands;
             this.InitializeComponent();
