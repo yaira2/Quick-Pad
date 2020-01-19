@@ -1,5 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" InitialTargets="CopyMAT" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -166,25 +165,25 @@
       <Version>2.6.4</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration">
-      <Version>3.1.0</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection">
-      <Version>3.1.0</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions">
-      <Version>3.1.0</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Hosting">
-      <Version>3.1.0</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging">
-      <Version>3.1.0</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Console">
-      <Version>3.1.0</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug">
-      <Version>3.1.0</Version>
+      <Version>3.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
@@ -211,59 +210,14 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <PRIResource Include="Strings\ar-EG\Resources.resw">
-      <Link>Strings\ar-EG\Resources.resw</Link>
-    </PRIResource>
-    <PRIResource Include="Strings\en-US\Resources.resw">
-      <Link>Strings\en-US\Resources.resw</Link>
-      <SubType>Designer</SubType>
-    </PRIResource>
-    <PRIResource Include="Strings\es\Resources.resw">
-      <Link>Strings\es\Resources.resw</Link>
-    </PRIResource>
-    <PRIResource Include="Strings\fr-CA\Resources.resw">
-      <Link>Strings\fr-CA\Resources.resw</Link>
-    </PRIResource>
-    <PRIResource Include="Strings\fr-FR\Resources.resw">
-      <Link>Strings\fr-FR\Resources.resw</Link>
-    </PRIResource>
-    <PRIResource Include="Strings\it\Resources.resw">
-      <Link>Strings\it\Resources.resw</Link>
-    </PRIResource>
+
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
-  <PropertyGroup>
-    <StartupObject />
-  </PropertyGroup>
+
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <ItemGroup>
-    <MySourceFiles Include="$(SolutionDir)QuickPad.UI\QuickPad.UI\Strings\ar-EG\Resources.resw" />
-    <MySourceFiles Include="$(SolutionDir)QuickPad.UI\QuickPad.UI\Strings\en-US\Resources.resw" />
-    <MySourceFiles Include="$(SolutionDir)QuickPad.UI\QuickPad.UI\Strings\es\Resources.resw" />
-    <MySourceFiles Include="$(SolutionDir)QuickPad.UI\QuickPad.UI\Strings\fr-CA\Resources.resw" />
-    <MySourceFiles Include="$(SolutionDir)QuickPad.UI\QuickPad.UI\Strings\fr-FR\Resources.resw" />
-    <MySourceFiles Include="$(SolutionDir)QuickPad.UI\QuickPad.UI\Strings\it\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\ar-EG\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\en-US\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\es\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\fr-CA\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\fr-FR\Resources.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Strings\it\Resources.resw" />
-  </ItemGroup>
+
   <ItemGroup>
     <Reference Include="Windows.Foundation.UniversalApiContract">
       <HintPath>C:\Program Files (x86)\Windows Kits\10\References\10.0.18362.0\Windows.Foundation.UniversalApiContract\8.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>
@@ -288,9 +242,6 @@
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\QuickPad.Shared.Commands\QuickPad.Shared.Commands.projitems" Label="Shared" />
-  <Target Name="CopyMAT">
-    <Copy SourceFiles="@(MySourceFiles)" DestinationFiles="@(MySourceFiles->'$(SolutionDir)QuickPad.UI\QuickPad.UI.Common\Strings\%(RecursiveDir)%(Filename)%(Extension)')" />
-  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

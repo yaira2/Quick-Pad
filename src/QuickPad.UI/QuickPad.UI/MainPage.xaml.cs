@@ -27,9 +27,13 @@ using QuickPad.Mvvm.Views;
 using QuickPad.UI.Common.Dialogs;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.UI.StartScreen;
+<<<<<<< HEAD
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
 using QuickPad.UI.Common.Helpers;
+=======
+using Windows.UI.Xaml.Media.Imaging;
+>>>>>>> master
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -115,6 +119,10 @@ namespace QuickPad.UI
             {
                 //Clear Jumplist
                 all.Items.Clear();
+<<<<<<< HEAD
+=======
+                await all.SaveAsync();
+>>>>>>> master
             }
         }
 
@@ -184,8 +192,18 @@ namespace QuickPad.UI
             {
                 if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
                 {
-                    Settings.CurrentMode = "Compact Overlay";
+                    //set the current mode to be the launch mode
+                    Settings.CurrentMode = Settings.DefaultMode;
                 }
+            }
+
+            if (Settings.DefaultMode == "LaunchFocusMode")
+            {
+                //set return mode in case the user wants to leave focus mode
+                Settings.ReturnToMode = nameof(DisplayModes.LaunchClassicMode);
+
+                //set the current mode to be the launch mode
+                Settings.CurrentMode = Settings.DefaultMode;
             }
 
             Settings.NotDeferred = true;
@@ -215,6 +233,8 @@ namespace QuickPad.UI
             {
                 if (await ApplicationView.GetForCurrentView().TryEnterViewModeAsync(ApplicationViewMode.CompactOverlay))
                 {
+                    //set a return mode so the user can get out of compact overlay mode
+                    Settings.ReturnToMode = nameof(DisplayModes.LaunchClassicMode);
                     Settings.CurrentMode = mode;
                 }
             }
@@ -324,10 +344,14 @@ namespace QuickPad.UI
                         _viewModel.GetPosition -= ViewModelOnGetPosition;
                         _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
                         _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
+<<<<<<< HEAD
                         _viewModel.Focus -= ViewModelOnFocus;
 
                         RichEditBox.TextChanged -= _viewModel.TextChanged;
                         TextBox.TextChanged -= _viewModel.TextChanged;
+=======
+                        _viewModel.Focus -= ViewModelOnFocus; 
+>>>>>>> master
                     }
 
                     _viewModel = value;
@@ -356,8 +380,11 @@ namespace QuickPad.UI
             }
         }
 
+<<<<<<< HEAD
         public DocumentModel<StorageFile, IRandomAccessStream> ViewModelDocument => _viewModel.Document;
 
+=======
+>>>>>>> master
         private void ViewModelOnFocus()
         {
             if(ViewModel.IsRtf)
@@ -442,31 +469,43 @@ namespace QuickPad.UI
             var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows) .HasFlag(CoreVirtualKeyStates.Down);
             var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows) .HasFlag(CoreVirtualKeyStates.Down);
 
+            //ctrl + alt + c
+            //show clippy
+            if (controlDown & menuDown & args.Key == VirtualKey.C)
+            {
+                ViewModel.ShowClippy = true;
+            }
+
             //ctrl + +
+            //zoom in
             if (controlDown & args.Key == (VirtualKey)187)
             {
                 Commands.ZoomInCommand.Execute(ViewModel);
             }
 
             //ctrl + -
+            //zoom out
             if (controlDown & args.Key == (VirtualKey)189)
             {
                 Commands.ZoomOutCommand.Execute(ViewModel);
             }
 
             //ctrl + 0
+            //reset zoom
             if (controlDown & args.Key == (VirtualKey)48)
             {
                 Commands.ResetZoomCommand.Execute(ViewModel);
             }
 
             //alt + +
+            //superscript
             if (menuDown & args.Key == (VirtualKey)187)
             {
                 Commands.SuperscriptCommand.Execute(ViewModel);
             }
 
             //alt + -
+            //subscript
             if (menuDown & args.Key == (VirtualKey)189)
             {
                 Commands.SubscriptCommand.Execute(ViewModel);
@@ -510,7 +549,11 @@ namespace QuickPad.UI
             GetPosition(RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length);
         }
 
+<<<<<<< HEAD
         private List<int> LineIndices => ViewModel.Document.LineIndices;
+=======
+        private List<int> LineIndices => ViewModel.LineIndices;
+>>>>>>> master
 
         private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
@@ -562,8 +605,23 @@ namespace QuickPad.UI
         {
             ViewModel.Document.Reindex();
 
+<<<<<<< HEAD
             GetPosition(ViewModel.IsRtf
                 ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length
+=======
+            var index = -1;
+            var text = ViewModel.Text.Replace(Environment.NewLine, "\r");
+            while ((index = text.IndexOf('\r', index + 1)) > -1)
+            {
+                index++;
+                LineIndices.Add(index);
+
+                if (index + 1 >= text.Length) break;
+            }
+            
+            GetPosition(ViewModel.IsRtf 
+                ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length 
+>>>>>>> master
                 : TextBox.SelectionStart + TextBox.SelectionLength);
         }
 
@@ -580,8 +638,9 @@ namespace QuickPad.UI
             }
         }
 
-        private void TextBox_OnKeyDown(object sender, KeyRoutedEventArgs e)
+        private void Text_OnKeyDown(object sender, KeyRoutedEventArgs e)
         {
+            //add tab space
             if (e.Key != VirtualKey.Tab || Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift)
                     .HasFlag(CoreVirtualKeyStates.Down)) return;
 
@@ -648,6 +707,59 @@ namespace QuickPad.UI
                 CommandParameter = ViewModel
             };
             primaryCommands.Add(searchCommandBarGoogle);
+        }
+
+        private void ClippyGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        {
+            this.ClippyGrid_Transform.TranslateX += e.Delta.Translation.X;
+            this.ClippyGrid_Transform.TranslateY += e.Delta.Translation.Y;
+        }
+
+        private async void AnimateClippy_Click(object sender, RoutedEventArgs e)
+        {
+            //generate a random number
+            Random r = new Random();
+            int rInt = r.Next(0, 6);
+
+            //disable the animate button untill the animation is complete
+            AnimateClippy.IsEnabled = false;
+
+            switch (rInt)
+            {
+                case 0:
+                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation1.gif"));
+                    await Task.Delay(2000);
+                    break;
+                case 1:
+                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation2.gif"));
+                    await Task.Delay(4000);
+                    break;
+                case 2:
+                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation3.gif"));
+                    await Task.Delay(3500);
+                    break;
+                case 3:
+                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation4.gif"));
+                    await Task.Delay(8000);
+                    break;
+                case 4:
+                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation5.gif"));
+                    await Task.Delay(6000);
+                    break;
+                case 5:
+                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation6.gif"));
+                    await Task.Delay(4000);
+                    break;
+                default:
+                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///clip.gif"));
+                    break;
+            }
+
+            //set clippy to show the main animation
+            Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///clip.gif"));
+
+            //enable the animate button since animation is complete
+            AnimateClippy.IsEnabled = true;
         }
     }
 }

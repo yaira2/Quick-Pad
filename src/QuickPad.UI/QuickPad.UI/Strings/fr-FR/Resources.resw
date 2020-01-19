@@ -580,20 +580,8 @@
     <value>Paramètres de police du texte ordinaire</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ReportIssues.Text" xml:space="preserve">
-    <value>Signaler des problèmes ici</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SourceCode.Text" xml:space="preserve">
-    <value>Code source</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="SpecialThanks.Text" xml:space="preserve">
     <value>Remerciements à:</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="ContributeToDeveloper.Text" xml:space="preserve">
-    <value>Contribuer au développeur</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Untitled" xml:space="preserve">

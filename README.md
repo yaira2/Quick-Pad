@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Quick Pad Logo" src="src/QuickPad.UI/QuickPad.UI/Assets/Square44x44Logo.altform-unplated_targetsize-256.png" width="100px" />
+  <img alt="Quick Pad Logo" src="src/QuickPad.UI/QuickPad.UI/Assets/QuickPadIcon.png" width="100px" />
   <h1 align="center">Quick-Pad</h1>
 </p>
 
@@ -67,9 +67,10 @@
 [The Sharp Ninja](https://github.com/sharpninja)
 * Localization Contributors: 
     * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
-    * [fr-CA][French] [PhilLB1239](https://github.com/PhilLB1239)
-    * [es][Spanish] [Leisvan](https://github.com/Leisvan)
-    * [ar-EG][Arabic] [Ahmed Walid](https://github.com/ahmed605)
-    * [ar-SA][Arabic] [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
-    * [fr-FR][French] [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
-    * [it][Italian] [Massimo Savazzi](https://github.com/msavazzi)
+    * [fr-CA][French]: [PhilLB1239](https://github.com/PhilLB1239)
+    * [es][Spanish]: [Leisvan](https://github.com/Leisvan)
+    * [ar-EG][Arabic]: [Ahmed Walid](https://github.com/ahmed605)
+    * [ar-SA][Arabic]: [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
+    * [fr-FR][French]: [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
+    * [it][Italian]: [Massimo Savazzi](https://github.com/msavazzi)
+    * [ru-RU][Russian]: [Danil Podobin](https://github.com/Danil-Podobin)

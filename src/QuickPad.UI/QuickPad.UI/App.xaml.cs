@@ -107,6 +107,9 @@ namespace QuickPad.UI
 
                 if (!Resources.ContainsKey(nameof(QuickPadCommands))) Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands<StorageFile, IRandomAccessStream>>());
                 if (!Resources.ContainsKey(nameof(WindowsSettingsViewModel))) Resources.Add(nameof(WindowsSettingsViewModel), Services.GetService<WindowsSettingsViewModel>());
+                if (!Resources.ContainsKey(nameof(ResourceLoader))) Resources.Add(nameof(ResourceLoader), ResourceLoader.GetForViewIndependentUse());
+
+                var resourceLoader = Resources[nameof(ResourceLoader)] as ResourceLoader;
 
                 // Place the frame in the current Window
                 Window.Current.Content = mainPage;

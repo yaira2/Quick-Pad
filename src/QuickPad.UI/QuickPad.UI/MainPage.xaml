@@ -12,6 +12,10 @@
     xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+<<<<<<< HEAD
+=======
+    xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+>>>>>>> master
     mc:Ignorable="d"  
     Foreground="{x:Bind Settings.DefaultTextForegroundBrush, Mode=OneWay}"
     FlowDirection="{x:Bind Settings.FlowDirection, Mode=OneWay}"
@@ -86,7 +90,11 @@
                                   Visibility="{x:Bind ViewModel.ShowFind, Mode=OneWay}"  >
                     <controls3:FindAndReplaceView Canvas.ZIndex="100" 
                                           x:Name="FindAndReplaceView"
+<<<<<<< HEAD
                                           ViewModel="{x:Bind ViewModel, Mode=OneWay}"/>
+=======
+                                          DocumentViewModel="{x:Bind ViewModel, Mode=OneWay}"/>
+>>>>>>> master
                 </controls1:DropShadowPanel>
 
 
@@ -101,7 +109,11 @@
                     <controls3:StatusBar x:Name="statusBar" ViewModel="{x:Bind ViewModel, Mode=OneWay}" Height="24" HorizontalAlignment="Stretch"/>
                 </controls1:DropShadowPanel>
 
+<<<<<<< HEAD
                 <ScrollViewer x:Name="TextScrollViewer" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" ViewChanged="TextScrollViewer_ViewChanged">
+=======
+                <ScrollViewer x:Name="TextScrollViewer" MinZoomFactor="1" Grid.Row="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ZoomMode="Enabled" ViewChanged="TextScrollViewer_ViewChanged">
+>>>>>>> master
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                         <RichEditBox x:Name="RichEditBox"
                          BorderBrush="{x:Null}"
@@ -115,14 +127,30 @@
                          SelectionChanged="RichEditBox_OnSelectionChanged"
                          ContextMenuOpening="RichEditBox_OnContextMenuOpening"
                          Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType), Mode=OneWay}"
+<<<<<<< HEAD
                          TextWrapping="{x:Bind ViewModelDocument.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}" 
                          IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
                          Style="{StaticResource RichEditBox}"
                          Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+=======
+                         TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}" 
+                         IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}" 
+                         Style="{StaticResource RichEditBox}"
+                         Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
+                         KeyDown="Text_OnKeyDown"
+>>>>>>> master
                          IsTapEnabled="True">
                             <RichEditBox.SelectionHighlightColorWhenNotFocused>
                                 <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
                             </RichEditBox.SelectionHighlightColorWhenNotFocused>
+<<<<<<< HEAD
+=======
+                            <interactivity:Interaction.Behaviors>
+                                <core:EventTriggerBehavior EventName="SelectionChanged">
+                                    <core:InvokeCommandAction Command="{x:Bind Commands.UpdateToolbarCommand}" CommandParameter="{x:Bind ViewModel}"/>
+                                </core:EventTriggerBehavior>
+                            </interactivity:Interaction.Behaviors>
+>>>>>>> master
                         </RichEditBox>
 
                         <TextBox x:Name="TextBox"
@@ -140,21 +168,49 @@
                          BeforeTextChanging="TextBox_OnBeforeTextChanging"
                          TextChanged="TextBox_OnTextChanged"
                          SelectionChanged="TextBox_OnSelectionChanged"
+<<<<<<< HEAD
                          TextWrapping="{x:Bind ViewModelDocument.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
+=======
+                         TextWrapping="{x:Bind ViewModel.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
+>>>>>>> master
                          IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}"
                          Style="{StaticResource TextBox}"
                          Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}" 
                          IsTapEnabled="True"
+<<<<<<< HEAD
                          FontFamily="{x:Bind ViewModelDocument.CurrentFontName, Mode=OneWay}"
                          FontSize="{x:Bind ViewModelDocument.CurrentFontSize, Mode=OneWay}"
                          Text="{x:Bind ViewModel.Text, Mode=OneWay}"                     
                          KeyDown="TextBox_OnKeyDown">
+=======
+                         FontFamily="{x:Bind ViewModel.CurrentFontName, Mode=OneWay}"
+                         FontSize="{x:Bind ViewModel.CurrentFontSize, Mode=OneWay}"
+                         Text="{x:Bind ViewModel.Text, Mode=OneWay}"                     
+                         KeyDown="Text_OnKeyDown">
+>>>>>>> master
                             <TextBox.SelectionHighlightColorWhenNotFocused>
                                 <SolidColorBrush Color="{StaticResource SystemAccentColor}"/>
                             </TextBox.SelectionHighlightColorWhenNotFocused>
                         </TextBox>
                     </Grid>
                 </ScrollViewer>
+<<<<<<< HEAD
+=======
+
+                <Grid x:Name="ClippyGrid" Visibility="{x:Bind ViewModel.ShowClippy}" Grid.Row="2" Margin="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" ManipulationMode="TranslateX, TranslateY, Scale" ManipulationDelta="ClippyGrid_ManipulationDelta">
+                    <Grid.RenderTransform>
+                        <CompositeTransform x:Name="ClippyGrid_Transform" />
+                    </Grid.RenderTransform>
+
+                    <Image x:Name="Clippy" Source="/Assets/clippy/clip.gif" Width="120" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Image.ContextFlyout>
+                            <MenuFlyout>
+                                <MenuFlyoutItem Text="Animate" x:Name="AnimateClippy" Click="AnimateClippy_Click" x:Uid="Animate"/>
+                            </MenuFlyout>
+                        </Image.ContextFlyout>
+                    </Image>
+                </Grid>
+>>>>>>> master
             </Grid>
         </SplitView>
     </Grid>

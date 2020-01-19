@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Refactor", "Refactor", "{901F2C6E-B290-4407-99EA-B2859C589FC1}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Quick Pad", "Quick Pad", "{901F2C6E-B290-4407-99EA-B2859C589FC1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{A92D39BC-58B4-423F-B9D0-88B556EF3C9A}"
 EndProject

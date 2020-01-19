@@ -578,20 +578,8 @@
     <value>Controllo Ortografia per Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ReportIssues.Text" xml:space="preserve">
-    <value>Segnala un problema qui</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SourceCode.Text" xml:space="preserve">
-    <value>Codice sorgente</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="SpecialThanks.Text" xml:space="preserve">
     <value>Ringraziamenti speciali a:</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="ContributeToDeveloper.Text" xml:space="preserve">
-    <value>Sostieni lo sviluppatore</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Untitled" xml:space="preserve">

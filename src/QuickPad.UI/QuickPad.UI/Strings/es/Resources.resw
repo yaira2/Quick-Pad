@@ -580,20 +580,8 @@
     <value>Configuración de Fuente en texto sin formato</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ReportIssues.Text" xml:space="preserve">
-    <value>Reporte cualquier problema aquí</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SourceCode.Text" xml:space="preserve">
-    <value>Código fuente</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="SpecialThanks.Text" xml:space="preserve">
     <value>Agradecimientos especiales a:</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="ContributeToDeveloper.Text" xml:space="preserve">
-    <value>Contribuya con el desarrollador</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Untitled" xml:space="preserve">

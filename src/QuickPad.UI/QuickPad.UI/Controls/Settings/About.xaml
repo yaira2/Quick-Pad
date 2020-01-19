@@ -33,23 +33,22 @@
                 <Image Source="/Assets/QuickPadIcon.png" Stretch="Fill" Width="80" Height="80" HorizontalAlignment="Right" Grid.RowSpan="2"/>
                 <TextBlock Text="Quick Pad" Grid.Column="1" FontSize="22" x:Uid="AppName" Padding="12,0,0,0"/>
                 <TextBlock Text="{x:Bind Settings.VersionNumberText}" Grid.Column="1" Grid.Row="1" Padding="12,0,0,0"/>
-            </Grid>            
-                        
+            </Grid>
+
             <TextBlock Text="Developed by Yair Aichenbaum" FontSize="16" HorizontalAlignment="Left" x:Uid="CreatedBy" Padding="0,12,0,0"/>
-
-            <TextBlock Text="Source Code" HorizontalAlignment="Left" Padding="0,4,0,0" x:Uid="SourceCode"/>
-            <HyperlinkButton Content="https://github.com/UWPCommunity/Quick-Pad" NavigateUri="https://github.com/UWPCommunity/Quick-Pad" FontSize="13" Padding="0"/>
-
-            <TextBlock Text="Report issues here" HorizontalAlignment="Left" x:Uid="ReportIssues" Padding="0,4,0,0"/>
-            <HyperlinkButton Content="https://github.com/UWPCommunity/Quick-Pad/issues" FontSize="13" HorizontalAlignment="Left" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Padding="0"/>
-
-            <TextBlock Text="Contribute to the developer" x:Uid="ContributeToDeveloper" Padding="0,4,0,0"/>
-            <HyperlinkButton Content="https://paypall.me/yaichenbaum" x:Uid="Contribute" NavigateUri="http://paypal.me/yaichenbaum" FontSize="13" HorizontalAlignment="Left" Padding="0"/>
-
             <TextBlock Text="Special thanks to:" HorizontalAlignment="Left" Padding="0,12,0,0" FontSize="16" x:Uid="SpecialThanks"/>
             <TextBlock Text="The Sharp Ninja" Margin="0,4,0,0" FontSize="13"/>
             <TextBlock Text="Toon Werawat" Margin="0,4,0,0" FontSize="13"/>
             <TextBlock Text="Ikarago" Margin="0,4,0,0" FontSize="13"/>
+
+            <HyperlinkButton Content="Source Code" x:Uid="SourceCode" NavigateUri="https://github.com/UWPCommunity/Quick-Pad" Padding="0,20,0,0"/>
+
+            <HyperlinkButton Content="Report issues here" x:Uid="ReportIssues" HorizontalAlignment="Left" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" Padding="0,12,0,0"/>
+
+            <HyperlinkButton Content="Contribute to the developer" x:Uid="ContributeToDeveloper" NavigateUri="http://paypal.me/yaichenbaum" HorizontalAlignment="Left" Padding="0,12,0,0"/>
+
+            <HyperlinkButton Content="Privacy Policy" x:Uid="PrivacyPolicy" NavigateUri="https://github.com/UWPCommunity/Quick-Pad/blob/master/PrivacyPolicy.md" Padding="0,12,0,0"/>
+
         </StackPanel>
 
     </Grid>
