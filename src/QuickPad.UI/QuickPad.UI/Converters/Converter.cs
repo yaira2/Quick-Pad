@@ -12,7 +12,7 @@ using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
 using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Common.Helpers;
+using QuickPad.UI.Helpers;
 
 namespace QuickPad.UI.Converters
 {

@@ -419,6 +419,7 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         public object Deferral { get; set; }
+        public bool ShowClippy { get; set; }
 
         public void NotifyAll()
         {

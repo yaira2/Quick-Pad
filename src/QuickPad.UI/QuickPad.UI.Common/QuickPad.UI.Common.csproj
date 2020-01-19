@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -120,40 +121,6 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Commands\Clipboard\ContentChangedCommand.cs" />
-    <Compile Include="Commands\Clipboard\CopyCommand.cs" />
-    <Compile Include="Commands\Clipboard\CutCommand.cs" />
-    <Compile Include="Commands\Clipboard\DeleteCommand.cs" />
-    <Compile Include="Commands\Clipboard\PasteCommand.cs" />
-    <Compile Include="Commands\CompactOverlayCommand.cs" />
-    <Compile Include="Commands\EmojiCommand.cs" />
-    <Compile Include="Commands\RateAndReviewCommand.cs" />
-    <Compile Include="Commands\ShareCommand.cs" />
-    <Compile Include="Dialogs\WelcomeDialog.xaml.cs">
-      <DependentUpon>WelcomeDialog.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\AskToSave.xaml.cs">
-      <DependentUpon>AskToSave.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Dialogs\GoToLine.xaml.cs">
-      <DependentUpon>GoToLine.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Helpers\WindowsDocumentManager.cs" />
-    <Compile Include="Helpers\DisplayMode.cs" />
-    <Compile Include="Helpers\IntCompare.cs" />
-    <Compile Include="Helpers\RtfDocument.cs" />
-    <Compile Include="Helpers\TextDocument.cs" />
-    <Compile Include="Helpers\TextOptionsConverters.cs" />
-    <Compile Include="Helpers\WindowsDocumentViewModelStrings.cs" />
-    <Compile Include="Helpers\WindowsSettingsModel.cs" />
-    <Compile Include="Helpers\WindowsSettingsViewModel.cs" />
-    <Compile Include="Theme\DefaultTextForegroundColor.cs" />
-    <Compile Include="Theme\IVisualThemeSelector.cs" />
-    <Compile Include="Theme\ThemeChangedEventArgs.cs" />
-    <Compile Include="Theme\ThemeChangedEventHandler.cs" />
-    <Compile Include="Theme\VisualTheme.cs" />
-    <Compile Include="Theme\VisualThemeKind.cs" />
-    <Compile Include="Theme\VisualThemeSelector.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\QuickPad.UI.Common.rd.xml" />
   </ItemGroup>
@@ -196,28 +163,11 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Dialogs\WelcomeDialog.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dialogs\AskToSave.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Dialogs\GoToLine.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
-
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-
   <ItemGroup>
     <Reference Include="Windows.Foundation.UniversalApiContract">
       <HintPath>C:\Program Files (x86)\Windows Kits\10\References\10.0.18362.0\Windows.Foundation.UniversalApiContract\8.0.0.0\Windows.Foundation.UniversalApiContract.winmd</HintPath>

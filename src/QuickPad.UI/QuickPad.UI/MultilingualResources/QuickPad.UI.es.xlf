@@ -838,49 +838,19 @@
           <target state="translated">¡Bienvenido de vuelta a Quick Pad!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
-        <trans-unit id="RichText" translate="yes" xml:space="preserve">
-          <source>Rich Text</source>
-          <target state="new">Rich Text</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Share Dialog</note>
-        </trans-unit>
-        <trans-unit id="SharedFromQuickPad" translate="yes" xml:space="preserve">
-          <source>Shared from Quick-Pad</source>
-          <target state="new">Shared from Quick-Pad</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Share Dialog</note>
-        </trans-unit>
-        <trans-unit id="Sharing" translate="yes" xml:space="preserve">
-          <source>Sharing</source>
-          <target state="new">Sharing</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Share Dialog</note>
-        </trans-unit>
-        <trans-unit id="Text" translate="yes" xml:space="preserve">
-          <source>Text</source>
-          <target state="new">Text</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Share Dialog</note>
-        </trans-unit>
-        <trans-unit id="Animate.Text" translate="yes" xml:space="preserve">
-          <source>Animate</source>
-          <target state="new">Animate</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Clippy</note>
-        </trans-unit>
-        <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="ReportIssues.Content" translate="yes" xml:space="preserve">
+        <trans-unit id="ReportIssues.Text" translate="yes" xml:space="preserve">
           <source>Report issues here</source>
           <target state="new">Report issues here</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
+        <trans-unit id="SourceCode.Text" translate="yes" xml:space="preserve">
           <source>Source Code</source>
           <target state="new">Source Code</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
-          <source>Privacy Policy</source>
-          <target state="new">Privacy Policy</target>
+        <trans-unit id="ContributeToDeveloper.Text" translate="yes" xml:space="preserve">
+          <source>Contribute to the developer</source>
+          <target state="new">Contribute to the developer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>

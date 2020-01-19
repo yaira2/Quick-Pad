@@ -22,18 +22,15 @@ using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Windows.System;
 using Microsoft.Extensions.DependencyInjection;
-using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.Views;
-using QuickPad.UI.Common.Dialogs;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.UI.StartScreen;
-<<<<<<< HEAD
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
-using QuickPad.UI.Common.Helpers;
-=======
 using Windows.UI.Xaml.Media.Imaging;
->>>>>>> master
+using QuickPad.UI.Dialogs;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -119,10 +116,7 @@ namespace QuickPad.UI
             {
                 //Clear Jumplist
                 all.Items.Clear();
-<<<<<<< HEAD
-=======
                 await all.SaveAsync();
->>>>>>> master
             }
         }
 
@@ -344,14 +338,10 @@ namespace QuickPad.UI
                         _viewModel.GetPosition -= ViewModelOnGetPosition;
                         _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
                         _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
-<<<<<<< HEAD
                         _viewModel.Focus -= ViewModelOnFocus;
 
                         RichEditBox.TextChanged -= _viewModel.TextChanged;
                         TextBox.TextChanged -= _viewModel.TextChanged;
-=======
-                        _viewModel.Focus -= ViewModelOnFocus; 
->>>>>>> master
                     }
 
                     _viewModel = value;
@@ -380,11 +370,8 @@ namespace QuickPad.UI
             }
         }
 
-<<<<<<< HEAD
         public DocumentModel<StorageFile, IRandomAccessStream> ViewModelDocument => _viewModel.Document;
 
-=======
->>>>>>> master
         private void ViewModelOnFocus()
         {
             if(ViewModel.IsRtf)
@@ -549,11 +536,7 @@ namespace QuickPad.UI
             GetPosition(RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length);
         }
 
-<<<<<<< HEAD
         private List<int> LineIndices => ViewModel.Document.LineIndices;
-=======
-        private List<int> LineIndices => ViewModel.LineIndices;
->>>>>>> master
 
         private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
@@ -605,10 +588,6 @@ namespace QuickPad.UI
         {
             ViewModel.Document.Reindex();
 
-<<<<<<< HEAD
-            GetPosition(ViewModel.IsRtf
-                ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length
-=======
             var index = -1;
             var text = ViewModel.Text.Replace(Environment.NewLine, "\r");
             while ((index = text.IndexOf('\r', index + 1)) > -1)
@@ -621,7 +600,6 @@ namespace QuickPad.UI
             
             GetPosition(ViewModel.IsRtf 
                 ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length 
->>>>>>> master
                 : TextBox.SelectionStart + TextBox.SelectionLength);
         }
 

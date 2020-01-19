@@ -11,7 +11,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
-using QuickPad.UI.Common;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
@@ -23,10 +22,12 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
+using Windows.ApplicationModel.Resources;
 using Windows.Storage.Streams;
 using Windows.System;
 using Windows.UI.Core;
 using Microsoft.Toolkit.Uwp.Helpers;
+using QuickPad.UI.Helpers;
 using QuickPadCommands = QuickPad.Mvvm.Commands.QuickPadCommands<Windows.Storage.StorageFile, Windows.Storage.Streams.IRandomAccessStream>;
 
 namespace QuickPad.UI

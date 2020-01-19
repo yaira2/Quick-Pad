@@ -8,14 +8,13 @@ using QuickPad.Mvc;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Commands.Actions;
-using QuickPad.Mvvm.Commands.Clipboard;
-using QuickPad.Mvvm.Commands.Editing;
-using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
-using QuickPad.UI.Common.Dialogs;
-using QuickPad.UI.Common.Helpers;
-using QuickPad.UI.Common.Theme;
+using QuickPad.UI.Commands;
+using QuickPad.UI.Commands.Clipboard;
+using QuickPad.UI.Dialogs;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
 
 namespace QuickPad.UI
 {
@@ -43,7 +42,6 @@ namespace QuickPad.UI
             services.AddTransient<IGoToLineView<StorageFile, IRandomAccessStream>, GoToLine>();
             services.AddSingleton<MainPage, MainPage>();
 
-            services.AddSingleton<IShowGoToCommand<StorageFile, IRandomAccessStream>, ShowGoToCommand<StorageFile, IRandomAccessStream>>();
             services.AddSingleton<IShowGoToCommand<StorageFile, IRandomAccessStream>, ShowGoToCommand<StorageFile, IRandomAccessStream>>();
             services.AddSingleton<IShareCommand<StorageFile, IRandomAccessStream>, ShareCommand>();
             services.AddSingleton<ICutCommand<StorageFile, IRandomAccessStream>, CutCommand>();

@@ -18,11 +18,7 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
-<<<<<<< HEAD
     <PackageCertificateThumbprint>EB705E3F44525A88C8E8E96A04DBEF8DCE07B189</PackageCertificateThumbprint>
-=======
-    <PackageCertificateThumbprint>F03E29D74466A4444A3700F4B9F5495861FD92E5</PackageCertificateThumbprint>
->>>>>>> master
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
@@ -147,6 +143,15 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApplicationStartup.cs" />
+    <Compile Include="Commands\Clipboard\ContentChangedCommand.cs" />
+    <Compile Include="Commands\Clipboard\CopyCommand.cs" />
+    <Compile Include="Commands\Clipboard\CutCommand.cs" />
+    <Compile Include="Commands\Clipboard\DeleteCommand.cs" />
+    <Compile Include="Commands\Clipboard\PasteCommand.cs" />
+    <Compile Include="Commands\CompactOverlayCommand.cs" />
+    <Compile Include="Commands\EmojiCommand.cs" />
+    <Compile Include="Commands\RateAndReviewCommand.cs" />
+    <Compile Include="Commands\ShareCommand.cs" />
     <Compile Include="Controls\FindAndReplaceView.xaml.cs">
       <DependentUpon>FindAndReplaceView.xaml</DependentUpon>
     </Compile>
@@ -178,6 +183,24 @@
       <DependentUpon>CommandBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converters\Converter.cs" />
+    <Compile Include="Dialogs\AskToSave.xaml.cs">
+      <DependentUpon>AskToSave.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\GoToLine.xaml.cs">
+      <DependentUpon>GoToLine.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Dialogs\WelcomeDialog.xaml.cs">
+      <DependentUpon>WelcomeDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Helpers\DisplayMode.cs" />
+    <Compile Include="Helpers\IntCompare.cs" />
+    <Compile Include="Helpers\RtfDocument.cs" />
+    <Compile Include="Helpers\TextDocument.cs" />
+    <Compile Include="Helpers\TextOptionsConverters.cs" />
+    <Compile Include="Helpers\WindowsDocumentManager.cs" />
+    <Compile Include="Helpers\WindowsDocumentViewModelStrings.cs" />
+    <Compile Include="Helpers\WindowsSettingsModel.cs" />
+    <Compile Include="Helpers\WindowsSettingsViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -185,6 +208,13 @@
       <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Theme\DefaultTextForegroundColor.cs" />
+    <Compile Include="Theme\IVisualThemeSelector.cs" />
+    <Compile Include="Theme\ThemeChangedEventArgs.cs" />
+    <Compile Include="Theme\ThemeChangedEventHandler.cs" />
+    <Compile Include="Theme\VisualTheme.cs" />
+    <Compile Include="Theme\VisualThemeKind.cs" />
+    <Compile Include="Theme\VisualThemeSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -193,15 +223,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include=".editorconfig" />
-<<<<<<< HEAD
-=======
     <Content Include="Assets\Clippy\Animation1.gif" />
     <Content Include="Assets\Clippy\Animation2.gif" />
     <Content Include="Assets\Clippy\Animation3.gif" />
     <Content Include="Assets\Clippy\Animation4.gif" />
     <Content Include="Assets\Clippy\Animation5.gif" />
     <Content Include="Assets\Clippy\Animation6.gif" />
->>>>>>> master
     <Content Include="Assets\QuickPadIcon.png" />
     <Content Include="Assets\BingIcon.png" />
     <Content Include="Assets\File Icons\General Small.png" />
@@ -319,6 +346,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Dialogs\AskToSave.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\GoToLine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\WelcomeDialog.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="MainPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -379,6 +418,10 @@
       <Project>{4092441f-4f90-4df6-b68c-6ec27ac22ca2}</Project>
       <Name>QuickPad.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\QuickPad.Standard.Data\QuickPad.Standard.Data.csproj">
+      <Project>{ef407a85-3916-4b4d-ac88-59709e3e9542}</Project>
+      <Name>QuickPad.Standard.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\QuickPad.Standard.Mvc\QuickPad.Standard.Mvc.csproj">
       <Project>{6F4E3759-FF34-4ABE-BCE2-35078E27A681}</Project>
       <Name>QuickPad.Standard.Mvc</Name>
@@ -387,10 +430,6 @@
       <Project>{E6A773FB-DBF3-4E5A-A585-400E8A83FE7C}</Project>
       <Name>QuickPad.Standard.Mvvm</Name>
       <Aliases>global</Aliases>
-    </ProjectReference>
-    <ProjectReference Include="..\..\QuickPad.UI\QuickPad.UI.Common\QuickPad.UI.Common.csproj">
-      <Project>{cbc34766-2d70-47eb-8ddb-bf9a57ec4b4d}</Project>
-      <Name>QuickPad.UI.Common</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
@@ -430,6 +469,7 @@
     <XliffResource Include="MultilingualResources\QuickPad.UI.ru-RU.xlf" />
   </ItemGroup>
   <ItemGroup />
+  <Import Project="..\..\QuickPad.Shared.Commands\QuickPad.Shared.Commands.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

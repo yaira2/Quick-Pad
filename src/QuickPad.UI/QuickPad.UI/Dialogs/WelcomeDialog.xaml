@@ -1,0 +1,26 @@
+﻿<ContentDialog
+    x:Class="QuickPad.UI.Dialogs.WelcomeDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+    mc:Ignorable="d"
+    Windows10version1809:CornerRadius="4"
+    Title="Welcome back to Quick Pad!"
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}">
+
+    <Grid Width="376">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Stretch">
+            <TextBlock FontSize="14" x:Uid="WelcomeDialogPar1" Text="After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!" TextWrapping="Wrap"/>
+            <TextBlock FontSize="14" x:Uid="WelcomeDialogPar2" Padding="0,4,0,0" Text="Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!" TextWrapping="Wrap"/>
+
+            <Button Margin="0,12,0,0" Style="{StaticResource AccentButtonStyle}"
+                    HorizontalAlignment="Stretch" 
+                    Height="48" 
+                    Content="Lets go!"
+                    x:Name="CmdClose" 
+                    Click="CmdClose_Click"/>
+        </StackPanel>
+    </Grid>
+</ContentDialog>

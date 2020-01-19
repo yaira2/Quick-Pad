@@ -9,8 +9,8 @@ using Windows.UI.Xaml.Input;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models;
-using QuickPad.Mvvm.Models.Theme;
-using QuickPad.UI.Common.Theme;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
 
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236

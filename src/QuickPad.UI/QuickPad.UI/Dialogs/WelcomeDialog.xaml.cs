@@ -1,0 +1,54 @@
+﻿using Windows.ApplicationModel.Resources;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
+
+// The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+
+namespace QuickPad.UI.Dialogs
+{
+    public sealed partial class WelcomeDialog
+    {
+        private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
+        public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
+        public ResourceLoader ResourceLoader { get; }
+
+
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands { get; }
+        public WindowsSettingsViewModel Settings { get; }
+
+        public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
+        {
+            get => _viewModel;
+            set
+            {
+                if (_viewModel == value) return;
+
+                DataContext = _viewModel = value;
+            }
+        }
+
+        public WelcomeDialog(QuickPadCommands<StorageFile, IRandomAccessStream> commands
+            , WindowsSettingsViewModel settings
+            , ResourceLoader resourceLoader)
+        {
+            Settings = settings;
+            Commands = commands;
+            ResourceLoader = resourceLoader;
+            this.InitializeComponent();
+
+            //this.Title = ResourceLoader.GetString("WelcomeDialogTitle/Title");
+            //Par1.Text = ResourceLoader.GetString("WelcomeDialogPar1/Text");
+            //Par2.Text = ResourceLoader.GetString("WelcomeDialogPar2/Text");
+            //CmdClose.Content = ResourceLoader.GetString("CmdLetsGo/Content");
+        }
+
+        private void CmdClose_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Hide();
+        }
+    }
+}
