@@ -612,7 +612,7 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>Here is whats new in 4.3.97</source>
+          <source>Here is whats new in 4.3.98</source>
           <target state="needs-review-translation">После нескольких месяцев без обновлений я действительно рад объявить, что Quick Pad был полностью переписан с нуля!</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
@@ -854,8 +854,8 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
-          <source>Here is whats fixed in 4.3.97</source>
-          <target state="new">Here is whats fixed in 4.3.97</target>
+          <source>Here is whats fixed in 4.3.98</source>
+          <target state="new">Here is whats fixed in 4.3.98</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
