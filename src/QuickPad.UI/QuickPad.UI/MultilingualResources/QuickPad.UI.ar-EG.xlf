@@ -824,13 +824,13 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
+          <source>Here is whats new in 4.3.97</source>
           <target state="needs-review-translation">Quick Pad عاد من جديد بعد، بعد شهور قليلة بدون تحديثات أنا متحمس جدا لأعلن أن Quick Pad تمت اعادة كتابته من نقطة الصفر!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
-          <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!</source>
+          <source>• We made some improvements to popup dialogs.</source>
           <target state="needs-review-translation">لا يزال كل خيار متاحًا بالإضافة إلى بعض الخيارات الجديدة.  نتيجة لإعادة كتابة التطبيق من نقطة الصفر ، ستحتاج إلى تعيين أي من التخصيصات التي تم إجراؤها في الإصدار السابق مرة أخرى ، أعتذر عن أي إزعاج ولكني آمل أن تجد أنه يستحق ذلك والاستمتاع بالإصدار الجديد.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
@@ -854,6 +854,16 @@
           <source>Contribute to the developer</source>
           <target state="new">Contribute to the developer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
+          <source>Here is whats fixed in 4.3.97</source>
+          <target state="new">Here is whats fixed in 4.3.97</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
+          <source>• We fixed a crash that some users were experiencing when saving their documents.</source>
+          <target state="new">• We fixed a crash that some users were experiencing when saving their documents.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
       </group>
     </body>

@@ -612,13 +612,15 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</source>
-          <target state="translated">После нескольких месяцев без обновлений я действительно рад объявить, что Quick Pad был полностью переписан с нуля!</target>
+          <source>Here is whats new in 4.3.97</source>
+          <target state="needs-review-translation">После нескольких месяцев без обновлений я действительно рад объявить, что Quick Pad был полностью переписан с нуля!</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
-          <source>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!</source>
-          <target state="translated">Каждый отдельный вариант все еще доступен, а также несколько новых. В результате переписывания приложения с нуля вам нужно будет снова установить свои параметры, сделанные в предыдущей версии, я приношу извинения за любые неудобства, но я очень надеюсь, что вы найдете это стоящим и получите удовольствие от новой версии!</target>
+          <source>• We made some improvements to popup dialogs.</source>
+          <target state="needs-review-translation">Каждый отдельный вариант все еще доступен, а также несколько новых. В результате переписывания приложения с нуля вам нужно будет снова установить свои параметры, сделанные в предыдущей версии, я приношу извинения за любые неудобства, но я очень надеюсь, что вы найдете это стоящим и получите удовольствие от новой версии!</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
@@ -850,6 +852,16 @@
           <source>Contribute to the developer</source>
           <target state="new">Contribute to the developer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
+          <source>Here is whats fixed in 4.3.97</source>
+          <target state="new">Here is whats fixed in 4.3.97</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
+          <source>• We fixed a crash that some users were experiencing when saving their documents.</source>
+          <target state="new">• We fixed a crash that some users were experiencing when saving their documents.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
       </group>
     </body>

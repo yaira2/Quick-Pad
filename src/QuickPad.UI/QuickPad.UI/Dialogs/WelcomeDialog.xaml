@@ -5,6 +5,7 @@
     xmlns:Windows10version1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Uid="WelcomeDialogTitle"
     Title="Welcome back to Quick Pad!"
     Windows10version1809:CornerRadius="4"
     Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
@@ -15,17 +16,33 @@
             <TextBlock
                 x:Uid="WelcomeDialogPar1"
                 FontSize="14"
-                Text="After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!"
+                FontWeight="SemiBold"
+                Text="Here is whats new in 4.3.97"
                 TextWrapping="Wrap" />
             <TextBlock
                 x:Uid="WelcomeDialogPar2"
                 Padding="0,4,0,0"
                 FontSize="14"
-                Text="Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!"
+                Text="• We made some improvements to popup dialogs."
+                TextWrapping="Wrap" />
+
+            <TextBlock
+                x:Uid="WelcomeDialogPar3"
+                Padding="0,8,0,0"
+                FontSize="14"
+                FontWeight="SemiBold"
+                Text="Here is whats fixed in 4.3.97"
+                TextWrapping="Wrap" />
+            <TextBlock
+                x:Uid="WelcomeDialogPar4"
+                Padding="0,4,0,0"
+                FontSize="14"
+                Text="• We fixed a crash that some users were experiencing when saving their documents."
                 TextWrapping="Wrap" />
 
             <Button
                 x:Name="CmdClose"
+                x:Uid="CmdLetsGo"
                 Height="48"
                 Margin="0,12,0,0"
                 HorizontalAlignment="Stretch"

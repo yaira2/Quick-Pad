@@ -602,11 +602,11 @@
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</value>
+    <value>Here is whats new in 4.3.97</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!</value>
+    <value>• We made some improvements to popup dialogs.</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogTitle.Title" xml:space="preserve">
@@ -792,5 +792,13 @@
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Other</value>
     <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
+    <value>Here is whats fixed in 4.3.97</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar4.Text" xml:space="preserve">
+    <value>• We fixed a crash that some users were experiencing when saving their documents.</value>
+    <comment>Used on Welcome Dialog</comment>
   </data>
 </root>

@@ -16,9 +16,6 @@ namespace QuickPad.UI.Dialogs
     {
         private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
-        public ResourceLoader ResourceLoader { get; }
-
-
         public QuickPadCommands<StorageFile, IRandomAccessStream> Commands { get; }
         public WindowsSettingsViewModel Settings { get; }
 
@@ -34,18 +31,11 @@ namespace QuickPad.UI.Dialogs
         }
 
         public WelcomeDialog(QuickPadCommands<StorageFile, IRandomAccessStream> commands
-            , WindowsSettingsViewModel settings
-            , ResourceLoader resourceLoader)
+            , WindowsSettingsViewModel settings)
         {
             Settings = settings;
             Commands = commands;
-            ResourceLoader = resourceLoader;
             this.InitializeComponent();
-
-            //this.Title = ResourceLoader.GetString("WelcomeDialogTitle/Title");
-            //Par1.Text = ResourceLoader.GetString("WelcomeDialogPar1/Text");
-            //Par2.Text = ResourceLoader.GetString("WelcomeDialogPar2/Text");
-            //CmdClose.Content = ResourceLoader.GetString("CmdLetsGo/Content");
 
             base.Closed += (sender, args) => this.Closed?.Invoke();
         }
