@@ -156,20 +156,7 @@
                             </TextBox.SelectionHighlightColorWhenNotFocused>
                         </TextBox>
                     </Grid>
-                </ScrollViewer>
-                <Grid x:Name="ClippyGrid" Visibility="{x:Bind ViewModel.ShowClippy}" Grid.Row="2" Margin="40" HorizontalAlignment="Right" VerticalAlignment="Bottom" ManipulationMode="TranslateX, TranslateY, Scale" ManipulationDelta="ClippyGrid_ManipulationDelta">
-                    <Grid.RenderTransform>
-                        <CompositeTransform x:Name="ClippyGrid_Transform" />
-                    </Grid.RenderTransform>
-
-                    <Image x:Name="Clippy" Source="/Assets/clippy/clip.gif" Width="120" HorizontalAlignment="Right" VerticalAlignment="Bottom">
-                        <Image.ContextFlyout>
-                            <MenuFlyout>
-                                <MenuFlyoutItem Text="Animate" x:Name="AnimateClippy" Click="AnimateClippy_Click" x:Uid="Animate"/>
-                            </MenuFlyout>
-                        </Image.ContextFlyout>
-                    </Image>
-                </Grid>
+                </ScrollViewer>                
             </Grid>
         </SplitView>
     </Grid>

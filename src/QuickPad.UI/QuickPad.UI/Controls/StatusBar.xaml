@@ -15,22 +15,16 @@
 
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <!--Save status-->
-        <Grid Margin="4,0,2,0" Width="32" MaxWidth="32">
-            <FontIcon Glyph="&#xE74E;" FontSize="11" Grid.Column="1" Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"/>
-            <Ellipse Width="6" Height="6" Fill="Red" HorizontalAlignment="Left" Margin="8,0,0,8" Visibility="{x:Bind ViewModelDocument.IsDirty,Mode=OneWay}"/>
-        </Grid>
         <TextBlock VerticalAlignment="Center"
                    HorizontalAlignment="Left"
                    Padding="4,0,8,0"
                    FontSize="11"
-                   Grid.Column="1"
                    Margin="0,0,4,0"
                    Foreground="{x:Bind Settings.StatusTextColor}"
                    Text="{x:Bind Settings.StatusText}"/>
@@ -40,7 +34,7 @@
                    HorizontalAlignment="Right"
                    Padding="4,0,8,0"
                    FontSize="11"
-                   Grid.Column="2"
+                   Grid.Column="1"
                    Margin="0,0,4,0"
                    Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}">
                 <Run Text="Ln: " x:Uid="StatusLnCount"/><Run Text="{x:Bind ViewModel.CurrentLine}"/><Run Text=","/>
@@ -50,7 +44,7 @@
         <TextBlock HorizontalAlignment="Left"
                    VerticalAlignment="Center"
                    FontSize="11"
-                   Grid.Column="3"
+                   Grid.Column="2"
                    Margin="0,0,16,0"
                    Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"> 
             <Run Text="{x:Bind ViewModel.CurrentFileType}"/>
@@ -59,7 +53,7 @@
         <TextBlock HorizontalAlignment="Right"
                    VerticalAlignment="Center"
                    FontSize="11"
-                   Grid.Column="4"
+                   Grid.Column="3"
                    Margin="0,0,16,0"
                    Foreground="{ThemeResource SystemControlForegroundBaseMediumHighBrush}"> 
             <Run Text="{x:Bind ViewModel.CurrentEncoding, Converter={StaticResource Converter}}"/>
