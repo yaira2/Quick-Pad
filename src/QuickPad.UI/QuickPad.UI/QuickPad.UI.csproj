@@ -194,6 +194,7 @@
     </Compile>
     <Compile Include="Helpers\DisplayMode.cs" />
     <Compile Include="Helpers\IntCompare.cs" />
+    <Compile Include="Helpers\QuickPadSettingsResolver.cs" />
     <Compile Include="Helpers\RtfDocument.cs" />
     <Compile Include="Helpers\TextDocument.cs" />
     <Compile Include="Helpers\TextOptionsConverters.cs" />

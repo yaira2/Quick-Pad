@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.CompilerServices;
+using System.Text.Json.Serialization;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI;
@@ -8,19 +9,23 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
+using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Theme;
 
 namespace QuickPad.UI.Helpers
 {
     public class WindowsSettingsModel : SettingsModel<StorageFile, IRandomAccessStream>
     {
-        public IServiceProvider ServiceProvider { get; }
+        private readonly IServiceProvider _serviceProvider;
         private readonly ApplicationDataContainer _roamingSettings;
         private string _defaultColor;
 
-        public WindowsSettingsModel(ILogger logger, IApplication<StorageFile, IRandomAccessStream> app, IServiceProvider serviceProvider) : base(logger, app)
+        public WindowsSettingsModel(ILogger<SettingsViewModel<StorageFile, IRandomAccessStream>> logger
+            , IApplication<StorageFile, IRandomAccessStream> app
+            , IServiceProvider serviceProvider) 
+            : base(logger, app)
         {
-            ServiceProvider = serviceProvider;
+            _serviceProvider = serviceProvider;
             _roamingSettings = ApplicationData.Current.RoamingSettings;
         }
 
@@ -28,6 +33,7 @@ namespace QuickPad.UI.Helpers
         {
             _roamingSettings.Values.Clear();
         }
+
         public string DefaultTextForegroundColorString
         {
             get => Get(Colors.White.ToHex());
@@ -38,7 +44,7 @@ namespace QuickPad.UI.Helpers
         {
             get
             {
-                _defaultColor ??= ServiceProvider.GetService<IVisualThemeSelector>().CurrentItem
+                _defaultColor ??= _serviceProvider.GetService<IVisualThemeSelector>().CurrentItem
                     .DefaultTextForegroundColor.ToHex();
 
                 return Get(_defaultColor);

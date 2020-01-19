@@ -568,11 +568,11 @@
     <value>Paramètres de police du texte ordinaire</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ReportIssues.Text" xml:space="preserve">
+  <data name="ReportIssues.Content" xml:space="preserve">
     <value>Signaler des problèmes ici</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="SourceCode.Text" xml:space="preserve">
+  <data name="SourceCode.Content" xml:space="preserve">
     <value>Code source</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -580,7 +580,7 @@
     <value>Remerciements:</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ContributeToDeveloper.Text" xml:space="preserve">
+  <data name="ContributeToDeveloper.Content" xml:space="preserve">
     <value>Contribuer au développeur</value>
     <comment>Used on Settings Page</comment>
   </data>

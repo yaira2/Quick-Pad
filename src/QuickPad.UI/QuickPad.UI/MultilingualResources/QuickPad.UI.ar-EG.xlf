@@ -840,17 +840,17 @@
           <target state="translated">مرحباً بعودتك إلى Quick Pad!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
-        <trans-unit id="ReportIssues.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="ReportIssues.Content" translate="yes" xml:space="preserve">
           <source>Report issues here</source>
           <target state="new">Report issues here</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="SourceCode.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
           <source>Source Code</source>
           <target state="new">Source Code</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="ContributeToDeveloper.Text" translate="yes" xml:space="preserve">
+        <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
           <target state="new">Contribute to the developer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>

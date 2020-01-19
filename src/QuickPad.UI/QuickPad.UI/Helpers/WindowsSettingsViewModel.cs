@@ -227,7 +227,12 @@ namespace QuickPad.UI.Helpers
 
                 var json = await jsonFile.ReadTextAsync();
 
-                JsonConvert.DeserializeAnonymousType(json, Model);
+                var quickPadSettingsResolver = new QuickPadSettingsResolver(ServiceProvider);
+
+                JsonConvert.DeserializeAnonymousType(json, Model, new JsonSerializerSettings
+                {
+                    ContractResolver = quickPadSettingsResolver
+                });
 
                 NotifyAll();
             }
@@ -235,31 +240,41 @@ namespace QuickPad.UI.Helpers
 
         public override async Task ExportSettings()
         {
-            var jsonConfiguration = new JsonSerializerSettings
-            {
-                ReferenceLoopHandling = ReferenceLoopHandling.Error
-            };
-
-            var json = JsonConvert.SerializeObject(Model, Formatting.Indented, jsonConfiguration);
-            var bytes = Encoding.UTF8.GetBytes(json);
-
             var savePicker = new FileSavePicker
             {
                 SuggestedStartLocation = PickerLocationId.DocumentsLibrary
             };
 
             // Dropdown of file types the user can save the file as
-            savePicker.FileTypeChoices.Add("JSON File", new List<string> {".json"});
+            savePicker.FileTypeChoices.Add("JSON File", new List<string> { ".json" });
             // Default file name if the user does not type one in or select a file to replace
             savePicker.SuggestedFileName = "Quick-Pad-Settings";
 
             var file = await savePicker.PickSaveFileAsync();
-
             using var stream = await file.OpenStreamForWriteAsync();
 
-            stream.Write(bytes, 0, bytes.Length);
-            await stream.FlushAsync();
-            stream.Close();
+            try
+            {
+                var jsonConfiguration = new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Error
+                };
+
+                var json = JsonConvert.SerializeObject(Model, Formatting.Indented, jsonConfiguration);
+                var bytes = Encoding.UTF8.GetBytes(json);
+
+
+                stream.Write(bytes, 0, bytes.Length);
+                await stream.FlushAsync();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            finally
+            {
+                stream.Close();
+            }
         }
 
         public void NotifyThemeChanged()

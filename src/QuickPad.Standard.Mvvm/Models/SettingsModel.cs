@@ -119,7 +119,7 @@ namespace QuickPad.Mvvm.Models
         public abstract bool Set<TValue>(TValue value, string propertyName = null);
         public abstract TValue Get<TValue>(TValue defaultValue, string propertyName = null);
 
-        protected SettingsModel(ILogger logger, IApplication<TStorage, TStream> app) : base(logger, app)
+        protected SettingsModel(ILogger<SettingsViewModel<TStorage, TStream>> logger, IApplication<TStorage, TStream> app) : base(logger, app)
         {
         }
     }

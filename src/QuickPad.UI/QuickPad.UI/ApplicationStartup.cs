@@ -26,6 +26,7 @@ namespace QuickPad.UI
             services.AddSingleton<ApplicationController<StorageFile, IRandomAccessStream, WindowsDocumentManager>, ApplicationController<StorageFile, IRandomAccessStream, WindowsDocumentManager>>();
             services.AddSingleton<SettingsViewModel<StorageFile, IRandomAccessStream>>(provider => provider.GetService<WindowsSettingsViewModel>());
             services.AddSingleton<WindowsSettingsViewModel, WindowsSettingsViewModel>();
+            services.AddSingleton<WindowsSettingsModel, WindowsSettingsModel>();
             services.AddTransient<DocumentViewModel<StorageFile, IRandomAccessStream>, DocumentViewModel<StorageFile, IRandomAccessStream>>();
             services.AddSingleton<DefaultTextForegroundColor, DefaultTextForegroundColor>();
             services.AddTransient<IFindAndReplaceView<StorageFile, IRandomAccessStream>, FindAndReplaceViewModel<StorageFile, IRandomAccessStream>>();
