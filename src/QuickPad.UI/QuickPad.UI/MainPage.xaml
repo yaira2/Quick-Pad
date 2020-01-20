@@ -157,6 +157,7 @@
                             SelectionChanged="RichEditBox_OnSelectionChanged"
                             Style="{StaticResource RichEditBox}"
                             TextChanged="RichEditBox_TextChanged"
+                            Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
                             TextWrapping="{x:Bind ViewModelDocument.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
                             Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType), Mode=OneWay}"
                             x:FieldModifier="internal">
@@ -179,7 +180,7 @@
                             Drop="OnDrop"
                             FontFamily="{x:Bind ViewModelDocument.CurrentFontName, Mode=OneWay}"
                             FontSize="{x:Bind ViewModelDocument.CurrentFontSize, Mode=OneWay}"
-                            Foreground="{x:Bind Settings.DefaultTextForegroundBrush, Mode=OneWay}"
+                            Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
                             HorizontalTextAlignment="Start"
                             IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}"
                             IsTapEnabled="True"
