@@ -55,17 +55,13 @@
                 Padding="0,12,0,0"
                 HorizontalAlignment="Left"
                 FontSize="16"
-                Text="Developed by Yair Aichenbaum" />
+                Text="Developed by Yair Aichenbaum &amp; Sharp Ninja" />
             <TextBlock
                 x:Uid="SpecialThanks"
                 Padding="0,12,0,0"
                 HorizontalAlignment="Left"
                 FontSize="16"
                 Text="Special thanks to:" />
-            <TextBlock
-                Margin="0,4,0,0"
-                FontSize="13"
-                Text="The Sharp Ninja" />
             <TextBlock
                 Margin="0,4,0,0"
                 FontSize="13"
