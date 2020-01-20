@@ -373,7 +373,7 @@ namespace QuickPad.UI.Helpers
 
                     documentViewModel.ReleaseUpdates();
 
-                    Settings.Status($"Loaded {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
+                    Settings.Status($"Loaded {documentViewModel.File.Name}", TimeSpan.FromSeconds(5),
                         Verbosity.Release);
 
                     documentViewModel.Document.IsDirty = false;
