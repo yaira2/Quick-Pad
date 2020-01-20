@@ -46,7 +46,7 @@
             Margin="{x:Bind Settings.TitleMargin}"
             Background="Transparent">
             <TextBlock
-                Margin="12,0,0,0"
+                Margin="8,0,0,0"
                 VerticalAlignment="Center"
                 FontSize="14"
                 Style="{ThemeResource CaptionTextBlockStyle}">
