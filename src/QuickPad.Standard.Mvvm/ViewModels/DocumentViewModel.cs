@@ -192,7 +192,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        public string IsDirtyMarker => $"{(Document.IsDirty ? "*" : "")}".Trim();
+        public string IsDirtyMarker => $"{((Document?.IsDirty ?? false) ? "*" : "")}".Trim();
 
         public string Title => ($"{File?.DisplayName ?? Untitled}").Trim();
 

@@ -12,6 +12,7 @@ using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Theme;
 
 namespace QuickPad.UI.Helpers
 {
@@ -145,6 +146,7 @@ namespace QuickPad.UI.Helpers
                 var color = Color.FromArgb(a, r, g, b);
 
                 Document.Selection.FormattedText.CharacterFormat.ForegroundColor = color;
+                OnPropertyChanged(ForegroundColor);
             }
         }
 
