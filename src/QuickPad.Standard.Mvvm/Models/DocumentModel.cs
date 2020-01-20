@@ -29,7 +29,7 @@ namespace QuickPad.Mvvm.Models
 
         public void CalculateDirty(string text = null)
         {
-            var toCompare = _marked.TrimEnd('\r');
+            var toCompare = _marked?.TrimEnd('\r') ?? string.Empty;
             text = text?.TrimEnd('\r');
 
             if (text?.Length == toCompare.Length)
@@ -102,7 +102,7 @@ namespace QuickPad.Mvvm.Models
 
                 if (!_isDirty)
                 {
-                    GetText(QuickPadTextGetOptions.None, out _marked);
+                    GetText(GetOptions, out _marked);
                 }
             }
         }
