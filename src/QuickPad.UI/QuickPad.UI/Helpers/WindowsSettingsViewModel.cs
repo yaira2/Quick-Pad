@@ -143,7 +143,7 @@ namespace QuickPad.UI.Helpers
 
                 if (current == value) return;
 
-                obj.Color = FromHex(current);
+                obj.Color = FromHex(value);
                 Model.DefaultTextForegroundColorString = value;
                 NotifyThemeChanged();
             }

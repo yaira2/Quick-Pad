@@ -204,7 +204,7 @@ namespace QuickPad.Mvvm.Models
 
         public List<int> LineIndices { get; } = new List<int>();
         
-        public virtual string ForegroundColor { get; set; }
+        public abstract string ForegroundColor { get; set; }
 
         public abstract Task LoadFromStream(QuickPadTextSetOptions options, TStream stream = null);
 

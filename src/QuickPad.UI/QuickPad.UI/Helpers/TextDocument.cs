@@ -4,7 +4,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.UI;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
 using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm;
@@ -41,6 +43,22 @@ namespace QuickPad.UI.Helpers
         public override void Undo()
         {
             Document.Undo();
+        }
+        
+        public override string ForegroundColor
+        {
+            get => (Document.Foreground as SolidColorBrush)?.Color.ToHex();
+            set
+            {
+                var hex = value.Replace("#", string.Empty);
+                var a = (byte)Convert.ToUInt32(hex.Substring(0, 2), 16);
+                var r = (byte)Convert.ToUInt32(hex.Substring(2, 2), 16);
+                var g = (byte)Convert.ToUInt32(hex.Substring(4, 2), 16);
+                var b = (byte)Convert.ToUInt32(hex.Substring(6, 2), 16);
+                var color = Color.FromArgb(a, r, g, b);
+
+                Document.Foreground = new SolidColorBrush(color);
+            }
         }
 
         public override async Task LoadFromStream(QuickPadTextSetOptions options, IRandomAccessStream stream)

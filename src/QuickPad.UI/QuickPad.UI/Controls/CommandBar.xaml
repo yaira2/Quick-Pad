@@ -168,7 +168,7 @@
                         <ColorPicker
                             IsColorChannelTextInputVisible="False"
                             IsHexInputVisible="False"
-                            Color="{x:Bind ViewModel.FontColor, Mode=TwoWay}">
+                            Color="{x:Bind ViewModelDocument.ForegroundColor, Mode=TwoWay}">
                             <interactivity:Interaction.Behaviors>
                                 <core:EventTriggerBehavior EventName="ColorChanged">
                                     <core:InvokeCommandAction Command="{x:Bind Commands.ColorCommand}" CommandParameter="{x:Bind ViewModel}" />

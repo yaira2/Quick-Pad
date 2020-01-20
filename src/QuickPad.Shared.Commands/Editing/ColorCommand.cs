@@ -12,7 +12,6 @@ namespace QuickPad.Mvvm.Commands.Editing
             {
                 if (viewModel == null) return Task.CompletedTask;
 
-                viewModel.Document.ForegroundColor = viewModel.FontColor;
                 viewModel.OnPropertyChanged(nameof(viewModel.RtfText));
 
                 return Task.CompletedTask;
