@@ -132,10 +132,6 @@
     <value>Fuente por defecto</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFontColor.Text" xml:space="preserve">
-    <value>Color de fuente por defecto</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
     <value>Tamaño de fuente por defecto</value>
     <comment>Used on Settings Page</comment>

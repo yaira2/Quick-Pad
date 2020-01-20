@@ -21,18 +21,6 @@
         </Grid.Resources>
 
         <StackPanel>
-            <TextBlock
-                x:Uid="Font"
-                FontSize="20"
-                Text="Font" />
-            <TextBlock x:Uid="DefaultFontColor" Text="Default Font Color" />
-
-            <!--<ColorPicker IsHexInputVisible="False" IsColorChannelTextInputVisible="False" Color="{x:Bind Settings.DefaultFontColor, Mode=TwoWay}"/>-->
-            <ColorPicker
-                IsColorChannelTextInputVisible="False"
-                IsHexInputVisible="False"
-                Color="{x:Bind Settings.DefaultTextForegroundColor, Mode=TwoWay}" />
-
             <!--  Plain Text Font Settings  -->
             <TextBlock
                 x:Uid="PlainTextFontSettings"

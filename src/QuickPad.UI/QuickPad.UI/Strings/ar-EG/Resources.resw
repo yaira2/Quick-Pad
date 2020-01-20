@@ -128,10 +128,6 @@
     <value>الخط الإفتراضي</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFontColor.Text" xml:space="preserve">
-    <value>لون الخط الإفتراضي</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
     <value>حجم الخط الإفتراضي</value>
     <comment>Used on Settings Page</comment>

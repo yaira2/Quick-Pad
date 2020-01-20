@@ -156,11 +156,6 @@
           <target state="translated">الخط الإفتراضي</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="DefaultFontColor.Text" translate="yes" xml:space="preserve">
-          <source>Default Font Color</source>
-          <target state="translated">لون الخط الإفتراضي</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
           <target state="translated">حجم الخط الإفتراضي</target>

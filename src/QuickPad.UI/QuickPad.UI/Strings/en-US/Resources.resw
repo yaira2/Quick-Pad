@@ -237,10 +237,6 @@
     <value>Default Font</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFontColor.Text" xml:space="preserve">
-    <value>Default Font Color</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
     <value>Default Font Size</value>
     <comment>Used on Settings Page</comment>
