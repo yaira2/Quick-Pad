@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using Windows.ApplicationModel.Resources.Core;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
@@ -29,6 +30,22 @@ namespace QuickPad.UI.Controls
             {
                 if (value == null || DataContext == value) return;
                 DataContext = value;
+
+                value.PropertyChanged += ViewModel_PropertyChanged;
+            }
+        }
+
+        private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(ViewModel.IsDirtyMarker):
+                    DirtyMarker.Text = ViewModel.IsDirtyMarker;
+                    break;
+
+                case nameof(ViewModel.Title):
+                    Title.Text = ViewModel.Title;
+                    break;
             }
         }
 
@@ -38,21 +55,18 @@ namespace QuickPad.UI.Controls
             Settings.PropertyChanged += Settings_PropertyChanged;
             Window.Current.SetTitleBar(trickyTitleBar);
 
-            var flowDirectionSetting = Windows.ApplicationModel.Resources.Core.ResourceContext.GetForCurrentView().QualifierValues["LayoutDirection"];
-            if (flowDirectionSetting == "LTR")
-            {
-                Settings.FlowDirection = Windows.UI.Xaml.FlowDirection.LeftToRight;
-            }
-            else
-            {
-                Settings.FlowDirection = Windows.UI.Xaml.FlowDirection.RightToLeft;
-            }
+            var flowDirectionSetting = ResourceContext.GetForCurrentView().QualifierValues["LayoutDirection"];
+            
+            Settings.FlowDirection = flowDirectionSetting == "LTR" 
+                ? Windows.UI.Xaml.FlowDirection.LeftToRight 
+                : Windows.UI.Xaml.FlowDirection.RightToLeft;
         }
 
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
+                case nameof(Settings.CompactOverlay):
                 case nameof(Settings.TitleMargin):
                     Bindings.Update();
                     break;

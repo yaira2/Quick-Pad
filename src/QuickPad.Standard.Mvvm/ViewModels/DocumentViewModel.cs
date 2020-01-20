@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -6,7 +7,6 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.Commands;
-//using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.Views;
 
@@ -77,7 +77,25 @@ namespace QuickPad.Mvvm.ViewModels
         public DocumentModel<TStorageFile, TStream> Document
         {
             get => _document;
-            set => Set(ref _document, value);
+            set
+            {
+                Set(ref _document, value);
+                
+                _document.PropertyChanged -= DocumentOnPropertyChanged;
+                _document.PropertyChanged += DocumentOnPropertyChanged;
+            }
+        }
+
+        private void DocumentOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            switch (e.PropertyName)
+            {
+                case nameof(Document.IsDirty):
+                case nameof(IsDirtyMarker):
+                    _lastText = Document.IsDirty ? null : Text;
+                    OnPropertyChanged(nameof(IsDirtyMarker));
+                    break;
+            }
         }
 
         private const QuickPadTextGetOptions DEFAULT_TEXT_GET_OPTIONS_TXT = QuickPadTextGetOptions.None | QuickPadTextGetOptions.AdjustCrlf | QuickPadTextGetOptions.NoHidden | QuickPadTextGetOptions.UseCrlf;
@@ -103,16 +121,19 @@ namespace QuickPad.Mvvm.ViewModels
                 CurrentFileDisplayType =
                     isRtf ? RichTextDescription : TextDescription;
 
-                Document.CurrentFontName =
-                    isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
-                Document.CurrentFontSize =
-                    isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
-                Document.CurrentWordWrap =
-                    isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
-                Document.GetOptions =
-                    isRtf ? DEFAULT_TEXT_GET_OPTIONS_RTF : DEFAULT_TEXT_GET_OPTIONS_TXT;
-                Document.SetOptions =
-                    isRtf ? DEFAULT_TEXT_SET_OPTIONS_RTF : DEFAULT_TEXT_SET_OPTIONS_TXT;
+                if (Document != null)
+                {
+                    Document.CurrentFontName =
+                        isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
+                    Document.CurrentFontSize =
+                        isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
+                    Document.CurrentWordWrap =
+                        isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
+                    Document.GetOptions =
+                        isRtf ? DEFAULT_TEXT_GET_OPTIONS_RTF : DEFAULT_TEXT_GET_OPTIONS_TXT;
+                    Document.SetOptions =
+                        isRtf ? DEFAULT_TEXT_SET_OPTIONS_RTF : DEFAULT_TEXT_SET_OPTIONS_TXT;
+                }
 
                 OnPropertyChanged(nameof(IsRtf));
             }
@@ -171,46 +192,21 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        public string Title => ($" {(Document.IsDirty ? "*" : "")} {((File?.DisplayName) ?? Untitled)} ").Trim();
+        public string IsDirtyMarker => $"{(Document.IsDirty ? "*" : "")}".Trim();
+
+        public string Title => ($"{File?.DisplayName ?? Untitled}").Trim();
 
         private string _lastText;
 
         public void TextChanged<TArgs>(object sender, TArgs e)
         {
-            var current = Text;
-
-            if (_lastText == current) return;
-
-            if (_lastText == null)
-            {
-                AreDifferent();
-            }
-            else if(_lastText.Length == current.Length)
-            {
-                if (_lastText.Where((t, i) => t != current[i]).Any())
-                {
-                    AreDifferent();
-                }
-            }
-            else
-            {
-                AreDifferent();
-            }
-
-            void AreDifferent()
-            {
-                _lastText = current;
-
-                Document.CalculateHash(current);
-
-                Commands.NotifyAll(this, Settings);
-            }
+            Document.CalculateDirty(Text);
         }
 
         // Gets raw text from document, not formatted with control characters.
         public string Text
         {
-            get => Document.Text ?? string.Empty;
+            get => Document?.Text ?? string.Empty;
 
             set
             {
@@ -220,7 +216,7 @@ namespace QuickPad.Mvvm.ViewModels
 
                 if (Set(ref text, value))
                 {
-                    Document.CalculateHash();
+                    Document.CalculateDirty();
                 }
             }
         }
@@ -276,9 +272,13 @@ namespace QuickPad.Mvvm.ViewModels
                 {
                     CurrentFileType = value.FileType;
                     CurrentFileDisplayType = value.DisplayType;
+                    OnPropertyChanged(nameof(CurrentFileType));
+                    OnPropertyChanged(nameof(CurrentFileDisplayType));
                 }
 
                 OnPropertyChanged(nameof(FilePath));
+                OnPropertyChanged(nameof(Title));
+                OnPropertyChanged(nameof(IsDirtyMarker));
             }
         }
 
@@ -315,9 +315,11 @@ namespace QuickPad.Mvvm.ViewModels
 
             try
             {
+                Document = ServiceProvider.GetService<DocumentModel<TStorageFile, TStream>>();
+
                 if (IsRtf)
                 {
-                    Document.LoadFromStream(SetOption, null);
+                    await Document.LoadFromStream(DEFAULT_TEXT_SET_OPTIONS_RTF, null);
                 }
                 else
                 {
@@ -413,18 +415,17 @@ namespace QuickPad.Mvvm.ViewModels
                 {
                     Document.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);
 
-                    Document.CalculateHash();
+                    Document.CalculateDirty();
                 }
             }
         }
 
         public object Deferral { get; set; }
-        public bool ShowClippy { get; set; }
 
         public void NotifyAll()
         {
             OnPropertyChanged(nameof(Title));
-            OnPropertyChanged(nameof(Document.IsDirty));
+            OnPropertyChanged(nameof(IsDirtyMarker));
             OnPropertyChanged(nameof(Document));
             OnPropertyChanged(nameof(CurrentEncoding));
             OnPropertyChanged(nameof(File));

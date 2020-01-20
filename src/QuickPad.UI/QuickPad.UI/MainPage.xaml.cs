@@ -69,6 +69,19 @@ namespace QuickPad.UI
             Initialize?.Invoke(this, Commands);
 
             this.InitializeComponent();
+
+            var rtfOptions = provider.GetService<RtfDocumentOptions>();
+
+            rtfOptions.Document = RichEditBox.Document;
+            rtfOptions.Logger = provider.GetService<ILogger<RtfDocument>>();
+            rtfOptions.ViewModel = viewModel;
+
+            var textOptions = provider.GetService<TextDocumentOptions>();
+
+            textOptions.Document = TextBox;
+            textOptions.Logger = provider.GetService<ILogger<TextDocument>>();
+            textOptions.ViewModel = viewModel;
+
             _initialized = true;
 
             DataContext = ViewModel = viewModel;
@@ -183,7 +196,10 @@ namespace QuickPad.UI
 
             if(ViewModel.File == null)
             {
-                await ViewModel.InitNewDocument();
+                if(ViewModel.Document == null)
+                {
+                    await ViewModel.InitNewDocument();
+                }
             }
 
             Settings.Dispatch(() => Bindings.Update());
@@ -282,10 +298,10 @@ namespace QuickPad.UI
         {
             switch (e.PropertyName)
             {
-                case nameof(ViewModel.Title):
-                    var appView = ApplicationView.GetForCurrentView();
-                    appView.Title = ViewModel.Title;
-                    break;
+                //case nameof(ViewModel.Title):
+                //    var appView = ApplicationView.GetForCurrentView();
+                //    appView.Title = ViewModel.Title;
+                //    break;
 
                 case nameof(ViewModel.Text):
                     Commands.NotifyChanged(ViewModel, Settings);
@@ -370,12 +386,17 @@ namespace QuickPad.UI
 
                     if (!_initialized) return;
 
-                    ViewModel.Document = new RtfDocument(
-                        RichEditBox.Document
-                        , App.Services.GetService<ILogger<RtfDocument>>()
-                        , ViewModel
-                        , Settings
-                        , App.Services.GetService<IApplication<StorageFile, IRandomAccessStream>>());
+                    //ViewModel.Document = new RtfDocument(
+                    //    RichEditBox.Document
+                    //    , App.Services.GetService<ILogger<RtfDocument>>()
+                    //    , ViewModel
+                    //    , Settings
+                    //    , App.Services.GetService<IApplication<StorageFile, IRandomAccessStream>>());
+
+                    if(ViewModel.Document == null)
+                    {
+                        Task.Run(ViewModel.InitNewDocument);
+                    }
 
                     RichEditBox.TextChanged += _viewModel.TextChanged;
                     TextBox.TextChanged += _viewModel.TextChanged;

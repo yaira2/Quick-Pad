@@ -274,6 +274,12 @@ namespace QuickPad.UI.Helpers
 
                 if (!canceled)
                 {
+                    documentViewModel.Document = file.FileType.ToLowerInvariant().TrimStart('.') switch
+                    {
+                        "rtf" => (DocumentModel<StorageFile, IRandomAccessStream>) ServiceProvider.GetService<RtfDocument>(),
+                        _ => (DocumentModel<StorageFile, IRandomAccessStream>) ServiceProvider.GetService<TextDocument>()
+                    };
+
                     //add file to most recently used list
                     var mru = StorageApplicationPermissions.MostRecentlyUsedList.Add(file, file.Name, RecentStorageItemVisibility.AppAndSystem);
 
@@ -340,7 +346,7 @@ namespace QuickPad.UI.Helpers
                     {
                         text += "}";
                     }
-
+                    
                     if (documentViewModel.IsRtf)
                     {
                         var memoryStream = new InMemoryRandomAccessStream();
@@ -361,7 +367,7 @@ namespace QuickPad.UI.Helpers
                     }
                     else
                     {
-                        documentViewModel.Text = text;
+                        documentViewModel.Text = text.Replace(Environment.NewLine, "\r");
                         documentViewModel.InvokeClearUndoRedo();
                     }
 

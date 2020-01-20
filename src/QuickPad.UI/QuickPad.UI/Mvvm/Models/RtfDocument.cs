@@ -7,6 +7,7 @@ using Windows.Storage.Streams;
 using Windows.UI;
 using Windows.UI.Text;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
@@ -18,6 +19,7 @@ namespace QuickPad.UI.Helpers
     {
         public RtfDocument(
             ITextDocument document
+            , IServiceProvider serviceProvider
             , ILogger<RtfDocument> logger
             , DocumentViewModel<StorageFile, IRandomAccessStream> viewModel
             , WindowsSettingsViewModel settings
@@ -25,6 +27,7 @@ namespace QuickPad.UI.Helpers
             : base(logger, viewModel, settings, app)
         {
             Document = document;
+            ServiceProvider = serviceProvider;
 
             viewModel.RedoRequested += model => Redo();
             viewModel.UndoRequested += model => Undo();
@@ -36,6 +39,7 @@ namespace QuickPad.UI.Helpers
         }
 
         public ITextDocument Document { get; }
+        public IServiceProvider ServiceProvider { get; }
 
         public override bool CanCopy => Document.CanCopy();
         public override bool CanPaste => Document.CanPaste();
@@ -146,12 +150,13 @@ namespace QuickPad.UI.Helpers
 
         public override async Task LoadFromStream(QuickPadTextSetOptions options, IRandomAccessStream stream)
         {
-            var memoryStream = new InMemoryRandomAccessStream();
-            var bytes = Encoding.UTF8.GetBytes("\r");
-            var buffer = bytes.AsBuffer();
-            await memoryStream.WriteAsync(buffer);
+            if(stream == null)
+            {
+                var uri = new System.Uri("ms-appx:///Templates/empty.rtf");
+                var file = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(uri);
 
-            memoryStream.Seek(0);
+                stream = await file.OpenReadAsync();
+            }
 
             Document.LoadFromStream(options.ToUwp(), stream);
         }

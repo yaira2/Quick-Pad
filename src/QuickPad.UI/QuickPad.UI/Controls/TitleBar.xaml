@@ -49,8 +49,9 @@
                 Margin="12,0,0,0"
                 VerticalAlignment="Center"
                 FontSize="14"
-                Style="{ThemeResource CaptionTextBlockStyle}"
-                Text="{x:Bind ViewModel.Title, Mode=OneWay}" />
+                Style="{ThemeResource CaptionTextBlockStyle}">
+                <Run x:Name="DirtyMarker" Text="{x:Bind ViewModel.IsDirtyMarker}"/> <Run x:Name="Title" Text="{x:Bind ViewModel.Title}" />
+            </TextBlock>
         </Grid>
     </Grid>
 </UserControl>

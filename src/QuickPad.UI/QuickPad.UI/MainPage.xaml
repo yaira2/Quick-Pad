@@ -158,7 +158,8 @@
                             Style="{StaticResource RichEditBox}"
                             TextChanged="RichEditBox_TextChanged"
                             TextWrapping="{x:Bind ViewModelDocument.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
-                            Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType), Mode=OneWay}">
+                            Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType), Mode=OneWay}"
+                            x:FieldModifier="internal">
                             <RichEditBox.SelectionHighlightColorWhenNotFocused>
                                 <SolidColorBrush Color="{StaticResource SystemAccentColor}" />
                             </RichEditBox.SelectionHighlightColorWhenNotFocused>

@@ -1,6 +1,7 @@
 ﻿using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.UI.Text;
 using Windows.UI.Xaml;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +10,7 @@ using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Managers;
+using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Commands;
@@ -25,17 +27,61 @@ namespace QuickPad.UI
         {
             // MVC and ViewModels
             services.AddSingleton<ApplicationController<StorageFile, IRandomAccessStream, WindowsDocumentManager>, ApplicationController<StorageFile, IRandomAccessStream, WindowsDocumentManager>>();
+            services.AddSingleton<IApplication<StorageFile, IRandomAccessStream>>(provider => App.Current as IApplication<StorageFile, IRandomAccessStream>);
             services.AddSingleton<SettingsViewModel<StorageFile, IRandomAccessStream>>(provider => provider.GetService<WindowsSettingsViewModel>());
             services.AddSingleton<WindowsSettingsViewModel, WindowsSettingsViewModel>();
             services.AddSingleton<WindowsSettingsModel, WindowsSettingsModel>();
             services.AddTransient<DocumentViewModel<StorageFile, IRandomAccessStream>, DocumentViewModel<StorageFile, IRandomAccessStream>>();
             services.AddSingleton<DefaultTextForegroundColor, DefaultTextForegroundColor>();
+            services.AddSingleton<RtfDocumentOptions, RtfDocumentOptions>();
+            services.AddSingleton<TextDocumentOptions, TextDocumentOptions>();
             services.AddTransient<IFindAndReplaceView<StorageFile, IRandomAccessStream>, FindAndReplaceViewModel<StorageFile, IRandomAccessStream>>();
-            services.AddTransient<RtfDocument, RtfDocument>();
-            services.AddTransient<TextDocument, TextDocument>();
+
+            services.AddTransient<RtfDocument>(provider =>
+            {
+                var options = provider.GetService<RtfDocumentOptions>();
+
+                return new RtfDocument(
+                    options.Document
+                    , provider
+                    , options.Logger
+                    , options.ViewModel
+                    , provider.GetService<WindowsSettingsViewModel>()
+                    , provider.GetService<IApplication<StorageFile, IRandomAccessStream>>());
+            });
+
+            services.AddTransient<TextDocument>(provider =>
+            {
+                var options = provider.GetService<TextDocumentOptions>();
+
+                return new TextDocument(
+                    options.Document
+                    , options.Logger
+                    , options.ViewModel
+                    , provider.GetService<WindowsSettingsViewModel>()
+                    , provider.GetService<IApplication<StorageFile, IRandomAccessStream>>());
+            });
+
+            services.AddTransient<DocumentModel<StorageFile, IRandomAccessStream>>(provider =>
+            {
+                var vm = provider.GetService<DocumentViewModel<StorageFile, IRandomAccessStream>>();
+
+                if (vm != null)
+                {
+                    switch (vm.CurrentFileType.ToLowerInvariant().Trim('.'))
+                    {
+                        case "rtf":
+                            return provider.GetService<RtfDocument>();
+                    }
+                }
+
+                return provider.GetService<TextDocument>();
+            });
             services.AddSingleton<WindowsDocumentManager, WindowsDocumentManager>();
             services.AddSingleton<IDocumentViewModelStrings, WindowsDocumentViewModelStrings>();
             services.AddTransient<ResourceLoader>(provider => ResourceLoader.GetForCurrentView());
+            services.AddTransient<ITextDocument>(provider => App.RichEditBox?.Document);
+                
 
             services.AddSingleton<IVisualThemeSelector, VisualThemeSelector>();
 

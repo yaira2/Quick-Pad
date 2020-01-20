@@ -143,15 +143,15 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApplicationStartup.cs" />
-    <Compile Include="Commands\Clipboard\ContentChangedCommand.cs" />
-    <Compile Include="Commands\Clipboard\CopyCommand.cs" />
-    <Compile Include="Commands\Clipboard\CutCommand.cs" />
-    <Compile Include="Commands\Clipboard\DeleteCommand.cs" />
-    <Compile Include="Commands\Clipboard\PasteCommand.cs" />
-    <Compile Include="Commands\CompactOverlayCommand.cs" />
-    <Compile Include="Commands\EmojiCommand.cs" />
-    <Compile Include="Commands\RateAndReviewCommand.cs" />
-    <Compile Include="Commands\ShareCommand.cs" />
+    <Compile Include="Mvvm\Commands\Clipboard\ContentChangedCommand.cs" />
+    <Compile Include="Mvvm\Commands\Clipboard\CopyCommand.cs" />
+    <Compile Include="Mvvm\Commands\Clipboard\CutCommand.cs" />
+    <Compile Include="Mvvm\Commands\Clipboard\DeleteCommand.cs" />
+    <Compile Include="Mvvm\Commands\Clipboard\PasteCommand.cs" />
+    <Compile Include="Mvvm\Commands\CompactOverlayCommand.cs" />
+    <Compile Include="Mvvm\Commands\EmojiCommand.cs" />
+    <Compile Include="Mvvm\Commands\RateAndReviewCommand.cs" />
+    <Compile Include="Mvvm\Commands\ShareCommand.cs" />
     <Compile Include="Controls\FindAndReplaceView.xaml.cs">
       <DependentUpon>FindAndReplaceView.xaml</DependentUpon>
     </Compile>
@@ -192,16 +192,16 @@
     <Compile Include="Dialogs\WelcomeDialog.xaml.cs">
       <DependentUpon>WelcomeDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\DisplayMode.cs" />
+    <Compile Include="Mvvm\Models\DisplayMode.cs" />
     <Compile Include="Helpers\IntCompare.cs" />
     <Compile Include="Helpers\QuickPadSettingsResolver.cs" />
-    <Compile Include="Helpers\RtfDocument.cs" />
-    <Compile Include="Helpers\TextDocument.cs" />
+    <Compile Include="Mvvm\Models\RtfDocument.cs" />
+    <Compile Include="Mvvm\Models\TextDocument.cs" />
     <Compile Include="Helpers\TextOptionsConverters.cs" />
-    <Compile Include="Helpers\WindowsDocumentManager.cs" />
+    <Compile Include="Mvc\WindowsDocumentManager.cs" />
     <Compile Include="Helpers\WindowsDocumentViewModelStrings.cs" />
-    <Compile Include="Helpers\WindowsSettingsModel.cs" />
-    <Compile Include="Helpers\WindowsSettingsViewModel.cs" />
+    <Compile Include="Mvvm\Models\WindowsSettingsModel.cs" />
+    <Compile Include="Mvvm\ViewModels\WindowsSettingsViewModel.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -209,6 +209,8 @@
       <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RtfDocumentOptions.cs" />
+    <Compile Include="TextDocumentOptions.cs" />
     <Compile Include="Theme\DefaultTextForegroundColor.cs" />
     <Compile Include="Theme\IVisualThemeSelector.cs" />
     <Compile Include="Theme\ThemeChangedEventArgs.cs" />
@@ -231,6 +233,9 @@
     <Content Include="Assets\File Icons\RTF Small.png" />
     <Content Include="Assets\File Icons\TXT C Small.png" />
     <Content Include="Assets\Font\codicon.ttf" />
+    <EmbeddedResource Include="Templates\empty.rtf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\GoogleIcon.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />

@@ -12,7 +12,7 @@ namespace QuickPad.Mvvm.ViewModels
     public abstract class ViewModel<TStorageFile, TStream> : INotifyPropertyChanged
         where TStream : class
     {
-        public event PropertyChangedEventHandler PropertyChanged;
+        public virtual event PropertyChangedEventHandler PropertyChanged;
 
         private bool _frozen;
         private bool _blockUpdates;

@@ -43,7 +43,8 @@ namespace QuickPad.UI
         public static ApplicationController<StorageFile, IRandomAccessStream, WindowsDocumentManager> Controller => Host?.Controller;
         public static IServiceProvider Services => Host?.Services;
         public static WindowsSettingsViewModel Settings => _settings ??= Host?.Services.GetService<WindowsSettingsViewModel>();
-        
+        public static RichEditBox RichEditBox { get; internal set; }
+
         public static QuickPadCommands Commands => Services.GetService<QuickPadCommands>();
 
         private ILogger<App> Logger { get; set; }

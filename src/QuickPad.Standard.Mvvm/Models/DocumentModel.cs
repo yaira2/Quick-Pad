@@ -14,9 +14,6 @@ namespace QuickPad.Mvvm.Models
     {
         public DocumentViewModel<TStorageFile, TStream> ViewModel { get; }
         public SettingsViewModel<TStorageFile, TStream> Settings { get; }
-        private string _originalHash;
-        private string _currentHash;
-        private readonly HMAC _md5;
         private string _currentFontName;
         private double _currentFontSize = 14;
 
@@ -28,24 +25,41 @@ namespace QuickPad.Mvvm.Models
         {
             ViewModel = viewModel;
             Settings = settings;
-            _md5 = HMAC.Create("HMACMD5");
-            _md5.Key = Encoding.ASCII.GetBytes("12345");
         }
 
-        public void CalculateHash(string text = null)
+        public void CalculateDirty(string text = null)
         {
-            text ??= Text;
-            var hash = _md5.ComputeHash(Encoding.ASCII.GetBytes(text ?? string.Empty));
+            var toCompare = _marked.TrimEnd('\r');
+            text = text?.TrimEnd('\r');
 
-            var newHash = Encoding.ASCII.GetString(hash);
+            if (text?.Length == toCompare.Length)
+            {
+                for (var i = 0; i < Math.Min(text?.Length ?? 0, toCompare.Length); ++i)
+                {
+                    if (text?[i] == toCompare[i]) continue;
 
-            if (newHash == _currentHash) return;
+                    NotifyListeners();
 
-            _currentHash = newHash;
+                    return;
+                }
 
-            OnPropertyChanged(nameof(IsDirty));
-            OnPropertyChanged(nameof(Title));
-            OnPropertyChanged(nameof(MediaTypeNames.Text));
+                if(IsDirty) IsDirty = false;
+            }
+            else
+            {
+                NotifyListeners();
+
+                return;
+            }
+            
+            void NotifyListeners()
+            {
+                IsDirty = true;
+
+                OnPropertyChanged(nameof(DocumentViewModel<TStorageFile, TStream>.IsDirtyMarker));
+                OnPropertyChanged(nameof(Title));
+                OnPropertyChanged(nameof(Text));
+            }
         }
 
         public abstract bool CanCopy { get; }
@@ -81,17 +95,15 @@ namespace QuickPad.Mvvm.Models
 
         public bool IsDirty
         {
-            get => (_originalHash != _currentHash);
+            get => _isDirty;
             set
             {
-                if (!value)
-                {
-                    CalculateHash();
-                    _originalHash = _currentHash;
-                }
+                Set(ref _isDirty, value);
 
-                OnPropertyChanged();
-                OnPropertyChanged(nameof(Title));
+                if (!_isDirty)
+                {
+                    GetText(QuickPadTextGetOptions.None, out _marked);
+                }
             }
         }
 
@@ -196,6 +208,9 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selSuperscript = false;
+        private bool _isDirty;
+        private string _marked;
+
         public virtual bool SelSuperscript
         {
             get => _selSuperscript;
@@ -218,7 +233,7 @@ namespace QuickPad.Mvvm.Models
             LineIndices.Clear();
 
             var index = -1;
-            var text = ViewModel.Text.Replace(Environment.NewLine, "\r");
+            var text = ViewModel.Text.Replace(Environment.NewLine, "\r").TrimEnd('\r');
             while ((index = text.IndexOf('\r', index + 1)) > -1)
             {
                 index++;
@@ -226,6 +241,8 @@ namespace QuickPad.Mvvm.Models
 
                 if (index + 1 >= text.Length) break;
             }
+
+            OnPropertyChanged(nameof(IsDirty));
         }
 
         public abstract void SetSelectedText(string text);
