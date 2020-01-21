@@ -43,6 +43,7 @@ namespace QuickPad.UI.Controls
                 SetValue(ViewModelProperty, value);
                 DataContext = value;
                 value.PropertyChanged += ViewModel_PropertyChanged;
+                value.Document.PropertyChanged += ViewModel_PropertyChanged;
             }
         }
 
@@ -79,7 +80,7 @@ namespace QuickPad.UI.Controls
         }
 
         public event Action<string> SetFontName;
-        public event Action<double> SetFontSize;
+        public event Action<float> SetFontSize;
 
         private void OpenFontFlyout(object sender, object e)
         {

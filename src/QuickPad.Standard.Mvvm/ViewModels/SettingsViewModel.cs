@@ -128,8 +128,8 @@ namespace QuickPad.Mvvm.ViewModels
         [JsonIgnore] public ObservableCollection<string> AllFonts { get; protected set; }
 
         [JsonIgnore]
-        public IEnumerable<double> AllFontSizes { get; } =
-            new double[] {4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
+        public IEnumerable<float> AllFontSizes { get; } =
+            new float[] {4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
 
         [JsonIgnore] public Action<double> AfterTintOpacityChanged { get; set; }
 

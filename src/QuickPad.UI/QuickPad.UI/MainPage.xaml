@@ -157,7 +157,6 @@
                             SelectionChanged="RichEditBox_OnSelectionChanged"
                             Style="{StaticResource RichEditBox}"
                             TextChanged="RichEditBox_TextChanged"
-                            Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
                             TextWrapping="{x:Bind ViewModelDocument.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"
                             Visibility="{x:Bind converters:Converter.VisibleIfRtf(ViewModel.CurrentFileType), Mode=OneWay}"
                             x:FieldModifier="internal">

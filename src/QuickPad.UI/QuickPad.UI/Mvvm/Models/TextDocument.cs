@@ -44,7 +44,10 @@ namespace QuickPad.UI.Helpers
         {
             Document.Undo();
         }
-        
+
+        public override string CurrentFontName { get; set; }
+        public override float CurrentFontSize { get; set; }
+
         public override string ForegroundColor
         {
             get => (Document.Foreground as SolidColorBrush)?.Color.ToHex();
@@ -99,6 +102,11 @@ namespace QuickPad.UI.Helpers
             Document.SelectionLength = length;
 
             return GetSelectionBounds();
+        }
+
+        public override void NotifyOnSelectionChange()
+        {
+            // Text Document doesn't need to update UI based on selection.
         }
 
         public override void SetText(QuickPadTextSetOptions options, string value)

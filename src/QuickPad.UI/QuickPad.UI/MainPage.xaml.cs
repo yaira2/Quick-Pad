@@ -168,14 +168,20 @@ namespace QuickPad.UI
             GainedFocus?.Invoke();
         }
 
-        private void CommandBarOnSetFontSize(double fontSize)
+        private void CommandBarOnSetFontSize(float fontSize)
         {
-            RichEditBox.FontSize = fontSize;
+            if(RichEditBox.Document.Selection.FormattedText.CharacterFormat.Size != fontSize)
+            {
+                RichEditBox.Document.Selection.FormattedText.CharacterFormat.Size = fontSize;
+            }
         }
 
         private void CommandBarOnSetFontName(string fontFamilyName)
         {
-            RichEditBox.FontFamily = new FontFamily(fontFamilyName);
+            if (RichEditBox.Document.Selection.FormattedText.CharacterFormat.Name != fontFamilyName)
+            {
+                RichEditBox.Document.Selection.FormattedText.CharacterFormat.Name = fontFamilyName;
+            }
         }
 
         private void CurrentView_BackRequested(object sender, BackRequestedEventArgs e)
@@ -556,11 +562,21 @@ namespace QuickPad.UI
         private void TextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             GetPosition(TextBox.SelectionStart + TextBox.SelectionLength);
+            ViewModelDocument.NotifyOnSelectionChange();
         }
 
+        private (int start, int length) _lastSelectionRange = default;
         private void RichEditBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
             GetPosition(RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length);
+            if (_lastSelectionRange.start != RichEditBox.Document.Selection.StartPosition ||
+                _lastSelectionRange.length != RichEditBox.Document.Selection.Length)
+            {
+                _lastSelectionRange = (RichEditBox.Document.Selection.StartPosition,
+                    RichEditBox.Document.Selection.Length);
+
+                ViewModelDocument.NotifyOnSelectionChange();
+            }
         }
 
         private List<int> LineIndices => ViewModel.Document.LineIndices;

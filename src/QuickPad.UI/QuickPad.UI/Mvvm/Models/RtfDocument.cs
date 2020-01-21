@@ -36,7 +36,7 @@ namespace QuickPad.UI.Helpers
 
         private void ViewModelOnSetSelection(int arg1, int arg2, bool arg3)
         {
-            
+            NotifyOnSelectionChange();
         }
 
         public ITextDocument Document { get; }
@@ -60,6 +60,7 @@ namespace QuickPad.UI.Helpers
         public override void SetText(QuickPadTextSetOptions options, string value)
         {
             Document.SetText(options.ToUwp(), value);
+            OnPropertyChanged(nameof(Text));
         }
 
         public override void GetText(QuickPadTextGetOptions options, out string value)
@@ -67,70 +68,173 @@ namespace QuickPad.UI.Helpers
             Document.GetText(options.ToUwp(), out value);
         }
 
+        public override string CurrentFontName
+        {
+            get => Document.Selection.CharacterFormat.Name;
+            set
+            {
+                var name = Document.Selection.CharacterFormat.Name;
+                if (Set(ref name, value))
+                {
+                    Document.Selection.CharacterFormat.Name = name;
+                }
+            }
+        }
+
+        public override float CurrentFontSize
+        {
+            get => Document.Selection.CharacterFormat.Size;
+            set
+            {
+                var size = Document.Selection.CharacterFormat.Size;
+                if (Set(ref size, value))
+                {
+                    Document.Selection.CharacterFormat.Size = size;
+                }
+            }
+        }
+
         public override bool SelBold 
         { 
             get => Document.Selection.FormattedText.CharacterFormat.Bold == FormatEffect.On; 
-            set => Document.Selection.FormattedText.CharacterFormat.Bold = value ? FormatEffect.On : FormatEffect.Off;
+            set
+            {
+                var bold = Document.Selection.FormattedText.CharacterFormat.Bold;
+                if (Set(ref bold, value ? FormatEffect.On : FormatEffect.Off))
+                {
+                    Document.Selection.FormattedText.CharacterFormat.Bold = bold;
+                }
+            }
         }
 
         public override bool SelItalic
         {
             get => Document.Selection.FormattedText.CharacterFormat.Italic == FormatEffect.On;
-            set => Document.Selection.FormattedText.CharacterFormat.Italic = value ? FormatEffect.On : FormatEffect.Off;
+            set
+            {
+                var italic = Document.Selection.FormattedText.CharacterFormat.Italic;
+                if (Set(ref italic, value ? FormatEffect.On : FormatEffect.Off))
+                {
+                    Document.Selection.FormattedText.CharacterFormat.Italic = italic;
+                }
+            }
         }
 
         public override bool SelUnderline
         {
             get => Document.Selection.FormattedText.CharacterFormat.Underline == UnderlineType.Single;
-            set => Document.Selection.FormattedText.CharacterFormat.Underline = value ? UnderlineType.Single : UnderlineType.None;
+            set
+            {
+                var underline = Document.Selection.FormattedText.CharacterFormat.Underline;
+                if (Set(ref underline, value ? UnderlineType.Single : UnderlineType.None))
+                {
+                    Document.Selection.FormattedText.CharacterFormat.Underline = underline;
+                }
+            }
         }
 
         public override bool SelStrikethrough
         {
             get => Document.Selection.FormattedText.CharacterFormat.Strikethrough == FormatEffect.On;
-            set => Document.Selection.FormattedText.CharacterFormat.Strikethrough = value ? FormatEffect.On : FormatEffect.Off;
+            set
+            {
+                var strikethrough = Document.Selection.FormattedText.CharacterFormat.Strikethrough;
+                if (Set(ref strikethrough, value ? FormatEffect.On : FormatEffect.Off))
+                {
+                    Document.Selection.FormattedText.CharacterFormat.Strikethrough = strikethrough;
+                }
+            }
         }
 
         public override bool SelCenter
         {
             get => Document.Selection.FormattedText.ParagraphFormat.Alignment == ParagraphAlignment.Center;
-            set => Document.Selection.FormattedText.ParagraphFormat.Alignment = value ? ParagraphAlignment.Center : ParagraphAlignment.Undefined;
+            set
+            {
+                var alignment = Document.Selection.FormattedText.ParagraphFormat.Alignment;
+                if (Set(ref alignment, value ? ParagraphAlignment.Center : ParagraphAlignment.Undefined))
+                {
+                    Document.Selection.FormattedText.ParagraphFormat.Alignment = alignment;
+                }
+            }
         }
 
         public override bool SelRight
         {
             get => Document.Selection.FormattedText.ParagraphFormat.Alignment == ParagraphAlignment.Right;
-            set => Document.Selection.FormattedText.ParagraphFormat.Alignment = value ? ParagraphAlignment.Right : ParagraphAlignment.Undefined;
+            set
+            {
+                var alignment = Document.Selection.FormattedText.ParagraphFormat.Alignment;
+                if (Set(ref alignment, value ? ParagraphAlignment.Right : ParagraphAlignment.Undefined))
+                {
+                    Document.Selection.FormattedText.ParagraphFormat.Alignment = alignment;
+                }
+            }
         }
 
         public override bool SelLeft
         {
             get => Document.Selection.FormattedText.ParagraphFormat.Alignment == ParagraphAlignment.Left;
-            set => Document.Selection.FormattedText.ParagraphFormat.Alignment = value ? ParagraphAlignment.Left : ParagraphAlignment.Undefined;
+            set
+            {
+                var alignment = Document.Selection.FormattedText.ParagraphFormat.Alignment;
+                if (Set(ref alignment, value ? ParagraphAlignment.Left : ParagraphAlignment.Undefined))
+                {
+                    Document.Selection.FormattedText.ParagraphFormat.Alignment = alignment;
+                }
+            }
         }
 
         public override bool SelJustify
         {
             get => Document.Selection.FormattedText.ParagraphFormat.Alignment == ParagraphAlignment.Justify;
-            set => Document.Selection.FormattedText.ParagraphFormat.Alignment = value ? ParagraphAlignment.Justify : ParagraphAlignment.Undefined;
+            set
+            {
+                var alignment = Document.Selection.FormattedText.ParagraphFormat.Alignment;
+                if (Set(ref alignment, value ? ParagraphAlignment.Justify : ParagraphAlignment.Undefined))
+                {
+                    Document.Selection.FormattedText.ParagraphFormat.Alignment = alignment;
+                }
+            }
         }
 
         public override bool SelBullets
         {
             get => Document.Selection.FormattedText.ParagraphFormat.ListType == MarkerType.Bullet;
-            set => Document.Selection.FormattedText.ParagraphFormat.ListType = value ? MarkerType.Bullet : MarkerType.Undefined;
+            set
+            {
+                var listType = Document.Selection.FormattedText.ParagraphFormat.ListType;
+                if (Set(ref listType, value ? MarkerType.Bullet : MarkerType.Undefined))
+                {
+                    Document.Selection.FormattedText.ParagraphFormat.ListType = listType;
+                }
+            }
         }
 
         public override bool SelSubscript
         {
             get => Document.Selection.FormattedText.CharacterFormat.Subscript == FormatEffect.On;
-            set => Document.Selection.FormattedText.CharacterFormat.Subscript = value ? FormatEffect.On : FormatEffect.Off;
+            set
+            {
+                var subscript = Document.Selection.FormattedText.CharacterFormat.Subscript;
+                if (Set(ref subscript, value ? FormatEffect.On : FormatEffect.Off))
+                {
+                    Document.Selection.FormattedText.CharacterFormat.Subscript = subscript;
+                }
+            }
         }
 
         public override bool SelSuperscript
         {
             get => Document.Selection.FormattedText.CharacterFormat.Superscript == FormatEffect.On;
-            set => Document.Selection.FormattedText.CharacterFormat.Superscript = value ? FormatEffect.On : FormatEffect.Off;
+            set
+            {
+                var superscript = Document.Selection.FormattedText.CharacterFormat.Superscript;
+                if (Set(ref superscript, value ? FormatEffect.On : FormatEffect.Off))
+                {
+                    Document.Selection.FormattedText.CharacterFormat.Superscript = superscript;
+                }
+            }
         }
 
         public override string ForegroundColor 
@@ -145,8 +249,11 @@ namespace QuickPad.UI.Helpers
                 var b = (byte)Convert.ToUInt32(hex.Substring(6, 2), 16);
                 var color = Color.FromArgb(a, r, g, b);
 
-                Document.Selection.FormattedText.CharacterFormat.ForegroundColor = color;
-                OnPropertyChanged(ForegroundColor);
+                var oldColor = Document.Selection.FormattedText.CharacterFormat.ForegroundColor;
+                if (Set(ref oldColor, color))
+                {
+                    Document.Selection.FormattedText.CharacterFormat.ForegroundColor = color;
+                }
             }
         }
 
@@ -190,6 +297,7 @@ namespace QuickPad.UI.Helpers
         public override void SetSelectedText(string text)
         {
             Document.Selection.Text = text;
+            OnPropertyChanged(nameof(Text));
         }
 
         public override (int start, int length) GetSelectionBounds()
@@ -205,7 +313,25 @@ namespace QuickPad.UI.Helpers
             Document.Selection.StartPosition = s;
             Document.Selection.EndPosition = e;
 
+            NotifyOnSelectionChange();
+
             return GetSelectionBounds();
+        }
+
+        public override void NotifyOnSelectionChange()
+        {
+            OnPropertyChanged(nameof(SelSuperscript));
+            OnPropertyChanged(nameof(SelBold));
+            OnPropertyChanged(nameof(SelBullets));
+            OnPropertyChanged(nameof(SelCenter));
+            OnPropertyChanged(nameof(SelItalic));
+            OnPropertyChanged(nameof(SelJustify));
+            OnPropertyChanged(nameof(SelLeft));
+            OnPropertyChanged(nameof(SelRight));
+            OnPropertyChanged(nameof(SelStrikethrough));
+            OnPropertyChanged(nameof(SelUnderline));
+            OnPropertyChanged(nameof(CurrentFontName));
+            OnPropertyChanged(nameof(CurrentFontSize));
         }
     }
 }

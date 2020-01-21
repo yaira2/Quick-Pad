@@ -126,7 +126,7 @@ namespace QuickPad.Mvvm.ViewModels
                     Document.CurrentFontName =
                         isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
                     Document.CurrentFontSize =
-                        isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
+                        isRtf ? (float)Settings.DefaultFontRtfSize : (float)Settings.DefaultFontSize;
                     Document.CurrentWordWrap =
                         isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
                     Document.GetOptions =

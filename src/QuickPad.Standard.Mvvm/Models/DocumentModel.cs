@@ -109,17 +109,9 @@ namespace QuickPad.Mvvm.Models
 
         public string Title => ViewModel.Title;
 
-        public string CurrentFontName
-        {
-            get => _currentFontName ?? Settings.DefaultFont;
-            set => Set(ref _currentFontName, value);
-        }
+        public abstract string CurrentFontName { get; set; }
 
-        public double CurrentFontSize
-        {
-            get => _currentFontSize;
-            set => Set(ref _currentFontSize, value);
-        }
+        public abstract float CurrentFontSize { get; set; }
 
         public bool CurrentWordWrap
         {
@@ -249,5 +241,6 @@ namespace QuickPad.Mvvm.Models
 
         public abstract (int start, int length) GetSelectionBounds();
         public abstract (int start, int length) SetSelectionBound(int start, int length);
+        public abstract void NotifyOnSelectionChange();
     }
 }
