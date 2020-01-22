@@ -154,7 +154,7 @@
                             IsSpellCheckEnabled="{x:Bind Settings.SpellCheck, Mode=OneWay}"
                             IsTapEnabled="True"
                             KeyDown="Text_OnKeyDown"
-                            SelectionChanged="RichEditBox_OnSelectionChanged"
+                            SelectionChanging="RichEditBox_OnSelectionChanging"
                             Style="{StaticResource RichEditBox}"
                             TextChanged="RichEditBox_TextChanged"
                             TextWrapping="{x:Bind ViewModelDocument.CurrentWordWrap, Converter={StaticResource Converter}, Mode=OneWay}"

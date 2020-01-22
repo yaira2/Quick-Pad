@@ -304,11 +304,6 @@ namespace QuickPad.UI
         {
             switch (e.PropertyName)
             {
-                //case nameof(ViewModel.Title):
-                //    var appView = ApplicationView.GetForCurrentView();
-                //    appView.Title = ViewModel.Title;
-                //    break;
-
                 case nameof(ViewModel.Text):
                     Commands.NotifyChanged(ViewModel, Settings);
                     break;
@@ -390,6 +385,8 @@ namespace QuickPad.UI
                     _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
                     _viewModel.Focus += ViewModelOnFocus;
 
+                    _viewModel.NewDocumentInitialized += ViewModelOnNewDocumentInitialized;
+
                     if (!_initialized) return;
 
                     //ViewModel.Document = new RtfDocument(
@@ -408,6 +405,16 @@ namespace QuickPad.UI
                     TextBox.TextChanged += _viewModel.TextChanged;
                 }
             }
+        }
+
+        private void ViewModelOnNewDocumentInitialized(DocumentModel<StorageFile, IRandomAccessStream> obj)
+        {
+            switch(obj)
+            {
+                case RtfDocument rtfDocument:
+                    RichEditBox.SelectionChanging += (sender, args) => rtfDocument.NotifyOnSelectionChange();
+                    break;
+            };
         }
 
         public DocumentModel<StorageFile, IRandomAccessStream> ViewModelDocument => _viewModel.Document;
@@ -561,23 +568,11 @@ namespace QuickPad.UI
 
         private void TextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
-            GetPosition(TextBox.SelectionStart + TextBox.SelectionLength);
             ViewModelDocument.NotifyOnSelectionChange();
+            GetPosition(TextBox.SelectionStart + TextBox.SelectionLength);
         }
 
         private (int start, int length) _lastSelectionRange = default;
-        private void RichEditBox_OnSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            GetPosition(RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length);
-            if (_lastSelectionRange.start != RichEditBox.Document.Selection.StartPosition ||
-                _lastSelectionRange.length != RichEditBox.Document.Selection.Length)
-            {
-                _lastSelectionRange = (RichEditBox.Document.Selection.StartPosition,
-                    RichEditBox.Document.Selection.Length);
-
-                ViewModelDocument.NotifyOnSelectionChange();
-            }
-        }
 
         private List<int> LineIndices => ViewModel.Document.LineIndices;
 
@@ -728,6 +723,24 @@ namespace QuickPad.UI
                 CommandParameter = ViewModel
             };
             primaryCommands.Add(searchCommandBarGoogle);
+        }
+
+        private void RichEditBox_OnSelectionChanging(RichEditBox sender, RichEditBoxSelectionChangingEventArgs args)
+        {
+            try
+            {
+                GetPosition(args.SelectionStart + args.SelectionLength);
+
+                if (_lastSelectionRange.start != args.SelectionStart ||
+                    _lastSelectionRange.length != args.SelectionLength)
+                {
+                    _lastSelectionRange = (args.SelectionStart, args.SelectionLength);
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogCritical(new EventId(), "RichEditBox_OnSelectionChanging caught exception.", e);
+            }
         }
     }
 }

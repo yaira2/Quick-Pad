@@ -16,11 +16,18 @@ namespace QuickPad.UI.Commands.Clipboard
             Executioner = async viewModel =>
             {
                 //send the selected text to the clipboard
-                var clipboardContent = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
-                var dataPackage = new DataPackage();
-                dataPackage.SetText(await clipboardContent.GetTextAsync());
-                Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
-                Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
+                try
+                {
+                    var clipboardContent = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
+                    var dataPackage = new DataPackage();
+                    dataPackage.SetText(await clipboardContent.GetTextAsync());
+                    Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+                    Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
+                }
+                catch
+                {
+                    // Don't let the clipboard take down the thread
+                }
             };
         }
     }

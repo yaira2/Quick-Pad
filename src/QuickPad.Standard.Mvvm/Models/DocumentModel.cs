@@ -68,7 +68,9 @@ namespace QuickPad.Mvvm.Models
 
         public abstract bool CanUndo { get; }
 
-        public abstract void GetText(QuickPadTextGetOptions options, out string value);
+        public abstract Task<string> GetTextAsync(QuickPadTextGetOptions options);
+
+        public abstract string GetText(QuickPadTextGetOptions options);
 
         public abstract void Redo();
 
@@ -81,12 +83,7 @@ namespace QuickPad.Mvvm.Models
 
         public string Text
         {
-            get
-            {
-                GetText(GetOptions, out var result);
-
-                return result;
-            }
+            get => GetText(GetOptions);
 
             set => SetText(SetOptions, value);
         }
@@ -100,7 +97,7 @@ namespace QuickPad.Mvvm.Models
 
                 if (!_isDirty)
                 {
-                    GetText(GetOptions, out _marked);
+                    _marked = GetText(GetOptions);
                 }
             }
         }
@@ -240,5 +237,6 @@ namespace QuickPad.Mvvm.Models
         public abstract (int start, int length) GetSelectionBounds();
         public abstract (int start, int length) SetSelectionBound(int start, int length);
         public abstract void NotifyOnSelectionChange();
+        public abstract void SetDefaults();
     }
 }

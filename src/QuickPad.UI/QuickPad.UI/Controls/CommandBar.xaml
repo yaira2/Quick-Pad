@@ -198,7 +198,7 @@
                 Command="{x:Bind Commands.BoldCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 Icon="Bold"
-                IsChecked="{x:Bind ViewModelDocument.SelBold, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelBold, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -212,7 +212,7 @@
                 Command="{x:Bind Commands.ItalicsCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 Icon="Italic"
-                IsChecked="{x:Bind ViewModelDocument.SelItalic, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelItalic, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -226,7 +226,7 @@
                 Command="{x:Bind Commands.UnderlineCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 Icon="Underline"
-                IsChecked="{x:Bind ViewModelDocument.SelUnderline, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelUnderline, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -239,7 +239,7 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.StrikeThroughCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                IsChecked="{x:Bind ViewModelDocument.SelStrikethrough, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelStrikethrough, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -263,7 +263,7 @@
                 Command="{x:Bind Commands.BulletsCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 Icon="List"
-                IsChecked="{x:Bind ViewModelDocument.SelBullets, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelBullets, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -278,7 +278,7 @@
                 Command="{x:Bind Commands.LeftAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 Icon="AlignLeft"
-                IsChecked="{x:Bind ViewModelDocument.SelLeft, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelLeft, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -292,7 +292,7 @@
                 Command="{x:Bind Commands.CenterAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 Icon="AlignCenter"
-                IsChecked="{x:Bind ViewModelDocument.SelCenter, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelCenter, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -306,7 +306,7 @@
                 Command="{x:Bind Commands.RightAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 Icon="AlignRight"
-                IsChecked="{x:Bind ViewModelDocument.SelRight, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelRight, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -319,7 +319,7 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.JustifyCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                IsChecked="{x:Bind ViewModelDocument.SelJustify, Mode=TwoWay}"
+                IsChecked="{x:Bind ViewModelDocument.SelJustify, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>

@@ -36,7 +36,14 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 void DispatchedHandler()
                 {
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                    try
+                    {
+                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+                    }
+                    catch 
+                    {
+                        // We don't want an exception taking down the timer.   
+                    }
                 }
 
                 try

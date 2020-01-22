@@ -19,7 +19,7 @@ namespace QuickPad.Mvvm.Models
         NoHidden = 32U,
         /// <summary>Include list numbers.</summary>
         IncludeNumbering = 64U,
-        /// <summary>Retrieve Rich Text Format (RTF) instead of plain text. Rich Text Format (RTF) is a BYTE (8-bit) format, but because ITextRange.GetText returns a string, the Rich Text Format (RTF) is returned as WCHARs (16-bit or UTF-16), not bytes, when you call ITextRange.GetText with the **FormatRtf** value. When you call ITextRange.SetText with **FormatRtf**, the method accepts an string containing either bytes or WCHARs, but other Rich Text Format (RTF) readers only understand bytes.</summary>
+        /// <summary>Retrieve Rich Text Format (RTF) instead of plain text. Rich Text Format (RTF) is a BYTE (8-bit) format, but because ITextRange.GetTextAsync returns a string, the Rich Text Format (RTF) is returned as WCHARs (16-bit or UTF-16), not bytes, when you call ITextRange.GetTextAsync with the **FormatRtf** value. When you call ITextRange.SetText with **FormatRtf**, the method accepts an string containing either bytes or WCHARs, but other Rich Text Format (RTF) readers only understand bytes.</summary>
         FormatRtf = 8192U,
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 
 namespace QuickPad.Mvvm.Models
 {
@@ -15,7 +16,10 @@ namespace QuickPad.Mvvm.Models
         /// <summary>Gets the text in the active story (document).</summary>
         /// <param name="options">The text retrieval options.</param>
         /// <param name="value">The text in the active story.</param>
-        void GetText([In] QuickPadTextGetOptions options, out string value);
+        Task<string> GetTextAsync([In] QuickPadTextGetOptions options);
+
+        string GetText([In] QuickPadTextGetOptions options);
+
         /// <summary>Reverses the most recent undo operation.</summary>
         void Redo();
         /// <summary>Sets the text of the document.</summary>

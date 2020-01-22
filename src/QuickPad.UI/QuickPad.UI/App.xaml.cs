@@ -334,6 +334,12 @@ namespace QuickPad.UI
             CoreApplication.MainView.DispatcherQueue.TryEnqueue(new DispatcherQueueHandler(() => action()));
         }
 
+        public void DoWhenIdle(Action action)
+        {
+            //CoreApplication.MainView.Dispatcher.RunIdleAsync(args => action());
+            TryEnqueue(action);
+        }
+
         DocumentViewModel<StorageFile, IRandomAccessStream> QuickPad.Mvvm.IApplication<StorageFile, IRandomAccessStream>.CurrentViewModel => CurrentViewModel;
     }
 }

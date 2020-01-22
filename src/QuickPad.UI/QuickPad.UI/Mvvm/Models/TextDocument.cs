@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Theme;
 
 namespace QuickPad.UI.Helpers
 {
@@ -37,6 +39,10 @@ namespace QuickPad.UI.Helpers
         public override bool CanPaste => true;
         public override bool CanRedo => Document.CanRedo;
         public override bool CanUndo => Document.CanUndo;
+        
+        public override void SetDefaults()
+        {
+        }
 
         public override void Redo()
         {
@@ -126,9 +132,14 @@ namespace QuickPad.UI.Helpers
             Document.Text = value;
         }
 
-        public override void GetText(QuickPadTextGetOptions options, out string value)
+        public override async Task<string> GetTextAsync(QuickPadTextGetOptions options) =>
+            await DispatcherHelper.ExecuteOnUIThreadAsync(() => Document.Text);
+
+        // Only call on main thread!
+        public override string GetText(QuickPadTextGetOptions options)
         {
-            value = Document.Text;
+            return Document.Text;
         }
+
     }
 }

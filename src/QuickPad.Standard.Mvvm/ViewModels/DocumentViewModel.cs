@@ -95,6 +95,10 @@ namespace QuickPad.Mvvm.ViewModels
                     _lastText = Document.IsDirty ? null : Text;
                     OnPropertyChanged(nameof(IsDirtyMarker));
                     break;
+
+                default:
+                    OnPropertyChanged(e.PropertyName);
+                    break;
             }
         }
 
@@ -201,6 +205,7 @@ namespace QuickPad.Mvvm.ViewModels
         public void TextChanged<TArgs>(object sender, TArgs e)
         {
             Document.CalculateDirty(Text);
+            Document.NotifyOnSelectionChange();
         }
 
         // Gets raw text from document, not formatted with control characters.
@@ -325,8 +330,6 @@ namespace QuickPad.Mvvm.ViewModels
                     Document.CurrentFontSize = (float)Settings.DefaultFontRtfSize;
                     Document.CurrentWordWrap = Settings.RtfWordWrap;
                     Document.ForegroundColor = Settings.DefaultTextForegroundColor;
-
-                    Document.IsDirty = false;
                 }
                 else
                 {
@@ -336,8 +339,13 @@ namespace QuickPad.Mvvm.ViewModels
                     Document.CurrentWordWrap = Settings.WordWrap;
                 }
 
+                Document.SetDefaults();
+
                 CurrentPosition = (0, 0);
 
+                Document.IsDirty = false;
+
+                NewDocumentInitialized?.Invoke(Document);
             }
             catch (Exception e)
             {
@@ -352,6 +360,8 @@ namespace QuickPad.Mvvm.ViewModels
 
             NotifyAll();
         }
+
+        public event Action<DocumentModel<TStorageFile, TStream>> NewDocumentInitialized;
 
         public string TextDescription { get; set; }
 
@@ -415,9 +425,7 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 if (!IsRtf) return Text;
 
-                Document.GetText(DEFAULT_TEXT_GET_OPTIONS_RTF, out var rtf);
-
-                return rtf;
+                return Document.GetText(DEFAULT_TEXT_GET_OPTIONS_RTF);
             }
             set
             {

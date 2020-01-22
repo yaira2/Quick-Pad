@@ -14,5 +14,6 @@ namespace QuickPad.Mvvm
 
         Task<TResult> AwaitableRunAsync<TResult>(Func<TResult> action);
         void TryEnqueue(Action action);
+        void DoWhenIdle(Action action);
     }
 }

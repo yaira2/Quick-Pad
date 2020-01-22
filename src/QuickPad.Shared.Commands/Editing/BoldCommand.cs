@@ -11,14 +11,7 @@ namespace QuickPad.Mvvm.Commands.Editing
             Executioner = viewModel =>
             {
                 viewModel.Document.BeginUndoGroup();
-                //set the selected text to be bold if not already
-                //if the text is already bold it will make it regular
-                var selectedText = viewModel.SelectedText;
-                if (string.IsNullOrWhiteSpace(selectedText))
-                {
-                    viewModel.Document.SelBold = !viewModel.Document.SelBold;
-                }
-
+                viewModel.Document.SelBold = !viewModel.Document.SelBold;
                 viewModel.Document.EndUndoGroup();
 
                 viewModel.OnPropertyChanged(nameof(viewModel.Text));

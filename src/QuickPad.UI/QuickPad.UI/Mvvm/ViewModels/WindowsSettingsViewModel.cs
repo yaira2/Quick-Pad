@@ -61,8 +61,6 @@ namespace QuickPad.UI.Helpers
             AllDisplayModes = new ObservableCollection<DisplayMode>();
 
             Enum.GetNames(typeof(DisplayModes)).ToList().ForEach(uid => AllDisplayModes.Add(new DisplayMode(uid)));
-
-            AllDisplayModes.Remove(AllDisplayModes.First(dm => dm.Uid == DisplayModes.LaunchNinjaMode.ToString()));
         }
 
         [NotifyOnReset]

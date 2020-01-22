@@ -12,7 +12,7 @@
     CloseButtonText="Cancel"
     Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
     PrimaryButtonCommand="{x:Bind Commands.SaveCommand}"
-    PrimaryButtonCommandParameter="{Binding ViewModel}"
+    PrimaryButtonCommandParameter="{x:Bind ViewModel}"
     PrimaryButtonText="Save"
     SecondaryButtonClick="AskToSave_OnSecondaryButtonClick"
     SecondaryButtonText="Don't Save"

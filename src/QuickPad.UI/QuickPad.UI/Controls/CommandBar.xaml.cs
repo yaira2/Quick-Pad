@@ -43,7 +43,6 @@ namespace QuickPad.UI.Controls
                 SetValue(ViewModelProperty, value);
                 DataContext = value;
                 value.PropertyChanged += ViewModel_PropertyChanged;
-                value.Document.PropertyChanged += ViewModel_PropertyChanged;
             }
         }
 
@@ -56,6 +55,10 @@ namespace QuickPad.UI.Controls
         {
             switch (e.PropertyName)
             {
+                case nameof(ViewModel.Document):
+                    ViewModel.Document.PropertyChanged += ViewModel_PropertyChanged;
+                    break;
+
                 case nameof(ViewModel.Document.CurrentFontName):
                     SetFontName?.Invoke(ViewModel.Document.CurrentFontName);
                     FontNameFlyout.Hide();
