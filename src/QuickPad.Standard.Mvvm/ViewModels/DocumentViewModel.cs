@@ -331,6 +331,9 @@ namespace QuickPad.Mvvm.ViewModels
                 else
                 {
                     Text = string.Empty;
+                    Document.CurrentFontName = Settings.DefaultFont;
+                    Document.CurrentFontSize = (float)Settings.DefaultFontSize;
+                    Document.CurrentWordWrap = Settings.WordWrap;
                 }
 
                 CurrentPosition = (0, 0);
