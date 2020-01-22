@@ -108,7 +108,11 @@ namespace QuickPad.UI.Helpers
                 var name = Document.Selection.CharacterFormat.Name;
                 if (Set(ref name, value))
                 {
-                    App.TryEnqueue(() => Document.Selection.CharacterFormat.Name = name);
+                    App.TryEnqueue(() =>
+                    {
+                        Document.Selection.CharacterFormat.Name = name;
+                        OnPropertyChanged();
+                    });
                 }
             }
         }
@@ -121,7 +125,11 @@ namespace QuickPad.UI.Helpers
                 var size = Document.Selection.CharacterFormat.Size;
                 if (Set(ref size, value))
                 {
-                    App.TryEnqueue(() => Document.Selection.CharacterFormat.Size = size);
+                    App.TryEnqueue(() =>
+                    {
+                        Document.Selection.CharacterFormat.Size = size;
+                        OnPropertyChanged();
+                    });
                 }
             }
         }
