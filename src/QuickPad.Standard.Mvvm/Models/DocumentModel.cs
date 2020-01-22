@@ -12,11 +12,6 @@ namespace QuickPad.Mvvm.Models
     public abstract class DocumentModel<TStorageFile, TStream> : ViewModel<TStorageFile, TStream>, IDocumentModel
         where TStream : class
     {
-        public DocumentViewModel<TStorageFile, TStream> ViewModel { get; }
-        public SettingsViewModel<TStorageFile, TStream> Settings { get; }
-        private string _currentFontName;
-        private double _currentFontSize = 14;
-
         protected DocumentModel(
             ILogger<DocumentModel<TStorageFile, TStream>> logger
             , DocumentViewModel<TStorageFile, TStream> viewModel
@@ -26,6 +21,9 @@ namespace QuickPad.Mvvm.Models
             ViewModel = viewModel;
             Settings = settings;
         }
+
+        public DocumentViewModel<TStorageFile, TStream> ViewModel { get; }
+        public SettingsViewModel<TStorageFile, TStream> Settings { get; }
 
         public void CalculateDirty(string text = null)
         {

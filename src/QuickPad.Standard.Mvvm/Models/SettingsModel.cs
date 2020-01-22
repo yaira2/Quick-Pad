@@ -62,15 +62,15 @@ namespace QuickPad.Mvvm.Models
             set => Set(value, MethodBase.GetCurrentMethod().Name);
         }
 
-        public double DefaultFontRtfSize
+        public float DefaultFontRtfSize
         {
-            get => Get(12.0, MethodBase.GetCurrentMethod().Name);
+            get => Get(12.0f, MethodBase.GetCurrentMethod().Name);
             set => Set(value, MethodBase.GetCurrentMethod().Name);
         }
 
-        public double DefaultFontSize
+        public float DefaultFontSize
         {
-            get => Get(14.0, MethodBase.GetCurrentMethod().Name);
+            get => Get(14.0f, MethodBase.GetCurrentMethod().Name);
             set => Set(value, MethodBase.GetCurrentMethod().Name);
         }
 

@@ -17,6 +17,9 @@ namespace QuickPad.UI.Helpers
 {
     public class TextDocument : DocumentModel<StorageFile, IRandomAccessStream>
     {
+        private string _currentFontName;
+        private float? _currentFontSize;
+
         public TextDocument(
             TextBox document
             , ILogger<TextDocument> logger
@@ -45,8 +48,17 @@ namespace QuickPad.UI.Helpers
             Document.Undo();
         }
 
-        public override string CurrentFontName { get; set; }
-        public override float CurrentFontSize { get; set; }
+        public override string CurrentFontName
+        {
+            get => _currentFontName ??= Settings.DefaultFont;
+            set => Document.FontFamily = new FontFamily(_currentFontName = value);
+        }
+
+        public override float CurrentFontSize
+        {
+            get => _currentFontSize ??= Settings.DefaultFontSize;
+            set => Document.FontSize = (double)(_currentFontSize = value);
+        }
 
         public override string ForegroundColor
         {

@@ -230,14 +230,14 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         [NotifyOnReset]
-        public double DefaultFontRtfSize
+        public float DefaultFontRtfSize
         {
             get => Model.DefaultFontRtfSize;
             set => Model.DefaultFontRtfSize = value;
         }
 
         [NotifyOnReset]
-        public double DefaultFontSize
+        public float DefaultFontSize
         {
             get => Model.DefaultFontSize;
             set => Model.DefaultFontSize = value;

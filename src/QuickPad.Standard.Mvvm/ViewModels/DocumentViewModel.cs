@@ -126,7 +126,7 @@ namespace QuickPad.Mvvm.ViewModels
                     Document.CurrentFontName =
                         isRtf ? Settings.DefaultRtfFont : Settings.DefaultFont;
                     Document.CurrentFontSize =
-                        isRtf ? (float)Settings.DefaultFontRtfSize : (float)Settings.DefaultFontSize;
+                        isRtf ? Settings.DefaultFontRtfSize : Settings.DefaultFontSize;
                     Document.CurrentWordWrap =
                         isRtf ? Settings.RtfWordWrap : Settings.WordWrap;
                     Document.GetOptions =
@@ -320,6 +320,13 @@ namespace QuickPad.Mvvm.ViewModels
                 if (IsRtf)
                 {
                     await Document.LoadFromStream(DEFAULT_TEXT_SET_OPTIONS_RTF, null);
+
+                    Document.CurrentFontName = Settings.DefaultRtfFont;
+                    Document.CurrentFontSize = (float)Settings.DefaultFontRtfSize;
+                    Document.CurrentWordWrap = Settings.RtfWordWrap;
+                    Document.ForegroundColor = Settings.DefaultTextForegroundColor;
+
+                    Document.IsDirty = false;
                 }
                 else
                 {
@@ -327,6 +334,7 @@ namespace QuickPad.Mvvm.ViewModels
                 }
 
                 CurrentPosition = (0, 0);
+
             }
             catch (Exception e)
             {

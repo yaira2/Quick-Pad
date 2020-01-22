@@ -70,7 +70,7 @@ namespace QuickPad.UI.Helpers
 
         public override string CurrentFontName
         {
-            get => Document.Selection.CharacterFormat.Name;
+            get => Document.Selection.CharacterFormat.Name ?? Settings.DefaultRtfFont;
             set
             {
                 var name = Document.Selection.CharacterFormat.Name;
