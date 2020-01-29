@@ -11,6 +11,7 @@ namespace QuickPad.Mvvm
     {
         DocumentViewModel<TStorageFile, TStream> CurrentViewModel { get; }
         SettingsViewModel<TStorageFile, TStream> SettingsViewModel { get; }
+        IServiceProvider Services { get; }
 
         Task<TResult> AwaitableRunAsync<TResult>(Func<TResult> action);
         void TryEnqueue(Action action);

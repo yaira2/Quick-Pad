@@ -33,7 +33,6 @@ using QuickPad.Mvvm.Managers;
 using QuickPad.UI.Dialogs;
 using QuickPad.UI.Helpers;
 using QuickPad.UI.Theme;
-using Microsoft.Extensions.DependencyInjection;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -48,9 +47,12 @@ namespace QuickPad.UI
         private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
         private readonly bool _initialized;
         public IVisualThemeSelector VtSelector { get; }
-        public WindowsSettingsViewModel Settings => App.Settings;
+        public WindowsSettingsViewModel Settings => App.SettingsViewModel as WindowsSettingsViewModel;
         public QuickPadCommands<StorageFile, IRandomAccessStream> Commands { get; }
         private ILogger<MainPage> Logger { get; }
+
+        private IApplication<StorageFile, IRandomAccessStream> App =>
+            ((IApplication<StorageFile, IRandomAccessStream>) Application.Current);
 
         public MainPage(IServiceProvider provider
             , ILogger<MainPage> logger, DocumentViewModel<StorageFile, IRandomAccessStream> viewModel
@@ -64,9 +66,7 @@ namespace QuickPad.UI
 
             GotFocus += OnGotFocus;
 
-            App.Controller.AddView(this);
-
-            Initialize?.Invoke(this, Commands);
+            Initialize?.Invoke(this, Commands, App);
 
             this.InitializeComponent();
 
@@ -391,10 +391,10 @@ namespace QuickPad.UI
 
                     //ViewModel.Document = new RtfDocument(
                     //    RichEditBox.Document
-                    //    , App.Services.GetService<ILogger<RtfDocument>>()
+                    //    , App.ServiceProvider.GetService<ILogger<RtfDocument>>()
                     //    , ViewModel
                     //    , Settings
-                    //    , App.Services.GetService<IApplication<StorageFile, IRandomAccessStream>>());
+                    //    , App.ServiceProvider.GetService<IApplication<StorageFile, IRandomAccessStream>>());
 
                     if(ViewModel.Document == null)
                     {
@@ -453,9 +453,12 @@ namespace QuickPad.UI
         {
             try
             {
-                _viewModel.Document.SetSelectionBound(start, length);
+                App.TryEnqueue(() =>
+                {
+                    _viewModel.Document.SetSelectionBound(start, length);
 
-                if(reindex) Reindex();
+                    if (reindex) Reindex();
+                });
             }
             catch (Exception ex)
             {
@@ -492,7 +495,9 @@ namespace QuickPad.UI
             }
         }
 
-        public event Action<IDocumentView<StorageFile, IRandomAccessStream>, IQuickPadCommands<StorageFile, IRandomAccessStream>> Initialize;
+        public event Action<IDocumentView<StorageFile
+            , IRandomAccessStream>, IQuickPadCommands<StorageFile, IRandomAccessStream>
+            , IApplication<StorageFile, IRandomAccessStream>> Initialize;
         public event Func<DocumentViewModel<StorageFile, IRandomAccessStream>, Task<bool>> ExitApplication;
 
         private async void MainPage_OnKeyUp(object sender, KeyRoutedEventArgs args)
@@ -705,7 +710,7 @@ namespace QuickPad.UI
                     Icon = iconBing,
                     Label = "Search with Bing",
                     Command = Commands.BingCommand,
-                    CommandParameter = ViewModel
+                    CommandParameter = Settings
                 };
                 primaryCommands.Add(searchCommandBarBing);
             }
@@ -720,7 +725,7 @@ namespace QuickPad.UI
                 Icon = iconGoogle,
                 Label = "Search with Google",
                 Command = Commands.GoogleCommand,
-                CommandParameter = ViewModel
+                CommandParameter = Settings
             };
             primaryCommands.Add(searchCommandBarGoogle);
         }

@@ -47,7 +47,6 @@ namespace QuickPad.UI.Helpers
             : base(logger, serviceProvider, app)
         {
             ServiceProvider = serviceProvider;
-            App = app;
             
             Model = new WindowsSettingsModel(logger, app, serviceProvider);
 
@@ -121,9 +120,6 @@ namespace QuickPad.UI.Helpers
 
         [JsonIgnore] 
         public IServiceProvider ServiceProvider { get; }
-
-        [JsonIgnore] 
-        private IApplication<StorageFile, IRandomAccessStream> App { get; }
 
         [JsonIgnore]
         public string VersionNumberText =>
@@ -279,7 +275,7 @@ namespace QuickPad.UI.Helpers
                 stream.Write(bytes, 0, bytes.Length);
                 await stream.FlushAsync();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

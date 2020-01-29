@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using QuickPad.Data;
 using QuickPad.Mvc;
+using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Managers;
 using QuickPad.Mvvm.Models;
@@ -90,20 +91,6 @@ namespace QuickPad.UI.Helpers
                 DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel)
             {
                 return await ExitApp(documentViewModel) != SaveState.Canceled;
-            }
-
-            protected void Initializer(IDocumentView<StorageFile, IRandomAccessStream> documentView
-                , QuickPadCommands<StorageFile, IRandomAccessStream> commands)
-            {
-                documentView.ViewModel = ServiceProvider.GetService<DocumentViewModel<StorageFile, IRandomAccessStream>>();
-
-                commands.NewDocumentCommand.Executioner = NewDocument;
-                commands.LoadCommand.Executioner = LoadDocument;
-                commands.SaveCommand.Executioner = documentViewModel => SaveDocument(documentViewModel);
-                commands.SaveAsCommand.Executioner = SaveAsDocument;
-                commands.ExitCommand.Executioner = ExitApplication;
-
-                documentView.ViewModel.Initialize = async viewModel => { await viewModel.InitNewDocument(); };
             }
 
             protected override async Task NewDocument(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel)
@@ -442,7 +429,9 @@ namespace QuickPad.UI.Helpers
                     Logger.LogDebug($"Saving {documentViewModel.File.DisplayName}:\n{documentViewModel.Text}");
 
                 var writer = new EncodingWriter();
-                writer.Write(documentViewModel.IsRtf ? documentViewModel.RtfText : documentViewModel.Text);
+
+                await App.AwaitableRunAsync(() => 
+                    writer.Write(documentViewModel.IsRtf ? documentViewModel.RtfText : documentViewModel.Text));
 
                 await new StorageFileDataProvider().SaveDataAsync(documentViewModel.File.File, writer,
                     documentViewModel.CurrentEncoding);

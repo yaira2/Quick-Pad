@@ -24,7 +24,8 @@ namespace QuickPad.UI.Helpers
 {
     public class RtfDocument : DocumentModel<StorageFile, IRandomAccessStream>
     {
-        private bool _queuedChange;
+        private string _currentFontName;
+        private float _currentFontSize;
 
         public RtfDocument(
             ITextDocument document
@@ -50,13 +51,14 @@ namespace QuickPad.UI.Helpers
                 var defaultCharacterFormat = Document.GetDefaultCharacterFormat();
 
                 defaultCharacterFormat.ForegroundColor = Settings.DefaultTextForegroundColor.ToColor();
-                defaultCharacterFormat.BackgroundColor =
-                    (ServiceProvider.GetService<IVisualThemeSelector>().CurrentItem.SolidBackgroundBrush as SolidColorBrush)?
-                    .Color ?? (Color)Application.Current.Resources["SystemColorWindowColor"];
                 defaultCharacterFormat.Name = Settings.DefaultRtfFont;
                 defaultCharacterFormat.Size = Settings.DefaultFontRtfSize;
 
                 Document.SetDefaultCharacterFormat(defaultCharacterFormat);
+
+                CurrentWordWrap = Settings.RtfWordWrap;
+                CurrentFontName = Settings.DefaultRtfFont;
+                CurrentFontSize = Settings.DefaultFontRtfSize;
             });
         }
 
@@ -102,15 +104,14 @@ namespace QuickPad.UI.Helpers
 
         public override string CurrentFontName
         {
-            get => Document.Selection.CharacterFormat.Name ?? Settings.DefaultRtfFont;
+            get => _currentFontName ??= Settings.DefaultRtfFont;
             set
             {
-                var name = Document.Selection.CharacterFormat.Name;
-                if (Set(ref name, value))
+                if (Set(ref _currentFontName, value, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.CharacterFormat.Name = name;
+                        Document.Selection.CharacterFormat.Name = _currentFontName;
                         OnPropertyChanged();
                     });
                 }
@@ -119,15 +120,14 @@ namespace QuickPad.UI.Helpers
 
         public override float CurrentFontSize
         {
-            get => Document.Selection.CharacterFormat.Size;
+            get => (_currentFontSize.Equals(default) ? Settings.DefaultFontRtfSize : _currentFontSize);
             set
             {
-                var size = Document.Selection.CharacterFormat.Size;
-                if (Set(ref size, value))
+                if (Set(ref _currentFontSize, value, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.CharacterFormat.Size = size;
+                        Document.Selection.CharacterFormat.Size = _currentFontSize;
                         OnPropertyChanged();
                     });
                 }
@@ -136,16 +136,23 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelBold
         {
-            get => Document.Selection.FormattedText.CharacterFormat.Bold == FormatEffect.On;
+            get => Document.Selection.CharacterFormat.Bold == FormatEffect.On;
             set
             {
-                var bold = Document.Selection.FormattedText.CharacterFormat.Bold;
-                if (Set(ref bold, value ? FormatEffect.On : FormatEffect.Off))
+                var bold = Document.Selection.CharacterFormat.Bold;
+                if (Set(ref bold, value ? FormatEffect.On : FormatEffect.Off, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.CharacterFormat.Bold = bold;
-                        OnPropertyChanged();
+                        Document.Selection.CharacterFormat.Bold = bold;
+
+                        if (Document.Selection.Length == 0)
+                        {
+                            var defaults = Document.GetDefaultCharacterFormat();
+                            defaults.Bold = bold;
+                            Document.SetDefaultCharacterFormat(defaults);
+                        }
+                        OnPropertyChanged(nameof(SelBold));
                     });
                 }
             }
@@ -153,15 +160,22 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelItalic
         {
-            get => Document.Selection.FormattedText.CharacterFormat.Italic == FormatEffect.On;
+            get => Document.Selection.CharacterFormat.Italic == FormatEffect.On;
             set
             {
-                var italic = Document.Selection.FormattedText.CharacterFormat.Italic;
-                if (Set(ref italic, value ? FormatEffect.On : FormatEffect.Off))
+                var italic = Document.Selection.CharacterFormat.Italic;
+                if (Set(ref italic, value ? FormatEffect.On : FormatEffect.Off, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.CharacterFormat.Italic = italic;
+                        Document.Selection.CharacterFormat.Italic = italic;
+
+                        if (Document.Selection.Length == 0)
+                        {
+                            var defaults = Document.GetDefaultCharacterFormat();
+                            defaults.Italic = italic;
+                            Document.SetDefaultCharacterFormat(defaults);
+                        }
                         OnPropertyChanged();
                     });
                 }
@@ -170,15 +184,22 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelUnderline
         {
-            get => Document.Selection.FormattedText.CharacterFormat.Underline == UnderlineType.Single;
+            get => Document.Selection.CharacterFormat.Underline == UnderlineType.Single;
             set
             {
-                var underline = Document.Selection.FormattedText.CharacterFormat.Underline;
-                if (Set(ref underline, value ? UnderlineType.Single : UnderlineType.None))
+                var underline = Document.Selection.CharacterFormat.Underline;
+                if (Set(ref underline, value ? UnderlineType.Single : UnderlineType.None, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.CharacterFormat.Underline = underline;
+                        Document.Selection.CharacterFormat.Underline = underline;
+
+                        if (Document.Selection.Length == 0)
+                        {
+                            var defaults = Document.GetDefaultCharacterFormat();
+                            defaults.Underline = underline;
+                            Document.SetDefaultCharacterFormat(defaults);
+                        }
                         OnPropertyChanged();
                     });
                 }
@@ -187,15 +208,22 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelStrikethrough
         {
-            get => Document.Selection.FormattedText.CharacterFormat.Strikethrough == FormatEffect.On;
+            get => Document.Selection.CharacterFormat.Strikethrough == FormatEffect.On;
             set
             {
-                var strikethrough = Document.Selection.FormattedText.CharacterFormat.Strikethrough;
-                if (Set(ref strikethrough, value ? FormatEffect.On : FormatEffect.Off))
+                var strikethrough = Document.Selection.CharacterFormat.Strikethrough;
+                if (Set(ref strikethrough, value ? FormatEffect.On : FormatEffect.Off, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.CharacterFormat.Strikethrough = strikethrough;
+                        Document.Selection.CharacterFormat.Strikethrough = strikethrough;
+
+                        if (Document.Selection.Length == 0)
+                        {
+                            var defaults = Document.GetDefaultCharacterFormat();
+                            defaults.Strikethrough = strikethrough;
+                            Document.SetDefaultCharacterFormat(defaults);
+                        }
                         OnPropertyChanged();
                     });
                 }
@@ -204,17 +232,18 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelCenter
         {
-            get => Document.Selection.FormattedText.ParagraphFormat.Alignment == ParagraphAlignment.Center;
+            get => Document.Selection.ParagraphFormat.Alignment == ParagraphAlignment.Center;
             set
             {
-                var alignment = Document.Selection.FormattedText.ParagraphFormat.Alignment;
-                if (Set(ref alignment, value ? ParagraphAlignment.Center : ParagraphAlignment.Undefined))
+                var alignment = Document.Selection.ParagraphFormat.Alignment;
+                if (Set(ref alignment, value ? ParagraphAlignment.Center : ParagraphAlignment.Undefined, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.ParagraphFormat.Alignment = alignment;
+                        Document.Selection.ParagraphFormat.Alignment = alignment;
                         OnPropertyChanged(nameof(SelLeft));
                         OnPropertyChanged(nameof(SelRight));
+                        OnPropertyChanged(nameof(SelCenter));
                         OnPropertyChanged(nameof(SelJustify));
                     });
                 }
@@ -223,15 +252,16 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelRight
         {
-            get => Document.Selection.FormattedText.ParagraphFormat.Alignment == ParagraphAlignment.Right;
+            get => Document.Selection.ParagraphFormat.Alignment == ParagraphAlignment.Right;
             set
             {
-                var alignment = Document.Selection.FormattedText.ParagraphFormat.Alignment;
-                if (Set(ref alignment, value ? ParagraphAlignment.Right : ParagraphAlignment.Undefined))
+                var alignment = Document.Selection.ParagraphFormat.Alignment;
+                if (Set(ref alignment, value ? ParagraphAlignment.Right : ParagraphAlignment.Undefined, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.ParagraphFormat.Alignment = alignment;
+                        Document.Selection.ParagraphFormat.Alignment = alignment;
+                        OnPropertyChanged(nameof(SelRight));
                         OnPropertyChanged(nameof(SelLeft));
                         OnPropertyChanged(nameof(SelCenter));
                         OnPropertyChanged(nameof(SelJustify));
@@ -242,15 +272,16 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelLeft
         {
-            get => Document.Selection.FormattedText.ParagraphFormat.Alignment == ParagraphAlignment.Left;
+            get => Document.Selection.ParagraphFormat.Alignment == ParagraphAlignment.Left;
             set
             {
-                var alignment = Document.Selection.FormattedText.ParagraphFormat.Alignment;
-                if (Set(ref alignment, value ? ParagraphAlignment.Left : ParagraphAlignment.Undefined))
+                var alignment = Document.Selection.ParagraphFormat.Alignment;
+                if (Set(ref alignment, value ? ParagraphAlignment.Left : ParagraphAlignment.Undefined, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.ParagraphFormat.Alignment = alignment;
+                        Document.Selection.ParagraphFormat.Alignment = alignment;
+                        OnPropertyChanged(nameof(SelLeft));
                         OnPropertyChanged(nameof(SelCenter));
                         OnPropertyChanged(nameof(SelRight));
                         OnPropertyChanged(nameof(SelJustify));
@@ -261,18 +292,19 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelJustify
         {
-            get => Document.Selection.FormattedText.ParagraphFormat.Alignment == ParagraphAlignment.Justify;
+            get => Document.Selection.ParagraphFormat.Alignment == ParagraphAlignment.Justify;
             set
             {
-                var alignment = Document.Selection.FormattedText.ParagraphFormat.Alignment;
-                if (Set(ref alignment, value ? ParagraphAlignment.Justify : ParagraphAlignment.Undefined))
+                var alignment = Document.Selection.ParagraphFormat.Alignment;
+                if (Set(ref alignment, value ? ParagraphAlignment.Justify : ParagraphAlignment.Undefined, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.ParagraphFormat.Alignment = alignment;
+                        Document.Selection.ParagraphFormat.Alignment = alignment;
                         OnPropertyChanged(nameof(SelLeft));
                         OnPropertyChanged(nameof(SelRight));
                         OnPropertyChanged(nameof(SelCenter));
+                        OnPropertyChanged(nameof(SelJustify));
                     });
                 }
             }
@@ -280,15 +312,15 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelBullets
         {
-            get => Document.Selection.FormattedText.ParagraphFormat.ListType == MarkerType.Bullet;
+            get => Document.Selection.ParagraphFormat.ListType == MarkerType.Bullet;
             set
             {
-                var listType = Document.Selection.FormattedText.ParagraphFormat.ListType;
-                if (Set(ref listType, value ? MarkerType.Bullet : MarkerType.None))
+                var listType = Document.Selection.ParagraphFormat.ListType;
+                if (Set(ref listType, value ? MarkerType.Bullet : MarkerType.None, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.ParagraphFormat.ListType = listType;
+                        Document.Selection.ParagraphFormat.ListType = listType;
                         OnPropertyChanged();
                     });
                 }
@@ -297,15 +329,22 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelSubscript
         {
-            get => Document.Selection.FormattedText.CharacterFormat.Subscript == FormatEffect.On;
+            get => Document.Selection.CharacterFormat.Subscript == FormatEffect.On;
             set
             {
-                var subscript = Document.Selection.FormattedText.CharacterFormat.Subscript;
-                if (Set(ref subscript, value ? FormatEffect.On : FormatEffect.Off))
+                var subscript = Document.Selection.CharacterFormat.Subscript;
+                if (Set(ref subscript, value ? FormatEffect.On : FormatEffect.Off, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.CharacterFormat.Subscript = subscript;
+                        Document.Selection.CharacterFormat.Subscript = subscript;
+
+                        if (Document.Selection.Length == 0)
+                        {
+                            var defaults = Document.GetDefaultCharacterFormat();
+                            defaults.Subscript = subscript;
+                            Document.SetDefaultCharacterFormat(defaults);
+                        }
                         OnPropertyChanged();
                     });
                 }
@@ -314,15 +353,22 @@ namespace QuickPad.UI.Helpers
 
         public override bool SelSuperscript
         {
-            get => Document.Selection.FormattedText.CharacterFormat.Superscript == FormatEffect.On;
+            get => Document.Selection.CharacterFormat.Superscript == FormatEffect.On;
             set
             {
-                var superscript = Document.Selection.FormattedText.CharacterFormat.Superscript;
-                if (Set(ref superscript, value ? FormatEffect.On : FormatEffect.Off))
+                var superscript = Document.Selection.CharacterFormat.Superscript;
+                if (Set(ref superscript, value ? FormatEffect.On : FormatEffect.Off, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.CharacterFormat.Superscript = superscript;
+                        Document.Selection.CharacterFormat.Superscript = superscript;
+
+                        if (Document.Selection.Length == 0)
+                        {
+                            var defaults = Document.GetDefaultCharacterFormat();
+                            defaults.Superscript = superscript;
+                            Document.SetDefaultCharacterFormat(defaults);
+                        }
                         OnPropertyChanged();
                     });
                 }
@@ -331,7 +377,7 @@ namespace QuickPad.UI.Helpers
 
         public override string ForegroundColor
         {
-            get => Document.Selection.FormattedText.CharacterFormat.ForegroundColor.ToHex();
+            get => Document.Selection.CharacterFormat.ForegroundColor.ToHex();
             set
             {
                 var hex = value.Replace("#", string.Empty);
@@ -341,12 +387,12 @@ namespace QuickPad.UI.Helpers
                 var b = (byte)Convert.ToUInt32(hex.Substring(6, 2), 16);
                 var color = Color.FromArgb(a, r, g, b);
 
-                var oldColor = Document.Selection.FormattedText.CharacterFormat.ForegroundColor;
-                if (Set(ref oldColor, color))
+                var oldColor = Document.Selection.CharacterFormat.ForegroundColor;
+                if (Set(ref oldColor, color, notify: false))
                 {
                     App.TryEnqueue(() =>
                     {
-                        Document.Selection.FormattedText.CharacterFormat.ForegroundColor = color;
+                        Document.Selection.CharacterFormat.ForegroundColor = color;
                         OnPropertyChanged();
                     });
                 }
@@ -434,10 +480,8 @@ namespace QuickPad.UI.Helpers
                     OnPropertyChanged(nameof(SelRight));
                     OnPropertyChanged(nameof(SelStrikethrough));
                     OnPropertyChanged(nameof(SelUnderline));
-                    OnPropertyChanged(nameof(CurrentFontName));
-                    OnPropertyChanged(nameof(CurrentFontSize));
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
                     
                 }

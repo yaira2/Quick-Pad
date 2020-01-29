@@ -61,13 +61,13 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        public virtual bool Set<TValue>(ref TValue original, TValue value, [CallerMemberName] string propertyName = null)
+        public virtual bool Set<TValue>(ref TValue original, TValue value, [CallerMemberName] string propertyName = null, bool notify = true)
         {
             if (original?.Equals(value) ?? false) return false;
 
             original = value;
 
-            OnPropertyChanged(propertyName);
+            if(notify) OnPropertyChanged(propertyName);
 
             return true;
         }

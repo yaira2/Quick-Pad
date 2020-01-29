@@ -215,14 +215,17 @@ namespace QuickPad.Mvvm.ViewModels
 
             set
             {
-                Document.Text = value;
-
-                var text = Document.Text ?? string.Empty;
-
-                if (Set(ref text, value))
+                App.TryEnqueue(() =>
                 {
-                    Document.CalculateDirty();
-                }
+                    Document.Text = value;
+
+                    var text = Document.Text ?? string.Empty;
+
+                    if (Set(ref text, value))
+                    {
+                        Document.CalculateDirty();
+                    }
+                });
             }
         }
 
@@ -325,18 +328,10 @@ namespace QuickPad.Mvvm.ViewModels
                 if (IsRtf)
                 {
                     await Document.LoadFromStream(DEFAULT_TEXT_SET_OPTIONS_RTF, null);
-
-                    Document.CurrentFontName = Settings.DefaultRtfFont;
-                    Document.CurrentFontSize = (float)Settings.DefaultFontRtfSize;
-                    Document.CurrentWordWrap = Settings.RtfWordWrap;
-                    Document.ForegroundColor = Settings.DefaultTextForegroundColor;
                 }
                 else
                 {
                     Text = string.Empty;
-                    Document.CurrentFontName = Settings.DefaultFont;
-                    Document.CurrentFontSize = (float)Settings.DefaultFontSize;
-                    Document.CurrentWordWrap = Settings.WordWrap;
                 }
 
                 Document.SetDefaults();

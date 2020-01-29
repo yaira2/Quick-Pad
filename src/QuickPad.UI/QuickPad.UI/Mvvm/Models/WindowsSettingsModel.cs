@@ -72,17 +72,20 @@ namespace QuickPad.UI.Helpers
 
         public override bool Set<TValue>(TValue value, [CallerMemberName] string propertyName = null)
         {
-            propertyName = propertyName.StartsWith("set_", StringComparison.InvariantCultureIgnoreCase)
+            propertyName = propertyName != null && propertyName.StartsWith("set_", StringComparison.InvariantCultureIgnoreCase)
                 ? propertyName.Substring(4)
                 : propertyName;
 
-            var originalValue = Get(default(TValue), propertyName);
-            var currentValue = originalValue;
+            TValue originalValue = default;
+            
+            if(_roamingSettings.Values.ContainsKey(propertyName))
+            {
+                originalValue = Get(originalValue, propertyName);
 
-            if (!base.Set(ref currentValue, value, propertyName)) return false;
+                if (!base.Set(ref originalValue, value, propertyName)) return false;
+            }
 
-            if (propertyName != null && (!originalValue?.Equals(currentValue) ?? true))
-                _roamingSettings.Values[propertyName] = value;
+            _roamingSettings.Values[propertyName] = value;
 
             return true;
         }

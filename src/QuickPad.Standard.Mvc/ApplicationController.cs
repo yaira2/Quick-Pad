@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 
@@ -54,6 +57,10 @@ namespace QuickPad.Mvc
                     documentView.LoadFromFile += _documentManager.LoadFile;
                     documentView.GainedFocus += _documentManager.DocumentViewOnGainedFocus;
 
+                    _documentManager.Initializer(documentView
+                        , ServiceProvider.GetService<IQuickPadCommands<TStorageFile, TStream>>()
+                        , ServiceProvider.GetService<IApplication<TStorageFile, TStream>>());
+
                     break;
 
                 case IFindAndReplaceView<TStorageFile, TStream> findAndReplaceView:
@@ -69,7 +76,5 @@ namespace QuickPad.Mvc
                     break;
             }
         }
-
-
     }
 }

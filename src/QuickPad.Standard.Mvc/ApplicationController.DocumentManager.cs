@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using QuickPad.Data;
+using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
@@ -21,6 +22,8 @@ namespace QuickPad.Mvc
 
         protected internal ILogger<ApplicationController<TStorageFile, TStream, TDocumentManager>> Logger { get; set; }
         protected internal IServiceProvider ServiceProvider { get; set; }
+        protected internal IApplication<TStorageFile, TStream> App { get; private set; }
+
 
         public IEnumerable<IDocumentView<TStorageFile, TStream>> Views { get; set; }
 
@@ -51,18 +54,20 @@ namespace QuickPad.Mvc
         protected internal abstract Task<bool> DocumentViewExitApplication(
             DocumentViewModel<TStorageFile, TStream> documentViewModel);
 
-        protected internal void Initializer(IDocumentView<TStorageFile, TStream> documentView,
-            IQuickPadCommands<TStorageFile, TStream> commands)
+        protected internal virtual void Initializer(IDocumentView<TStorageFile, TStream> documentView,
+            IQuickPadCommands<TStorageFile, TStream> commands
+            , IApplication<TStorageFile, TStream> app)
         {
+            App = app;
             documentView.ViewModel = ServiceProvider.GetService<DocumentViewModel<TStorageFile, TStream>>();
 
             commands.NewDocumentCommandBase.Executioner = NewDocument;
             commands.LoadCommandBase.Executioner = LoadDocument;
-            commands.SaveCommandBase.Executioner = arg => SaveDocument(arg) as Task;
+            commands.SaveCommandBase.Executioner = async documentViewModel => await SaveDocument(documentViewModel);
             commands.SaveAsCommandBase.Executioner = SaveAsDocument;
             commands.ExitCommandBase.Executioner = ExitApplication;
 
-            documentView.ViewModel.Initialize = async viewModel => { await viewModel.InitNewDocument(); };
+            documentView.ViewModel.Initialize = async viewModel => await viewModel.InitNewDocument();
         }
 
         protected abstract Task<SaveState> SaveAsDocument(DocumentViewModel<TStorageFile, TStream> arg);

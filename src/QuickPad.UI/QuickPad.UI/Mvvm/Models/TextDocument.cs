@@ -42,28 +42,34 @@ namespace QuickPad.UI.Helpers
         
         public override void SetDefaults()
         {
+            App.TryEnqueue(() =>
+            {
+                CurrentWordWrap = Settings.WordWrap;
+                CurrentFontName = Settings.DefaultFont;
+                CurrentFontSize = Settings.DefaultFontSize;
+            });
         }
 
         public override void Redo()
         {
-            Document.Redo();
+            App.TryEnqueue(() => Document.Redo());
         }
 
         public override void Undo()
         {
-            Document.Undo();
+            App.TryEnqueue(() => Document.Undo());
         }
 
         public override string CurrentFontName
         {
             get => _currentFontName ??= Settings.DefaultFont;
-            set => Document.FontFamily = new FontFamily(_currentFontName = value);
+            set => App.TryEnqueue(() => Document.FontFamily = new FontFamily(_currentFontName = value));
         }
 
         public override float CurrentFontSize
         {
             get => _currentFontSize ??= Settings.DefaultFontSize;
-            set => Document.FontSize = (double)(_currentFontSize = value);
+            set => App.TryEnqueue(() => Document.FontSize = (double)(_currentFontSize = value));
         }
 
         public override string ForegroundColor
@@ -78,7 +84,7 @@ namespace QuickPad.UI.Helpers
                 var b = (byte)Convert.ToUInt32(hex.Substring(6, 2), 16);
                 var color = Color.FromArgb(a, r, g, b);
 
-                Document.Foreground = new SolidColorBrush(color);
+                App.TryEnqueue(() => Document.Foreground = new SolidColorBrush(color));
             }
         }
 
@@ -91,10 +97,10 @@ namespace QuickPad.UI.Helpers
 
             memoryStream.Seek(0);
 
-            Text = stream.ReadTextAsync(ViewModel.CurrentEncoding).Result;
+            App.TryEnqueue(() => { Text = stream.ReadTextAsync(ViewModel.CurrentEncoding).Result; });
         }
 
-        public override Action<string, bool> Paste => (s, b) => Document.SelectedText = s;
+        public override Action<string, bool> Paste => (s, b) => App.TryEnqueue(() => Document.SelectedText = s);
 
         public override void BeginUndoGroup()
         {
@@ -106,7 +112,7 @@ namespace QuickPad.UI.Helpers
 
         public override void SetSelectedText(string text)
         {
-            Document.SelectedText = text;
+            App.TryEnqueue(() => Document.SelectedText = text);
         }
 
         public override (int start, int length) GetSelectionBounds()
@@ -129,7 +135,8 @@ namespace QuickPad.UI.Helpers
 
         public override void SetText(QuickPadTextSetOptions options, string value)
         {
-            Document.Text = value;
+            App.TryEnqueue(() =>
+                Document.Text = value);
         }
 
         public override async Task<string> GetTextAsync(QuickPadTextGetOptions options) =>

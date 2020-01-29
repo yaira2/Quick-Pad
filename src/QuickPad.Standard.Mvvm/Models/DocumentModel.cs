@@ -93,12 +93,15 @@ namespace QuickPad.Mvvm.Models
             get => _isDirty;
             set
             {
-                Set(ref _isDirty, value);
-
-                if (!_isDirty)
+                App.TryEnqueue(() =>
                 {
-                    _marked = GetText(GetOptions);
-                }
+                    Set(ref _isDirty, value);
+
+                    if (!_isDirty)
+                    {
+                        _marked = GetText(GetOptions);
+                    }
+                });
             }
         }
 

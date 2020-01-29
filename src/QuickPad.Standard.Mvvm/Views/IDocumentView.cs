@@ -10,7 +10,7 @@ namespace QuickPad.Mvvm.Views
     {
         DocumentViewModel<TStorageFile, TStream> ViewModel { get; set; }
 
-        event Action<IDocumentView<TStorageFile, TStream>, IQuickPadCommands<TStorageFile, TStream>> Initialize;
+        event Action<IDocumentView<TStorageFile, TStream>, IQuickPadCommands<TStorageFile, TStream>, IApplication<TStorageFile, TStream>> Initialize;
         event Func<DocumentViewModel<TStorageFile, TStream>, Task<bool>> ExitApplication;
         event Func<DocumentViewModel<TStorageFile, TStream>, TStorageFile, Task> LoadFromFile;
         event Action GainedFocus;

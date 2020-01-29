@@ -165,7 +165,7 @@
                     x:Uid="SearchBing"
                     AccessKey="S"
                     Command="{x:Bind Commands.BingCommand}"
-                    CommandParameter="{x:Bind ViewModel}"
+                    CommandParameter="{x:Bind Settings}"
                     Text="Search with Bing...">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE12B;" />
