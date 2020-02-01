@@ -149,6 +149,8 @@ namespace QuickPad.UI
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 mainPage = ServiceProvider.GetService<MainPage>();
+
+                Controller.AddView(mainPage);
             }
 
             // The number of files received is args.Files.Size
