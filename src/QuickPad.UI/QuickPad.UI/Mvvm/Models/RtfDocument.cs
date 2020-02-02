@@ -50,7 +50,7 @@ namespace QuickPad.UI.Helpers
             {
                 var defaultCharacterFormat = Document.GetDefaultCharacterFormat();
 
-                defaultCharacterFormat.ForegroundColor = Settings.DefaultTextForegroundColor.ToColor();
+                defaultCharacterFormat.ForegroundColor = VisualThemeSelector.Current.CurrentItem.DefaultTextForegroundColor;
                 defaultCharacterFormat.Name = Settings.DefaultRtfFont;
                 defaultCharacterFormat.Size = Settings.DefaultFontRtfSize;
 
