@@ -151,7 +151,7 @@
                             ContextMenuOpening="RichEditBox_OnContextMenuOpening"
                             DragOver="OnDragOver"
                             Drop="OnDrop"
-                            IsSpellCheckEnabled="{x:Bind Settings.RtfSpellCheck, Mode=OneWay}"
+                            IsSpellCheckEnabled="True"
                             IsTapEnabled="True"
                             KeyDown="Text_OnKeyDown"
                             SelectionChanging="RichEditBox_OnSelectionChanging"
