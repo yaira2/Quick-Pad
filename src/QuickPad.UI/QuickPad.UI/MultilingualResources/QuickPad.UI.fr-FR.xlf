@@ -859,6 +859,26 @@
           <target state="new">• We fixed a crash that some users were experiencing when saving their documents.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
+        <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
+          <source>Review Quick Pad</source>
+          <target state="new">Review Quick Pad</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
+          <source>Would you like to review Quick Pad in the Microsoft Store?</source>
+          <target state="new">Would you like to review Quick Pad in the Microsoft Store?</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
+          <source>Review</source>
+          <target state="new">Review</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
       </group>
     </body>
   </file>

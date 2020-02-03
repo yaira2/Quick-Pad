@@ -797,4 +797,20 @@
     <value>• We fixed a crash that some users were experiencing when saving their documents.</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
+  <data name="AskForReviewDialog.Title" xml:space="preserve">
+    <value>Review Quick Pad</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>No</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
+    <value>Would you like to review Quick Pad in the Microsoft Store?</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>Review</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
 </root>

@@ -18,9 +18,7 @@ namespace QuickPad.Mvvm.ViewModels
         private readonly Timer _statusCooldown;
         private TimeSpan _countdown;
         private string _currentMode;
-
         private string _returnToMode;
-
         private bool _showSettings;
         private SettingsTabs _showSettingsTab = SettingsTabs.General;
         private string _statusText;

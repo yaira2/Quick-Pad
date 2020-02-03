@@ -144,6 +144,9 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="ApplicationStartup.cs" />
+    <Compile Include="Dialogs\AskForReviewDialog.xaml.cs">
+      <DependentUpon>AskForReviewDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Mvvm\Commands\Clipboard\ContentChangedCommand.cs" />
     <Compile Include="Mvvm\Commands\Clipboard\CopyCommand.cs" />
     <Compile Include="Mvvm\Commands\Clipboard\CutCommand.cs" />
@@ -351,6 +354,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Dialogs\GoToLine.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Dialogs\AskForReviewDialog.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
