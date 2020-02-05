@@ -8,22 +8,22 @@
       <group id="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="AcrylicOptions.Text" translate="yes" xml:space="preserve">
           <source>Acrylic Options</source>
-          <target state="new">Acrylic Options</target>
+          <target state="translated">ตั้งค่าพื้นหลัง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AcrylicTintOpacity.Text" translate="yes" xml:space="preserve">
           <source>Acrylic tint opacity</source>
-          <target state="new">Acrylic tint opacity</target>
+          <target state="translated">ความโปร่งใสของพื้นหลัง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
           <source>Advanced</source>
-          <target state="new">Advanced</target>
+          <target state="translated">ขั้นสูง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
           <source>App Language</source>
-          <target state="new">App Language</target>
+          <target state="translated">ภาษา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AppName.Text" translate="yes" xml:space="preserve">
@@ -33,672 +33,672 @@
         </trans-unit>
         <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
           <source>Chick</source>
-          <target state="new">Chick</target>
+          <target state="translated">เหลืองขมิ้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
           <source>Cobalt</source>
-          <target state="new">Cobalt</target>
+          <target state="translated">ฟ้าครึ้ม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
           <source>Crimson</source>
-          <target state="new">Crimson</target>
+          <target state="translated">แดงเข้ม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="new">Dark</target>
+          <target state="translated">เข้ม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
           <source>Leaf</source>
-          <target state="new">Leaf</target>
+          <target state="translated">เขียวขจี</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
           <source>Lettuce</source>
-          <target state="new">Lettuce</target>
+          <target state="translated">เขียวอ่อน</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLightName" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="new">Light</target>
+          <target state="translated">สว่าง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRandomName" translate="yes" xml:space="preserve">
           <source>Random</source>
-          <target state="new">Random</target>
+          <target state="translated">สุ่ม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
           <source>Rose Gold</source>
-          <target state="new">Rose Gold</target>
+          <target state="translated">ชมพู</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
           <source>System Default</source>
-          <target state="new">System Default</target>
+          <target state="translated">ตามค่าเริ่มต้นระบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
           <source>Dark theme</source>
-          <target state="new">Dark theme</target>
+          <target state="translated">ชุดรูปแบบสีเข้ม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
           <source>Light theme</source>
-          <target state="new">Light theme</target>
+          <target state="translated">ชุดรูปแบบสีสว่าง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRandomDescription" translate="yes" xml:space="preserve">
           <source>Random theme on startup</source>
-          <target state="new">Random theme on startup</target>
+          <target state="translated">สุ่มชุดรูปแบบทุกครั้งที่เปิดแอป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
           <source>System-defined theme</source>
-          <target state="new">System-defined theme</target>
+          <target state="translated">ชุดรูปแบบตามการตั้งค่าของระบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="AutoSave.Text" translate="yes" xml:space="preserve">
           <source>Auto Save</source>
-          <target state="new">Auto Save</target>
+          <target state="translated">บันทึกอัตโนมัติ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
           <source>Auto save every</source>
-          <target state="new">Auto save every</target>
+          <target state="translated">บันทึกอัตโนมัติทุกๆ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSaveSeconds.Text" translate="yes" xml:space="preserve">
           <source>seconds</source>
-          <target state="new">seconds</target>
+          <target state="translated">วินาที</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="BackToDefault.Text" translate="yes" xml:space="preserve">
           <source>Back to Default Mode</source>
-          <target state="new">Back to Default Mode</target>
+          <target state="translated">กลับไปมุมมองแบบแถบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
           <source>Close Compact Overlay</source>
-          <target state="new">Close Compact Overlay</target>
+          <target state="translated">ออกจากโหมดทับซ้อน</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TitleBar</note>
         </trans-unit>
         <trans-unit id="Copy.Text" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target state="new">Copy</target>
+          <target state="translated">คัดลอก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
           <source>Developed by Yair Aichenbaum &amp; Sharp Ninja</source>
-          <target state="new">Developed by Yair Aichenbaum &amp; Sharp Ninja</target>
+          <target state="translated">พัฒนาโดย Yair Aichenbaum และ Sharp Ninja</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
-          <target state="new">Cut</target>
+          <target state="translated">ตัด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
           <source>Default File Encoding</source>
-          <target state="new">Default File Encoding</target>
+          <target state="translated">รูปแบบการเข้ารหัสไฟล์เริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFileType.Text" translate="yes" xml:space="preserve">
           <source>Default File Type</source>
-          <target state="new">Default File Type</target>
+          <target state="translated">ชนิดไฟล์เริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
           <source>Default Font</source>
-          <target state="new">Default Font</target>
+          <target state="translated">ฟอนต์เริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
-          <target state="new">Default Font Size</target>
+          <target state="translated">ขนาดฟอนต์เริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Delete.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="new">Delete</target>
+          <target state="translated">ลบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Edit.Title" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="new">Edit</target>
+          <target state="translated">แก้ไข</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="Exit.Text" translate="yes" xml:space="preserve">
           <source>Exit</source>
-          <target state="new">Exit</target>
+          <target state="translated">ออก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Export.Content" translate="yes" xml:space="preserve">
           <source>Export</source>
-          <target state="new">Export</target>
+          <target state="translated">ส่งออก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="File.Title" translate="yes" xml:space="preserve">
           <source>File</source>
-          <target state="new">File</target>
+          <target state="translated">ไฟล์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="Find.Text" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="new">Find</target>
+          <target state="translated">ค้นหา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindNext.Text" translate="yes" xml:space="preserve">
           <source>Find Next</source>
-          <target state="new">Find Next</target>
+          <target state="translated">ค้นหาต่อไป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
           <source>Find Previous</source>
-          <target state="new">Find Previous</target>
+          <target state="translated">ต้นหาก่อนหน้า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FocusMode.Text" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="new">Focus Mode</target>
+          <target state="translated">โหมดเน้นพิมพ์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
           <source>Font</source>
-          <target state="new">Font</target>
+          <target state="translated">ฟอนต์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Fonts.Text" translate="yes" xml:space="preserve">
           <source>Fonts...</source>
-          <target state="new">Fonts...</target>
+          <target state="translated">ตั้งค่าฟอนต์...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Format.Title" translate="yes" xml:space="preserve">
           <source>Format</source>
-          <target state="new">Format</target>
+          <target state="translated">รูปแบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="General.Text" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target state="new">General</target>
+          <target state="translated">ทั่วไป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="GoTo.Text" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="translated">ไปที่บรรทัด...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
           <source>Import</source>
-          <target state="new">Import</target>
+          <target state="translated">นำเข้า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
-          <target state="new">Keep text only</target>
+          <target state="translated">วางเฉพาะข้อความ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchClassicMode" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
-          <target state="new">Classic Mode</target>
+          <target state="translated">โหมดคลาสสิค</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchDefaultMode" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="new">Default</target>
+          <target state="translated">เมนูเริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchFocusMode" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="new">Focus Mode</target>
+          <target state="translated">โหมดเน้นพิมพ์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchMode.Text" translate="yes" xml:space="preserve">
           <source>Launch Mode</source>
-          <target state="new">Launch Mode</target>
+          <target state="translated">เริ่มแอปในโหมด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchModeComboBox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
-          <target state="new">Classic Mode</target>
+          <target state="translated">โหมดคลาสสิค</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchCompactOverlay" translate="yes" xml:space="preserve">
           <source>Compact Overlay</source>
-          <target state="new">Compact Overlay</target>
+          <target state="translated">โหมดทับแอปอื่น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ManageSettings.Text" translate="yes" xml:space="preserve">
           <source>Manage Settings</source>
-          <target state="new">Manage Settings</target>
+          <target state="translated">จัดการตั้งค่า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="New.Text" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target state="new">New</target>
+          <target state="translated">สร้างใหม่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Open.Text" translate="yes" xml:space="preserve">
           <source>Open</source>
-          <target state="new">Open</target>
+          <target state="translated">เปิด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="OverlayMode.Text" translate="yes" xml:space="preserve">
           <source>Overlay Mode</source>
-          <target state="new">Overlay Mode</target>
+          <target state="translated">โหมดทับแอปอื่น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Paste.Text" translate="yes" xml:space="preserve">
           <source>Paste</source>
-          <target state="new">Paste</target>
+          <target state="translated">วาง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="PasteOptions.Text" translate="yes" xml:space="preserve">
           <source>Paste Options</source>
-          <target state="new">Paste Options</target>
+          <target state="translated">ตั้งค่าการวางข้อความ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RateAndReviewLink.Content" translate="yes" xml:space="preserve">
           <source>Rate and Review</source>
-          <target state="new">Rate and Review</target>
+          <target state="translated">ให้คะแนนและวิจารณ์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Redo.Text" translate="yes" xml:space="preserve">
           <source>Redo</source>
-          <target state="new">Redo</target>
+          <target state="translated">ทำซ้ำ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Replace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Replace</target>
+          <target state="translated">แทนที่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
           <source>Reset</source>
-          <target state="new">Reset</target>
+          <target state="translated">รีเซท</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
           <source>You will need to restart Quick Pad to apply changes.</source>
-          <target state="new">You will need to restart Quick Pad to apply changes.</target>
+          <target state="translated">การตั้งค่าจะมีผลหลังจากแอปเปิดอีกครั้งหน้า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="new">Restore Default Zoom</target>
+          <target state="translated">คืนค่าการย่อขยาย</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="new">Save</target>
+          <target state="translated">บันทึก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SaveAs.Text" translate="yes" xml:space="preserve">
           <source>Save As...</source>
-          <target state="new">Save As...</target>
+          <target state="translated">บันทึกเป็น...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SearchBing.Text" translate="yes" xml:space="preserve">
           <source>Search with Bing...</source>
-          <target state="new">Search with Bing...</target>
+          <target state="translated">ค้นหาด้วย Bing...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SelectAll.Text" translate="yes" xml:space="preserve">
           <source>Select All</source>
-          <target state="new">Select All</target>
+          <target state="translated">เลือกทั้งหมด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Settings.Text" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="new">Settings</target>
+          <target state="translated">ตั้งค่า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Share.Text" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="new">Share</target>
+          <target state="translated">แบ่งปัน</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SpellCheck.Text" translate="yes" xml:space="preserve">
           <source>Spell Check</source>
-          <target state="new">Spell Check</target>
+          <target state="translated">แก้คำผิด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
-          <target state="new">Status Bar</target>
+          <target state="translated">แถบสถานะ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Col: </source>
-          <target state="new">Col: </target>
+          <target state="translated">ตัวที่: </target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
           <source>Ln: </source>
-          <target state="new">Ln: </target>
+          <target state="translated">บรรทัดที่: </target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
-          <target state="new">Theme</target>
+          <target state="translated">ชุดรูปแบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Undo.Text" translate="yes" xml:space="preserve">
           <source>Undo</source>
-          <target state="new">Undo</target>
+          <target state="translated">เลิกทำ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="UseAcrylicOnTextBox.Text" translate="yes" xml:space="preserve">
           <source>Use acrylic background for the text area</source>
-          <target state="new">Use acrylic background for the text area</target>
+          <target state="translated">ใช้พื้นหลังโปร่งใสในช่องพิมพ์ข้อความ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="View.Title" translate="yes" xml:space="preserve">
           <source>View</source>
-          <target state="new">View</target>
+          <target state="translated">มุมมอง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="new">Word Wrap</target>
+          <target state="translated">ตัดคำ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="WordWrapSetting.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="new">Word Wrap</target>
+          <target state="translated">ตัดคำ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Zoom.Text" translate="yes" xml:space="preserve">
           <source>Zoom</source>
-          <target state="new">Zoom</target>
+          <target state="translated">ย่อ/ขยาย</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="ZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="new">Zoom In</target>
+          <target state="translated">ขยาย</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="ZoomOut.Text" translate="yes" xml:space="preserve">
           <source>Zoom Out</source>
-          <target state="new">Zoom Out</target>
+          <target state="translated">ย่อ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Text" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font</source>
-          <target state="new">Default Rich Text Font</target>
+          <target state="translated">ฟอนต์เริ่มต้นของเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSizeRtf.Text" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font Size</source>
-          <target state="new">Default Rich Text Font Size</target>
+          <target state="translated">ขนาดฟอนต์เริ่มต้นของเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSettingRtf.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap in Rich Text</source>
-          <target state="new">Word Wrap in Rich Text</target>
+          <target state="translated">ตัดคำในเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="CancelButton" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">ยกเลิก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="NoButton" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="translated">ไม่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
           <source>There are unsaved changes. Do you want to save them now?</source>
-          <target state="new">There are unsaved changes. Do you want to save them now?</target>
+          <target state="translated">มีการแก้ไขที่ยังไม่ได้บันทึก ต้องการบันทึกเลยไหม?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesTitle" translate="yes" xml:space="preserve">
           <source>Pending Changes</source>
-          <target state="new">Pending Changes</target>
+          <target state="translated">เอกสารมีการแก้ไข</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document Dialog</note>
         </trans-unit>
         <trans-unit id="YesButton" translate="yes" xml:space="preserve">
           <source>Yes</source>
-          <target state="new">Yes</target>
+          <target state="translated">ใช่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="LaunchNinjaMode" translate="yes" xml:space="preserve">
           <source>Ninja Mode</source>
-          <target state="new">Ninja Mode</target>
+          <target state="translated">โหมดเหมารวม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
         </trans-unit>
         <trans-unit id="AlignCenter.Text" translate="yes" xml:space="preserve">
           <source>Align Center (Ctrl+E)</source>
-          <target state="new">Align Center (Ctrl+E)</target>
+          <target state="translated">จัดชิดกลาง (Ctrl+E)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignCenterLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Center</source>
-          <target state="new">Align Center</target>
+          <target state="translated">จัดชิดกลาง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignLeft.Text" translate="yes" xml:space="preserve">
           <source>Align Left (Ctrl+L)</source>
-          <target state="new">Align Left (Ctrl+L)</target>
+          <target state="translated">จัดชิดซ้าย (Ctrl+L)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignLeftLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Left</source>
-          <target state="new">Align Left</target>
+          <target state="translated">จัดชิดซ้าย</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignRight.Text" translate="yes" xml:space="preserve">
           <source>Align Right (Ctrl+R)</source>
-          <target state="new">Align Right (Ctrl+R)</target>
+          <target state="translated">จัดชิดขวา (Ctrl+R)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignRightLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Right</source>
-          <target state="new">Align Right</target>
+          <target state="translated">จัดชิดขวา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Bold.Text" translate="yes" xml:space="preserve">
           <source>Bold (Ctrl+B)</source>
-          <target state="new">Bold (Ctrl+B)</target>
+          <target state="translated">ตัวหนา (Ctrl+B)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="BoldLabel.Label" translate="yes" xml:space="preserve">
           <source>Bold</source>
-          <target state="new">Bold</target>
+          <target state="translated">ตัวหนา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Bullets.Text" translate="yes" xml:space="preserve">
           <source>Toggle Bullets</source>
-          <target state="new">Toggle Bullets</target>
+          <target state="translated">เปิดใช้สัญลักษณ์หัวข้อ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="BulletsLabel.Label" translate="yes" xml:space="preserve">
           <source>Bullets</source>
-          <target state="new">Bullets</target>
+          <target state="translated">สัญลักษณ์แสดงหัวข้อย่อย</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ClassicModeLabel.Label" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
-          <target state="new">Classic Mode</target>
+          <target state="translated">โหมดคลาสสิค</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Color.Text" translate="yes" xml:space="preserve">
           <source>Font Color</source>
-          <target state="new">Font Color</target>
+          <target state="translated">สีฟอนต์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ColorLabel.Label" translate="yes" xml:space="preserve">
           <source>Font Color</source>
-          <target state="new">Font Color</target>
+          <target state="translated">สีฟอนต์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTooltip.Text" translate="yes" xml:space="preserve">
           <source>Compact Overlay (Alt + Up)</source>
-          <target state="new">Compact Overlay (Alt + Up)</target>
+          <target state="translated">โหมดทับแอปอื่น (Alt + Up)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
           <source>Insert Emojis (Win + .)</source>
-          <target state="new">Insert Emojis (Win + .)</target>
+          <target state="translated">แทรกอิโมจิ (Win + .)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="EmojiLabel.Label" translate="yes" xml:space="preserve">
           <source>Emojis</source>
-          <target state="new">Emojis</target>
+          <target state="translated">อิโมจิ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="FindLabel.Label" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="new">Find</target>
+          <target state="translated">ค้นหา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="FocusModeLabel.Label" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="new">Focus Mode</target>
+          <target state="translated">โหมดเน้นพิมพ์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Italic.Text" translate="yes" xml:space="preserve">
           <source>Italic (Ctrl+I)</source>
-          <target state="new">Italic (Ctrl+I)</target>
+          <target state="translated">ตัวเอียง (Ctrl+I)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ItalicLabel.Label" translate="yes" xml:space="preserve">
           <source>Italic</source>
-          <target state="new">Italic</target>
+          <target state="translated">ตัวเอียง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="JustifyText.Text" translate="yes" xml:space="preserve">
           <source>Justify Text (Ctrl+J)</source>
-          <target state="new">Justify Text (Ctrl+J)</target>
+          <target state="translated">จัดกลาง (Ctrl+J)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="JustifyTextLabel.Label" translate="yes" xml:space="preserve">
           <source>Justify</source>
-          <target state="new">Justify</target>
+          <target state="translated">จัดกลาง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="NewLabel.Label" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target state="new">New</target>
+          <target state="translated">ใหม่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="NewTip.Text" translate="yes" xml:space="preserve">
           <source>New (Ctrl+N)</source>
-          <target state="new">New (Ctrl+N)</target>
+          <target state="translated">ใหม่ (Ctrl+N)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="OpenLabel.Label" translate="yes" xml:space="preserve">
           <source>Open</source>
-          <target state="new">Open</target>
+          <target state="translated">เปิด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="OpenTip.Text" translate="yes" xml:space="preserve">
           <source>Open (Ctrl+O)</source>
-          <target state="new">Open (Ctrl+O)</target>
+          <target state="translated">เปิด (Ctrl+O)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="CmdLetsGo.Content" translate="yes" xml:space="preserve">
           <source>Lets go!</source>
-          <target state="new">Lets go!</target>
+          <target state="translated">เริ่มใช้แอป!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Here is whats new in 4.3.98</source>
-          <target state="new">Here is whats new in 4.3.98</target>
+          <target state="translated">นี่คือสิ่งที่เพิ่มมาใน 4.3.98</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
           <source>• We made some improvements to popup dialogs.</source>
-          <target state="new">• We made some improvements to popup dialogs.</target>
+          <target state="translated">• การปรับปรุงกล่องข้อความต่างๆ.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
           <source>Welcome back to Quick Pad!</source>
-          <target state="new">Welcome back to Quick Pad!</target>
+          <target state="translated">ยินดีต้อนรับกลับสู่ Quick Pad!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="RedoTooltip.Text" translate="yes" xml:space="preserve">
           <source>Redo (Ctrl+Y)</source>
-          <target state="new">Redo (Ctrl+Y)</target>
+          <target state="translated">ทำซ้ำ (Ctrl+Y)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SaveLabel.Label" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="new">Save</target>
+          <target state="translated">บันทึก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SaveTip.Text" translate="yes" xml:space="preserve">
           <source>Save (Ctrl+S)</source>
-          <target state="new">Save (Ctrl+S)</target>
+          <target state="translated">บันทึก (Ctrl+S)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SettingsLabel.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="new">Settings</target>
+          <target state="translated">ตั้งค่า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ShareLabel.Label" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="new">Share</target>
+          <target state="translated">แบ่งปัน</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="StatusBarLabel.Label" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
-          <target state="new">Status Bar</target>
+          <target state="translated">แถบสถานะ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Strikethrough.Text" translate="yes" xml:space="preserve">
           <source>Strikethrough</source>
-          <target state="new">Strikethrough</target>
+          <target state="translated">ขีดทับ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="StrikethroughLabel.Label" translate="yes" xml:space="preserve">
           <source>Strikethrough</source>
-          <target state="new">Strikethrough</target>
+          <target state="translated">ขีดทับ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Underline.Text" translate="yes" xml:space="preserve">
           <source>Underline (Ctrl+U)</source>
-          <target state="new">Underline (Ctrl+U)</target>
+          <target state="translated">ขีดเส้นใต้ (Ctrl+U)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="UnderlineLabel.Label" translate="yes" xml:space="preserve">
           <source>Label</source>
-          <target state="new">Label</target>
+          <target state="translated">ขีดเส้นใต้</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="UndoTooltip.Text" translate="yes" xml:space="preserve">
           <source>Undo (Ctrl+Z)</source>
-          <target state="new">Undo (Ctrl+Z)</target>
+          <target state="translated">เลิกทำ (Ctrl+Z)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="RichTextDescription" translate="yes" xml:space="preserve">
           <source>Rich Text Document</source>
-          <target state="new">Rich Text Document</target>
+          <target state="translated">เอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
         </trans-unit>
         <trans-unit id="TextDescription" translate="yes" xml:space="preserve">
           <source>Text Document</source>
-          <target state="new">Text Document</target>
+          <target state="translated">เอกสารข้อความ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
         </trans-unit>
         <trans-unit id="SaveDialog.CloseButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">ยกเลิก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="new">Save</target>
+          <target state="translated">บันทึก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>Don't Save</source>
-          <target state="new">Don't Save</target>
+          <target state="translated">ไม่ต้องบันทึก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.Title" translate="yes" xml:space="preserve">
@@ -708,172 +708,172 @@
         </trans-unit>
         <trans-unit id="WouldYouLikeToSave.Text" translate="yes" xml:space="preserve">
           <source>Would you like to save your changes?</source>
-          <target state="new">Would you like to save your changes?</target>
+          <target state="translated">คุณต้องการบันทึกการเปลี่ยนแปลงของคุณหรือไม่?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="AppVersion.Text" translate="yes" xml:space="preserve">
           <source>Version:</source>
-          <target state="new">Version:</target>
+          <target state="translated">เวอร์ชั่น:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="PlainTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Plain Text Font Settings</source>
-          <target state="new">Plain Text Font Settings</target>
+          <target state="translated">ตั้งค่าการจัดรูปแบบเอกสารข้อความ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RichTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Rich Text Font Settings</source>
-          <target state="new">Rich Text Font Settings</target>
+          <target state="translated">ตั้งค่าการจัดรูปแบบเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpellCheckRtf.Text" translate="yes" xml:space="preserve">
           <source>Spell Check in Rich Text</source>
-          <target state="new">Spell Check in Rich Text</target>
+          <target state="translated">เช็คคำผิดในเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ReportIssues.Content" translate="yes" xml:space="preserve">
           <source>Report issues here</source>
-          <target state="new">Report issues here</target>
+          <target state="translated">รายงานปัญหาที่นี่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <target state="new">Source Code</target>
+          <target state="translated">Source Code</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpecialThanks.Text" translate="yes" xml:space="preserve">
           <source>Special thanks to:</source>
-          <target state="new">Special thanks to:</target>
+          <target state="translated">ขอขอบคุณ:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
+          <target state="translated">บริจาคช่วยนักพัฒนา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Untitled" translate="yes" xml:space="preserve">
           <source>Untitled</source>
-          <target state="new">Untitled</target>
+          <target state="translated">ไม่มีชื่อ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
         </trans-unit>
         <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="new">Close</target>
+          <target state="translated">ปิด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindFilter.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Looking for?</source>
-          <target state="new">Looking for?</target>
+          <target state="translated">ข้อความที่ต้องการหา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindMatchCase.Text" translate="yes" xml:space="preserve">
           <source>Match Case</source>
-          <target state="new">Match Case</target>
+          <target state="translated">ตรงตามตัวพิมพ์ใหญ่-เล็ก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
           <source>More...</source>
-          <target state="new">More...</target>
+          <target state="translated">อื่นๆ...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
           <source>Regular Expression</source>
-          <target state="new">Regular Expression</target>
+          <target state="translated">นิพจน์ปรกติ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Replace</target>
+          <target state="translated">แทนที่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceAll.Text" translate="yes" xml:space="preserve">
           <source>Replace all</source>
-          <target state="new">Replace all</target>
+          <target state="translated">แทนที่ทั้งหมด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with...</source>
-          <target state="new">Replace with...</target>
+          <target state="translated">แทนที่ด้วย...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
           <source>Time/Date</source>
-          <target state="new">Time/Date</target>
+          <target state="translated">เวลา/วันที่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Cancel</target>
+          <target state="translated">ยกเลิก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="translated">ไปที่บรรทัด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Go To</target>
+          <target state="translated">ไปที่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
-          <target state="new">Line number:</target>
+          <target state="translated">บรรทัดที่:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Subtitle" translate="yes" xml:space="preserve">
           <source>With compact overlay you can make Quick Pad stay on top of other windows.</source>
-          <target state="new">With compact overlay you can make Quick Pad stay on top of other windows.</target>
+          <target state="translated">โหมดทับแอปอื่นจะทำให้แอปอยู่ทับทุกโปรแกรม.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Title" translate="yes" xml:space="preserve">
           <source>Keep on top of other Windows</source>
-          <target state="new">Keep on top of other Windows</target>
+          <target state="translated">อยู่เหนือกว่าโปรแกรมใดๆ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
         <trans-unit id="ThemeAccentName" translate="yes" xml:space="preserve">
           <source>System Accent Color</source>
-          <target state="new">System Accent Color</target>
+          <target state="translated">สีระบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="SearchWithGoogle.Text" translate="yes" xml:space="preserve">
           <source>Enable Google Search</source>
-          <target state="new">Enable Google Search</target>
+          <target state="translated">แสดงปุ่มค้นหาด้วย Google</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
         </trans-unit>
         <trans-unit id="OtherOptions.Text" translate="yes" xml:space="preserve">
           <source>Other</source>
-          <target state="new">Other</target>
+          <target state="translated">อื่นๆ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
           <source>Here is whats fixed in 4.3.98</source>
-          <target state="new">Here is whats fixed in 4.3.98</target>
+          <target state="translated">และนี่คือสิ่งที่แก้ไขใน 4.3.98</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
           <source>• We fixed a crash that some users were experiencing when saving their documents.</source>
-          <target state="new">• We fixed a crash that some users were experiencing when saving their documents.</target>
+          <target state="translated">• แก้ไขแอปปิดตัวลงกระทันหันเมื่อบันทึกเอกสาร</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
           <source>Review Quick Pad</source>
-          <target state="new">Review Quick Pad</target>
+          <target state="translated">โปรดช่วยวิจารณ์ Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="translated">ไม่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Would you like to review Quick Pad in the Microsoft Store?</source>
-          <target state="new">Would you like to review Quick Pad in the Microsoft Store?</target>
+          <target state="translated">ช่วยให้คะแนนและให้ข้อเสนอแนะแอปเราบน Microsoft Store ได้ไหม?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Review</target>
+          <target state="translated">รีวิว</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
       </group>
