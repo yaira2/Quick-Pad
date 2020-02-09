@@ -94,6 +94,9 @@ namespace QuickPad.UI
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            //start tracking app usage
+            SystemInformation.TrackAppUse(e);
+
             MainPage mainPage = Window.Current.Content as MainPage;
 
             // Do not repeat app initialization when the Window already has content,
