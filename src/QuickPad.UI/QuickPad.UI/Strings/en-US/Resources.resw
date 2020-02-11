@@ -598,7 +598,7 @@
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Here is whats new in 4.3.98</value>
+    <value>Here is whats new in 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
@@ -790,7 +790,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="WelcomeDialogPar3.Text" xml:space="preserve">
-    <value>Here is whats fixed in 4.3.98</value>
+    <value>Here is whats fixed in 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar4.Text" xml:space="preserve">
