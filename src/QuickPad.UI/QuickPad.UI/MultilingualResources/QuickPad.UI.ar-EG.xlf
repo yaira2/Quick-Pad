@@ -884,7 +884,7 @@
         </trans-unit>
         <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="new">Privacy Policy</target>
+          <target state="translated">سياسة الخصوصية</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pad</note>
         </trans-unit>
       </group>
