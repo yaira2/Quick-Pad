@@ -88,6 +88,7 @@ namespace QuickPad.UI
             services.AddSingleton<DialogManager, DialogManager>();
             services.AddTransient<AskToSave, AskToSave>();
             services.AddTransient<WelcomeDialog, WelcomeDialog>();
+            services.AddTransient<AskForReviewDialog, AskForReviewDialog>();
             services.AddTransient<IGoToLineView<StorageFile, IRandomAccessStream>, GoToLine>();
             services.AddSingleton<MainPage, MainPage>();
 

@@ -113,16 +113,27 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            if (!SystemInformation.IsAppUpdated) return;
+            if (SystemInformation.IsAppUpdated)
+            {
+                //show the welcome dialog
+                var (success, dialog) = provider.GetService<DialogManager>().RequestDialog<WelcomeDialog>();
 
-            //show the welcome dialog
-            var (success, dialog) = provider.GetService<DialogManager>().RequestDialog<WelcomeDialog>();
+                if (!success) return;
 
-            if (!success) return;
-            
-            _ = dialog.ShowAsync();
+                _ = dialog.ShowAsync();
 
-            ClearJumplist();
+                ClearJumplist();
+            }
+
+            if (SystemInformation.TotalLaunchCount == 3)
+            {
+                //show the welcome dialog
+                var (success, dialog) = provider.GetService<DialogManager>().RequestDialog<AskForReviewDialog>();
+
+                if (!success) return;
+
+                _ = dialog.ShowAsync();
+            }
         }
 
         private async void ClearJumplist()

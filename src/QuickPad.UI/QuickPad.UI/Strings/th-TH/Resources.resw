@@ -1,110 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -118,587 +13,579 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>Acrylic Options</value>
+    <value>ตั้งค่าพื้นหลัง</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>Acrylic tint opacity</value>
+    <value>ความโปร่งใสของพื้นหลัง</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Advanced.Text" xml:space="preserve">
-    <value>Advanced</value>
+    <value>ขั้นสูง</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AppLanguage.Text" xml:space="preserve">
-    <value>App Language</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AppName.Text" xml:space="preserve">
-    <value>Quick Pad</value>
+    <value>ภาษา</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ThemeChickName" xml:space="preserve">
-    <value>Chick</value>
+    <value>เหลืองขมิ้น</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeCobaltName" xml:space="preserve">
-    <value>Cobalt</value>
+    <value>ฟ้าครึ้ม</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeCrimsonName" xml:space="preserve">
-    <value>Crimson</value>
+    <value>แดงเข้ม</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkName" xml:space="preserve">
-    <value>Dark</value>
+    <value>เข้ม</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLeafName" xml:space="preserve">
-    <value>Leaf</value>
+    <value>เขียวขจี</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLettuceName" xml:space="preserve">
-    <value>Lettuce</value>
+    <value>เขียวอ่อน</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLightName" xml:space="preserve">
-    <value>Light</value>
+    <value>สว่าง</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRandomName" xml:space="preserve">
-    <value>Random</value>
+    <value>สุ่ม</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRoseGoldName" xml:space="preserve">
-    <value>Rose Gold</value>
+    <value>ชมพู</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSystemName" xml:space="preserve">
-    <value>System Default</value>
+    <value>ตามค่าเริ่มต้นระบบ</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeGeneralDarkDescription" xml:space="preserve">
-    <value>Dark theme</value>
+    <value>ชุดรูปแบบสีเข้ม</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeGeneralLightDescription" xml:space="preserve">
-    <value>Light theme</value>
+    <value>ชุดรูปแบบสีสว่าง</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRandomDescription" xml:space="preserve">
-    <value>Random theme on startup</value>
+    <value>สุ่มชุดรูปแบบทุกครั้งที่เปิดแอป</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSystemDescription" xml:space="preserve">
-    <value>System-defined theme</value>
+    <value>ชุดรูปแบบตามการตั้งค่าของระบบ</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="AutoSave.Text" xml:space="preserve">
-    <value>Auto Save</value>
+    <value>บันทึกอัตโนมัติ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
-    <value>Auto save every</value>
+    <value>บันทึกอัตโนมัติทุกๆ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AutoSaveSeconds.Text" xml:space="preserve">
-    <value>seconds</value>
+    <value>วินาที</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="BackToDefault.Text" xml:space="preserve">
-    <value>Back to Default Mode</value>
+    <value>กลับไปมุมมองแบบแถบ</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CloseCompactOverlay.Text" xml:space="preserve">
-    <value>Close Compact Overlay</value>
+    <value>ออกจากโหมดทับซ้อน</value>
     <comment>Used on TitleBar</comment>
   </data>
   <data name="Copy.Text" xml:space="preserve">
-    <value>Copy</value>
+    <value>คัดลอก</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Developed by Yair Aichenbaum &amp; Sharp Ninja</value>
+    <value>พัฒนาโดย Yair Aichenbaum และ Sharp Ninja</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
-    <value>Cut</value>
+    <value>ตัด</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Default File Encoding</value>
+    <value>รูปแบบการเข้ารหัสไฟล์เริ่มต้น</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>Default File Type</value>
+    <value>ชนิดไฟล์เริ่มต้น</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
-    <value>Default Font</value>
+    <value>ฟอนต์เริ่มต้น</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>Default Font Size</value>
+    <value>ขนาดฟอนต์เริ่มต้น</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Delete.Text" xml:space="preserve">
-    <value>Delete</value>
+    <value>ลบ</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Edit.Title" xml:space="preserve">
-    <value>Edit</value>
+    <value>แก้ไข</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="Exit.Text" xml:space="preserve">
-    <value>Exit</value>
+    <value>ออก</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Export.Content" xml:space="preserve">
-    <value>Export</value>
+    <value>ส่งออก</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="File.Title" xml:space="preserve">
-    <value>File</value>
+    <value>ไฟล์</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="Find.Text" xml:space="preserve">
-    <value>Find</value>
+    <value>ค้นหา</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FindNext.Text" xml:space="preserve">
-    <value>Find Next</value>
+    <value>ค้นหาต่อไป</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FindPrevious.Text" xml:space="preserve">
-    <value>Find Previous</value>
+    <value>ต้นหาก่อนหน้า</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FocusMode.Text" xml:space="preserve">
-    <value>Focus Mode</value>
+    <value>โหมดเน้นพิมพ์</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Font.Text" xml:space="preserve">
-    <value>Font</value>
+    <value>ฟอนต์</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Fonts.Text" xml:space="preserve">
-    <value>Fonts...</value>
+    <value>ตั้งค่าฟอนต์...</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Format.Title" xml:space="preserve">
-    <value>Format</value>
+    <value>รูปแบบ</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="General.Text" xml:space="preserve">
-    <value>General</value>
+    <value>ทั่วไป</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="GoTo.Text" xml:space="preserve">
-    <value>Go To</value>
+    <value>ไปที่บรรทัด...</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Import.Content" xml:space="preserve">
-    <value>Import</value>
+    <value>นำเข้า</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>Keep text only</value>
+    <value>วางเฉพาะข้อความ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchClassicMode" xml:space="preserve">
-    <value>Classic Mode</value>
+    <value>โหมดคลาสสิค</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchDefaultMode" xml:space="preserve">
-    <value>Default</value>
+    <value>เมนูเริ่มต้น</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
-    <value>Focus Mode</value>
+    <value>โหมดเน้นพิมพ์</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchMode.Text" xml:space="preserve">
-    <value>Launch Mode</value>
+    <value>เริ่มแอปในโหมด</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
-    <value>Classic Mode</value>
+    <value>โหมดคลาสสิค</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchCompactOverlay" xml:space="preserve">
-    <value>Compact Overlay</value>
+    <value>โหมดทับแอปอื่น</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ManageSettings.Text" xml:space="preserve">
-    <value>Manage Settings</value>
+    <value>จัดการตั้งค่า</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="New.Text" xml:space="preserve">
-    <value>New</value>
+    <value>สร้างใหม่</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Open.Text" xml:space="preserve">
-    <value>Open</value>
+    <value>เปิด</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="OverlayMode.Text" xml:space="preserve">
-    <value>Overlay Mode</value>
+    <value>โหมดทับแอปอื่น</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Paste.Text" xml:space="preserve">
-    <value>Paste</value>
+    <value>วาง</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="PasteOptions.Text" xml:space="preserve">
-    <value>Paste Options</value>
+    <value>ตั้งค่าการวางข้อความ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RateAndReviewLink.Content" xml:space="preserve">
-    <value>Rate and Review</value>
+    <value>ให้คะแนนและวิจารณ์</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Redo.Text" xml:space="preserve">
-    <value>Redo</value>
+    <value>ทำซ้ำ</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Replace.Text" xml:space="preserve">
-    <value>Replace</value>
+    <value>แทนที่</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Reset.Content" xml:space="preserve">
-    <value>Reset</value>
+    <value>รีเซท</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestatRequired.Text" xml:space="preserve">
-    <value>You will need to restart Quick Pad to apply changes.</value>
+    <value>การตั้งค่าจะมีผลหลังจากแอปเปิดอีกครั้งหน้า</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestoreDefaultZoom.Text" xml:space="preserve">
-    <value>Restore Default Zoom</value>
+    <value>คืนค่าการย่อขยาย</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Save.Text" xml:space="preserve">
-    <value>Save</value>
+    <value>บันทึก</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SaveAs.Text" xml:space="preserve">
-    <value>Save As...</value>
+    <value>บันทึกเป็น...</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SearchBing.Text" xml:space="preserve">
-    <value>Search with Bing...</value>
+    <value>ค้นหาด้วย Bing...</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SelectAll.Text" xml:space="preserve">
-    <value>Select All</value>
+    <value>เลือกทั้งหมด</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Settings.Text" xml:space="preserve">
-    <value>Settings</value>
+    <value>ตั้งค่า</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Share.Text" xml:space="preserve">
-    <value>Share</value>
+    <value>แบ่งปัน</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SpellCheck.Text" xml:space="preserve">
-    <value>Spell Check</value>
+    <value>แก้คำผิด</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="StatusBar.Text" xml:space="preserve">
-    <value>Status Bar</value>
+    <value>แถบสถานะ</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
-    <value>Col: </value>
+    <value>ตัวที่: </value>
     <comment>Used on StatusTextBar</comment>
   </data>
   <data name="StatusLnCount.Text" xml:space="preserve">
-    <value>Ln: </value>
+    <value>บรรทัดที่: </value>
     <comment>Used on StatusTextBar</comment>
   </data>
   <data name="Theme.Text" xml:space="preserve">
-    <value>Theme</value>
+    <value>ชุดรูปแบบ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Undo.Text" xml:space="preserve">
-    <value>Undo</value>
+    <value>เลิกทำ</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>Use acrylic background for the text area</value>
+    <value>ใช้พื้นหลังโปร่งใสในช่องพิมพ์ข้อความ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
-    <value>View</value>
+    <value>มุมมอง</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="WordWrap.Text" xml:space="preserve">
-    <value>Word Wrap</value>
+    <value>ตัดคำ</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>Word Wrap</value>
+    <value>ตัดคำ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Zoom.Text" xml:space="preserve">
-    <value>Zoom</value>
+    <value>ย่อ/ขยาย</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="ZoomIn.Text" xml:space="preserve">
-    <value>Zoom In</value>
+    <value>ขยาย</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="ZoomOut.Text" xml:space="preserve">
-    <value>Zoom Out</value>
+    <value>ย่อ</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>Default Rich Text Font</value>
+    <value>ฟอนต์เริ่มต้นของเอกสาร Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>Default Rich Text Font Size</value>
+    <value>ขนาดฟอนต์เริ่มต้นของเอกสาร Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>Word Wrap in Rich Text</value>
+    <value>ตัดคำในเอกสาร Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
-    <value>Cancel</value>
+    <value>ยกเลิก</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="NoButton" xml:space="preserve">
-    <value>No</value>
+    <value>ไม่</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesBody" xml:space="preserve">
-    <value>There are unsaved changes. Do you want to save them now?</value>
+    <value>มีการแก้ไขที่ยังไม่ได้บันทึก ต้องการบันทึกเลยไหม?</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesTitle" xml:space="preserve">
-    <value>Pending Changes</value>
+    <value>เอกสารมีการแก้ไข</value>
     <comment>Used on Save Document Dialog</comment>
   </data>
   <data name="YesButton" xml:space="preserve">
-    <value>Yes</value>
+    <value>ใช่</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="LaunchNinjaMode" xml:space="preserve">
-    <value>Ninja Mode</value>
+    <value>โหมดเหมารวม</value>
     <comment>Used on Settings Pgae</comment>
   </data>
   <data name="AlignCenter.Text" xml:space="preserve">
-    <value>Align Center (Ctrl+E)</value>
+    <value>จัดชิดกลาง (Ctrl+E)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignCenterLabel.Label" xml:space="preserve">
-    <value>Align Center</value>
+    <value>จัดชิดกลาง</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignLeft.Text" xml:space="preserve">
-    <value>Align Left (Ctrl+L)</value>
+    <value>จัดชิดซ้าย (Ctrl+L)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignLeftLabel.Label" xml:space="preserve">
-    <value>Align Left</value>
+    <value>จัดชิดซ้าย</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignRight.Text" xml:space="preserve">
-    <value>Align Right (Ctrl+R)</value>
+    <value>จัดชิดขวา (Ctrl+R)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignRightLabel.Label" xml:space="preserve">
-    <value>Align Right</value>
+    <value>จัดชิดขวา</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Bold.Text" xml:space="preserve">
-    <value>Bold (Ctrl+B)</value>
+    <value>ตัวหนา (Ctrl+B)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="BoldLabel.Label" xml:space="preserve">
-    <value>Bold</value>
+    <value>ตัวหนา</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Bullets.Text" xml:space="preserve">
-    <value>Toggle Bullets</value>
+    <value>เปิดใช้สัญลักษณ์หัวข้อ</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="BulletsLabel.Label" xml:space="preserve">
-    <value>Bullets</value>
+    <value>สัญลักษณ์แสดงหัวข้อย่อย</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ClassicModeLabel.Label" xml:space="preserve">
-    <value>Classic Mode</value>
+    <value>โหมดคลาสสิค</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Color.Text" xml:space="preserve">
-    <value>Font Color</value>
+    <value>สีฟอนต์</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ColorLabel.Label" xml:space="preserve">
-    <value>Font Color</value>
+    <value>สีฟอนต์</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="CompactOverlayTooltip.Text" xml:space="preserve">
-    <value>Compact Overlay (Alt + Up)</value>
+    <value>โหมดทับแอปอื่น (Alt + Up)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Emoji.Text" xml:space="preserve">
-    <value>Insert Emojis (Win + .)</value>
+    <value>แทรกอิโมจิ (Win + .)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="EmojiLabel.Label" xml:space="preserve">
-    <value>Emojis</value>
+    <value>อิโมจิ</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="FindLabel.Label" xml:space="preserve">
-    <value>Find</value>
+    <value>ค้นหา</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="FocusModeLabel.Label" xml:space="preserve">
-    <value>Focus Mode</value>
+    <value>โหมดเน้นพิมพ์</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Italic.Text" xml:space="preserve">
-    <value>Italic (Ctrl+I)</value>
+    <value>ตัวเอียง (Ctrl+I)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ItalicLabel.Label" xml:space="preserve">
-    <value>Italic</value>
+    <value>ตัวเอียง</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="JustifyText.Text" xml:space="preserve">
-    <value>Justify Text (Ctrl+J)</value>
+    <value>จัดกลาง (Ctrl+J)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="JustifyTextLabel.Label" xml:space="preserve">
-    <value>Justify</value>
+    <value>จัดกลาง</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="NewLabel.Label" xml:space="preserve">
-    <value>New</value>
+    <value>ใหม่</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="NewTip.Text" xml:space="preserve">
-    <value>New (Ctrl+N)</value>
+    <value>ใหม่ (Ctrl+N)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="OpenLabel.Label" xml:space="preserve">
-    <value>Open</value>
+    <value>เปิด</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="OpenTip.Text" xml:space="preserve">
-    <value>Open (Ctrl+O)</value>
+    <value>เปิด (Ctrl+O)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="CmdLetsGo.Content" xml:space="preserve">
-    <value>Lets go!</value>
+    <value>เริ่มใช้แอป!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Here is whats new in 4.3.98</value>
+    <value>นี่คือสิ่งที่เพิ่มมาใน 4.3.98</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>• We made some improvements to popup dialogs.</value>
+    <value>• การปรับปรุงกล่องข้อความต่างๆ.</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogTitle.Title" xml:space="preserve">
-    <value>Welcome back to Quick Pad!</value>
+    <value>ยินดีต้อนรับกลับสู่ Quick Pad!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="RedoTooltip.Text" xml:space="preserve">
-    <value>Redo (Ctrl+Y)</value>
+    <value>ทำซ้ำ (Ctrl+Y)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SaveLabel.Label" xml:space="preserve">
-    <value>Save</value>
+    <value>บันทึก</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SaveTip.Text" xml:space="preserve">
-    <value>Save (Ctrl+S)</value>
+    <value>บันทึก (Ctrl+S)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SettingsLabel.Label" xml:space="preserve">
-    <value>Settings</value>
+    <value>ตั้งค่า</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ShareLabel.Label" xml:space="preserve">
-    <value>Share</value>
+    <value>แบ่งปัน</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="StatusBarLabel.Label" xml:space="preserve">
-    <value>Status Bar</value>
+    <value>แถบสถานะ</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Strikethrough.Text" xml:space="preserve">
-    <value>Strikethrough</value>
+    <value>ขีดทับ</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="StrikethroughLabel.Label" xml:space="preserve">
-    <value>Strikethrough</value>
+    <value>ขีดทับ</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Underline.Text" xml:space="preserve">
-    <value>Underline (Ctrl+U)</value>
+    <value>ขีดเส้นใต้ (Ctrl+U)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="UnderlineLabel.Label" xml:space="preserve">
-    <value>Label</value>
+    <value>ขีดเส้นใต้</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="UndoTooltip.Text" xml:space="preserve">
-    <value>Undo (Ctrl+Z)</value>
+    <value>เลิกทำ (Ctrl+Z)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="RichTextDescription" xml:space="preserve">
-    <value>Rich Text Document</value>
+    <value>เอกสาร Rich Text</value>
     <comment>Used on Status Bar</comment>
   </data>
   <data name="TextDescription" xml:space="preserve">
-    <value>Text Document</value>
+    <value>เอกสารข้อความ</value>
     <comment>Used on Status Bar</comment>
   </data>
   <data name="SaveDialog.CloseButtonText" xml:space="preserve">
-    <value>Cancel</value>
+    <value>ยกเลิก</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="SaveDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Save</value>
+    <value>บันทึก</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
-    <value>Don't Save</value>
-    <comment>Used on Save Dialog</comment>
-  </data>
-  <data name="SaveDialog.Title" xml:space="preserve">
-    <value>Quick Pad</value>
+    <value>ไม่ต้องบันทึก</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="WouldYouLikeToSave.Text" xml:space="preserve">
-    <value>Would you like to save your changes?</value>
+    <value>คุณต้องการบันทึกการเปลี่ยนแปลงของคุณหรือไม่?</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="AppVersion.Text" xml:space="preserve">
-    <value>Version:</value>
+    <value>เวอร์ชั่น:</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="PlainTextFontSettings.Text" xml:space="preserve">
-    <value>Plain Text Font Settings</value>
+    <value>ตั้งค่าการจัดรูปแบบเอกสารข้อความ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
-    <value>Rich Text Font Settings</value>
+    <value>ตั้งค่าการจัดรูปแบบเอกสาร Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Spell Check in Rich Text</value>
+    <value>เช็คคำผิดในเอกสาร Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Content" xml:space="preserve">
-    <value>Report issues here</value>
+    <value>รายงานปัญหาที่นี่</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SourceCode.Content" xml:space="preserve">
@@ -706,111 +593,111 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SpecialThanks.Text" xml:space="preserve">
-    <value>Special thanks to:</value>
+    <value>ขอขอบคุณ:</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ContributeToDeveloper.Content" xml:space="preserve">
-    <value>Contribute to the developer</value>
+    <value>บริจาคช่วยนักพัฒนา</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Untitled" xml:space="preserve">
-    <value>Untitled</value>
+    <value>ไม่มีชื่อ</value>
     <comment>Used on Title Bar</comment>
   </data>
   <data name="FindClose.Text" xml:space="preserve">
-    <value>Close</value>
+    <value>ปิด</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindFilter.PlaceholderText" xml:space="preserve">
-    <value>Looking for?</value>
+    <value>ข้อความที่ต้องการหา</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindMatchCase.Text" xml:space="preserve">
-    <value>Match Case</value>
+    <value>ตรงตามตัวพิมพ์ใหญ่-เล็ก</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindMore.Text" xml:space="preserve">
-    <value>More...</value>
+    <value>อื่นๆ...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindRegEx.Text" xml:space="preserve">
-    <value>Regular Expression</value>
+    <value>นิพจน์ปรกติ</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplace.Text" xml:space="preserve">
-    <value>Replace</value>
+    <value>แทนที่</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplaceAll.Text" xml:space="preserve">
-    <value>Replace all</value>
+    <value>แทนที่ทั้งหมด</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
-    <value>Replace with...</value>
+    <value>แทนที่ด้วย...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="TimeDate.Text" xml:space="preserve">
-    <value>Time/Date</value>
+    <value>เวลา/วันที่</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CmdCancel.Content" xml:space="preserve">
-    <value>Cancel</value>
+    <value>ยกเลิก</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>Go To</value>
+    <value>ไปที่บรรทัด</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="GoToDialog.Title" xml:space="preserve">
-    <value>Go To</value>
+    <value>ไปที่</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="GoToLineNumber.Header" xml:space="preserve">
-    <value>Line number:</value>
+    <value>บรรทัดที่:</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
-    <value>With compact overlay you can make Quick Pad stay on top of other windows.</value>
+    <value>โหมดทับแอปอื่นจะทำให้แอปอยู่ทับทุกโปรแกรม.</value>
     <comment>Used on TeachingTip</comment>
   </data>
   <data name="CompactOverlayTip.Title" xml:space="preserve">
-    <value>Keep on top of other Windows</value>
+    <value>อยู่เหนือกว่าโปรแกรมใดๆ</value>
     <comment>Used on TeachingTip</comment>
   </data>
   <data name="ThemeAccentName" xml:space="preserve">
-    <value>System Accent Color</value>
+    <value>สีระบบ</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="SearchWithGoogle.Text" xml:space="preserve">
-    <value>Enable Google Search</value>
+    <value>แสดงปุ่มค้นหาด้วย Google</value>
     <comment>Used on General Settings Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
-    <value>Other</value>
+    <value>อื่นๆ</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="WelcomeDialogPar3.Text" xml:space="preserve">
-    <value>Here is whats fixed in 4.3.98</value>
+    <value>และนี่คือสิ่งที่แก้ไขใน 4.3.98</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar4.Text" xml:space="preserve">
-    <value>• We fixed a crash that some users were experiencing when saving their documents.</value>
+    <value>• แก้ไขแอปปิดตัวลงกระทันหันเมื่อบันทึกเอกสาร</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">
-    <value>Review Quick Pad</value>
+    <value>โปรดช่วยวิจารณ์ Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>No</value>
+    <value>ไม่</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
-    <value>Would you like to review Quick Pad in the Microsoft Store?</value>
+    <value>ช่วยให้คะแนนและให้ข้อเสนอแนะแอปเราบน Microsoft Store ได้ไหม?</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>Review</value>
+    <value>รีวิว</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
 </root>
