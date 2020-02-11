@@ -838,47 +838,47 @@
         </trans-unit>
         <trans-unit id="ReportIssues.Content" translate="yes" xml:space="preserve">
           <source>Report issues here</source>
-          <target state="new">Report issues here</target>
+          <target state="translated">إبلغ عن المشاكل هنا</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <target state="new">Source Code</target>
+          <target state="translated">كود المصدر</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
+          <target state="translated">تبرع للمطور</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
           <source>Here is whats fixed in 4.3.98</source>
-          <target state="new">Here is whats fixed in 4.3.98</target>
+          <target state="translated">هذا ما تم اصلاحه في الإصدار ٤.٣.٩٨</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
           <source>• We fixed a crash that some users were experiencing when saving their documents.</source>
-          <target state="new">• We fixed a crash that some users were experiencing when saving their documents.</target>
+          <target state="translated">• لقد اصلحنا إلاغلاق المفاجئ الذي كان يعاني منه بعض المستخدمين عند حفظ مستنداتهم.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
           <source>Review Quick Pad</source>
-          <target state="new">Review Quick Pad</target>
+          <target state="translated">راجع Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="translated">لا</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Would you like to review Quick Pad in the Microsoft Store?</source>
-          <target state="new">Would you like to review Quick Pad in the Microsoft Store?</target>
+          <target state="translated">هل تحب ان تقوم بمراجعة Quick Pad علي متجر مايكروسوفت؟</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Review</target>
+          <target state="translated">مراجعة</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
       </group>
