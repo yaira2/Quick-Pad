@@ -815,6 +815,6 @@
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Privacy Policy</value>
-    <comment>Used on Settings Pad</comment>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>
