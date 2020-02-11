@@ -664,4 +664,44 @@
     <value>مرحباً بعودتك إلى Quick Pad!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
+  <data name="ReportIssues.Content" xml:space="preserve">
+    <value>إبلغ عن المشاكل هنا</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Content" xml:space="preserve">
+    <value>كود المصدر</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ContributeToDeveloper.Content" xml:space="preserve">
+    <value>تبرع للمطور</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
+    <value>هذا ما تم اصلاحه في الإصدار ٤.٣.٩٨</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar4.Text" xml:space="preserve">
+    <value>• لقد اصلحنا إلاغلاق المفاجئ الذي كان يعاني منه بعض المستخدمين عند حفظ مستنداتهم.</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="AskForReviewDialog.Title" xml:space="preserve">
+    <value>راجع Quick Pad</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>لا</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
+    <value>هل تحب ان تقوم بمراجعة Quick Pad علي متجر مايكروسوفت؟</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>مراجعة</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>سياسة الخصوصية</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>
