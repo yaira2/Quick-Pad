@@ -881,6 +881,11 @@
           <target state="new">Review</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
+        <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
+          <source>Privacy Policy</source>
+          <target state="new">Privacy Policy</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pad</note>
+        </trans-unit>
       </group>
     </body>
   </file>
