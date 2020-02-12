@@ -213,20 +213,36 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get => Document?.Text ?? string.Empty;
 
-            set
+            //set
+            //{
+            //    App.TryEnqueue(() =>
+            //    {
+            //        Document.Text = value;
+
+            //        var text = Document.Text ?? string.Empty;
+
+            //        if (Set(ref text, value))
+            //        {
+            //            Document.CalculateDirty();
+            //        }
+            //    });
+            //}
+        }
+
+        public void SetText(string newText, bool isDirty)
+        {
+            App.TryEnqueue(() =>
             {
-                App.TryEnqueue(() =>
-                {
-                    Document.Text = value;
+                Document.Text = newText;
 
-                    var text = Document.Text ?? string.Empty;
+                var text = Document.Text ?? string.Empty;
 
-                    if (Set(ref text, value))
-                    {
-                        Document.CalculateDirty();
-                    }
-                });
-            }
+                if (!Set(ref text, newText)) return;
+
+                if (isDirty) Document.CalculateDirty();
+                else Document.IsDirty = false;
+            });
+
         }
 
         public string SelectedText
@@ -312,7 +328,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
-        public async Task InitNewDocument()
+        public void InitNewDocument()
         {
             HoldUpdates();
 
@@ -325,22 +341,32 @@ namespace QuickPad.Mvvm.ViewModels
             {
                 Document = ServiceProvider.GetService<DocumentModel<TStorageFile, TStream>>();
 
-                if (IsRtf)
+                Document.SetDefaults(() =>
                 {
-                    await Document.LoadFromStream(DEFAULT_TEXT_SET_OPTIONS_RTF, null);
-                }
-                else
-                {
-                    Text = string.Empty;
-                }
+                    var notify = false;
+                    try
+                    {
+                        Document.Initialize();
 
-                Document.SetDefaults();
+                        CurrentPosition = (0, 0);
 
-                CurrentPosition = (0, 0);
+                        Document.IsDirty = false;
 
-                Document.IsDirty = false;
+                        NewDocumentInitialized?.Invoke(Document);
 
-                NewDocumentInitialized?.Invoke(Document);
+                        notify = true;
+                    }
+                    catch (Exception e)
+                    {
+                        Settings.Status(e.Message, TimeSpan.FromSeconds(60), Verbosity.Error);
+                    }
+                    finally
+                    {
+                        ReleaseUpdates();
+
+                        if(notify) NotifyAll();
+                    }
+                });
             }
             catch (Exception e)
             {
@@ -348,12 +374,7 @@ namespace QuickPad.Mvvm.ViewModels
             }
             finally
             {
-                Document.IsDirty = false;
-
-                ReleaseUpdates();
             }
-
-            NotifyAll();
         }
 
         public event Action<DocumentModel<TStorageFile, TStream>> NewDocumentInitialized;
@@ -424,7 +445,8 @@ namespace QuickPad.Mvvm.ViewModels
             }
             set
             {
-                if (!IsRtf) Text = value;
+                if (!IsRtf) SetText(value, true);
+
                 else if (value != RtfText)
                 {
                     Document.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);

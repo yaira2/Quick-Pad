@@ -46,6 +46,7 @@ namespace QuickPad.UI
     {
         private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
         private readonly bool _initialized;
+        public IServiceProvider Provider { get; }
         public IVisualThemeSelector VtSelector { get; }
         public WindowsSettingsViewModel Settings => App.SettingsViewModel as WindowsSettingsViewModel;
         public QuickPadCommands<StorageFile, IRandomAccessStream> Commands { get; }
@@ -58,6 +59,7 @@ namespace QuickPad.UI
             , ILogger<MainPage> logger, DocumentViewModel<StorageFile, IRandomAccessStream> viewModel
             , QuickPadCommands<StorageFile, IRandomAccessStream> command, IVisualThemeSelector vts)
         {
+            Provider = provider;
             VtSelector = vts;
             Logger = logger;
             Commands = command;
@@ -211,14 +213,6 @@ namespace QuickPad.UI
 
             await SetOverlayMode(Settings.CurrentMode);
 
-            if(ViewModel.File == null)
-            {
-                if(ViewModel.Document == null)
-                {
-                    await ViewModel.InitNewDocument();
-                }
-            }
-
             Settings.Dispatch(() => Bindings.Update());
 
             if (Settings.DefaultMode == "Compact Overlay")
@@ -368,53 +362,45 @@ namespace QuickPad.UI
             get => _viewModel;
             set
             {
-                if (_viewModel != value)
+                if (_viewModel == value) return;
+
+                if (_viewModel != null)
                 {
-                    if (_viewModel != null)
-                    {
-                        _viewModel.RedoRequested -= ViewModelOnRedoRequested;
-                        _viewModel.UndoRequested -= ViewModelOnUndoRequested;
-                        _viewModel.PropertyChanged -= ViewModelOnPropertyChanged;
-                        _viewModel.SetSelection -= ViewModelOnSetSelection;
-                        _viewModel.GetPosition -= ViewModelOnGetPosition;
-                        _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
-                        _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
-                        _viewModel.Focus -= ViewModelOnFocus;
+                    _viewModel.RedoRequested -= ViewModelOnRedoRequested;
+                    _viewModel.UndoRequested -= ViewModelOnUndoRequested;
+                    _viewModel.PropertyChanged -= ViewModelOnPropertyChanged;
+                    _viewModel.SetSelection -= ViewModelOnSetSelection;
+                    _viewModel.GetPosition -= ViewModelOnGetPosition;
+                    _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
+                    _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
+                    _viewModel.Focus -= ViewModelOnFocus;
 
-                        RichEditBox.TextChanged -= _viewModel.TextChanged;
-                        TextBox.TextChanged -= _viewModel.TextChanged;
-                    }
-
-                    _viewModel = value;
-
-                    _viewModel.RedoRequested += ViewModelOnRedoRequested;
-                    _viewModel.UndoRequested += ViewModelOnUndoRequested;
-                    _viewModel.PropertyChanged += ViewModelOnPropertyChanged;
-                    _viewModel.SetSelection += ViewModelOnSetSelection;
-                    _viewModel.GetPosition += ViewModelOnGetPosition;
-                    _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
-                    _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
-                    _viewModel.Focus += ViewModelOnFocus;
-
-                    _viewModel.NewDocumentInitialized += ViewModelOnNewDocumentInitialized;
-
-                    if (!_initialized) return;
-
-                    //ViewModel.Document = new RtfDocument(
-                    //    RichEditBox.Document
-                    //    , App.ServiceProvider.GetService<ILogger<RtfDocument>>()
-                    //    , ViewModel
-                    //    , Settings
-                    //    , App.ServiceProvider.GetService<IApplication<StorageFile, IRandomAccessStream>>());
-
-                    if(ViewModel.Document == null)
-                    {
-                        Task.Run(ViewModel.InitNewDocument);
-                    }
-
-                    RichEditBox.TextChanged += _viewModel.TextChanged;
-                    TextBox.TextChanged += _viewModel.TextChanged;
+                    RichEditBox.TextChanged -= _viewModel.TextChanged;
+                    TextBox.TextChanged -= _viewModel.TextChanged;
                 }
+
+                _viewModel = value;
+
+                _viewModel.RedoRequested += ViewModelOnRedoRequested;
+                _viewModel.UndoRequested += ViewModelOnUndoRequested;
+                _viewModel.PropertyChanged += ViewModelOnPropertyChanged;
+                _viewModel.SetSelection += ViewModelOnSetSelection;
+                _viewModel.GetPosition += ViewModelOnGetPosition;
+                _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
+                _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
+                _viewModel.Focus += ViewModelOnFocus;
+
+                _viewModel.NewDocumentInitialized += ViewModelOnNewDocumentInitialized;
+
+                if (!_initialized) return;
+
+                if (ViewModel.Document == null)
+                {
+                    ViewModel.InitNewDocument();
+                }
+
+                RichEditBox.TextChanged += _viewModel.TextChanged;
+                TextBox.TextChanged += _viewModel.TextChanged;
             }
         }
 
@@ -457,7 +443,7 @@ namespace QuickPad.UI
 
         private (int start, int length) ViewModelOnGetPosition()
         {
-            return _viewModel.Document.GetSelectionBounds();
+            return _viewModel.Document?.GetSelectionBounds() ?? (0, 0);
         }
 
         private void ViewModelOnSetSelection(int start, int length, bool reindex = true)
@@ -591,6 +577,7 @@ namespace QuickPad.UI
         private (int start, int length) _lastSelectionRange = default;
 
         private List<int> LineIndices => ViewModel.Document.LineIndices;
+        public StorageFile FileToLoad { get; set; }
 
         private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
@@ -598,7 +585,7 @@ namespace QuickPad.UI
             {
                 TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
 
-                ViewModel.Text = TextBox.Text;
+                ViewModel.SetText(TextBox.Text, true);
 
                 Reindex();
 

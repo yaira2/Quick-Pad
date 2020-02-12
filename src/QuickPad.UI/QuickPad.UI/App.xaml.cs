@@ -150,23 +150,35 @@ namespace QuickPad.UI
 
             if (mainPage == null)
             {
+                if (args.Files.Count > 0 && args.Files[0] != null && args.Files[0] is StorageFile storageFile)
+                {
+                    FileToLoad = storageFile;
+                }
+
                 // Create a Frame to act as the navigation context and navigate to the first page
                 mainPage = ServiceProvider.GetService<MainPage>();
+
+                mainPage.Loaded += MainPageOnLoaded;
 
                 Controller.AddView(mainPage);
             }
 
             // The number of files received is args.Files.Size
             // The name of the first file is args.Files[0].Name
-            if (args.Files.Count > 0 && args.Files[0] != null)
-            {
-                var windowsDocumentManager = ServiceProvider.GetService<WindowsDocumentManager>();
-                await windowsDocumentManager.LoadFile(mainPage.ViewModel, args.Files[0] as StorageFile);
-            }
-
             Window.Current.Content = mainPage;
             Window.Current.Activate();
 
+        }
+
+        public StorageFile FileToLoad { get; set; }
+
+        private async void MainPageOnLoaded(object sender, RoutedEventArgs e)
+        {
+            if (FileToLoad != null && sender is MainPage mainPage)
+            {
+                var windowsDocumentManager = ServiceProvider.GetService<WindowsDocumentManager>();
+                await windowsDocumentManager.LoadFile(mainPage.ViewModel, FileToLoad);
+            }
         }
 
         public static String GetAbsolutePath(String basePath, String path)
