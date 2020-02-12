@@ -104,8 +104,7 @@ namespace QuickPad.UI.Helpers
 
                 if(!canceled)
                 {
-                    documentViewModel.Initialize = async viewModel => 
-                        { await viewModel.InitNewDocument(); };
+                    documentViewModel.Initialize = viewModel => viewModel.InitNewDocument();
 
                     documentViewModel.Initialize(documentViewModel);
 
@@ -320,6 +319,13 @@ namespace QuickPad.UI.Helpers
                     var text = reader.Read(documentViewModel.CurrentEncoding);
                     documentViewModel.File = new UwpStorageFileWrapper { File = file };
 
+                    if (text.Contains(Environment.NewLine))
+                    {
+                        documentViewModel.File.OriginalLineEndings = Environment.NewLine;
+                        documentViewModel.File.TargetLineEndings = Environment.NewLine;
+                        text = text.Replace(Environment.NewLine, "\r");
+                    }
+
                     // Ensure valid RTF
                     if (documentViewModel.IsRtf
                         && !text.StartsWith("{\\rtf1", StringComparison.InvariantCultureIgnoreCase))
@@ -354,7 +360,7 @@ namespace QuickPad.UI.Helpers
                     }
                     else
                     {
-                        documentViewModel.Text = text.Replace(Environment.NewLine, "\r");
+                        documentViewModel.SetText(text.Replace(Environment.NewLine, "\r"), false);
                         documentViewModel.InvokeClearUndoRedo();
                     }
 
@@ -362,8 +368,6 @@ namespace QuickPad.UI.Helpers
 
                     Settings.Status($"Loaded {documentViewModel.File.Name}", TimeSpan.FromSeconds(5),
                         Verbosity.Release);
-
-                    documentViewModel.Document.IsDirty = false;
                 }
             }
 
@@ -430,8 +434,20 @@ namespace QuickPad.UI.Helpers
 
                 var writer = new EncodingWriter();
 
-                await App.AwaitableRunAsync(() => 
-                    writer.Write(documentViewModel.IsRtf ? documentViewModel.RtfText : documentViewModel.Text));
+                var textToSave = documentViewModel.IsRtf switch
+                {
+                    true => FixLineEndings(documentViewModel.RtfText),
+                    _ => FixLineEndings(documentViewModel.Text)
+                };
+
+                string FixLineEndings(string text)
+                {
+                    return !text.Contains(documentViewModel.File.TargetLineEndings) 
+                        ? text.Replace("\r", documentViewModel.File.TargetLineEndings) 
+                        : text;
+                }
+
+                await App.AwaitableRunAsync(() => writer.Write(textToSave));
 
                 await new StorageFileDataProvider().SaveDataAsync(documentViewModel.File.File, writer,
                     documentViewModel.CurrentEncoding);

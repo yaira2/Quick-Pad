@@ -13,7 +13,7 @@ namespace QuickPad.Mvvm.Commands.Actions
             {
                 var findAndReplace = documentViewModel.FindAndReplaceViewModel;
                 var results = findAndReplace.ReplaceAll(documentViewModel);
-                if (results.Length > 0) documentViewModel.Text = results.Last().text;
+                if (results.Length > 0) documentViewModel.SetText(results.Last().text, true);
                 return Task.CompletedTask;
             };
         }

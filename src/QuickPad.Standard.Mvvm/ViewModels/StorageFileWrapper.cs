@@ -8,5 +8,7 @@
         public abstract string DisplayName { get; }
         public abstract string Path { get; }
         public abstract string Name { get; }
+        public string OriginalLineEndings { get; set; }
+        public string TargetLineEndings { get; set; }
     }
 }

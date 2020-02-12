@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Mime;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.ViewModels;
@@ -41,7 +42,10 @@ namespace QuickPad.Mvvm.Models
                     return;
                 }
 
-                if(IsDirty) IsDirty = false;
+                if(IsDirty)
+                {
+                    IsDirty = false;
+                }
             }
             else
             {
@@ -211,7 +215,7 @@ namespace QuickPad.Mvvm.Models
         
         public abstract string ForegroundColor { get; set; }
 
-        public abstract Task LoadFromStream(QuickPadTextSetOptions options, TStream stream = null);
+        public abstract Task<bool> LoadFromStream(QuickPadTextSetOptions options, TStream stream = null);
 
         public abstract Action<string, bool> Paste { get; }
         
@@ -240,6 +244,7 @@ namespace QuickPad.Mvvm.Models
         public abstract (int start, int length) GetSelectionBounds();
         public abstract (int start, int length) SetSelectionBound(int start, int length);
         public abstract void NotifyOnSelectionChange();
-        public abstract void SetDefaults();
+        public abstract void SetDefaults(Action continueWith);
+        public abstract void Initialize();
     }
 }

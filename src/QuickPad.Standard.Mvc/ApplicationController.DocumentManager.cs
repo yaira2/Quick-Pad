@@ -67,7 +67,7 @@ namespace QuickPad.Mvc
             commands.SaveAsCommandBase.Executioner = SaveAsDocument;
             commands.ExitCommandBase.Executioner = ExitApplication;
 
-            documentView.ViewModel.Initialize = async viewModel => await viewModel.InitNewDocument();
+            documentView.ViewModel.Initialize = viewModel => viewModel.InitNewDocument();
         }
 
         protected abstract Task<SaveState> SaveAsDocument(DocumentViewModel<TStorageFile, TStream> arg);

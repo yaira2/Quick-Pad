@@ -44,7 +44,7 @@ namespace QuickPad.UI.Helpers
 
         }
 
-        public override void SetDefaults()
+        public override void SetDefaults(Action continueWith)
         {
             App.TryEnqueue(() =>
             {
@@ -59,6 +59,15 @@ namespace QuickPad.UI.Helpers
                 CurrentWordWrap = Settings.RtfWordWrap;
                 CurrentFontName = Settings.DefaultRtfFont;
                 CurrentFontSize = Settings.DefaultFontRtfSize;
+
+                continueWith?.Invoke();
+            });
+        }
+
+        public override void Initialize()
+        {
+            Task.Run(async () => {
+                await LoadFromStream(QuickPadTextSetOptions.FormatRtf, null);
             });
         }
 
@@ -399,31 +408,64 @@ namespace QuickPad.UI.Helpers
             }
         }
 
-        public override async Task LoadFromStream(QuickPadTextSetOptions options, IRandomAccessStream stream)
+        public override Task<bool> LoadFromStream(QuickPadTextSetOptions options, IRandomAccessStream stream)
         {
+            var tcs = new TaskCompletionSource<bool>();
+
             if (stream == null)
             {
-                var uri = new System.Uri("ms-appx:///Templates/empty.rtf");
-                var file = await Windows.Storage.StorageFile.GetFileFromApplicationUriAsync(uri);
+                var uri = new Uri("ms-appx:///Templates/empty.rtf");
+                
+                var fileTask = StorageFile.GetFileFromApplicationUriAsync(uri);
 
-                stream = await file.OpenReadAsync();
+                var file = fileTask.GetResults();
+
+                var task = file.OpenReadAsync();
+
+                stream = task.GetResults();
             }
 
-            App.TryEnqueue(() => Document.LoadFromStream(options.ToUwp(), stream));
+            App.TryEnqueue(() =>
+            {
+                try
+                {
+                    Document.LoadFromStream(options.ToUwp(), stream);
+                    IsDirty = false;
+                    tcs.SetResult(true);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            });
+
+            return tcs.Task;
         }
 
         public override Action<string, bool> Paste => PasteText;
 
         private void PasteText(string s, bool b)
         {
+            var mre = new ManualResetEvent(false);
+
             if (b)
             {
-                App.TryEnqueue(() => Document.Selection.Paste(0));
+                App.TryEnqueue(() =>
+                {
+                    Document.Selection.Paste(0);
+                    mre.Set();
+                });
             }
             else
             {
-                App.TryEnqueue(() => Document.Selection.SetText(TextSetOptions.FormatRtf, s));
+                App.TryEnqueue(() =>
+                {
+                    Document.Selection.SetText(TextSetOptions.FormatRtf, s);
+                    mre.Set();
+                });
             }
+
+            mre.WaitOne();
         }
 
         public override void BeginUndoGroup()

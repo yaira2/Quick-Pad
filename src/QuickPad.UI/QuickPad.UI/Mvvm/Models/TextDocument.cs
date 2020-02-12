@@ -40,14 +40,21 @@ namespace QuickPad.UI.Helpers
         public override bool CanRedo => Document.CanRedo;
         public override bool CanUndo => Document.CanUndo;
         
-        public override void SetDefaults()
+        public override void SetDefaults(Action continueWith)
         {
             App.TryEnqueue(() =>
             {
                 CurrentWordWrap = Settings.WordWrap;
                 CurrentFontName = Settings.DefaultFont;
                 CurrentFontSize = Settings.DefaultFontSize;
+
+                continueWith?.Invoke();
             });
+        }
+
+        public override void Initialize()
+        {
+            Text = "";
         }
 
         public override void Redo()
@@ -88,16 +95,32 @@ namespace QuickPad.UI.Helpers
             }
         }
 
-        public override async Task LoadFromStream(QuickPadTextSetOptions options, IRandomAccessStream stream)
+        public override Task<bool> LoadFromStream(QuickPadTextSetOptions options, IRandomAccessStream stream)
         {
+            var tcs = new TaskCompletionSource<bool>();
             var memoryStream = new InMemoryRandomAccessStream();
             var bytes = Encoding.UTF8.GetBytes("\r");
             var buffer = bytes.AsBuffer();
-            await memoryStream.WriteAsync(buffer);
+            var task = memoryStream.WriteAsync(buffer);
+            
+            task.GetResults();
 
             memoryStream.Seek(0);
 
-            App.TryEnqueue(() => { Text = stream.ReadTextAsync(ViewModel.CurrentEncoding).Result; });
+            App.TryEnqueue(() =>
+            {
+                try
+                {
+                    Text = stream.ReadTextAsync(ViewModel.CurrentEncoding).Result;
+                    tcs.SetResult(true);
+                }
+                catch (Exception ex)
+                {
+                    tcs.SetException(ex);
+                }
+            });
+
+            return tcs.Task;
         }
 
         public override Action<string, bool> Paste => (s, b) => App.TryEnqueue(() => Document.SelectedText = s);
