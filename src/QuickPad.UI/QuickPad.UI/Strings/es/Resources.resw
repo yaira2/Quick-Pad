@@ -113,7 +113,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Desarrollado por Yair Aichenbaum</value>
+    <value>Desarrollado por Yair Aichenbaum &amp; Sharp Ninja</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
@@ -661,15 +661,55 @@
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>¡Quick Pad ha vuelto luego de algunos meses sin actualizaciones. Me emociona mucho anunciar que la aplicación se ha reescrito completamente!</value>
+    <value>Aquí está lo nuevo en 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>Todas las opciones están disponibles, incluyendo algunas nuevas. Como resultado de la reescritura de la aplicación las opciones se reestablecieron a la configuración por defecto. Tendrá que volver a establecer su configuración, pero le aseguro que vale la pena. Me disculpo por las molestias que esto pueda ocacionar.</value>
+    <value>• Hemos mejorado los cuadros de diálogo.</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogTitle.Title" xml:space="preserve">
     <value>¡Bienvenido de vuelta a Quick Pad!</value>
     <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="ReportIssues.Content" xml:space="preserve">
+    <value>Reporte errores aquí</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Content" xml:space="preserve">
+    <value>Código Fuente</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ContributeToDeveloper.Content" xml:space="preserve">
+    <value>Contribuya al desarrollador</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
+    <value>Aquí está lo que se arregló en 4.3.99</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar4.Text" xml:space="preserve">
+    <value>• Hemos arreglado un error que cerraba la app cuando intentabas guardar un documento.</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="AskForReviewDialog.Title" xml:space="preserve">
+    <value>Opine sobre Quick Pad</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>No</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
+    <value>¿Le gustaría evaluar Quick Pad en la Tienda de Microsoft?</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>Opinar</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Política de Privacidad</value>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>
