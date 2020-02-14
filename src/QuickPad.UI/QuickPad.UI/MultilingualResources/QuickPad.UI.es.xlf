@@ -133,8 +133,7 @@
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
           <source>Developed by Yair Aichenbaum &amp; Sharp Ninja</source>
-          <target state="needs-review-translation">Desarrollado por Yair Aichenbaum</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Desarrollado por Yair Aichenbaum &amp; Sharp Ninja</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
@@ -819,14 +818,12 @@
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Here is whats new in 4.3.99</source>
-          <target state="needs-review-translation">¡Quick Pad ha vuelto luego de algunos meses sin actualizaciones. Me emociona mucho anunciar que la aplicación se ha reescrito completamente!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Aquí está lo nuevo en 4.3.99</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
           <source>• We made some improvements to popup dialogs.</source>
-          <target state="needs-review-translation">Todas las opciones están disponibles, incluyendo algunas nuevas. Como resultado de la reescritura de la aplicación las opciones se reestablecieron a la configuración por defecto. Tendrá que volver a establecer su configuración, pero le aseguro que vale la pena. Me disculpo por las molestias que esto pueda ocacionar.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">• Hemos mejorado los cuadros de diálogo.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
@@ -836,52 +833,52 @@
         </trans-unit>
         <trans-unit id="ReportIssues.Content" translate="yes" xml:space="preserve">
           <source>Report issues here</source>
-          <target state="new">Report issues here</target>
+          <target state="translated">Reporte errores aquí</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <target state="new">Source Code</target>
+          <target state="translated">Código Fuente</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
+          <target state="translated">Contribuya al desarrollador</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
           <source>Here is whats fixed in 4.3.99</source>
-          <target state="new">Here is whats fixed in 4.3.99</target>
+          <target state="translated">Aquí está lo que se arregló en 4.3.99</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
           <source>• We fixed a crash that some users were experiencing when saving their documents.</source>
-          <target state="new">• We fixed a crash that some users were experiencing when saving their documents.</target>
+          <target state="translated">• Hemos arreglado un error que cerraba la app cuando intentabas guardar un documento.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
           <source>Review Quick Pad</source>
-          <target state="new">Review Quick Pad</target>
+          <target state="translated">Opine sobre Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="translated">No</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Would you like to review Quick Pad in the Microsoft Store?</source>
-          <target state="new">Would you like to review Quick Pad in the Microsoft Store?</target>
+          <target state="translated">¿Le gustaría evaluar Quick Pad en la Tienda de Microsoft?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Review</target>
+          <target state="translated">Opinar</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="new">Privacy Policy</target>
+          <target state="translated">Política de Privacidad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>

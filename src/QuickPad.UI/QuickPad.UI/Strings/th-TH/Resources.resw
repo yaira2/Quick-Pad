@@ -489,7 +489,7 @@
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>นี่คือสิ่งที่เพิ่มมาใน 4.3.98</value>
+    <value>นี่คือสิ่งที่เพิ่มมาใน 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
@@ -677,7 +677,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="WelcomeDialogPar3.Text" xml:space="preserve">
-    <value>และนี่คือสิ่งที่แก้ไขใน 4.3.98</value>
+    <value>และนี่คือสิ่งที่แก้ไขใน 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar4.Text" xml:space="preserve">
@@ -699,5 +699,9 @@
   <data name="AskForReviewDialogReview.Content" xml:space="preserve">
     <value>รีวิว</value>
     <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>นโยบายความเป็นส่วนตัว</value>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>

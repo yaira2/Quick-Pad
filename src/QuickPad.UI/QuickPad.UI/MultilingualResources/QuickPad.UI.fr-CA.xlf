@@ -133,8 +133,7 @@
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
           <source>Developed by Yair Aichenbaum &amp; Sharp Ninja</source>
-          <target state="needs-review-translation">Développée par Yair Aichenbaum</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Développée par Yair Aichenbaum &amp; Sharp Ninja</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
@@ -834,14 +833,12 @@
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Here is whats new in 4.3.99</source>
-          <target state="needs-review-translation">Quick Pad est de retour et après quelques mois sans mise à jour, je suis excité d'annoncer que Quick Pad a été réécrit au complet du début!</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">Voici les nouvelles fonctionnalités dans 4.3.99</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
           <source>• We made some improvements to popup dialogs.</source>
-          <target state="needs-review-translation">Chaque option est toujours disponible en plus des nouveautés. À cause de la réécriture de l'application du début, vous avez besoin de refaire toutes les personnalisations que vous avez faites dans les versions précédentes. Je suis désolé pour les inconvénients, mais j'espère que vous trouvez qu'ils valent la peine et profitez de la nouvelle version.</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">• Nous avons fait quelques améliorations aux dialogues pop-up</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
@@ -851,37 +848,37 @@
         </trans-unit>
         <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
           <source>Here is whats fixed in 4.3.99</source>
-          <target state="new">Here is whats fixed in 4.3.99</target>
+          <target state="translated">Voici tout ce qui a été réglé dans 4.3.99</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
           <source>• We fixed a crash that some users were experiencing when saving their documents.</source>
-          <target state="new">• We fixed a crash that some users were experiencing when saving their documents.</target>
+          <target state="translated">• Nous avons réglé un plantage que certains utilisateurs ont vécu lors de l'enregistrement de leurs documents.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
           <source>Review Quick Pad</source>
-          <target state="new">Review Quick Pad</target>
+          <target state="translated">Évaluer Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="translated">Non</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Would you like to review Quick Pad in the Microsoft Store?</source>
-          <target state="new">Would you like to review Quick Pad in the Microsoft Store?</target>
+          <target state="translated">Voulez-vous évaluer Quick Pad dans le Microsoft Store?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Review</target>
+          <target state="translated">Évaluer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="new">Privacy Policy</target>
+          <target state="translated">Politique de vie privée</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>
