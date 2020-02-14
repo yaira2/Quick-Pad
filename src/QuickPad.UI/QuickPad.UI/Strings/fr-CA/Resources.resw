@@ -113,7 +113,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Développée par Yair Aichenbaum</value>
+    <value>Développée par Yair Aichenbaum &amp; Sharp Ninja</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
@@ -673,15 +673,43 @@
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Quick Pad est de retour et après quelques mois sans mise à jour, je suis excité d'annoncer que Quick Pad a été réécrit au complet du début!</value>
+    <value>Voici les nouvelles fonctionnalités dans 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>Chaque option est toujours disponible en plus des nouveautés. À cause de la réécriture de l'application du début, vous avez besoin de refaire toutes les personnalisations que vous avez faites dans les versions précédentes. Je suis désolé pour les inconvénients, mais j'espère que vous trouvez qu'ils valent la peine et profitez de la nouvelle version.</value>
+    <value>• Nous avons fait quelques améliorations aux dialogues pop-up</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogTitle.Title" xml:space="preserve">
     <value>Bienvenue à Quick Pad!</value>
     <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
+    <value>Voici tout ce qui a été réglé dans 4.3.99</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar4.Text" xml:space="preserve">
+    <value>• Nous avons réglé un plantage que certains utilisateurs ont vécu lors de l'enregistrement de leurs documents.</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="AskForReviewDialog.Title" xml:space="preserve">
+    <value>Évaluer Quick Pad</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>Non</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
+    <value>Voulez-vous évaluer Quick Pad dans le Microsoft Store?</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>Évaluer</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Politique de vie privée</value>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>
