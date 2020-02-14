@@ -1,4 +1,6 @@
-﻿namespace QuickPad.Mvvm.ViewModels
+﻿using System;
+
+namespace QuickPad.Mvvm.ViewModels
 {
     public abstract class StorageFileWrapper<TStorageFile>
     {
@@ -8,7 +10,7 @@
         public abstract string DisplayName { get; }
         public abstract string Path { get; }
         public abstract string Name { get; }
-        public string OriginalLineEndings { get; set; }
-        public string TargetLineEndings { get; set; }
+        public string OriginalLineEndings { get; set; } = Environment.NewLine;
+        public string TargetLineEndings { get; set; } = Environment.NewLine;
     }
 }

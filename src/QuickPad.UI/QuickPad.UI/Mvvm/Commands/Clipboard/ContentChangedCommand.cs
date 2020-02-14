@@ -20,9 +20,12 @@ namespace QuickPad.UI.Commands.Clipboard
                 {
                     var clipboardContent = Windows.ApplicationModel.DataTransfer.Clipboard.GetContent();
                     var dataPackage = new DataPackage();
-                    dataPackage.SetText(await clipboardContent.GetTextAsync());
-                    Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
-                    Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
+                    if (clipboardContent.Contains(StandardDataFormats.Text))
+                    {
+                        dataPackage.SetText(await clipboardContent.GetTextAsync());
+                        Windows.ApplicationModel.DataTransfer.Clipboard.SetContent(dataPackage);
+                        Windows.ApplicationModel.DataTransfer.Clipboard.Flush();
+                    }
                 }
                 catch
                 {

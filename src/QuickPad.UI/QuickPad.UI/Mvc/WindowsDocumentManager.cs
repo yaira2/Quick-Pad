@@ -93,7 +93,27 @@ namespace QuickPad.UI.Helpers
                 return await ExitApp(documentViewModel) != SaveState.Canceled;
             }
 
-            protected override async Task NewDocument(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel)
+            public override void Initializer(IDocumentView<StorageFile, IRandomAccessStream> documentView
+                , IQuickPadCommands<StorageFile, IRandomAccessStream> commands
+                , IApplication<StorageFile, IRandomAccessStream> app)
+            {
+                App = app;
+
+                commands.NewDocumentCommandBase.Executioner = NewDocument;
+                commands.LoadCommandBase.Executioner = LoadDocument;
+                commands.SaveCommandBase.Executioner = async documentViewModel => await SaveDocument(documentViewModel);
+                commands.SaveAsCommandBase.Executioner = SaveAsDocument;
+                commands.ExitCommandBase.Executioner = ExitApplication;
+
+                if (documentView.ViewModel == null)
+                {
+                    documentView.ViewModel =
+                        ServiceProvider.GetService<DocumentViewModel<StorageFile, IRandomAccessStream>>();
+                    documentView.ViewModel.Initialize = viewModel => viewModel.InitNewDocument();
+                }
+            }
+
+            public override async Task NewDocument(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel)
             {
                 var canceled = false;
                 if (documentViewModel.Document.IsDirty)
@@ -111,6 +131,12 @@ namespace QuickPad.UI.Helpers
                     Settings.Status("New document initialized.", TimeSpan.FromSeconds(10),
                         Verbosity.Debug);
                 }
+            }
+
+            public override void SaveDocument(IDocumentView<StorageFile, IRandomAccessStream> obj)
+            {
+                App.TryEnqueue(() => 
+                    SaveDocument(obj.ViewModel));
             }
 
             protected override Task ExitApplication(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel)
@@ -146,7 +172,8 @@ namespace QuickPad.UI.Helpers
                 {
                     Settings.NotDeferred = true;
                     documentViewModel.Deferred = false;
-                    documentViewModel.ExitApplication?.Invoke();
+                    
+                    Settings.ExitApplication?.Invoke();
                 }
 
                 return DeferredState.NotDeferred;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,8 @@ namespace QuickPad.UI.Helpers
             
             Model = new WindowsSettingsModel(logger, app, serviceProvider);
 
+            Model.PropertyChanged += ModelOnPropertyChanged;
+
             AllFonts = new ObservableCollection<string>(
                 CanvasTextFormat.GetSystemFontFamilies().OrderBy(font => font));
 
@@ -60,6 +63,11 @@ namespace QuickPad.UI.Helpers
             AllDisplayModes = new ObservableCollection<DisplayMode>();
 
             Enum.GetNames(typeof(DisplayModes)).ToList().ForEach(uid => AllDisplayModes.Add(new DisplayMode(uid)));
+        }
+
+        private void ModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            OnPropertyChanged(e.PropertyName);
         }
 
         [NotifyOnReset]

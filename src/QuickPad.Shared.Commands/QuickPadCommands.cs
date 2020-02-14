@@ -17,6 +17,12 @@ namespace QuickPad.Mvvm.Commands
             _commands.NotifyChanged(viewModel, settings);
         }
 
+        public void RefreshStates(DocumentViewModel<TStorageFile, TStream> viewModel)
+        {
+            this.UndoCommand.InvokeCanExecuteChanged(viewModel);
+            this.RedoCommand.InvokeCanExecuteChanged(viewModel);
+        }
+
         private static QuickPadCommands<TStorageFile, TStream> _commands = null;
 
         public QuickPadCommands() { }

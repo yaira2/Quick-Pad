@@ -56,8 +56,10 @@ namespace QuickPad.UI
             ((IApplication<StorageFile, IRandomAccessStream>) Application.Current);
 
         public MainPage(IServiceProvider provider
-            , ILogger<MainPage> logger, DocumentViewModel<StorageFile, IRandomAccessStream> viewModel
-            , QuickPadCommands<StorageFile, IRandomAccessStream> command, IVisualThemeSelector vts)
+            , ILogger<MainPage> logger
+            , DocumentViewModel<StorageFile, IRandomAccessStream> viewModel
+            , QuickPadCommands<StorageFile, IRandomAccessStream> command
+            , IVisualThemeSelector vts)
         {
             Provider = provider;
             VtSelector = vts;
@@ -84,7 +86,8 @@ namespace QuickPad.UI
             textOptions.Logger = provider.GetService<ILogger<TextDocument>>();
             textOptions.ViewModel = viewModel;
 
-            _initialized = true;
+            CreateNewDocument?.Invoke(this);
+
 
             DataContext = ViewModel = viewModel;
 
@@ -99,7 +102,7 @@ namespace QuickPad.UI
             tBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
 
-            ViewModel.ExitApplication = ExitApp;
+            Settings.ExitApplication = ExitApp;
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
 
@@ -136,6 +139,8 @@ namespace QuickPad.UI
 
                 _ = dialog.ShowAsync();
             }
+
+            _initialized = true;
         }
 
         private async void ClearJumplist()
@@ -252,6 +257,8 @@ namespace QuickPad.UI
         }
 
         public event Func<DocumentViewModel<StorageFile, IRandomAccessStream>, StorageFile, Task> LoadFromFile;
+        public event Action<IDocumentView<StorageFile, IRandomAccessStream>> SaveToFile;
+        public event Action<IDocumentView<StorageFile, IRandomAccessStream>> CreateNewDocument;
         public event Action GainedFocus;
 
         private async Task SetOverlayMode(string mode)
@@ -374,6 +381,7 @@ namespace QuickPad.UI
                     _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
                     _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
                     _viewModel.Focus -= ViewModelOnFocus;
+                    _viewModel.SaveDocument -= ViewModelOnSaveDocument;
 
                     RichEditBox.TextChanged -= _viewModel.TextChanged;
                     TextBox.TextChanged -= _viewModel.TextChanged;
@@ -389,19 +397,26 @@ namespace QuickPad.UI
                 _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
                 _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
                 _viewModel.Focus += ViewModelOnFocus;
+                _viewModel.SaveDocument += ViewModelOnSaveDocument;
 
                 _viewModel.NewDocumentInitialized += ViewModelOnNewDocumentInitialized;
 
-                if (!_initialized) return;
+                if (_initialized) return;
 
                 if (ViewModel.Document == null)
                 {
                     ViewModel.InitNewDocument();
+                    Initialize?.Invoke(this, Commands, App);
                 }
 
                 RichEditBox.TextChanged += _viewModel.TextChanged;
                 TextBox.TextChanged += _viewModel.TextChanged;
             }
+        }
+
+        private void ViewModelOnSaveDocument(DocumentViewModel<StorageFile, IRandomAccessStream> obj)
+        {
+            App.TryEnqueue(() => SaveToFile?.Invoke(this));
         }
 
         private void ViewModelOnNewDocumentInitialized(DocumentModel<StorageFile, IRandomAccessStream> obj)
@@ -476,8 +491,15 @@ namespace QuickPad.UI
 
         private void ViewModelOnUndoRequested(DocumentViewModel<StorageFile, IRandomAccessStream> obj)
         {
-            if (TextBox.CanUndo)
+            if (ViewModel.IsRtf)
             {
+                if (!RichEditBox.Document.CanUndo()) return;
+                RichEditBox.Document.Undo();
+                Reindex();
+            }
+            else
+            {
+                if (!TextBox.CanUndo) return;
                 TextBox.Undo();
                 Reindex();
             }
@@ -485,8 +507,15 @@ namespace QuickPad.UI
 
         private void ViewModelOnRedoRequested(DocumentViewModel<StorageFile, IRandomAccessStream> obj)
         {
-            if (TextBox.CanRedo)
+            if (ViewModel.IsRtf)
             {
+                if (!RichEditBox.Document.CanRedo()) return;
+                RichEditBox.Document.Redo();
+                Reindex();
+            }
+            else
+            {
+                if (!TextBox.CanRedo) return;
                 TextBox.Redo();
                 Reindex();
             }
@@ -593,6 +622,8 @@ namespace QuickPad.UI
 
                 TextBox.SelectionChanged += TextBox_OnSelectionChanged;
 
+                Provider.GetService<IQuickPadCommands<StorageFile, IRandomAccessStream>>().RefreshStates(ViewModel);
+
                 if (Settings.AutoSave)
                 {
                     ViewModel.ResetTimer();
@@ -654,6 +685,8 @@ namespace QuickPad.UI
                 {
                     ViewModel.ResetTimer();
                 }
+
+                Provider.GetService<IQuickPadCommands<StorageFile, IRandomAccessStream>>().RefreshStates(ViewModel);
             }
         }
 
