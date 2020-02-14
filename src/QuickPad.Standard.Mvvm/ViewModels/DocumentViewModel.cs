@@ -324,9 +324,11 @@ namespace QuickPad.Mvvm.ViewModels
         {
             if (Settings.AutoSave && File != null && Document.IsDirty)
             {
-                Commands.SaveCommandBase.Execute(this);
+                SaveDocument?.Invoke(this);
             }
         }
+
+        public event Action<DocumentViewModel<TStorageFile, TStream>> SaveDocument;
 
         public void InitNewDocument()
         {
@@ -384,7 +386,6 @@ namespace QuickPad.Mvvm.ViewModels
         public string RichTextDescription { get; set; }
 
         public Action<DocumentViewModel<TStorageFile, TStream>> Initialize { get; set; }
-        public Action ExitApplication { get; set; }
         public bool Deferred { get; set; }
 
         public int CurrentLine
@@ -405,8 +406,8 @@ namespace QuickPad.Mvvm.ViewModels
             set => Set(ref _lineToGoTo, value);
         }
 
-        public bool CanUndo => Document.CanUndo;
-        public bool CanRedo => Document.CanRedo;
+        public bool CanUndo => Document?.CanUndo ?? false;
+        public bool CanRedo => Document?.CanRedo ?? false;
 
         public bool ShowFind
         {

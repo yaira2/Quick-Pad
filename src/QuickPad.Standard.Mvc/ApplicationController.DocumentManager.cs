@@ -22,7 +22,7 @@ namespace QuickPad.Mvc
 
         protected internal ILogger<ApplicationController<TStorageFile, TStream, TDocumentManager>> Logger { get; set; }
         protected internal IServiceProvider ServiceProvider { get; set; }
-        protected internal IApplication<TStorageFile, TStream> App { get; private set; }
+        protected internal IApplication<TStorageFile, TStream> App { get; protected set; }
 
 
         public IEnumerable<IDocumentView<TStorageFile, TStream>> Views { get; set; }
@@ -54,27 +54,15 @@ namespace QuickPad.Mvc
         protected internal abstract Task<bool> DocumentViewExitApplication(
             DocumentViewModel<TStorageFile, TStream> documentViewModel);
 
-        protected internal virtual void Initializer(IDocumentView<TStorageFile, TStream> documentView,
+        public abstract void Initializer(IDocumentView<TStorageFile, TStream> documentView,
             IQuickPadCommands<TStorageFile, TStream> commands
-            , IApplication<TStorageFile, TStream> app)
-        {
-            App = app;
-            documentView.ViewModel = ServiceProvider.GetService<DocumentViewModel<TStorageFile, TStream>>();
-
-            commands.NewDocumentCommandBase.Executioner = NewDocument;
-            commands.LoadCommandBase.Executioner = LoadDocument;
-            commands.SaveCommandBase.Executioner = async documentViewModel => await SaveDocument(documentViewModel);
-            commands.SaveAsCommandBase.Executioner = SaveAsDocument;
-            commands.ExitCommandBase.Executioner = ExitApplication;
-
-            documentView.ViewModel.Initialize = viewModel => viewModel.InitNewDocument();
-        }
+            , IApplication<TStorageFile, TStream> app);
 
         protected abstract Task<SaveState> SaveAsDocument(DocumentViewModel<TStorageFile, TStream> arg);
 
         protected abstract Task<SaveState> SaveDocument(DocumentViewModel<TStorageFile, TStream> arg);
 
-        protected abstract Task NewDocument(DocumentViewModel<TStorageFile, TStream> documentViewModel);
+        public abstract Task NewDocument(DocumentViewModel<TStorageFile, TStream> documentViewModel);
 
         protected abstract Task ExitApplication(DocumentViewModel<TStorageFile, TStream> documentViewModel);
 
@@ -137,5 +125,7 @@ namespace QuickPad.Mvc
             Bocu1,
             Gb18030
         }
+
+        public abstract void SaveDocument(IDocumentView<TStorageFile, TStream> obj);
     }
 }

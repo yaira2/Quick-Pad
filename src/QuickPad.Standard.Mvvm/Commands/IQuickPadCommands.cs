@@ -13,5 +13,7 @@ namespace QuickPad.Mvvm.Commands
 
         void NotifyAll(DocumentViewModel<TStorageFile, TStream> documentViewModel,
             SettingsViewModel<TStorageFile, TStream> settings);
+
+        void RefreshStates(DocumentViewModel<TStorageFile, TStream> viewModel);
     }
 }

@@ -334,5 +334,8 @@ namespace QuickPad.Mvvm.ViewModels
         public abstract Task ImportSettings();
         public abstract void ResetSettings();
         public abstract void LaunchUri(Uri uri);
+        [JsonIgnore]
+        public Action ExitApplication { get; set; }
+
     }
 }
