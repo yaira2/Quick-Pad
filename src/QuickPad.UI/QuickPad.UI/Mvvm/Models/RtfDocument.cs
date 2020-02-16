@@ -68,6 +68,7 @@ namespace QuickPad.UI.Helpers
         {
             Task.Run(async () => {
                 await LoadFromStream(QuickPadTextSetOptions.FormatRtf, null);
+                await Task.Delay(1000);
             });
         }
 
@@ -412,32 +413,41 @@ namespace QuickPad.UI.Helpers
         {
             var tcs = new TaskCompletionSource<bool>();
 
-            if (stream == null)
+            try
             {
-                var uri = new Uri("ms-appx:///Templates/empty.rtf");
-                
-                var fileTask = StorageFile.GetFileFromApplicationUriAsync(uri);
+                if (stream == null)
+                {
+                    var uri = new Uri("ms-appx:///Templates/empty.rtf");
 
-                var file = fileTask.GetResults();
+                    var fileTask = StorageFile.GetFileFromApplicationUriAsync(uri);
 
-                var task = file.OpenReadAsync();
+                    var file = fileTask.GetAwaiter().GetResult();
 
-                stream = task.GetResults();
+                    var task = file.OpenReadAsync();
+
+                    stream = task.GetAwaiter().GetResult();
+                }
+
+                App.TryEnqueue(() =>
+                {
+                    try
+                    {
+                        Document.LoadFromStream(options.ToUwp(), stream);
+                        IsDirty = false;
+                        tcs.SetResult(true);
+                    }
+                    catch (Exception ex)
+                    {
+                        tcs.SetException(ex);
+                    }
+                });
             }
-
-            App.TryEnqueue(() =>
+            catch (Exception e)
             {
-                try
-                {
-                    Document.LoadFromStream(options.ToUwp(), stream);
-                    IsDirty = false;
-                    tcs.SetResult(true);
-                }
-                catch (Exception ex)
-                {
-                    tcs.SetException(ex);
-                }
-            });
+                Logger.LogCritical(e, "LoadFromStream caught exception.");
+
+                dynamic error = e.Data["__RestrictedErrorObject"];
+            }
 
             return tcs.Task;
         }
