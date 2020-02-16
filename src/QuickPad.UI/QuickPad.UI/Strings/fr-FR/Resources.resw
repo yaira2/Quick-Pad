@@ -132,10 +132,6 @@
     <value>Police par défaut</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFontColor.Text" xml:space="preserve">
-    <value>Couleur de police par défaut</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
     <value>Taille de police par défaut</value>
     <comment>Used on Settings Page</comment>

@@ -1,10 +1,10 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
-using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Common.Theme;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
 
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -28,7 +28,7 @@ namespace QuickPad.UI.Controls.Settings
         {
             switch (e.PropertyName)
             {
-                case nameof(SettingsViewModel.ShowSettingsTab):
+                case nameof(WindowsSettingsViewModel.ShowSettingsTab):
                     settingNavView.SelectedItem = settingNavView.MenuItems[(int)App.Settings.ShowSettingsTab];
                     ShowTab(App.Settings.ShowSettingsTab);
                     break;

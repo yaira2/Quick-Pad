@@ -132,10 +132,6 @@
     <value>Шрифт по Умолчанию</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFontColor.Text" xml:space="preserve">
-    <value>Цвет Шрифта по Умолчанию</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
     <value>Размер Шрифта по Умолчанию</value>
     <comment>Used on Settings Page</comment>
@@ -596,20 +592,8 @@
     <value>Проверка Орфографии в Форматированном Тексте</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ReportIssues.Content" xml:space="preserve">
-    <value>Сообщить о ошибке тут</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SourceCode.Content" xml:space="preserve">
-    <value>Исходный Код</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="SpecialThanks.Text" xml:space="preserve">
     <value>Отдельное Спасибо:</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="ContributeToDeveloper.Content" xml:space="preserve">
-    <value>Содействие разработчику</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Untitled" xml:space="preserve">
@@ -686,30 +670,6 @@
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Другое</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="RichText" xml:space="preserve">
-    <value>Форматированный Текст</value>
-    <comment>Used on Share Dialog</comment>
-  </data>
-  <data name="SharedFromQuickPad" xml:space="preserve">
-    <value>Отправлено из Quick-Pad</value>
-    <comment>Used on Share Dialog</comment>
-  </data>
-  <data name="Sharing" xml:space="preserve">
-    <value>Отправлено</value>
-    <comment>Used on Share Dialog</comment>
-  </data>
-  <data name="Text" xml:space="preserve">
-    <value>Текст</value>
-    <comment>Used on Share Dialog</comment>
-  </data>
-  <data name="Animate.Text" xml:space="preserve">
-    <value>Анимированный</value>
-    <comment>Used on Clippy</comment>
-  </data>
-  <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Политика Конфиденциальности</value>
     <comment>Used on Settings Page</comment>
   </data>
 </root>

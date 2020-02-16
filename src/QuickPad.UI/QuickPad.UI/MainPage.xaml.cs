@@ -13,6 +13,7 @@ using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
 using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI;
 using Windows.UI.Core;
@@ -21,12 +22,17 @@ using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using Windows.System;
 using Microsoft.Extensions.DependencyInjection;
-using QuickPad.Mvvm.Models.Theme;
 using QuickPad.Mvvm.Views;
-using QuickPad.UI.Common.Dialogs;
 using Microsoft.Toolkit.Uwp.Helpers;
 using Windows.UI.StartScreen;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Models;
 using Windows.UI.Xaml.Media.Imaging;
+using QuickPad.Mvc;
+using QuickPad.Mvvm.Managers;
+using QuickPad.UI.Dialogs;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
 
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
@@ -36,19 +42,26 @@ namespace QuickPad.UI
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : IDocumentView
+    public sealed partial class MainPage : IDocumentView<StorageFile, IRandomAccessStream>
     {
-        private DocumentViewModel _viewModel;
+        private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
         private readonly bool _initialized;
+        public IServiceProvider Provider { get; }
         public IVisualThemeSelector VtSelector { get; }
-        public SettingsViewModel Settings => App.Settings;
-        public QuickPadCommands Commands { get; }
+        public WindowsSettingsViewModel Settings => App.SettingsViewModel as WindowsSettingsViewModel;
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands { get; }
         private ILogger<MainPage> Logger { get; }
 
+        private IApplication<StorageFile, IRandomAccessStream> App =>
+            ((IApplication<StorageFile, IRandomAccessStream>) Application.Current);
+
         public MainPage(IServiceProvider provider
-            , ILogger<MainPage> logger, DocumentViewModel viewModel
-            , QuickPadCommands command, IVisualThemeSelector vts)
+            , ILogger<MainPage> logger
+            , DocumentViewModel<StorageFile, IRandomAccessStream> viewModel
+            , QuickPadCommands<StorageFile, IRandomAccessStream> command
+            , IVisualThemeSelector vts)
         {
+            Provider = provider;
             VtSelector = vts;
             Logger = logger;
             Commands = command;
@@ -57,12 +70,24 @@ namespace QuickPad.UI
 
             GotFocus += OnGotFocus;
 
-            App.Controller.AddView(this);
-
-            Initialize?.Invoke(this, Commands);
+            Initialize?.Invoke(this, Commands, App);
 
             this.InitializeComponent();
-            _initialized = true;
+
+            var rtfOptions = provider.GetService<RtfDocumentOptions>();
+
+            rtfOptions.Document = RichEditBox.Document;
+            rtfOptions.Logger = provider.GetService<ILogger<RtfDocument>>();
+            rtfOptions.ViewModel = viewModel;
+
+            var textOptions = provider.GetService<TextDocumentOptions>();
+
+            textOptions.Document = TextBox;
+            textOptions.Logger = provider.GetService<ILogger<TextDocument>>();
+            textOptions.ViewModel = viewModel;
+
+            CreateNewDocument?.Invoke(this);
+
 
             DataContext = ViewModel = viewModel;
 
@@ -77,7 +102,7 @@ namespace QuickPad.UI
             tBar.ButtonInactiveBackgroundColor = Colors.Transparent;
 
 
-            ViewModel.ExitApplication = ExitApp;
+            Settings.ExitApplication = ExitApp;
 
             ViewModel.PropertyChanged += ViewModel_PropertyChanged;
 
@@ -93,13 +118,29 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            if (!SystemInformation.IsAppUpdated) return;
+            if (SystemInformation.IsAppUpdated)
+            {
+                //show the welcome dialog
+                var (success, dialog) = provider.GetService<DialogManager>().RequestDialog<WelcomeDialog>();
 
-            //show the welcome dialog
-            var dialog = provider.GetService<WelcomeDialog>();
-            _ = dialog.ShowAsync();
+                if (!success) return;
 
-            ClearJumplist();
+                _ = dialog.ShowAsync();
+
+                ClearJumplist();
+            }
+
+            if (SystemInformation.TotalLaunchCount == 3)
+            {
+                //show the welcome dialog
+                var (success, dialog) = provider.GetService<DialogManager>().RequestDialog<AskForReviewDialog>();
+
+                if (!success) return;
+
+                _ = dialog.ShowAsync();
+            }
+
+            _initialized = true;
         }
 
         private async void ClearJumplist()
@@ -142,17 +183,23 @@ namespace QuickPad.UI
 
         private void OnGotFocus(object sender, RoutedEventArgs e)
         {
-            GainedFocus?.Invoke(e);
+            GainedFocus?.Invoke();
         }
 
-        private void CommandBarOnSetFontSize(double fontSize)
+        private void CommandBarOnSetFontSize(float fontSize)
         {
-            RichEditBox.FontSize = fontSize;
+            if(RichEditBox.Document.Selection.FormattedText.CharacterFormat.Size != fontSize)
+            {
+                RichEditBox.Document.Selection.FormattedText.CharacterFormat.Size = fontSize;
+            }
         }
 
         private void CommandBarOnSetFontName(string fontFamilyName)
         {
-            RichEditBox.FontFamily = new FontFamily(fontFamilyName);
+            if (RichEditBox.Document.Selection.FormattedText.CharacterFormat.Name != fontFamilyName)
+            {
+                RichEditBox.Document.Selection.FormattedText.CharacterFormat.Name = fontFamilyName;
+            }
         }
 
         private void CurrentView_BackRequested(object sender, BackRequestedEventArgs e)
@@ -171,12 +218,7 @@ namespace QuickPad.UI
 
             await SetOverlayMode(Settings.CurrentMode);
 
-            if(ViewModel.File == null)
-            {
-                await ViewModel.InitNewDocument();
-            }
-
-            Mvvm.ViewModels.ViewModel.Dispatch(() => Bindings.Update());
+            Settings.Dispatch(() => Bindings.Update());
 
             if (Settings.DefaultMode == "Compact Overlay")
             {
@@ -214,8 +256,10 @@ namespace QuickPad.UI
             RichEditBox.ContextFlyout.Opening += RMenu_Opening;
         }
 
-        public event Func<DocumentViewModel, StorageFile, Task> LoadFromFile;
-        public event Action<RoutedEventArgs> GainedFocus;
+        public event Func<DocumentViewModel<StorageFile, IRandomAccessStream>, StorageFile, Task> LoadFromFile;
+        public event Action<IDocumentView<StorageFile, IRandomAccessStream>> SaveToFile;
+        public event Action<IDocumentView<StorageFile, IRandomAccessStream>> CreateNewDocument;
+        public event Action GainedFocus;
 
         private async Task SetOverlayMode(string mode)
         {
@@ -272,11 +316,6 @@ namespace QuickPad.UI
         {
             switch (e.PropertyName)
             {
-                case nameof(ViewModel.Title):
-                    var appView = ApplicationView.GetForCurrentView();
-                    appView.Title = ViewModel.Title;
-                    break;
-
                 case nameof(ViewModel.Text):
                     Commands.NotifyChanged(ViewModel, Settings);
                     break;
@@ -298,9 +337,16 @@ namespace QuickPad.UI
 
         private async void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
         {
+            if (App.Services.GetService<DialogManager>().CurrentDialogView != null)
+            {
+                e.Handled = true;
+                Logger.LogCritical("Already a dialog open.");
+                return;
+            }
+
             ViewModel.Deferral = e.GetDeferral();
 
-            if (ExitApplication == null) ViewModel.Deferral.Complete();
+            if (ExitApplication == null) ((Windows.Foundation.Deferral)ViewModel.Deferral).Complete();
             else
             {
                 e.Handled = !(await ExitApplication(ViewModel));
@@ -309,7 +355,7 @@ namespace QuickPad.UI
 
                 try
                 {
-                    ViewModel.Deferral?.Dispose();
+                    ((Windows.Foundation.Deferral)ViewModel.Deferral)?.Dispose();
                 }
                 catch (ObjectDisposedException)
                 {
@@ -318,47 +364,72 @@ namespace QuickPad.UI
             }
         }
 
-        public DocumentViewModel ViewModel
+        public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
             get => _viewModel;
             set
             {
-                if (_viewModel != value)
+                if (_viewModel == value) return;
+
+                if (_viewModel != null)
                 {
-                    if (_viewModel != null)
-                    {
-                        RichEditBox.TextChanged -= _viewModel.TextChanged;
-                        TextBox.TextChanged -= _viewModel.TextChanged;
+                    _viewModel.RedoRequested -= ViewModelOnRedoRequested;
+                    _viewModel.UndoRequested -= ViewModelOnUndoRequested;
+                    _viewModel.PropertyChanged -= ViewModelOnPropertyChanged;
+                    _viewModel.SetSelection -= ViewModelOnSetSelection;
+                    _viewModel.GetPosition -= ViewModelOnGetPosition;
+                    _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
+                    _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
+                    _viewModel.Focus -= ViewModelOnFocus;
+                    _viewModel.SaveDocument -= ViewModelOnSaveDocument;
 
-                        _viewModel.RedoRequested -= ViewModelOnRedoRequested;
-                        _viewModel.UndoRequested -= ViewModelOnUndoRequested;
-                        _viewModel.PropertyChanged -= ViewModelOnPropertyChanged;
-                        _viewModel.SetSelection -= ViewModelOnSetSelection;
-                        _viewModel.GetPosition -= ViewModelOnGetPosition;
-                        _viewModel.SetSelectedText -= ViewModelOnSetSelectedText;
-                        _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
-                        _viewModel.Focus -= ViewModelOnFocus; 
-                    }
-
-                    _viewModel = value;
-
-                    _viewModel.RedoRequested += ViewModelOnRedoRequested;
-                    _viewModel.UndoRequested += ViewModelOnUndoRequested;
-                    _viewModel.PropertyChanged += ViewModelOnPropertyChanged;
-                    _viewModel.SetSelection += ViewModelOnSetSelection;
-                    _viewModel.GetPosition += ViewModelOnGetPosition;
-                    _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
-                    _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
-                    _viewModel.Focus += ViewModelOnFocus;
-
-                    if (!_initialized) return;
-
-                    ViewModel.Document = RichEditBox.Document;
-                    RichEditBox.TextChanged += _viewModel.TextChanged;
-                    TextBox.TextChanged += _viewModel.TextChanged;
+                    RichEditBox.TextChanged -= _viewModel.TextChanged;
+                    TextBox.TextChanged -= _viewModel.TextChanged;
                 }
+
+                _viewModel = value;
+
+                _viewModel.RedoRequested += ViewModelOnRedoRequested;
+                _viewModel.UndoRequested += ViewModelOnUndoRequested;
+                _viewModel.PropertyChanged += ViewModelOnPropertyChanged;
+                _viewModel.SetSelection += ViewModelOnSetSelection;
+                _viewModel.GetPosition += ViewModelOnGetPosition;
+                _viewModel.SetSelectedText += ViewModelOnSetSelectedText;
+                _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
+                _viewModel.Focus += ViewModelOnFocus;
+                _viewModel.SaveDocument += ViewModelOnSaveDocument;
+
+                _viewModel.NewDocumentInitialized += ViewModelOnNewDocumentInitialized;
+
+                if (_initialized) return;
+
+                if (ViewModel.Document == null)
+                {
+                    ViewModel.InitNewDocument();
+                    Initialize?.Invoke(this, Commands, App);
+                }
+
+                RichEditBox.TextChanged += _viewModel.TextChanged;
+                TextBox.TextChanged += _viewModel.TextChanged;
             }
         }
+
+        private void ViewModelOnSaveDocument(DocumentViewModel<StorageFile, IRandomAccessStream> obj)
+        {
+            App.TryEnqueue(() => SaveToFile?.Invoke(this));
+        }
+
+        private void ViewModelOnNewDocumentInitialized(DocumentModel<StorageFile, IRandomAccessStream> obj)
+        {
+            switch(obj)
+            {
+                case RtfDocument rtfDocument:
+                    RichEditBox.SelectionChanging += (sender, args) => rtfDocument.NotifyOnSelectionChange();
+                    break;
+            };
+        }
+
+        public DocumentModel<StorageFile, IRandomAccessStream> ViewModelDocument => _viewModel.Document;
 
         private void ViewModelOnFocus()
         {
@@ -382,40 +453,24 @@ namespace QuickPad.UI
 
         private void ViewModelOnSetSelectedText(string text)
         {
-            if (_viewModel.IsRtf)
-            {
-                _viewModel.Document.Selection.SetText(_viewModel.SetOption, text);
-            }
-            else
-            {
-                TextBox.SelectedText = text;
-                ViewModel.Text = TextBox.Text;
-            }
+            ViewModel.Document.SetSelectedText(text);
         }
 
         private (int start, int length) ViewModelOnGetPosition()
         {
-            return _viewModel.IsRtf
-                ? (_viewModel.Document.Selection.StartPosition, _viewModel.Document.Selection.Length)
-                : (TextBox.SelectionStart, TextBox.SelectionLength);
+            return _viewModel.Document?.GetSelectionBounds() ?? (0, 0);
         }
 
         private void ViewModelOnSetSelection(int start, int length, bool reindex = true)
         {
             try
             {
-                if (_viewModel.IsRtf)
+                App.TryEnqueue(() =>
                 {
-                    _viewModel.Document.Selection.StartPosition = start;
-                    _viewModel.Document.Selection.EndPosition = start + length;
-                }
-                else
-                {
-                    TextBox.SelectionStart = start;
-                    TextBox.SelectionLength = length;
-                }
+                    _viewModel.Document.SetSelectionBound(start, length);
 
-                if(reindex) Reindex();
+                    if (reindex) Reindex();
+                });
             }
             catch (Exception ex)
             {
@@ -428,32 +483,48 @@ namespace QuickPad.UI
         {
             switch (e.PropertyName)
             {
-                case nameof(DocumentViewModel.File):
+                case nameof(DocumentViewModel<StorageFile, IRandomAccessStream>.File):
                     Reindex();
                     break;
             }
         }
 
-        private void ViewModelOnUndoRequested(DocumentViewModel obj)
+        private void ViewModelOnUndoRequested(DocumentViewModel<StorageFile, IRandomAccessStream> obj)
         {
-            if (TextBox.CanUndo)
+            if (ViewModel.IsRtf)
             {
+                if (!RichEditBox.Document.CanUndo()) return;
+                RichEditBox.Document.Undo();
+                Reindex();
+            }
+            else
+            {
+                if (!TextBox.CanUndo) return;
                 TextBox.Undo();
                 Reindex();
             }
         }
 
-        private void ViewModelOnRedoRequested(DocumentViewModel obj)
+        private void ViewModelOnRedoRequested(DocumentViewModel<StorageFile, IRandomAccessStream> obj)
         {
-            if (TextBox.CanRedo)
+            if (ViewModel.IsRtf)
             {
+                if (!RichEditBox.Document.CanRedo()) return;
+                RichEditBox.Document.Redo();
+                Reindex();
+            }
+            else
+            {
+                if (!TextBox.CanRedo) return;
                 TextBox.Redo();
                 Reindex();
             }
         }
 
-        public event Action<IDocumentView, QuickPadCommands> Initialize;
-        public event Func<DocumentViewModel, Task<bool>> ExitApplication;
+        public event Action<IDocumentView<StorageFile
+            , IRandomAccessStream>, IQuickPadCommands<StorageFile, IRandomAccessStream>
+            , IApplication<StorageFile, IRandomAccessStream>> Initialize;
+        public event Func<DocumentViewModel<StorageFile, IRandomAccessStream>, Task<bool>> ExitApplication;
 
         private async void MainPage_OnKeyUp(object sender, KeyRoutedEventArgs args)
         {
@@ -462,13 +533,6 @@ namespace QuickPad.UI
             var shiftDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) .HasFlag(CoreVirtualKeyStates.Down);
             var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows) .HasFlag(CoreVirtualKeyStates.Down);
             var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows) .HasFlag(CoreVirtualKeyStates.Down);
-
-            //ctrl + alt + c
-            //show clippy
-            if (controlDown & menuDown & args.Key == VirtualKey.C)
-            {
-                ViewModel.ShowClippy = true;
-            }
 
             //ctrl + +
             //zoom in
@@ -535,15 +599,14 @@ namespace QuickPad.UI
 
         private void TextBox_OnSelectionChanged(object sender, RoutedEventArgs e)
         {
+            ViewModelDocument.NotifyOnSelectionChange();
             GetPosition(TextBox.SelectionStart + TextBox.SelectionLength);
         }
 
-        private void RichEditBox_OnSelectionChanged(object sender, RoutedEventArgs e)
-        {
-            GetPosition(RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length);
-        }
+        private (int start, int length) _lastSelectionRange = default;
 
-        private List<int> LineIndices => ViewModel.LineIndices;
+        private List<int> LineIndices => ViewModel.Document.LineIndices;
+        public StorageFile FileToLoad { get; set; }
 
         private void TextBox_OnTextChanged(object sender, TextChangedEventArgs e)
         {
@@ -551,13 +614,15 @@ namespace QuickPad.UI
             {
                 TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
 
-                ViewModel.Text = TextBox.Text;
+                ViewModel.SetText(TextBox.Text, true);
 
                 Reindex();
 
                 TextBox_OnSelectionChanged(sender, e);
 
                 TextBox.SelectionChanged += TextBox_OnSelectionChanged;
+
+                Provider.GetService<IQuickPadCommands<StorageFile, IRandomAccessStream>>().RefreshStates(ViewModel);
 
                 if (Settings.AutoSave)
                 {
@@ -591,9 +656,9 @@ namespace QuickPad.UI
             TextBox.SelectionChanged -= TextBox_OnSelectionChanged;
         }
 
-        private void Reindex()
+        public void Reindex()
         {
-            LineIndices.Clear();
+            ViewModel.Document.Reindex();
 
             var index = -1;
             var text = ViewModel.Text.Replace(Environment.NewLine, "\r");
@@ -620,6 +685,8 @@ namespace QuickPad.UI
                 {
                     ViewModel.ResetTimer();
                 }
+
+                Provider.GetService<IQuickPadCommands<StorageFile, IRandomAccessStream>>().RefreshStates(ViewModel);
             }
         }
 
@@ -674,7 +741,7 @@ namespace QuickPad.UI
                     Icon = iconBing,
                     Label = "Search with Bing",
                     Command = Commands.BingCommand,
-                    CommandParameter = ViewModel
+                    CommandParameter = Settings
                 };
                 primaryCommands.Add(searchCommandBarBing);
             }
@@ -689,62 +756,27 @@ namespace QuickPad.UI
                 Icon = iconGoogle,
                 Label = "Search with Google",
                 Command = Commands.GoogleCommand,
-                CommandParameter = ViewModel
+                CommandParameter = Settings
             };
             primaryCommands.Add(searchCommandBarGoogle);
         }
 
-        private void ClippyGrid_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)
+        private void RichEditBox_OnSelectionChanging(RichEditBox sender, RichEditBoxSelectionChangingEventArgs args)
         {
-            this.ClippyGrid_Transform.TranslateX += e.Delta.Translation.X;
-            this.ClippyGrid_Transform.TranslateY += e.Delta.Translation.Y;
-        }
-
-        private async void AnimateClippy_Click(object sender, RoutedEventArgs e)
-        {
-            //generate a random number
-            Random r = new Random();
-            int rInt = r.Next(0, 6);
-
-            //disable the animate button untill the animation is complete
-            AnimateClippy.IsEnabled = false;
-
-            switch (rInt)
+            try
             {
-                case 0:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation1.gif"));
-                    await Task.Delay(2000);
-                    break;
-                case 1:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation2.gif"));
-                    await Task.Delay(4000);
-                    break;
-                case 2:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation3.gif"));
-                    await Task.Delay(3500);
-                    break;
-                case 3:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation4.gif"));
-                    await Task.Delay(8000);
-                    break;
-                case 4:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation5.gif"));
-                    await Task.Delay(6000);
-                    break;
-                case 5:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///Animation6.gif"));
-                    await Task.Delay(4000);
-                    break;
-                default:
-                    Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///clip.gif"));
-                    break;
+                GetPosition(args.SelectionStart + args.SelectionLength);
+
+                if (_lastSelectionRange.start != args.SelectionStart ||
+                    _lastSelectionRange.length != args.SelectionLength)
+                {
+                    _lastSelectionRange = (args.SelectionStart, args.SelectionLength);
+                }
             }
-
-            //set clippy to show the main animation
-            Clippy.Source = new BitmapImage(new Uri("ms-appx:///Assets///clippy///clip.gif"));
-
-            //enable the animate button since animation is complete
-            AnimateClippy.IsEnabled = true;
+            catch (Exception e)
+            {
+                Logger.LogCritical(new EventId(), "RichEditBox_OnSelectionChanging caught exception.", e);
+            }
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -218,7 +218,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Developed by Yair Aichenbaum</value>
+    <value>Developed by Yair Aichenbaum &amp; Sharp Ninja</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
@@ -235,10 +235,6 @@
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>Default Font</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontColor.Text" xml:space="preserve">
-    <value>Default Font Color</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
@@ -602,11 +598,11 @@
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>After a few months without updates I am really excited to announce that Quick Pad has been fully rewritten from scratch!</value>
+    <value>Here is whats new in 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>Every single option is still available as well as a few new ones. As a result of rewriting the app from scratch you will need to set any of the customizations made in previous version again, I apologize for any inconvenience but I really hope that you find it worth it and enjoy the new version!</value>
+    <value>• We made some improvements to popup dialogs.</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogTitle.Title" xml:space="preserve">
@@ -793,25 +789,29 @@
     <value>Other</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="RichText" xml:space="preserve">
-    <value>Rich Text</value>
-    <comment>Used on Share Dialog</comment>
+  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
+    <value>Here is whats fixed in 4.3.99</value>
+    <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="SharedFromQuickPad" xml:space="preserve">
-    <value>Shared from Quick-Pad</value>
-    <comment>Used on Share Dialog</comment>
+  <data name="WelcomeDialogPar4.Text" xml:space="preserve">
+    <value>• We fixed a crash that some users were experiencing when saving their documents.</value>
+    <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="Sharing" xml:space="preserve">
-    <value>Sharing</value>
-    <comment>Used on Share Dialog</comment>
+  <data name="AskForReviewDialog.Title" xml:space="preserve">
+    <value>Review Quick Pad</value>
+    <comment>Used on AskForReviewDialog</comment>
   </data>
-  <data name="Text" xml:space="preserve">
-    <value>Text</value>
-    <comment>Used on Share Dialog</comment>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>No</value>
+    <comment>Used on AskForReviewDialog</comment>
   </data>
-  <data name="Animate.Text" xml:space="preserve">
-    <value>Animate</value>
-    <comment>Used on Clippy</comment>
+  <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
+    <value>Would you like to review Quick Pad in the Microsoft Store?</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>Review</value>
+    <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Privacy Policy</value>

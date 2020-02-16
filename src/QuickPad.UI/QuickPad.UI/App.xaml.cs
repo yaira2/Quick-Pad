@@ -11,7 +11,6 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
-using QuickPad.UI.Common;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
@@ -21,7 +20,15 @@ using Microsoft.AppCenter;
 using System.Runtime.InteropServices;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources;
+using Windows.Storage.Streams;
+using Windows.System;
+using Windows.UI.Core;
+using Microsoft.Toolkit.Uwp.Helpers;
+using QuickPad.UI.Helpers;
+using QuickPadCommands = QuickPad.Mvvm.Commands.QuickPadCommands<Windows.Storage.StorageFile, Windows.Storage.Streams.IRandomAccessStream>;
 
 namespace QuickPad.UI
 {
@@ -29,15 +36,17 @@ namespace QuickPad.UI
     /// Provides application-specific behavior to supplement the default Application class.
     /// </summary>
     // ReSharper disable once ArrangeTypeModifiers
-    sealed partial class App : IApplication
+    sealed partial class App : QuickPad.Mvvm.IApplication<Windows.Storage.StorageFile, Windows.Storage.Streams.IRandomAccessStream>
     {
-        private static SettingsViewModel _settings;
-        public static ApplicationHost Host { get; set; }
-        public static ApplicationController Controller => Host?.Controller;
-        public static IServiceProvider Services => Host?.Services;
-        public static SettingsViewModel Settings => _settings ??= Host?.Services.GetService<SettingsViewModel>();
-        
-        public static QuickPadCommands Commands => Services.GetService<QuickPadCommands>();
+        private static WindowsSettingsViewModel _settings;
+        public static ApplicationHost<StorageFile, IRandomAccessStream, WindowsDocumentManager> Host { get; set; }
+        public static ApplicationController<StorageFile, IRandomAccessStream, WindowsDocumentManager> Controller => Host?.Controller;
+        public static IServiceProvider ServiceProvider => Host?.Services;
+        public IServiceProvider Services => Host?.Services;
+        public static WindowsSettingsViewModel Settings => _settings ??= Host?.Services.GetService<WindowsSettingsViewModel>();
+        public static RichEditBox RichEditBox { get; internal set; }
+
+        public static QuickPadCommands Commands => ServiceProvider.GetService<QuickPadCommands>();
 
         private ILogger<App> Logger { get; set; }
 
@@ -67,9 +76,9 @@ namespace QuickPad.UI
                     builder.AddConsole();
                 })
                 .ConfigureHostConfiguration(ApplicationStartup.Configure)
-                .BuildApplicationHost();
+                .BuildApplicationHost<StorageFile, IRandomAccessStream, WindowsDocumentManager>();
 
-            Logger = Services.GetService<ILogger<App>>();
+            Logger = ServiceProvider.GetService<ILogger<App>>();
 
             this.InitializeComponent();
 
@@ -85,6 +94,9 @@ namespace QuickPad.UI
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
+            //start tracking app usage
+            SystemInformation.TrackAppUse(e);
+
             MainPage mainPage = Window.Current.Content as MainPage;
 
             // Do not repeat app initialization when the Window already has content,
@@ -92,15 +104,17 @@ namespace QuickPad.UI
             if (mainPage == null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
-                mainPage = Services.GetService<MainPage>();
+                mainPage = ServiceProvider.GetService<MainPage>();
+
+                Controller.AddView(mainPage);
 
                 if (e.PreviousExecutionState == ApplicationExecutionState.Terminated)
                 {
                     //TODO: Load state from previously suspended application
                 }
 
-                if (!Resources.ContainsKey(nameof(QuickPadCommands))) Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
-                if (!Resources.ContainsKey(nameof(SettingsViewModel))) Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
+                if (!Resources.ContainsKey(nameof(QuickPadCommands))) Resources.Add(nameof(QuickPadCommands), ServiceProvider.GetService<QuickPadCommands<StorageFile, IRandomAccessStream>>());
+                if (!Resources.ContainsKey(nameof(WindowsSettingsViewModel))) Resources.Add(nameof(WindowsSettingsViewModel), ServiceProvider.GetService<WindowsSettingsViewModel>());
                 if (!Resources.ContainsKey(nameof(ResourceLoader))) Resources.Add(nameof(ResourceLoader), ResourceLoader.GetForViewIndependentUse());
 
                 var resourceLoader = Resources[nameof(ResourceLoader)] as ResourceLoader;
@@ -116,7 +130,7 @@ namespace QuickPad.UI
                     // When the navigation stack isn't restored navigate to the first page,
                     // configuring the new page by passing required information as a navigation
                     // parameter
-                    mainPage = Services.GetService<MainPage>();
+                    mainPage = ServiceProvider.GetService<MainPage>();
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
@@ -130,26 +144,41 @@ namespace QuickPad.UI
             if (Window.Current.Content is MainPage) mainPage = Window.Current.Content as MainPage;
 
             if (!Resources.ContainsKey(nameof(QuickPadCommands)))
-                Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
-            if (!Resources.ContainsKey(nameof(SettingsViewModel)))
-                Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
+                Resources.Add(nameof(QuickPadCommands), ServiceProvider.GetService<QuickPadCommands>());
+            if (!Resources.ContainsKey(nameof(WindowsSettingsViewModel)))
+                Resources.Add(nameof(WindowsSettingsViewModel), ServiceProvider.GetService<WindowsSettingsViewModel>());
 
             if (mainPage == null)
             {
+                if (args.Files.Count > 0 && args.Files[0] != null && args.Files[0] is StorageFile storageFile)
+                {
+                    FileToLoad = storageFile;
+                }
+
                 // Create a Frame to act as the navigation context and navigate to the first page
-                mainPage = Services.GetService<MainPage>();
+                mainPage = ServiceProvider.GetService<MainPage>();
+
+                mainPage.Loaded += MainPageOnLoaded;
+
+                Controller.AddView(mainPage);
             }
 
             // The number of files received is args.Files.Size
             // The name of the first file is args.Files[0].Name
-            if (args.Files.Count > 0 && args.Files[0] != null)
-            {
-                await ApplicationController.DocumentManager.LoadFile(mainPage.ViewModel, args.Files[0] as StorageFile);
-            }
-
             Window.Current.Content = mainPage;
             Window.Current.Activate();
 
+        }
+
+        public StorageFile FileToLoad { get; set; }
+
+        private async void MainPageOnLoaded(object sender, RoutedEventArgs e)
+        {
+            if (FileToLoad != null && sender is MainPage mainPage)
+            {
+                var windowsDocumentManager = ServiceProvider.GetService<WindowsDocumentManager>();
+                await windowsDocumentManager.LoadFile(mainPage.ViewModel, FileToLoad);
+            }
         }
 
         public static String GetAbsolutePath(String basePath, String path)
@@ -251,14 +280,15 @@ namespace QuickPad.UI
             if (Window.Current.Content is MainPage) mainPage = Window.Current.Content as MainPage;
 
             if (!Resources.ContainsKey(nameof(QuickPadCommands)))
-                Resources.Add(nameof(QuickPadCommands), Services.GetService<QuickPadCommands>());
-            if (!Resources.ContainsKey(nameof(SettingsViewModel)))
-                Resources.Add(nameof(SettingsViewModel), Services.GetService<SettingsViewModel>());
+                Resources.Add(nameof(QuickPadCommands), ServiceProvider.GetService<QuickPadCommands>());
+            if (!Resources.ContainsKey(nameof(WindowsSettingsViewModel)))
+                Resources.Add(nameof(WindowsSettingsViewModel), ServiceProvider.GetService<WindowsSettingsViewModel>());
 
             if (mainPage == null)
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
-                mainPage = Services.GetService<MainPage>();
+                mainPage = ServiceProvider.GetService<MainPage>();
+                Controller.AddView(mainPage);
             }
 
             Window.Current.Content = mainPage;
@@ -278,12 +308,13 @@ namespace QuickPad.UI
                     await StorageFile.GetFileFromPathAsync(GetPath(operation.CurrentDirectoryPath,
                         filename));
 
-                await ApplicationController.DocumentManager.LoadFile(mainPage.ViewModel, storageFile);
+                var windowsDocumentManager = ServiceProvider.GetService<WindowsDocumentManager>();
+                await windowsDocumentManager.LoadFile(mainPage.ViewModel, storageFile);
             }
             catch (Exception e)
             {
                 Logger.LogCritical(e, e.ToString());
-                Settings?.Status($"{e.Message}", TimeSpan.Zero, Verbosity.Error);
+                Settings?.Status($"{e.Message}", TimeSpan.Zero, QuickPad.Mvvm.ViewModels.Verbosity.Error);
             }
         }
 
@@ -311,7 +342,26 @@ namespace QuickPad.UI
             deferral.Complete();
         }
 
-        public DocumentViewModel CurrentViewModel => Services.GetService<MainPage>().ViewModel;
+        public DocumentViewModel<StorageFile, IRandomAccessStream> CurrentViewModel => ServiceProvider.GetService<MainPage>().ViewModel;
+        public SettingsViewModel<StorageFile, IRandomAccessStream> SettingsViewModel => App._settings;
+
+        public Task<TResult> AwaitableRunAsync<TResult>(Func<TResult> action)
+        {
+            return CoreApplication.MainView.Dispatcher.AwaitableRunAsync<TResult>(action);
+        }
+
+        public void TryEnqueue(Action action)
+        {
+            CoreApplication.MainView.DispatcherQueue.TryEnqueue(new DispatcherQueueHandler(() => action()));
+        }
+
+        public void DoWhenIdle(Action action)
+        {
+            //CoreApplication.MainView.Dispatcher.RunIdleAsync(args => action());
+            TryEnqueue(action);
+        }
+
+        DocumentViewModel<StorageFile, IRandomAccessStream> QuickPad.Mvvm.IApplication<StorageFile, IRandomAccessStream>.CurrentViewModel => CurrentViewModel;
     }
 }
 

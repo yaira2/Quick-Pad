@@ -129,10 +129,6 @@
     <value>Carattere predefinito</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFontColor.Text" xml:space="preserve">
-    <value>Colore carattere predefinito</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
     <value>Dimensione carattere predefinita</value>
     <comment>Used on Settings Page</comment>

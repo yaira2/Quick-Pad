@@ -1,13 +1,16 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
+using Windows.Storage;
+using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.Models.Theme;
-using QuickPad.UI.Common.Theme;
+using QuickPad.Mvvm.Models;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
 
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
@@ -26,13 +29,13 @@ namespace QuickPad.UI.Controls
 
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
-        public SettingsViewModel Settings => App.Settings;
+        public WindowsSettingsViewModel Settings => App.Settings;
         
-        public QuickPadCommands Commands => App.Commands;
+        public QuickPadCommands<StorageFile, IRandomAccessStream> Commands => App.Commands;
 
-        public DocumentViewModel ViewModel
+        public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
-            get => DataContext as DocumentViewModel;
+            get => DataContext as DocumentViewModel<StorageFile, IRandomAccessStream>;
             set
             {
                 if (value == null || DataContext == value) return;
@@ -43,35 +46,26 @@ namespace QuickPad.UI.Controls
             }
         }
 
+        public DocumentModel<StorageFile, IRandomAccessStream> ViewModelDocument => ViewModel.Document;
+
         public static DependencyProperty ViewModelProperty =
-            DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel), typeof(CommandBar), null);
+            DependencyProperty.Register(nameof(ViewModel), typeof(DocumentViewModel<StorageFile, IRandomAccessStream>), typeof(CommandBar), null);
 
         private void ViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             switch (e.PropertyName)
             {
-                case nameof(ViewModel.CurrentFontName):
-                    if(ViewModel.CurrentFileType == ".rtf")
-                    {
-                        ViewModel.Document.Selection.CharacterFormat.Name = ViewModel.CurrentFontName;
-                    }
-                    else
-                    {
-                        SetFontName?.Invoke(ViewModel.CurrentFontName);
-                    }
+                case nameof(ViewModel.Document):
+                    ViewModel.Document.PropertyChanged += ViewModel_PropertyChanged;
+                    break;
+
+                case nameof(ViewModel.Document.CurrentFontName):
+                    SetFontName?.Invoke(ViewModel.Document.CurrentFontName);
                     FontNameFlyout.Hide();
                     break;
 
-                case nameof(ViewModel.CurrentFontSize):
-                    if (ViewModel.CurrentFileType == ".rtf")
-                    {
-                        ViewModel.Document.Selection.CharacterFormat.Size = (float)ViewModel.CurrentFontSize;
-                    }
-                    else
-                    {
-                        SetFontSize?.Invoke(ViewModel.CurrentFontSize);
-                    }
-
+                case nameof(ViewModel.Document.CurrentFontSize):
+                    SetFontSize?.Invoke(ViewModel.Document.CurrentFontSize);
                     FontSizeFlyout.Hide();
                     break;
 
@@ -89,7 +83,7 @@ namespace QuickPad.UI.Controls
         }
 
         public event Action<string> SetFontName;
-        public event Action<double> SetFontSize;
+        public event Action<float> SetFontSize;
 
         private void OpenFontFlyout(object sender, object e)
         {

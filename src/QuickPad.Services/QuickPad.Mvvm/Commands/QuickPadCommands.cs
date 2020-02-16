@@ -18,11 +18,10 @@ namespace QuickPad.Mvvm.Commands
         private static QuickPadCommands _commands = null;
 
         public QuickPadCommands() { }
-        public QuickPadCommands(PasteCommand pasteCommand, ShowGoToCommand showGotoCommand)
+        public QuickPadCommands(PasteCommand pasteCommand)
         {
             _commands = this;
             PasteCommand = pasteCommand;
-            ShowGoToCommand = showGotoCommand;
         }
 
         public SimpleCommand<DocumentViewModel> SaveCommand { get; } = new SimpleCommand<DocumentViewModel>();
@@ -83,7 +82,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel> ZoomInCommand { get; } = new ZoomInCommand();
         public SimpleCommand<DocumentViewModel> ZoomOutCommand { get; } = new ZoomOutCommand();
         public SimpleCommand<DocumentViewModel> ResetZoomCommand { get; } = new ResetZoomCommand();
-        public SimpleCommand<DocumentViewModel> ShowGoToCommand { get; }
+        public SimpleCommand<DocumentViewModel> ShowGoToCommand { get; } = new ShowGoToCommand();
         public SimpleCommand<DocumentViewModel> GoToLineCommand { get; } = new GoToLineCommand();
         public SimpleCommand<DocumentViewModel> SuperscriptCommand { get; } = new SuperscriptCommand();
         public SimpleCommand<DocumentViewModel> SubscriptCommand { get; } = new SubscriptCommand();
