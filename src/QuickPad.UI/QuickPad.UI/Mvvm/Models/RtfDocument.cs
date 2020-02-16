@@ -69,6 +69,7 @@ namespace QuickPad.UI.Helpers
             Task.Run(async () => {
                 await LoadFromStream(QuickPadTextSetOptions.FormatRtf, null);
                 await Task.Delay(1000);
+                ForegroundColor = Settings.DefaultTextForegroundColor;
             });
         }
 
