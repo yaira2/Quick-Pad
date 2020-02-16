@@ -133,20 +133,12 @@ namespace QuickPad.UI.Helpers
         public string VersionNumberText =>
             $"{Package.Current.Id.Version.Major}.{Package.Current.Id.Version.Minor}.{Package.Current.Id.Version.Build}.{Package.Current.Id.Version.Revision}";
 
-        [NotifyOnReset]
         [JsonIgnore]
         public override string DefaultTextForegroundColor
         {
-            get => Model.DefaultTextForegroundColorString;
+            get => VisualThemeSelector.Current.CurrentItem.DefaultTextForegroundColor.ToHex();
             set
             {
-                var obj = ServiceProvider.GetService<DefaultTextForegroundColor>();
-                var current = obj.Color.ToHex();
-
-                if (current == value) return;
-
-                obj.Color = FromHex(value);
-                Model.DefaultTextForegroundColorString = value;
                 NotifyThemeChanged();
             }
         }
