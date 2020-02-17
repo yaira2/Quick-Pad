@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text.Json.Serialization;
 using Windows.Storage;
@@ -103,12 +104,40 @@ namespace QuickPad.UI.Helpers
 
             if (_roamingSettings.Values.ContainsKey(name))
             {
-                var value = (TValue)_roamingSettings.Values[name];
+                var value = _roamingSettings.Values[name];
 
                 Logger.LogDebug(
                     $"WindowsSettingsModel::Get<{typeof(TValue).Name}>({defaultValue}, {name}) -> {value};");
 
-                return value;
+                if (!(value is TValue tValue))
+                {
+                    if (value is IConvertible)
+                    {
+                        tValue = (TValue) Convert.ChangeType(value, typeof(TValue));
+                    }
+                    else
+                    {
+                        var valueType = value.GetType();
+                        var tryParse = typeof(TValue).GetMethod("TryParse", BindingFlags.Instance | BindingFlags.Public);
+
+                        if (tryParse == null) return default;
+
+                        var stringValue = value.ToString();
+                        tValue = default;
+
+                        var tryParseDelegate =
+                            (TryParseDelegate<TValue>) Delegate.CreateDelegate(valueType, tryParse, false);
+
+                        tValue = (tryParseDelegate?.Invoke(stringValue, out tValue) ?? false) ? tValue : default(TValue);
+                    }
+
+                    Set(tValue, propertyName); // Put the corrected value in settings.
+                    return tValue;
+                }
+                else
+                {
+                    return tValue;
+                }
             }
 
             Logger.LogDebug(
@@ -117,4 +146,6 @@ namespace QuickPad.UI.Helpers
             return defaultValue;
         }
     }
+
+    delegate bool TryParseDelegate<TValue>(string inValue, out TValue parsedValue);
 }
