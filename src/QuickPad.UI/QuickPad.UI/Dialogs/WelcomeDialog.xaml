@@ -17,27 +17,19 @@
                 x:Uid="WelcomeDialogPar1"
                 FontSize="14"
                 FontWeight="SemiBold"
-                Text="Here is whats new in 4.3.98"
+                Text="Here is what's new in 4.4.1"
                 TextWrapping="Wrap" />
             <TextBlock
                 x:Uid="WelcomeDialogPar2"
                 Padding="0,4,0,0"
                 FontSize="14"
-                Text="• We made some improvements to popup dialogs."
+                Text="• Quick Pad has a brand new icon"
                 TextWrapping="Wrap" />
-
             <TextBlock
                 x:Uid="WelcomeDialogPar3"
-                Padding="0,8,0,0"
-                FontSize="14"
-                FontWeight="SemiBold"
-                Text="Here is whats fixed in 4.3.98"
-                TextWrapping="Wrap" />
-            <TextBlock
-                x:Uid="WelcomeDialogPar4"
                 Padding="0,4,0,0"
                 FontSize="14"
-                Text="• We fixed a crash that some users were experiencing when saving their documents."
+                Text="• Added a support for ARM devices"
                 TextWrapping="Wrap" />
 
             <Button

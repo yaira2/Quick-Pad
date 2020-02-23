@@ -817,13 +817,15 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>Here is whats new in 4.3.99</source>
-          <target state="translated">Aquí está lo nuevo en 4.3.99</target>
+          <source>Here is what's new in 4.4.1</source>
+          <target state="needs-review-translation">Aquí está lo nuevo en 4.3.99</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
-          <source>• We made some improvements to popup dialogs.</source>
-          <target state="translated">• Hemos mejorado los cuadros de diálogo.</target>
+          <source>• Quick Pad has a brand new icon</source>
+          <target state="needs-review-translation">• Hemos mejorado los cuadros de diálogo.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
@@ -847,13 +849,15 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
-          <source>Here is whats fixed in 4.3.99</source>
-          <target state="translated">Aquí está lo que se arregló en 4.3.99</target>
+          <source>• Added a support for ARM devices</source>
+          <target state="needs-review-translation">Aquí está lo que se arregló en 4.3.99</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
-          <source>• We fixed a crash that some users were experiencing when saving their documents.</source>
-          <target state="translated">• Hemos arreglado un error que cerraba la app cuando intentabas guardar un documento.</target>
+          <source></source>
+          <target state="needs-review-translation">• Hemos arreglado un error que cerraba la app cuando intentabas guardar un documento.</target>
+          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
