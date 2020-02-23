@@ -32,11 +32,8 @@
 
                 <Image
                     Grid.RowSpan="2"
-                    Width="80"
-                    Height="80"
-                    HorizontalAlignment="Right"
                     Source="/Assets/QuickPadIcon.png"
-                    Stretch="Fill" />
+                    Stretch="Uniform"/>
                 <TextBlock
                     x:Uid="AppName"
                     Grid.Column="1"
