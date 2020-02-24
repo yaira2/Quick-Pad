@@ -9,11 +9,6 @@ trigger:
     include:
     - master
     - develop
-pr:
-  branches:
-    include:
-    - master
-    - develop
 
 pool:
   vmImage: 'windows-latest'
