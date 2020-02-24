@@ -1,4 +1,8 @@
-# Universal Windows Platform build definition
+
+# Universal Windows Platform
+# Build a Universal Windows Platform project using Visual Studio.
+# Add steps that test and distribute an app, save build artifacts, and more:
+# https://aka.ms/yaml
 
 trigger:
 - master
@@ -19,20 +23,9 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: DownloadSecureFile@1
-  name: signingCert
-  displayName: 'Download QuickPad build certificate'
-  inputs:
-    secureFile: 'QuickPad.UI_TemporaryKey.pfx'
-
 - task: VSBuild@1
   inputs:
-    platform: 'x64'
+    platform: 'x86'
     solution: '$(solution)'
     configuration: '$(buildConfiguration)'
-    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)"
-                  /p:AppxPackageDir="$(appxPackageDir)"
-                  /p:AppxBundle=Always
-                  /p:UapAppxPackageBuildMode=StoreUpload
-                  /p:AppxPackageSigningEnabled=true
-                  /p:PackageCertificateThumbprint="10ef406f2bc44e3c8e8f85988d53990173626fc1"'
+    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
