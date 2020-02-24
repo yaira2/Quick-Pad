@@ -20,10 +20,10 @@ pool:
 # IMPORTANT: Fill out your details for "projectToBuild"!!
 variables:
   solution: '**/*.sln'
-  buildPlatform: 'x86|x64|ARM|ARM64'
+  buildPlatform: 'x86|x64|ARM'
   buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
-  projectToBuild: '**/<QuickPad.UI>.csproj'
+  projectToBuild: '**/QuickPad.UI.csproj'
 
 steps:
 
