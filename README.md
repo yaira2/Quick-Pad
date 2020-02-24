@@ -18,8 +18,6 @@
   </a>
 </p>
 
-[![Build Status](https://dev.azure.com/quickpad/Quick%20Pad/_apis/build/status/UWPCommunity.Quick-Pad?branchName=master)](https://dev.azure.com/quickpad/Quick%20Pad/_build/latest?definitionId=2&branchName=master)
-
 ## Features:
 * Compact Overlay mode will make the app stay on top of other apps or windows.
 * Focus mode hides all distractions.
