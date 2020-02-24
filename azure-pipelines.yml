@@ -19,12 +19,6 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
 
-- task: DownloadSecureFile@1
-  name: signingCert
-  displayName: 'Download Quick Pad build certificate'
-  inputs:
-    secureFile: 'QuickPad.UI_TemporaryKey.pfx'
-
 - task: VSBuild@1
   inputs:
     platform: 'x64'
