@@ -5,15 +5,7 @@
 # https://aka.ms/yaml
 
 trigger:
-  branches:
-    include:
-    - master
-    - develop
-pr:
-  branches:
-    include:
-    - master
-    - develop
+  - master
 
 pool:
   vmImage: 'windows-latest'
