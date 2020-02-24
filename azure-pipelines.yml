@@ -1,33 +1,55 @@
-# Universal Windows Platform build definition
+# Hello! This is a YAML file for Azure Pipelines.
+# It will allow Azure Pipelines to compile your app
+# in the cloud. I'll explain what some of these do.
 
+# This trigger section details what event will
+# trigger Azure Pipelines to start compiling your app.
+# In this case, any changes to you master branch will trigger a build.
 trigger:
 - master
 
+# This pool section is for selecting
+# what versions of Windows you want Azure Pipelines
+# to use when compiling your app. Best to keep it at
+# windows-latest.
 pool:
   vmImage: 'windows-latest'
 
+# These are string variables that you can reuse
+# throughout the rest of this YAML file.
+# IMPORTANT: Fill out your details for "projectToBuild"!!
 variables:
   solution: '**/*.sln'
-  buildPlatform: 'x86|x64|ARM'
-  buildConfiguration: 'Debug'
+  buildPlatform: 'x86|x64|ARM|ARM64'
+  buildConfiguration: 'Release'
   appxPackageDir: '$(build.artifactStagingDirectory)\AppxPackages\\'
+  projectToBuild: '**/<QuickPad.UI>.csproj'
 
 steps:
+
+# Nuget isn't installed by default, so we need to install it first
+# before in order to perform a nuget restore.
 - task: NuGetToolInstaller@1
 
+# This performs the nuget restore.
 - task: NuGetCommand@2
   inputs:
     restoreSolution: '$(solution)'
 
+# This is the actual build. This is equivalent to
+# creating a new Store package on your machine.
 - task: VSBuild@1
   inputs:
     platform: 'x64'
-    solution: '$(solution)'
+    solution: '$(projectToBuild)'
     configuration: '$(buildConfiguration)'
-    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)"
-                  /p:AppxPackageDir="$(appxPackageDir)"
-                  /p:AppxBundle=Always
-                  /p:UapAppxPackageBuildMode=StoreUpload
-                  /p:AppxPackageSigningEnabled=true
-                  /p:PackageCertificateThumbprint=""
-                  /p:PackageCertificateKeyFile="$(signingCert.secureFilePath)"'
+    msbuildArgs: '/p:AppxBundlePlatforms="$(buildPlatform)" /p:AppxPackageDir="$(appxPackageDir)" /p:AppxBundle=Always /p:UapAppxPackageBuildMode=StoreUpload'
+
+# This takes the package created by Azure Pipelines
+# and places it in a location where you can download it
+# later. Without this step, you won't be able to download
+# your packages.
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
