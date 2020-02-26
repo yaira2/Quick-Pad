@@ -126,8 +126,6 @@ namespace QuickPad.UI
                 if (!success) return;
 
                 _ = dialog.ShowAsync();
-
-                ClearJumplist();
             }
 
             if (SystemInformation.TotalLaunchCount == 3)
@@ -141,20 +139,6 @@ namespace QuickPad.UI
             }
 
             _initialized = true;
-        }
-
-        private async void ClearJumplist()
-        {
-            //Quick Pad used to add items to the jumplist, this removes them if they were added in previous versions
-            var all = await JumpList.LoadCurrentAsync();
-
-            all.SystemGroupKind = JumpListSystemGroupKind.Recent;
-            if (all.Items != null)
-            {
-                //Clear Jumplist
-                all.Items.Clear();
-                await all.SaveAsync();
-            }
         }
 
         private void OnUnloaded(object sender, RoutedEventArgs e)
