@@ -290,6 +290,7 @@
     <Content Include="priconfig.packaging.xml" />
     <Content Include="Properties\Default.rd.xml" />
     <None Include="QuickPad.UI_TemporaryKey.pfx" />
+    <PRIResource Include="Strings\de\Resources.resw" />
     <PRIResource Include="Strings\th-TH\Resources.resw" />
     <PRIResource Include="Strings\ru-RU\Resources.resw" />
     <PRIResource Include="Strings\it\Resources.resw" />
@@ -464,6 +465,7 @@
       <Link>Strings\it\Resources.resw</Link>
     </PRIResource>
     <XliffResource Include="MultilingualResources\QuickPad.UI.ar-EG.xlf" />
+    <XliffResource Include="MultilingualResources\QuickPad.UI.de.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.es.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-CA.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.fr-FR.xlf" />
