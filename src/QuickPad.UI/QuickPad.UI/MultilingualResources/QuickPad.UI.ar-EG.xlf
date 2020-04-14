@@ -134,8 +134,8 @@
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
           <source>Developed by Yair Aichenbaum &amp; Sharp Ninja</source>
           <target state="needs-review-translation">تم تطويره بواسطة يائير أيكينباوم</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
@@ -325,8 +325,8 @@
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
           <source>You will need to restart Quick Pad to apply changes.</source>
           <target state="needs-review-translation">إعادة التشغيل مطلوبة لتطبيق التغييرات</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
@@ -456,8 +456,8 @@
         <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
           <source>There are unsaved changes. Do you want to save them now?</source>
           <target state="needs-review-translation">هناك تغييرات لم يتم حفظها. هل تريد حفظها الآن؟</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesTitle" translate="yes" xml:space="preserve">
           <source>Pending Changes</source>
@@ -820,16 +820,16 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>Here is what's new in 4.4.1</source>
+          <source>Here is what's new</source>
           <target state="needs-review-translation">Quick Pad عاد من جديد بعد، بعد شهور قليلة بدون تحديثات أنا متحمس جدا لأعلن أن Quick Pad تمت اعادة كتابته من نقطة الصفر!</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
-          <source>• Quick Pad has a brand new icon</source>
+          <source>• Tweaks and improvments.</source>
           <target state="needs-review-translation">لا يزال كل خيار متاحًا بالإضافة إلى بعض الخيارات الجديدة.  نتيجة لإعادة كتابة التطبيق من نقطة الصفر ، ستحتاج إلى تعيين أي من التخصيصات التي تم إجراؤها في الإصدار السابق مرة أخرى ، أعتذر عن أي إزعاج ولكني آمل أن تجد أنه يستحق ذلك والاستمتاع بالإصدار الجديد.</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
           <source>Welcome back to Quick Pad!</source>
@@ -852,16 +852,10 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
-          <source>• Added a support for ARM devices</source>
+          <source>• The usual bug fixes.</source>
           <target state="needs-review-translation">هذا ما تم اصلاحه في الإصدار ٤.٣.٩٨</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-        </trans-unit>
-        <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
-          <source></source>
-          <target state="needs-review-translation">• لقد اصلحنا إلاغلاق المفاجئ الذي كان يعاني منه بعض المستخدمين عند حفظ مستنداتهم.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
           <source>Review Quick Pad</source>

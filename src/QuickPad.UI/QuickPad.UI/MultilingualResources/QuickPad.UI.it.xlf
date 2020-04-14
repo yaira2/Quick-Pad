@@ -822,13 +822,13 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>Here is what's new in 4.4.1</source>
-          <target state="new">Here is what's new in 4.4.1</target>
+          <source>Here is what's new</source>
+          <target state="new">Here is what's new</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
-          <source>• Quick Pad has a brand new icon</source>
-          <target state="new">• Quick Pad has a brand new icon</target>
+          <source>• Tweaks and improvments.</source>
+          <target state="new">• Tweaks and improvments.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
@@ -852,13 +852,8 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
-          <source>• Added a support for ARM devices</source>
-          <target state="new">• Added a support for ARM devices</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
-        </trans-unit>
-        <trans-unit id="WelcomeDialogPar4.Text" translate="yes" xml:space="preserve">
-          <source></source>
-          <target state="new"></target>
+          <source>• The usual bug fixes.</source>
+          <target state="new">• The usual bug fixes.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
