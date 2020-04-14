@@ -598,11 +598,15 @@
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Here is what's new in 4.4.1</value>
+    <value>Here is what's new</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>• Quick Pad has a brand new icon</value>
+    <value>• Tweaks and improvments.</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
+    <value>• The usual bug fixes.</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="WelcomeDialogTitle.Title" xml:space="preserve">
@@ -788,14 +792,6 @@
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Other</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
-    <value>• Added a support for ARM devices</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar4.Text" xml:space="preserve">
-    <value />
-    <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">
     <value>Review Quick Pad</value>

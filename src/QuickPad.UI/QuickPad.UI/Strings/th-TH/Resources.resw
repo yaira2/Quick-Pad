@@ -680,10 +680,6 @@
     <value>และนี่คือสิ่งที่แก้ไขใน 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="WelcomeDialogPar4.Text" xml:space="preserve">
-    <value>• แก้ไขแอปปิดตัวลงกระทันหันเมื่อบันทึกเอกสาร</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">
     <value>โปรดช่วยวิจารณ์ Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>

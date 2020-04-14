@@ -624,10 +624,6 @@
     <value>Voici ce qui a été corrigé dans la 4.3.99</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="WelcomeDialogPar4.Text" xml:space="preserve">
-    <value>• Nous avons corrigé un plantage que certains utilisateurs rencontraient lors de l'enregistrement de leurs documents.</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">
     <value>Noter Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>
