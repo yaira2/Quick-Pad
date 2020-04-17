@@ -44,25 +44,15 @@ namespace QuickPad.UI.Helpers
 
             private void DataTransferManager_DataRequested(DataTransferManager sender, DataRequestedEventArgs args)
             {
-                IDocumentView<StorageFile, IRandomAccessStream> first = null;
-                foreach (var v in this.Views)
-                {
-                    if (v is IDocumentView<StorageFile, IRandomAccessStream>)
-                    {
-                        first = v;
-                        break;
-                    }
-                }
+                DocumentViewModel<StorageFile, IRandomAccessStream> first = App.CurrentViewModel;
 
-                if (!(first is IDocumentView<StorageFile, IRandomAccessStream> view))
+                if (!(first is DocumentViewModel<StorageFile, IRandomAccessStream> viewModel))
                 {
-                    args.Request.FailWithDisplayText("Could not find IDocumentView - very bad.");
+                    args.Request.FailWithDisplayText("Could not find DocumentViewModel - very bad.");
                     return;
                 }
 
                 var request = args.Request;
-
-                var viewModel = view.ViewModel;
 
                 request.Data.Properties.ApplicationName = "Quick-Pad";
 
