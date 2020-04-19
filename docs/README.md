@@ -54,7 +54,7 @@ See The Projects Tab For Planned Features
 * [Notepads](https://github.com/JasonStein/Notepads)
 
 ## Contributing:
-Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/docs/CONTRIBURING.md) To Get Started.
+Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/docs/CONTRIBUTING.md.md) To Get Started.
 
 ## Special Thanks:
 
