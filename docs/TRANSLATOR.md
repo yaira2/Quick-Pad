@@ -1,6 +1,6 @@
 ## How to help in translating the app
 
-#### The first step is to create a fork of the repository where you will make changes.
+1. Create a fork of the repository where you will make changes.
 ### Software requirements
 - Visual Studio 2017 or newer
 - [Multilingual App Toolkit Extension](https://marketplace.visualstudio.com/items?itemName=MultilingualAppToolkit.MultilingualAppToolkit-18308)
@@ -31,17 +31,17 @@
 - You can filter it out by using "State Filter" above.
 - The text is automatically in the "Translated" state when you write text into the translation section.
 
-*Different States*
+#### Different States
 
 - "Need Review" is when the text from en-US source is changed.
 - "New" state is when the translation has not been translated yet.
 - "Source" shows the original text of the string. 
 
 ### Saving your changes
-- Save your changes and push to your fork on GitHub.
+- Commit your changes and push to your fork on GitHub.
 - Create a pull request and a developer working on Quick Pad will review it.
 - Before Submitting the pull request, make sure the only file changed is the QuickPad.[language_code].xlf one.
 
-### Q&A
+### FAQ
 #### Why do I have to translate some text more than once.
 Answer: Some text has extra hotkeys added into it, for example "Open" has a tooltip with "Open (Ctrl + O)" and both of them are on different controls, one is on AppBarButton and the other is on "TextBlock" this requires us to add more than one key to handle the text like "CMDOpen.Content" and "CMDOpenTooltip.Text" We'll try our best to make the text reusable.
