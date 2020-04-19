@@ -19,16 +19,14 @@
 </p>
 
 ## Features:
-* Compact Overlay mode will make the app stay on top of other apps or windows.
-* Focus mode hides all distractions.
-* Classic Mode.
-* Auto Save.
-* Dark Mode.
-* Supports rich text formats.
+* Compact Overlay And Focus mode For Ultimate Productivity.
+* Classic Mode For Nostalagia.
+* Auto Save For [Data Loss Prevention](https://www.youtube.com/watch?v=LHcZWex7hDc).
+* Dark Mode For Working At Night.
+* Rich text And Markdown Suppprt.
 
 ## Planned features:
-* File Print.
-* Tabs.
+See The Projects Tab For Planned Features
 
 ## Shortcuts:
 * Save - Ctrl + S
@@ -50,7 +48,7 @@
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
 * Download the latest release from [GitHub Releases](https://github.com/UWPCommunity/Quick-Pad/releases).
 
-## Dependencies and References:
+## Dependencies, Applications and References:
 * [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
 * [Dependabot](https://dependabot.com/)
 * [Notepads](https://github.com/JasonStein/Notepads)
