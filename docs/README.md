@@ -53,6 +53,9 @@ See The Projects Tab For Planned Features
 * [Dependabot](https://dependabot.com/)
 * [Notepads](https://github.com/JasonStein/Notepads)
 
+## Contributing:
+Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/CONTRIBURING.md) To Get Started.
+
 ## Special Thanks:
 
 * Application Architecture: [The Sharp Ninja](https://github.com/sharpninja)
