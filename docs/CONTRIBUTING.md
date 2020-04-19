@@ -19,7 +19,7 @@ There are other branches as well on Quick Pad, these are usually for new feature
 To get started, create a fork of the repository on GitHub. You will need to do that to make any changes since the Quick Pad repo is restricted to a few contributors of the app. If you decide to make a change you should always do it on the `develop` branch. Once your change is completed you can open a pull request which we will review and if we like it we will merge it in 😀
 
 ### Related Documents
-* [Refactoring](/REFACTOR.md)
-* [Translation](/TRANSLATOR.md)
-* [Code Of Conduct](/CODE_OF_CONDUCT.md)
+* [Refactoring](../docs/REFACTOR.md)
+* [Translation](../docs/TRANSLATOR.md)
+* [Code Of Conduct](../docs/CODE_OF_CONDUCT.md)
 If you have any questions or feedback make sure to open an issue here.
