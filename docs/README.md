@@ -21,7 +21,7 @@
 ## Features:
 * Compact Overlay And Focus mode For Ultimate Productivity.
 * Classic Mode For Nostalagia.
-* Auto Save For [Data Loss Prevention](https://www.youtube.com/watch?v=LHcZWex7hDc).
+* Auto Save For Data Loss Prevention.
 * Dark Mode For Working At Night.
 * Rich text And Markdown Suppprt.
 
@@ -54,7 +54,7 @@ See The Projects Tab For Planned Features
 * [Notepads](https://github.com/JasonStein/Notepads)
 
 ## Contributing:
-Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/CONTRIBURING.md) To Get Started.
+Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/src/CONTRIBURING.md) To Get Started.
 
 ## Special Thanks:
 
