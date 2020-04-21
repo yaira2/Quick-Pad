@@ -22,7 +22,7 @@
 - The XLF File should be located at \Quick Pad\MultilingualResources\
 - Open the file with the "Multilingual App Toolkit Editor"
 
-### Working with the file
+### Working with the files
 - You can use the translation menu to help on translating, and you can review it later to see if it is correct by using "Translation" > "Translate all" on the Translation section.
 - You can use the suggestions for the current text you are translating by using "Suggest" on the Translation section.
 - The "State Filter" section is useful if you were working with that language before. You can uncheck "Translated" to hide all the text you already translated.

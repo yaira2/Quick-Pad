@@ -1,6 +1,7 @@
 **Privacy Policy**
 
 *Personal Information Collection* 
+
 Quick Pad does not collect, store, share or publish any personal information.
 
 *Non-personal Information Collection*
