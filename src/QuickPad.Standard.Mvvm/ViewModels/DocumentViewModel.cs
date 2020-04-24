@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.Views;
+using QuickPad.Standard.Data;
 
 namespace QuickPad.Mvvm.ViewModels
 {

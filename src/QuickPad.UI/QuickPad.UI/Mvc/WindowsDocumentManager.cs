@@ -22,6 +22,7 @@ using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Dialogs;
+using QuickPad.Standard.Data;
 
 namespace QuickPad.UI.Helpers
 {
@@ -301,6 +302,8 @@ namespace QuickPad.UI.Helpers
                         _ => Encoding.ASCII
                     };
 
+                byte[] bom = null;
+
                     try
                     {
                         ByteOrderMarks.ToList().ForEach(pair =>
@@ -325,6 +328,10 @@ namespace QuickPad.UI.Helpers
                             };
 
                             documentViewModel.CurrentEncoding = encoding;
+
+                            reader = new EncodingReader();
+                            reader.AddBytes(bytes.AsSpan().Slice(value.Length).ToArray());
+                            bom = value;
                         });
                     }
                     catch (Exception ex)
@@ -334,7 +341,7 @@ namespace QuickPad.UI.Helpers
                     }
 
                     var text = reader.Read(documentViewModel.CurrentEncoding);
-                    documentViewModel.File = new UwpStorageFileWrapper { File = file };
+                    documentViewModel.File = new UwpStorageFileWrapper { File = file, BOM = bom };
 
                     if (text.Contains(Environment.NewLine))
                     {
@@ -464,9 +471,10 @@ namespace QuickPad.UI.Helpers
                         : text;
                 }
 
+
                 await App.AwaitableRunAsync(() => writer.Write(textToSave));
 
-                await new StorageFileDataProvider().SaveDataAsync(documentViewModel.File.File, writer,
+                await new StorageFileDataProvider().SaveDataAsync(documentViewModel.File, writer,
                     documentViewModel.CurrentEncoding);
 
                 documentViewModel.Document.IsDirty = false;
@@ -487,5 +495,11 @@ namespace QuickPad.UI.Helpers
             public override string DisplayName => File.DisplayName;
             public override string Path => File.Path;
             public override string Name => File.Name;
+
+        public byte[] BOM
+        {
+            get;
+            internal set;
         }
+    }
 }
