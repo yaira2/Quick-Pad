@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a style="text-decoration:none" href="https://www.microsoft.com/store/apps/9PDLWQHTLSV3">
+  <a style="text-decoration:none" href="https://microsoft.msafflnk.net/RQ4Ny">
     <img src="https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square" alt="Store link" />
   </a>
   <a style="text-decoration:none" href="https://github.com/UWPCommunity/Quick-Pad/releases">
