@@ -176,6 +176,10 @@
       <Project>{ef407a85-3916-4b4d-ac88-59709e3e9542}</Project>
       <Name>QuickPad.Standard.Data</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\QuickPad.Standard.Mvvm\QuickPad.Standard.Mvvm.csproj">
+      <Project>{E6A773FB-DBF3-4E5A-A585-400E8A83FE7C}</Project>
+      <Name>QuickPad.Standard.Mvvm</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
