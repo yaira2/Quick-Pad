@@ -1,9 +1,13 @@
 ﻿using System;
 
-namespace QuickPad.Mvvm.ViewModels
+namespace QuickPad.Standard.Data
 {
     public abstract class StorageFileWrapper<TStorageFile>
     {
+        public byte[] BOM
+        {
+            get; set;
+        }
         public TStorageFile File { get; set; }
         public abstract string FileType { get; }
         public abstract string DisplayType { get; }

@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a style="text-decoration:none" href="https://www.microsoft.com/store/apps/9PDLWQHTLSV3">
+  <a style="text-decoration:none" href="https://microsoft.msafflnk.net/RQ4Ny">
     <img src="https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square" alt="Store link" />
   </a>
   <a style="text-decoration:none" href="https://github.com/UWPCommunity/Quick-Pad/releases">
@@ -19,16 +19,14 @@
 </p>
 
 ## Features:
-* Compact Overlay mode will make the app stay on top of other apps or windows.
-* Focus mode hides all distractions.
-* Classic Mode.
-* Auto Save.
-* Dark Mode.
-* Supports rich text formats.
+* Compact Overlay And Focus mode For Ultimate Productivity.
+* Classic Mode For Nostalagia.
+* Auto Save For Data Loss Prevention.
+* Dark Mode For Working At Night.
+* Rich text And Markdown Suppprt.
 
 ## Planned features:
-* File Print.
-* Tabs.
+See The Projects Tab For Planned Features
 
 ## Shortcuts:
 * Save - Ctrl + S
@@ -50,10 +48,13 @@
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
 * Download the latest release from [GitHub Releases](https://github.com/UWPCommunity/Quick-Pad/releases).
 
-## Dependencies and References:
+## Dependencies, Applications and References:
 * [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
 * [Dependabot](https://dependabot.com/)
 * [Notepads](https://github.com/JasonStein/Notepads)
+
+## Contributing:
+Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/docs/CONTRIBUTING.md) To Get Started.
 
 ## Special Thanks:
 

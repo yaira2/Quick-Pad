@@ -2,7 +2,7 @@
 
 ## Architecture
 
-The application is split into four projects:
+The application is split into four sections:
 
 * QuickPad.UI - User interface layer - only contains XAML and code behind
 * QuickPad.Mvvm - Model layer - only contains ViewModels and Models
@@ -39,7 +39,7 @@ Persistence -> Reader -> Controller -> ViewModel -> UI
 4. The MainPage's ViewModel property is updated by the ApplicationController, initiating an assignment to the DataContext.
 5. The UI updates to reflect the contents of the new ViewModel.
 
-### Where to do things:
+### How to do things:
 
 * React to a button to manipulate text
   * The Button should be assigned to an instance of SimpleCommand&lt;ViewModel&gt; that is 

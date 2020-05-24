@@ -4,6 +4,10 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using QuickPad.Data.Interfaces;
 using Windows.Storage.Streams;
+using QuickPad.Mvvm.ViewModels;
+using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
+using System.Collections.Generic;
+using QuickPad.Standard.Data;
 
 namespace QuickPad.Data
 {
@@ -21,14 +25,17 @@ namespace QuickPad.Data
             return bytes;
         }
 
-        public async Task<string> SaveDataAsync(StorageFile file, IWriter writer, Encoding encoding)
+        public async Task<string> SaveDataAsync(StorageFileWrapper<StorageFile> file, IWriter writer, Encoding encoding)
         {
             try
             {
-                var bytes = writer.GetBytes(encoding);
+                var allBytes = new List<byte>(file.BOM);
+                allBytes.AddRange(writer.GetBytes(encoding));
+
+                var bytes = allBytes.ToArray();
 
                 // Create sample file; replace if exists.
-                await FileIO.WriteBytesAsync(file, bytes);
+                await FileIO.WriteBytesAsync(file.File, bytes);
                 
                 return $"{file.Name} was saved.";
             }
