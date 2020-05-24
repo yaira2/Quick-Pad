@@ -597,22 +597,6 @@
     <value>Lets go!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Here is what's new</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>• Tweaks and improvments.</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
-    <value>• The usual bug fixes.</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
-    <value>Welcome back to Quick Pad!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
   <data name="RedoTooltip.Text" xml:space="preserve">
     <value>Redo (Ctrl+Y)</value>
     <comment>Used on CommandBar</comment>
