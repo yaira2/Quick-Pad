@@ -375,10 +375,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>3.2.1</Version>
+      <Version>3.2.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>3.2.1</Version>
+      <Version>3.2.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration">
       <Version>5.0.0-preview.2.20160.3</Version>
