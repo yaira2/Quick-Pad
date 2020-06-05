@@ -660,18 +660,6 @@
     <value>¡A por ello!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Aquí está lo nuevo en 4.3.99</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>• Hemos mejorado los cuadros de diálogo.</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
-    <value>¡Bienvenido de vuelta a Quick Pad!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
   <data name="ReportIssues.Content" xml:space="preserve">
     <value>Reporte errores aquí</value>
     <comment>Used on Settings Page</comment>
@@ -683,10 +671,6 @@
   <data name="ContributeToDeveloper.Content" xml:space="preserve">
     <value>Contribuya al desarrollador</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
-    <value>Aquí está lo que se arregló en 4.3.99</value>
-    <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">
     <value>Opine sobre Quick Pad</value>

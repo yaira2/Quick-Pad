@@ -831,29 +831,6 @@
           <target state="translated">Allons-y!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
-        <trans-unit id="WelcomeDialogPar1.Text" translate="yes" xml:space="preserve">
-          <source>Here is what's new</source>
-          <target state="needs-review-translation">Voici les nouvelles fonctionnalités dans 4.3.99</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
-        </trans-unit>
-        <trans-unit id="WelcomeDialogPar2.Text" translate="yes" xml:space="preserve">
-          <source>• Tweaks and improvments.</source>
-          <target state="needs-review-translation">• Nous avons fait quelques améliorations aux dialogues pop-up</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
-        </trans-unit>
-        <trans-unit id="WelcomeDialogTitle.Title" translate="yes" xml:space="preserve">
-          <source>Welcome back to Quick Pad!</source>
-          <target state="translated">Bienvenue à Quick Pad!</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
-        </trans-unit>
-        <trans-unit id="WelcomeDialogPar3.Text" translate="yes" xml:space="preserve">
-          <source>• The usual bug fixes.</source>
-          <target state="needs-review-translation">Voici tout ce qui a été réglé dans 4.3.99</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
-        </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
           <source>Review Quick Pad</source>
           <target state="translated">Évaluer Quick Pad</target>

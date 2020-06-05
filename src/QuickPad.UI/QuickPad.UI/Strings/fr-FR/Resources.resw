@@ -596,18 +596,6 @@
     <value>Allons-y!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Voici les nouveautés de la 4.3.99</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>• Nous avons apporté quelques améliorations aux boîtes de dialogue contextuelles.</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
-    <value>Bienvenue dans Quick Pad!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
   <data name="ReportIssues.Content" xml:space="preserve">
     <value>Rapporter un problème ici</value>
     <comment>Used on Settings Page</comment>
@@ -619,10 +607,6 @@
   <data name="ContributeToDeveloper.Content" xml:space="preserve">
     <value>Contribuer au développeur</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
-    <value>Voici ce qui a été corrigé dans la 4.3.99</value>
-    <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">
     <value>Noter Quick Pad</value>

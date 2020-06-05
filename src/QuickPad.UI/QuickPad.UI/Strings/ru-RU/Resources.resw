@@ -492,18 +492,6 @@
     <value>Погнали!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>После нескольких месяцев без обновлений я действительно рад объявить, что Quick Pad был полностью переписан с нуля!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>Каждый отдельный вариант все еще доступен, а также несколько новых. В результате переписывания приложения с нуля вам нужно будет снова установить свои параметры, сделанные в предыдущей версии, я приношу извинения за любые неудобства, но я очень надеюсь, что вы найдете это стоящим и получите удовольствие от новой версии!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
-    <value>С Возвращением в Quick Pad!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
   <data name="RedoTooltip.Text" xml:space="preserve">
     <value>Повторить (Ctrl+Y)</value>
     <comment>Used on CommandBar</comment>

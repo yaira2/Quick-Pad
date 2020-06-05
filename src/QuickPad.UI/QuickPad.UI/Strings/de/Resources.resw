@@ -492,18 +492,6 @@
     <value>Los geht's!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
-  <data name="WelcomeDialogPar1.Text" xml:space="preserve">
-    <value>Das ist neu in Version 4.4.1</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogPar2.Text" xml:space="preserve">
-    <value>• Quick Pad hat ein nagelneues Logo</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
-  <data name="WelcomeDialogTitle.Title" xml:space="preserve">
-    <value>Willkommen zurück bei Quick Pad!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
   <data name="RedoTooltip.Text" xml:space="preserve">
     <value>Wiederholen (Strg+Y)</value>
     <comment>Used on CommandBar</comment>
@@ -683,10 +671,6 @@
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Andere</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WelcomeDialogPar3.Text" xml:space="preserve">
-    <value>• Unterstützung für ARM Geräte hinzugefügt</value>
-    <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">
     <value>Quick Pad bewerten</value>
