@@ -25,22 +25,6 @@ namespace QuickPad.Data
             return bytes;
         }
 
-        public static async Task<byte[]> GetBytesAsync(StorageFile file)
-        {
-            byte[] fileBytes = null;
-            if (file == null) return null;
-            using (var stream = await file.OpenReadAsync())
-            {
-                fileBytes = new byte[stream.Size];
-                using (var reader = new DataReader(stream))
-                {
-                    await reader.LoadAsync((uint)stream.Size);
-                    reader.ReadBytes(fileBytes);
-                }
-            }
-            return fileBytes;
-        }
-
         public async Task<string> SaveDataAsync(StorageFileWrapper<StorageFile> file, IWriter writer, Encoding encoding)
         {
             try
