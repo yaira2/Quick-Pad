@@ -29,8 +29,17 @@ namespace QuickPad.Data
         {
             try
             {
-                var allBytes = new List<byte>(file.BOM);
-                allBytes.AddRange(writer.GetBytes(encoding));
+                List<byte> allBytes = new List<byte>();
+
+                if (file.BOM != null)
+                {
+                    allBytes = new List<byte>(file.BOM);
+                    allBytes.AddRange(writer.GetBytes(encoding));
+                }
+                else
+                {
+                    allBytes = new List<byte>(writer.GetBytes(encoding));
+                }
 
                 var bytes = allBytes.ToArray();
 
