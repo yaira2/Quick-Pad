@@ -856,6 +856,38 @@
           <target state="translated">Datenschutzerklärung</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
+        <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
+          <source>Apricot</source>
+          <target state="new">Apricot</target>
+        </trans-unit>
+        <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
+          <source>Black Coral</source>
+          <target state="new">Black Coral</target>
+        </trans-unit>
+        <trans-unit id="ThemeDarkSiennaName" translate="yes" xml:space="preserve">
+          <source>Dark Sienna</source>
+          <target state="new">Dark Sienna</target>
+        </trans-unit>
+        <trans-unit id="ThemeDarkSpringGreenName" translate="yes" xml:space="preserve">
+          <source>Dark Spring Green</source>
+          <target state="new">Dark Spring Green</target>
+        </trans-unit>
+        <trans-unit id="ThemeMaximumPurpleName" translate="yes" xml:space="preserve">
+          <source>Maximum Purple</source>
+          <target state="new">Maximum Purple</target>
+        </trans-unit>
+        <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
+          <source>Medium Purple</source>
+          <target state="new">Medium Purple</target>
+        </trans-unit>
+        <trans-unit id="ThemePersimmonName" translate="yes" xml:space="preserve">
+          <source>Persimmon</source>
+          <target state="new">Persimmon</target>
+        </trans-unit>
+        <trans-unit id="ThemeSizzlingRedName" translate="yes" xml:space="preserve">
+          <source>Sizzling Red</source>
+          <target state="new">Sizzling Red</target>
+        </trans-unit>
       </group>
     </body>
   </file>
