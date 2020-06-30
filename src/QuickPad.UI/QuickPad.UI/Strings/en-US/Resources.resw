@@ -797,4 +797,28 @@
     <value>Privacy Policy</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>Apricot</value>
+  </data>
+  <data name="ThemeBlackCoralName" xml:space="preserve">
+    <value>Black Coral</value>
+  </data>
+  <data name="ThemeDarkSiennaName" xml:space="preserve">
+    <value>Dark Sienna</value>
+  </data>
+  <data name="ThemeDarkSpringGreenName" xml:space="preserve">
+    <value>Dark Spring Green</value>
+  </data>
+  <data name="ThemeMaximumPurpleName" xml:space="preserve">
+    <value>Maximum Purple</value>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>Medium Purple</value>
+  </data>
+  <data name="ThemePersimmonName" xml:space="preserve">
+    <value>Persimmon</value>
+  </data>
+  <data name="ThemeSizzlingRedName" xml:space="preserve">
+    <value>Sizzling Red</value>
+  </data>
 </root>
