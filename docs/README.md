@@ -7,14 +7,14 @@
   <a style="text-decoration:none" href="https://microsoft.msafflnk.net/RQ4Ny">
     <img src="https://img.shields.io/badge/Microsoft%20Store-Download-orange.svg?style=flat-square" alt="Store link" />
   </a>
-  <a style="text-decoration:none" href="https://github.com/UWPCommunity/Quick-Pad/releases">
-    <img src="https://img.shields.io/github/release/UWPCommunity/Quick-Pad.svg?style=flat-square" alt="Releases" />
+  <a style="text-decoration:none" href="https://github.com/yaichenbaum/Quick-Pad/releases">
+    <img src="https://img.shields.io/github/release/yaichenbaum/Quick-Pad.svg?style=flat-square" alt="Releases" />
   </a>
-  <a style="text-decoration:none" href="https://github.com/UWPCommunity/Quick-Pad/graphs/contributors">
-    <img src="https://img.shields.io/github/contributors/UWPCommunity/Quick-Pad?style=flat-square" alt="Contributors" />
+  <a style="text-decoration:none" href="https://github.com/yaichenbaum/Quick-Pad/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/yaichenbaum/Quick-Pad?style=flat-square" alt="Contributors" />
   </a>
-  <a style="text-decoration:none" href="https://github.com/UWPCommunity/Quick-Pad/stargazers">
-    <img src="https://img.shields.io/github/stars/UWPCommunity/Quick-Pad.svg?style=flat-square" alt="Stars" />
+  <a style="text-decoration:none" href="https://github.com/yaichenbaum/Quick-Pad/stargazers">
+    <img src="https://img.shields.io/github/stars/yaichenbaum/Quick-Pad.svg?style=flat-square" alt="Stars" />
   </a>
 </p>
 
@@ -46,7 +46,7 @@ See The Projects Tab For Planned Features
 
 ## Downloads:
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
-* Download the latest release from [GitHub Releases](https://github.com/UWPCommunity/Quick-Pad/releases).
+* Download the latest release from [GitHub Releases](https://github.com/yaichenbaum/Quick-Pad/releases).
 
 ## Dependencies, Applications and References:
 * [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
