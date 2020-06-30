@@ -241,6 +241,8 @@ namespace QuickPad.UI.Common.Theme
             _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215)));
             _themes.Add(BuildTheme("apricot", "ThemeApricotName", true, Color.FromArgb(255, 255, 202, 175)));
             _themes.Add(BuildTheme("mediumpurple", "ThemeMediumPurpleName", true, Color.FromArgb(255, 147, 112, 219)));
+            _themes.Add(BuildTheme("sizzlingred", "ThemeSizzlingRedName", true, Color.FromArgb(255, 240, 93, 94)));
+            _themes.Add(BuildTheme("persimmon", "ThemePersimmonName", true, Color.FromArgb(255, 244, 93, 1)));
 
             //Custom dark themes:
             _themes.Add(BuildTheme("cobalt", "ThemeCobaltName", false, Color.FromArgb(255, 0, 71, 171)));
@@ -248,6 +250,8 @@ namespace QuickPad.UI.Common.Theme
             _themes.Add(BuildTheme("crimson", "ThemeCrimsonName", false, Color.FromArgb(255, 149, 0, 39)));
             _themes.Add(BuildTheme("darksienna", "ThemeDarkSiennaName", false, Color.FromArgb(255, 46, 15, 21)));
             _themes.Add(BuildTheme("blackcoral", "ThemeBlackCoralName", false, Color.FromArgb(255, 62, 92, 118)));
+            _themes.Add(BuildTheme("maximumpurple", "ThemeMaximumPurpleName", false, Color.FromArgb(255, 125, 56, 125)));
+            _themes.Add(BuildTheme("darkspringgreen", "ThemeDarkSringGreenName", false, Color.FromArgb(255, 4, 114, 77)));
         }
 
         private VisualTheme BuildTheme(string themeId, string nameResKey, bool lightTheme, Color accentColor)
