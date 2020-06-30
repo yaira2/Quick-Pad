@@ -33,7 +33,7 @@
                 <Image
                     Grid.RowSpan="2"
                     Source="/Assets/QuickPadIcon.png"
-                    Stretch="Uniform"/>
+                    Stretch="Uniform" />
                 <TextBlock
                     x:Uid="AppName"
                     Grid.Column="1"
@@ -52,34 +52,7 @@
                 Padding="0,12,0,0"
                 HorizontalAlignment="Left"
                 FontSize="16"
-                Text="Developed by Yair Aichenbaum &amp; Sharp Ninja" />
-            <TextBlock
-                x:Uid="SpecialThanks"
-                Padding="0,12,0,0"
-                HorizontalAlignment="Left"
-                FontSize="16"
-                Text="Special thanks to:" />
-            <TextBlock
-                Margin="0,4,0,0"
-                FontSize="13"
-                Text="Toon Werawat" />
-            <TextBlock
-                Margin="0,4,0,0"
-                FontSize="13"
-                Text="Ikarago" />
-
-            <HyperlinkButton
-                x:Uid="SourceCode"
-                Padding="0,20,0,0"
-                Content="Source Code"
-                NavigateUri="https://github.com/UWPCommunity/Quick-Pad" />
-
-            <HyperlinkButton
-                x:Uid="ReportIssues"
-                Padding="0,12,0,0"
-                HorizontalAlignment="Left"
-                Content="Report issues here"
-                NavigateUri="https://github.com/UWPCommunity/Quick-Pad/issues/new/choose" />
+                Text="Developed by Yair Aichenbaum" />
 
             <HyperlinkButton
                 x:Uid="ContributeToDeveloper"
@@ -92,7 +65,7 @@
                 x:Uid="PrivacyPolicy"
                 Padding="0,12,0,0"
                 Content="Privacy Policy"
-                NavigateUri="https://github.com/UWPCommunity/Quick-Pad/blob/master/PrivacyPolicy.md" />
+                NavigateUri="https://github.com/files-community/files-uwp/blob/master/Privacy.md" />
 
         </StackPanel>
 
