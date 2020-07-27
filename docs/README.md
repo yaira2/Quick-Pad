@@ -19,14 +19,12 @@
 </p>
 
 ## Features:
-* Compact Overlay And Focus mode For Ultimate Productivity.
-* Classic Mode For Nostalagia.
-* Auto Save For Data Loss Prevention.
-* Dark Mode For Working At Night.
-* Rich text And Markdown Suppprt.
-
-## Planned features:
-See The Projects Tab For Planned Features
+* Compact Overlay 
+* Focus Mode
+* Classic Mode
+* Auto Save
+* Dark Mode
+* RichText suppprt
 
 ## Shortcuts:
 * Save - Ctrl + S
@@ -58,7 +56,6 @@ Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/do
 
 ## Special Thanks:
 
-* Application Architecture: [The Sharp Ninja](https://github.com/sharpninja)
 * Code Contributors: [Toon Werawat](https://github.com/ray199), 
 [Leisvan](https://github.com/Leisvan), 
 [AVK](https://github.com/avknaidu), 
