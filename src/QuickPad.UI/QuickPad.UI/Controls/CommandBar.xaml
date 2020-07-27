@@ -45,7 +45,7 @@
                     <TextBlock x:Uid="NewTip" Text="New (Ctrl+N)" />
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xE7C3;" />
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEA00;" />
                 </AppBarButton.Icon>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Key="N" Modifiers="Control" />
@@ -62,7 +62,7 @@
                     <TextBlock x:Uid="OpenTip" Text="Open (Ctrl+O)" />
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xF12B;" />
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEA55;" />
                 </AppBarButton.Icon>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Key="O" Modifiers="Control" />
@@ -74,7 +74,6 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.SaveCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="Save"
                 LabelPosition="Collapsed">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="SaveTip" Text="Save (Ctrl+S)" />
@@ -82,6 +81,9 @@
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Key="S" Modifiers="Control" />
                 </AppBarButton.KeyboardAccelerators>
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB4A;" />
+                </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator />
             <AppBarButton
@@ -93,7 +95,7 @@
                         Margin="0,0,12,0"
                         FontFamily="Segoe UI"
                         Text="{x:Bind ViewModelDocument.CurrentFontName, Mode=OneWay}" />
-                    <FontIcon FontSize="12" Glyph="&#xE70D;" />
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE9A5;" />
                 </StackPanel>
                 <AppBarButton.Flyout>
                     <Flyout
@@ -128,7 +130,7 @@
                         Margin="0,0,12,0"
                         FontFamily="Segoe UI"
                         Text="{x:Bind ViewModelDocument.CurrentFontSize, Mode=OneWay}" />
-                    <FontIcon FontSize="12" Glyph="&#xE70D;" />
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE9A5;" />
                 </StackPanel>
                 <AppBarButton.Flyout>
                     <Flyout
@@ -161,7 +163,7 @@
                     <TextBlock x:Uid="Color" Text="Font Color" />
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xE790;" />
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE9C0;" />
                 </AppBarButton.Icon>
                 <AppBarButton.Flyout>
                     <Flyout>
@@ -184,11 +186,13 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.EmojiCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="Emoji2"
                 LabelPosition="Collapsed">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Emoji" Text="Insert Emojis (Win + .)" />
                 </ToolTipService.ToolTip>
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEA3A;" />
+                </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}" />
             <AppBarToggleButton
@@ -197,13 +201,15 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.BoldCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="Bold"
                 IsChecked="{x:Bind ViewModelDocument.SelBold, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Bold" Text="Bold (Ctrl+B)" />
                 </ToolTipService.ToolTip>
+                <AppBarToggleButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBBD;" />
+                </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
                 x:Uid="ItalicLabel"
@@ -211,13 +217,15 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.ItalicsCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="Italic"
                 IsChecked="{x:Bind ViewModelDocument.SelItalic, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Italic" Text="Italic (Ctrl+I)" />
                 </ToolTipService.ToolTip>
+                <AppBarToggleButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBE2;" />
+                </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
                 x:Uid="UnderlineLabel"
@@ -225,13 +233,15 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.UnderlineCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="Underline"
                 IsChecked="{x:Bind ViewModelDocument.SelUnderline, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Underline" Text="Underline (Ctrl+U)" />
                 </ToolTipService.ToolTip>
+                <AppBarToggleButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBED;" />
+                </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
                 x:Uid="StrikethroughLabel"
@@ -246,14 +256,7 @@
                     <TextBlock x:Uid="Strikethrough" Text="Strikethrough" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon
-                        Margin="0,4,0,-3"
-                        FontFamily="/Assets/Font/Segoe MDL2 Modded.ttf#Segoe MDL2 Modded"
-                        Glyph="&#xE1B2;">
-                        <FontIcon.RenderTransform>
-                            <ScaleTransform ScaleX="1.1" ScaleY="1.1" />
-                        </FontIcon.RenderTransform>
-                    </FontIcon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBEA;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
@@ -262,13 +265,15 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.BulletsCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="List"
                 IsChecked="{x:Bind ViewModelDocument.SelBullets, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="Bullets" Text="Toggle Bullets" />
                 </ToolTipService.ToolTip>
+                <AppBarToggleButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBBE;" />
+                </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}" />
             <AppBarToggleButton
@@ -277,13 +282,15 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.LeftAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="AlignLeft"
                 IsChecked="{x:Bind ViewModelDocument.SelLeft, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignLeft" Text="Align Left (Ctrl+L)" />
                 </ToolTipService.ToolTip>
+                <AppBarToggleButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBBB;" />
+                </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
                 x:Uid="AlignCenterLabel"
@@ -291,13 +298,15 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.CenterAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="AlignCenter"
                 IsChecked="{x:Bind ViewModelDocument.SelCenter, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignCenter" Text="Align Center (Ctrl+E)" />
                 </ToolTipService.ToolTip>
+                <AppBarToggleButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBB8;" />
+                </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
                 x:Uid="AlignRightLabel"
@@ -305,13 +314,15 @@
                 MinWidth="40"
                 Command="{x:Bind Commands.RightAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
-                Icon="AlignRight"
                 IsChecked="{x:Bind ViewModelDocument.SelRight, Mode=OneWay}"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="AlignRight" Text="Align Right (Ctrl+R)" />
                 </ToolTipService.ToolTip>
+                <AppBarToggleButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBBC;" />
+                </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
                 x:Uid="JustifyTextLabel"
@@ -326,7 +337,7 @@
                     <TextBlock x:Uid="JustifyText" Text="Justify Text (Ctrl+J)" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon FontFamily="/Assets/Font/FabExMDL2.ttf#Fabric External MDL2 Assets" Glyph="" />
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBBA;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
         </CommandBar>
@@ -369,40 +380,53 @@
                     Width="Auto"
                     Command="{x:Bind Commands.ShareCommand}"
                     CommandParameter="{x:Bind ViewModel}"
-                    Icon="Share"
-                    Label="Share" />
+                    Label="Share">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB60;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
                 <AppBarButton
                     x:Uid="FindLabel"
                     Width="Auto"
                     Command="{x:Bind Commands.ShowFindCommand}"
                     CommandParameter="{x:Bind ViewModel}"
-                    Icon="Find"
                     Label="Find">
                     <AppBarButton.KeyboardAccelerators>
                         <KeyboardAccelerator Key="F" Modifiers="Control" />
                     </AppBarButton.KeyboardAccelerators>
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB51;" />
+                    </AppBarButton.Icon>
                 </AppBarButton>
                 <AppBarButton
                     x:Uid="SettingsLabel"
                     Width="Auto"
                     Command="{x:Bind Commands.SettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
-                    Icon="Setting"
-                    Label="Settings" />
+                    Label="Settings">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB5D;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
                 <AppBarButton
                     x:Uid="ExitLabel"
                     Width="Auto"
                     Command="{x:Bind Commands.ExitCommand}"
                     CommandParameter="{x:Bind ViewModel}"
-                    Icon="Cancel"
-                    Label="Exit" />
+                    Label="Exit">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE9F9;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
             </CommandBar.SecondaryCommands>
             <AppBarButton
                 Width="Auto"
                 MinWidth="40"
                 Command="{x:Bind Commands.UndoCommand}"
-                CommandParameter="{x:Bind ViewModel}"
-                Icon="Undo">
+                CommandParameter="{x:Bind ViewModel}">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE935;" />
+                </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="UndoTooltip" Text="Undo (Ctrl+Z)" />
                 </ToolTipService.ToolTip>
@@ -411,8 +435,10 @@
                 Width="Auto"
                 MinWidth="40"
                 Command="{x:Bind Commands.RedoCommand}"
-                CommandParameter="{x:Bind ViewModel}"
-                Icon="Redo">
+                CommandParameter="{x:Bind ViewModel}">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE926;" />
+                </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="RedoTooltip" Text="Redo (Ctrl+Y)" />
                 </ToolTipService.ToolTip>
@@ -424,7 +450,7 @@
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
-                    <FontIcon FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
+                    <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />

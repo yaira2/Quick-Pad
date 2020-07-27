@@ -27,7 +27,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="New">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE7C3;" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEA00;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="N" Modifiers="Control" />
@@ -40,7 +40,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Open">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xF12B;" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEA55;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="O" Modifiers="Control" />
@@ -53,7 +53,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Save">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Save" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB4A;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="S" Modifiers="Control" />
@@ -66,7 +66,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Save As...">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Save" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB4B;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="S" Modifiers="Control, Shift" />
@@ -80,7 +80,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Share">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Share" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB60;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator />
@@ -91,7 +91,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Exit">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE8BB;" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE9F9;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
             </MenuBarItem>
@@ -106,7 +106,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Undo">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Undo" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE935;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem
@@ -116,7 +116,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Redo">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Redo" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE926;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator />
@@ -137,7 +137,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Copy">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Copy" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE9D6;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem
@@ -147,7 +147,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Paste">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Paste" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE9D7;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem
@@ -157,7 +157,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Delete">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Delete" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE9ED;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator />
@@ -168,7 +168,7 @@
                     CommandParameter="{x:Bind Settings}"
                     Text="Search with Bing...">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE12B;" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEA70;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="E" Modifiers="Control" />
@@ -179,11 +179,13 @@
                     AccessKey="F"
                     Command="{x:Bind Commands.ShowFindCommand}"
                     CommandParameter="{x:Bind ViewModel}"
-                    Icon="Find"
                     Text="Find">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="F" Modifiers="Control" />
                     </MenuFlyoutItem.KeyboardAccelerators>
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB51;" />
+                    </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem
                     x:Uid="FindNext"
@@ -192,7 +194,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Find Next">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE0AB;" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE92B;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="F3" />
@@ -205,7 +207,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Text="Find Previous">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE0A6;" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE921;" />
                     </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="F3" Modifiers="Control" />
@@ -216,8 +218,10 @@
                     AccessKey="R"
                     Command="{x:Bind Commands.ShowReplaceCommand}"
                     CommandParameter="{x:Bind ViewModel}"
-                    Icon="Rename"
                     Text="Replace">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB3F;" />
+                    </MenuFlyoutItem.Icon>
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="H" Modifiers="Control" />
                     </MenuFlyoutItem.KeyboardAccelerators>
@@ -271,7 +275,7 @@
                     IsChecked="{x:Bind ViewModelDocument.CurrentWordWrap}"
                     Text="Word Wrap">
                     <ToggleMenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xE751;" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE91D;" />
                     </ToggleMenuFlyoutItem.Icon>
                     <ToggleMenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Key="Z" Modifiers="Menu" />
@@ -285,7 +289,7 @@
                     CommandParameter="{x:Bind Settings}"
                     Text="Fonts...">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Font" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEBDB;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
             </MenuBarItem>
@@ -300,7 +304,7 @@
                     CommandParameter="{x:Bind Settings}"
                     Text="Back to Default Mode">
                     <MenuFlyoutItem.Icon>
-                        <SymbolIcon Symbol="Back" />
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE929;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem
@@ -320,7 +324,7 @@
                     CommandParameter="{x:Bind Settings}"
                     Text="Overlay Mode">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
+                        <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator />
@@ -338,7 +342,7 @@
                         CommandParameter="{x:Bind ViewModel}"
                         Text="Zoom In">
                         <MenuFlyoutItem.Icon>
-                            <FontIcon Glyph="&#xE8A3;" />
+                            <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEC37;" />
                         </MenuFlyoutItem.Icon>
                         <MenuFlyoutItem.KeyboardAccelerators>
                             <KeyboardAccelerator Key="Add" Modifiers="Control" />
@@ -351,7 +355,7 @@
                         CommandParameter="{x:Bind ViewModel}"
                         Text="Zoom Out">
                         <MenuFlyoutItem.Icon>
-                            <FontIcon Glyph="&#xE71F;" />
+                            <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEC38;" />
                         </MenuFlyoutItem.Icon>
                         <MenuFlyoutItem.KeyboardAccelerators>
                             <KeyboardAccelerator Key="Subtract" Modifiers="Control" />
@@ -364,7 +368,7 @@
                         CommandParameter="{x:Bind ViewModel}"
                         Text="Restore Default Zoom">
                         <MenuFlyoutItem.Icon>
-                            <FontIcon Glyph="&#xE71E;" />
+                            <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB51;" />
                         </MenuFlyoutItem.Icon>
                         <MenuFlyoutItem.KeyboardAccelerators>
                             <KeyboardAccelerator Key="Number0" Modifiers="Control" />
@@ -405,7 +409,7 @@
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
-                    <FontIcon FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
+                    <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />

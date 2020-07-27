@@ -29,7 +29,7 @@
             CommandParameter="{x:Bind Settings}"
             CornerRadius="0"
             Visibility="{x:Bind Settings.CompactOverlay, Converter={StaticResource Converter}}">
-            <FontIcon FontFamily="/Assets/Font/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE47;" />
+            <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE47;" />
             <Button.KeyboardAccelerators>
                 <KeyboardAccelerator Key="Down" Modifiers="Menu" />
             </Button.KeyboardAccelerators>
@@ -50,7 +50,7 @@
                 VerticalAlignment="Center"
                 FontSize="14"
                 Style="{ThemeResource CaptionTextBlockStyle}">
-                <Run x:Name="DirtyMarker" Text="{x:Bind ViewModel.IsDirtyMarker}"/> <Run x:Name="Title" Text="{x:Bind ViewModel.Title}" />
+                <Run x:Name="DirtyMarker" Text="{x:Bind ViewModel.IsDirtyMarker}" /> <Run x:Name="Title" Text="{x:Bind ViewModel.Title}" />
             </TextBlock>
         </Grid>
     </Grid>
