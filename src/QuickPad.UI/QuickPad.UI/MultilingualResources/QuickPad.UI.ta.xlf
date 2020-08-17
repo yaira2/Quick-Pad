@@ -1,0 +1,895 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
+  <file datatype="xml" source-language="en-US" target-language="ta" original="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
+    <header>
+      <tool tool-id="MultilingualAppToolkit" tool-name="Multilingual App Toolkit" tool-version="4.0.6916.0" tool-company="Microsoft" />
+    </header>
+    <body>
+      <group id="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
+        <trans-unit id="AcrylicOptions.Text" translate="yes" xml:space="preserve">
+          <source>Acrylic Options</source>
+          <target state="translated">Acrylic விருப்பங்கள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AcrylicTintOpacity.Text" translate="yes" xml:space="preserve">
+          <source>Acrylic tint opacity</source>
+          <target state="translated">Acrylic நிற ஒளிபுகாநிலை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
+          <source>Advanced</source>
+          <target state="translated">மேம்பட்டவை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
+          <source>App Language</source>
+          <target state="translated" state-qualifier="tm-suggestion">பயன்பாட்டு மொழி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AppName.Text" translate="no" xml:space="preserve">
+          <source>Quick Pad</source>
+          <target state="final">Quick Pad</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
+          <source>Chick</source>
+          <target state="translated" state-qualifier="tm-suggestion">கோழிக்குஞ்சு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
+          <source>Cobalt</source>
+          <target state="translated" state-qualifier="tm-suggestion">கோபால்ட்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
+          <source>Crimson</source>
+          <target state="translated" state-qualifier="tm-suggestion">க்ரிம்ஸன்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
+          <source>Dark</source>
+          <target state="translated" state-qualifier="tm-suggestion">இருள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
+          <source>Leaf</source>
+          <target state="translated" state-qualifier="tm-suggestion">இலை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
+          <source>Lettuce</source>
+          <target state="translated" state-qualifier="tm-suggestion">கீரை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeLightName" translate="yes" xml:space="preserve">
+          <source>Light</source>
+          <target state="translated">வெளிச்சம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeRandomName" translate="yes" xml:space="preserve">
+          <source>Random</source>
+          <target state="translated">சீரற்றவை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
+          <source>Rose Gold</source>
+          <target state="translated">ரோஜா தங்கம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
+          <source>System Default</source>
+          <target state="translated" state-qualifier="tm-suggestion">முறைமை இயல்புநிலை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
+          <source>Dark theme</source>
+          <target state="translated" state-qualifier="tm-suggestion">அடர் கருப்பொருள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
+          <source>Light theme</source>
+          <target state="translated" state-qualifier="tm-suggestion">வெளிர் கருப்பொருள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeRandomDescription" translate="yes" xml:space="preserve">
+          <source>Random theme on startup</source>
+          <target state="translated">துவக்கத்தில் ஏதோ ஒரு கருப்பொருள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
+          <source>System-defined theme</source>
+          <target state="translated">முறைமையின் கருப்பொருள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="AutoSave.Text" translate="yes" xml:space="preserve">
+          <source>Auto Save</source>
+          <target state="translated">தானாக சேமி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
+          <source>Auto save every</source>
+          <target state="translated">தானாக சேமி ஒவ்வொரு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AutoSaveSeconds.Text" translate="yes" xml:space="preserve">
+          <source>seconds</source>
+          <target state="translated" state-qualifier="tm-suggestion">வினாடிகள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="BackToDefault.Text" translate="yes" xml:space="preserve">
+          <source>Back to Default Mode</source>
+          <target state="translated">இயல்புநிலை பயன்முறைக்கு திரும்பு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
+          <source>Close Compact Overlay</source>
+          <target state="translated">சிறிய மேலடுக்கை மூடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on TitleBar</note>
+        </trans-unit>
+        <trans-unit id="Copy.Text" translate="yes" xml:space="preserve">
+          <source>Copy</source>
+          <target state="translated" state-qualifier="tm-suggestion">நகலெடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
+          <source>Developed by Yair Aichenbaum &amp; Sharp Ninja</source>
+          <target state="translated">Yair Aichenbaum &amp; Sharp Ninja அல் உருவாக்கப்பட்டது</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
+          <source>Cut</source>
+          <target state="translated" state-qualifier="tm-suggestion">வெட்டு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
+          <source>Default File Encoding</source>
+          <target state="translated">இயல்புநிலை கோப்பு குறியாக்கம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFileType.Text" translate="yes" xml:space="preserve">
+          <source>Default File Type</source>
+          <target state="translated">இயல்புநிலை கோப்பு வகை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
+          <source>Default Font</source>
+          <target state="translated" state-qualifier="tm-suggestion">இயல்புநிலை எழுத்துரு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
+          <source>Default Font Size</source>
+          <target state="translated" state-qualifier="tm-suggestion">இயல்புநிலை எழுத்துரு அளவு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Delete.Text" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <target state="translated" state-qualifier="tm-suggestion">நீக்கு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Edit.Title" translate="yes" xml:space="preserve">
+          <source>Edit</source>
+          <target state="translated" state-qualifier="tm-suggestion">திருத்து</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="Exit.Text" translate="yes" xml:space="preserve">
+          <source>Exit</source>
+          <target state="translated" state-qualifier="tm-suggestion">வெளியேறு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Export.Content" translate="yes" xml:space="preserve">
+          <source>Export</source>
+          <target state="translated" state-qualifier="tm-suggestion">ஏற்றுமதிசெய்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="File.Title" translate="yes" xml:space="preserve">
+          <source>File</source>
+          <target state="translated" state-qualifier="tm-suggestion">கோப்பு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="Find.Text" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="translated" state-qualifier="tm-suggestion">கண்டுபிடி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FindNext.Text" translate="yes" xml:space="preserve">
+          <source>Find Next</source>
+          <target state="translated" state-qualifier="tm-suggestion">அடுத்ததைக் கண்டுபிடி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
+          <source>Find Previous</source>
+          <target state="translated" state-qualifier="tm-suggestion">முந்தையதைக் கண்டுபிடி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="FocusMode.Text" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="translated">கவனிப்புப் பயன்முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
+          <source>Font</source>
+          <target state="translated" state-qualifier="tm-suggestion">எழுத்துரு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Fonts.Text" translate="yes" xml:space="preserve">
+          <source>Fonts...</source>
+          <target state="translated">எழுத்துருக்கள்...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Format.Title" translate="yes" xml:space="preserve">
+          <source>Format</source>
+          <target state="translated" state-qualifier="tm-suggestion">வடிவமைப்பு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="General.Text" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target state="translated" state-qualifier="tm-suggestion">பொது</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="GoTo.Text" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="translated" state-qualifier="tm-suggestion">இங்கு செல்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
+          <source>Import</source>
+          <target state="translated" state-qualifier="tm-suggestion">இறக்குமதி செய்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
+          <source>Keep text only</source>
+          <target state="translated">Keep text only
+உரையை மட்டும் வைத்திரு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchClassicMode" translate="yes" xml:space="preserve">
+          <source>Classic Mode</source>
+          <target state="translated">Classic பயன்முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchDefaultMode" translate="yes" xml:space="preserve">
+          <source>Default</source>
+          <target state="translated" state-qualifier="tm-suggestion">இயல்புநிலை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchFocusMode" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="translated">கவனிப்புப் பயன்முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchMode.Text" translate="yes" xml:space="preserve">
+          <source>Launch Mode</source>
+          <target state="translated">இயக்கல் முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchModeComboBox.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Classic Mode</source>
+          <target state="translated">Classic பயன்முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="LaunchCompactOverlay" translate="yes" xml:space="preserve">
+          <source>Compact Overlay</source>
+          <target state="translated">சிறிய மேலடுக்கு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="ManageSettings.Text" translate="yes" xml:space="preserve">
+          <source>Manage Settings</source>
+          <target state="translated" state-qualifier="tm-suggestion">அமைப்புகளை நிர்வகி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="New.Text" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="translated" state-qualifier="tm-suggestion">புதிது</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Open.Text" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="translated" state-qualifier="tm-suggestion">திற</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="OverlayMode.Text" translate="yes" xml:space="preserve">
+          <source>Overlay Mode</source>
+          <target state="translated">மேலடுக்கு பயன்முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Paste.Text" translate="yes" xml:space="preserve">
+          <source>Paste</source>
+          <target state="translated" state-qualifier="tm-suggestion">ஒட்டு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="PasteOptions.Text" translate="yes" xml:space="preserve">
+          <source>Paste Options</source>
+          <target state="translated" state-qualifier="tm-suggestion">ஒட்டுதல் விருப்பங்கள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RateAndReviewLink.Content" translate="yes" xml:space="preserve">
+          <source>Rate and Review</source>
+          <target state="translated">தரமதிப்பிடு மற்றும் மதிப்பாய்வு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Redo.Text" translate="yes" xml:space="preserve">
+          <source>Redo</source>
+          <target state="translated" state-qualifier="tm-suggestion">மீண்டும்செய்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Replace.Text" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="translated" state-qualifier="tm-suggestion">மாற்றிடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
+          <source>Reset</source>
+          <target state="translated" state-qualifier="tm-suggestion">மீட்டமை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
+          <source>You will need to restart Quick Pad to apply changes.</source>
+          <target state="translated">மாற்றங்களைச் செயற்படுத்த Quick Padஐ நீங்கள் மறுதுவக்கம் செய்ய வேண்டும்.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
+          <source>Restore Default Zoom</source>
+          <target state="translated">இயல்புநிலை சூமுக்கு மீட்டமை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated" state-qualifier="tm-suggestion">சேமி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SaveAs.Text" translate="yes" xml:space="preserve">
+          <source>Save As...</source>
+          <target state="translated" state-qualifier="tm-suggestion">மீண்டும் சேமி...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SearchBing.Text" translate="yes" xml:space="preserve">
+          <source>Search with Bing...</source>
+          <target state="translated">Bing உடன் தேடு...</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SelectAll.Text" translate="yes" xml:space="preserve">
+          <source>Select All</source>
+          <target state="translated" state-qualifier="tm-suggestion">எல்லாம் தேர்ந்தெடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Settings.Text" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated" state-qualifier="tm-suggestion">அமைப்புகள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="Share.Text" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="translated" state-qualifier="tm-suggestion">பகிர்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="SpellCheck.Text" translate="yes" xml:space="preserve">
+          <source>Spell Check</source>
+          <target state="translated" state-qualifier="tm-suggestion">எழுத்தாக்கச் சோதனை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
+          <source>Status Bar</source>
+          <target state="translated" state-qualifier="tm-suggestion">நிலைப் பட்டி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
+          <source>Col: </source>
+          <target state="translated">பத்தி:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
+        </trans-unit>
+        <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
+          <source>Ln: </source>
+          <target state="translated">வரி:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
+        </trans-unit>
+        <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
+          <source>Theme</source>
+          <target state="translated" state-qualifier="tm-suggestion">கருப்பொருள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Undo.Text" translate="yes" xml:space="preserve">
+          <source>Undo</source>
+          <target state="translated" state-qualifier="tm-suggestion">செயல்தவிர்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="UseAcrylicOnTextBox.Text" translate="yes" xml:space="preserve">
+          <source>Use acrylic background for the text area</source>
+          <target state="translated">உரை இடத்திற்கு acrylic பின்னணியைப் பயன்படுத்து</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="View.Title" translate="yes" xml:space="preserve">
+          <source>View</source>
+          <target state="translated">காண்க</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
+        </trans-unit>
+        <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
+          <source>Word Wrap</source>
+          <target state="translated" state-qualifier="tm-suggestion">சொல் மடிப்பு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="WordWrapSetting.Text" translate="yes" xml:space="preserve">
+          <source>Word Wrap</source>
+          <target state="translated" state-qualifier="tm-suggestion">சொல் மடிப்பு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Zoom.Text" translate="yes" xml:space="preserve">
+          <source>Zoom</source>
+          <target state="translated" state-qualifier="tm-suggestion">பெரிதாக்கு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="ZoomIn.Text" translate="yes" xml:space="preserve">
+          <source>Zoom In</source>
+          <target state="translated" state-qualifier="tm-suggestion">இன்னும் பெரிதாக்கு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="ZoomOut.Text" translate="yes" xml:space="preserve">
+          <source>Zoom Out</source>
+          <target state="translated" state-qualifier="tm-suggestion">இன்னும் சிறிதாக்கு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontRtf.Text" translate="yes" xml:space="preserve">
+          <source>Default Rich Text Font</source>
+          <target state="translated">இயல்புநிலை உயர் உரை எழுத்துரு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontSizeRtf.Text" translate="yes" xml:space="preserve">
+          <source>Default Rich Text Font Size</source>
+          <target state="translated">இயல்புநிலை உயர் உரை எழுத்துரு அளவு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="WordWrapSettingRtf.Text" translate="yes" xml:space="preserve">
+          <source>Word Wrap in Rich Text</source>
+          <target state="translated">உயர் உரையில் சொல் மடிப்பு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="CancelButton" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">இரத்து</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
+        </trans-unit>
+        <trans-unit id="NoButton" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated" state-qualifier="tm-suggestion">இல்லை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
+        </trans-unit>
+        <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
+          <source>There are unsaved changes. Do you want to save them now?</source>
+          <target state="translated">சேமிக்கப்படாத மாற்றங்கள் உள்ளன? இப்போது சேமிக்க விரும்புகிறீர்களா?</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
+        </trans-unit>
+        <trans-unit id="PendingChangesTitle" translate="yes" xml:space="preserve">
+          <source>Pending Changes</source>
+          <target state="translated">நிலுவையிலுள்ள மாற்றங்கள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document Dialog</note>
+        </trans-unit>
+        <trans-unit id="YesButton" translate="yes" xml:space="preserve">
+          <source>Yes</source>
+          <target state="translated" state-qualifier="tm-suggestion">ஆம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
+        </trans-unit>
+        <trans-unit id="LaunchNinjaMode" translate="yes" xml:space="preserve">
+          <source>Ninja Mode</source>
+          <target state="translated">நிஞ்சாப் பயன்முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
+        </trans-unit>
+        <trans-unit id="AlignCenter.Text" translate="yes" xml:space="preserve">
+          <source>Align Center (Ctrl+E)</source>
+          <target state="translated">மையப்புறமாகச் சீரமை (Ctrl+E)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignCenterLabel.Label" translate="yes" xml:space="preserve">
+          <source>Align Center</source>
+          <target state="translated">மையப்புறமாகச் சீரமை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignLeft.Text" translate="yes" xml:space="preserve">
+          <source>Align Left (Ctrl+L)</source>
+          <target state="translated">இடதுபுறம் சீரமை (Ctrl+L)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignLeftLabel.Label" translate="yes" xml:space="preserve">
+          <source>Align Left</source>
+          <target state="translated" state-qualifier="tm-suggestion">இடதுபுறம் சீரமை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignRight.Text" translate="yes" xml:space="preserve">
+          <source>Align Right (Ctrl+R)</source>
+          <target state="translated">வலதுபுறம் சீரமை (Ctrl+R)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="AlignRightLabel.Label" translate="yes" xml:space="preserve">
+          <source>Align Right</source>
+          <target state="translated" state-qualifier="tm-suggestion">வலதுபுறம் சீரமை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Bold.Text" translate="yes" xml:space="preserve">
+          <source>Bold (Ctrl+B)</source>
+          <target state="translated">தடித்த (Ctrl+B)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="BoldLabel.Label" translate="yes" xml:space="preserve">
+          <source>Bold</source>
+          <target state="translated" state-qualifier="tm-suggestion">தடித்த</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Bullets.Text" translate="yes" xml:space="preserve">
+          <source>Toggle Bullets</source>
+          <target state="translated" state-qualifier="tm-suggestion">பொட்டுக்குறிகளை நிலைமாற்று</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="BulletsLabel.Label" translate="yes" xml:space="preserve">
+          <source>Bullets</source>
+          <target state="translated" state-qualifier="tm-suggestion">பொட்டுக்குறிகள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ClassicModeLabel.Label" translate="yes" xml:space="preserve">
+          <source>Classic Mode</source>
+          <target state="translated">Classic பயன்முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Color.Text" translate="yes" xml:space="preserve">
+          <source>Font Color</source>
+          <target state="translated" state-qualifier="tm-suggestion">எழுத்துரு வண்ணம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ColorLabel.Label" translate="yes" xml:space="preserve">
+          <source>Font Color</source>
+          <target state="translated" state-qualifier="tm-suggestion">எழுத்துரு வண்ணம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="CompactOverlayTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Compact Overlay (Alt + Up)</source>
+          <target state="translated">சிறிய மேலடுக்கு (Alt + Up)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
+          <source>Insert Emojis (Win + .)</source>
+          <target state="translated">ஈமோஜிகளைச் செருக (Win + .)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="EmojiLabel.Label" translate="yes" xml:space="preserve">
+          <source>Emojis</source>
+          <target state="translated" state-qualifier="tm-suggestion">ஈமோஜிக்கள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="FindLabel.Label" translate="yes" xml:space="preserve">
+          <source>Find</source>
+          <target state="translated" state-qualifier="tm-suggestion">கண்டுபிடி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="FocusModeLabel.Label" translate="yes" xml:space="preserve">
+          <source>Focus Mode</source>
+          <target state="translated">கவனிப்புப் பயன்முறை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Italic.Text" translate="yes" xml:space="preserve">
+          <source>Italic (Ctrl+I)</source>
+          <target state="translated">சாய்ந்த (Ctrl+I)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ItalicLabel.Label" translate="yes" xml:space="preserve">
+          <source>Italic</source>
+          <target state="translated" state-qualifier="tm-suggestion">சாய்ந்த</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="JustifyText.Text" translate="yes" xml:space="preserve">
+          <source>Justify Text (Ctrl+J)</source>
+          <target state="translated">உரையை ஓரச்சீரமை (Ctrl+J)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="JustifyTextLabel.Label" translate="yes" xml:space="preserve">
+          <source>Justify</source>
+          <target state="translated">ஓரச்சீரமை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="NewLabel.Label" translate="yes" xml:space="preserve">
+          <source>New</source>
+          <target state="translated" state-qualifier="tm-suggestion">புதிது</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="NewTip.Text" translate="yes" xml:space="preserve">
+          <source>New (Ctrl+N)</source>
+          <target state="translated">புதிது (Ctrl+N)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="OpenLabel.Label" translate="yes" xml:space="preserve">
+          <source>Open</source>
+          <target state="translated" state-qualifier="tm-suggestion">திற</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="OpenTip.Text" translate="yes" xml:space="preserve">
+          <source>Open (Ctrl+O)</source>
+          <target state="translated">திற (Ctrl+O)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="CmdLetsGo.Content" translate="yes" xml:space="preserve">
+          <source>Lets go!</source>
+          <target state="translated">செல்க!</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
+        </trans-unit>
+        <trans-unit id="RedoTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Redo (Ctrl+Y)</source>
+          <target state="translated">மீண்டும் செய் (Ctrl+Y)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="SaveLabel.Label" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated" state-qualifier="tm-suggestion">சேமி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="SaveTip.Text" translate="yes" xml:space="preserve">
+          <source>Save (Ctrl+S)</source>
+          <target state="translated" state-qualifier="tm-suggestion">சேமி (Ctrl+S)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="SettingsLabel.Label" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="translated" state-qualifier="tm-suggestion">அமைப்புகள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ShareLabel.Label" translate="yes" xml:space="preserve">
+          <source>Share</source>
+          <target state="translated" state-qualifier="tm-suggestion">பகிர்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="StatusBarLabel.Label" translate="yes" xml:space="preserve">
+          <source>Status Bar</source>
+          <target state="translated" state-qualifier="tm-suggestion">நிலைப் பட்டி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Strikethrough.Text" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="translated">அடித்துவிடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="StrikethroughLabel.Label" translate="yes" xml:space="preserve">
+          <source>Strikethrough</source>
+          <target state="translated">அடித்துவிடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="Underline.Text" translate="yes" xml:space="preserve">
+          <source>Underline (Ctrl+U)</source>
+          <target state="translated">அடிக்கோடிட்டு (Ctrl+U)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="UnderlineLabel.Label" translate="yes" xml:space="preserve">
+          <source>Label</source>
+          <target state="translated">பெயர் பலகை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="UndoTooltip.Text" translate="yes" xml:space="preserve">
+          <source>Undo (Ctrl+Z)</source>
+          <target state="translated" state-qualifier="tm-suggestion">செயல்தவிர் (Ctrl+Z)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="RichTextDescription" translate="yes" xml:space="preserve">
+          <source>Rich Text Document</source>
+          <target state="translated" state-qualifier="tm-suggestion">உயர் உரை ஆவணம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
+        </trans-unit>
+        <trans-unit id="TextDescription" translate="yes" xml:space="preserve">
+          <source>Text Document</source>
+          <target state="translated" state-qualifier="tm-suggestion">உரை ஆவணம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.CloseButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">இரத்து</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Save</source>
+          <target state="translated" state-qualifier="tm-suggestion">சேமி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Don't Save</source>
+          <target state="translated">சேமிக்காதே</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="SaveDialog.Title" translate="no" xml:space="preserve">
+          <source>Quick Pad</source>
+          <target state="final">Quick Pad</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="WouldYouLikeToSave.Text" translate="yes" xml:space="preserve">
+          <source>Would you like to save your changes?</source>
+          <target state="translated" state-qualifier="tm-suggestion">உங்கள் மாற்றங்களைச் சேமிக்க விரும்புகிறீர்களா?</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
+        </trans-unit>
+        <trans-unit id="AppVersion.Text" translate="yes" xml:space="preserve">
+          <source>Version:</source>
+          <target state="translated">பதிப்பு:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="PlainTextFontSettings.Text" translate="yes" xml:space="preserve">
+          <source>Plain Text Font Settings</source>
+          <target state="translated">எளிய உரை எழுத்துரு அமைப்புகள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="RichTextFontSettings.Text" translate="yes" xml:space="preserve">
+          <source>Rich Text Font Settings</source>
+          <target state="translated">உயர் உரை எழுத்துரு அமைப்புகள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SpellCheckRtf.Text" translate="yes" xml:space="preserve">
+          <source>Spell Check in Rich Text</source>
+          <target state="translated">உயர் உரையில் எழுத்தாக்கச் சோதனை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="ReportIssues.Content" translate="yes" xml:space="preserve">
+          <source>Report issues here</source>
+          <target state="translated">சிக்கல்களை இங்கு தெரிவியுங்கள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
+          <source>Source Code</source>
+          <target state="translated">மூல குறியீடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SpecialThanks.Text" translate="yes" xml:space="preserve">
+          <source>Special thanks to:</source>
+          <target state="translated">சிறப்பு நன்றிகள்:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
+          <source>Contribute to the developer</source>
+          <target state="translated">உருவாக்குநருக்கு பங்களிப்பு செய்யுங்கள்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Untitled" translate="yes" xml:space="preserve">
+          <source>Untitled</source>
+          <target state="translated" state-qualifier="tm-suggestion">தலைப்பிடாதது</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
+        </trans-unit>
+        <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
+          <source>Close</source>
+          <target state="translated" state-qualifier="tm-suggestion">மூடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindFilter.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Looking for?</source>
+          <target state="translated">எதைத் தேடுகிறீர்கள்?</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindMatchCase.Text" translate="yes" xml:space="preserve">
+          <source>Match Case</source>
+          <target state="translated" state-qualifier="tm-suggestion">எழுத்துவகையைப் பொருத்து</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
+          <source>More...</source>
+          <target state="translated" state-qualifier="tm-suggestion">மேலும்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
+          <source>Regular Expression</source>
+          <target state="translated">முறைப்பட்ட சொல்லுதல் (Regex)</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindReplace.Text" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="translated" state-qualifier="tm-suggestion">மாற்றிடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindReplaceAll.Text" translate="yes" xml:space="preserve">
+          <source>Replace all</source>
+          <target state="translated" state-qualifier="tm-suggestion">அனைத்தும் மாற்றிடு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
+          <source>Replace with...</source>
+          <target state="translated">உடன் மாற்று.. </target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
+        </trans-unit>
+        <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
+          <source>Time/Date</source>
+          <target state="translated">நேரம்/தேதி</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="translated">இரத்து</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="translated" state-qualifier="tm-suggestion">இங்கு செல்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="translated" state-qualifier="tm-suggestion">இங்கு செல்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
+          <source>Line number:</source>
+          <target state="translated">வரி எண்:</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="CompactOverlayTip.Subtitle" translate="yes" xml:space="preserve">
+          <source>With compact overlay you can make Quick Pad stay on top of other windows.</source>
+          <target state="translated">சிறிய மேலடுக்கு மூலம் நீங்கள் Quick Padஐ மற்ற சாளரங்கள் மேல் தங்க வைக்கலாம்.</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
+        </trans-unit>
+        <trans-unit id="CompactOverlayTip.Title" translate="yes" xml:space="preserve">
+          <source>Keep on top of other Windows</source>
+          <target state="translated">மற்ற சாளரங்கள் மேல் வைத்திரு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
+        </trans-unit>
+        <trans-unit id="ThemeAccentName" translate="yes" xml:space="preserve">
+          <source>System Accent Color</source>
+          <target state="translated">முறைமை அழுத்த வண்ணம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="SearchWithGoogle.Text" translate="yes" xml:space="preserve">
+          <source>Enable Google Search</source>
+          <target state="translated">Google தேடலை இயக்கு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
+        </trans-unit>
+        <trans-unit id="OtherOptions.Text" translate="yes" xml:space="preserve">
+          <source>Other</source>
+          <target state="translated" state-qualifier="tm-suggestion">மற்றவை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
+          <source>Review Quick Pad</source>
+          <target state="translated">Quick Padஐ மதிப்பாய்வு செய்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="translated" state-qualifier="tm-suggestion">இல்லை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
+          <source>Would you like to review Quick Pad in the Microsoft Store?</source>
+          <target state="translated">Microsoft கடையில் மதிப்பாய்வை சமர்ப்பிக்க விரும்புகிறீர்களா?</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
+          <source>Review</source>
+          <target state="translated" state-qualifier="tm-suggestion">மதிப்பாய்வு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
+          <source>Privacy Policy</source>
+          <target state="translated" state-qualifier="tm-suggestion">தனியுரிமைக் கொள்கை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
+          <source>Apricot</source>
+          <target state="translated">Apricot</target>
+        </trans-unit>
+        <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
+          <source>Black Coral</source>
+          <target state="translated">கருப்பு பவளம்</target>
+        </trans-unit>
+        <trans-unit id="ThemeDarkSiennaName" translate="no" xml:space="preserve">
+          <source>Dark Sienna</source>
+          <target state="final">Dark Sienna</target>
+        </trans-unit>
+        <trans-unit id="ThemeDarkSpringGreenName" translate="yes" xml:space="preserve">
+          <source>Dark Spring Green</source>
+          <target state="translated">இருண்ட வசந்த பச்சை</target>
+        </trans-unit>
+        <trans-unit id="ThemeMaximumPurpleName" translate="yes" xml:space="preserve">
+          <source>Maximum Purple</source>
+          <target state="translated">அதிகப்பட்ச ஊதா</target>
+        </trans-unit>
+        <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
+          <source>Medium Purple</source>
+          <target state="translated">ஊதா</target>
+        </trans-unit>
+        <trans-unit id="ThemePersimmonName" translate="no" xml:space="preserve">
+          <source>Persimmon</source>
+          <target state="final">Persimmon</target>
+        </trans-unit>
+        <trans-unit id="ThemeSizzlingRedName" translate="yes" xml:space="preserve">
+          <source>Sizzling Red</source>
+          <target state="translated">Sizzling சிவப்பு</target>
+        </trans-unit>
+      </group>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,706 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcrylicOptions.Text" xml:space="preserve">
+    <value>Acrylic விருப்பங்கள்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
+    <value>Acrylic நிற ஒளிபுகாநிலை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>மேம்பட்டவை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AppLanguage.Text" xml:space="preserve">
+    <value>பயன்பாட்டு மொழி</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>கோழிக்குஞ்சு</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>கோபால்ட்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>க்ரிம்ஸன்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>இருள்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>இலை</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>கீரை</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>வெளிச்சம்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>சீரற்றவை</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>ரோஜா தங்கம்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>முறைமை இயல்புநிலை</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>அடர் கருப்பொருள்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>வெளிர் கருப்பொருள்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>துவக்கத்தில் ஏதோ ஒரு கருப்பொருள்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>முறைமையின் கருப்பொருள்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="AutoSave.Text" xml:space="preserve">
+    <value>தானாக சேமி</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>தானாக சேமி ஒவ்வொரு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSaveSeconds.Text" xml:space="preserve">
+    <value>வினாடிகள்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="BackToDefault.Text" xml:space="preserve">
+    <value>இயல்புநிலை பயன்முறைக்கு திரும்பு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CloseCompactOverlay.Text" xml:space="preserve">
+    <value>சிறிய மேலடுக்கை மூடு</value>
+    <comment>Used on TitleBar</comment>
+  </data>
+  <data name="Copy.Text" xml:space="preserve">
+    <value>நகலெடு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CreatedBy.Text" xml:space="preserve">
+    <value>Yair Aichenbaum &amp; Sharp Ninja அல் உருவாக்கப்பட்டது</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Cut.Text" xml:space="preserve">
+    <value>வெட்டு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="DefaultFileEncoding.Text" xml:space="preserve">
+    <value>இயல்புநிலை கோப்பு குறியாக்கம்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFileType.Text" xml:space="preserve">
+    <value>இயல்புநிலை கோப்பு வகை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFont.Text" xml:space="preserve">
+    <value>இயல்புநிலை எழுத்துரு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Text" xml:space="preserve">
+    <value>இயல்புநிலை எழுத்துரு அளவு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Delete.Text" xml:space="preserve">
+    <value>நீக்கு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Edit.Title" xml:space="preserve">
+    <value>திருத்து</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="Exit.Text" xml:space="preserve">
+    <value>வெளியேறு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>ஏற்றுமதிசெய்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="File.Title" xml:space="preserve">
+    <value>கோப்பு</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="Find.Text" xml:space="preserve">
+    <value>கண்டுபிடி</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindNext.Text" xml:space="preserve">
+    <value>அடுத்ததைக் கண்டுபிடி</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindPrevious.Text" xml:space="preserve">
+    <value>முந்தையதைக் கண்டுபிடி</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FocusMode.Text" xml:space="preserve">
+    <value>கவனிப்புப் பயன்முறை</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>எழுத்துரு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Fonts.Text" xml:space="preserve">
+    <value>எழுத்துருக்கள்...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Format.Title" xml:space="preserve">
+    <value>வடிவமைப்பு</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>பொது</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="GoTo.Text" xml:space="preserve">
+    <value>இங்கு செல்</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>இறக்குமதி செய்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.Text" xml:space="preserve">
+    <value>Keep text only
+உரையை மட்டும் வைத்திரு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchClassicMode" xml:space="preserve">
+    <value>Classic பயன்முறை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchDefaultMode" xml:space="preserve">
+    <value>இயல்புநிலை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchFocusMode" xml:space="preserve">
+    <value>கவனிப்புப் பயன்முறை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchMode.Text" xml:space="preserve">
+    <value>இயக்கல் முறை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
+    <value>Classic பயன்முறை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchCompactOverlay" xml:space="preserve">
+    <value>சிறிய மேலடுக்கு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>அமைப்புகளை நிர்வகி</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="New.Text" xml:space="preserve">
+    <value>புதிது</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Open.Text" xml:space="preserve">
+    <value>திற</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="OverlayMode.Text" xml:space="preserve">
+    <value>மேலடுக்கு பயன்முறை</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Paste.Text" xml:space="preserve">
+    <value>ஒட்டு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="PasteOptions.Text" xml:space="preserve">
+    <value>ஒட்டுதல் விருப்பங்கள்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RateAndReviewLink.Content" xml:space="preserve">
+    <value>தரமதிப்பிடு மற்றும் மதிப்பாய்வு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Redo.Text" xml:space="preserve">
+    <value>மீண்டும்செய்</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Replace.Text" xml:space="preserve">
+    <value>மாற்றிடு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>மீட்டமை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RestatRequired.Text" xml:space="preserve">
+    <value>மாற்றங்களைச் செயற்படுத்த Quick Padஐ நீங்கள் மறுதுவக்கம் செய்ய வேண்டும்.</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RestoreDefaultZoom.Text" xml:space="preserve">
+    <value>இயல்புநிலை சூமுக்கு மீட்டமை</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Save.Text" xml:space="preserve">
+    <value>சேமி</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SaveAs.Text" xml:space="preserve">
+    <value>மீண்டும் சேமி...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SearchBing.Text" xml:space="preserve">
+    <value>Bing உடன் தேடு...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SelectAll.Text" xml:space="preserve">
+    <value>எல்லாம் தேர்ந்தெடு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>அமைப்புகள்</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Share.Text" xml:space="preserve">
+    <value>பகிர்</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SpellCheck.Text" xml:space="preserve">
+    <value>எழுத்தாக்கச் சோதனை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="StatusBar.Text" xml:space="preserve">
+    <value>நிலைப் பட்டி</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>பத்தி:</value>
+    <comment>Used on StatusTextBar</comment>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>வரி:</value>
+    <comment>Used on StatusTextBar</comment>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>கருப்பொருள்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Undo.Text" xml:space="preserve">
+    <value>செயல்தவிர்</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
+    <value>உரை இடத்திற்கு acrylic பின்னணியைப் பயன்படுத்து</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="View.Title" xml:space="preserve">
+    <value>காண்க</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="WordWrap.Text" xml:space="preserve">
+    <value>சொல் மடிப்பு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="WordWrapSetting.Text" xml:space="preserve">
+    <value>சொல் மடிப்பு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Zoom.Text" xml:space="preserve">
+    <value>பெரிதாக்கு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ZoomIn.Text" xml:space="preserve">
+    <value>இன்னும் பெரிதாக்கு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ZoomOut.Text" xml:space="preserve">
+    <value>இன்னும் சிறிதாக்கு</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="DefaultFontRtf.Text" xml:space="preserve">
+    <value>இயல்புநிலை உயர் உரை எழுத்துரு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
+    <value>இயல்புநிலை உயர் உரை எழுத்துரு அளவு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
+    <value>உயர் உரையில் சொல் மடிப்பு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>இரத்து</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="NoButton" xml:space="preserve">
+    <value>இல்லை</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesBody" xml:space="preserve">
+    <value>சேமிக்கப்படாத மாற்றங்கள் உள்ளன? இப்போது சேமிக்க விரும்புகிறீர்களா?</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesTitle" xml:space="preserve">
+    <value>நிலுவையிலுள்ள மாற்றங்கள்</value>
+    <comment>Used on Save Document Dialog</comment>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>ஆம்</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="LaunchNinjaMode" xml:space="preserve">
+    <value>நிஞ்சாப் பயன்முறை</value>
+    <comment>Used on Settings Pgae</comment>
+  </data>
+  <data name="AlignCenter.Text" xml:space="preserve">
+    <value>மையப்புறமாகச் சீரமை (Ctrl+E)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignCenterLabel.Label" xml:space="preserve">
+    <value>மையப்புறமாகச் சீரமை</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeft.Text" xml:space="preserve">
+    <value>இடதுபுறம் சீரமை (Ctrl+L)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeftLabel.Label" xml:space="preserve">
+    <value>இடதுபுறம் சீரமை</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRight.Text" xml:space="preserve">
+    <value>வலதுபுறம் சீரமை (Ctrl+R)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRightLabel.Label" xml:space="preserve">
+    <value>வலதுபுறம் சீரமை</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bold.Text" xml:space="preserve">
+    <value>தடித்த (Ctrl+B)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BoldLabel.Label" xml:space="preserve">
+    <value>தடித்த</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bullets.Text" xml:space="preserve">
+    <value>பொட்டுக்குறிகளை நிலைமாற்று</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BulletsLabel.Label" xml:space="preserve">
+    <value>பொட்டுக்குறிகள்</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ClassicModeLabel.Label" xml:space="preserve">
+    <value>Classic பயன்முறை</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Color.Text" xml:space="preserve">
+    <value>எழுத்துரு வண்ணம்</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ColorLabel.Label" xml:space="preserve">
+    <value>எழுத்துரு வண்ணம்</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="CompactOverlayTooltip.Text" xml:space="preserve">
+    <value>சிறிய மேலடுக்கு (Alt + Up)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Emoji.Text" xml:space="preserve">
+    <value>ஈமோஜிகளைச் செருக (Win + .)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="EmojiLabel.Label" xml:space="preserve">
+    <value>ஈமோஜிக்கள்</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FindLabel.Label" xml:space="preserve">
+    <value>கண்டுபிடி</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FocusModeLabel.Label" xml:space="preserve">
+    <value>கவனிப்புப் பயன்முறை</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Italic.Text" xml:space="preserve">
+    <value>சாய்ந்த (Ctrl+I)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ItalicLabel.Label" xml:space="preserve">
+    <value>சாய்ந்த</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyText.Text" xml:space="preserve">
+    <value>உரையை ஓரச்சீரமை (Ctrl+J)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyTextLabel.Label" xml:space="preserve">
+    <value>ஓரச்சீரமை</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewLabel.Label" xml:space="preserve">
+    <value>புதிது</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewTip.Text" xml:space="preserve">
+    <value>புதிது (Ctrl+N)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenLabel.Label" xml:space="preserve">
+    <value>திற</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenTip.Text" xml:space="preserve">
+    <value>திற (Ctrl+O)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="CmdLetsGo.Content" xml:space="preserve">
+    <value>செல்க!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="RedoTooltip.Text" xml:space="preserve">
+    <value>மீண்டும் செய் (Ctrl+Y)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveLabel.Label" xml:space="preserve">
+    <value>சேமி</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveTip.Text" xml:space="preserve">
+    <value>சேமி (Ctrl+S)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SettingsLabel.Label" xml:space="preserve">
+    <value>அமைப்புகள்</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ShareLabel.Label" xml:space="preserve">
+    <value>பகிர்</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StatusBarLabel.Label" xml:space="preserve">
+    <value>நிலைப் பட்டி</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Strikethrough.Text" xml:space="preserve">
+    <value>அடித்துவிடு</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StrikethroughLabel.Label" xml:space="preserve">
+    <value>அடித்துவிடு</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Underline.Text" xml:space="preserve">
+    <value>அடிக்கோடிட்டு (Ctrl+U)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UnderlineLabel.Label" xml:space="preserve">
+    <value>பெயர் பலகை</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UndoTooltip.Text" xml:space="preserve">
+    <value>செயல்தவிர் (Ctrl+Z)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="RichTextDescription" xml:space="preserve">
+    <value>உயர் உரை ஆவணம்</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="TextDescription" xml:space="preserve">
+    <value>உரை ஆவணம்</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="SaveDialog.CloseButtonText" xml:space="preserve">
+    <value>இரத்து</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.PrimaryButtonText" xml:space="preserve">
+    <value>சேமி</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
+    <value>சேமிக்காதே</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="WouldYouLikeToSave.Text" xml:space="preserve">
+    <value>உங்கள் மாற்றங்களைச் சேமிக்க விரும்புகிறீர்களா?</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="AppVersion.Text" xml:space="preserve">
+    <value>பதிப்பு:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="PlainTextFontSettings.Text" xml:space="preserve">
+    <value>எளிய உரை எழுத்துரு அமைப்புகள்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RichTextFontSettings.Text" xml:space="preserve">
+    <value>உயர் உரை எழுத்துரு அமைப்புகள்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheckRtf.Text" xml:space="preserve">
+    <value>உயர் உரையில் எழுத்தாக்கச் சோதனை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ReportIssues.Content" xml:space="preserve">
+    <value>சிக்கல்களை இங்கு தெரிவியுங்கள்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Content" xml:space="preserve">
+    <value>மூல குறியீடு</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpecialThanks.Text" xml:space="preserve">
+    <value>சிறப்பு நன்றிகள்:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ContributeToDeveloper.Content" xml:space="preserve">
+    <value>உருவாக்குநருக்கு பங்களிப்பு செய்யுங்கள்</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>தலைப்பிடாதது</value>
+    <comment>Used on Title Bar</comment>
+  </data>
+  <data name="FindClose.Text" xml:space="preserve">
+    <value>மூடு</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindFilter.PlaceholderText" xml:space="preserve">
+    <value>எதைத் தேடுகிறீர்கள்?</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMatchCase.Text" xml:space="preserve">
+    <value>எழுத்துவகையைப் பொருத்து</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMore.Text" xml:space="preserve">
+    <value>மேலும்</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindRegEx.Text" xml:space="preserve">
+    <value>முறைப்பட்ட சொல்லுதல் (Regex)</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplace.Text" xml:space="preserve">
+    <value>மாற்றிடு</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceAll.Text" xml:space="preserve">
+    <value>அனைத்தும் மாற்றிடு</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>உடன் மாற்று.. </value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>நேரம்/தேதி</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CmdCancel.Content" xml:space="preserve">
+    <value>இரத்து</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CmdGoTo.Content" xml:space="preserve">
+    <value>இங்கு செல்</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.Title" xml:space="preserve">
+    <value>இங்கு செல்</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToLineNumber.Header" xml:space="preserve">
+    <value>வரி எண்:</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
+    <value>சிறிய மேலடுக்கு மூலம் நீங்கள் Quick Padஐ மற்ற சாளரங்கள் மேல் தங்க வைக்கலாம்.</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="CompactOverlayTip.Title" xml:space="preserve">
+    <value>மற்ற சாளரங்கள் மேல் வைத்திரு</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="ThemeAccentName" xml:space="preserve">
+    <value>முறைமை அழுத்த வண்ணம்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SearchWithGoogle.Text" xml:space="preserve">
+    <value>Google தேடலை இயக்கு</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>மற்றவை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AskForReviewDialog.Title" xml:space="preserve">
+    <value>Quick Padஐ மதிப்பாய்வு செய்</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>இல்லை</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
+    <value>Microsoft கடையில் மதிப்பாய்வை சமர்ப்பிக்க விரும்புகிறீர்களா?</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>மதிப்பாய்வு</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>தனியுரிமைக் கொள்கை</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>Apricot</value>
+  </data>
+  <data name="ThemeBlackCoralName" xml:space="preserve">
+    <value>கருப்பு பவளம்</value>
+  </data>
+  <data name="ThemeDarkSpringGreenName" xml:space="preserve">
+    <value>இருண்ட வசந்த பச்சை</value>
+  </data>
+  <data name="ThemeMaximumPurpleName" xml:space="preserve">
+    <value>அதிகப்பட்ச ஊதா</value>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>ஊதா</value>
+  </data>
+  <data name="ThemeSizzlingRedName" xml:space="preserve">
+    <value>Sizzling சிவப்பு</value>
+  </data>
+</root>
