@@ -1,5 +1,5 @@
-﻿using Windows.ApplicationModel.Resources;
-using QuickPad.Mvvm.ViewModels;
+﻿using QuickPad.Mvvm.ViewModels;
+using Windows.ApplicationModel.Resources;
 
 namespace QuickPad.UI.Helpers
 {

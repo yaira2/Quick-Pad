@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvc.Hosting
 {

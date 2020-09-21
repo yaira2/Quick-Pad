@@ -1,9 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
+using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.UI.Commands
 {
@@ -17,6 +17,5 @@ namespace QuickPad.UI.Commands
                 return Task.CompletedTask;
             };
         }
-
     }
 }

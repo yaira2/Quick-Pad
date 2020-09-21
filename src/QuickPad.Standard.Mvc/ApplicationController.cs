@@ -1,13 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
-
+using System;
+using System.Collections.Generic;
 
 namespace QuickPad.Mvc
 {
@@ -33,8 +31,6 @@ namespace QuickPad.Mvc
             if (Logger.IsEnabled(LogLevel.Debug)) Logger.LogDebug("Started Application Controller.");
         }
 
-
-
         internal ILogger<ApplicationController<TStorageFile, TStream, TDocumentManager>> Logger { get; }
         internal IServiceProvider ServiceProvider { get; }
 
@@ -57,7 +53,6 @@ namespace QuickPad.Mvc
                     documentView.LoadFromFile += _documentManager.LoadFile;
                     documentView.GainedFocus += _documentManager.DocumentViewOnGainedFocus;
                     documentView.SaveToFile += _documentManager.SaveDocument;
-
 
                     _documentManager.Initializer(documentView
                         , ServiceProvider.GetService<IQuickPadCommands<TStorageFile, TStream>>()

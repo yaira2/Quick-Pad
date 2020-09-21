@@ -1,19 +1,17 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Uwp.Helpers;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Models;
+using QuickPad.Mvvm.ViewModels;
+using System;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI;
-using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
-using Microsoft.Extensions.Logging;
-using Microsoft.Toolkit.Uwp.Helpers;
-using QuickPad.Mvvm;
-using QuickPad.Mvvm.Models;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Theme;
 
 namespace QuickPad.UI.Helpers
 {
@@ -39,7 +37,7 @@ namespace QuickPad.UI.Helpers
         public override bool CanPaste => true;
         public override bool CanRedo => Document.CanRedo;
         public override bool CanUndo => Document.CanUndo;
-        
+
         public override void SetDefaults(Action continueWith)
         {
             App.TryEnqueue(() =>
@@ -102,7 +100,7 @@ namespace QuickPad.UI.Helpers
             var bytes = Encoding.UTF8.GetBytes("\r");
             var buffer = bytes.AsBuffer();
             var task = memoryStream.WriteAsync(buffer);
-            
+
             task.GetResults();
 
             memoryStream.Seek(0);
@@ -170,6 +168,5 @@ namespace QuickPad.UI.Helpers
         {
             return Document.Text;
         }
-
     }
 }

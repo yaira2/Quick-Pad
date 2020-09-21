@@ -6,11 +6,12 @@ namespace QuickPad.UI.Helpers
     {
         private ResourceLoader _resourceLoader;
         private string _text = null;
-            
+
         public string Uid { get; }
-        public string Text 
-        { 
-            get 
+
+        public string Text
+        {
+            get
             {
                 if (_text == null)
                 {
@@ -20,7 +21,7 @@ namespace QuickPad.UI.Helpers
                 }
 
                 return _text;
-            } 
+            }
         }
 
         public DisplayMode(string uid)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using QuickPad.UI.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -12,8 +14,6 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Media;
-using Microsoft.Extensions.DependencyInjection;
-using QuickPad.UI.Helpers;
 
 namespace QuickPad.UI.Theme
 {
@@ -31,6 +31,7 @@ namespace QuickPad.UI.Theme
         public static IVisualThemeSelector Current => ServiceProvider?.GetService<IVisualThemeSelector>();
 
         public event PropertyChangedEventHandler PropertyChanged;
+
         public event ThemeChangedEventHandler ThemeChanged
         {
             add
@@ -49,11 +50,13 @@ namespace QuickPad.UI.Theme
             get;
             set;
         }
+
         public VisualTheme SettingsItem
         {
             get;
             set;
         }
+
         public VisualTheme CurrentItem
         {
             get;
@@ -133,27 +136,27 @@ namespace QuickPad.UI.Theme
             switch (theme.Kind)
             {
                 case VisualThemeKind.System:
-                {
-                    var systemTheme = GetSystemTheme();
-                    var darkTheme = (systemTheme.HasValue && !systemTheme.Value);
-                    CurrentItem = GetThemeFromId((darkTheme) ? DARK_KEY : LIGHT_KEY);
-                    break;
-                }
+                    {
+                        var systemTheme = GetSystemTheme();
+                        var darkTheme = (systemTheme.HasValue && !systemTheme.Value);
+                        CurrentItem = GetThemeFromId((darkTheme) ? DARK_KEY : LIGHT_KEY);
+                        break;
+                    }
                 case VisualThemeKind.Random:
-                {
-                    var customThemes = new List<VisualTheme>(_themes.Where(x => x.Kind == VisualThemeKind.Custom));
-                    var random = new Random();
-                    var index = random.Next(0, customThemes.Count);
-                    var luckyOne = customThemes[index];
-                    CurrentItem = luckyOne;
-                    break;
-                }
+                    {
+                        var customThemes = new List<VisualTheme>(_themes.Where(x => x.Kind == VisualThemeKind.Custom));
+                        var random = new Random();
+                        var index = random.Next(0, customThemes.Count);
+                        var luckyOne = customThemes[index];
+                        CurrentItem = luckyOne;
+                        break;
+                    }
                 default:
                     CurrentItem = theme;
                     break;
             }
 
-            _settingsViewModel.DefaultTextForegroundBrush = 
+            _settingsViewModel.DefaultTextForegroundBrush =
                 new SolidColorBrush(CurrentItem.DefaultTextForegroundColor);
 
             RaisePropertyChanged(nameof(SettingsItem));
@@ -180,7 +183,7 @@ namespace QuickPad.UI.Theme
             }
         }
 
-        public void RaisePropertyChanged([CallerMemberName]string propertyName = "")
+        public void RaisePropertyChanged([CallerMemberName] string propertyName = "")
         {
             PropertyChanged?.Invoke(this
                 , new PropertyChangedEventArgs(propertyName));
@@ -220,7 +223,7 @@ namespace QuickPad.UI.Theme
             rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.LightGreen, Offset = .50d });
             rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Teal, Offset = .75d });
             rdmPreview.GradientStops.Add(new GradientStop { Color = Colors.Violet, Offset = 1d });
-            
+
             var rdm = new VisualTheme
             {
                 ThemeId = "random",
@@ -275,7 +278,7 @@ namespace QuickPad.UI.Theme
                 BackgroundSource = AcrylicBackgroundSource.Backdrop,
                 FallbackColor = accentColor,
                 TintColor = accentColor,
-                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + - .25) < 0 ? 0 : _settingsViewModel.BackgroundTintOpacity - .25
+                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + -.25) < 0 ? 0 : _settingsViewModel.BackgroundTintOpacity - .25
             };
 
             var inAppAcrylic = new AcrylicBrush
@@ -288,8 +291,8 @@ namespace QuickPad.UI.Theme
 
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
 
-            var descriptionResKey = (lightTheme) 
-                ? "ThemeGeneralLightDescription" 
+            var descriptionResKey = (lightTheme)
+                ? "ThemeGeneralLightDescription"
                 : "ThemeGeneralDarkDescription";
 
             var theme = new VisualTheme
@@ -317,7 +320,7 @@ namespace QuickPad.UI.Theme
         private VisualTheme GetThemeFromId(string id)
         {
             var comparer = StringComparer.OrdinalIgnoreCase;
-            
+
             var match = ThemesView.OfType<VisualTheme>().FirstOrDefault(
                 x => comparer.Equals(x.ThemeId, id));
 
@@ -334,8 +337,10 @@ namespace QuickPad.UI.Theme
             {
                 case "#FF000000":
                     return false;
+
                 case "#FFFFFFFF":
                     return true;
+
                 default:
                     return null;
             }

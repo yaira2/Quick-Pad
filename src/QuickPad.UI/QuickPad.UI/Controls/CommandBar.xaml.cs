@@ -1,4 +1,9 @@
-﻿using System;
+﻿using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Models;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using Windows.Storage;
@@ -6,12 +11,6 @@ using Windows.Storage.Streams;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.Models;
-using QuickPad.UI.Helpers;
-using QuickPad.UI.Theme;
-
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -26,11 +25,10 @@ namespace QuickPad.UI.Controls
             this.InitializeComponent();
         }
 
-
         public IVisualThemeSelector VtSelector => VisualThemeSelector.Current;
 
         public WindowsSettingsViewModel Settings => App.Settings;
-        
+
         public QuickPadCommands<StorageFile, IRandomAccessStream> Commands => App.Commands;
 
         public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
@@ -83,6 +81,7 @@ namespace QuickPad.UI.Controls
         }
 
         public event Action<string> SetFontName;
+
         public event Action<float> SetFontSize;
 
         private void OpenFontFlyout(object sender, object e)
@@ -109,6 +108,5 @@ namespace QuickPad.UI.Controls
             FontListSelection.ScrollIntoView(trySelect, ScrollIntoViewAlignment.Leading);
             FontListSelection.SelectedItem = trySelect;
         }
-
     }
 }

@@ -1,15 +1,13 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.Views;
 using QuickPad.Standard.Data;
+using System;
+using System.ComponentModel;
+using System.Text;
+using System.Threading;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -40,7 +38,7 @@ namespace QuickPad.Mvvm.ViewModels
             , SettingsViewModel<TStorageFile, TStream> settings
             , IDocumentViewModelStrings strings
             , IApplication<TStorageFile, TStream> app
-            , IQuickPadCommands<TStorageFile, TStream> commands) 
+            , IQuickPadCommands<TStorageFile, TStream> commands)
             : base(logger, app)
         {
             ServiceProvider = serviceProvider;
@@ -81,7 +79,7 @@ namespace QuickPad.Mvvm.ViewModels
             set
             {
                 Set(ref _document, value);
-                
+
                 _document.PropertyChanged -= DocumentOnPropertyChanged;
                 _document.PropertyChanged += DocumentOnPropertyChanged;
             }
@@ -108,8 +106,8 @@ namespace QuickPad.Mvvm.ViewModels
 
         private const QuickPadTextGetOptions DEFAULT_TEXT_GET_OPTIONS_RTF =
             QuickPadTextGetOptions.FormatRtf | QuickPadTextGetOptions.IncludeNumbering | QuickPadTextGetOptions.NoHidden;
-        private const QuickPadTextSetOptions DEFAULT_TEXT_SET_OPTIONS_RTF = QuickPadTextSetOptions.FormatRtf | QuickPadTextSetOptions.Unhide;
 
+        private const QuickPadTextSetOptions DEFAULT_TEXT_SET_OPTIONS_RTF = QuickPadTextSetOptions.FormatRtf | QuickPadTextSetOptions.Unhide;
 
         public QuickPadTextGetOptions GetOption { get; private set; } = DEFAULT_TEXT_GET_OPTIONS_TXT;
         public QuickPadTextSetOptions SetOption { get; private set; } = DEFAULT_TEXT_SET_OPTIONS_TXT;
@@ -153,6 +151,7 @@ namespace QuickPad.Mvvm.ViewModels
         public event Action<float> SetScale;
 
         private float _scaleValue = 1;
+
         public float ScaleValue
         {
             get => _scaleValue;
@@ -166,14 +165,15 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         private string _fontColor;
+
         public string FontColor
         {
             get => _fontColor ??= Settings.DefaultTextForegroundColor;
             set => Set(ref _fontColor, value);
         }
 
-
         public void InvokeClearUndoRedo() => ClearUndoRedo?.Invoke();
+
         public Action ClearUndoRedo;
 
         public string FilePath
@@ -243,7 +243,6 @@ namespace QuickPad.Mvvm.ViewModels
                 if (isDirty) Document.CalculateDirty();
                 else Document.IsDirty = false;
             });
-
         }
 
         public string SelectedText
@@ -273,6 +272,7 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         public event Func<(int start, int length)> GetPosition;
+
         public event Action<string> SetSelectedText;
 
         public void SelectText(int start, int length, bool reindex = true)
@@ -367,7 +367,7 @@ namespace QuickPad.Mvvm.ViewModels
                     {
                         ReleaseUpdates();
 
-                        if(notify) NotifyAll();
+                        if (notify) NotifyAll();
                     }
                 });
             }
@@ -417,6 +417,7 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         private string _showReplaceIcon = ""; //this is the expand icon
+
         public string ShowReplaceIcon
         {
             get => _showReplaceIcon;
@@ -433,7 +434,7 @@ namespace QuickPad.Mvvm.ViewModels
                     ShowFind = true;
                     ShowReplaceIcon = ""; //this is the collapse button
                 }
-                else {ShowReplaceIcon = ""; } //this is the expand button
+                else { ShowReplaceIcon = ""; } //this is the expand button
             }
         }
 
@@ -448,7 +449,6 @@ namespace QuickPad.Mvvm.ViewModels
             set
             {
                 if (!IsRtf) SetText(value, true);
-
                 else if (value != RtfText)
                 {
                     Document.SetText(DEFAULT_TEXT_SET_OPTIONS_RTF, value);
@@ -490,6 +490,7 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         public event Action<DocumentViewModel<TStorageFile, TStream>> RedoRequested;
+
         public event Action<DocumentViewModel<TStorageFile, TStream>> UndoRequested;
 
         public void RequestUndo()

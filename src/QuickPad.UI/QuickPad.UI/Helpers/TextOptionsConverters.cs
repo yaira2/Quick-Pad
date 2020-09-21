@@ -1,5 +1,5 @@
-﻿using Windows.UI.Text;
-using QuickPad.Mvvm.Models;
+﻿using QuickPad.Mvvm.Models;
+using Windows.UI.Text;
 
 namespace QuickPad.UI.Helpers
 {

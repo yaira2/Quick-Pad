@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using QuickPad.Data;
+﻿using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QuickPad.Mvc
 {
@@ -23,7 +19,6 @@ namespace QuickPad.Mvc
         protected internal ILogger<ApplicationController<TStorageFile, TStream, TDocumentManager>> Logger { get; set; }
         protected internal IServiceProvider ServiceProvider { get; set; }
         protected internal IApplication<TStorageFile, TStream> App { get; protected set; }
-
 
         public IEnumerable<IDocumentView<TStorageFile, TStream>> Views { get; set; }
 
@@ -83,7 +78,9 @@ namespace QuickPad.Mvc
             bool isClosing = true);
 
         protected abstract Task LoadDocument(DocumentViewModel<TStorageFile, TStream> documentViewModel);
+
         public abstract Task LoadFile(DocumentViewModel<TStorageFile, TStream> viewModel, TStorageFile file);
+
         protected internal abstract Task<SaveState> SaveDocument(DocumentViewModel<TStorageFile, TStream> documentViewModel, bool saveAs);
 
         public enum DeferredState
@@ -123,6 +120,7 @@ namespace QuickPad.Mvc
 
             // ReSharper disable once IdentifierTypo
             Bocu1,
+
             Gb18030
         }
 

@@ -1,33 +1,29 @@
-﻿using System;
-using Windows.ApplicationModel;
-using Windows.ApplicationModel.Activation;
-using Windows.Globalization;
-using Windows.Storage;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Navigation;
+﻿using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvc;
 using QuickPad.Mvc.Hosting;
-using QuickPad.Mvvm;
 using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
-using Microsoft.AppCenter.Crashes;
-using Microsoft.AppCenter.Analytics;
-using Microsoft.AppCenter;
-using System.Runtime.InteropServices;
+using QuickPad.UI.Helpers;
+using System;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
+using Windows.ApplicationModel;
+using Windows.ApplicationModel.Activation;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.Resources;
+using Windows.Globalization;
+using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.System;
-using Windows.UI.Core;
-using Microsoft.Toolkit.Uwp.Helpers;
-using QuickPad.UI.Helpers;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 using QuickPadCommands = QuickPad.Mvvm.Commands.QuickPadCommands<Windows.Storage.StorageFile, Windows.Storage.Streams.IRandomAccessStream>;
 
 namespace QuickPad.UI
@@ -167,7 +163,6 @@ namespace QuickPad.UI
             // The name of the first file is args.Files[0].Name
             Window.Current.Content = mainPage;
             Window.Current.Activate();
-
         }
 
         public StorageFile FileToLoad { get; set; }
@@ -235,7 +230,7 @@ namespace QuickPad.UI
                         arg = arg.Remove(0, index);
                         arg = arg.Replace("\"", "");
 
-                        if(!arg.Contains(":"))
+                        if (!arg.Contains(":"))
                         {
                             return GetAbsolutePath(baseb, arg);
                         }
@@ -246,7 +241,7 @@ namespace QuickPad.UI
                     {
                         arg = arg.Replace("\"", "");
 
-                        if(!arg.Contains(":"))
+                        if (!arg.Contains(":"))
                         {
                             return GetAbsolutePath(baseb, arg);
                         }
@@ -323,7 +318,7 @@ namespace QuickPad.UI
         /// </summary>
         /// <param name="sender">The Frame which failed navigation</param>
         /// <param name="e">Details about the navigation failure</param>
-        void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
+        private void OnNavigationFailed(object sender, NavigationFailedEventArgs e)
         {
             throw new Exception("Failed to load Page " + e.SourcePageType.FullName);
         }
@@ -364,4 +359,3 @@ namespace QuickPad.UI
         DocumentViewModel<StorageFile, IRandomAccessStream> QuickPad.Mvvm.IApplication<StorageFile, IRandomAccessStream>.CurrentViewModel => CurrentViewModel;
     }
 }
-

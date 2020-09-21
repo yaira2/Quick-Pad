@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 namespace QuickPad.Mvvm.Commands.Clipboard
 {
-
     public class SearchWithBingCommand<TStorageFile, TStream> : SimpleCommand<SettingsViewModel<TStorageFile, TStream>>
         where TStream : class
     {

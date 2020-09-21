@@ -28,6 +28,5 @@
   <Library Name="QuickPad.Data">
 
   	<!-- add directives for your library here -->
-
   </Library>
 </Directives>

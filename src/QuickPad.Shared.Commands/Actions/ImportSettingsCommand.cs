@@ -1,6 +1,5 @@
 ﻿using QuickPad.Mvvm.ViewModels;
 
-
 namespace QuickPad.Mvvm.Commands.Actions
 {
     public class ImportSettingsCommand<TStorageFile, TStream> : SimpleCommand<SettingsViewModel<TStorageFile, TStream>>

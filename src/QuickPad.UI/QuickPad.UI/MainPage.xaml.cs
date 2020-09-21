@@ -1,39 +1,34 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Toolkit.Uwp.Helpers;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.Managers;
+using QuickPad.Mvvm.Models;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.Mvvm.Views;
+using QuickPad.UI.Dialogs;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
-using Windows.UI.Core.Preview;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using Windows.UI.ViewManagement;
+using Windows.System;
 using Windows.UI;
 using Windows.UI.Core;
-using Microsoft.Extensions.Logging;
-using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.ViewModels;
-using Windows.System;
-using Microsoft.Extensions.DependencyInjection;
-using QuickPad.Mvvm.Views;
-using Microsoft.Toolkit.Uwp.Helpers;
-using Windows.UI.StartScreen;
-using QuickPad.Mvvm;
-using QuickPad.Mvvm.Models;
-using Windows.UI.Xaml.Media.Imaging;
-using QuickPad.Mvc;
-using QuickPad.Mvvm.Managers;
-using QuickPad.UI.Dialogs;
-using QuickPad.UI.Helpers;
-using QuickPad.UI.Theme;
-
+using Windows.UI.Core.Preview;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -53,7 +48,7 @@ namespace QuickPad.UI
         private ILogger<MainPage> Logger { get; }
 
         private IApplication<StorageFile, IRandomAccessStream> App =>
-            ((IApplication<StorageFile, IRandomAccessStream>) Application.Current);
+            ((IApplication<StorageFile, IRandomAccessStream>)Application.Current);
 
         public MainPage(IServiceProvider provider
             , ILogger<MainPage> logger
@@ -88,7 +83,6 @@ namespace QuickPad.UI
 
             CreateNewDocument?.Invoke(this);
 
-
             DataContext = ViewModel = viewModel;
 
             Loaded += OnLoaded;
@@ -100,7 +94,6 @@ namespace QuickPad.UI
             var tBar = ApplicationView.GetForCurrentView().TitleBar;
             tBar.ButtonBackgroundColor = Colors.Transparent;
             tBar.ButtonInactiveBackgroundColor = Colors.Transparent;
-
 
             Settings.ExitApplication = ExitApp;
 
@@ -146,7 +139,6 @@ namespace QuickPad.UI
         public void ViewModel_SetScale(float scale)
         {
             TextScrollViewer.ChangeView(0.0, 0.0, ViewModel.ScaleValue);
-
         }
 
         private void TextScrollViewer_ViewChanged(object sender, ScrollViewerViewChangedEventArgs e)
@@ -161,7 +153,7 @@ namespace QuickPad.UI
 
         private void CommandBarOnSetFontSize(float fontSize)
         {
-            if(RichEditBox.Document.Selection.FormattedText.CharacterFormat.Size != fontSize)
+            if (RichEditBox.Document.Selection.FormattedText.CharacterFormat.Size != fontSize)
             {
                 RichEditBox.Document.Selection.FormattedText.CharacterFormat.Size = fontSize;
             }
@@ -230,8 +222,11 @@ namespace QuickPad.UI
         }
 
         public event Func<DocumentViewModel<StorageFile, IRandomAccessStream>, StorageFile, Task> LoadFromFile;
+
         public event Action<IDocumentView<StorageFile, IRandomAccessStream>> SaveToFile;
+
         public event Action<IDocumentView<StorageFile, IRandomAccessStream>> CreateNewDocument;
+
         public event Action GainedFocus;
 
         private async Task SetOverlayMode(string mode)
@@ -305,7 +300,6 @@ namespace QuickPad.UI
             {
                 Logger.LogError(ex, "Error binding objects.");
             }
-
         }
 
         private async void OnCloseRequest(object sender, SystemNavigationCloseRequestedPreviewEventArgs e)
@@ -394,7 +388,7 @@ namespace QuickPad.UI
 
         private void ViewModelOnNewDocumentInitialized(DocumentModel<StorageFile, IRandomAccessStream> obj)
         {
-            switch(obj)
+            switch (obj)
             {
                 case RtfDocument rtfDocument:
                     RichEditBox.SelectionChanging += (sender, args) => rtfDocument.NotifyOnSelectionChange();
@@ -406,7 +400,7 @@ namespace QuickPad.UI
 
         private void ViewModelOnFocus()
         {
-            if(ViewModel.IsRtf)
+            if (ViewModel.IsRtf)
             {
                 RichEditBox.Focus(FocusState.Programmatic);
             }
@@ -450,7 +444,6 @@ namespace QuickPad.UI
                 Logger.LogError(ex, $"Invalid position for selection. (start: {start}, length: {length}).");
             }
         }
-
 
         private void ViewModelOnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
@@ -497,15 +490,16 @@ namespace QuickPad.UI
         public event Action<IDocumentView<StorageFile
             , IRandomAccessStream>, IQuickPadCommands<StorageFile, IRandomAccessStream>
             , IApplication<StorageFile, IRandomAccessStream>> Initialize;
+
         public event Func<DocumentViewModel<StorageFile, IRandomAccessStream>, Task<bool>> ExitApplication;
 
         private async void MainPage_OnKeyUp(object sender, KeyRoutedEventArgs args)
         {
-            var controlDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control) .HasFlag(CoreVirtualKeyStates.Down);
+            var controlDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Control).HasFlag(CoreVirtualKeyStates.Down);
             var menuDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Menu).HasFlag(CoreVirtualKeyStates.Down);
-            var shiftDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift) .HasFlag(CoreVirtualKeyStates.Down);
-            var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows) .HasFlag(CoreVirtualKeyStates.Down);
-            var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows) .HasFlag(CoreVirtualKeyStates.Down);
+            var shiftDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift).HasFlag(CoreVirtualKeyStates.Down);
+            var leftWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.LeftWindows).HasFlag(CoreVirtualKeyStates.Down);
+            var rightWindowsDown = Window.Current.CoreWindow.GetKeyState(VirtualKey.RightWindows).HasFlag(CoreVirtualKeyStates.Down);
 
             //ctrl + +
             //zoom in
@@ -642,15 +636,15 @@ namespace QuickPad.UI
 
                 if (index + 1 >= text.Length) break;
             }
-            
-            GetPosition(ViewModel.IsRtf 
-                ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length 
+
+            GetPosition(ViewModel.IsRtf
+                ? RichEditBox.Document.Selection.StartPosition + RichEditBox.Document.Selection.Length
                 : TextBox.SelectionStart + TextBox.SelectionLength);
         }
 
         private void RichEditBox_TextChanged(object sender, RoutedEventArgs e)
         {
-            if(ViewModel.IsRtf)
+            if (ViewModel.IsRtf)
             {
                 Reindex();
 
@@ -706,7 +700,7 @@ namespace QuickPad.UI
         {
             if (!primaryCommands.Any(b => b is AppBarButton button && button.Name == "Bing"))
             {
-                var iconBing = new BitmapIcon {UriSource = new Uri("ms-appx:///Assets/BingIcon.png")};
+                var iconBing = new BitmapIcon { UriSource = new Uri("ms-appx:///Assets/BingIcon.png") };
 
                 var searchCommandBarBing = new AppBarButton
                 {
@@ -719,10 +713,10 @@ namespace QuickPad.UI
                 primaryCommands.Add(searchCommandBarBing);
             }
 
-            if (Settings.EnableGoogleSearch != true || 
+            if (Settings.EnableGoogleSearch != true ||
                 primaryCommands.Any(b => b is AppBarButton button && button.Name == "Google")) return;
 
-            var iconGoogle = new BitmapIcon {UriSource = new Uri("ms-appx:///Assets/GoogleIcon.png")};
+            var iconGoogle = new BitmapIcon { UriSource = new Uri("ms-appx:///Assets/GoogleIcon.png") };
             var searchCommandBarGoogle = new AppBarButton
             {
                 Name = "Google",

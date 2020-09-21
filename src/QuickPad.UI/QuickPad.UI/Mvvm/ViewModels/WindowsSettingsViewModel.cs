@@ -1,4 +1,14 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Graphics.Canvas.Text;
+using Microsoft.Toolkit.Uwp.Helpers;
+using Newtonsoft.Json;
+using QuickPad.Mvvm;
+using QuickPad.Mvvm.Managers;
+using QuickPad.Mvvm.Models;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Theme;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -16,17 +26,6 @@ using Windows.System;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Graphics.Canvas.Text;
-using Microsoft.Toolkit.Uwp.Helpers;
-using Newtonsoft.Json;
-using QuickPad.Mvc;
-using QuickPad.Mvvm;
-using QuickPad.Mvvm.Managers;
-using QuickPad.Mvvm.Models;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Theme;
 
 namespace QuickPad.UI.Helpers
 {
@@ -48,7 +47,7 @@ namespace QuickPad.UI.Helpers
             : base(logger, serviceProvider, app)
         {
             ServiceProvider = serviceProvider;
-            
+
             Model = new WindowsSettingsModel(logger, app, serviceProvider);
 
             Model.PropertyChanged += ModelOnPropertyChanged;
@@ -102,7 +101,7 @@ namespace QuickPad.UI.Helpers
                 : FlowDirection.LeftToRight;
             set => Model.FlowDirection = value.ToString();
         }
-        
+
         [JsonIgnore]
         [NotifyOnReset]
         public Thickness TitleMargin => FocusMode
@@ -112,7 +111,7 @@ namespace QuickPad.UI.Helpers
         [JsonIgnore]
         public bool ShowCompactOverlayTip { get; set; } = SystemInformation.IsFirstRun;
 
-        [JsonIgnore] 
+        [JsonIgnore]
         public ObservableCollection<DisplayMode> AllDisplayModes { get; }
 
         [JsonIgnore]
@@ -126,7 +125,7 @@ namespace QuickPad.UI.Helpers
         public SolidColorBrush DefaultStatusColor =>
             Application.Current.Resources["SystemControlForegroundBaseMediumHighBrush"] as SolidColorBrush;
 
-        [JsonIgnore] 
+        [JsonIgnore]
         public IServiceProvider ServiceProvider { get; }
 
         [JsonIgnore]
@@ -185,10 +184,10 @@ namespace QuickPad.UI.Helpers
         private Color FromHex(string hex)
         {
             hex = hex.Replace("#", string.Empty);
-            var a = (byte) Convert.ToUInt32(hex.Substring(0, 2), 16);
-            var r = (byte) Convert.ToUInt32(hex.Substring(2, 2), 16);
-            var g = (byte) Convert.ToUInt32(hex.Substring(4, 2), 16);
-            var b = (byte) Convert.ToUInt32(hex.Substring(6, 2), 16);
+            var a = (byte)Convert.ToUInt32(hex.Substring(0, 2), 16);
+            var r = (byte)Convert.ToUInt32(hex.Substring(2, 2), 16);
+            var g = (byte)Convert.ToUInt32(hex.Substring(4, 2), 16);
+            var b = (byte)Convert.ToUInt32(hex.Substring(6, 2), 16);
 
             return Color.FromArgb(a, r, g, b);
         }
@@ -271,13 +270,11 @@ namespace QuickPad.UI.Helpers
                 var json = JsonConvert.SerializeObject(Model, Formatting.Indented, jsonConfiguration);
                 var bytes = Encoding.UTF8.GetBytes(json);
 
-
                 stream.Write(bytes, 0, bytes.Length);
                 await stream.FlushAsync();
             }
             catch (Exception)
             {
-
             }
             finally
             {

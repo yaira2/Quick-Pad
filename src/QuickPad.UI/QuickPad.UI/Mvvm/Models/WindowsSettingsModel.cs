@@ -1,17 +1,16 @@
-﻿using System;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Text.Json.Serialization;
-using Windows.Storage;
-using Windows.Storage.Streams;
-using Windows.UI;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Theme;
+using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI;
 
 namespace QuickPad.UI.Helpers
 {
@@ -23,7 +22,7 @@ namespace QuickPad.UI.Helpers
 
         public WindowsSettingsModel(ILogger<SettingsViewModel<StorageFile, IRandomAccessStream>> logger
             , IApplication<StorageFile, IRandomAccessStream> app
-            , IServiceProvider serviceProvider) 
+            , IServiceProvider serviceProvider)
             : base(logger, app)
         {
             _serviceProvider = serviceProvider;
@@ -78,8 +77,8 @@ namespace QuickPad.UI.Helpers
                 : propertyName;
 
             TValue originalValue = default;
-            
-            if(_roamingSettings.Values.ContainsKey(propertyName))
+
+            if (_roamingSettings.Values.ContainsKey(propertyName))
             {
                 originalValue = Get(originalValue, propertyName);
 
@@ -113,7 +112,7 @@ namespace QuickPad.UI.Helpers
                 {
                     if (value is IConvertible)
                     {
-                        tValue = (TValue) Convert.ChangeType(value, typeof(TValue));
+                        tValue = (TValue)Convert.ChangeType(value, typeof(TValue));
                     }
                     else
                     {
@@ -126,7 +125,7 @@ namespace QuickPad.UI.Helpers
                         tValue = default;
 
                         var tryParseDelegate =
-                            (TryParseDelegate<TValue>) Delegate.CreateDelegate(valueType, tryParse, false);
+                            (TryParseDelegate<TValue>)Delegate.CreateDelegate(valueType, tryParse, false);
 
                         tValue = (tryParseDelegate?.Invoke(stringValue, out tValue) ?? false) ? tValue : default(TValue);
                     }
@@ -147,5 +146,5 @@ namespace QuickPad.UI.Helpers
         }
     }
 
-    delegate bool TryParseDelegate<TValue>(string inValue, out TValue parsedValue);
+    internal delegate bool TryParseDelegate<TValue>(string inValue, out TValue parsedValue);
 }

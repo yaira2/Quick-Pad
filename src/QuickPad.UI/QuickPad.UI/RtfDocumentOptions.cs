@@ -1,9 +1,9 @@
-﻿using Windows.Storage;
-using Windows.Storage.Streams;
-using Windows.UI.Text;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Helpers;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Text;
 
 namespace QuickPad.UI
 {

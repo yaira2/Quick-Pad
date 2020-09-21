@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using QuickPad.Mvvm.Managers;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using System;
 using System.Threading.Tasks;
-using QuickPad.Mvvm.Managers;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {

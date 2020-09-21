@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net.Mime;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
+﻿using Microsoft.Extensions.Logging;
 using QuickPad.Mvvm.ViewModels;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace QuickPad.Mvvm.Models
 {
@@ -42,7 +38,7 @@ namespace QuickPad.Mvvm.Models
                     return;
                 }
 
-                if(IsDirty)
+                if (IsDirty)
                 {
                     IsDirty = false;
                 }
@@ -53,7 +49,7 @@ namespace QuickPad.Mvvm.Models
 
                 return;
             }
-            
+
             void NotifyListeners()
             {
                 IsDirty = true;
@@ -132,6 +128,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selBold = false;
+
         public virtual bool SelBold
         {
             get => _selBold;
@@ -139,6 +136,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selItalic = false;
+
         public virtual bool SelItalic
         {
             get => _selItalic;
@@ -146,6 +144,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selUnderline = false;
+
         public virtual bool SelUnderline
         {
             get => _selUnderline;
@@ -153,6 +152,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selStrikethrough = false;
+
         public virtual bool SelStrikethrough
         {
             get => _selStrikethrough;
@@ -160,6 +160,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selCenter = false;
+
         public virtual bool SelCenter
         {
             get => _selCenter;
@@ -167,6 +168,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selRight = false;
+
         public virtual bool SelRight
         {
             get => _selRight;
@@ -174,6 +176,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selLeft = false;
+
         public virtual bool SelLeft
         {
             get => _selLeft;
@@ -181,6 +184,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selJustify = false;
+
         public virtual bool SelJustify
         {
             get => _selJustify;
@@ -188,6 +192,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selBullets = false;
+
         public virtual bool SelBullets
         {
             get => _selBullets;
@@ -195,6 +200,7 @@ namespace QuickPad.Mvvm.Models
         }
 
         private bool _selSubscript = false;
+
         public virtual bool SelSubscript
         {
             get => _selSubscript;
@@ -212,14 +218,15 @@ namespace QuickPad.Mvvm.Models
         }
 
         public List<int> LineIndices { get; } = new List<int>();
-        
+
         public abstract string ForegroundColor { get; set; }
 
         public abstract Task<bool> LoadFromStream(QuickPadTextSetOptions options, TStream stream = null);
 
         public abstract Action<string, bool> Paste { get; }
-        
+
         public abstract void BeginUndoGroup();
+
         public abstract void EndUndoGroup();
 
         public void Reindex()
@@ -242,9 +249,13 @@ namespace QuickPad.Mvvm.Models
         public abstract void SetSelectedText(string text);
 
         public abstract (int start, int length) GetSelectionBounds();
+
         public abstract (int start, int length) SetSelectionBound(int start, int length);
+
         public abstract void NotifyOnSelectionChange();
+
         public abstract void SetDefaults(Action continueWith);
+
         public abstract void Initialize();
     }
 }

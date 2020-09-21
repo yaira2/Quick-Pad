@@ -1,8 +1,6 @@
-﻿using System;
-using System.ComponentModel;
+﻿using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvvm.Views;
-using Microsoft.Extensions.DependencyInjection;
-
+using System;
 
 namespace QuickPad.Mvvm.Managers
 {

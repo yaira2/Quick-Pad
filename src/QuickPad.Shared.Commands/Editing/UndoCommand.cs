@@ -1,6 +1,5 @@
-﻿using System;
+﻿using QuickPad.Mvvm.ViewModels;
 using System.Threading.Tasks;
-using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Editing
 {
@@ -14,7 +13,7 @@ namespace QuickPad.Mvvm.Commands.Editing
             Executioner = viewModel =>
             {
                 viewModel.RequestUndo();
-                
+
                 return Task.CompletedTask;
             };
         }

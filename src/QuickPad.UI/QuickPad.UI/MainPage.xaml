@@ -55,7 +55,6 @@
                             VerticalContentAlignment="Stretch"
                             Canvas.ZIndex="150" />
                     </controls1:DropShadowPanel>
-
                 </Grid>
             </SplitView.Pane>
 
@@ -113,7 +112,6 @@
                         Canvas.ZIndex="100"
                         ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
                 </controls1:DropShadowPanel>
-
 
                 <controls1:DropShadowPanel
                     Grid.Row="3"

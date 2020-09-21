@@ -1,12 +1,12 @@
-﻿using System;
+﻿using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.Mvvm.Views;
+using QuickPad.UI.Theme;
+using System;
 using Windows.ApplicationModel.Resources;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
-using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.Mvvm.Views;
-using QuickPad.UI.Theme;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -47,7 +47,6 @@ namespace QuickPad.UI.Dialogs
 
         private void AskToSave_OnSecondaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
         {
-            
         }
 
         public new event Action Closed;

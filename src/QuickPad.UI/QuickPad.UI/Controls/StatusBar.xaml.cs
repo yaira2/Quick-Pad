@@ -1,12 +1,11 @@
-using Windows.UI.Xaml.Controls;
+using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
 using System.ComponentModel;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using QuickPad.Mvvm.Models;
-using QuickPad.UI.Helpers;
-using QuickPad.UI.Theme;
-
+using Windows.UI.Xaml.Controls;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -58,7 +57,7 @@ namespace QuickPad.UI.Controls
 
         private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            switch(e.PropertyName)
+            switch (e.PropertyName)
             {
                 case nameof(WindowsSettingsViewModel.StatusText):
                     Bindings.Update();

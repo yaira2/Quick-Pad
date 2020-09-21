@@ -1,9 +1,4 @@
-﻿using Windows.ApplicationModel.Resources;
-using Windows.Storage;
-using Windows.Storage.Streams;
-using Windows.UI.Text;
-using Windows.UI.Xaml;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickPad.Mvc;
 using QuickPad.Mvvm;
@@ -18,6 +13,11 @@ using QuickPad.UI.Commands.Clipboard;
 using QuickPad.UI.Dialogs;
 using QuickPad.UI.Helpers;
 using QuickPad.UI.Theme;
+using Windows.ApplicationModel.Resources;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Text;
+using Windows.UI.Xaml;
 
 namespace QuickPad.UI
 {
@@ -81,7 +81,6 @@ namespace QuickPad.UI
             services.AddSingleton<IDocumentViewModelStrings, WindowsDocumentViewModelStrings>();
             services.AddTransient<ResourceLoader>(provider => ResourceLoader.GetForCurrentView());
             services.AddTransient<ITextDocument>(provider => App.RichEditBox?.Document);
-                
 
             services.AddSingleton<IVisualThemeSelector, VisualThemeSelector>();
 
@@ -102,7 +101,7 @@ namespace QuickPad.UI
             services.AddSingleton<ICompactOverlayCommand<StorageFile, IRandomAccessStream>, CompactOverlayCommand>();
             services.AddSingleton<IRateAndReviewCommand<StorageFile, IRandomAccessStream>, RateAndReviewCommand>();
             services.AddSingleton<QuickPadCommands<StorageFile, IRandomAccessStream>, QuickPadCommands<StorageFile, IRandomAccessStream>>();
-            services.AddSingleton<IQuickPadCommands<StorageFile, IRandomAccessStream>>(provider => provider.GetService <QuickPadCommands<StorageFile, IRandomAccessStream>>());
+            services.AddSingleton<IQuickPadCommands<StorageFile, IRandomAccessStream>>(provider => provider.GetService<QuickPadCommands<StorageFile, IRandomAccessStream>>());
             services.AddSingleton<PasteCommand, PasteCommand>();
 
             services.AddSingleton(_ => Application.Current as IApplication<StorageFile, IRandomAccessStream>);

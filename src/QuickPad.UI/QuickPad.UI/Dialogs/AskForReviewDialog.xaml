@@ -17,7 +17,6 @@
             Orientation="Vertical"
             Spacing="10">
 
-
             <TextBlock
                 x:Uid="AskForReviewDialogPar1"
                 FontSize="16"

@@ -138,10 +138,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AppCenter.Analytics">
-      <Version>3.2.2</Version>
+      <Version>3.4.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.AppCenter.Crashes">
-      <Version>3.2.2</Version>
+      <Version>3.4.2</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Configuration">
       <Version>5.0.0-preview.2.20160.3</Version>
@@ -165,10 +165,10 @@
       <Version>6.2.10</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
-      <Version>6.1.0</Version>
+      <Version>6.1.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.4.2</Version>
+      <Version>2.4.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

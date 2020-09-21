@@ -1,11 +1,10 @@
-﻿using System.Linq;
-using System.Reflection;
-using System.Windows.Input;
-using QuickPad.Mvvm.Commands.Actions;
+﻿using QuickPad.Mvvm.Commands.Actions;
 using QuickPad.Mvvm.Commands.Clipboard;
 using QuickPad.Mvvm.Commands.Editing;
 using QuickPad.Mvvm.ViewModels;
-
+using System.Linq;
+using System.Reflection;
+using System.Windows.Input;
 
 namespace QuickPad.Mvvm.Commands
 {
@@ -94,7 +93,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> RightAlignCommand { get; } = new RightAlignCommand<TStorageFile, TStream>();
         public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> JustifyCommand { get; } = new JustifyCommand<TStorageFile, TStream>();
         public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> ColorCommand { get; } = new ColorCommand<TStorageFile, TStream>();
-        public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> ToggleWordWrapCommand { get; } = new ToggleWordWrapCommand<TStorageFile, TStream>(); 
+        public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> ToggleWordWrapCommand { get; } = new ToggleWordWrapCommand<TStorageFile, TStream>();
         public SimpleCommand<SettingsViewModel<TStorageFile, TStream>> FocusCommand { get; } = new FocusCommand<TStorageFile, TStream>();
         public SimpleCommand<SettingsViewModel<TStorageFile, TStream>> SettingsCommand { get; } = new ShowSettingsCommand<TStorageFile, TStream>();
         public SimpleCommand<SettingsViewModel<TStorageFile, TStream>> ShowCommandBarCommand { get; } = new ShowCommandBarCommand<TStorageFile, TStream>();

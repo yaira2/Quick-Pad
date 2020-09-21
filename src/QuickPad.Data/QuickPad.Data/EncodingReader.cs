@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using QuickPad.Data.Interfaces;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using QuickPad.Data.Interfaces;
 
 namespace QuickPad.Data
 {

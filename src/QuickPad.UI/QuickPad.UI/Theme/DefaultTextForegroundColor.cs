@@ -12,12 +12,13 @@ namespace QuickPad.UI.Theme
             _visualThemeSelector = visualThemeSelector;
         }
 
-        public Color Color {
+        public Color Color
+        {
             get => _visualThemeSelector.CurrentItem.DefaultTextForegroundColor;
             set
             {
                 _visualThemeSelector.CurrentItem.DefaultTextForegroundColor = value;
-                if(!Application.Current.Resources.ContainsKey("DefaultTextForegroundColor"))
+                if (!Application.Current.Resources.ContainsKey("DefaultTextForegroundColor"))
                 {
                     Application.Current.Resources.Add("DefaultTextForegroundColor", value);
                 }

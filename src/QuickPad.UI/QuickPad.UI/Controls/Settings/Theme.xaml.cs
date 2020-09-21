@@ -1,7 +1,6 @@
-using Windows.UI.Xaml.Controls;
-using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Helpers;
 using QuickPad.UI.Theme;
+using Windows.UI.Xaml.Controls;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 

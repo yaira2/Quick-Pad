@@ -1,5 +1,5 @@
-﻿using System.Text;
-using QuickPad.Data.Interfaces;
+﻿using QuickPad.Data.Interfaces;
+using System.Text;
 
 namespace QuickPad.Data
 {
@@ -10,7 +10,7 @@ namespace QuickPad.Data
         public int Write(string text)
         {
             _sb.Append(text);
-            
+
             return _sb.Length;
         }
 

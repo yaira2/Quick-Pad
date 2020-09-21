@@ -6,6 +6,7 @@ namespace QuickPad.UI.Theme
     {
         public VisualTheme VisualTheme { get; set; }
         public VisualTheme ActualTheme { get; set; }
+
         public ThemeChangedEventArgs(VisualTheme theme, VisualTheme actualTheme)
         {
             VisualTheme = theme;

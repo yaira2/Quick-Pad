@@ -1,19 +1,16 @@
-﻿using System;
+﻿using QuickPad.Data.Interfaces;
+using QuickPad.Standard.Data;
+using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.Storage;
-using QuickPad.Data.Interfaces;
 using Windows.Storage.Streams;
-using QuickPad.Mvvm.ViewModels;
-using Microsoft.Toolkit.Uwp.UI.Controls.TextToolbarSymbols;
-using System.Collections.Generic;
-using QuickPad.Standard.Data;
 
 namespace QuickPad.Data
 {
     public class StorageFileDataProvider : IDataProvider<StorageFile>
     {
-
         public async Task<byte[]> LoadDataAsync(StorageFile file)
         {
             var buffer = await FileIO.ReadBufferAsync(file);
@@ -45,7 +42,7 @@ namespace QuickPad.Data
 
                 // Create sample file; replace if exists.
                 await FileIO.WriteBytesAsync(file.File, bytes);
-                
+
                 return $"{file.Name} was saved.";
             }
             catch (Exception)

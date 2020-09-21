@@ -15,5 +15,4 @@
             <FontFamily x:Key="FluentUIGlyphs">/Assets/Fonts/fluentui.ttf#fluentui</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
-
 </Application>

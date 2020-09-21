@@ -28,7 +28,6 @@
                 FontSize="18"
                 Text="Plain Text Font Settings" />
 
-
             <TextBlock x:Uid="DefaultFont" Text="Default Font" />
             <ComboBox
                 MinWidth="180"
@@ -44,7 +43,6 @@
                 ItemsSource="{x:Bind Settings.AllFontSizes}"
                 PlaceholderText="{x:Bind Settings.DefaultFontSize}"
                 SelectedItem="{x:Bind Settings.DefaultFontSize, Mode=TwoWay}" />
-
 
             <TextBlock x:Uid="WordWrapSetting" Text="Word Wrap" />
             <ToggleSwitch IsOn="{x:Bind Settings.WordWrap, Mode=TwoWay}" />
@@ -81,6 +79,5 @@
             <TextBlock x:Uid="SpellCheckRtf" Text="Spell Check in Rich Text" />
             <ToggleSwitch IsOn="{x:Bind Settings.RtfSpellCheck, Mode=TwoWay}" IsEnabled="True" />
         </StackPanel>
-
     </Grid>
 </Page>

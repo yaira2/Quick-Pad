@@ -1,8 +1,8 @@
-﻿using System;
+﻿using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
+using System;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.UI.Commands
 {

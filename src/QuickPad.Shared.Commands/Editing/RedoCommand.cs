@@ -1,6 +1,5 @@
-﻿using System;
+﻿using QuickPad.Mvvm.ViewModels;
 using System.Threading.Tasks;
-using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Editing
 {

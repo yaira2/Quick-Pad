@@ -195,7 +195,6 @@
         </StackPanel>
         <!--  END OF Replace Row  -->
 
-
         <!--  Options Row (Third)  -->
         <StackPanel
             Grid.Row="2"
@@ -239,8 +238,6 @@
         </StackPanel>
         <!--  END OF Options  -->
 
-
         <!--  END OF Replace Row  -->
     </Grid>
-
 </UserControl>

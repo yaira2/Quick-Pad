@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 
 namespace QuickPad.Mvvm.Commands.Clipboard
 {
-
     public class SearchWithGoogleCommand<TStorageFile, TStream> : SimpleCommand<SettingsViewModel<TStorageFile, TStream>>
         where TStream : class
     {

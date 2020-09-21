@@ -1,7 +1,6 @@
-﻿using System.Text;
+﻿using QuickPad.Standard.Data;
+using System.Text;
 using System.Threading.Tasks;
-
-using QuickPad.Standard.Data;
 
 namespace QuickPad.Data.Interfaces
 {

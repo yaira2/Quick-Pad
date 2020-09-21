@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using QuickPad.Mvvm.Models;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using QuickPad.Mvvm.Models;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -127,7 +127,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore]
         public IEnumerable<float> AllFontSizes { get; } =
-            new float[] {4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72};
+            new float[] { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
 
         [JsonIgnore] public Action<double> AfterTintOpacityChanged { get; set; }
 
@@ -298,7 +298,6 @@ namespace QuickPad.Mvvm.ViewModels
 
         public abstract string DefaultTextForegroundColor { get; set; }
 
-
         // Helper Methods
         private void StatusTimerCallback(object state)
         {
@@ -330,12 +329,16 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         public abstract string GetTranslation(string resourceName);
+
         public abstract Task ExportSettings();
+
         public abstract Task ImportSettings();
+
         public abstract void ResetSettings();
+
         public abstract void LaunchUri(Uri uri);
+
         [JsonIgnore]
         public Action ExitApplication { get; set; }
-
     }
 }

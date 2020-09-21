@@ -1,10 +1,9 @@
-﻿using System;
+﻿using QuickPad.Mvvm.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using QuickPad.Mvvm.ViewModels;
-
 
 namespace QuickPad.Mvc
 {
@@ -61,7 +60,6 @@ namespace QuickPad.Mvc
                     pattern = pattern.Replace(plug, matches.Groups[i - 1].Value);
                 }
             }
-
 
             sb.Replace(match, pattern, start, length);
 
@@ -163,7 +161,6 @@ namespace QuickPad.Mvc
 
             if (!useRegex)
             {
-
                 index = direction switch
                 {
                     SearchDirection.Forwards => searchable.IndexOf(pattern,

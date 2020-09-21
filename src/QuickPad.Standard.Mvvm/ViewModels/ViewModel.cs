@@ -1,11 +1,10 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 
 namespace QuickPad.Mvvm.ViewModels
 {
@@ -16,9 +15,9 @@ namespace QuickPad.Mvvm.ViewModels
 
         private bool _frozen;
         private bool _blockUpdates;
-        
+
         protected ILogger Logger { get; }
-        
+
         [JsonIgnore]
         public IApplication<TStorageFile, TStream> App { get; }
 
@@ -40,9 +39,9 @@ namespace QuickPad.Mvvm.ViewModels
                     {
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
                     }
-                    catch 
+                    catch
                     {
-                        // We don't want an exception taking down the timer.   
+                        // We don't want an exception taking down the timer.
                     }
                 }
 
@@ -50,7 +49,7 @@ namespace QuickPad.Mvvm.ViewModels
                 {
                     Dispatch(DispatchedHandler);
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     Logger.LogError(new EventId(), ex, "Error dispatching Property Changed Event.");
                 }
@@ -67,24 +66,24 @@ namespace QuickPad.Mvvm.ViewModels
 
             original = value;
 
-            if(notify) OnPropertyChanged(propertyName);
+            if (notify) OnPropertyChanged(propertyName);
 
             return true;
         }
 
         private readonly ConcurrentQueue<string> _updatesQueue = new ConcurrentQueue<string>();
 
-        public void HoldUpdates() 
+        public void HoldUpdates()
         {
             _frozen = true;
         }
 
-        public void ReleaseUpdates() 
+        public void ReleaseUpdates()
         {
             _frozen = false;
             _blockUpdates = false;
 
-            while(_updatesQueue.TryDequeue(out var propertyName))
+            while (_updatesQueue.TryDequeue(out var propertyName))
             {
                 OnPropertyChanged(propertyName);
             }
@@ -104,6 +103,5 @@ namespace QuickPad.Mvvm.ViewModels
         {
             _blockUpdates = true;
         }
-
     }
 }

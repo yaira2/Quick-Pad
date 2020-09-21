@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using QuickPad.Mvvm.ViewModels;
+using System.Linq;
 using System.Threading.Tasks;
-using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {

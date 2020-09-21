@@ -1,12 +1,11 @@
-﻿using Windows.Storage;
-using Windows.Storage.Streams;
-using Windows.UI.Xaml.Controls;
-using QuickPad.Mvvm.Commands;
+﻿using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Helpers;
 using QuickPad.UI.Theme;
-
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI.Xaml.Controls;
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -22,7 +21,7 @@ namespace QuickPad.UI.Controls
         public QuickPadCommands<StorageFile, IRandomAccessStream> Commands => App.Commands;
 
         public IFindAndReplaceView<StorageFile, IRandomAccessStream> FindReplaceViewModel => ViewModel?.FindAndReplaceViewModel;
-        
+
         public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
             get => _viewModel;

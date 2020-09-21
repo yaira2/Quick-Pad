@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using QuickPad.Mvvm.ViewModels;
+using System;
 using System.Threading.Tasks;
-using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm
 {
@@ -14,7 +12,9 @@ namespace QuickPad.Mvvm
         IServiceProvider Services { get; }
 
         Task<TResult> AwaitableRunAsync<TResult>(Func<TResult> action);
+
         void TryEnqueue(Action action);
+
         void DoWhenIdle(Action action);
     }
 }

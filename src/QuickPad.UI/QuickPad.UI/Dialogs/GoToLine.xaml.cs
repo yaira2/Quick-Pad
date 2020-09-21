@@ -1,12 +1,12 @@
-﻿using System;
+﻿using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.Mvvm.Views;
+using QuickPad.UI.Theme;
+using System;
 using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.Xaml.Controls;
-using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.Mvvm.Views;
-using QuickPad.UI.Theme;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -18,6 +18,7 @@ namespace QuickPad.UI.Dialogs
         public QuickPadCommands<StorageFile, IRandomAccessStream> Commands { get; }
 
         private DocumentViewModel<StorageFile, IRandomAccessStream> _viewModel;
+
         public DocumentViewModel<StorageFile, IRandomAccessStream> ViewModel
         {
             get => _viewModel;

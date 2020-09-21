@@ -1,3 +1,7 @@
+using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Helpers;
+using QuickPad.UI.Theme;
 using System.ComponentModel;
 using Windows.ApplicationModel.Resources.Core;
 using Windows.Storage;
@@ -5,11 +9,6 @@ using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.Mvvm.Commands;
-using QuickPad.UI.Helpers;
-using QuickPad.UI.Theme;
-
 
 // The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
 
@@ -56,9 +55,9 @@ namespace QuickPad.UI.Controls
             Window.Current.SetTitleBar(trickyTitleBar);
 
             var flowDirectionSetting = ResourceContext.GetForCurrentView().QualifierValues["LayoutDirection"];
-            
-            Settings.FlowDirection = flowDirectionSetting == "LTR" 
-                ? Windows.UI.Xaml.FlowDirection.LeftToRight 
+
+            Settings.FlowDirection = flowDirectionSetting == "LTR"
+                ? Windows.UI.Xaml.FlowDirection.LeftToRight
                 : Windows.UI.Xaml.FlowDirection.RightToLeft;
         }
 

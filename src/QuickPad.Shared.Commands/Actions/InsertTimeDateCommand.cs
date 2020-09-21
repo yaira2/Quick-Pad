@@ -1,7 +1,7 @@
-﻿using System;
+﻿using QuickPad.Mvvm.ViewModels;
+using System;
 using System.Globalization;
 using System.Threading.Tasks;
-using QuickPad.Mvvm.ViewModels;
 
 namespace QuickPad.Mvvm.Commands.Actions
 {

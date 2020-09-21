@@ -8,6 +8,7 @@ namespace QuickPad.Standard.Data
         {
             get; set;
         }
+
         public TStorageFile File { get; set; }
         public abstract string FileType { get; }
         public abstract string DisplayType { get; }

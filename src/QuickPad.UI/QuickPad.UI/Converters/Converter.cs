@@ -1,18 +1,18 @@
-﻿using System;
+﻿using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Helpers;
+using System;
 using System.Collections.Generic;
-using Windows.UI;
-using Windows.UI.ViewManagement;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Markup;
-using Windows.UI.Xaml.Media;
 using System.Linq;
-using Windows.UI.Xaml.Data;
 using System.Text;
 using Windows.Storage;
 using Windows.Storage.Streams;
+using Windows.UI;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Helpers;
+using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Markup;
+using Windows.UI.Xaml.Media;
 
 namespace QuickPad.UI.Converters
 {
@@ -156,14 +156,19 @@ namespace QuickPad.UI.Converters
             {
                 case IntCompare.NotEqual:
                     return input != target;
+
                 case IntCompare.LessOrEqual:
                     return input <= target;
+
                 case IntCompare.MoreOrEqual:
                     return input >= target;
+
                 case IntCompare.Less:
                     return input < target;
+
                 case IntCompare.More:
                     return input > target;
+
                 case IntCompare.Equal:
                 default:
                     return input == target;
@@ -188,7 +193,6 @@ namespace QuickPad.UI.Converters
 
         public static bool IsNotRtf(string currentFileType) =>
             !currentFileType?.Equals(".rtf", StringComparison.InvariantCultureIgnoreCase) ?? false;
-
 
         public static string SelectionFromString(string name, IList<string> fonts)
         {
@@ -243,6 +247,8 @@ namespace QuickPad.UI.Converters
             throw new NotImplementedException();
         }
 
-        public Converter() { }
+        public Converter()
+        {
+        }
     }
 }

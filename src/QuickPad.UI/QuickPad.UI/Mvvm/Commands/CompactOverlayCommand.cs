@@ -1,10 +1,10 @@
-﻿using System;
+﻿using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Helpers;
+using System;
 using Windows.Storage;
 using Windows.Storage.Streams;
 using Windows.UI.ViewManagement;
-using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Helpers;
 
 namespace QuickPad.UI.Commands
 {

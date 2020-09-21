@@ -61,6 +61,5 @@
                 </ListView.ItemTemplate>
             </ListView>
         </StackPanel>
-
     </Grid>
 </Page>

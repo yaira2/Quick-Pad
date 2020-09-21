@@ -1,24 +1,16 @@
-﻿using System;
-using System.Runtime.InteropServices.WindowsRuntime;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Windows.ApplicationModel.Store;
-using Windows.Storage;
-using Windows.Storage.Streams;
-using Windows.UI;
-using Windows.UI.Core;
-using Windows.UI.Text;
-using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Media;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.Logging;
 using Microsoft.Toolkit.Uwp.Helpers;
 using QuickPad.Mvvm;
 using QuickPad.Mvvm.Models;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.UI.Theme;
+using System;
+using System.Threading;
+using System.Threading.Tasks;
+using Windows.Storage;
+using Windows.Storage.Streams;
+using Windows.UI;
+using Windows.UI.Text;
 
 namespace QuickPad.UI.Helpers
 {
@@ -41,7 +33,6 @@ namespace QuickPad.UI.Helpers
 
             viewModel.RedoRequested += model => Redo();
             viewModel.UndoRequested += model => Undo();
-
         }
 
         public override void SetDefaults(Action continueWith)
@@ -66,7 +57,8 @@ namespace QuickPad.UI.Helpers
 
         public override void Initialize()
         {
-            Task.Run(async () => {
+            Task.Run(async () =>
+            {
                 await LoadFromStream(QuickPadTextSetOptions.FormatRtf, null);
                 await Task.Delay(1000);
                 ForegroundColor = Settings.DefaultTextForegroundColor;
@@ -536,7 +528,6 @@ namespace QuickPad.UI.Helpers
                 }
                 catch (Exception)
                 {
-                    
                 }
             }));
         }

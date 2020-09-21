@@ -1,12 +1,11 @@
-﻿using System;
-using Windows.ApplicationModel.Resources;
-using Windows.Storage;
-using Windows.Storage.Streams;
-using QuickPad.Mvvm.Commands;
+﻿using QuickPad.Mvvm.Commands;
 using QuickPad.Mvvm.ViewModels;
 using QuickPad.Mvvm.Views;
 using QuickPad.UI.Helpers;
 using QuickPad.UI.Theme;
+using System;
+using Windows.Storage;
+using Windows.Storage.Streams;
 
 // The Content Dialog item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 

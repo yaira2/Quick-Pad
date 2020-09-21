@@ -1,12 +1,12 @@
-﻿using System;
+﻿using QuickPad.Mvvm.Commands;
+using QuickPad.Mvvm.ViewModels;
+using QuickPad.UI.Helpers;
+using System;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Storage;
 using Windows.Storage.Streams;
-using QuickPad.Mvvm.Commands;
-using QuickPad.Mvvm.ViewModels;
-using QuickPad.UI.Helpers;
 
 namespace QuickPad.UI.Commands.Clipboard
 {
@@ -76,7 +76,7 @@ namespace QuickPad.UI.Commands.Clipboard
 
                                 return text;
                             }
-                                
+
                             if (asyncOp.Status == AsyncStatus.Canceled)
                             {
                                 throw new OperationCanceledException();
@@ -134,7 +134,7 @@ namespace QuickPad.UI.Commands.Clipboard
                     if (_settings.PasteTextOnly)
                     {
                         text = GetText();
-                        if(text != null) dataPackage.SetText(text);
+                        if (text != null) dataPackage.SetText(text);
                     }
                     else
                     {

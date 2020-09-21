@@ -8,12 +8,13 @@ namespace QuickPad.UI.Theme
 {
     public class VisualTheme : INotifyPropertyChanged
     {
-        public static readonly Color DarkColor = 
+        public static readonly Color DarkColor =
             Color.FromArgb(255, 28, 28, 28);
+
         public static readonly Color LightColor = Colors.White;
         private Color? _foreground;
 
-        public Color DefaultTextForegroundColor 
+        public Color DefaultTextForegroundColor
         {
             get
             {
@@ -37,56 +38,67 @@ namespace QuickPad.UI.Theme
             get;
             set;
         }
+
         public string FriendlyName
         {
             get;
             set;
         }
+
         public string Description
         {
             get;
             set;
         }
+
         public ElementTheme Theme
         {
             get;
             set;
         }
+
         public VisualThemeKind Kind
         {
             get;
             set;
         } = VisualThemeKind.Custom;
+
         public Brush BackgroundAcrylicBrush
         {
             get;
             set;
         }
+
         public Brush BackgroundAcrylicBrush2
         {
             get;
             set;
         }
+
         public Brush PreviewBrush
         {
             get;
             set;
         }
+
         public Brush InAppAcrylicBrush
         {
             get;
             set;
         }
+
         public Brush SolidBackgroundBrush
         {
             get;
             set;
         }
+
         public Brush BaseThemeBackgroundBrush
         {
             get;
             set;
         }
+
         public Brush BackgroundAcrylicAccent
         {
             get;
@@ -98,20 +110,19 @@ namespace QuickPad.UI.Theme
             return FriendlyName;
         }
 
-
         public void UpdateTintOpacity(double to)
         {
-            ((AcrylicBrush) BackgroundAcrylicBrush).TintOpacity = to;
-            ((AcrylicBrush) BackgroundAcrylicBrush2).TintOpacity = to + .15;
+            ((AcrylicBrush)BackgroundAcrylicBrush).TintOpacity = to;
+            ((AcrylicBrush)BackgroundAcrylicBrush2).TintOpacity = to + .15;
             ((AcrylicBrush)BackgroundAcrylicAccent).TintOpacity = to - .25;
-            ((AcrylicBrush) InAppAcrylicBrush).TintOpacity = to;
+            ((AcrylicBrush)InAppAcrylicBrush).TintOpacity = to;
         }
 
         public void UpdateBaseBackground(object sender, ThemeChangedEventArgs e)
         {
-            BaseThemeBackgroundBrush = 
-                Application.Current.RequestedTheme == ApplicationTheme.Dark 
-                    ? new SolidColorBrush(Colors.Black) 
+            BaseThemeBackgroundBrush =
+                Application.Current.RequestedTheme == ApplicationTheme.Dark
+                    ? new SolidColorBrush(Colors.Black)
                     : new SolidColorBrush(Colors.White);
         }
 

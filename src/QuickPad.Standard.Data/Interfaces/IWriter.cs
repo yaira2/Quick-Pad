@@ -7,6 +7,7 @@ namespace QuickPad.Data.Interfaces
         int Write(string text);
 
         byte[] GetBytes(EncodingProvider encodingProvider, string encodingName);
+
         byte[] GetBytes(Encoding encoding);
     }
 }
