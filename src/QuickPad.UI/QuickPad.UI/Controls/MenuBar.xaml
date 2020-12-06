@@ -378,7 +378,7 @@
                 <ToggleMenuFlyoutItem
                     x:Uid="StatusBar"
                     AccessKey="S"
-                    IsChecked="{x:Bind Settings.StatusBar, Mode=TwoWay}"
+                    IsChecked="{x:Bind Settings.DisplayStatusBar, Mode=TwoWay}"
                     Text="Status Bar">
                     <ToggleMenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE75B;" />

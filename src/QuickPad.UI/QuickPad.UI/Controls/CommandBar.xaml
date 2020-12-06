@@ -369,7 +369,7 @@
                 <AppBarToggleButton
                     x:Uid="StatusBarLabel"
                     Width="Auto"
-                    IsChecked="{x:Bind Settings.StatusBar, Mode=TwoWay}"
+                    IsChecked="{x:Bind Settings.DisplayStatusBar, Mode=TwoWay}"
                     Label="Status Bar">
                     <AppBarToggleButton.Icon>
                         <FontIcon Glyph="&#xE75B;" />

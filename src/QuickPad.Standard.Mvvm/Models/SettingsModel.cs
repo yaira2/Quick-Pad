@@ -115,6 +115,12 @@ namespace QuickPad.Mvvm.Models
             get => Get(false, MethodBase.GetCurrentMethod().Name);
             set => Set(value, MethodBase.GetCurrentMethod().Name);
         }
+        
+        public bool DisplayStatusBar
+        {
+            get => Get(true, MethodBase.GetCurrentMethod().Name);
+            set => Set(value, MethodBase.GetCurrentMethod().Name);
+        }
 
         public abstract bool Set<TValue>(TValue value, string propertyName = null);
 
