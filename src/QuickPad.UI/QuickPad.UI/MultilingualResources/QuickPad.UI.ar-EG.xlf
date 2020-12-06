@@ -132,7 +132,7 @@
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
-          <source>Developed by Yair Aichenbaum &amp; Sharp Ninja</source>
+          <source>Developed by Yair Aichenbaum</source>
           <target state="needs-review-translation">تم تطويره بواسطة يائير أيكينباوم</target>
           <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>

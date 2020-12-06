@@ -218,7 +218,7 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Developed by Yair Aichenbaum &amp; Sharp Ninja</value>
+    <value>Developed by Yair Aichenbaum</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
