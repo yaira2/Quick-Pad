@@ -77,7 +77,7 @@
             <ToggleSwitch IsOn="{x:Bind Settings.RtfWordWrap, Mode=TwoWay}" />
 
             <TextBlock x:Uid="SpellCheckRtf" Text="Spell Check in Rich Text" />
-            <ToggleSwitch IsOn="{x:Bind Settings.RtfSpellCheck, Mode=TwoWay}" IsEnabled="True" />
+            <ToggleSwitch IsEnabled="True" IsOn="{x:Bind Settings.RtfSpellCheck, Mode=TwoWay}" />
         </StackPanel>
     </Grid>
 </Page>
