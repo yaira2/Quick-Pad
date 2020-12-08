@@ -415,13 +415,15 @@
                     <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />
                 </ToolTipService.ToolTip>
             </AppBarButton>
-            <AppBarButton
-                x:Uid="SettingsLabel"
+            <AppBarButton                
                 Width="Auto"
                 MinWidth="40"
                 Command="{x:Bind Commands.SettingsCommand}"
                 CommandParameter="{x:Bind Settings}"
                 Icon="Setting" />
+            <ToolTipService.ToolTip>
+                <TextBlock x:Uid="SettingsLabel.Label" Text="Settings" />
+            </ToolTipService.ToolTip>
         </CommandBar>
     </Grid>
 </UserControl>
