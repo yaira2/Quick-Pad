@@ -233,11 +233,11 @@
     <value>Default File Type</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
+  <data name="DefaultFont.Header" xml:space="preserve">
     <value>Default Font</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
+  <data name="DefaultFontSize.Header" xml:space="preserve">
     <value>Default Font Size</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -401,7 +401,7 @@
     <value>Share</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
+  <data name="SpellCheck.Header" xml:space="preserve">
     <value>Spell Check</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -437,7 +437,7 @@
     <value>Word Wrap</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
+  <data name="WordWrapSetting.Header" xml:space="preserve">
     <value>Word Wrap</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -453,15 +453,15 @@
     <value>Zoom Out</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
+  <data name="DefaultFontRtf.Header" xml:space="preserve">
     <value>Default Rich Text Font</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
+  <data name="DefaultFontSizeRtf.Header" xml:space="preserve">
     <value>Default Rich Text Font Size</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
+  <data name="WordWrapSettingRtf.Header" xml:space="preserve">
     <value>Word Wrap in Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -681,7 +681,7 @@
     <value>Rich Text Font Settings</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
+  <data name="SpellCheckRtf.Header" xml:space="preserve">
     <value>Spell Check in Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>

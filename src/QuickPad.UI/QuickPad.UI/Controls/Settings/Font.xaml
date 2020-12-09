@@ -12,15 +12,7 @@
     mc:Ignorable="d">
 
     <Grid Margin="20,0,20,20">
-        <Grid.Resources>
-            <Style TargetType="TextBlock">
-                <Setter Property="Margin" Value="0,8,0,4" />
-                <Setter Property="TextWrapping" Value="Wrap" />
-                <Setter Property="FontFamily" Value="Segoe UI" />
-            </Style>
-        </Grid.Resources>
-
-        <StackPanel>
+        <StackPanel Spacing="12">
             <!--  Plain Text Font Settings  -->
             <TextBlock
                 x:Uid="PlainTextFontSettings"
@@ -28,56 +20,69 @@
                 FontSize="18"
                 Text="Plain Text Font Settings" />
 
-            <TextBlock x:Uid="DefaultFont" Text="Default Font" />
             <ComboBox
+                x:Uid="DefaultFont"
                 MinWidth="180"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+                Header="Default Font"
                 ItemsSource="{x:Bind Settings.AllFonts}"
                 PlaceholderText="{x:Bind Settings.DefaultFont}"
                 SelectedItem="{x:Bind Settings.DefaultFont, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="DefaultFontSize" Text="Default Font Size" />
             <ComboBox
+                x:Uid="DefaultFontSize"
                 MinWidth="68"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+                Header="Default Font Size"
                 ItemsSource="{x:Bind Settings.AllFontSizes}"
                 PlaceholderText="{x:Bind Settings.DefaultFontSize}"
                 SelectedItem="{x:Bind Settings.DefaultFontSize, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="WordWrapSetting" Text="Word Wrap" />
-            <ToggleSwitch IsOn="{x:Bind Settings.WordWrap, Mode=TwoWay}" />
+            <ToggleSwitch
+                x:Uid="WordWrapSetting"
+                Header="Word Wrap"
+                IsOn="{x:Bind Settings.WordWrap, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="SpellCheck" Text="Spell Check" />
-            <ToggleSwitch IsOn="{x:Bind Settings.SpellCheck, Mode=TwoWay}" />
+            <ToggleSwitch
+                x:Uid="SpellCheck"
+                Header="Spell Check"
+                IsOn="{x:Bind Settings.SpellCheck, Mode=TwoWay}" />
 
             <!--  Rich Text Font Settings  -->
             <TextBlock
                 x:Uid="RichTextFontSettings"
-                Padding="0,12,0,0"
+                Padding="0,4,0,0"
                 FontSize="18"
                 Text="Rich Text Font Settings" />
 
-            <TextBlock x:Uid="DefaultFontRtf" Text="Default Rich Text Font" />
             <ComboBox
+                x:Uid="DefaultFontRtf"
                 MinWidth="180"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+                Header="Default Rich Text Font"
                 ItemsSource="{x:Bind Settings.AllFonts}"
                 PlaceholderText="{x:Bind Settings.DefaultRtfFont}"
                 SelectedItem="{x:Bind Settings.DefaultRtfFont, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="DefaultFontSizeRtf" Text="Default Rich Text Font Size" />
             <ComboBox
+                x:Uid="DefaultFontSizeRtf"
                 MinWidth="68"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+                Header="Default Rich Text Font Size"
                 ItemsSource="{x:Bind Settings.AllFontSizes}"
                 PlaceholderText="{x:Bind Settings.DefaultFontRtfSize}"
                 SelectedItem="{x:Bind Settings.DefaultFontRtfSize, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="WordWrapSettingRtf" Text="Word Wrap in Rich Text" />
-            <ToggleSwitch IsOn="{x:Bind Settings.RtfWordWrap, Mode=TwoWay}" />
+            <ToggleSwitch
+                x:Uid="WordWrapSettingRtf"
+                Header="Word Wrap in Rich Text"
+                IsOn="{x:Bind Settings.RtfWordWrap, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="SpellCheckRtf" Text="Spell Check in Rich Text" />
-            <ToggleSwitch IsEnabled="True" IsOn="{x:Bind Settings.RtfSpellCheck, Mode=TwoWay}" />
+            <ToggleSwitch
+                x:Uid="SpellCheckRtf"
+                Header="Spell Check in Rich Text"
+                IsEnabled="True"
+                IsOn="{x:Bind Settings.RtfSpellCheck, Mode=TwoWay}" />
         </StackPanel>
     </Grid>
 </Page>

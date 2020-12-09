@@ -80,14 +80,6 @@
     <value>剪下</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>預設字型</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>預設字型大小</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>刪除</value>
     <comment>Used on Menu Item</comment>
@@ -216,10 +208,6 @@
     <value>分享</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>拼字檢查</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>狀態列</value>
     <comment>Used on Menu Item</comment>
@@ -247,10 +235,6 @@
   <data name="WordWrap.Text" xml:space="preserve">
     <value>自動換行</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>自動換行</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>縮放</value>

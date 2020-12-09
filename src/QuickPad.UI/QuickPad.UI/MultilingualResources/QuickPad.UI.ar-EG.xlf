@@ -127,16 +127,6 @@
           <target state="translated">قص</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
-          <source>Default Font</source>
-          <target state="translated">الخط الإفتراضي</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
-          <source>Default Font Size</source>
-          <target state="translated">حجم الخط الإفتراضي</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Delete.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
           <target state="translated">حذف</target>
@@ -328,11 +318,6 @@
           <target state="translated">مشاركة</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="SpellCheck.Text" translate="yes" xml:space="preserve">
-          <source>Spell Check</source>
-          <target state="translated">التدقيق الإملائي</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
           <target state="translated">شريط الحالة</target>
@@ -368,11 +353,6 @@
           <target state="translated">إلتفاف الكلمات</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="WordWrapSetting.Text" translate="yes" xml:space="preserve">
-          <source>Word Wrap</source>
-          <target state="translated">إلتفاف الكلمات</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Zoom.Text" translate="yes" xml:space="preserve">
           <source>Zoom</source>
           <target state="translated">تكبير</target>
@@ -387,21 +367,6 @@
           <source>Zoom Out</source>
           <target state="translated">تكبير للخارج</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-        </trans-unit>
-        <trans-unit id="DefaultFontRtf.Text" translate="yes" xml:space="preserve">
-          <source>Default Rich Text Font</source>
-          <target state="translated">خط النص المنسق الإفتراضي</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="DefaultFontSizeRtf.Text" translate="yes" xml:space="preserve">
-          <source>Default Rich Text Font Size</source>
-          <target state="translated">حجم خط النص المنسق الإفتراضي</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="WordWrapSettingRtf.Text" translate="yes" xml:space="preserve">
-          <source>Word Wrap in Rich Text</source>
-          <target state="translated">إلتفاف الكلمات في النص المنسق</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="CancelButton" translate="yes" xml:space="preserve">
           <source>Cancel</source>
@@ -667,11 +632,6 @@
         <trans-unit id="RichTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Rich Text Font Settings</source>
           <target state="translated">إعدادات خط النص المنسق (RTF)</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="SpellCheckRtf.Text" translate="yes" xml:space="preserve">
-          <source>Spell Check in Rich Text</source>
-          <target state="translated">التدقيق الإملائي في النص المنسق</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpecialThanks.Text" translate="yes" xml:space="preserve">
@@ -980,6 +940,46 @@
         <trans-unit id="KeepTextOnly.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Keep text only when pasting text</source>
           <target state="new">Keep text only when pasting text</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFont.Header" translate="yes" xml:space="preserve">
+          <source>Default Font</source>
+          <target state="new">Default Font</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontSize.Header" translate="yes" xml:space="preserve">
+          <source>Default Font Size</source>
+          <target state="new">Default Font Size</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SpellCheck.Header" translate="yes" xml:space="preserve">
+          <source>Spell Check</source>
+          <target state="new">Spell Check</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="WordWrapSetting.Header" translate="yes" xml:space="preserve">
+          <source>Word Wrap</source>
+          <target state="new">Word Wrap</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontRtf.Header" translate="yes" xml:space="preserve">
+          <source>Default Rich Text Font</source>
+          <target state="new">Default Rich Text Font</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="DefaultFontSizeRtf.Header" translate="yes" xml:space="preserve">
+          <source>Default Rich Text Font Size</source>
+          <target state="new">Default Rich Text Font Size</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="WordWrapSettingRtf.Header" translate="yes" xml:space="preserve">
+          <source>Word Wrap in Rich Text</source>
+          <target state="new">Word Wrap in Rich Text</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SpellCheckRtf.Header" translate="yes" xml:space="preserve">
+          <source>Spell Check in Rich Text</source>
+          <target state="new">Spell Check in Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>

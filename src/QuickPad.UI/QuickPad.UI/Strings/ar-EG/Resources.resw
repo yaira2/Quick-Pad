@@ -104,14 +104,6 @@
     <value>قص</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>الخط الإفتراضي</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>حجم الخط الإفتراضي</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>حذف</value>
     <comment>Used on Menu Item</comment>
@@ -264,10 +256,6 @@
     <value>مشاركة</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>التدقيق الإملائي</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>شريط الحالة</value>
     <comment>Used on Menu Item</comment>
@@ -296,10 +284,6 @@
     <value>إلتفاف الكلمات</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>إلتفاف الكلمات</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>تكبير</value>
     <comment>Used on Menu Item</comment>
@@ -311,18 +295,6 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>تكبير للخارج</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>خط النص المنسق الإفتراضي</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>حجم خط النص المنسق الإفتراضي</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>إلتفاف الكلمات في النص المنسق</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>إلغاء</value>
@@ -530,10 +502,6 @@
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>إعدادات خط النص المنسق (RTF)</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>التدقيق الإملائي في النص المنسق</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SpecialThanks.Text" xml:space="preserve">

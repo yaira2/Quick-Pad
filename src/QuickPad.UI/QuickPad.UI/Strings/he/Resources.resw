@@ -76,14 +76,6 @@
     <value>גזור</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>גופן ברירת מחדל</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>גודל גופן המהווה ברירת מחדל</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>מחק</value>
     <comment>Used on Menu Item</comment>
@@ -212,10 +204,6 @@
     <value>שתף</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>בדיקת איות</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>שורת מצב</value>
     <comment>Used on Menu Item</comment>
@@ -239,10 +227,6 @@
   <data name="WordWrap.Text" xml:space="preserve">
     <value>גלישת שורות</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>גלישת שורות</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>שנה גודל תצוגה</value>

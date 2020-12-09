@@ -108,14 +108,6 @@
     <value>Ausschneiden</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>Standard Schriftart</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>Standard Schriftgröße</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>Löschen</value>
     <comment>Used on Menu Item</comment>
@@ -268,10 +260,6 @@
     <value>Teilen</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>Rechtschreibprüfung</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>Statusbar</value>
     <comment>Used on Menu Item</comment>
@@ -300,10 +288,6 @@
     <value>Zeilenumbruch</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>Zeilenumbruch</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>Zoom</value>
     <comment>Used on Menu Item</comment>
@@ -315,18 +299,6 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>Verkleinern</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>Standard Rich Text Schriftart</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>Standard Rich Text Schriftgöße</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>Zeilenumbruch in Rich Text</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>Abbrechen</value>
@@ -542,10 +514,6 @@
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>Schrifteinstellungen für Rich Text</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Rechtschreibprüfung in Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Content" xml:space="preserve">

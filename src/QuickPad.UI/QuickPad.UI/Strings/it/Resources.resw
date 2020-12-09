@@ -105,14 +105,6 @@
     <value>Taglia</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>Carattere predefinito</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>Dimensione carattere predefinita</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>Elimina</value>
     <comment>Used on Menu Item</comment>
@@ -265,10 +257,6 @@
     <value>Condividi</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>Controllo Ortografia</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>Barra di Stato</value>
     <comment>Used on Menu Item</comment>
@@ -297,10 +285,6 @@
     <value>A capo automatico</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>A capo automatico</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>Ingrandimento</value>
     <comment>Used on Menu Item</comment>
@@ -312,18 +296,6 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>Riduci</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>Carattere predefinito per Rich Text</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>Dimensione carattere predefinita per Rich Text </value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>A Capo Automatico in Rich Text</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>Annulla</value>
@@ -536,10 +508,6 @@
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>Impostazioni per file RTF</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Controllo Ortografia per Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SpecialThanks.Text" xml:space="preserve">

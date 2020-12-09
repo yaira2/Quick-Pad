@@ -108,14 +108,6 @@
     <value>Cortar</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>Fuente por defecto</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>Tamaño de fuente por defecto</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>Eliminar</value>
     <comment>Used on Menu Item</comment>
@@ -268,10 +260,6 @@
     <value>Compartir</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>Revisar ortografía</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>Barra de estado</value>
     <comment>Used on Menu Item</comment>
@@ -300,10 +288,6 @@
     <value>Ajuste de línea</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>Ajuste de línea</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>Zoom</value>
     <comment>Used on Menu Item</comment>
@@ -315,18 +299,6 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>Zoom -</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>Fuente por defecto en texto con formato</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>Tamaño de fuente por defecto en texto con formato</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>Ajuste de línea en texto con formato</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>Cancelar</value>
@@ -523,10 +495,6 @@
   <data name="SaveDialog.Title" xml:space="preserve">
     <value>Quick Pad</value>
     <comment>Used on Save Dialog</comment>
-  </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Verificar ortografía en texto con formato.</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="WouldYouLikeToSave.Text" xml:space="preserve">
     <value>¿Quiere guardar los cambios?</value>

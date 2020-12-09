@@ -104,14 +104,6 @@
     <value>ตัด</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>ฟอนต์เริ่มต้น</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>ขนาดฟอนต์เริ่มต้น</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>ลบ</value>
     <comment>Used on Menu Item</comment>
@@ -264,10 +256,6 @@
     <value>แบ่งปัน</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>แก้คำผิด</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>แถบสถานะ</value>
     <comment>Used on Menu Item</comment>
@@ -296,10 +284,6 @@
     <value>ตัดคำ</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>ตัดคำ</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>ย่อ/ขยาย</value>
     <comment>Used on Menu Item</comment>
@@ -311,18 +295,6 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>ย่อ</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>ฟอนต์เริ่มต้นของเอกสาร Rich Text</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>ขนาดฟอนต์เริ่มต้นของเอกสาร Rich Text</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>ตัดคำในเอกสาร Rich Text</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>ยกเลิก</value>
@@ -534,10 +506,6 @@
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>ตั้งค่าการจัดรูปแบบเอกสาร Rich Text</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>เช็คคำผิดในเอกสาร Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Content" xml:space="preserve">

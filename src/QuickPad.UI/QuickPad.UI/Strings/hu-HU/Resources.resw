@@ -104,14 +104,6 @@
     <value>Kivágás</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>Alapértelmezett betűtípus</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>Alapértelmezett betűméret</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>Törlés</value>
     <comment>Used on Menu Item</comment>
@@ -264,10 +256,6 @@
     <value>Megosztás</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>Helyesírás-ellenőrzés</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>Állapotsor</value>
     <comment>Used on Menu Item</comment>
@@ -296,10 +284,6 @@
     <value>Sortörés</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>Sortörés</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>Nagyítás</value>
     <comment>Used on Menu Item</comment>
@@ -311,18 +295,6 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>Kicsinyítés</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>Alapértelmezett Rich Text Formátum</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>Alapértelmezett Rich Text Formátum</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>Sortörés Rich Textben</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>Mégse</value>
@@ -538,10 +510,6 @@
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>Rich Text Betűtípus Beállítások</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Helyesírás-ellenőrzés Rich Text-ben</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Content" xml:space="preserve">

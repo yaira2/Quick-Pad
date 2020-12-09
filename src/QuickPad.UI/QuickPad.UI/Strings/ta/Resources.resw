@@ -104,14 +104,6 @@
     <value>வெட்டு</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFont.Text" xml:space="preserve">
-    <value>இயல்புநிலை எழுத்துரு</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>இயல்புநிலை எழுத்துரு அளவு</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>நீக்கு</value>
     <comment>Used on Menu Item</comment>
@@ -264,10 +256,6 @@
     <value>பகிர்</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Text" xml:space="preserve">
-    <value>எழுத்தாக்கச் சோதனை</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>நிலைப் பட்டி</value>
     <comment>Used on Menu Item</comment>
@@ -296,10 +284,6 @@
     <value>சொல் மடிப்பு</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>சொல் மடிப்பு</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>பெரிதாக்கு</value>
     <comment>Used on Menu Item</comment>
@@ -311,18 +295,6 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>இன்னும் சிறிதாக்கு</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>இயல்புநிலை உயர் உரை எழுத்துரு</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>இயல்புநிலை உயர் உரை எழுத்துரு அளவு</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>உயர் உரையில் சொல் மடிப்பு</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>இரத்து</value>
@@ -534,10 +506,6 @@
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>உயர் உரை எழுத்துரு அமைப்புகள்</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>உயர் உரையில் எழுத்தாக்கச் சோதனை</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Content" xml:space="preserve">

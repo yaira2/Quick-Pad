@@ -19,6 +19,7 @@
                 x:Uid="AcrylicOptions"
                 FontSize="16"
                 Text="Acrylic Options" />
+
             <ToggleSwitch
                 x:Uid="UseAcrylicOnTextBox"
                 Header="Use acrylic background for the text area"
@@ -40,8 +41,8 @@
                 Text="Paste Options" />
             <ToggleSwitch
                 x:Uid="KeepTextOnly"
-                Header="Keep text only"
                 AutomationProperties.Name="Keep text only when pasting text"
+                Header="Keep text only"
                 IsOn="{x:Bind Settings.PasteTextOnly, Mode=TwoWay}" />
 
             <TextBlock
@@ -67,12 +68,14 @@
                     Content="Import" />
                 <Button
                     x:Uid="Export"
-                    Margin="5,2" AutomationProperties.Name="Export Settings"
+                    Margin="5,2"
+                    AutomationProperties.Name="Export Settings"
                     Command="{x:Bind Commands.ExportSettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
                     Content="Export" />
                 <Button
-                    x:Uid="Reset" AutomationProperties.Name="Reset Settings"
+                    x:Uid="Reset"
+                    AutomationProperties.Name="Reset Settings"
                     Command="{x:Bind Commands.ResetSettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
                     Content="Reset" />
