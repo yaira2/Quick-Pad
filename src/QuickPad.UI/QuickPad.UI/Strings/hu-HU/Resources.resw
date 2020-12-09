@@ -690,26 +690,34 @@
   </data>
   <data name="ThemeApricotName" xml:space="preserve">
     <value>Barack</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeBlackCoralName" xml:space="preserve">
     <value>Fekete Korall</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkSiennaName" xml:space="preserve">
     <value>Söttétbarna</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkSpringGreenName" xml:space="preserve">
     <value>Sötét Tavaszi Zöld</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMaximumPurpleName" xml:space="preserve">
     <value>Lilább lila</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMediumPurpleName" xml:space="preserve">
     <value>Középlila</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemePersimmonName" xml:space="preserve">
     <value>Datolya</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSizzlingRedName" xml:space="preserve">
     <value>Izzó Vörös</value>
+    <comment>Used on Theme Page</comment>
   </data>
 </root>
