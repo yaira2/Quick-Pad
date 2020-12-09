@@ -13,6 +13,7 @@
     Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
     PrimaryButtonCommand="{x:Bind Commands.SaveCommand}"
     PrimaryButtonCommandParameter="{x:Bind ViewModel}"
+    PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
     PrimaryButtonText="Save"
     SecondaryButtonClick="AskToSave_OnSecondaryButtonClick"
     SecondaryButtonText="Don't Save"
