@@ -16,10 +16,6 @@
     <value>Transparenzeffekte</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>Deckkraft der Akzentfarbe</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Erweitert</value>
     <comment>Used on Settings Page</comment>
@@ -180,10 +176,6 @@
     <value>Importieren</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>Nur Text übernehmen</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchClassicMode" xml:space="preserve">
     <value>Klassischer Modus</value>
     <comment>Used on Settings Page</comment>
@@ -299,10 +291,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>Rückgängig</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>Transparenten Hintergrund im Texteditor verwenden</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>Ansicht</value>
@@ -643,10 +631,6 @@
   <data name="ThemeAccentName" xml:space="preserve">
     <value>System Akzentfarbe</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="SearchWithGoogle.Text" xml:space="preserve">
-    <value>Google Suche aktivieren</value>
-    <comment>Used on General Settings Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Andere</value>

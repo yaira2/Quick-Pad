@@ -16,10 +16,6 @@
     <value>Параметры Акрила</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>Непрозрачность акрила</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Продвинутые</value>
     <comment>Used on Settings Page</comment>
@@ -180,10 +176,6 @@
     <value>Импорт</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>Хранить только текст</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchClassicMode" xml:space="preserve">
     <value>Классический Режим</value>
     <comment>Used on Settings Page</comment>
@@ -299,10 +291,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>Отменить</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>Использовать акриловый фон для текстовой области</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>Просмотр</value>
@@ -631,10 +619,6 @@
   <data name="ThemeAccentName" xml:space="preserve">
     <value>Цвет Акцента Системы</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="SearchWithGoogle.Text" xml:space="preserve">
-    <value>Включить Google Поиск</value>
-    <comment>Used on General Settings Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Другое</value>

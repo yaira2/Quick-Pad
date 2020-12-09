@@ -16,10 +16,6 @@
     <value>Options acryliques</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>Opacité de la teinte acrylique</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Avancé</value>
     <comment>Used on Settings Page</comment>
@@ -180,10 +176,6 @@
     <value>Importer</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>Garder seulement le texte</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
     <value>Mode Classique</value>
     <comment>Used on Settings Page</comment>
@@ -283,10 +275,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>Annuler</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>Utiliser arrière-plan acrylique pour la zone de texte</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>Afficher</value>

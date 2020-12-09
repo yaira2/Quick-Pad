@@ -16,10 +16,6 @@
     <value>ตั้งค่าพื้นหลัง</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>ความโปร่งใสของพื้นหลัง</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>ขั้นสูง</value>
     <comment>Used on Settings Page</comment>
@@ -176,10 +172,6 @@
     <value>นำเข้า</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>วางเฉพาะข้อความ</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchClassicMode" xml:space="preserve">
     <value>โหมดคลาสสิค</value>
     <comment>Used on Settings Page</comment>
@@ -295,10 +287,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>เลิกทำ</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>ใช้พื้นหลังโปร่งใสในช่องพิมพ์ข้อความ</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>มุมมอง</value>
@@ -635,10 +623,6 @@
   <data name="ThemeAccentName" xml:space="preserve">
     <value>สีระบบ</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="SearchWithGoogle.Text" xml:space="preserve">
-    <value>แสดงปุ่มค้นหาด้วย Google</value>
-    <comment>Used on General Settings Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>อื่นๆ</value>

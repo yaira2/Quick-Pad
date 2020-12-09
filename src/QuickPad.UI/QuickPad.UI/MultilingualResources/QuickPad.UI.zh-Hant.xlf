@@ -11,11 +11,6 @@
           <target state="new">Acrylic Options</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="AcrylicTintOpacity.Text" translate="yes" xml:space="preserve">
-          <source>Acrylic tint opacity</source>
-          <target state="new">Acrylic tint opacity</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
           <source>Advanced</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">進階</target>
@@ -216,11 +211,6 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">匯入</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
-          <source>Keep text only</source>
-          <target state="new">Keep text only</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="LaunchClassicMode" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
           <target state="new">Classic Mode</target>
@@ -365,11 +355,6 @@
           <source>Undo</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">復原</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
-        </trans-unit>
-        <trans-unit id="UseAcrylicOnTextBox.Text" translate="yes" xml:space="preserve">
-          <source>Use acrylic background for the text area</source>
-          <target state="new">Use acrylic background for the text area</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="View.Title" translate="yes" xml:space="preserve">
           <source>View</source>
@@ -796,11 +781,6 @@
           <target state="new">System Accent Color</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
-        <trans-unit id="SearchWithGoogle.Text" translate="yes" xml:space="preserve">
-          <source>Enable Google Search</source>
-          <target state="new">Enable Google Search</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
-        </trans-unit>
         <trans-unit id="OtherOptions.Text" translate="yes" xml:space="preserve">
           <source>Other</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">其他</target>
@@ -957,6 +937,41 @@
         <trans-unit id="LaunchModeComboBox.Header" translate="yes" xml:space="preserve">
           <source>Launch Mode</source>
           <target state="new">Launch Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="AcrylicTintOpacity.Header" translate="yes" xml:space="preserve">
+          <source>Acrylic tint opacity</source>
+          <target state="new">Acrylic tint opacity</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="KeepTextOnly.Header" translate="yes" xml:space="preserve">
+          <source>Keep text only</source>
+          <target state="new">Keep text only</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="UseAcrylicOnTextBox.Header" translate="yes" xml:space="preserve">
+          <source>Use acrylic background for the text area</source>
+          <target state="new">Use acrylic background for the text area</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="SearchWithGoogle.Header" translate="yes" xml:space="preserve">
+          <source>Enable Google Search</source>
+          <target state="new">Enable Google Search</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Export.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Export Settings</source>
+          <target state="new">Export Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Import.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Import Settings</source>
+          <target state="new">Import Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
+        <trans-unit id="Reset.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Reset Settings</source>
+          <target state="new">Reset Settings</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
       </group>

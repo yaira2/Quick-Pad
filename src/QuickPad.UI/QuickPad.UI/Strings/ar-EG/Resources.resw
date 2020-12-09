@@ -16,10 +16,6 @@
     <value>خيارات الاكريليك</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>شفافية صبغة الاكريليك</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>متقدم</value>
     <comment>Used on Settings Page</comment>
@@ -176,10 +172,6 @@
     <value>استيراد</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>الحفاظ على النص فقط</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchClassicMode" xml:space="preserve">
     <value>الوضع الكلاسيكي</value>
     <comment>Used on Settings Page</comment>
@@ -295,10 +287,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>تراجع</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>استخدام خلفية الاكريليك لمنطقة النص</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>الرؤية</value>
@@ -619,10 +607,6 @@
   <data name="ThemeAccentName" xml:space="preserve">
     <value>لون واجهة النظام</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="SearchWithGoogle.Text" xml:space="preserve">
-    <value>تفعيل البحث بجوجل</value>
-    <comment>Used on General Settings Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>أخرى</value>

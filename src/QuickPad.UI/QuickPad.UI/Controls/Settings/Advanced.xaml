@@ -7,16 +7,9 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid Margin="20,0,20,20">
-        <Grid.Resources>
-            <Style TargetType="TextBlock">
-                <Setter Property="Margin" Value="0,8,0,4" />
-                <Setter Property="TextWrapping" Value="Wrap" />
-                <Setter Property="FontFamily" Value="Segoe UI" />
-            </Style>
-        </Grid.Resources>
+    <Grid Margin="20,8,20,20">
 
-        <StackPanel>
+        <StackPanel Spacing="12">
             <TextBlock
                 x:Uid="Advanced"
                 FontSize="20"
@@ -26,13 +19,16 @@
                 x:Uid="AcrylicOptions"
                 FontSize="16"
                 Text="Acrylic Options" />
-            <TextBlock x:Uid="UseAcrylicOnTextBox" Text="Use acrylic background for the text area" />
-            <ToggleSwitch IsOn="{x:Bind Settings.UseAcrylic, Mode=TwoWay}" />
+            <ToggleSwitch
+                x:Uid="UseAcrylicOnTextBox"
+                Header="Use acrylic background for the text area"
+                IsOn="{x:Bind Settings.UseAcrylic, Mode=TwoWay}" />
 
-            <TextBlock x:Uid="AcrylicTintOpacity" Text="Acrylic tint opacity" />
             <Slider
+                x:Uid="AcrylicTintOpacity"
                 Width="240"
                 HorizontalAlignment="Left"
+                Header="Acrylic tint opacity"
                 Maximum="1"
                 Minimum="0"
                 StepFrequency="0.01"
@@ -42,15 +38,20 @@
                 x:Uid="PasteOptions"
                 FontSize="16"
                 Text="Paste Options" />
-            <TextBlock x:Uid="KeepTextOnly" Text="Keep text only" />
-            <ToggleSwitch IsOn="{x:Bind Settings.PasteTextOnly, Mode=TwoWay}" />
+            <ToggleSwitch
+                x:Uid="KeepTextOnly"
+                Header="Keep text only"
+                IsOn="{x:Bind Settings.PasteTextOnly, Mode=TwoWay}" />
 
             <TextBlock
                 x:Uid="OtherOptions"
                 FontSize="16"
                 Text="Other" />
-            <TextBlock x:Uid="SearchWithGoogle" Text="Enable Google Search" />
-            <ToggleSwitch HorizontalAlignment="Left" IsOn="{x:Bind Settings.EnableGoogleSearch, Mode=TwoWay}" />
+            <ToggleSwitch
+                x:Uid="SearchWithGoogle"
+                HorizontalAlignment="Left"
+                Header="Enable Google Search"
+                IsOn="{x:Bind Settings.EnableGoogleSearch, Mode=TwoWay}" />
 
             <TextBlock
                 x:Uid="ManageSettings"
@@ -59,17 +60,18 @@
             <StackPanel Orientation="Horizontal">
                 <Button
                     x:Uid="Import"
+                    AutomationProperties.Name="Import Settings"
                     Command="{x:Bind Commands.ImportSettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
                     Content="Import" />
                 <Button
                     x:Uid="Export"
-                    Margin="5,2"
+                    Margin="5,2" AutomationProperties.Name="Export Settings"
                     Command="{x:Bind Commands.ExportSettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
                     Content="Export" />
                 <Button
-                    x:Uid="Reset"
+                    x:Uid="Reset" AutomationProperties.Name="Reset Settings"
                     Command="{x:Bind Commands.ResetSettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
                     Content="Reset" />

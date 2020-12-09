@@ -121,7 +121,7 @@
     <value>Acrylic Options</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
+  <data name="AcrylicTintOpacity.Header" xml:space="preserve">
     <value>Acrylic tint opacity</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -301,7 +301,7 @@
     <value>Import</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
+  <data name="KeepTextOnly.Header" xml:space="preserve">
     <value>Keep text only</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -425,7 +425,7 @@
     <value>Undo</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
+  <data name="UseAcrylicOnTextBox.Header" xml:space="preserve">
     <value>Use acrylic background for the text area</value>
     <comment>Used on Settings Page</comment>
   </data>
@@ -769,7 +769,7 @@
     <value>System Accent Color</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="SearchWithGoogle.Text" xml:space="preserve">
+  <data name="SearchWithGoogle.Header" xml:space="preserve">
     <value>Enable Google Search</value>
     <comment>Used on General Settings Page</comment>
   </data>
@@ -878,5 +878,17 @@
   <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
     <value>Theme Settings</value>
     <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="Export.AutomationProperties.Name" xml:space="preserve">
+    <value>Export Settings</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Import.AutomationProperties.Name" xml:space="preserve">
+    <value>Import Settings</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Reset.AutomationProperties.Name" xml:space="preserve">
+    <value>Reset Settings</value>
+    <comment>Used on Settings Page</comment>
   </data>
 </root>

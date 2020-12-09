@@ -16,10 +16,6 @@
     <value>Options acryliques</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>Opacité de la teinte acrylique</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Avancé</value>
     <comment>Used on Settings Page</comment>
@@ -180,10 +176,6 @@
     <value>Importer</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>Garder seulement le texte</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
     <value>Mode classique</value>
     <comment>Used on Settings Page</comment>
@@ -279,10 +271,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>Annuler</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>Utiliser un arrière-plan acrylique pour la zone texte</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>Afficher</value>
@@ -639,10 +627,6 @@
   <data name="ThemeAccentName" xml:space="preserve">
     <value>Couleur d'accent du système</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="SearchWithGoogle.Text" xml:space="preserve">
-    <value>Activer recherche Google</value>
-    <comment>Used on General Settings Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Autre</value>

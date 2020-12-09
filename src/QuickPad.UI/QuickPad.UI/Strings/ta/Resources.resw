@@ -16,10 +16,6 @@
     <value>Acrylic விருப்பங்கள்</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>Acrylic நிற ஒளிபுகாநிலை</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>மேம்பட்டவை</value>
     <comment>Used on Settings Page</comment>
@@ -176,11 +172,6 @@
     <value>இறக்குமதி செய்</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>Keep text only
-உரையை மட்டும் வைத்திரு</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchClassicMode" xml:space="preserve">
     <value>Classic பயன்முறை</value>
     <comment>Used on Settings Page</comment>
@@ -296,10 +287,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>செயல்தவிர்</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>உரை இடத்திற்கு acrylic பின்னணியைப் பயன்படுத்து</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>காண்க</value>
@@ -636,10 +623,6 @@
   <data name="ThemeAccentName" xml:space="preserve">
     <value>முறைமை அழுத்த வண்ணம்</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="SearchWithGoogle.Text" xml:space="preserve">
-    <value>Google தேடலை இயக்கு</value>
-    <comment>Used on General Settings Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>மற்றவை</value>

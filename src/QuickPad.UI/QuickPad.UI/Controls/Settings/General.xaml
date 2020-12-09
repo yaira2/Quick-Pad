@@ -10,13 +10,14 @@
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid Margin="20,0,20,20">
+    <Grid Margin="20,8,20,20">
 
         <StackPanel Spacing="12">
             <TextBlock
                 x:Uid="General"
                 FontSize="20"
                 Text="General" />
+
             <ComboBox
                 x:Uid="LaunchModeComboBox"
                 Width="180"

@@ -16,10 +16,6 @@
     <value>Acrilico - Opzioni</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>Opacità della tinta acrilica</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Avanzate</value>
     <comment>Used on Settings Page</comment>
@@ -177,10 +173,6 @@
     <value>Importa</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>Mantieni solo il testo</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchClassicMode" xml:space="preserve">
     <value>Modalità Classica</value>
     <comment>Used on Settings Page</comment>
@@ -296,10 +288,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>Annulla</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>Usa sfondo acrilico per l'area del testo</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>Visualizza</value>
