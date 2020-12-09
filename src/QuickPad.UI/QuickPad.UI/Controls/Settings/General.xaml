@@ -11,15 +11,8 @@
     mc:Ignorable="d">
 
     <Grid Margin="20,0,20,20">
-        <Grid.Resources>
-            <Style TargetType="TextBlock">
-                <Setter Property="Margin" Value="0,8,0,4" />
-                <Setter Property="TextWrapping" Value="Wrap" />
-                <Setter Property="FontFamily" Value="Segoe UI" />
-            </Style>
-        </Grid.Resources>
 
-        <StackPanel Spacing="10">
+        <StackPanel Spacing="12">
             <TextBlock
                 x:Uid="General"
                 FontSize="20"
