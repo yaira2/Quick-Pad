@@ -121,7 +121,7 @@ namespace QuickPad.UI.Converters
         /// <returns></returns>
         public static Visibility ShowIfItemIsNotNull(object input) => IsItemNull(input) ? Visibility.Collapsed : Visibility.Visible;
 
-        public static Visibility CanIShowStatusBar(bool classicMode, bool focus, bool over, bool showStatusBar)
+        public static Boolean CanIShowStatusBar(bool classicMode, bool focus, bool over, bool showStatusBar)
         {
             //Is it classic mode?
             if (classicMode)
@@ -129,7 +129,7 @@ namespace QuickPad.UI.Converters
                 //If it on either mode, is it allow to show status bar?
                 if (showStatusBar)
                 {
-                    return Visibility.Visible;
+                    return true;
                 }
             }
             else if (!focus && !over && !classicMode)
@@ -137,10 +137,10 @@ namespace QuickPad.UI.Converters
                 //Is not in any mode (focus, overlay, classic)
                 if (showStatusBar)
                 {
-                    return Visibility.Visible;
+                    return false;
                 }
             }
-            return Visibility.Collapsed;
+            return false;
         }
 
         /// <summary>

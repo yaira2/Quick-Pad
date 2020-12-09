@@ -49,9 +49,9 @@
                     x:Name="menuBar"
                     Height="40"
                     HorizontalAlignment="Stretch"
+                    x:Load="{x:Bind Settings.ShowMenu, Mode=OneWay}"
                     Canvas.ZIndex="100"
-                    ViewModel="{x:Bind ViewModel, Mode=OneWay}"
-                    Visibility="{x:Bind Settings.ShowMenu, Converter={StaticResource Converter}}" />
+                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
 
                 <controls3:CommandBar
                     x:Name="commandBar"
@@ -71,7 +71,10 @@
             PaneBackground="Transparent"
             PanePlacement="Right">
             <SplitView.Pane>
-                <Grid Margin="4,0,0,0">
+                <Grid
+                    x:Name="SettingsGrid"
+                    Margin="4,0,0,0"
+                    x:Load="{x:Bind Settings.ShowSettings, Mode=OneWay}">
                     <controls1:DropShadowPanel
                         OffsetX="0"
                         OffsetY="0"
@@ -91,13 +94,14 @@
                 </Grid.RowDefinitions>
 
                 <controls1:DropShadowPanel
+                    x:Name="FindReplaceControl"
                     Grid.Row="0"
                     Margin="16"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
+                    x:Load="{x:Bind ViewModel.ShowFind, Mode=OneWay}"
                     Canvas.ZIndex="75"
-                    ShadowOpacity="0.3"
-                    Visibility="{x:Bind ViewModel.ShowFind, Mode=OneWay}">
+                    ShadowOpacity="0.3">
                     <controls3:FindAndReplaceView
                         x:Name="FindAndReplaceView"
                         Canvas.ZIndex="100"
@@ -171,16 +175,17 @@
                 </ScrollViewer>
 
                 <controls1:DropShadowPanel
+                    x:Name="StatusBarShadow"
                     Grid.Row="1"
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Stretch"
+                    x:Load="{x:Bind Settings.ShowStatusBar, Mode=OneWay}"
                     Canvas.ZIndex="75"
                     OffsetX="0"
                     OffsetY="1"
-                    ShadowOpacity="0.3"
-                    Visibility="{x:Bind Settings.ShowStatusBar, Converter={StaticResource Converter}}">
+                    ShadowOpacity="0.3">
                     <controls3:StatusBar
-                        x:Name="statusBar"
+                        x:Name="StatusBar"
                         Height="24"
                         HorizontalAlignment="Stretch"
                         ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
