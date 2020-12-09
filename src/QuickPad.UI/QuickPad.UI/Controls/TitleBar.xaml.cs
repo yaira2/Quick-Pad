@@ -40,10 +40,12 @@ namespace QuickPad.UI.Controls
             {
                 case nameof(ViewModel.IsDirtyMarker):
                     DirtyMarker.Text = ViewModel.IsDirtyMarker;
+                    ApplicationView.GetForCurrentView().Title = ViewModel.IsDirtyMarker + ViewModel.Title + " - Quick Pad";
                     break;
 
                 case nameof(ViewModel.Title):
                     Title.Text = ViewModel.Title;
+                    ApplicationView.GetForCurrentView().Title = ViewModel.IsDirtyMarker + ViewModel.Title + " - Quick Pad";
                     break;
             }
         }
