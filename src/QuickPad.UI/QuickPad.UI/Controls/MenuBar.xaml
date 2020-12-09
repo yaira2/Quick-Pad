@@ -419,11 +419,14 @@
                 Width="Auto"
                 MinWidth="40"
                 Command="{x:Bind Commands.SettingsCommand}"
-                CommandParameter="{x:Bind Settings}"
-                Icon="Setting" />
-            <ToolTipService.ToolTip>
-                <TextBlock x:Uid="SettingsLabel.Label" Text="Settings" />
-            </ToolTipService.ToolTip>
+                CommandParameter="{x:Bind Settings}">                
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB5D;" />
+                </AppBarButton.Icon>
+                <ToolTipService.ToolTip>
+                    <TextBlock x:Uid="SettingsLabel.Label" Text="Settings" />
+                </ToolTipService.ToolTip>
+            </AppBarButton>
         </CommandBar>
     </Grid>
 </UserControl>
