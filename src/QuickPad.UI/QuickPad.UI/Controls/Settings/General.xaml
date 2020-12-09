@@ -19,7 +19,7 @@
             </Style>
         </Grid.Resources>
 
-        <StackPanel>
+        <StackPanel Spacing="10">
             <TextBlock
                 x:Uid="General"
                 FontSize="20"
@@ -36,31 +36,33 @@
                 SelectedValue="{x:Bind Settings.DefaultMode, Mode=TwoWay}"
                 SelectedValuePath="Uid" />
 
-            <ComboBox
-                x:Name="ComboAppLanguage"
-                x:Uid="AppLanguage"
-                Width="180"
-                HorizontalAlignment="Left"
-                Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
-                Header="App Language"
-                ItemsSource="{x:Bind Settings.DefaultLanguages}"
-                PlaceholderText="{x:Bind Settings.DefaultLanguage}"
-                SelectedItem="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}">
-                <ComboBox.ItemTemplate>
-                    <DataTemplate x:DataType="q:DefaultLanguageModel">
-                        <TextBlock Text="{x:Bind Name}" />
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <TextBlock
-                x:Uid="RestatRequired"
-                Padding="0,8,0,0"
-                Style="{ThemeResource CaptionTextBlockStyle}"
-                Text="You will need to restart Quick Pad to apply changes." />
+            <StackPanel>
+                <ComboBox
+                    x:Name="ComboAppLanguage"
+                    x:Uid="AppLanguage"
+                    Width="180"
+                    HorizontalAlignment="Left"
+                    Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+                    Header="App Language"
+                    ItemsSource="{x:Bind Settings.DefaultLanguages}"
+                    PlaceholderText="{x:Bind Settings.DefaultLanguage}"
+                    SelectedItem="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate x:DataType="q:DefaultLanguageModel">
+                            <TextBlock Text="{x:Bind Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock
+                    x:Uid="RestatRequired"
+                    Padding="0,8,0,0"
+                    Style="{ThemeResource CaptionTextBlockStyle}"
+                    Text="You will need to restart Quick Pad to apply changes." />
+            </StackPanel>
 
             <ComboBox
                 x:Uid="DefaultFileType"
-                Width="120"
+                Width="140"
                 HorizontalAlignment="Left"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
                 Header="Default File Type"
@@ -72,7 +74,7 @@
 
             <ComboBox
                 x:Uid="DefaultFileEncoding"
-                Width="120"
+                Width="140"
                 HorizontalAlignment="Left"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
                 Header="Default File Encoding"
@@ -113,20 +115,22 @@
                 Header="Auto Save"
                 IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" />
 
-            <TextBlock Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}">
-                <Run x:Uid="AutoSaveEvery" Text="Auto save every" />
-                <Run Text="{x:Bind Settings.AutoSaveFrequency, Mode=OneWay}" />
-                <Run x:Uid="AutoSaveSeconds" Text="second(s)" />
-            </TextBlock>
-            <Slider
-                Width="240"
-                HorizontalAlignment="Left"
-                Maximum="45"
-                Minimum="5"
-                StepFrequency="1"
-                TickPlacement="Inline"
-                Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}"
-                Value="{x:Bind Settings.AutoSaveFrequency, Mode=TwoWay}" />
+            <StackPanel>
+                <TextBlock Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}">
+                    <Run x:Uid="AutoSaveEvery" Text="Auto save every" />
+                    <Run Text="{x:Bind Settings.AutoSaveFrequency, Mode=OneWay}" />
+                    <Run x:Uid="AutoSaveSeconds" Text="second(s)" />
+                </TextBlock>
+                <Slider
+                    Width="240"
+                    HorizontalAlignment="Left"
+                    Maximum="45"
+                    Minimum="5"
+                    StepFrequency="1"
+                    TickPlacement="Inline"
+                    Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}"
+                    Value="{x:Bind Settings.AutoSaveFrequency, Mode=TwoWay}" />
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Page>
