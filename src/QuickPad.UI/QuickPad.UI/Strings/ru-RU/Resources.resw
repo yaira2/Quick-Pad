@@ -620,4 +620,79 @@
     <value>параметры</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
+    <value>Общие настройки</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
+    <value>Дополнительные параметры</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.AutomationProperties.Name" xml:space="preserve">
+    <value>Настройка шрифта...</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
+    <value>Параметры темы</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Дополнительные параметры</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Настройка шрифта...</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavGeneral.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Общие настройки</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Параметры темы</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
+    <value>Политика конфиденциальности</value>
+  </data>
+  <data name="AppLanguage.Header" xml:space="preserve">
+    <value>Язык приложения</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSave.Header" xml:space="preserve">
+    <value>Автосохранение</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.Header" xml:space="preserve">
+    <value>Режим запуска:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Export.AutomationProperties.Name" xml:space="preserve">
+    <value>Экспортировать параметры</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Import.AutomationProperties.Name" xml:space="preserve">
+    <value>Параметры импорта</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Reset.AutomationProperties.Name" xml:space="preserve">
+    <value>_Сбросить параметры</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFont.Header" xml:space="preserve">
+    <value>Шрифт по умолчанию</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Header" xml:space="preserve">
+    <value>Размер шрифта по умолчанию</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheck.Header" xml:space="preserve">
+    <value>Проверка орфографии</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSetting.Header" xml:space="preserve">
+    <value>Перенос по словам</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>

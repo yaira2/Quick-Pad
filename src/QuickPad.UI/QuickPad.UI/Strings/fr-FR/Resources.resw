@@ -620,4 +620,79 @@
     <value>Paramètres</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
+    <value>Paramètres généraux</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
+    <value>Paramètres avancés</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.AutomationProperties.Name" xml:space="preserve">
+    <value>Paramètre des polices</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
+    <value>Paramètres du thème</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Paramètres avancés</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Paramètre des polices</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavGeneral.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Paramètres généraux</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Paramètres du thème</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
+    <value>Politique de confidentialité</value>
+  </data>
+  <data name="AppLanguage.Header" xml:space="preserve">
+    <value>Langue de l’application</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSave.Header" xml:space="preserve">
+    <value>Enregistrement automatique :</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.Header" xml:space="preserve">
+    <value>Mode de lancement :</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Export.AutomationProperties.Name" xml:space="preserve">
+    <value>Exporter les paramètres</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Import.AutomationProperties.Name" xml:space="preserve">
+    <value>Importer les paramètres</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Reset.AutomationProperties.Name" xml:space="preserve">
+    <value>_Réinitialiser les paramètres</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFont.Header" xml:space="preserve">
+    <value>Police par défaut</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Header" xml:space="preserve">
+    <value>Taille de police par défaut</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheck.Header" xml:space="preserve">
+    <value>Vérification de l'orthographe</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSetting.Header" xml:space="preserve">
+    <value>Retour automatique à la ligne</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>

@@ -110,7 +110,7 @@ namespace QuickPad.Mvvm.ViewModels
         public bool CompactOverlay => CurrentMode.Equals(DisplayModes.LaunchCompactOverlay.ToString(),
             StringComparison.InvariantCultureIgnoreCase);
 
-        [JsonIgnore] [NotifyOnReset] public bool ShowStatusBar => ShowMenu && StatusBar && DisplayStatusBar || ShowCommandBar && StatusBar  && DisplayStatusBar;
+        [JsonIgnore] [NotifyOnReset] public bool ShowStatusBar => ShowMenu && StatusBar && DisplayStatusBar || ShowCommandBar && StatusBar && DisplayStatusBar;
 
         [JsonIgnore] public double BackButtonWidth { get; set; }
 
@@ -295,7 +295,7 @@ namespace QuickPad.Mvvm.ViewModels
             get => Model.EnableGoogleSearch;
             set => Model.EnableGoogleSearch = value;
         }
-        
+
         [NotifyOnReset]
         public bool DisplayStatusBar
         {

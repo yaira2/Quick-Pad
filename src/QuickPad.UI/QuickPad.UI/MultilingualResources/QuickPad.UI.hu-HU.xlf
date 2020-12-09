@@ -818,7 +818,7 @@
         </trans-unit>
         <trans-unit id="SettingsNavGeneral.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>General Settings</source>
-          <target state="new">General Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Általános beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAbout.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -828,17 +828,17 @@
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Advanced Settings</source>
-          <target state="new">Advanced Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Speciális beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavFont.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="new">Font Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Betűtípus beállításai...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavTheme.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="new">Theme Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Témák beállításai</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAbout.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
@@ -848,22 +848,22 @@
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Advanced Settings</source>
-          <target state="new">Advanced Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Speciális beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavFont.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="new">Font Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Betűtípus beállításai...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavGeneral.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>General Settings</source>
-          <target state="new">General Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Általános beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavTheme.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="new">Theme Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Témák beállításai</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -872,16 +872,16 @@
         </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="new">Privacy Policy</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Adatvédelmi szabályzat</target>
         </trans-unit>
         <trans-unit id="AppLanguage.Header" translate="yes" xml:space="preserve">
           <source>App Language</source>
-          <target state="new">App Language</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Az alkalmazás nyelve</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSave.Header" translate="yes" xml:space="preserve">
           <source>Auto Save</source>
-          <target state="new">Auto Save</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Automatikus mentés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Header" translate="yes" xml:space="preserve">
@@ -921,17 +921,17 @@
         </trans-unit>
         <trans-unit id="Export.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Export Settings</source>
-          <target state="new">Export Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Exportálási beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Import.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Import Settings</source>
-          <target state="new">Import Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Importálási beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Reset.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Reset Settings</source>
-          <target state="new">Reset Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Beállítások _alaphelyzetbe állítása</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="KeepTextOnly.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -941,22 +941,22 @@
         </trans-unit>
         <trans-unit id="DefaultFont.Header" translate="yes" xml:space="preserve">
           <source>Default Font</source>
-          <target state="new">Default Font</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Alapértelmezett betűtípus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSize.Header" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
-          <target state="new">Default Font Size</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Alapértelmezett betűméret</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpellCheck.Header" translate="yes" xml:space="preserve">
           <source>Spell Check</source>
-          <target state="new">Spell Check</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Helyesírás-ellenőrzés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSetting.Header" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="new">Word Wrap</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Hosszú sorok tördelése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Header" translate="yes" xml:space="preserve">

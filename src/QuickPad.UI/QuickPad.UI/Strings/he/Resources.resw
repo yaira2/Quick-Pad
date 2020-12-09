@@ -496,4 +496,63 @@
     <value>הגדרות</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
+    <value>‏‏הגדרות כלליות</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
+    <value>הגדרות מתקדמות</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.AutomationProperties.Name" xml:space="preserve">
+    <value>הגדרות גופן</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
+    <value>הגדרות ערכת נושא</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
+    <value>הגדרות מתקדמות</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
+    <value>הגדרות גופן</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavGeneral.ToolTipService.ToolTip" xml:space="preserve">
+    <value>‏‏הגדרות כלליות</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
+    <value>הגדרות ערכת נושא</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
+    <value>מדיניות פרטיות</value>
+  </data>
+  <data name="Export.AutomationProperties.Name" xml:space="preserve">
+    <value>יצא הגדרות</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Import.AutomationProperties.Name" xml:space="preserve">
+    <value>ייבא הגדרות</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFont.Header" xml:space="preserve">
+    <value>גופן ברירת מחדל</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Header" xml:space="preserve">
+    <value>גודל גופן המהווה ברירת מחדל</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheck.Header" xml:space="preserve">
+    <value>בדיקת איות</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSetting.Header" xml:space="preserve">
+    <value>גלישת שורות</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>

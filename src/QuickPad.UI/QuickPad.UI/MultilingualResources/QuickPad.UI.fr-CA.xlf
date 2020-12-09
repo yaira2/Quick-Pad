@@ -819,7 +819,7 @@
         </trans-unit>
         <trans-unit id="SettingsNavGeneral.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>General Settings</source>
-          <target state="new">General Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres généraux</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAbout.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -829,17 +829,17 @@
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Advanced Settings</source>
-          <target state="new">Advanced Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres avancés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavFont.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="new">Font Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètre des polices</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavTheme.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="new">Theme Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres du thème</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAbout.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
@@ -849,22 +849,22 @@
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Advanced Settings</source>
-          <target state="new">Advanced Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres avancés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavFont.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="new">Font Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètre des polices</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavGeneral.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>General Settings</source>
-          <target state="new">General Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres généraux</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavTheme.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="new">Theme Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres du thème</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -873,7 +873,7 @@
         </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="new">Privacy Policy</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Politique de confidentialité</target>
         </trans-unit>
         <trans-unit id="AppLanguage.Header" translate="yes" xml:space="preserve">
           <source>App Language</source>
@@ -922,12 +922,12 @@
         </trans-unit>
         <trans-unit id="Export.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Export Settings</source>
-          <target state="new">Export Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres d'exportation</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Import.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Import Settings</source>
-          <target state="new">Import Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres d’importation</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Reset.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -942,22 +942,22 @@
         </trans-unit>
         <trans-unit id="DefaultFont.Header" translate="yes" xml:space="preserve">
           <source>Default Font</source>
-          <target state="new">Default Font</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Police par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSize.Header" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
-          <target state="new">Default Font Size</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Taille de police par défaut</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpellCheck.Header" translate="yes" xml:space="preserve">
           <source>Spell Check</source>
-          <target state="new">Spell Check</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Vérification de l'orthographe</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSetting.Header" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="new">Word Wrap</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Retour automatique à la ligne</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Header" translate="yes" xml:space="preserve">

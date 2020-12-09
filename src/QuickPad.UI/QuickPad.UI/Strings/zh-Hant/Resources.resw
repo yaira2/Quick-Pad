@@ -504,4 +504,79 @@
     <value>設定</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
+    <value>一般設定</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
+    <value>進階設定</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.AutomationProperties.Name" xml:space="preserve">
+    <value>字型設定...</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
+    <value>佈景主題設定</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
+    <value>進階設定</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
+    <value>字型設定...</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavGeneral.ToolTipService.ToolTip" xml:space="preserve">
+    <value>一般設定</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
+    <value>佈景主題設定</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
+    <value>隱私權原則</value>
+  </data>
+  <data name="AppLanguage.Header" xml:space="preserve">
+    <value>應用程式語言</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSave.Header" xml:space="preserve">
+    <value>自動儲存</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.Header" xml:space="preserve">
+    <value>啟動模式:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Export.AutomationProperties.Name" xml:space="preserve">
+    <value>匯出設定</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Import.AutomationProperties.Name" xml:space="preserve">
+    <value>匯入設定</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Reset.AutomationProperties.Name" xml:space="preserve">
+    <value>重設設定(_R)</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFont.Header" xml:space="preserve">
+    <value>預設字型</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Header" xml:space="preserve">
+    <value>預設字型大小</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheck.Header" xml:space="preserve">
+    <value>拼字檢查</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSetting.Header" xml:space="preserve">
+    <value>自動換行</value>
+    <comment>Used on Settings Page</comment>
+  </data>
 </root>

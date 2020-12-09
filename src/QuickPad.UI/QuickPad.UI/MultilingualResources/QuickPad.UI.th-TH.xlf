@@ -819,7 +819,7 @@
         </trans-unit>
         <trans-unit id="SettingsNavGeneral.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>General Settings</source>
-          <target state="new">General Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าทั่วไป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAbout.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -829,17 +829,17 @@
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Advanced Settings</source>
-          <target state="new">Advanced Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าขั้นสูง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavFont.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="new">Font Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าฟอนต์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavTheme.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="new">Theme Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าชุดรูปแบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAbout.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
@@ -849,22 +849,22 @@
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Advanced Settings</source>
-          <target state="new">Advanced Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าขั้นสูง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavFont.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="new">Font Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าฟอนต์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavGeneral.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>General Settings</source>
-          <target state="new">General Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าทั่วไป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavTheme.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="new">Theme Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าชุดรูปแบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -873,11 +873,11 @@
         </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="new">Privacy Policy</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">นโยบายความเป็นส่วนตัว</target>
         </trans-unit>
         <trans-unit id="AppLanguage.Header" translate="yes" xml:space="preserve">
           <source>App Language</source>
-          <target state="new">App Language</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">ภาษาของแอป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSave.Header" translate="yes" xml:space="preserve">
@@ -922,12 +922,12 @@
         </trans-unit>
         <trans-unit id="Export.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Export Settings</source>
-          <target state="new">Export Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าการส่งออก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Import.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Import Settings</source>
-          <target state="new">Import Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าการนำเข้า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Reset.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -942,22 +942,22 @@
         </trans-unit>
         <trans-unit id="DefaultFont.Header" translate="yes" xml:space="preserve">
           <source>Default Font</source>
-          <target state="new">Default Font</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">ฟอนต์เริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSize.Header" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
-          <target state="new">Default Font Size</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">ขนาดฟอนต์เริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpellCheck.Header" translate="yes" xml:space="preserve">
           <source>Spell Check</source>
-          <target state="new">Spell Check</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">ตรวจตัวสะกด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSetting.Header" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="new">Word Wrap</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">ตัดคำ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Header" translate="yes" xml:space="preserve">
