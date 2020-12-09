@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" source-language="en-US" target-language="hu-HU" original="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
@@ -8,497 +8,497 @@
       <group id="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
         <trans-unit id="AcrylicOptions.Text" translate="yes" xml:space="preserve">
           <source>Acrylic Options</source>
-          <target state="new">Acrylic Options</target>
+          <target state="translated">Akril Beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AcrylicTintOpacity.Text" translate="yes" xml:space="preserve">
           <source>Acrylic tint opacity</source>
-          <target state="new">Acrylic tint opacity</target>
+          <target state="translated">Akril áttetszőség</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
           <source>Advanced</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Speciális</target>
+          <target state="translated">Speciális</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AppLanguage.Text" translate="yes" xml:space="preserve">
           <source>App Language</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Az alkalmazás nyelve</target>
+          <target state="translated">Alkalmazás nyelve</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AppName.Text" translate="yes" xml:space="preserve">
           <source>Quick Pad</source>
-          <target state="new">Quick Pad</target>
+          <target state="translated">Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
           <source>Chick</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Kiscsibe</target>
+          <target state="translated">Citrom</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
           <source>Cobalt</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Kobaltkék</target>
+          <target state="translated">Kobaltkék</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
           <source>Crimson</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Karmazsinvörös</target>
+          <target state="translated">Karmazsinvörös</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Sötét</target>
+          <target state="translated">Sötét</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
           <source>Leaf</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Levél</target>
+          <target state="translated">Levél</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
           <source>Lettuce</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">FejesSaláta</target>
+          <target state="translated">Saláta</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLightName" translate="yes" xml:space="preserve">
           <source>Light</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Világos</target>
+          <target state="translated">Világos</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRandomName" translate="yes" xml:space="preserve">
           <source>Random</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Véletlen</target>
+          <target state="translated">Véletlen</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
           <source>Rose Gold</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Rozéarany</target>
+          <target state="translated">Rozéarany</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
           <source>System Default</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Alapértelmezett</target>
+          <target state="translated">Alapértelmezett</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeGeneralDarkDescription" translate="yes" xml:space="preserve">
           <source>Dark theme</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Sötét téma</target>
+          <target state="translated">Sötét téma</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeGeneralLightDescription" translate="yes" xml:space="preserve">
           <source>Light theme</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Világos téma</target>
+          <target state="translated">Világos téma</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRandomDescription" translate="yes" xml:space="preserve">
           <source>Random theme on startup</source>
-          <target state="new">Random theme on startup</target>
+          <target state="translated">Véletlenszerű téma induláskor</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
           <source>System-defined theme</source>
-          <target state="new">System-defined theme</target>
+          <target state="new">Rendszer alapértelmezett téma</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="AutoSave.Text" translate="yes" xml:space="preserve">
           <source>Auto Save</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Automatikus mentés</target>
+          <target state="translated">Automatikus mentés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
           <source>Auto save every</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">&amp;Automatikus mentés</target>
+          <target state="translated">Automatikus mentés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSaveSeconds.Text" translate="yes" xml:space="preserve">
           <source>seconds</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">másodperc</target>
+          <target state="translated">másodpercenként</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="BackToDefault.Text" translate="yes" xml:space="preserve">
           <source>Back to Default Mode</source>
-          <target state="new">Back to Default Mode</target>
+          <target state="translated">Visszaállítás alapértelmezettre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CloseCompactOverlay.Text" translate="yes" xml:space="preserve">
           <source>Close Compact Overlay</source>
-          <target state="new">Close Compact Overlay</target>
+          <target state="translated">Kompakt nézet bezárása</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TitleBar</note>
         </trans-unit>
         <trans-unit id="Copy.Text" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Másolás</target>
+          <target state="translated">Másolás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
           <source>Developed by Yair Aichenbaum</source>
-          <target state="new">Developed by Yair Aichenbaum</target>
+          <target state="translated">Fejlesztette Yair Aichenbaum</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Kivágás</target>
+          <target state="translated">Kivágás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Text" translate="yes" xml:space="preserve">
           <source>Default File Encoding</source>
-          <target state="new">Default File Encoding</target>
+          <target state="translated">Alap Fájl Kódolás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFileType.Text" translate="yes" xml:space="preserve">
           <source>Default File Type</source>
-          <target state="new">Default File Type</target>
+          <target state="translated">Alap Fájl Típus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFont.Text" translate="yes" xml:space="preserve">
           <source>Default Font</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Alapértelmezett betűtípus</target>
+          <target state="translated">Alapértelmezett betűtípus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSize.Text" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Alapértelmezett betűméret</target>
+          <target state="translated">Alapértelmezett betűméret</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Delete.Text" translate="yes" xml:space="preserve">
           <source>Delete</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Törlés</target>
+          <target state="translated">Törlés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Edit.Title" translate="yes" xml:space="preserve">
           <source>Edit</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Szerkesztés parancsot.</target>
+          <target state="translated">Szerkesztés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="Exit.Text" translate="yes" xml:space="preserve">
           <source>Exit</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Kilépés</target>
+          <target state="translated">Kilépés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Export.Content" translate="yes" xml:space="preserve">
           <source>Export</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Exportálás</target>
+          <target state="translated">Exportálás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="File.Title" translate="yes" xml:space="preserve">
           <source>File</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Fájl</target>
+          <target state="translated">Fájl</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="Find.Text" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Keresés</target>
+          <target state="translated">Keresés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindNext.Text" translate="yes" xml:space="preserve">
           <source>Find Next</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Következő keresése</target>
+          <target state="translated">Következő keresése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
           <source>Find Previous</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Előző keresése</target>
+          <target state="translated">Előző keresése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FocusMode.Text" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Fókusz mód</target>
+          <target state="translated">Fókusz mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Font.Text" translate="yes" xml:space="preserve">
           <source>Font</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Betűtípus</target>
+          <target state="translated">Betűtípus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Fonts.Text" translate="yes" xml:space="preserve">
           <source>Fonts...</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Betűkészletek...</target>
+          <target state="translated">Betűtípusok...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Format.Title" translate="yes" xml:space="preserve">
           <source>Format</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Formátum</target>
+          <target state="translated">Formátum</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="General.Text" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Általános</target>
+          <target state="translated">Általános</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="GoTo.Text" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Megnyitás:</target>
+          <target state="translated">Megnyitás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Import.Content" translate="yes" xml:space="preserve">
           <source>Import</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Importálás</target>
+          <target state="translated">Importálás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="KeepTextOnly.Text" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
-          <target state="new">Keep text only</target>
+          <target state="translated">Csak szövegek megtartása</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchClassicMode" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
-          <target state="new">Classic Mode</target>
+          <target state="translated">Klasszikus mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchDefaultMode" translate="yes" xml:space="preserve">
           <source>Default</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Alapértelmezett</target>
+          <target state="translated">Alapértelmezett</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchFocusMode" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Fókusz mód</target>
+          <target state="translated">Fókusz mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchMode.Text" translate="yes" xml:space="preserve">
           <source>Launch Mode</source>
-          <target state="new">Launch Mode</target>
+          <target state="translated">Indulási mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchModeComboBox.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
-          <target state="new">Classic Mode</target>
+          <target state="translated">Klasszikus mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchCompactOverlay" translate="yes" xml:space="preserve">
           <source>Compact Overlay</source>
-          <target state="new">Compact Overlay</target>
+          <target state="translated">Kompakt nézet</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ManageSettings.Text" translate="yes" xml:space="preserve">
           <source>Manage Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Beállítások kezelése</target>
+          <target state="translated">Beállítások kezelése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="New.Text" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Létrehozás</target>
+          <target state="translated">Új</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Open.Text" translate="yes" xml:space="preserve">
           <source>Open</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Megnyitás</target>
+          <target state="translated">Megnyitás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="OverlayMode.Text" translate="yes" xml:space="preserve">
           <source>Overlay Mode</source>
-          <target state="new">Overlay Mode</target>
+          <target state="translated">Nézet mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Paste.Text" translate="yes" xml:space="preserve">
           <source>Paste</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Beillesztés</target>
+          <target state="translated">Beillesztés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="PasteOptions.Text" translate="yes" xml:space="preserve">
           <source>Paste Options</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Beillesztési lehetőségek</target>
+          <target state="translated">Beillesztési lehetőségek</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RateAndReviewLink.Content" translate="yes" xml:space="preserve">
           <source>Rate and Review</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Értékelés és véleményezés</target>
+          <target state="translated">Értékelés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Redo.Text" translate="yes" xml:space="preserve">
           <source>Redo</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mégis</target>
+          <target state="translated">Újra</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Replace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Csere</target>
+          <target state="translated">Csere</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Reset.Content" translate="yes" xml:space="preserve">
           <source>Reset</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Alaphelyzetbe állítás</target>
+          <target state="translated">Alaphelyzetbe állítás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestatRequired.Text" translate="yes" xml:space="preserve">
           <source>You will need to restart Quick Pad to apply changes.</source>
-          <target state="new">You will need to restart Quick Pad to apply changes.</target>
+          <target state="translated">A változtatásokhoz újraindítás szükséges.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RestoreDefaultZoom.Text" translate="yes" xml:space="preserve">
           <source>Restore Default Zoom</source>
-          <target state="new">Restore Default Zoom</target>
+          <target state="translated">Nagyítás alaphelyzetbe állítása</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Save.Text" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mentés</target>
+          <target state="translated">Mentés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SaveAs.Text" translate="yes" xml:space="preserve">
           <source>Save As...</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mentés másként</target>
+          <target state="translated">Mentés másként</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SearchBing.Text" translate="yes" xml:space="preserve">
           <source>Search with Bing...</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Bing-keresés</target>
+          <target state="translated">Bing-keresés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SelectAll.Text" translate="yes" xml:space="preserve">
           <source>Select All</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Az összes kijelölése</target>
+          <target state="translated">Az összes kijelölése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Settings.Text" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Beállítások</target>
+          <target state="translated">Beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="Share.Text" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Megosztás</target>
+          <target state="translated">Megosztás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SpellCheck.Text" translate="yes" xml:space="preserve">
           <source>Spell Check</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Helyesírás-ellenőrzés</target>
+          <target state="translated">Helyesírás-ellenőrzés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="StatusBar.Text" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Állapotsor</target>
+          <target state="translated">Állapotsor</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Col: </source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Oszl.:</target>
+          <target state="translated">Oszlopok:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
           <source>Ln: </source>
-          <target state="new">Ln: </target>
+          <target state="translated">Sorok: </target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Téma</target>
+          <target state="translated">Téma</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Undo.Text" translate="yes" xml:space="preserve">
           <source>Undo</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Visszavonás</target>
+          <target state="translated">Visszavonás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="UseAcrylicOnTextBox.Text" translate="yes" xml:space="preserve">
           <source>Use acrylic background for the text area</source>
-          <target state="new">Use acrylic background for the text area</target>
+          <target state="translated">Akril háttér használata a szöveges résznél</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="View.Title" translate="yes" xml:space="preserve">
           <source>View</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Nézet</target>
+          <target state="translated">Nézet</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Header</note>
         </trans-unit>
         <trans-unit id="WordWrap.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Hosszú sorok tördelése</target>
+          <target state="translated">Sortörés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="WordWrapSetting.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Hosszú sorok tördelése</target>
+          <target state="translated">Sortörés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Zoom.Text" translate="yes" xml:space="preserve">
           <source>Zoom</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Nagyítás</target>
+          <target state="translated">Nagyítás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="ZoomIn.Text" translate="yes" xml:space="preserve">
           <source>Zoom In</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Nagyítás</target>
+          <target state="translated">Nagyítás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="ZoomOut.Text" translate="yes" xml:space="preserve">
           <source>Zoom Out</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Kicsinyítés</target>
+          <target state="translated">Kicsinyítés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Text" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font</source>
-          <target state="new">Default Rich Text Font</target>
+          <target state="translated">Alapértelmezett Rich Text Formátum</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSizeRtf.Text" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font Size</source>
-          <target state="new">Default Rich Text Font Size</target>
+          <target state="translated">Alapértelmezett Rich Text Formátum</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSettingRtf.Text" translate="yes" xml:space="preserve">
           <source>Word Wrap in Rich Text</source>
-          <target state="new">Word Wrap in Rich Text</target>
+          <target state="translated">Sortörés Rich Textben</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="CancelButton" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mégse</target>
+          <target state="translated">Mégse</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="NoButton" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Nem</target>
+          <target state="translated">Nem</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesBody" translate="yes" xml:space="preserve">
           <source>There are unsaved changes. Do you want to save them now?</source>
-          <target state="new">There are unsaved changes. Do you want to save them now?</target>
+          <target state="translated">Nem mentett módosításai vannak. Szeretné menteni?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="PendingChangesTitle" translate="yes" xml:space="preserve">
           <source>Pending Changes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Függőben lévő módosítások</target>
+          <target state="translated">Függőben lévő módosítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document Dialog</note>
         </trans-unit>
         <trans-unit id="YesButton" translate="yes" xml:space="preserve">
           <source>Yes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Igen</target>
+          <target state="translated">Igen</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
         <trans-unit id="LaunchNinjaMode" translate="yes" xml:space="preserve">
           <source>Ninja Mode</source>
-          <target state="new">Ninja Mode</target>
+          <target state="translated">Nindzsa mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
         </trans-unit>
         <trans-unit id="AlignCenter.Text" translate="yes" xml:space="preserve">
           <source>Align Center (Ctrl+E)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Középre igazítás (Ctrl+E)</target>
+          <target state="translated">Középre igazítás (Ctrl+E)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignCenterLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Center</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Középre igazítás</target>
+          <target state="translated">Középre igazítás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignLeft.Text" translate="yes" xml:space="preserve">
           <source>Align Left (Ctrl+L)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Igazítás balra (Ctrl+L)</target>
+          <target state="translated">Balra igazítás (Ctrl+L)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignLeftLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Left</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Balra igazítás</target>
+          <target state="translated">Balra igazítás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignRight.Text" translate="yes" xml:space="preserve">
           <source>Align Right (Ctrl+R)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Igazítás jobbra (Ctrl+R)</target>
+          <target state="translated">Jobbra igazítás (Ctrl+R)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="AlignRightLabel.Label" translate="yes" xml:space="preserve">
           <source>Align Right</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Jobbra igazítás</target>
+          <target state="translated">Jobbra igazítás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Bold.Text" translate="yes" xml:space="preserve">
@@ -513,393 +513,380 @@
         </trans-unit>
         <trans-unit id="Bullets.Text" translate="yes" xml:space="preserve">
           <source>Toggle Bullets</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Listajelek megjelenítése/elrejtése</target>
+          <target state="translated">Listajelek megjelenítése/elrejtése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="BulletsLabel.Label" translate="yes" xml:space="preserve">
           <source>Bullets</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Felsorolás</target>
+          <target state="translated">Felsorolás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ClassicModeLabel.Label" translate="yes" xml:space="preserve">
           <source>Classic Mode</source>
-          <target state="new">Classic Mode</target>
+          <target state="translated">Klasszikus mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Color.Text" translate="yes" xml:space="preserve">
           <source>Font Color</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Betűszín</target>
+          <target state="translated">Betűszín</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ColorLabel.Label" translate="yes" xml:space="preserve">
           <source>Font Color</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Betűszín</target>
+          <target state="translated">Betűszín</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTooltip.Text" translate="yes" xml:space="preserve">
           <source>Compact Overlay (Alt + Up)</source>
-          <target state="new">Compact Overlay (Alt + Up)</target>
+          <target state="translated">Kompakt nézet (Alt + Up)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Emoji.Text" translate="yes" xml:space="preserve">
           <source>Insert Emojis (Win + .)</source>
-          <target state="new">Insert Emojis (Win + .)</target>
+          <target state="translated">Emojik (Win + .)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="EmojiLabel.Label" translate="yes" xml:space="preserve">
           <source>Emojis</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Emojik</target>
+          <target state="translated">Emojik</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="FindLabel.Label" translate="yes" xml:space="preserve">
           <source>Find</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Keresés</target>
+          <target state="translated">Keresés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="FocusModeLabel.Label" translate="yes" xml:space="preserve">
           <source>Focus Mode</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Fókusz mód</target>
+          <target state="translated">Fókusz mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Italic.Text" translate="yes" xml:space="preserve">
           <source>Italic (Ctrl+I)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Dőlt – Ctrl+I</target>
+          <target state="translated">Dőlt (Ctrl + I)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ItalicLabel.Label" translate="yes" xml:space="preserve">
           <source>Italic</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Dőlt</target>
+          <target state="translated">Dőlt</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="JustifyText.Text" translate="yes" xml:space="preserve">
           <source>Justify Text (Ctrl+J)</source>
-          <target state="new">Justify Text (Ctrl+J)</target>
+          <target state="translated">Sorkizárt (Ctrl + J)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="JustifyTextLabel.Label" translate="yes" xml:space="preserve">
           <source>Justify</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Sorkizárt</target>
+          <target state="translated">Sorkizárt</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="NewLabel.Label" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Létrehozás</target>
+          <target state="translated">Új</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="NewTip.Text" translate="yes" xml:space="preserve">
           <source>New (Ctrl+N)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Új	Ctrl+N</target>
+          <target state="translated">Új (Ctrl + N)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="OpenLabel.Label" translate="yes" xml:space="preserve">
           <source>Open</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Megnyitás</target>
+          <target state="translated">Megnyitás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="OpenTip.Text" translate="yes" xml:space="preserve">
           <source>Open (Ctrl+O)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Megnyitás...	Ctrl+O</target>
+          <target state="translated">Megnyitás (Ctrl + O)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="CmdLetsGo.Content" translate="yes" xml:space="preserve">
           <source>Lets go!</source>
-          <target state="new">Lets go!</target>
+          <target state="translated">Gyerünk!</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Welcome Dialog</note>
         </trans-unit>
         <trans-unit id="RedoTooltip.Text" translate="yes" xml:space="preserve">
           <source>Redo (Ctrl+Y)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mégis (Ctrl+Y)</target>
+          <target state="translated">Újra (Ctrl + Y)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SaveLabel.Label" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mentés</target>
+          <target state="translated">Mentés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SaveTip.Text" translate="yes" xml:space="preserve">
           <source>Save (Ctrl+S)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mentés (Ctrl+S)</target>
+          <target state="translated">Mentés (Ctrl + S)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="SettingsLabel.Label" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Beállítások</target>
+          <target state="translated">Beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ShareLabel.Label" translate="yes" xml:space="preserve">
           <source>Share</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Megosztás</target>
+          <target state="translated">Megosztás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="StatusBarLabel.Label" translate="yes" xml:space="preserve">
           <source>Status Bar</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Állapotsor</target>
+          <target state="translated">Állapotsor</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Strikethrough.Text" translate="yes" xml:space="preserve">
           <source>Strikethrough</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Áthúzott</target>
+          <target state="translated">Áthúzott</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="StrikethroughLabel.Label" translate="yes" xml:space="preserve">
           <source>Strikethrough</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Áthúzott</target>
+          <target state="translated">Áthúzott</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="Underline.Text" translate="yes" xml:space="preserve">
           <source>Underline (Ctrl+U)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Aláhúzás (Ctrl+U)</target>
+          <target state="translated">Aláhúzott (Ctrl + U)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="UnderlineLabel.Label" translate="yes" xml:space="preserve">
           <source>Label</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Címke</target>
+          <target state="translated">Címke</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="UndoTooltip.Text" translate="yes" xml:space="preserve">
           <source>Undo (Ctrl+Z)</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Visszavonás	Ctrl+Z</target>
+          <target state="translated">Visszavonás (Ctrl + Z)</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="RichTextDescription" translate="yes" xml:space="preserve">
           <source>Rich Text Document</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Rich Text dokumentum</target>
+          <target state="translated">Rich Text dokumentum</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
         </trans-unit>
         <trans-unit id="TextDescription" translate="yes" xml:space="preserve">
           <source>Text Document</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Szöveges dokumentum</target>
+          <target state="translated">Szöveges dokumentum</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
         </trans-unit>
         <trans-unit id="SaveDialog.CloseButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mégse</target>
+          <target state="translated">Mégse</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>Save</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mentés</target>
+          <target state="translated">Mentés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>Don't Save</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Nincs mentés</target>
+          <target state="translated">Nincs mentés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="SaveDialog.Title" translate="yes" xml:space="preserve">
           <source>Quick Pad</source>
-          <target state="new">Quick Pad</target>
+          <target state="translated">Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="WouldYouLikeToSave.Text" translate="yes" xml:space="preserve">
           <source>Would you like to save your changes?</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Menti a módosításokat?</target>
+          <target state="translated">Menti a módosításokat?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="AppVersion.Text" translate="yes" xml:space="preserve">
           <source>Version:</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Változat:</target>
+          <target state="translated">Verzió:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="PlainTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Plain Text Font Settings</source>
-          <target state="new">Plain Text Font Settings</target>
+          <target state="translated">Plain Text Betűtípus Beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="RichTextFontSettings.Text" translate="yes" xml:space="preserve">
           <source>Rich Text Font Settings</source>
-          <target state="new">Rich Text Font Settings</target>
+          <target state="translated">Rich Text Betűtípus Beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpellCheckRtf.Text" translate="yes" xml:space="preserve">
           <source>Spell Check in Rich Text</source>
-          <target state="new">Spell Check in Rich Text</target>
+          <target state="translated">Helyesírás-ellenőrzés Rich Text-ben</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ReportIssues.Content" translate="yes" xml:space="preserve">
           <source>Report issues here</source>
-          <target state="new">Report issues here</target>
+          <target state="translated">Hibák jelzése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Forráskód</target>
+          <target state="translated">Forráskód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpecialThanks.Text" translate="yes" xml:space="preserve">
           <source>Special thanks to:</source>
-          <target state="new">Special thanks to:</target>
+          <target state="translated">Külön köszönet:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
+          <target state="translated">Közreműködés a fejlesztővel</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Untitled" translate="yes" xml:space="preserve">
           <source>Untitled</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Cím nélküli</target>
+          <target state="translated">Névtelen</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Title Bar</note>
         </trans-unit>
         <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Bezárás</target>
+          <target state="translated">Bezárás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindFilter.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Looking for?</source>
-          <target state="new">Looking for?</target>
+          <target state="translated">Mit keres?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindMatchCase.Text" translate="yes" xml:space="preserve">
           <source>Match Case</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Kis- és nagybetűk megkülönböztetése</target>
+          <target state="translated">Kis- és nagybetűk megkülönböztetése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
           <source>More...</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Egyéb...</target>
+          <target state="translated">Több...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
           <source>Regular Expression</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Reguláris kifejezés</target>
+          <target state="translated">Reguláris kifejezés</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Csere</target>
+          <target state="translated">Csere</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceAll.Text" translate="yes" xml:space="preserve">
           <source>Replace all</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Az összes cseréje</target>
+          <target state="translated">Az összes cseréje</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with...</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mire cseréli...</target>
+          <target state="translated">Cserélés...</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
           <source>Time/Date</source>
-          <target state="new">Time/Date</target>
+          <target state="translated">Dátum és Idő</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Mégse</target>
+          <target state="translated">Mégse</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Megnyitás:</target>
+          <target state="translated">Megnyitás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Megnyitás:</target>
+          <target state="translated">Megnyitás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">A sor száma:</target>
+          <target state="translated">Sorok száma:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Subtitle" translate="yes" xml:space="preserve">
           <source>With compact overlay you can make Quick Pad stay on top of other windows.</source>
-          <target state="new">With compact overlay you can make Quick Pad stay on top of other windows.</target>
+          <target state="translated">A kompakt móddal Quick Pad mindig a többi ablak fölött lesz.</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Title" translate="yes" xml:space="preserve">
           <source>Keep on top of other Windows</source>
-          <target state="new">Keep on top of other Windows</target>
+          <target state="translated">Többi ablak fölött tartás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on TeachingTip</note>
         </trans-unit>
         <trans-unit id="ThemeAccentName" translate="yes" xml:space="preserve">
           <source>System Accent Color</source>
-          <target state="new">System Accent Color</target>
+          <target state="translated">Alapértelmezett kiemelő szín</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="SearchWithGoogle.Text" translate="yes" xml:space="preserve">
           <source>Enable Google Search</source>
-          <target state="new">Enable Google Search</target>
+          <target state="translated">Google Keresés Engedélyezése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
         </trans-unit>
         <trans-unit id="OtherOptions.Text" translate="yes" xml:space="preserve">
           <source>Other</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Egyéb</target>
+          <target state="translated">Egyéb</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
           <source>Review Quick Pad</source>
-          <target state="new">Review Quick Pad</target>
+          <target state="translated">Vélemény Quick Pad-ről</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Nem</target>
+          <target state="translated">Nem</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Would you like to review Quick Pad in the Microsoft Store?</source>
-          <target state="new">Would you like to review Quick Pad in the Microsoft Store?</target>
+          <target state="translated">Szeretne véleméynt írni Quick Pad-ről a Microsoft Store-ba?</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Áttekintés</target>
+          <target state="translated">Vélemény írása</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Adatvédelmi szabályzat</target>
+          <target state="translated">Adatvédelmi irányelvek</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
           <source>Apricot</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Barack</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+          <target state="translated">Barack</target>
         </trans-unit>
         <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
           <source>Black Coral</source>
-          <target state="new">Black Coral</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+          <target state="translated">Fekete Korall</target>
         </trans-unit>
         <trans-unit id="ThemeDarkSiennaName" translate="yes" xml:space="preserve">
           <source>Dark Sienna</source>
-          <target state="new">Dark Sienna</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+          <target state="translated">Söttétbarna</target>
         </trans-unit>
         <trans-unit id="ThemeDarkSpringGreenName" translate="yes" xml:space="preserve">
           <source>Dark Spring Green</source>
-          <target state="new">Dark Spring Green</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+          <target state="translated">Sötét Tavaszi Zöld</target>
         </trans-unit>
         <trans-unit id="ThemeMaximumPurpleName" translate="yes" xml:space="preserve">
           <source>Maximum Purple</source>
-          <target state="new">Maximum Purple</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+          <target state="translated">Lilább lila</target>
         </trans-unit>
         <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
           <source>Medium Purple</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Középlila</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+          <target state="translated">Középlila</target>
         </trans-unit>
         <trans-unit id="ThemePersimmonName" translate="yes" xml:space="preserve">
           <source>Persimmon</source>
-          <target state="new">Persimmon</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+          <target state="translated">Datolya</target>
         </trans-unit>
         <trans-unit id="ThemeSizzlingRedName" translate="yes" xml:space="preserve">
           <source>Sizzling Red</source>
-          <target state="new">Sizzling Red</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
-        </trans-unit>
-        <trans-unit id="SettingsToolTip.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
-          <source>Settings</source>
-          <target state="new">Settings</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+          <target state="translated">Izzó Vörös</target>
         </trans-unit>
       </group>
     </body>

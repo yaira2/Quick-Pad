@@ -72,3 +72,4 @@ Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/do
     * [fr-FR][French]: [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
     * [it][Italian]: [Massimo Savazzi](https://github.com/msavazzi)
     * [ru-RU][Russian]: [Danil Podobin](https://github.com/Danil-Podobin)
+    * [hu-HU][Hungarian]: [Kristóf Kékesi](https://github.com/KristofKekesi)
