@@ -954,6 +954,14 @@
           <target state="new">Theme Settings</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
+        <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Contribute to the developer</source>
+          <target state="new">Contribute to the developer</target>
+        </trans-unit>
+        <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Privacy Policy</source>
+          <target state="new">Privacy Policy</target>
+        </trans-unit>
       </group>
     </body>
   </file>

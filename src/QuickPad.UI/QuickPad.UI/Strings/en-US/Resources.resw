@@ -833,6 +833,12 @@
     <value>Settings</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="ContributeToDeveloper.AutomationProperties.Name" xml:space="preserve">
+    <value>Contribute to the developer</value>
+  </data>
+  <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
+    <value>Privacy Policy</value>
+  </data>
   <data name="SettingsNavAbout.AutomationProperties.Name" xml:space="preserve">
     <value>About Quick Pad</value>
     <comment>Used in SettingsNav</comment>

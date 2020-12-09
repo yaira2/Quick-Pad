@@ -57,12 +57,14 @@
                 x:Uid="ContributeToDeveloper"
                 Padding="0,12,0,0"
                 HorizontalAlignment="Left"
+                AutomationProperties.Name="Contribute to the developer"
                 Content="Contribute to the developer"
                 NavigateUri="http://paypal.me/yaichenbaum" />
 
             <HyperlinkButton
                 x:Uid="PrivacyPolicy"
                 Padding="0,12,0,0"
+                AutomationProperties.Name="Privacy Policy"
                 Content="Privacy Policy"
                 NavigateUri="https://github.com/files-community/files-uwp/blob/master/Privacy.md" />
         </StackPanel>
