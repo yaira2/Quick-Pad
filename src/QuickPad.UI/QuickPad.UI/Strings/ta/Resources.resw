@@ -709,4 +709,8 @@
     <value>Sizzling சிவப்பு</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>அமைப்புகள்</value>
+    <comment>Used on Menu Item</comment>
+  </data>
 </root>

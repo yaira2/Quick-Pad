@@ -859,7 +859,7 @@
         </trans-unit>
         <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
           <source>Apricot</source>
-          <target state="new">Apricot</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Abricot</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
@@ -884,7 +884,7 @@
         </trans-unit>
         <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
           <source>Medium Purple</source>
-          <target state="new">Medium Purple</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Pourpre moyen</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemePersimmonName" translate="yes" xml:space="preserve">
@@ -899,7 +899,7 @@
         </trans-unit>
         <trans-unit id="SettingsToolTip.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="new">Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">paramètres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
       </group>

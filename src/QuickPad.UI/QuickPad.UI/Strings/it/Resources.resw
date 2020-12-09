@@ -646,4 +646,36 @@
     <value>Colore evidenziazione di Sistema</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>Altro</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Content" xml:space="preserve">
+    <value>Codice sorgente</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>Nr</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>Revisione</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Informativa sulla privacy</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>Albicocca</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>Viola medio</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>impostazioni</value>
+    <comment>Used on Menu Item</comment>
+  </data>
 </root>

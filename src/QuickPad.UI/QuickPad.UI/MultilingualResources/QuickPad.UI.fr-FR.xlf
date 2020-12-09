@@ -726,7 +726,7 @@
         </trans-unit>
         <trans-unit id="FindClose.Text" translate="yes" xml:space="preserve">
           <source>Close</source>
-          <target state="new">Fermer</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Fermer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindFilter.PlaceholderText" translate="yes" xml:space="preserve">
@@ -736,22 +736,22 @@
         </trans-unit>
         <trans-unit id="FindMatchCase.Text" translate="yes" xml:space="preserve">
           <source>Match Case</source>
-          <target state="new">Cas de correspondance</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Respecter la casse</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindRegEx.Text" translate="yes" xml:space="preserve">
           <source>Regular Expression</source>
-          <target state="new">Expressions régulières</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Expression régulière</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplace.Text" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Remplacer</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Remplacer</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceAll.Text" translate="yes" xml:space="preserve">
           <source>Replace all</source>
-          <target state="new">Remplacer tout</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Remplacer tout</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="TimeDate.Text" translate="yes" xml:space="preserve">
@@ -761,32 +761,32 @@
         </trans-unit>
         <trans-unit id="FindMore.Text" translate="yes" xml:space="preserve">
           <source>More...</source>
-          <target state="new">Plus...</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Plus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="FindReplaceWith.PlaceholderText" translate="yes" xml:space="preserve">
           <source>Replace with...</source>
-          <target state="new">Remplacer par...</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Remplacer par</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Find and Replace Dialog</note>
         </trans-unit>
         <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="new">Annuler</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Annuler</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Aller à</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Atteindre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="new">Aller à</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Atteindre</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToLineNumber.Header" translate="yes" xml:space="preserve">
           <source>Line number:</source>
-          <target state="new">Line numéro:</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Numéro de ligne</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="CompactOverlayTip.Title" translate="yes" xml:space="preserve">
@@ -861,7 +861,7 @@
         </trans-unit>
         <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
           <source>Apricot</source>
-          <target state="new">Apricot</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Abricot</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
@@ -886,7 +886,7 @@
         </trans-unit>
         <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
           <source>Medium Purple</source>
-          <target state="new">Medium Purple</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Pourpre moyen</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemePersimmonName" translate="yes" xml:space="preserve">
@@ -901,7 +901,7 @@
         </trans-unit>
         <trans-unit id="SettingsToolTip.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="new">Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
       </group>

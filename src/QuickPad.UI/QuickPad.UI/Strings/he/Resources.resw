@@ -12,716 +12,504 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>Akril Beállítások</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AcrylicTintOpacity.Text" xml:space="preserve">
-    <value>Akril áttetszőség</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
-    <value>Speciális</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>Alkalmazás nyelve</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AppName.Text" xml:space="preserve">
-    <value>Quick Pad</value>
+    <value>מתקדם</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ThemeChickName" xml:space="preserve">
-    <value>Citrom</value>
+    <value>אפרוח</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeCobaltName" xml:space="preserve">
-    <value>Kobaltkék</value>
+    <value>כחול-קובלט</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeCrimsonName" xml:space="preserve">
-    <value>Karmazsinvörös</value>
+    <value>ארגמן</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkName" xml:space="preserve">
-    <value>Sötét</value>
+    <value>כהה</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLeafName" xml:space="preserve">
-    <value>Levél</value>
+    <value>עלה</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLettuceName" xml:space="preserve">
-    <value>Saláta</value>
+    <value>חסה</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLightName" xml:space="preserve">
-    <value>Világos</value>
+    <value>בהיר</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRandomName" xml:space="preserve">
-    <value>Véletlen</value>
+    <value>אקראי</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRoseGoldName" xml:space="preserve">
-    <value>Rozéarany</value>
+    <value>זהב אדום</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSystemName" xml:space="preserve">
-    <value>Alapértelmezett</value>
+    <value>ברירת המחדל של המערכת</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeGeneralDarkDescription" xml:space="preserve">
-    <value>Sötét téma</value>
+    <value>ערכת נושא כהה</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeGeneralLightDescription" xml:space="preserve">
-    <value>Világos téma</value>
+    <value>ערכת נושא בהירה</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeRandomDescription" xml:space="preserve">
-    <value>Véletlenszerű téma induláskor</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>Automatikus mentés</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AutoSaveEvery.Text" xml:space="preserve">
-    <value>Automatikus mentés</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="AutoSaveSeconds.Text" xml:space="preserve">
-    <value>másodpercenként</value>
+    <value>העבר את המתקשר לתא הקולי אם לא עניתי תוך</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="BackToDefault.Text" xml:space="preserve">
-    <value>Visszaállítás alapértelmezettre</value>
-    <comment>Used on Menu Item</comment>
-  </data>
-  <data name="CloseCompactOverlay.Text" xml:space="preserve">
-    <value>Kompakt nézet bezárása</value>
-    <comment>Used on TitleBar</comment>
   </data>
   <data name="Copy.Text" xml:space="preserve">
-    <value>Másolás</value>
+    <value>עותק</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Fejlesztette Yair Aichenbaum</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
-    <value>Kivágás</value>
+    <value>גזור</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Alap Fájl Kódolás</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>Alap Fájl Típus</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="DefaultFont.Text" xml:space="preserve">
-    <value>Alapértelmezett betűtípus</value>
+    <value>גופן ברירת מחדל</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFontSize.Text" xml:space="preserve">
-    <value>Alapértelmezett betűméret</value>
+    <value>גודל גופן המהווה ברירת מחדל</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Delete.Text" xml:space="preserve">
-    <value>Törlés</value>
+    <value>מחק</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Edit.Title" xml:space="preserve">
-    <value>Szerkesztés</value>
+    <value>ערוך</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="Exit.Text" xml:space="preserve">
-    <value>Kilépés</value>
+    <value>יציאה</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Export.Content" xml:space="preserve">
-    <value>Exportálás</value>
+    <value>יצא</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="File.Title" xml:space="preserve">
-    <value>Fájl</value>
+    <value>קובץ</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="Find.Text" xml:space="preserve">
-    <value>Keresés</value>
+    <value>חיפוש</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FindNext.Text" xml:space="preserve">
-    <value>Következő keresése</value>
+    <value>חפש את הבא</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FindPrevious.Text" xml:space="preserve">
-    <value>Előző keresése</value>
+    <value>חפש את הקודם</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FocusMode.Text" xml:space="preserve">
-    <value>Fókusz mód</value>
+    <value>מצב מיקוד</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Font.Text" xml:space="preserve">
-    <value>Betűtípus</value>
+    <value>גופן</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Fonts.Text" xml:space="preserve">
-    <value>Betűtípusok...</value>
+    <value>גופנים</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Format.Title" xml:space="preserve">
-    <value>Formátum</value>
+    <value>עיצוב</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="General.Text" xml:space="preserve">
-    <value>Általános</value>
+    <value>כללי</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="GoTo.Text" xml:space="preserve">
-    <value>Megnyitás</value>
+    <value>עבור אל</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Import.Content" xml:space="preserve">
-    <value>Importálás</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="KeepTextOnly.Text" xml:space="preserve">
-    <value>Csak szövegek megtartása</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchClassicMode" xml:space="preserve">
-    <value>Klasszikus mód</value>
+    <value>ייבוא</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchDefaultMode" xml:space="preserve">
-    <value>Alapértelmezett</value>
+    <value>ברירת מחדל</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
-    <value>Fókusz mód</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>Indulási mód</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
-    <value>Klasszikus mód</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchCompactOverlay" xml:space="preserve">
-    <value>Kompakt nézet</value>
+    <value>מצב מיקוד</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ManageSettings.Text" xml:space="preserve">
-    <value>Beállítások kezelése</value>
+    <value>&amp;נהל הגדרות</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="New.Text" xml:space="preserve">
-    <value>Új</value>
+    <value>חדשות</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Open.Text" xml:space="preserve">
-    <value>Megnyitás</value>
-    <comment>Used on Menu Item</comment>
-  </data>
-  <data name="OverlayMode.Text" xml:space="preserve">
-    <value>Nézet mód</value>
+    <value>פתח</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Paste.Text" xml:space="preserve">
-    <value>Beillesztés</value>
+    <value>הדבק</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="PasteOptions.Text" xml:space="preserve">
-    <value>Beillesztési lehetőségek</value>
+    <value>אפשרויות הדבקה</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RateAndReviewLink.Content" xml:space="preserve">
-    <value>Értékelés</value>
+    <value>דרג וכתוב ביקורת</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Redo.Text" xml:space="preserve">
-    <value>Újra</value>
+    <value>בצע שוב</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Replace.Text" xml:space="preserve">
-    <value>Csere</value>
+    <value>החלף</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Reset.Content" xml:space="preserve">
-    <value>Alaphelyzetbe állítás</value>
+    <value>איפוס</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="RestatRequired.Text" xml:space="preserve">
-    <value>A változtatásokhoz újraindítás szükséges.</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="RestoreDefaultZoom.Text" xml:space="preserve">
-    <value>Nagyítás alaphelyzetbe állítása</value>
-    <comment>Used on Menu Item</comment>
   </data>
   <data name="Save.Text" xml:space="preserve">
-    <value>Mentés</value>
+    <value>שמור</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SaveAs.Text" xml:space="preserve">
-    <value>Mentés másként</value>
+    <value>שמירה בשם</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SearchBing.Text" xml:space="preserve">
-    <value>Bing-keresés</value>
+    <value>חפש באמצעות Bing</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SelectAll.Text" xml:space="preserve">
-    <value>Az összes kijelölése</value>
+    <value>בחר הכל</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Settings.Text" xml:space="preserve">
-    <value>Beállítások</value>
+    <value>הגדרות</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Share.Text" xml:space="preserve">
-    <value>Megosztás</value>
+    <value>שתף</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SpellCheck.Text" xml:space="preserve">
-    <value>Helyesírás-ellenőrzés</value>
+    <value>בדיקת איות</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="StatusBar.Text" xml:space="preserve">
-    <value>Állapotsor</value>
+    <value>שורת מצב</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
-    <value>Oszlopok:</value>
-    <comment>Used on StatusTextBar</comment>
-  </data>
-  <data name="StatusLnCount.Text" xml:space="preserve">
-    <value>Sorok: </value>
+    <value>Col</value>
     <comment>Used on StatusTextBar</comment>
   </data>
   <data name="Theme.Text" xml:space="preserve">
-    <value>Téma</value>
+    <value>ערכת נושא</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Undo.Text" xml:space="preserve">
-    <value>Visszavonás</value>
+    <value>בטל</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="UseAcrylicOnTextBox.Text" xml:space="preserve">
-    <value>Akril háttér használata a szöveges résznél</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="View.Title" xml:space="preserve">
-    <value>Nézet</value>
+    <value>תצוגה</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="WordWrap.Text" xml:space="preserve">
-    <value>Sortörés</value>
+    <value>גלישת שורות</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="WordWrapSetting.Text" xml:space="preserve">
-    <value>Sortörés</value>
+    <value>גלישת שורות</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Zoom.Text" xml:space="preserve">
-    <value>Nagyítás</value>
+    <value>שנה גודל תצוגה</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="ZoomIn.Text" xml:space="preserve">
-    <value>Nagyítás</value>
+    <value>הגדל תצוגה</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="ZoomOut.Text" xml:space="preserve">
-    <value>Kicsinyítés</value>
+    <value>הקטן תצוגה</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="DefaultFontRtf.Text" xml:space="preserve">
-    <value>Alapértelmezett Rich Text Formátum</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Text" xml:space="preserve">
-    <value>Alapértelmezett Rich Text Formátum</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Text" xml:space="preserve">
-    <value>Sortörés Rich Textben</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="CancelButton" xml:space="preserve">
-    <value>Mégse</value>
+    <value>ביטול</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="NoButton" xml:space="preserve">
-    <value>Nem</value>
-    <comment>Used on Save Document</comment>
-  </data>
-  <data name="PendingChangesBody" xml:space="preserve">
-    <value>Nem mentett módosításai vannak. Szeretné menteni?</value>
+    <value>לא</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesTitle" xml:space="preserve">
-    <value>Függőben lévő módosítások</value>
+    <value>שינויים ממתינים</value>
     <comment>Used on Save Document Dialog</comment>
   </data>
   <data name="YesButton" xml:space="preserve">
-    <value>Igen</value>
+    <value>כן</value>
     <comment>Used on Save Document</comment>
   </data>
-  <data name="LaunchNinjaMode" xml:space="preserve">
-    <value>Nindzsa mód</value>
-    <comment>Used on Settings Pgae</comment>
-  </data>
   <data name="AlignCenter.Text" xml:space="preserve">
-    <value>Középre igazítás (Ctrl+E)</value>
+    <value>ישר למרכז (Ctrl+E)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignCenterLabel.Label" xml:space="preserve">
-    <value>Középre igazítás</value>
+    <value>ישר למרכז</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignLeft.Text" xml:space="preserve">
-    <value>Balra igazítás (Ctrl+L)</value>
+    <value>ישר לשמאל (Ctrl+L)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignLeftLabel.Label" xml:space="preserve">
-    <value>Balra igazítás</value>
+    <value>ישר לשמאל</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignRight.Text" xml:space="preserve">
-    <value>Jobbra igazítás (Ctrl+R)</value>
+    <value>ישר לימין (Ctrl+R)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignRightLabel.Label" xml:space="preserve">
-    <value>Jobbra igazítás</value>
+    <value>ישר לימין</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Bold.Text" xml:space="preserve">
-    <value>Félkövér – Ctrl+B</value>
+    <value>מודגש (Ctrl+B)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="BoldLabel.Label" xml:space="preserve">
-    <value>Félkövér</value>
+    <value>מודגש</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Bullets.Text" xml:space="preserve">
-    <value>Listajelek megjelenítése/elrejtése</value>
+    <value>החלף מצב תבליטים</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="BulletsLabel.Label" xml:space="preserve">
-    <value>Felsorolás</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="ClassicModeLabel.Label" xml:space="preserve">
-    <value>Klasszikus mód</value>
+    <value>תבליטים</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Color.Text" xml:space="preserve">
-    <value>Betűszín</value>
+    <value>צבע גופן</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ColorLabel.Label" xml:space="preserve">
-    <value>Betűszín</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="CompactOverlayTooltip.Text" xml:space="preserve">
-    <value>Kompakt nézet (Alt + Up)</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="Emoji.Text" xml:space="preserve">
-    <value>Emojik (Win + .)</value>
+    <value>צבע גופן</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="EmojiLabel.Label" xml:space="preserve">
-    <value>Emojik</value>
+    <value>סמלי Emoji</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="FindLabel.Label" xml:space="preserve">
-    <value>Keresés</value>
+    <value>חיפוש</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="FocusModeLabel.Label" xml:space="preserve">
-    <value>Fókusz mód</value>
+    <value>מצב מיקוד</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Italic.Text" xml:space="preserve">
-    <value>Dőlt (Ctrl + I)</value>
+    <value>נטוי (Ctrl+I)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ItalicLabel.Label" xml:space="preserve">
-    <value>Dőlt</value>
-    <comment>Used on CommandBar</comment>
-  </data>
-  <data name="JustifyText.Text" xml:space="preserve">
-    <value>Sorkizárt (Ctrl + J)</value>
+    <value>נטוי</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="JustifyTextLabel.Label" xml:space="preserve">
-    <value>Sorkizárt</value>
+    <value>ישר לשני הצדדים</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="NewLabel.Label" xml:space="preserve">
-    <value>Új</value>
+    <value>חדשות</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="NewTip.Text" xml:space="preserve">
-    <value>Új (Ctrl + N)</value>
+    <value>חדש	Ctrl+N</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="OpenLabel.Label" xml:space="preserve">
-    <value>Megnyitás</value>
+    <value>פתח</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="OpenTip.Text" xml:space="preserve">
-    <value>Megnyitás (Ctrl + O)</value>
+    <value>פתח	Ctrl+O</value>
     <comment>Used on CommandBar</comment>
   </data>
-  <data name="CmdLetsGo.Content" xml:space="preserve">
-    <value>Gyerünk!</value>
-    <comment>Used on Welcome Dialog</comment>
-  </data>
   <data name="RedoTooltip.Text" xml:space="preserve">
-    <value>Újra (Ctrl + Y)</value>
+    <value>Redo (Ctrl+Y)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SaveLabel.Label" xml:space="preserve">
-    <value>Mentés</value>
+    <value>שמור</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SaveTip.Text" xml:space="preserve">
-    <value>Mentés (Ctrl + S)</value>
+    <value>שמור	Ctrl+S</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SettingsLabel.Label" xml:space="preserve">
-    <value>Beállítások</value>
+    <value>הגדרות</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ShareLabel.Label" xml:space="preserve">
-    <value>Megosztás</value>
+    <value>שתף</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="StatusBarLabel.Label" xml:space="preserve">
-    <value>Állapotsor</value>
+    <value>שורת מצב</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Strikethrough.Text" xml:space="preserve">
-    <value>Áthúzott</value>
+    <value>קו חוצה</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="StrikethroughLabel.Label" xml:space="preserve">
-    <value>Áthúzott</value>
+    <value>קו חוצה</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Underline.Text" xml:space="preserve">
-    <value>Aláhúzott (Ctrl + U)</value>
+    <value>קו תחתון (Ctrl+U)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="UnderlineLabel.Label" xml:space="preserve">
-    <value>Címke</value>
+    <value>תווית</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="UndoTooltip.Text" xml:space="preserve">
-    <value>Visszavonás (Ctrl + Z)</value>
+    <value>Undo (Ctrl+Z)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="RichTextDescription" xml:space="preserve">
-    <value>Rich Text dokumentum</value>
+    <value>‫מסמך Rich ‫Text</value>
     <comment>Used on Status Bar</comment>
   </data>
   <data name="TextDescription" xml:space="preserve">
-    <value>Szöveges dokumentum</value>
+    <value>מסמך טקסט</value>
     <comment>Used on Status Bar</comment>
   </data>
   <data name="SaveDialog.CloseButtonText" xml:space="preserve">
-    <value>Mégse</value>
+    <value>ביטול</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="SaveDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Mentés</value>
+    <value>שמור</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
-    <value>Nincs mentés</value>
-    <comment>Used on Save Dialog</comment>
-  </data>
-  <data name="SaveDialog.Title" xml:space="preserve">
-    <value>Quick Pad</value>
+    <value>אל תשמור</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="WouldYouLikeToSave.Text" xml:space="preserve">
-    <value>Menti a módosításokat?</value>
+    <value>האם ברצונך לשמור את השינויים שלך?</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="AppVersion.Text" xml:space="preserve">
-    <value>Verzió:</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="PlainTextFontSettings.Text" xml:space="preserve">
-    <value>Plain Text Betűtípus Beállítások</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="RichTextFontSettings.Text" xml:space="preserve">
-    <value>Rich Text Betűtípus Beállítások</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtf.Text" xml:space="preserve">
-    <value>Helyesírás-ellenőrzés Rich Text-ben</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="ReportIssues.Content" xml:space="preserve">
-    <value>Hibák jelzése</value>
+    <value>גירסה</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SourceCode.Content" xml:space="preserve">
-    <value>Forráskód</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpecialThanks.Text" xml:space="preserve">
-    <value>Külön köszönet:</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="ContributeToDeveloper.Content" xml:space="preserve">
-    <value>Közreműködés a fejlesztővel</value>
+    <value>קוד מקור</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Untitled" xml:space="preserve">
-    <value>Névtelen</value>
+    <value>ללא שם</value>
     <comment>Used on Title Bar</comment>
   </data>
   <data name="FindClose.Text" xml:space="preserve">
-    <value>Bezárás</value>
-    <comment>Used on Find and Replace Dialog</comment>
-  </data>
-  <data name="FindFilter.PlaceholderText" xml:space="preserve">
-    <value>Mit keres?</value>
+    <value>סגור</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindMatchCase.Text" xml:space="preserve">
-    <value>Kis- és nagybetűk megkülönböztetése</value>
+    <value>התאם רישיות</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindMore.Text" xml:space="preserve">
-    <value>Több...</value>
+    <value>עוד</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindRegEx.Text" xml:space="preserve">
-    <value>Reguláris kifejezés</value>
+    <value>ביטוי רגיל</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplace.Text" xml:space="preserve">
-    <value>Csere</value>
+    <value>החלף</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplaceAll.Text" xml:space="preserve">
-    <value>Az összes cseréje</value>
+    <value>החלף הכל</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
-    <value>Cserélés...</value>
+    <value>החלפה ב...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
-  <data name="TimeDate.Text" xml:space="preserve">
-    <value>Dátum és Idő</value>
-    <comment>Used on Menu Item</comment>
-  </data>
   <data name="CmdCancel.Content" xml:space="preserve">
-    <value>Mégse</value>
+    <value>ביטול</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>Megnyitás</value>
+    <value>עבור אל</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="GoToDialog.Title" xml:space="preserve">
-    <value>Megnyitás</value>
+    <value>עבור אל</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="GoToLineNumber.Header" xml:space="preserve">
-    <value>Sorok száma:</value>
+    <value>מספר שורה</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
-  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
-    <value>A kompakt móddal Quick Pad mindig a többi ablak fölött lesz.</value>
-    <comment>Used on TeachingTip</comment>
-  </data>
-  <data name="CompactOverlayTip.Title" xml:space="preserve">
-    <value>Többi ablak fölött tartás</value>
-    <comment>Used on TeachingTip</comment>
-  </data>
-  <data name="ThemeAccentName" xml:space="preserve">
-    <value>Alapértelmezett kiemelő szín</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="SearchWithGoogle.Text" xml:space="preserve">
-    <value>Google Keresés Engedélyezése</value>
-    <comment>Used on General Settings Page</comment>
-  </data>
   <data name="OtherOptions.Text" xml:space="preserve">
-    <value>Egyéb</value>
+    <value>אחר</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AskForReviewDialog.Title" xml:space="preserve">
-    <value>Vélemény Quick Pad-ről</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
   <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>Nem</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
-  <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
-    <value>Szeretne véleméynt írni Quick Pad-ről a Microsoft Store-ba?</value>
+    <value>לא</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>Vélemény írása</value>
+    <value>סקירה</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Adatvédelmi irányelvek</value>
+    <value>מדיניות פרטיות</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ThemeApricotName" xml:space="preserve">
-    <value>Barack</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeBlackCoralName" xml:space="preserve">
-    <value>Fekete Korall</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeDarkSiennaName" xml:space="preserve">
-    <value>Söttétbarna</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeDarkSpringGreenName" xml:space="preserve">
-    <value>Sötét Tavaszi Zöld</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeMaximumPurpleName" xml:space="preserve">
-    <value>Lilább lila</value>
+    <value>משמש</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMediumPurpleName" xml:space="preserve">
-    <value>Középlila</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemePersimmonName" xml:space="preserve">
-    <value>Datolya</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeSizzlingRedName" xml:space="preserve">
-    <value>Izzó Vörös</value>
+    <value>סגול בינוני</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Beállítások</value>
+    <value>הגדרות</value>
     <comment>Used on Menu Item</comment>
   </data>
 </root>

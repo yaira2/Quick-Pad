@@ -813,7 +813,7 @@
         </trans-unit>
         <trans-unit id="OtherOptions.Text" translate="yes" xml:space="preserve">
           <source>Other</source>
-          <target state="new">Other</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Altro</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="CmdLetsGo.Content" translate="yes" xml:space="preserve">
@@ -828,7 +828,7 @@
         </trans-unit>
         <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <target state="new">Source Code</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Codice sorgente</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
@@ -843,7 +843,7 @@
         </trans-unit>
         <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="new">No</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Nr</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
@@ -853,17 +853,17 @@
         </trans-unit>
         <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="new">Review</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Revisione</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="new">Privacy Policy</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Informativa sulla privacy</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
           <source>Apricot</source>
-          <target state="new">Apricot</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Albicocca</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
@@ -888,7 +888,7 @@
         </trans-unit>
         <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
           <source>Medium Purple</source>
-          <target state="new">Medium Purple</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Viola medio</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemePersimmonName" translate="yes" xml:space="preserve">
@@ -903,7 +903,7 @@
         </trans-unit>
         <trans-unit id="SettingsToolTip.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="new">Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">impostazioni</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
       </group>

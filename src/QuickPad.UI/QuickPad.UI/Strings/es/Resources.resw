@@ -692,4 +692,16 @@
     <value>Política de Privacidad</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>Albaricoque</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>Púrpura medio</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Configuración</value>
+    <comment>Used on Menu Item</comment>
+  </data>
 </root>

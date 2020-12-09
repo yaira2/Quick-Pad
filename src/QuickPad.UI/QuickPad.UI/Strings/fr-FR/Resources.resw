@@ -584,9 +584,53 @@
     <value>Sans titre</value>
     <comment>Used on Title Bar</comment>
   </data>
+  <data name="FindClose.Text" xml:space="preserve">
+    <value>Fermer</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMatchCase.Text" xml:space="preserve">
+    <value>Respecter la casse</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindRegEx.Text" xml:space="preserve">
+    <value>Expression régulière</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplace.Text" xml:space="preserve">
+    <value>Remplacer</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceAll.Text" xml:space="preserve">
+    <value>Remplacer tout</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
   <data name="TimeDate.Text" xml:space="preserve">
     <value>Heure/Date</value>
     <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindMore.Text" xml:space="preserve">
+    <value>Plus</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>Remplacer par</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="CmdCancel.Content" xml:space="preserve">
+    <value>Annuler</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CmdGoTo.Content" xml:space="preserve">
+    <value>Atteindre</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.Title" xml:space="preserve">
+    <value>Atteindre</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToLineNumber.Header" xml:space="preserve">
+    <value>Numéro de ligne</value>
+    <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Autre</value>
@@ -627,5 +671,17 @@
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Politique de confidentialité</value>
     <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>Abricot</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>Pourpre moyen</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Paramètres</value>
+    <comment>Used on Menu Item</comment>
   </data>
 </root>

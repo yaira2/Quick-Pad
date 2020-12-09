@@ -684,4 +684,16 @@
     <value>นโยบายความเป็นส่วนตัว</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>แอปริคอต</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>ม่วงปานกลาง</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>การตั้งค่า</value>
+    <comment>Used on Menu Item</comment>
+  </data>
 </root>

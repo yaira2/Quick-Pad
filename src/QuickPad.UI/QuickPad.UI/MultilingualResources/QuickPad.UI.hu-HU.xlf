@@ -898,7 +898,7 @@
         </trans-unit>
         <trans-unit id="SettingsToolTip.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="new">Settings</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Beállítások</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
       </group>

@@ -660,4 +660,32 @@
     <value>Другое</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="SourceCode.Content" xml:space="preserve">
+    <value>Код источника</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>Нет</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>Проверка</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Политика конфиденциальности</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>Абрикос</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>Умеренный сиреневый</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>параметры</value>
+    <comment>Used on Menu Item</comment>
+  </data>
 </root>
