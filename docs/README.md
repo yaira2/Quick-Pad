@@ -62,7 +62,8 @@ Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/do
 [Ikarago](https://github.com/ikarago), 
 [Luke Blevins](https://github.com/duke7553), 
 [dmarciano](https://github.com/dmarciano), 
-[The Sharp Ninja](https://github.com/sharpninja)
+[The Sharp Ninja](https://github.com/sharpninja),
+[Filippo Fedeli](https://github.com/MarcAnt01)
 * Localization Contributors: 
     * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
     * [fr-CA][French]: [PhilLB1239](https://github.com/PhilLB1239)
