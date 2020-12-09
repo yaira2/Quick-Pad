@@ -833,4 +833,24 @@
     <value>Settings</value>
     <comment>Used on Menu Item</comment>
   </data>
+  <data name="SettingsNavAbout.AutomationProperties.Name" xml:space="preserve">
+    <value>About Quick Pad</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
+    <value>Advanced Settings</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.AutomationProperties.Name" xml:space="preserve">
+    <value>Font Settings</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
+    <value>General Settings</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
+    <value>Theme Settings</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
 </root>

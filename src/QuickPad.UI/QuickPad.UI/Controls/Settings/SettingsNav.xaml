@@ -26,28 +26,42 @@
             <winui:NavigationView.MenuItems>
                 <winui:NavigationViewItem
                     x:Name="General"
+                    x:Uid="SettingsNavGeneral"
+                    AutomationProperties.Name="General Settings"
                     IsSelected="True"
                     Tag="General">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE12A;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Tag="Theme">
+                <winui:NavigationViewItem
+                    x:Uid="SettingsNavTheme"
+                    AutomationProperties.Name="Theme Settings"
+                    Tag="Theme">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE771;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Tag="Font">
+                <winui:NavigationViewItem
+                    x:Uid="SettingsNavFont"
+                    AutomationProperties.Name="Font Settings"
+                    Tag="Font">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE8D2;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Tag="Advanced">
+                <winui:NavigationViewItem
+                    x:Uid="SettingsNavAdvanced"
+                    AutomationProperties.Name="Advanced Settings"
+                    Tag="Advanced">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE74C;" />
                     </winui:NavigationViewItem.Icon>
                 </winui:NavigationViewItem>
-                <winui:NavigationViewItem Tag="About">
+                <winui:NavigationViewItem
+                    x:Uid="SettingsNavAbout"
+                    AutomationProperties.Name="About Quick Pad"
+                    Tag="About">
                     <winui:NavigationViewItem.Icon>
                         <FontIcon Glyph="&#xE946;" />
                     </winui:NavigationViewItem.Icon>

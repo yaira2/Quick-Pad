@@ -904,6 +904,31 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Paramètres</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
+        <trans-unit id="SettingsNavGeneral.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>General Settings</source>
+          <target state="new">General Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
+        </trans-unit>
+        <trans-unit id="SettingsNavAbout.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>About</source>
+          <target state="new">About</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
+        </trans-unit>
+        <trans-unit id="SettingsNavAdvanced.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Advanced Settings</source>
+          <target state="new">Advanced Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
+        </trans-unit>
+        <trans-unit id="SettingsNavFont.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Font Settings</source>
+          <target state="new">Font Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
+        </trans-unit>
+        <trans-unit id="SettingsNavTheme.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Theme Settings</source>
+          <target state="new">Theme Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
+        </trans-unit>
       </group>
     </body>
   </file>
