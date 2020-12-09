@@ -799,26 +799,38 @@
   </data>
   <data name="ThemeApricotName" xml:space="preserve">
     <value>Apricot</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeBlackCoralName" xml:space="preserve">
     <value>Black Coral</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkSiennaName" xml:space="preserve">
     <value>Dark Sienna</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkSpringGreenName" xml:space="preserve">
     <value>Dark Spring Green</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMaximumPurpleName" xml:space="preserve">
     <value>Maximum Purple</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMediumPurpleName" xml:space="preserve">
     <value>Medium Purple</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemePersimmonName" xml:space="preserve">
     <value>Persimmon</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSizzlingRedName" xml:space="preserve">
     <value>Sizzling Red</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Settings</value>
+    <comment>Used on Menu Item</comment>
   </data>
 </root>

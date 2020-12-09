@@ -687,20 +687,26 @@
   </data>
   <data name="ThemeApricotName" xml:space="preserve">
     <value>Apricot</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeBlackCoralName" xml:space="preserve">
     <value>கருப்பு பவளம்</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkSpringGreenName" xml:space="preserve">
     <value>இருண்ட வசந்த பச்சை</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMaximumPurpleName" xml:space="preserve">
     <value>அதிகப்பட்ச ஊதா</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMediumPurpleName" xml:space="preserve">
     <value>ஊதா</value>
+    <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSizzlingRedName" xml:space="preserve">
     <value>Sizzling சிவப்பு</value>
+    <comment>Used on Theme Page</comment>
   </data>
 </root>

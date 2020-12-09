@@ -12,4 +12,512 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Speciális</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AppLanguage.Text" xml:space="preserve">
+    <value>Az alkalmazás nyelve</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>Kiscsibe</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>Kobaltkék</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>Karmazsinvörös</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>Sötét</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>Levél</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>FejesSaláta</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>Világos</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>Véletlen</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>Rozéarany</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>Alapértelmezett</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>Sötét téma</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>Világos téma</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="AutoSave.Text" xml:space="preserve">
+    <value>Automatikus mentés</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>&amp;Automatikus mentés</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSaveSeconds.Text" xml:space="preserve">
+    <value>másodperc</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Copy.Text" xml:space="preserve">
+    <value>Másolás</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Cut.Text" xml:space="preserve">
+    <value>Kivágás</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="DefaultFont.Text" xml:space="preserve">
+    <value>Alapértelmezett betűtípus</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Text" xml:space="preserve">
+    <value>Alapértelmezett betűméret</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Delete.Text" xml:space="preserve">
+    <value>Törlés</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Edit.Title" xml:space="preserve">
+    <value>Szerkesztés parancsot.</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="Exit.Text" xml:space="preserve">
+    <value>Kilépés</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Exportálás</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="File.Title" xml:space="preserve">
+    <value>Fájl</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="Find.Text" xml:space="preserve">
+    <value>Keresés</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindNext.Text" xml:space="preserve">
+    <value>Következő keresése</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindPrevious.Text" xml:space="preserve">
+    <value>Előző keresése</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FocusMode.Text" xml:space="preserve">
+    <value>Fókusz mód</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>Betűtípus</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Fonts.Text" xml:space="preserve">
+    <value>Betűkészletek...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Format.Title" xml:space="preserve">
+    <value>Formátum</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>Általános</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="GoTo.Text" xml:space="preserve">
+    <value>Megnyitás:</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>Importálás</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchDefaultMode" xml:space="preserve">
+    <value>Alapértelmezett</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchFocusMode" xml:space="preserve">
+    <value>Fókusz mód</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>Beállítások kezelése</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="New.Text" xml:space="preserve">
+    <value>Létrehozás</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Open.Text" xml:space="preserve">
+    <value>Megnyitás</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Paste.Text" xml:space="preserve">
+    <value>Beillesztés</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="PasteOptions.Text" xml:space="preserve">
+    <value>Beillesztési lehetőségek</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RateAndReviewLink.Content" xml:space="preserve">
+    <value>Értékelés és véleményezés</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Redo.Text" xml:space="preserve">
+    <value>Mégis</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Replace.Text" xml:space="preserve">
+    <value>Csere</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>Alaphelyzetbe állítás</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Save.Text" xml:space="preserve">
+    <value>Mentés</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SaveAs.Text" xml:space="preserve">
+    <value>Mentés másként</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SearchBing.Text" xml:space="preserve">
+    <value>Bing-keresés</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SelectAll.Text" xml:space="preserve">
+    <value>Az összes kijelölése</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>Beállítások</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Share.Text" xml:space="preserve">
+    <value>Megosztás</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SpellCheck.Text" xml:space="preserve">
+    <value>Helyesírás-ellenőrzés</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="StatusBar.Text" xml:space="preserve">
+    <value>Állapotsor</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>Oszl.:</value>
+    <comment>Used on StatusTextBar</comment>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Téma</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Undo.Text" xml:space="preserve">
+    <value>Visszavonás</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="View.Title" xml:space="preserve">
+    <value>Nézet</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="WordWrap.Text" xml:space="preserve">
+    <value>Hosszú sorok tördelése</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="WordWrapSetting.Text" xml:space="preserve">
+    <value>Hosszú sorok tördelése</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Zoom.Text" xml:space="preserve">
+    <value>Nagyítás</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ZoomIn.Text" xml:space="preserve">
+    <value>Nagyítás</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ZoomOut.Text" xml:space="preserve">
+    <value>Kicsinyítés</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Mégse</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="NoButton" xml:space="preserve">
+    <value>Nem</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesTitle" xml:space="preserve">
+    <value>Függőben lévő módosítások</value>
+    <comment>Used on Save Document Dialog</comment>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>Igen</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="AlignCenter.Text" xml:space="preserve">
+    <value>Középre igazítás (Ctrl+E)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignCenterLabel.Label" xml:space="preserve">
+    <value>Középre igazítás</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeft.Text" xml:space="preserve">
+    <value>Igazítás balra (Ctrl+L)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeftLabel.Label" xml:space="preserve">
+    <value>Balra igazítás</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRight.Text" xml:space="preserve">
+    <value>Igazítás jobbra (Ctrl+R)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRightLabel.Label" xml:space="preserve">
+    <value>Jobbra igazítás</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bold.Text" xml:space="preserve">
+    <value>Félkövér – Ctrl+B</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BoldLabel.Label" xml:space="preserve">
+    <value>Félkövér</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bullets.Text" xml:space="preserve">
+    <value>Listajelek megjelenítése/elrejtése</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BulletsLabel.Label" xml:space="preserve">
+    <value>Felsorolás</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Color.Text" xml:space="preserve">
+    <value>Betűszín</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ColorLabel.Label" xml:space="preserve">
+    <value>Betűszín</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="EmojiLabel.Label" xml:space="preserve">
+    <value>Emojik</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FindLabel.Label" xml:space="preserve">
+    <value>Keresés</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FocusModeLabel.Label" xml:space="preserve">
+    <value>Fókusz mód</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Italic.Text" xml:space="preserve">
+    <value>Dőlt – Ctrl+I</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ItalicLabel.Label" xml:space="preserve">
+    <value>Dőlt</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyTextLabel.Label" xml:space="preserve">
+    <value>Sorkizárt</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewLabel.Label" xml:space="preserve">
+    <value>Létrehozás</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewTip.Text" xml:space="preserve">
+    <value>Új	Ctrl+N</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenLabel.Label" xml:space="preserve">
+    <value>Megnyitás</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenTip.Text" xml:space="preserve">
+    <value>Megnyitás...	Ctrl+O</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="RedoTooltip.Text" xml:space="preserve">
+    <value>Mégis (Ctrl+Y)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveLabel.Label" xml:space="preserve">
+    <value>Mentés</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveTip.Text" xml:space="preserve">
+    <value>Mentés (Ctrl+S)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SettingsLabel.Label" xml:space="preserve">
+    <value>Beállítások</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ShareLabel.Label" xml:space="preserve">
+    <value>Megosztás</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StatusBarLabel.Label" xml:space="preserve">
+    <value>Állapotsor</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Strikethrough.Text" xml:space="preserve">
+    <value>Áthúzott</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StrikethroughLabel.Label" xml:space="preserve">
+    <value>Áthúzott</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Underline.Text" xml:space="preserve">
+    <value>Aláhúzás (Ctrl+U)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UnderlineLabel.Label" xml:space="preserve">
+    <value>Címke</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UndoTooltip.Text" xml:space="preserve">
+    <value>Visszavonás	Ctrl+Z</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="RichTextDescription" xml:space="preserve">
+    <value>Rich Text dokumentum</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="TextDescription" xml:space="preserve">
+    <value>Szöveges dokumentum</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="SaveDialog.CloseButtonText" xml:space="preserve">
+    <value>Mégse</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Mentés</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Nincs mentés</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="WouldYouLikeToSave.Text" xml:space="preserve">
+    <value>Menti a módosításokat?</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="AppVersion.Text" xml:space="preserve">
+    <value>Változat:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Content" xml:space="preserve">
+    <value>Forráskód</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Cím nélküli</value>
+    <comment>Used on Title Bar</comment>
+  </data>
+  <data name="FindClose.Text" xml:space="preserve">
+    <value>Bezárás</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMatchCase.Text" xml:space="preserve">
+    <value>Kis- és nagybetűk megkülönböztetése</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMore.Text" xml:space="preserve">
+    <value>Egyéb...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindRegEx.Text" xml:space="preserve">
+    <value>Reguláris kifejezés</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplace.Text" xml:space="preserve">
+    <value>Csere</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceAll.Text" xml:space="preserve">
+    <value>Az összes cseréje</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>Mire cseréli...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="CmdCancel.Content" xml:space="preserve">
+    <value>Mégse</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CmdGoTo.Content" xml:space="preserve">
+    <value>Megnyitás:</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.Title" xml:space="preserve">
+    <value>Megnyitás:</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToLineNumber.Header" xml:space="preserve">
+    <value>A sor száma:</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>Egyéb</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>Nem</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>Áttekintés</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Adatvédelmi szabályzat</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>Barack</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>Középlila</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

@@ -861,34 +861,47 @@
         <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
           <source>Apricot</source>
           <target state="translated">Apricot</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
           <source>Black Coral</source>
           <target state="translated">கருப்பு பவளம்</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkSiennaName" translate="no" xml:space="preserve">
           <source>Dark Sienna</source>
           <target state="final">Dark Sienna</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkSpringGreenName" translate="yes" xml:space="preserve">
           <source>Dark Spring Green</source>
           <target state="translated">இருண்ட வசந்த பச்சை</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMaximumPurpleName" translate="yes" xml:space="preserve">
           <source>Maximum Purple</source>
           <target state="translated">அதிகப்பட்ச ஊதா</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
           <source>Medium Purple</source>
           <target state="translated">ஊதா</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemePersimmonName" translate="no" xml:space="preserve">
           <source>Persimmon</source>
           <target state="final">Persimmon</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSizzlingRedName" translate="yes" xml:space="preserve">
           <source>Sizzling Red</source>
           <target state="translated">Sizzling சிவப்பு</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="SettingsToolTip.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="new">Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
       </group>
     </body>
