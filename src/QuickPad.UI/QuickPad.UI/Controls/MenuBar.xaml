@@ -416,12 +416,16 @@
                 </ToolTipService.ToolTip>
             </AppBarButton>
             <AppBarButton
-                x:Uid="SettingsLabel"
+                x:Uid="SettingsToolTip"
                 Width="Auto"
                 MinWidth="40"
                 Command="{x:Bind Commands.SettingsCommand}"
                 CommandParameter="{x:Bind Settings}"
-                Icon="Setting" />
+                ToolTipService.ToolTip="Settings">
+                <AppBarButton.Icon>
+                    <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xEB5D;" />
+                </AppBarButton.Icon>
+            </AppBarButton>
         </CommandBar>
     </Grid>
 </UserControl>

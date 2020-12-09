@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 xliff-core-1.2-transitional.xsd">
   <file datatype="xml" source-language="en-US" target-language="hu-HU" original="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" tool-id="MultilingualAppToolkit" product-name="n/a" product-version="n/a" build-num="n/a">
     <header>
@@ -859,34 +859,47 @@
         <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
           <source>Apricot</source>
           <target state="translated">Barack</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
           <source>Black Coral</source>
           <target state="translated">Fekete Korall</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkSiennaName" translate="yes" xml:space="preserve">
           <source>Dark Sienna</source>
           <target state="translated">Söttétbarna</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkSpringGreenName" translate="yes" xml:space="preserve">
           <source>Dark Spring Green</source>
           <target state="translated">Sötét Tavaszi Zöld</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMaximumPurpleName" translate="yes" xml:space="preserve">
           <source>Maximum Purple</source>
           <target state="translated">Lilább lila</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
           <source>Medium Purple</source>
           <target state="translated">Középlila</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemePersimmonName" translate="yes" xml:space="preserve">
           <source>Persimmon</source>
           <target state="translated">Datolya</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSizzlingRedName" translate="yes" xml:space="preserve">
           <source>Sizzling Red</source>
           <target state="translated">Izzó Vörös</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="SettingsToolTip.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
+          <source>Settings</source>
+          <target state="new">Settings</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
       </group>
     </body>
