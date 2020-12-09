@@ -977,6 +977,11 @@
           <target state="new">Reset Settings</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
+        <trans-unit id="KeepTextOnly.AutomationProperties.Name" translate="yes" xml:space="preserve">
+          <source>Keep text only when pasting text</source>
+          <target state="new">Keep text only when pasting text</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -41,6 +41,7 @@
             <ToggleSwitch
                 x:Uid="KeepTextOnly"
                 Header="Keep text only"
+                AutomationProperties.Name="Keep text only when pasting text"
                 IsOn="{x:Bind Settings.PasteTextOnly, Mode=TwoWay}" />
 
             <TextBlock
