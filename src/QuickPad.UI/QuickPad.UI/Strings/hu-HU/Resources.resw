@@ -24,10 +24,6 @@
     <value>Speciális</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>Alkalmazás nyelve</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AppName.Text" xml:space="preserve">
     <value>Quick Pad</value>
     <comment>Used on Settings Page</comment>
@@ -84,10 +80,6 @@
     <value>Véletlenszerű téma induláskor</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>Automatikus mentés</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Automatikus mentés</value>
     <comment>Used on Settings Page</comment>
@@ -115,14 +107,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>Kivágás</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Alap Fájl Kódolás</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>Alap Fájl Típus</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>Alapértelmezett betűtípus</value>
@@ -206,10 +190,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>Fókusz mód</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>Indulási mód</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

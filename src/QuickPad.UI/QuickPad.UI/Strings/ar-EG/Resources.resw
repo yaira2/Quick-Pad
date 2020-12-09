@@ -24,10 +24,6 @@
     <value>متقدم</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>لغة التطبيق</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="ThemeChickName" xml:space="preserve">
     <value>أصفر</value>
     <comment>Used on Theme Page</comment>
@@ -84,10 +80,6 @@
     <value>ثيم محدد من النظام</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>حفظ تلقائي</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>حفظ تلقائي كل</value>
     <comment>Used on Settings Page</comment>
@@ -115,14 +107,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>قص</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>ترميز الملف الإفتراضي</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>نوع الملف الإفتراضي</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>الخط الإفتراضي</value>
@@ -206,10 +190,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>وضع التركيز</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>وضع الإقلاع</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

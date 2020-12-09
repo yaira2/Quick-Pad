@@ -24,10 +24,6 @@
     <value>Avanzado</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>Idioma de la app</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AppName.Text" xml:space="preserve">
     <value>Quick Pad</value>
     <comment>Used on Settings Page</comment>
@@ -88,10 +84,6 @@
     <value>Tema definido por el sistema</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>Autoguardado</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Autoguardar cada</value>
     <comment>Used on Settings Page</comment>
@@ -119,14 +111,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>Cortar</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Codificación de archivo por defecto</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>Tipo de archivo por defecto</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>Fuente por defecto</value>
@@ -210,10 +194,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>Modo enfocado</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>Modo de inicio</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

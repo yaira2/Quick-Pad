@@ -24,10 +24,6 @@
     <value>ขั้นสูง</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>ภาษา</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="ThemeChickName" xml:space="preserve">
     <value>เหลืองขมิ้น</value>
     <comment>Used on Theme Page</comment>
@@ -84,10 +80,6 @@
     <value>ชุดรูปแบบตามการตั้งค่าของระบบ</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>บันทึกอัตโนมัติ</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>บันทึกอัตโนมัติทุกๆ</value>
     <comment>Used on Settings Page</comment>
@@ -115,14 +107,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>ตัด</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>รูปแบบการเข้ารหัสไฟล์เริ่มต้น</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>ชนิดไฟล์เริ่มต้น</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>ฟอนต์เริ่มต้น</value>
@@ -206,10 +190,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>โหมดเน้นพิมพ์</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>เริ่มแอปในโหมด</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

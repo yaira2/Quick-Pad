@@ -24,10 +24,6 @@
     <value>Avancé</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>Langue de l'application</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AppName.Text" xml:space="preserve">
     <value>Quick Pad</value>
     <comment>Used on Settings Page</comment>
@@ -88,10 +84,6 @@
     <value>Thème Windows par défaut</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>Enregistrement automatique</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Enregistrement toutes les</value>
     <comment>Used on Settings Page</comment>
@@ -119,14 +111,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>Couper</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Encodage par défaut du fichier</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>Type par défaut du fichier</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>Police par défaut</value>
@@ -198,10 +182,6 @@
   </data>
   <data name="KeepTextOnly.Text" xml:space="preserve">
     <value>Garder seulement le texte</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>Mode de démarrage</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

@@ -24,10 +24,6 @@
     <value>மேம்பட்டவை</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>பயன்பாட்டு மொழி</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="ThemeChickName" xml:space="preserve">
     <value>கோழிக்குஞ்சு</value>
     <comment>Used on Theme Page</comment>
@@ -84,10 +80,6 @@
     <value>முறைமையின் கருப்பொருள்</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>தானாக சேமி</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>தானாக சேமி ஒவ்வொரு</value>
     <comment>Used on Settings Page</comment>
@@ -115,14 +107,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>வெட்டு</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>இயல்புநிலை கோப்பு குறியாக்கம்</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>இயல்புநிலை கோப்பு வகை</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>இயல்புநிலை எழுத்துரு</value>
@@ -207,10 +191,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>கவனிப்புப் பயன்முறை</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>இயக்கல் முறை</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

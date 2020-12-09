@@ -16,10 +16,6 @@
     <value>進階</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>應用程式語言</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="ThemeChickName" xml:space="preserve">
     <value>小雞</value>
     <comment>Used on Theme Page</comment>
@@ -67,10 +63,6 @@
   <data name="ThemeGeneralLightDescription" xml:space="preserve">
     <value>淺色佈景主題</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>自動儲存</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>自動儲存間隔(&amp;A)</value>
@@ -162,10 +154,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>焦點模式</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>啟動模式:</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ManageSettings.Text" xml:space="preserve">

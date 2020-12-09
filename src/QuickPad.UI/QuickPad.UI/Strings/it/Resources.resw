@@ -24,10 +24,6 @@
     <value>Avanzate</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>Lingua </value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="ThemeChickName" xml:space="preserve">
     <value>Pulcino</value>
     <comment>Used on Theme Page</comment>
@@ -85,10 +81,6 @@
 </value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>Salvataggio automatico</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Salva automaticamente ogni</value>
     <comment>Used on Settings Page</comment>
@@ -116,14 +108,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>Taglia</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Codifica file predefinita</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>Tipo di file predefinito</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>Carattere predefinito</value>
@@ -207,10 +191,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>Modalità Focalizzata</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>Modalità all'avvio</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

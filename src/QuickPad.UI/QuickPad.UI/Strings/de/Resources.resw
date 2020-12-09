@@ -24,10 +24,6 @@
     <value>Erweitert</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>App Sprache</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AppName.Text" xml:space="preserve">
     <value>Quick Pad</value>
     <comment>Used on Settings Page</comment>
@@ -88,10 +84,6 @@
     <value>Standardmäßiger Modus</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>Automatisch speichern</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Alles automatisch speichern</value>
     <comment>Used on Settings Page</comment>
@@ -119,14 +111,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>Ausschneiden</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Standard Dateikodierung</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>Standard Dateiformat</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>Standard Schriftart</value>
@@ -210,10 +194,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>Fokusierter Modus</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>Start Modus</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

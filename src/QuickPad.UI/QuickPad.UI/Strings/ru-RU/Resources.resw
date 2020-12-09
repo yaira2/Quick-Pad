@@ -24,10 +24,6 @@
     <value>Продвинутые</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AppLanguage.Text" xml:space="preserve">
-    <value>Язык Приложения</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AppName.Text" xml:space="preserve">
     <value>Quick Pad</value>
     <comment>Used on Settings Page</comment>
@@ -88,10 +84,6 @@
     <value>Тема системы по умолчанию</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Text" xml:space="preserve">
-    <value>Автосохранение</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Сохранять автоматически всегда</value>
     <comment>Used on Settings Page</comment>
@@ -119,14 +111,6 @@
   <data name="Cut.Text" xml:space="preserve">
     <value>Вырезать</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Text" xml:space="preserve">
-    <value>Кодирование Файла по Умолчанию</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Text" xml:space="preserve">
-    <value>Тип Файла по Умолчанию</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Text" xml:space="preserve">
     <value>Шрифт по Умолчанию</value>
@@ -210,10 +194,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>Режим Фокусировки</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchMode.Text" xml:space="preserve">
-    <value>Режим Запуска</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">

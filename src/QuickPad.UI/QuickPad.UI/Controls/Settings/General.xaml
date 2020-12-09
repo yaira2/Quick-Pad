@@ -24,24 +24,25 @@
                 x:Uid="General"
                 FontSize="20"
                 Text="General" />
-            <TextBlock x:Uid="LaunchMode" Text="Launch Mode" />
             <ComboBox
                 x:Uid="LaunchModeComboBox"
                 Width="180"
                 HorizontalAlignment="Left"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
                 DisplayMemberPath="Text"
+                Header="Launch Mode"
                 ItemsSource="{x:Bind Settings.AllDisplayModes}"
                 PlaceholderText="{x:Bind Settings.DefaultModeText}"
                 SelectedValue="{x:Bind Settings.DefaultMode, Mode=TwoWay}"
                 SelectedValuePath="Uid" />
 
-            <TextBlock x:Uid="AppLanguage" Text="App Language" />
             <ComboBox
                 x:Name="ComboAppLanguage"
+                x:Uid="AppLanguage"
                 Width="180"
                 HorizontalAlignment="Left"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+                Header="App Language"
                 ItemsSource="{x:Bind Settings.DefaultLanguages}"
                 PlaceholderText="{x:Bind Settings.DefaultLanguage}"
                 SelectedItem="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}">
@@ -57,22 +58,24 @@
                 Style="{ThemeResource CaptionTextBlockStyle}"
                 Text="You will need to restart Quick Pad to apply changes." />
 
-            <TextBlock x:Uid="DefaultFileType" Text="Default File Type" />
             <ComboBox
+                x:Uid="DefaultFileType"
                 Width="120"
                 HorizontalAlignment="Left"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+                Header="Default File Type"
                 PlaceholderText=".txt"
                 SelectedItem="{x:Bind Settings.DefaultFileType, Mode=TwoWay}">
                 <x:String>.txt</x:String>
                 <x:String>.rtf</x:String>
             </ComboBox>
 
-            <TextBlock x:Uid="DefaultFileEncoding" Text="Default File Encoding" />
             <ComboBox
+                x:Uid="DefaultFileEncoding"
                 Width="120"
                 HorizontalAlignment="Left"
                 Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
+                Header="Default File Encoding"
                 PlaceholderText="UTF-8"
                 SelectedValue="{x:Bind Settings.DefaultEncoding, Mode=TwoWay}"
                 SelectedValuePath="Content">
@@ -103,10 +106,11 @@
                     Tag="ASCII" />
             </ComboBox>
 
-            <TextBlock x:Uid="AutoSave" Text="Auto Save" />
             <ToggleSwitch
                 x:Name="AutoSave"
+                x:Uid="AutoSave"
                 HorizontalAlignment="Left"
+                Header="Auto Save"
                 IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" />
 
             <TextBlock Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}">
