@@ -837,7 +837,15 @@
     <value>About Quick Pad</value>
     <comment>Used in SettingsNav</comment>
   </data>
+  <data name="SettingsNavAbout.ToolTipService.ToolTip" xml:space="preserve">
+    <value>About Quick Pad</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
   <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
+    <value>Advanced Settings</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
     <value>Advanced Settings</value>
     <comment>Used in SettingsNav</comment>
   </data>
@@ -845,11 +853,23 @@
     <value>Font Settings</value>
     <comment>Used in SettingsNav</comment>
   </data>
+  <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Font Settings</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
   <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
     <value>General Settings</value>
     <comment>Used in SettingsNav</comment>
   </data>
+  <data name="SettingsNavGeneral.ToolTipService.ToolTip" xml:space="preserve">
+    <value>General Settings</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
   <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
+    <value>Theme Settings</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
     <value>Theme Settings</value>
     <comment>Used in SettingsNav</comment>
   </data>
