@@ -36,7 +36,7 @@
             x:Name="TopBar"
             HorizontalAlignment="Stretch"
             Windows10version1903:Shadow="{StaticResource TopBarShadow}"
-            Translation="0,0,4">
+            Translation="0,0,8">
             <controls3:TitleBar
                 x:Name="titleBar"
                 Grid.Row="0"
