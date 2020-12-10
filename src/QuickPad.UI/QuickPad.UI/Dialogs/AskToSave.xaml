@@ -9,12 +9,15 @@
     Title="Quick Pad"
     Windows10version1809:CornerRadius="4"
     Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
+    CloseButtonStyle="{ThemeResource DefaultButtonStyle}"
     CloseButtonText="Cancel"
     Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
     PrimaryButtonCommand="{x:Bind Commands.SaveCommand}"
     PrimaryButtonCommandParameter="{x:Bind ViewModel}"
+    PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"
     PrimaryButtonText="Save"
     SecondaryButtonClick="AskToSave_OnSecondaryButtonClick"
+    SecondaryButtonStyle="{ThemeResource DefaultButtonStyle}"
     SecondaryButtonText="Don't Save"
     mc:Ignorable="d">
     <ContentDialog.Resources>
