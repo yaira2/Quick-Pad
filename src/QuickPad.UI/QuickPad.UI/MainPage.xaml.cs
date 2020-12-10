@@ -14,6 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
@@ -219,6 +220,9 @@ namespace QuickPad.UI
             TextBox.ContextFlyout.Opening += Menu_Opening;
             RichEditBox.SelectionFlyout.Opening += RMenu_Opening;
             RichEditBox.ContextFlyout.Opening += RMenu_Opening;
+
+            // Add shadow to the title bar
+            TopBarShadow.Receivers.Add(TextScrollViewer);
         }
 
         public event Func<DocumentViewModel<StorageFile, IRandomAccessStream>, StorageFile, Task> LoadFromFile;
