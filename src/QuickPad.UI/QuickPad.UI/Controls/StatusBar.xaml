@@ -6,14 +6,18 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    d:DesignHeight="24"
+    d:DesignHeight="22"
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
     <UserControl.Resources>
         <converters:Converter x:Key="Converter" />
     </UserControl.Resources>
 
-    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
+    <Grid
+        Height="22"
+        Padding="8,0,0,2"
+        HorizontalAlignment="Stretch"
+        Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />

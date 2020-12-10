@@ -186,7 +186,6 @@
                     ShadowOpacity="0.3">
                     <controls3:StatusBar
                         x:Name="statusBar"
-                        Height="24"
                         HorizontalAlignment="Stretch"
                         ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
                 </controls1:DropShadowPanel>

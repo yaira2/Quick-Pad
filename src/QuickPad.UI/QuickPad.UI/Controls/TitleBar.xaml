@@ -23,6 +23,7 @@
             Width="40"
             Height="32"
             VerticalAlignment="Top"
+            AccessKey="C"
             Background="Transparent"
             BorderThickness="0"
             Command="{x:Bind Commands.CompactOverlayCommand}"

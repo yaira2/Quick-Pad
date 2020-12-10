@@ -406,6 +406,7 @@
                 x:Name="CompactOverlayButton"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="C"
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
@@ -419,6 +420,7 @@
                 x:Uid="SettingsToolTip"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="S"
                 Command="{x:Bind Commands.SettingsCommand}"
                 CommandParameter="{x:Bind Settings}"
                 ToolTipService.ToolTip="Settings">

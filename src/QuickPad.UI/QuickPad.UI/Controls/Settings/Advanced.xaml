@@ -62,6 +62,7 @@
             <StackPanel Orientation="Horizontal">
                 <Button
                     x:Uid="Import"
+                    AccessKey="I"
                     AutomationProperties.Name="Import Settings"
                     Command="{x:Bind Commands.ImportSettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
@@ -69,12 +70,14 @@
                 <Button
                     x:Uid="Export"
                     Margin="5,2"
+                    AccessKey="X"
                     AutomationProperties.Name="Export Settings"
                     Command="{x:Bind Commands.ExportSettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
                     Content="Export" />
                 <Button
                     x:Uid="Reset"
+                    AccessKey="R"
                     AutomationProperties.Name="Reset Settings"
                     Command="{x:Bind Commands.ResetSettingsCommand}"
                     CommandParameter="{x:Bind Settings}"
