@@ -38,6 +38,7 @@
                 x:Uid="NewLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="N"
                 Command="{x:Bind Commands.NewDocumentCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 LabelPosition="Collapsed">
@@ -55,6 +56,7 @@
                 x:Uid="OpenLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="O"
                 Command="{x:Bind Commands.LoadCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 LabelPosition="Collapsed">
@@ -72,6 +74,7 @@
                 x:Uid="SaveLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="S"
                 Command="{x:Bind Commands.SaveCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 LabelPosition="Collapsed">
@@ -89,6 +92,7 @@
             <AppBarButton
                 x:Name="FontDropdown"
                 Width="Auto"
+                AccessKey="F"
                 LabelPosition="Collapsed">
                 <StackPanel Padding="8,0" Orientation="Horizontal">
                     <TextBlock
@@ -124,6 +128,7 @@
                 x:Name="FontSizeDropdown"
                 Width="Auto"
                 MinWidth="50"
+                AccessKey="A"
                 LabelPosition="Collapsed">
                 <StackPanel Padding="8,0" Orientation="Horizontal">
                     <TextBlock
@@ -157,6 +162,7 @@
                 x:Uid="ColorLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="L"
                 LabelPosition="Collapsed"
                 Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
                 <ToolTipService.ToolTip>
@@ -184,6 +190,7 @@
                 x:Uid="EmojiLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="E"
                 Command="{x:Bind Commands.EmojiCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 LabelPosition="Collapsed">
@@ -199,6 +206,7 @@
                 x:Uid="BoldLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="B"
                 Command="{x:Bind Commands.BoldCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelBold, Mode=OneWay}"
@@ -215,6 +223,7 @@
                 x:Uid="ItalicLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="I"
                 Command="{x:Bind Commands.ItalicsCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelItalic, Mode=OneWay}"
@@ -231,6 +240,7 @@
                 x:Uid="UnderlineLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="U"
                 Command="{x:Bind Commands.UnderlineCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelUnderline, Mode=OneWay}"
@@ -247,6 +257,7 @@
                 x:Uid="StrikethroughLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="T"
                 Command="{x:Bind Commands.StrikeThroughCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelStrikethrough, Mode=OneWay}"
@@ -263,6 +274,7 @@
                 x:Uid="BulletsLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="H"
                 Command="{x:Bind Commands.BulletsCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelBullets, Mode=OneWay}"
@@ -280,6 +292,7 @@
                 x:Uid="AlignLeftLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="G"
                 Command="{x:Bind Commands.LeftAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelLeft, Mode=OneWay}"
@@ -296,6 +309,7 @@
                 x:Uid="AlignCenterLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="R"
                 Command="{x:Bind Commands.CenterAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelCenter, Mode=OneWay}"
@@ -312,6 +326,7 @@
                 x:Uid="AlignRightLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="K"
                 Command="{x:Bind Commands.RightAlignCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelRight, Mode=OneWay}"
@@ -328,6 +343,7 @@
                 x:Uid="JustifyTextLabel"
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="J"
                 Command="{x:Bind Commands.JustifyCommand}"
                 CommandParameter="{x:Bind ViewModel}"
                 IsChecked="{x:Bind ViewModelDocument.SelJustify, Mode=OneWay}"
@@ -422,6 +438,7 @@
             <AppBarButton
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="D"
                 Command="{x:Bind Commands.UndoCommand}"
                 CommandParameter="{x:Bind ViewModel}">
                 <AppBarButton.Icon>
@@ -434,6 +451,7 @@
             <AppBarButton
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="R"
                 Command="{x:Bind Commands.RedoCommand}"
                 CommandParameter="{x:Bind ViewModel}">
                 <AppBarButton.Icon>
@@ -447,6 +465,7 @@
             <AppBarButton
                 Width="Auto"
                 MinWidth="40"
+                AccessKey="C"
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
