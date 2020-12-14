@@ -895,4 +895,20 @@
     <value>Reset Settings</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeBlueMunsellName" xml:space="preserve">
+    <value>Blue Munsell</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>Camel</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCedarChestName" xml:space="preserve">
+    <value>Cedar Chest</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMiddleBlueName" xml:space="preserve">
+    <value>Middle Blue</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

@@ -980,6 +980,26 @@
           <target state="new">Spell Check in Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
+        <trans-unit id="ThemeBlueMunsellName" translate="yes" xml:space="preserve">
+          <source>Blue Munsell</source>
+          <target state="new">Blue Munsell</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeCamelName" translate="yes" xml:space="preserve">
+          <source>Camel</source>
+          <target state="new">Camel</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeCedarChestName" translate="yes" xml:space="preserve">
+          <source>Cedar Chest</source>
+          <target state="new">Cedar Chest</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeMiddleBlueName" translate="yes" xml:space="preserve">
+          <source>Middle Blue</source>
+          <target state="new">Middle Blue</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
       </group>
     </body>
   </file>
