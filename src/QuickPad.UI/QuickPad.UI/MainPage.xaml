@@ -116,8 +116,14 @@
                     ViewChanged="TextScrollViewer_ViewChanged"
                     ZoomMode="Enabled">
                     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
                         <RichEditBox
                             x:Name="RichEditBox"
+                            Grid.ColumnSpan="2"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             x:FieldModifier="internal"
@@ -143,6 +149,7 @@
 
                         <TextBox
                             x:Name="TextBox"
+                            Grid.Column="0"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             AcceptsReturn="True"
@@ -170,6 +177,14 @@
                                 <SolidColorBrush Color="{StaticResource SystemAccentColor}" />
                             </TextBox.SelectionHighlightColorWhenNotFocused>
                         </TextBox>
+
+                        <controls1:MarkdownTextBlock
+                            Grid.Column="1"
+                            Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}"
+                            BorderBrush="{x:Null}"
+                            BorderThickness="0"
+                            Text="{x:Bind ViewModel.Text, Mode=OneWay}"
+                            Visibility="{x:Bind ViewModel.ShowMarkdownViewer, Mode=OneWay}" />
                     </Grid>
                 </ScrollViewer>
 

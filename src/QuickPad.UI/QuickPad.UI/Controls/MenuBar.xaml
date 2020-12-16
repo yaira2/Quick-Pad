@@ -327,6 +327,10 @@
                         <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
+                <MenuFlyoutItem
+                    Command="{x:Bind Commands.ShowMarkdownViewerCommand}"
+                    CommandParameter="{x:Bind ViewModel}"
+                    Text="Markdown Preview" />
                 <MenuFlyoutSeparator />
                 <MenuFlyoutSubItem
                     x:Uid="Zoom"

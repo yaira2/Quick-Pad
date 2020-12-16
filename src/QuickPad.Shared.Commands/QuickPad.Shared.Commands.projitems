@@ -18,6 +18,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Actions\HideFindCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Actions\ImportSettingsCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Actions\InsertTimeDateCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Actions\ShowMarkdownViewerCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Actions\ReplaceAllCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Actions\ReplaceNextCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Actions\ResetSettingsCommand.cs" />
