@@ -324,13 +324,19 @@
                     CommandParameter="{x:Bind Settings}"
                     Text="Overlay Mode">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEE49;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem
+                    x:Uid="MarkdownPreview"
+                    AccessKey="M"
                     Command="{x:Bind Commands.ShowMarkdownViewerCommand}"
                     CommandParameter="{x:Bind ViewModel}"
-                    Text="Markdown Preview" />
+                    Text="Markdown Preview">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF000;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
                 <MenuFlyoutSeparator />
                 <MenuFlyoutSubItem
                     x:Uid="Zoom"
@@ -414,7 +420,7 @@
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
-                    <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEE49;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />
