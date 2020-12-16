@@ -123,7 +123,7 @@
 
                         <RichEditBox
                             x:Name="RichEditBox"
-                            Grid.ColumnSpan="2"
+                            Grid.ColumnSpan="{x:Bind ViewModel.TextBoxColumnSpan, Mode=OneWay}"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             x:FieldModifier="internal"
@@ -150,6 +150,7 @@
                         <TextBox
                             x:Name="TextBox"
                             Grid.Column="0"
+                            Grid.ColumnSpan="{x:Bind ViewModel.TextBoxColumnSpan, Mode=OneWay}"
                             HorizontalAlignment="Stretch"
                             VerticalAlignment="Stretch"
                             AcceptsReturn="True"
