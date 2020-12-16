@@ -180,12 +180,13 @@
                         </TextBox>
 
                         <controls1:MarkdownTextBlock
+                            x:Name="MarkdownViewer"
                             Grid.Column="1"
+                            x:Load="{x:Bind ViewModel.ShowMarkdownViewer, Mode=OneWay}"
                             Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}"
                             BorderBrush="{x:Null}"
                             BorderThickness="0"
-                            Text="{x:Bind ViewModel.Text, Mode=OneWay}"
-                            Visibility="{x:Bind ViewModel.ShowMarkdownViewer, Mode=OneWay}" />
+                            Text="{x:Bind ViewModel.Text, Mode=OneWay}" />
                     </Grid>
                 </ScrollViewer>
 
