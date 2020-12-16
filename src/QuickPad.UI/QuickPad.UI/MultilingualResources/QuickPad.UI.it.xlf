@@ -1004,6 +1004,16 @@
           <target state="new">Middle Blue</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
+        <trans-unit id="MarkdownPreview.Text" translate="yes" xml:space="preserve">
+          <source>Markdown Preview</source>
+          <target state="new">Markdown Preview</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
+        </trans-unit>
+        <trans-unit id="MarkdownPreviewLabel.Label" translate="yes" xml:space="preserve">
+          <source>Markdown Preview</source>
+          <target state="new">Markdown Preview</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
       </group>
     </body>
   </file>

@@ -911,4 +911,12 @@
     <value>Middle Blue</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="MarkdownPreview.Text" xml:space="preserve">
+    <value>Markdown Preview</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="MarkdownPreviewLabel.Label" xml:space="preserve">
+    <value>Markdown Preview</value>
+    <comment>Used on CommandBar</comment>
+  </data>
 </root>

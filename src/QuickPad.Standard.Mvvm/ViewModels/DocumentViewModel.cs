@@ -28,8 +28,10 @@ namespace QuickPad.Mvvm.ViewModels
 
         private readonly Timer _timer;
         private IFindAndReplaceView<TStorageFile, TStream> _findAndReplaceViewModel;
+        private bool _showMarkdownViewer;
         private bool _showFind;
         private bool _showReplace;
+        private int _textBoxColumnSpan = 2;
 
         public DocumentViewModel(
             ILogger<DocumentViewModel<TStorageFile, TStream>> logger
@@ -414,6 +416,18 @@ namespace QuickPad.Mvvm.ViewModels
         {
             get => _showFind;
             set => Set(ref _showFind, value);
+        }
+        
+        public bool ShowMarkdownViewer
+        {
+            get => _showMarkdownViewer;
+            set => Set(ref _showMarkdownViewer, value);
+        }
+        
+        public int TextBoxColumnSpan
+        {
+            get => _textBoxColumnSpan;
+            set => Set(ref _textBoxColumnSpan, value);
         }
 
         private string _showReplaceIcon = ""; //this is the expand icon

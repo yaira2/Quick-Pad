@@ -437,9 +437,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Assets\Fonts\CalcMDL2.ttf" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Assets\Fonts\Segoe MDL2 Modded.ttf" />
   </ItemGroup>
   <ItemGroup>

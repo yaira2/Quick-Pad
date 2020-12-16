@@ -382,6 +382,15 @@
                         <FontIcon Glyph="&#xE8C5;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
+                <AppBarButton
+                    x:Uid="MarkdownPreviewLabel"
+                    Command="{x:Bind Commands.ShowMarkdownViewerCommand}"
+                    CommandParameter="{x:Bind ViewModel}"
+                    Label="Markdown Preview">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF000;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
                 <AppBarToggleButton
                     x:Uid="StatusBarLabel"
                     Width="Auto"
@@ -469,7 +478,7 @@
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
-                    <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE49;" />
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEE49;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />

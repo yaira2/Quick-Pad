@@ -103,6 +103,7 @@ namespace QuickPad.Mvvm.Commands
         public SimpleCommand<SettingsViewModel<TStorageFile, TStream>> ImportSettingsCommand { get; } = new ImportSettingsCommand<TStorageFile, TStream>();
         public SimpleCommand<SettingsViewModel<TStorageFile, TStream>> ExportSettingsCommand { get; } = new ExportSettingsCommand<TStorageFile, TStream>();
         public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> ShowFindCommand { get; } = new ShowFindCommand<TStorageFile, TStream>();
+        public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> ShowMarkdownViewerCommand { get; } = new ShowMarkdownViewerCommand<TStorageFile, TStream>();
         public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> HideFindCommand { get; } = new HideFindCommand<TStorageFile, TStream>();
         public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> FindNextCommand { get; } = new FindNextCommand<TStorageFile, TStream>();
         public SimpleCommand<DocumentViewModel<TStorageFile, TStream>> FindPreviousCommand { get; } = new FindPreviousCommand<TStorageFile, TStream>();
