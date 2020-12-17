@@ -86,7 +86,7 @@
                 </Grid>
             </SplitView.Pane>
 
-            <Grid>
+            <Grid Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
@@ -128,7 +128,7 @@
                             VerticalAlignment="Stretch"
                             x:FieldModifier="internal"
                             AllowDrop="True"
-                            Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}"
+                            Background="Transparent"
                             BorderBrush="{x:Null}"
                             BorderThickness="0"
                             ContextMenuOpening="RichEditBox_OnContextMenuOpening"
@@ -155,7 +155,7 @@
                             VerticalAlignment="Stretch"
                             AcceptsReturn="True"
                             AllowDrop="True"
-                            Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}"
+                            Background="Transparent"
                             BeforeTextChanging="TextBox_OnBeforeTextChanging"
                             BorderBrush="{x:Null}"
                             BorderThickness="0"
@@ -183,7 +183,7 @@
                             x:Name="MarkdownViewer"
                             Grid.Column="1"
                             x:Load="{x:Bind ViewModel.ShowMarkdownViewer, Mode=OneWay}"
-                            Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.BaseThemeBackgroundBrush), Mode=OneWay}"
+                            Background="Transparent"
                             BorderBrush="{x:Null}"
                             BorderThickness="0"
                             Text="{x:Bind ViewModel.Text, Mode=OneWay}" />

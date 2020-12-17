@@ -234,6 +234,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
     <Content Include="Assets\Fonts\fluentui.ttf" />
+    <Content Include="Assets\Fonts\CalcMDL2.ttf" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\GoogleIcon.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
