@@ -142,6 +142,8 @@ namespace QuickPad.UI.Helpers
             Logger.LogDebug(
                 $"WindowsSettingsModel::Get<{typeof(TValue).Name}>({defaultValue}, {name}) -> {defaultValue} (default value);");
 
+            _roamingSettings.Values[propertyName] = defaultValue;
+
             return defaultValue;
         }
     }
