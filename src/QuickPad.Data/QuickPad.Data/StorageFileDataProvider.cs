@@ -41,7 +41,7 @@ namespace QuickPad.Data
                 var bytes = allBytes.ToArray();
 
                 // Create sample file; replace if exists.
-                await FileIO.WriteBytesAsync(file.File, bytes);
+                await PathIO.WriteBytesAsync(file.Path, bytes);
 
                 return $"{file.Name} was saved.";
             }
