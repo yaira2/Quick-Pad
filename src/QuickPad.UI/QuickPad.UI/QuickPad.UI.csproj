@@ -20,6 +20,8 @@
     <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
+    <AppxBundleAutoResourcePackageQualifiers>Scale|DXFeatureLevel</AppxBundleAutoResourcePackageQualifiers>
+    <AppxDefaultResourceQualifiers>Language=ar-EG;de;en-US;es;fr-CA;fr-FR;he;hu-HS;it;ru-RU;ta;th-TH;zh-Hant;zh-Hans</AppxDefaultResourceQualifiers>
     <AppxBundlePlatforms>x86|x64|arm|arm64</AppxBundlePlatforms>
     <GenerateTestArtifacts>False</GenerateTestArtifacts>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
@@ -235,7 +237,6 @@
     </EmbeddedResource>
     <Content Include="Assets\Fonts\fluentui.ttf" />
     <Content Include="Assets\Fonts\CalcMDL2.ttf" />
-    <None Include="Package.StoreAssociation.xml" />
     <Content Include="Assets\GoogleIcon.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
@@ -287,10 +288,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
-    <Content Include="priconfig.defaul.xml" />
-    <Content Include="priconfig.packaging.xml" />
     <Content Include="Properties\Default.rd.xml" />
-    <None Include="QuickPad.UI_TemporaryKey.pfx" />
     <PRIResource Include="Strings\he\Resources.resw" />
     <PRIResource Include="Strings\zh-Hant\Resources.resw" />
     <PRIResource Include="Strings\zh-Hans\Resources.resw" />
