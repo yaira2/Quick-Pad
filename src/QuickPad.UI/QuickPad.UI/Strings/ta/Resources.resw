@@ -699,4 +699,8 @@
     <value>சொல் மடிப்பு</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>ஒட்டகம்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

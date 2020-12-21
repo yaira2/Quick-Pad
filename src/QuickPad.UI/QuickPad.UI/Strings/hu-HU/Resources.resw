@@ -727,4 +727,8 @@
     <value>Hosszú sorok tördelése</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>Teve</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

@@ -579,4 +579,8 @@
     <value>自動換行</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>駱駝</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

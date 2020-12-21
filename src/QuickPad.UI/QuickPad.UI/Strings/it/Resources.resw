@@ -689,4 +689,8 @@
     <value>A capo automatico</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>Cammello</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

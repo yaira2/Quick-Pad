@@ -711,4 +711,8 @@
     <value>Zeilenumbruch</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>Kamel</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

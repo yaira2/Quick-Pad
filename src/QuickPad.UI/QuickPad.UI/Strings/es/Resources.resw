@@ -711,4 +711,8 @@
     <value>Ajuste de línea</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>Camello</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

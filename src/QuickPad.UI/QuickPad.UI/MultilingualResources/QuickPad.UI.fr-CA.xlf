@@ -987,7 +987,7 @@
         </trans-unit>
         <trans-unit id="ThemeCamelName" translate="yes" xml:space="preserve">
           <source>Camel</source>
-          <target state="new">Camel</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Dromadaire</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCedarChestName" translate="yes" xml:space="preserve">
