@@ -1,0 +1,817 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AcrylicOptions.Text" xml:space="preserve">
+    <value>Opcje przezroczystości</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AcrylicTintOpacity.Header" xml:space="preserve">
+    <value>Poziom przezroczystości</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Advanced.Text" xml:space="preserve">
+    <value>Zaawansowane</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AppLanguage.Header" xml:space="preserve">
+    <value>Język aplikacji</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AppName.Text" xml:space="preserve">
+    <value>Quick Pad</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeChickName" xml:space="preserve">
+    <value>Pisklę</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCobaltName" xml:space="preserve">
+    <value>Kobaltowy</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCrimsonName" xml:space="preserve">
+    <value>Karmazynowy</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkName" xml:space="preserve">
+    <value>Ciemny</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLeafName" xml:space="preserve">
+    <value>Liść</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLettuceName" xml:space="preserve">
+    <value>Sałata</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeLightName" xml:space="preserve">
+    <value>Jasny</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomName" xml:space="preserve">
+    <value>Losowy</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRoseGoldName" xml:space="preserve">
+    <value>Różowe złoto</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemName" xml:space="preserve">
+    <value>Ustawienia domyślne systemu</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralDarkDescription" xml:space="preserve">
+    <value>Ciemny motyw</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeGeneralLightDescription" xml:space="preserve">
+    <value>Jasny motyw</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRandomDescription" xml:space="preserve">
+    <value>Losowy motyw przy uruchomieniu</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>Motyw zdefiniowany przez system</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="AutoSave.Header" xml:space="preserve">
+    <value>Auto zapis</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSaveEvery.Text" xml:space="preserve">
+    <value>Automatyczne zapisywanie co</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSaveSeconds.Text" xml:space="preserve">
+    <value>sekund</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="BackToDefault.Text" xml:space="preserve">
+    <value>Wróć do Trybu Domyślnego</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CloseCompactOverlay.Text" xml:space="preserve">
+    <value>Zamknij Tryb Kompaktowy</value>
+    <comment>Used on TitleBar</comment>
+  </data>
+  <data name="Copy.Text" xml:space="preserve">
+    <value>Kopiuj</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CreatedBy.Text" xml:space="preserve">
+    <value>Stworzone przez Yair Aichenbaum</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Cut.Text" xml:space="preserve">
+    <value>Wytnij</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="DefaultFileEncoding.Header" xml:space="preserve">
+    <value>Domyślne kodowanie plików</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFileType.Header" xml:space="preserve">
+    <value>Domyślny typ pliku</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFont.Header" xml:space="preserve">
+    <value>Domyślna czcionka</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Header" xml:space="preserve">
+    <value>Domyślny rozmiar czcionki</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Delete.Text" xml:space="preserve">
+    <value>Usuń</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Edit.Title" xml:space="preserve">
+    <value>Edycja</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="Exit.Text" xml:space="preserve">
+    <value>Wyjdź</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Export.Content" xml:space="preserve">
+    <value>Eksportuj</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="File.Title" xml:space="preserve">
+    <value>Plik</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="Find.Text" xml:space="preserve">
+    <value>Znajdź</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindNext.Text" xml:space="preserve">
+    <value>Znajdź następne</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FindPrevious.Text" xml:space="preserve">
+    <value>Znajdź poprzednie</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="FocusMode.Text" xml:space="preserve">
+    <value>Tryb skupienia</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Font.Text" xml:space="preserve">
+    <value>Czcionka</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Fonts.Text" xml:space="preserve">
+    <value>Czcionki...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Format.Title" xml:space="preserve">
+    <value>Format</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="General.Text" xml:space="preserve">
+    <value>Ogólne</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="GoTo.Text" xml:space="preserve">
+    <value>Przejdź do</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Import.Content" xml:space="preserve">
+    <value>Importuj</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.Header" xml:space="preserve">
+    <value>Zostaw tylko tekst</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchClassicMode" xml:space="preserve">
+    <value>Tryb klasyczny</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchDefaultMode" xml:space="preserve">
+    <value>Domyślny</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchFocusMode" xml:space="preserve">
+    <value>Tryb skupienia</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.Header" xml:space="preserve">
+    <value>Tryb uruchamiania</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
+    <value>Tryb klasyczny</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchCompactOverlay" xml:space="preserve">
+    <value>Tryb kompaktowy</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ManageSettings.Text" xml:space="preserve">
+    <value>Zarządzaj ustawieniami</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="New.Text" xml:space="preserve">
+    <value>Nowy</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Open.Text" xml:space="preserve">
+    <value>Otwórz</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="OverlayMode.Text" xml:space="preserve">
+    <value>Zostaw na wierzchu</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Paste.Text" xml:space="preserve">
+    <value>Wklej</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="PasteOptions.Text" xml:space="preserve">
+    <value>Opcje wklejania</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RateAndReviewLink.Content" xml:space="preserve">
+    <value>Oceń i napisz opinię</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Redo.Text" xml:space="preserve">
+    <value>Ponów</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Replace.Text" xml:space="preserve">
+    <value>Zamień</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Reset.Content" xml:space="preserve">
+    <value>Resetuj</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RestatRequired.Text" xml:space="preserve">
+    <value>Musisz uruchomić ponownie Quick Pad, żeby zastosować zmiany.</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RestoreDefaultZoom.Text" xml:space="preserve">
+    <value>Przywróć domyślne powiększenie</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Save.Text" xml:space="preserve">
+    <value>Zapisz</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SaveAs.Text" xml:space="preserve">
+    <value>Zapisz jako...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SearchBing.Text" xml:space="preserve">
+    <value>Wyszukaj w Bing...</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SelectAll.Text" xml:space="preserve">
+    <value>Zaznacz wszystko</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Settings.Text" xml:space="preserve">
+    <value>Ustawienia</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="Share.Text" xml:space="preserve">
+    <value>Udostępnij</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="SpellCheck.Header" xml:space="preserve">
+    <value>Sprawdzanie pisowni</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="StatusBar.Text" xml:space="preserve">
+    <value>Pasek stanu</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="StatusColCount.Text" xml:space="preserve">
+    <value>Kol: </value>
+    <comment>Used on StatusTextBar</comment>
+  </data>
+  <data name="StatusLnCount.Text" xml:space="preserve">
+    <value>Lin: </value>
+    <comment>Used on StatusTextBar</comment>
+  </data>
+  <data name="Theme.Text" xml:space="preserve">
+    <value>Motyw</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Undo.Text" xml:space="preserve">
+    <value>Cofnij</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="UseAcrylicOnTextBox.Header" xml:space="preserve">
+    <value>Użyj tła "acrylic" dla pola tekstowego</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="View.Title" xml:space="preserve">
+    <value>Widok</value>
+    <comment>Used on Menu Header</comment>
+  </data>
+  <data name="WordWrap.Text" xml:space="preserve">
+    <value>Zawijanie wierszy</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="WordWrapSetting.Header" xml:space="preserve">
+    <value>Zawijanie wierszy</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Zoom.Text" xml:space="preserve">
+    <value>Powiększenie</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ZoomIn.Text" xml:space="preserve">
+    <value>Powiększ</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ZoomOut.Text" xml:space="preserve">
+    <value>Pomniejsz</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="DefaultFontRtf.Header" xml:space="preserve">
+    <value>Domyślna czcionka sformatowanego tekstu</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSizeRtf.Header" xml:space="preserve">
+    <value>Domyślny rozmiar czcionki sformatowanego tekstu</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSettingRtf.Header" xml:space="preserve">
+    <value>Zawijanie wierszy w sformatowanym tekście</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="CancelButton" xml:space="preserve">
+    <value>Anuluj</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="NoButton" xml:space="preserve">
+    <value>Nie</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesBody" xml:space="preserve">
+    <value>Są niezapisane zmiany. Czy chcesz je teraz zapisać?</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="PendingChangesTitle" xml:space="preserve">
+    <value>Oczekujące zmiany</value>
+    <comment>Used on Save Document Dialog</comment>
+  </data>
+  <data name="YesButton" xml:space="preserve">
+    <value>Tak</value>
+    <comment>Used on Save Document</comment>
+  </data>
+  <data name="LaunchNinjaMode" xml:space="preserve">
+    <value>Tryb Ninja</value>
+    <comment>Used on Settings Pgae</comment>
+  </data>
+  <data name="AlignCenter.Text" xml:space="preserve">
+    <value>Wyrównaj do środka (Ctrl+E)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignCenterLabel.Label" xml:space="preserve">
+    <value>Wyrównaj do środka</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeft.Text" xml:space="preserve">
+    <value>Wyrównaj do lewej (Ctrl+L)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignLeftLabel.Label" xml:space="preserve">
+    <value>Wyrównaj do lewej</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRight.Text" xml:space="preserve">
+    <value>Wyrównaj do prawej (Ctrl+R)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="AlignRightLabel.Label" xml:space="preserve">
+    <value>Wyrównaj do prawej</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bold.Text" xml:space="preserve">
+    <value>Pogrubienie (Ctrl+B)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BoldLabel.Label" xml:space="preserve">
+    <value>Pogrubienie</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Bullets.Text" xml:space="preserve">
+    <value>Przełącz punktory</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="BulletsLabel.Label" xml:space="preserve">
+    <value>Wypunktowanie</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ClassicModeLabel.Label" xml:space="preserve">
+    <value>Tryb klasyczny</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Color.Text" xml:space="preserve">
+    <value>Kolor czcionki</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ColorLabel.Label" xml:space="preserve">
+    <value>Kolor czcionki</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="CompactOverlayTooltip.Text" xml:space="preserve">
+    <value>Tryb kompaktowy (Alt + Up)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Emoji.Text" xml:space="preserve">
+    <value>Wstaw emogi (Win + .)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="EmojiLabel.Label" xml:space="preserve">
+    <value>Emoji</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FindLabel.Label" xml:space="preserve">
+    <value>Znajdź</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="FocusModeLabel.Label" xml:space="preserve">
+    <value>Tryb skupienia</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Italic.Text" xml:space="preserve">
+    <value>Kursywa	Ctrl+I</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ItalicLabel.Label" xml:space="preserve">
+    <value>Kursywa</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyText.Text" xml:space="preserve">
+    <value>Wyjustuj (Ctrl+J)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="JustifyTextLabel.Label" xml:space="preserve">
+    <value>Wyjustuj</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewLabel.Label" xml:space="preserve">
+    <value>Nowy</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="NewTip.Text" xml:space="preserve">
+    <value>Nowy (Ctrl+N)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenLabel.Label" xml:space="preserve">
+    <value>Otwórz</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="OpenTip.Text" xml:space="preserve">
+    <value>Otwórz (Ctrl+O)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="CmdLetsGo.Content" xml:space="preserve">
+    <value>Do dzieła!</value>
+    <comment>Used on Welcome Dialog</comment>
+  </data>
+  <data name="RedoTooltip.Text" xml:space="preserve">
+    <value>Ponów (Ctrl+Y)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveLabel.Label" xml:space="preserve">
+    <value>Zapisz</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SaveTip.Text" xml:space="preserve">
+    <value>Zapisz (Ctrl+S)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="SettingsLabel.Label" xml:space="preserve">
+    <value>Ustawienia</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ShareLabel.Label" xml:space="preserve">
+    <value>Udostępnij</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StatusBarLabel.Label" xml:space="preserve">
+    <value>Pasek stanu</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Strikethrough.Text" xml:space="preserve">
+    <value>Przekreślenie</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="StrikethroughLabel.Label" xml:space="preserve">
+    <value>Przekreślenie</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="Underline.Text" xml:space="preserve">
+    <value>Podkreślenie (Ctrl+U)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UnderlineLabel.Label" xml:space="preserve">
+    <value>Etykieta</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="UndoTooltip.Text" xml:space="preserve">
+    <value>Cofnij (Ctrl+Z)</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="RichTextDescription" xml:space="preserve">
+    <value>Dokument sformatowany</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="TextDescription" xml:space="preserve">
+    <value>Dokument tekstowy</value>
+    <comment>Used on Status Bar</comment>
+  </data>
+  <data name="SaveDialog.CloseButtonText" xml:space="preserve">
+    <value>Anuluj</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Zapisz</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Nie zapisuj</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="SaveDialog.Title" xml:space="preserve">
+    <value>Quick Pad</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="WouldYouLikeToSave.Text" xml:space="preserve">
+    <value>Czy chcesz zapisać zmiany?</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
+  <data name="AppVersion.Text" xml:space="preserve">
+    <value>Wersja:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="PlainTextFontSettings.Text" xml:space="preserve">
+    <value>Ustawienia czcionki zwykłego tekstu</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="RichTextFontSettings.Text" xml:space="preserve">
+    <value>Ustawienia czcionki sformatowanego tekstu</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheckRtf.Header" xml:space="preserve">
+    <value>Sprawdzanie pisowni w sformatowanym tekście</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ReportIssues.Content" xml:space="preserve">
+    <value>Zgłoś błędy tutaj</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SourceCode.Content" xml:space="preserve">
+    <value>Kod źródłowy</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpecialThanks.Text" xml:space="preserve">
+    <value>Specjalne podziękowania dla:</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ContributeToDeveloper.Content" xml:space="preserve">
+    <value>Wesprzyj dewelopera</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Untitled" xml:space="preserve">
+    <value>Bez tytułu</value>
+    <comment>Used on Title Bar</comment>
+  </data>
+  <data name="FindClose.Text" xml:space="preserve">
+    <value>Zamknij</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindFilter.PlaceholderText" xml:space="preserve">
+    <value>Czego szukasz?</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMatchCase.Text" xml:space="preserve">
+    <value>Uwzględnij wielkość liter</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindMore.Text" xml:space="preserve">
+    <value>Więcej...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindRegEx.Text" xml:space="preserve">
+    <value>Wyrażenie regularne</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplace.Text" xml:space="preserve">
+    <value>Zamień</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceAll.Text" xml:space="preserve">
+    <value>Zamień wszystko</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
+    <value>Zamień na...</value>
+    <comment>Used on Find and Replace Dialog</comment>
+  </data>
+  <data name="TimeDate.Text" xml:space="preserve">
+    <value>Czas/Data</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="CmdCancel.Content" xml:space="preserve">
+    <value>Anuluj</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CmdGoTo.Content" xml:space="preserve">
+    <value>Przejdź do</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.Title" xml:space="preserve">
+    <value>Przejdź do</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToLineNumber.Header" xml:space="preserve">
+    <value>Numer wiersza:</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
+    <value>W trybie kompaktowym możesz sprawić, że Quick Pad zostanie nad innymi oknami.</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="CompactOverlayTip.Title" xml:space="preserve">
+    <value>Utrzymuj nad innymi oknami</value>
+    <comment>Used on TeachingTip</comment>
+  </data>
+  <data name="ThemeAccentName" xml:space="preserve">
+    <value>Kolor akcentu systemu</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SearchWithGoogle.Header" xml:space="preserve">
+    <value>Włącz wyszukiwanie Google</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
+  <data name="OtherOptions.Text" xml:space="preserve">
+    <value>Inne</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AskForReviewDialog.Title" xml:space="preserve">
+    <value>Oceń Quick Pad</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+    <value>Nie</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
+    <value>Czy chcesz ocenić Quick Pad w Microsoft Store?</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+    <value>Opinia</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="PrivacyPolicy.Content" xml:space="preserve">
+    <value>Polityka prywatności</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeApricotName" xml:space="preserve">
+    <value>Morela</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeBlackCoralName" xml:space="preserve">
+    <value>Czarny koralowiec</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkSiennaName" xml:space="preserve">
+    <value>Czarna sjena</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkSpringGreenName" xml:space="preserve">
+    <value>Ciemny wiosenny zielony</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMaximumPurpleName" xml:space="preserve">
+    <value>Maksymalnie fioletowy</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMediumPurpleName" xml:space="preserve">
+    <value>Średnio fioletowy</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemePersimmonName" xml:space="preserve">
+    <value>Persymona</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSizzlingRedName" xml:space="preserve">
+    <value>Skwierczący czerwony</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Ustawienia</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="ContributeToDeveloper.AutomationProperties.Name" xml:space="preserve">
+    <value>Wesprzyj dewelopera</value>
+  </data>
+  <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
+    <value>Polityka prywatności</value>
+  </data>
+  <data name="SettingsNavAbout.AutomationProperties.Name" xml:space="preserve">
+    <value>O Quick Pad</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAbout.ToolTipService.ToolTip" xml:space="preserve">
+    <value>O Quick Pad</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
+    <value>Ustawienia zaawansowane</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Ustawienia zaawansowane</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.AutomationProperties.Name" xml:space="preserve">
+    <value>Ustawienia czcionki</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Ustawienia czcionki</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
+    <value>Ustawienia ogólne</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavGeneral.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Ustawienia ogólne</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
+    <value>Ustawienia motywów</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Ustawienia motywów</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="Export.AutomationProperties.Name" xml:space="preserve">
+    <value>Eksportuj ustawienia</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Import.AutomationProperties.Name" xml:space="preserve">
+    <value>Importuj ustawienia</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.AutomationProperties.Name" xml:space="preserve">
+    <value>Zachowaj tylko tekst kiedy jest wklejany tekst</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Reset.AutomationProperties.Name" xml:space="preserve">
+    <value>Resetuj ustawienia</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeBlueMunsellName" xml:space="preserve">
+    <value>Niebieski munsell</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>Wielbłąd</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCedarChestName" xml:space="preserve">
+    <value>Cedrowa skrzynia</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMiddleBlueName" xml:space="preserve">
+    <value>Prawie niebieski</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="MarkdownPreview.Text" xml:space="preserve">
+    <value>Podgląd Markdown</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="MarkdownPreviewLabel.Label" xml:space="preserve">
+    <value>Podgląd Markdown</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+</root>

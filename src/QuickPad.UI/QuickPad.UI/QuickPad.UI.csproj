@@ -21,7 +21,7 @@
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundleAutoResourcePackageQualifiers>Scale|DXFeatureLevel</AppxBundleAutoResourcePackageQualifiers>
-    <AppxDefaultResourceQualifiers>Language=ar-EG;de;en-US;es;fr-CA;fr-FR;he;hu-HS;it;ru-RU;ta;th-TH;zh-Hant;zh-Hans</AppxDefaultResourceQualifiers>
+    <AppxDefaultResourceQualifiers>Language=ar-EG;de;en-US;es;fr-CA;fr-FR;he;hu-HS;it;pl;ru-RU;ta;th-TH;zh-Hant;zh-Hans</AppxDefaultResourceQualifiers>
     <AppxBundlePlatforms>x86|x64|arm|arm64</AppxBundlePlatforms>
     <GenerateTestArtifacts>False</GenerateTestArtifacts>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
@@ -289,6 +289,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <PRIResource Include="Strings\pl\Resources.resw" />
     <PRIResource Include="Strings\he\Resources.resw" />
     <PRIResource Include="Strings\zh-Hant\Resources.resw" />
     <PRIResource Include="Strings\zh-Hans\Resources.resw" />
@@ -469,6 +470,7 @@
     <XliffResource Include="MultilingualResources\QuickPad.UI.he.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.hu-HU.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.it.xlf" />
+    <XliffResource Include="MultilingualResources\QuickPad.UI.pl.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.ru-RU.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.ta.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.th-TH.xlf" />
