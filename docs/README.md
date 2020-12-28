@@ -72,5 +72,6 @@ Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/do
     * [ar-SA][Arabic]: [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
     * [fr-FR][French]: [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
     * [it][Italian]: [Massimo Savazzi](https://github.com/msavazzi)
+    * [pl][Polish]: [Rafał Baran] (https://github.com/rafal06)
     * [ru-RU][Russian]: [Danil Podobin](https://github.com/Danil-Podobin)
     * [hu-HU][Hungarian]: [Kristóf Kékesi](https://github.com/KristofKekesi)
