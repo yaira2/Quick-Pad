@@ -88,7 +88,7 @@
         </trans-unit>
         <trans-unit id="ThemeSystemDescription" translate="yes" xml:space="preserve">
           <source>System-defined theme</source>
-          <target state="new">Rendszer alapértelmezett téma</target>
+          <target state="translated">Rendszer alapértelmezett téma</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="AutoSaveEvery.Text" translate="yes" xml:space="preserve">
@@ -823,7 +823,7 @@
         </trans-unit>
         <trans-unit id="SettingsNavAbout.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>About Quick Pad</source>
-          <target state="new">About Quick Pad</target>
+          <target state="translated">Quick Pad-ről</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -843,7 +843,7 @@
         </trans-unit>
         <trans-unit id="SettingsNavAbout.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>About Quick Pad</source>
-          <target state="new">About Quick Pad</target>
+          <target state="translated">A Quick Pad-ről</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
@@ -868,7 +868,7 @@
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
+          <target state="translated">Hozzájárulás a programhoz</target>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
@@ -886,37 +886,37 @@
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Header" translate="yes" xml:space="preserve">
           <source>Default File Encoding</source>
-          <target state="new">Default File Encoding</target>
+          <target state="translated">Alapértelmezett fájl kódolás</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFileType.Header" translate="yes" xml:space="preserve">
           <source>Default File Type</source>
-          <target state="new">Default File Type</target>
+          <target state="translated">Alapértelmezett fájl formátum</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchModeComboBox.Header" translate="yes" xml:space="preserve">
           <source>Launch Mode</source>
-          <target state="new">Launch Mode</target>
+          <target state="translated">Indítási mód</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AcrylicTintOpacity.Header" translate="yes" xml:space="preserve">
           <source>Acrylic tint opacity</source>
-          <target state="new">Acrylic tint opacity</target>
+          <target state="translated">Akril átlátszóság</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="KeepTextOnly.Header" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
-          <target state="new">Keep text only</target>
+          <target state="translated">Csak szöveg megtartása</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="UseAcrylicOnTextBox.Header" translate="yes" xml:space="preserve">
           <source>Use acrylic background for the text area</source>
-          <target state="new">Use acrylic background for the text area</target>
+          <target state="translated">Akril háttér használata a szöveges résznél</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SearchWithGoogle.Header" translate="yes" xml:space="preserve">
           <source>Enable Google Search</source>
-          <target state="new">Enable Google Search</target>
+          <target state="translated">Google keresés engedélyezése</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
         </trans-unit>
         <trans-unit id="Export.AutomationProperties.Name" translate="yes" xml:space="preserve">
@@ -936,7 +936,7 @@
         </trans-unit>
         <trans-unit id="KeepTextOnly.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Keep text only when pasting text</source>
-          <target state="new">Keep text only when pasting text</target>
+          <target state="translated">Szöveg megőrzése csak beillesztésnél</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFont.Header" translate="yes" xml:space="preserve">
@@ -961,27 +961,27 @@
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Header" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font</source>
-          <target state="new">Default Rich Text Font</target>
+          <target state="transltated">Alapértelmezett Rich Text betűtípus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSizeRtf.Header" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font Size</source>
-          <target state="new">Default Rich Text Font Size</target>
+          <target state="translated">Alapértelmezett Rich Text betűméret</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSettingRtf.Header" translate="yes" xml:space="preserve">
           <source>Word Wrap in Rich Text</source>
-          <target state="new">Word Wrap in Rich Text</target>
+          <target state="translated">Sortörés Rich Text-ben</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpellCheckRtf.Header" translate="yes" xml:space="preserve">
           <source>Spell Check in Rich Text</source>
-          <target state="new">Spell Check in Rich Text</target>
+          <target state="translated">Helyesírás-ellenőrzés Rich Text-ben</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ThemeBlueMunsellName" translate="yes" xml:space="preserve">
           <source>Blue Munsell</source>
-          <target state="new">Blue Munsell</target>
+          <target state="new">Kék Munsell</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCamelName" translate="yes" xml:space="preserve">
@@ -991,22 +991,22 @@
         </trans-unit>
         <trans-unit id="ThemeCedarChestName" translate="yes" xml:space="preserve">
           <source>Cedar Chest</source>
-          <target state="new">Cedar Chest</target>
+          <target state="translated">cédrusláda</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMiddleBlueName" translate="yes" xml:space="preserve">
           <source>Middle Blue</source>
-          <target state="new">Middle Blue</target>
+          <target state="translate">Középkék</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="MarkdownPreview.Text" translate="yes" xml:space="preserve">
           <source>Markdown Preview</source>
-          <target state="new">Markdown Preview</target>
+          <target state="translated">Markdown nézet</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="MarkdownPreviewLabel.Label" translate="yes" xml:space="preserve">
           <source>Markdown Preview</source>
-          <target state="new">Markdown Preview</target>
+          <target state="translated">Markdown nézet</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
       </group>
