@@ -24,31 +24,24 @@ namespace QuickPad.Data
 
         public async Task<string> SaveDataAsync(StorageFileWrapper<StorageFile> file, IWriter writer, Encoding encoding)
         {
-            try
+            List<byte> allBytes = new List<byte>();
+
+            if (file.BOM != null)
             {
-                List<byte> allBytes = new List<byte>();
-
-                if (file.BOM != null)
-                {
-                    allBytes = new List<byte>(file.BOM);
-                    allBytes.AddRange(writer.GetBytes(encoding));
-                }
-                else
-                {
-                    allBytes = new List<byte>(writer.GetBytes(encoding));
-                }
-
-                var bytes = allBytes.ToArray();
-
-                // Create sample file; replace if exists.
-                await PathIO.WriteBytesAsync(file.Path, bytes);
-
-                return $"{file.Name} was saved.";
+                allBytes = new List<byte>(file.BOM);
+                allBytes.AddRange(writer.GetBytes(encoding));
             }
-            catch (Exception)
+            else
             {
-                throw;
+                allBytes = new List<byte>(writer.GetBytes(encoding));
             }
+
+            var bytes = allBytes.ToArray();
+
+            // Create sample file; replace if exists.
+            await PathIO.WriteBytesAsync(file.Path, bytes);
+
+            return $"{file.Name} was saved.";
         }
     }
 }

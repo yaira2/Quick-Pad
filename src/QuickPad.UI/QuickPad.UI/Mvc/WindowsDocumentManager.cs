@@ -473,17 +473,26 @@ namespace QuickPad.UI.Helpers
 
             await App.AwaitableRunAsync(() => writer.Write(textToSave));
 
-            await new StorageFileDataProvider().SaveDataAsync(documentViewModel.File, writer,
-                documentViewModel.CurrentEncoding);
+            try
+            {
+                await new StorageFileDataProvider().SaveDataAsync(documentViewModel.File, writer,
+    documentViewModel.CurrentEncoding);
 
-            documentViewModel.Document.IsDirty = false;
+                documentViewModel.Document.IsDirty = false;
 
-            documentViewModel.ReleaseUpdates();
+                documentViewModel.ReleaseUpdates();
 
-            Settings.Status($"Saved {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
-                Verbosity.Release);
+                Settings.Status($"Saved {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
+                    Verbosity.Release);
 
-            return SaveState.Saved;
+                return SaveState.Saved;
+            }
+            catch (Exception e)
+            {
+                Settings.Status(e.Message, TimeSpan.FromSeconds(10), Verbosity.Error);
+
+                return SaveState.Canceled;
+            }
         }
     }
 

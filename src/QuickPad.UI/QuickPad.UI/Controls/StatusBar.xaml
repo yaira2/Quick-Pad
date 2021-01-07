@@ -32,6 +32,7 @@
             VerticalAlignment="Center"
             FontSize="11"
             Foreground="{x:Bind Settings.StatusTextColor}"
+            MaxLines="1"
             Text="{x:Bind Settings.StatusText}" />
 
         <!--  Line and character count  -->
