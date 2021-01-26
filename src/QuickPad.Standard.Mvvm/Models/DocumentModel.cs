@@ -104,6 +104,9 @@ namespace QuickPad.Mvvm.Models
                 });
             }
         }
+        public bool IsUnsavedCache { get; set; }
+
+        public string CacheFilename { get; set; }
 
         public string Title => ViewModel.Title;
 

@@ -83,6 +83,8 @@ namespace QuickPad.Mvc
 
         protected internal abstract Task<SaveState> SaveDocument(DocumentViewModel<TStorageFile, TStream> documentViewModel, bool saveAs);
 
+        protected internal abstract Task<SaveState> SaveSilently(DocumentViewModel<TStorageFile, TStream> documentViewModel, string cacheFilename);
+
         public enum DeferredState
         {
             NotDeferred,
@@ -125,5 +127,7 @@ namespace QuickPad.Mvc
         }
 
         public abstract void SaveDocument(IDocumentView<TStorageFile, TStream> obj);
+
+        public abstract void SaveDocumentToCache(IDocumentView<TStorageFile, TStream> obj, string cacheFilename);
     }
 }

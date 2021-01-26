@@ -229,6 +229,8 @@ namespace QuickPad.UI
 
         public event Action<IDocumentView<StorageFile, IRandomAccessStream>> SaveToFile;
 
+        public event Action<IDocumentView<StorageFile, IRandomAccessStream>, string> SaveToCache;
+
         public event Action<IDocumentView<StorageFile, IRandomAccessStream>> CreateNewDocument;
 
         public event Action GainedFocus;
@@ -353,6 +355,7 @@ namespace QuickPad.UI
                     _viewModel.ClearUndoRedo -= ViewModelOnClearUndoRedo;
                     _viewModel.Focus -= ViewModelOnFocus;
                     _viewModel.SaveDocument -= ViewModelOnSaveDocument;
+                    _viewModel.SaveDocumentCache -= ViewModelOnSaveDocumentCache;
 
                     RichEditBox.TextChanged -= _viewModel.TextChanged;
                     TextBox.TextChanged -= _viewModel.TextChanged;
@@ -369,6 +372,7 @@ namespace QuickPad.UI
                 _viewModel.ClearUndoRedo += ViewModelOnClearUndoRedo;
                 _viewModel.Focus += ViewModelOnFocus;
                 _viewModel.SaveDocument += ViewModelOnSaveDocument;
+                _viewModel.SaveDocumentCache += ViewModelOnSaveDocumentCache;
 
                 _viewModel.NewDocumentInitialized += ViewModelOnNewDocumentInitialized;
 
@@ -388,6 +392,11 @@ namespace QuickPad.UI
         private void ViewModelOnSaveDocument(DocumentViewModel<StorageFile, IRandomAccessStream> obj)
         {
             App.TryEnqueue(() => SaveToFile?.Invoke(this));
+        }
+
+        private void ViewModelOnSaveDocumentCache(DocumentViewModel<StorageFile, IRandomAccessStream> obj, string cacheFileName)
+        {
+            App.TryEnqueue(() => SaveToCache?.Invoke(this, cacheFileName));
         }
 
         private void ViewModelOnNewDocumentInitialized(DocumentModel<StorageFile, IRandomAccessStream> obj)

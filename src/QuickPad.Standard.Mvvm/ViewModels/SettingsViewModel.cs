@@ -249,6 +249,13 @@ namespace QuickPad.Mvvm.ViewModels
         }
 
         [NotifyOnReset]
+        public bool SmartSave
+        {
+            get => Model.SmartSave;
+            set => Model.SmartSave = value;
+        }
+
+        [NotifyOnReset]
         public int AutoSaveFrequency
         {
             get => Model.AutoSaveFrequency;

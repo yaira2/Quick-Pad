@@ -109,6 +109,13 @@
                 Header="Auto Save"
                 IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" />
 
+            <ToggleSwitch
+                x:Name="SmartSave"
+                x:Uid="SmartSave"
+                HorizontalAlignment="Left"
+                Header="Smart Save"
+                IsOn="{x:Bind Settings.SmartSave, Mode=TwoWay}" />
+
             <StackPanel>
                 <TextBlock Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}">
                     <Run x:Uid="AutoSaveEvery" Text="Auto save every" />

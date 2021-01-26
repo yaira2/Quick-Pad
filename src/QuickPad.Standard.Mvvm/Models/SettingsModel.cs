@@ -80,6 +80,12 @@ namespace QuickPad.Mvvm.Models
             set => Set(value, MethodBase.GetCurrentMethod().Name);
         }
 
+        public bool SmartSave
+        {
+            get => Get(true, MethodBase.GetCurrentMethod().Name);
+            set => Set(value, MethodBase.GetCurrentMethod().Name);
+        }
+
         public int AutoSaveFrequency
         {
             get => Get(10, MethodBase.GetCurrentMethod().Name);

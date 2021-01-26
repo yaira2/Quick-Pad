@@ -13,6 +13,7 @@ using QuickPad.UI.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
@@ -128,6 +129,11 @@ namespace QuickPad.UI.Helpers
         {
             App.TryEnqueue(() =>
                 SaveDocument(obj.ViewModel));
+        }
+
+        public override void SaveDocumentToCache(IDocumentView<StorageFile, IRandomAccessStream> obj, string cacheFilename)
+        {
+            App.TryEnqueue(async () => await SaveSilently(obj.ViewModel, cacheFilename));
         }
 
         protected override Task ExitApplication(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel)
@@ -403,6 +409,71 @@ namespace QuickPad.UI.Helpers
         protected override Task<SaveState> SaveAsDocument(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel)
         {
             return SaveDocument(documentViewModel, true);
+        }
+
+        protected override async Task<SaveState> SaveSilently(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel, string cacheFilename)
+        {
+            try
+            {
+                documentViewModel.HoldUpdates();
+
+                // Create cache folder if does not exists
+                StorageFolder cacheFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("cachedFiles", CreationCollisionOption.OpenIfExists);
+
+                // Select the filename if null
+                if (string.IsNullOrWhiteSpace(cacheFilename))
+                {
+                    cacheFilename = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.f"); // Precise date
+                }
+
+                // Create the file
+                StorageFileWrapper<StorageFile> file = new UwpStorageFileWrapper() { File = await cacheFolder.CreateFileAsync(cacheFilename) };
+
+                // Save it
+                if (Logger.IsEnabled(LogLevel.Debug))
+                    Logger.LogDebug($"Saving {file.DisplayName}:\n{documentViewModel.Text}");
+
+                EncodingWriter writer = new EncodingWriter();
+
+                string textToSave = documentViewModel.IsRtf switch
+                {
+                    true => FixLineEndings(documentViewModel.RtfText),
+                    _ => FixLineEndings(documentViewModel.Text)
+                };
+
+                string FixLineEndings(string text)
+                {
+                    return !text.Contains(file.TargetLineEndings)
+                        ? text.Replace("\r", file.TargetLineEndings)
+                        : text;
+                }
+
+                await App.AwaitableRunAsync(() => writer.Write(textToSave));
+
+                try
+                {
+                    await new StorageFileDataProvider().SaveDataAsync(file, writer,
+                        documentViewModel.CurrentEncoding);
+
+                    documentViewModel.Document.IsUnsavedCache = false;
+                    documentViewModel.Document.CacheFilename = cacheFilename;
+
+                    Settings.Status($"Saved {file.Name}", TimeSpan.FromSeconds(10),
+                        Verbosity.Release);
+
+                    return SaveState.Saved;
+                }
+                catch (Exception e)
+                {
+                    Settings.Status(e.Message, TimeSpan.FromSeconds(10), Verbosity.Error);
+
+                    return SaveState.Canceled;
+                }
+            }
+            finally
+            {
+                documentViewModel.ReleaseUpdates();
+            }
         }
 
         protected override async Task<SaveState> SaveDocument(DocumentViewModel<StorageFile, IRandomAccessStream> documentViewModel, bool saveAs)

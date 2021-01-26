@@ -53,6 +53,7 @@ namespace QuickPad.Mvc
                     documentView.LoadFromFile += _documentManager.LoadFile;
                     documentView.GainedFocus += _documentManager.DocumentViewOnGainedFocus;
                     documentView.SaveToFile += _documentManager.SaveDocument;
+                    documentView.SaveToCache += _documentManager.SaveDocumentToCache;
 
                     _documentManager.Initializer(documentView
                         , ServiceProvider.GetService<IQuickPadCommands<TStorageFile, TStream>>()

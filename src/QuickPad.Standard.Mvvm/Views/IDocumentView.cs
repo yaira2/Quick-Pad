@@ -18,6 +18,8 @@ namespace QuickPad.Mvvm.Views
 
         event Action<IDocumentView<TStorageFile, TStream>> SaveToFile;
 
+        event Action<IDocumentView<TStorageFile, TStream>, string> SaveToCache;
+
         event Action<IDocumentView<TStorageFile, TStream>> CreateNewDocument;
 
         event Action GainedFocus;
