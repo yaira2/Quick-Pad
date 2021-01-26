@@ -423,11 +423,11 @@ namespace QuickPad.UI.Helpers
                 // Select the filename if null
                 if (string.IsNullOrWhiteSpace(cacheFilename))
                 {
-                    cacheFilename = DateTime.Now.ToString("dd.MM.yyyy HH:mm:ss.f"); // Precise date
+                    cacheFilename = $"{DateTime.Now.ToString("dd.MM.yyyy HH_mm_ss.f")}.txt"; // Precise date
                 }
 
                 // Create the file
-                StorageFileWrapper<StorageFile> file = new UwpStorageFileWrapper() { File = await cacheFolder.CreateFileAsync(cacheFilename) };
+                StorageFileWrapper<StorageFile> file = new UwpStorageFileWrapper() { File = await cacheFolder.CreateFileAsync(cacheFilename, CreationCollisionOption.OpenIfExists) };
 
                 // Save it
                 if (Logger.IsEnabled(LogLevel.Debug))
@@ -458,7 +458,7 @@ namespace QuickPad.UI.Helpers
                     documentViewModel.Document.IsUnsavedCache = false;
                     documentViewModel.Document.CacheFilename = cacheFilename;
 
-                    Settings.Status($"Saved {file.Name}", TimeSpan.FromSeconds(10),
+                    Settings.Status($"SmartSave: Save-cached this file", TimeSpan.FromSeconds(10),
                         Verbosity.Release);
 
                     return SaveState.Saved;

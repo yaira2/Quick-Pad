@@ -317,6 +317,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         public void ResetTimer()
         {
+            Document.IsUnsavedCache = true;
             if ((Settings.AutoSave && File != null) || (Settings.SmartSave && File == null && ServiceProvider.GetService<DocumentModel<TStorageFile, TStream>>().IsUnsavedCache))
             {
                 _timer.Change(TimeSpan.FromSeconds(Settings.AutoSaveFrequency), TimeSpan.FromMilliseconds(-1));
