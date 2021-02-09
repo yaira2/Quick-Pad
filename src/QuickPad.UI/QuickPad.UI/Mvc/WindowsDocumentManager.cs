@@ -556,6 +556,22 @@ namespace QuickPad.UI.Helpers
                 Settings.Status($"Saved {documentViewModel.File.Name}", TimeSpan.FromSeconds(10),
                     Verbosity.Release);
 
+                // Invalidate currently cached file
+                if (!string.IsNullOrEmpty(documentViewModel.Document.CacheFilename))
+                {
+                    StorageFolder folder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("cachedfiles", CreationCollisionOption.OpenIfExists);
+
+                    if (folder != null)
+                    {
+                        StorageFile file = await folder.GetFileAsync(documentViewModel.Document.CacheFilename);
+
+                        if (file != null)
+                        {
+                            await file.DeleteAsync(StorageDeleteOption.PermanentDelete);
+                        }
+                    }
+                }
+
                 return SaveState.Saved;
             }
             catch (Exception e)
