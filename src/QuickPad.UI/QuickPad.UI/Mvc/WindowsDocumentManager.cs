@@ -418,7 +418,7 @@ namespace QuickPad.UI.Helpers
                 documentViewModel.HoldUpdates();
 
                 // Create cache folder if does not exists
-                StorageFolder cacheFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("cachedFiles", CreationCollisionOption.OpenIfExists);
+                StorageFolder cacheFolder = await ApplicationData.Current.LocalFolder.CreateFolderAsync("cachedfiles", CreationCollisionOption.OpenIfExists);
 
                 // Select the filename if null
                 if (string.IsNullOrWhiteSpace(cacheFilename))

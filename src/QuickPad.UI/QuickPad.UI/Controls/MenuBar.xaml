@@ -73,6 +73,15 @@
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
                 <MenuFlyoutSeparator />
+                <MenuFlyoutSubItem 
+                    x:Uid="CachedFiles"
+                    x:FieldModifier="public"
+                    x:Name="CachedFilesSubMenu"
+                    Text="SmartSave-Restored Documents">
+                    <MenuFlyoutSubItem.Icon>
+                        <FontIcon FontFamily="/Assets/Fonts/fluentui.ttf#fluentui" Glyph="&#xE92D;" />
+                    </MenuFlyoutSubItem.Icon>
+                </MenuFlyoutSubItem>
                 <MenuFlyoutItem
                     x:Uid="Share"
                     AccessKey="H"
