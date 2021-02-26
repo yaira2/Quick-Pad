@@ -289,6 +289,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <PRIResource Include="Strings\pt-PT\Resources.resw" />
     <PRIResource Include="Strings\pl\Resources.resw" />
     <PRIResource Include="Strings\he\Resources.resw" />
     <PRIResource Include="Strings\zh-Hant\Resources.resw" />
