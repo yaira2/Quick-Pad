@@ -325,12 +325,12 @@
         <trans-unit id="StatusColCount.Text" translate="yes" xml:space="preserve">
           <source>Col: </source>
           <target state="translated">Spalte: </target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="StatusLnCount.Text" translate="yes" xml:space="preserve">
           <source>Ln: </source>
           <target state="translated">Zeile: </target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Status Bar</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on StatusTextBar</note>
         </trans-unit>
         <trans-unit id="Theme.Text" translate="yes" xml:space="preserve">
           <source>Theme</source>
@@ -395,7 +395,7 @@
         <trans-unit id="LaunchNinjaMode" translate="yes" xml:space="preserve">
           <source>Ninja Mode</source>
           <target state="translated">Modo Ninja</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
         </trans-unit>
         <trans-unit id="AlignCenter.Text" translate="yes" xml:space="preserve">
           <source>Align Center (Ctrl+E)</source>

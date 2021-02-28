@@ -996,7 +996,7 @@
         </trans-unit>
         <trans-unit id="ThemeMiddleBlueName" translate="yes" xml:space="preserve">
           <source>Middle Blue</source>
-          <target state="translate">Középkék</target>
+          <target state="translated">Középkék</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="MarkdownPreview.Text" translate="yes" xml:space="preserve">

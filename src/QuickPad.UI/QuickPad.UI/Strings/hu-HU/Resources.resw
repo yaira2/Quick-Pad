@@ -76,6 +76,10 @@
     <value>Véletlenszerű téma induláskor</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="ThemeSystemDescription" xml:space="preserve">
+    <value>Rendszer alapértelmezett téma</value>
+    <comment>Used on Theme Page</comment>
+  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Automatikus mentés</value>
     <comment>Used on Settings Page</comment>
@@ -660,6 +664,10 @@
     <value>Általános beállítások</value>
     <comment>Used in SettingsNav</comment>
   </data>
+  <data name="SettingsNavAbout.AutomationProperties.Name" xml:space="preserve">
+    <value>Quick Pad-ről</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
   <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
     <value>Speciális beállítások</value>
     <comment>Used in SettingsNav</comment>
@@ -670,6 +678,10 @@
   </data>
   <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
     <value>Témák beállításai</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAbout.ToolTipService.ToolTip" xml:space="preserve">
+    <value>A Quick Pad-ről</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
@@ -688,6 +700,9 @@
     <value>Témák beállításai</value>
     <comment>Used in SettingsNav</comment>
   </data>
+  <data name="ContributeToDeveloper.AutomationProperties.Name" xml:space="preserve">
+    <value>Hozzájárulás a programhoz</value>
+  </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
     <value>Adatvédelmi szabályzat</value>
   </data>
@@ -699,6 +714,34 @@
     <value>Automatikus mentés</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="DefaultFileEncoding.Header" xml:space="preserve">
+    <value>Alapértelmezett fájl kódolás</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFileType.Header" xml:space="preserve">
+    <value>Alapértelmezett fájl formátum</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.Header" xml:space="preserve">
+    <value>Indítási mód</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AcrylicTintOpacity.Header" xml:space="preserve">
+    <value>Akril átlátszóság</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.Header" xml:space="preserve">
+    <value>Csak szöveg megtartása</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="UseAcrylicOnTextBox.Header" xml:space="preserve">
+    <value>Akril háttér használata a szöveges résznél</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SearchWithGoogle.Header" xml:space="preserve">
+    <value>Google keresés engedélyezése</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
   <data name="Export.AutomationProperties.Name" xml:space="preserve">
     <value>Exportálási beállítások</value>
     <comment>Used on Settings Page</comment>
@@ -709,6 +752,10 @@
   </data>
   <data name="Reset.AutomationProperties.Name" xml:space="preserve">
     <value>Beállítások _alaphelyzetbe állítása</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.AutomationProperties.Name" xml:space="preserve">
+    <value>Szöveg megőrzése csak beillesztésnél</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Header" xml:space="preserve">
@@ -727,8 +774,40 @@
     <value>Hosszú sorok tördelése</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="DefaultFontRtf.Header" xml:space="preserve">
+    <value>Alapértelmezett Rich Text betűtípus</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSizeRtf.Header" xml:space="preserve">
+    <value>Alapértelmezett Rich Text betűméret</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSettingRtf.Header" xml:space="preserve">
+    <value>Sortörés Rich Text-ben</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheckRtf.Header" xml:space="preserve">
+    <value>Helyesírás-ellenőrzés Rich Text-ben</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="ThemeCamelName" xml:space="preserve">
     <value>Teve</value>
     <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCedarChestName" xml:space="preserve">
+    <value>cédrusláda</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMiddleBlueName" xml:space="preserve">
+    <value>Középkék</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="MarkdownPreview.Text" xml:space="preserve">
+    <value>Markdown nézet</value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="MarkdownPreviewLabel.Label" xml:space="preserve">
+    <value>Markdown nézet</value>
+    <comment>Used on CommandBar</comment>
   </data>
 </root>
