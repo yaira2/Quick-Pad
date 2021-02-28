@@ -961,7 +961,7 @@
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Header" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font</source>
-          <target state="transltated">Alapértelmezett Rich Text betűtípus</target>
+          <target state="translated">Alapértelmezett Rich Text betűtípus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSizeRtf.Header" translate="yes" xml:space="preserve">
