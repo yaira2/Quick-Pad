@@ -86,7 +86,7 @@
                 CornerRadius="2"
                 Style="{ThemeResource SplitButtonRevealStyle}">
                 <StackPanel>
-                    <FontIcon FontSize="16" Glyph="&#xE0AB;" />
+                    <FontIcon FontSize="16" Glyph="&#xE1A3;" />
                     <ToolTipService.ToolTip>
                         <TextBlock x:Uid="FindNext" Text="FindNext" />
                     </ToolTipService.ToolTip>
@@ -99,7 +99,7 @@
                             CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
                             Text="Find Next">
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE0AB;" />
+                                <FontIcon Glyph="&#xE1A3;" />
                             </MenuFlyoutItem.Icon>
                             <MenuFlyoutItem.KeyboardAccelerators>
                                 <KeyboardAccelerator Key="F3" />
@@ -111,7 +111,7 @@
                             CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
                             Text="Find Previous">
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE0A6;" />
+                                <FontIcon Glyph="&#xE0AB;" />
                             </MenuFlyoutItem.Icon>
                             <MenuFlyoutItem.KeyboardAccelerators>
                                 <KeyboardAccelerator Key="F3" Modifiers="Shift" />
@@ -187,7 +187,7 @@
                 Command="{x:Bind Commands.ReplaceAllCommand}"
                 CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
                 Style="{ThemeResource ButtonRevealStyle}">
-                <FontIcon FontSize="16" Glyph="&#xE8B3;" />
+                <FontIcon FontSize="16" Glyph="&#xE14E;" />
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="FindReplaceAll" Text="Replace all" />
                 </ToolTipService.ToolTip>

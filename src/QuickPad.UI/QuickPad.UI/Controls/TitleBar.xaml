@@ -30,7 +30,7 @@
             CommandParameter="{x:Bind Settings}"
             CornerRadius="0"
             Visibility="{x:Bind Settings.CompactOverlay, Converter={StaticResource Converter}}">
-            <FontIcon FontFamily="/Assets/Fonts/CalcMDL2.ttf#Calculator MDL2 Assets" Glyph="&#xEE47;" />
+            <FontIcon  Glyph="&#xEE47;" />
             <Button.KeyboardAccelerators>
                 <KeyboardAccelerator Key="Down" Modifiers="Menu" />
             </Button.KeyboardAccelerators>

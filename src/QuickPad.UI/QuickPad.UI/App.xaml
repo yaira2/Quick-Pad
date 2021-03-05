@@ -12,7 +12,7 @@
                 <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="RegExIcon">/Assets/Fonts/codicon.ttf#codicon</FontFamily>
-            <FontFamily x:Key="FluentUIGlyphs">/Assets/Fonts/fluentui.ttf#fluentui</FontFamily>
+            <FontFamily x:Key="FluentUIGlyphs">Segoe MDL 2 Assets</FontFamily>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
