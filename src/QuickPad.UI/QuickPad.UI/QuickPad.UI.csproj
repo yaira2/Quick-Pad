@@ -235,8 +235,6 @@
     <EmbeddedResource Include="Templates\empty.rtf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-    <Content Include="Assets\Fonts\fluentui.ttf" />
-    <Content Include="Assets\Fonts\CalcMDL2.ttf" />
     <Content Include="Assets\GoogleIcon.png" />
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
@@ -437,12 +435,6 @@
       <Name>QuickPad.Standard.Mvvm</Name>
       <Aliases>global</Aliases>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Fonts\Segoe MDL2 Modded.ttf" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Assets\Fonts\FabExMDL2.ttf" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\ar-EG\Resources.resw">

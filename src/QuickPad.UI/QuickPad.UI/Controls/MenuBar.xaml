@@ -365,7 +365,7 @@
                         CommandParameter="{x:Bind ViewModel}"
                         Text="Zoom Out">
                         <MenuFlyoutItem.Icon>
-                            <FontIcon Glyph="&#xEC38;" />
+                            <FontIcon Glyph="&#xE1A4;" />
                         </MenuFlyoutItem.Icon>
                         <MenuFlyoutItem.KeyboardAccelerators>
                             <KeyboardAccelerator Key="Subtract" Modifiers="Control" />

@@ -99,7 +99,7 @@
                             CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
                             Text="Find Next">
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE1A3;" />
+                                <FontIcon Glyph="&#xE0AB;" />
                             </MenuFlyoutItem.Icon>
                             <MenuFlyoutItem.KeyboardAccelerators>
                                 <KeyboardAccelerator Key="F3" />
@@ -111,7 +111,7 @@
                             CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
                             Text="Find Previous">
                             <MenuFlyoutItem.Icon>
-                                <FontIcon Glyph="&#xE0AB;" />
+                                <FontIcon Glyph="&#xE0A6;" />
                             </MenuFlyoutItem.Icon>
                             <MenuFlyoutItem.KeyboardAccelerators>
                                 <KeyboardAccelerator Key="F3" Modifiers="Shift" />
