@@ -46,7 +46,7 @@
                     <TextBlock x:Uid="NewTip" Text="New (Ctrl+N)" />
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon  Glyph="&#xE160;" />
+                    <FontIcon Glyph="&#xE160;" />
                 </AppBarButton.Icon>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Key="N" Modifiers="Control" />
@@ -64,7 +64,7 @@
                     <TextBlock x:Uid="OpenTip" Text="Open (Ctrl+O)" />
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon  Glyph="&#xF12B;" />
+                    <FontIcon Glyph="&#xF12B;" />
                 </AppBarButton.Icon>
                 <AppBarButton.KeyboardAccelerators>
                     <KeyboardAccelerator Key="O" Modifiers="Control" />
@@ -85,7 +85,7 @@
                     <KeyboardAccelerator Key="S" Modifiers="Control" />
                 </AppBarButton.KeyboardAccelerators>
                 <AppBarButton.Icon>
-                    <FontIcon  Glyph="&#xE105;" />
+                    <FontIcon Glyph="&#xE105;" />
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator />
@@ -99,7 +99,7 @@
                         Margin="0,0,12,0"
                         FontFamily="Segoe UI"
                         Text="{x:Bind ViewModelDocument.CurrentFontName, Mode=OneWay}" />
-                    <FontIcon  Glyph="&#xE9A5;" />
+                    <FontIcon Glyph="&#xE011;" />
                 </StackPanel>
                 <AppBarButton.Flyout>
                     <Flyout
@@ -135,7 +135,7 @@
                         Margin="0,0,12,0"
                         FontFamily="Segoe UI"
                         Text="{x:Bind ViewModelDocument.CurrentFontSize, Mode=OneWay}" />
-                    <FontIcon  Glyph="&#xE9A5;" />
+                    <FontIcon Glyph="&#xE011;" />
                 </StackPanel>
                 <AppBarButton.Flyout>
                     <Flyout
@@ -169,7 +169,7 @@
                     <TextBlock x:Uid="Color" Text="Font Color" />
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon  Glyph="&#xE9C0;" />
+                    <FontIcon Glyph="&#xE790;" />
                 </AppBarButton.Icon>
                 <AppBarButton.Flyout>
                     <Flyout>
@@ -198,7 +198,7 @@
                     <TextBlock x:Uid="Emoji" Text="Insert Emojis (Win + .)" />
                 </ToolTipService.ToolTip>
                 <AppBarButton.Icon>
-                    <FontIcon  Glyph="&#xEA3A;" />
+                    <FontIcon Glyph="&#xE170;" />
                 </AppBarButton.Icon>
             </AppBarButton>
             <AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}" />
@@ -216,7 +216,7 @@
                     <TextBlock x:Uid="Bold" Text="Bold (Ctrl+B)" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBBD;" />
+                    <FontIcon Glyph="&#xE19B;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
@@ -233,7 +233,7 @@
                     <TextBlock x:Uid="Italic" Text="Italic (Ctrl+I)" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBE2;" />
+                    <FontIcon Glyph="&#xE199;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
@@ -250,7 +250,7 @@
                     <TextBlock x:Uid="Underline" Text="Underline (Ctrl+U)" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBED;" />
+                    <FontIcon Glyph="&#xE19A;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
@@ -267,7 +267,7 @@
                     <TextBlock x:Uid="Strikethrough" Text="Strikethrough" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBEA;" />
+                    <FontIcon Glyph="&#xEDE0;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
@@ -284,7 +284,7 @@
                     <TextBlock x:Uid="Bullets" Text="Toggle Bullets" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBBE;" />
+                    <FontIcon Glyph="&#xE8FD;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}" />
@@ -302,7 +302,7 @@
                     <TextBlock x:Uid="AlignLeft" Text="Align Left (Ctrl+L)" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBBB;" />
+                    <FontIcon Glyph="&#xE1A2;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
@@ -319,7 +319,7 @@
                     <TextBlock x:Uid="AlignCenter" Text="Align Center (Ctrl+E)" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBB8;" />
+                    <FontIcon Glyph="&#xE1A1;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
@@ -336,7 +336,7 @@
                     <TextBlock x:Uid="AlignRight" Text="Align Right (Ctrl+R)" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBBC;" />
+                    <FontIcon Glyph="&#xE1A0;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
             <AppBarToggleButton
@@ -353,7 +353,7 @@
                     <TextBlock x:Uid="JustifyText" Text="Justify Text (Ctrl+J)" />
                 </ToolTipService.ToolTip>
                 <AppBarToggleButton.Icon>
-                    <FontIcon  Glyph="&#xEBBA;" />
+                    <FontIcon Glyph="&#xE700;" />
                 </AppBarToggleButton.Icon>
             </AppBarToggleButton>
         </CommandBar>
@@ -388,7 +388,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Label="Markdown Preview">
                     <AppBarButton.Icon>
-                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xF000;" />
+                        <FontIcon Glyph="&#xE8A1;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
                 <AppBarToggleButton
@@ -407,7 +407,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Label="Share">
                     <AppBarButton.Icon>
-                        <FontIcon  Glyph="&#xE72D;" />
+                        <FontIcon Glyph="&#xE72D;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
                 <AppBarButton
@@ -420,7 +420,7 @@
                         <KeyboardAccelerator Key="F" Modifiers="Control" />
                     </AppBarButton.KeyboardAccelerators>
                     <AppBarButton.Icon>
-                        <FontIcon  Glyph="&#xE1A3;" />
+                        <FontIcon Glyph="&#xE1A3;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
                 <AppBarButton
@@ -430,7 +430,7 @@
                     CommandParameter="{x:Bind Settings}"
                     Label="Settings">
                     <AppBarButton.Icon>
-                        <FontIcon  Glyph="&#xE713;" />
+                        <FontIcon Glyph="&#xE713;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
                 <AppBarButton
@@ -440,7 +440,7 @@
                     CommandParameter="{x:Bind ViewModel}"
                     Label="Exit">
                     <AppBarButton.Icon>
-                        <FontIcon  Glyph="&#xE10A;" />
+                        <FontIcon Glyph="&#xE10A;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
             </CommandBar.SecondaryCommands>
@@ -451,7 +451,7 @@
                 Command="{x:Bind Commands.UndoCommand}"
                 CommandParameter="{x:Bind ViewModel}">
                 <AppBarButton.Icon>
-                    <FontIcon  Glyph="&#xE10E;" />
+                    <FontIcon Glyph="&#xE10E;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="UndoTooltip" Text="Undo (Ctrl+Z)" />
@@ -464,7 +464,7 @@
                 Command="{x:Bind Commands.RedoCommand}"
                 CommandParameter="{x:Bind ViewModel}">
                 <AppBarButton.Icon>
-                    <FontIcon  Glyph="&#xE10D;" />
+                    <FontIcon Glyph="&#xE10D;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="RedoTooltip" Text="Redo (Ctrl+Y)" />
@@ -478,7 +478,7 @@
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
-                    <FontIcon  Glyph="&#xEE49;" />
+                    <FontIcon Glyph="&#xEE49;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />
