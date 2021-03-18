@@ -30,14 +30,6 @@
 
   <Resources>
     <Resource Language="x-generate"/>
-    <Resource Language="en-US" />
-    <Resource Language="ar-EG" />
-    <Resource Language="fr-FR" />
-    <Resource Language="fr-ca" />
-    <Resource Language="it" />
-    <Resource Language="ru-RU" />
-    <Resource Language="th-TH" />
-    <Resource Language="es" />
   </Resources>
 
   <Applications>
