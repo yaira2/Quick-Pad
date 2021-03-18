@@ -21,7 +21,7 @@
     <AppxAutoIncrementPackageRevision>False</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundleAutoResourcePackageQualifiers>Scale|DXFeatureLevel</AppxBundleAutoResourcePackageQualifiers>
-    <AppxDefaultResourceQualifiers>Language=ar-EG;de;en-US;es;fr-CA;fr-FR;he;hu-HS;it;pl;ru-RU;ta;th-TH;zh-Hant;zh-Hans;pt-PT</AppxDefaultResourceQualifiers>
+    <AppxDefaultResourceQualifiers>Language=en-US;ar-EG;de;es;fr-CA;fr-FR;he;hu-HS;it;pl;ru-RU;ta;th-TH;zh-Hant;zh-Hans;pt-PT</AppxDefaultResourceQualifiers>
     <AppxBundlePlatforms>x86|x64|arm|arm64</AppxBundlePlatforms>
     <GenerateTestArtifacts>False</GenerateTestArtifacts>
     <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
