@@ -101,7 +101,14 @@
         <uap:Extension Category="windows.fileTypeAssociation">
           <uap:FileTypeAssociation Name="quick-pad-markdown">
             <uap:SupportedFileTypes>
-              <uap:FileType>.md</uap:FileType>
+              <uap:FileType ContentType="text/plain">.md</uap:FileType>
+              <uap:FileType ContentType="text/plain">.markdown</uap:FileType>
+              <uap:FileType ContentType="text/plain">.mkd</uap:FileType>
+              <uap:FileType ContentType="text/plain">.mdwn</uap:FileType>
+              <uap:FileType ContentType="text/plain">.mdown</uap:FileType>
+              <uap:FileType ContentType="text/plain">.markdn</uap:FileType>
+              <uap:FileType ContentType="text/plain">.mdtxt</uap:FileType>
+              <uap:FileType ContentType="text/plain">.workbook</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:DisplayName>Markdown File</uap:DisplayName>
             <uap:Logo>Assets\File Icons\MD Small.png</uap:Logo>
@@ -111,14 +118,39 @@
           <uap:FileTypeAssociation Name="quick-pad-general">
             <uap:SupportedFileTypes>
               <uap:FileType>.json</uap:FileType>
+              <uap:FileType>.jsonc</uap:FileType>
+              <uap:FileType>.jsonld</uap:FileType>
+              <uap:FileType>.hintrc</uap:FileType>
+              <uap:FileType>.babelrc</uap:FileType>
+              <uap:FileType>.eslintrc</uap:FileType>
+              <uap:FileType>.jslintrc</uap:FileType>
+              <uap:FileType>.bowerrc</uap:FileType>
+              <uap:FileType>.yml</uap:FileType>
+              <uap:FileType>.yaml</uap:FileType>
+              <uap:FileType>.jscsrc</uap:FileType>
+              <uap:FileType>.webmanifest</uap:FileType>
+              <uap:FileType>.har</uap:FileType>
               <uap:FileType>.xml</uap:FileType>
+              <uap:FileType>.xsd</uap:FileType>
+              <uap:FileType>.ascx</uap:FileType>
+              <uap:FileType>.atom</uap:FileType>
+              <uap:FileType>.axml</uap:FileType>
+              <uap:FileType>.bpmn</uap:FileType>
+              <uap:FileType>.cpt</uap:FileType>
+              <uap:FileType>.csl</uap:FileType>
               <uap:FileType>.gitignore</uap:FileType>
               <uap:FileType>.js</uap:FileType>
               <uap:FileType>.log</uap:FileType>
               <uap:FileType>.sh</uap:FileType>
               <uap:FileType>.html</uap:FileType>
               <uap:FileType>.htm</uap:FileType>
+              <uap:FileType>.shtml</uap:FileType>
+              <uap:FileType>.xhtml</uap:FileType>
+              <uap:FileType>.mdoc</uap:FileType>
+              <uap:FileType>.jshtm</uap:FileType>
+              <uap:FileType>.volt</uap:FileType>
               <uap:FileType>.php</uap:FileType>
+              <uap:FileType>.scss</uap:FileType>
               <uap:FileType>.css</uap:FileType>
               <uap:FileType>.cs</uap:FileType>
               <uap:FileType>.ini</uap:FileType>
