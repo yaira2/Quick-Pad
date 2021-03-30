@@ -112,7 +112,7 @@ namespace QuickPad.UI
             commandBar.SetFontName += CommandBarOnSetFontName;
             commandBar.SetFontSize += CommandBarOnSetFontSize;
 
-            if (SystemInformation.TotalLaunchCount == 3)
+            if (SystemInformation.Instance.TotalLaunchCount == 3)
             {
                 var (success, dialog) = provider.GetService<DialogManager>().RequestDialog<AskForReviewDialog>();
 

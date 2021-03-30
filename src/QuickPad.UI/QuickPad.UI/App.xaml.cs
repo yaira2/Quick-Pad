@@ -91,7 +91,7 @@ namespace QuickPad.UI
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
             //start tracking app usage
-            SystemInformation.TrackAppUse(e);
+            SystemInformation.Instance.TrackAppUse(e);
 
             MainPage mainPage = Window.Current.Content as MainPage;
 

@@ -109,7 +109,7 @@ namespace QuickPad.UI.Helpers
             : new Thickness(0);
 
         [JsonIgnore]
-        public bool ShowCompactOverlayTip { get; set; } = SystemInformation.IsFirstRun;
+        public bool ShowCompactOverlayTip { get; set; } = SystemInformation.Instance.IsFirstRun;
 
         [JsonIgnore]
         public ObservableCollection<DisplayMode> AllDisplayModes { get; }
