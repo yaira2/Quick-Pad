@@ -27,7 +27,6 @@
     </UserControl.Resources>
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
         <CommandBar
-            Height="40"
             Margin="0,0,208,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
@@ -359,7 +358,6 @@
         </CommandBar>
 
         <CommandBar
-            Height="40"
             HorizontalAlignment="Right"
             Background="{x:Null}"
             DefaultLabelPosition="Collapsed"
@@ -478,7 +476,7 @@
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xEE49;" />
+                    <FontIcon Glyph="&#xE2B4;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />

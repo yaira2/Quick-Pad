@@ -168,7 +168,7 @@
       <Version>7.0.1</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.UI.Xaml">
-      <Version>2.6.0-prerelease.210315002</Version>
+      <Version>2.6.0-prerelease.210405001</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

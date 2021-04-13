@@ -324,7 +324,7 @@
                     CommandParameter="{x:Bind Settings}"
                     Text="Overlay Mode">
                     <MenuFlyoutItem.Icon>
-                        <FontIcon Glyph="&#xEE49;" />
+                        <FontIcon Glyph="&#xE2B4;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
                 <MenuFlyoutItem
@@ -406,7 +406,6 @@
             Target="{x:Bind CompactOverlayButton}" />
 
         <CommandBar
-            Height="40"
             HorizontalAlignment="Right"
             Background="{x:Null}"
             DefaultLabelPosition="Collapsed"
@@ -420,7 +419,7 @@
                 Command="{x:Bind Commands.CompactOverlayCommand}"
                 CommandParameter="{x:Bind Settings}">
                 <AppBarButton.Icon>
-                    <FontIcon Glyph="&#xEE49;" />
+                    <FontIcon Glyph="&#xE2B4;" />
                 </AppBarButton.Icon>
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />

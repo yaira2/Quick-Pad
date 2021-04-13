@@ -47,7 +47,7 @@
 
             <controls3:MenuBar
                 x:Name="menuBar"
-                Height="40"
+                Height="46"
                 HorizontalAlignment="Stretch"
                 x:Load="{x:Bind Settings.ShowMenu, Mode=OneWay}"
                 Canvas.ZIndex="100"
@@ -55,7 +55,7 @@
 
             <controls3:CommandBar
                 x:Name="commandBar"
-                Height="40"
+                Height="46"
                 HorizontalAlignment="Stretch"
                 Canvas.ZIndex="100"
                 ViewModel="{x:Bind ViewModel, Mode=OneWay}"

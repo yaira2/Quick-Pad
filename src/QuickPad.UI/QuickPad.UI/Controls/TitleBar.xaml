@@ -30,7 +30,7 @@
             CommandParameter="{x:Bind Settings}"
             CornerRadius="0"
             Visibility="{x:Bind Settings.CompactOverlay, Converter={StaticResource Converter}}">
-            <FontIcon  Glyph="&#xEE47;" />
+            <FontIcon Glyph="&#xE2B3;" />
             <Button.KeyboardAccelerators>
                 <KeyboardAccelerator Key="Down" Modifiers="Menu" />
             </Button.KeyboardAccelerators>
