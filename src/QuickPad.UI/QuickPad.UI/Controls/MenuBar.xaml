@@ -406,11 +406,12 @@
             Target="{x:Bind CompactOverlayButton}" />
 
         <CommandBar
+            x:Name="CommandBar"
             HorizontalAlignment="Right"
+            x:Load="{x:Bind converters:Converter.VisibleIfMenuMode(Settings.CurrentMode)}"
             Background="{x:Null}"
             DefaultLabelPosition="Collapsed"
-            IsOpen="False"
-            Visibility="{x:Bind converters:Converter.VisibleIfMenuMode(Settings.CurrentMode)}">
+            IsOpen="False">
             <AppBarButton
                 x:Name="CompactOverlayButton"
                 Width="Auto"

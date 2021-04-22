@@ -391,10 +391,10 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">是</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
-        <trans-unit id="LaunchNinjaMode" translate="yes" xml:space="preserve">
-          <source>Ninja Mode</source>
-          <target state="new">Ninja Mode</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
+        <trans-unit id="LaunchProMode" translate="yes" xml:space="preserve">
+          <source>Pro Mode</source>
+          <target state="new">Pro Mode</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AlignCenter.Text" translate="yes" xml:space="preserve">
           <source>Align Center (Ctrl+E)</source>

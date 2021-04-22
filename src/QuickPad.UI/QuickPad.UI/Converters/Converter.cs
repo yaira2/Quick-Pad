@@ -82,9 +82,9 @@ namespace QuickPad.UI.Converters
             return Visibility.Visible;
         }
 
-        public static Visibility VisibleIfMenuMode(string currentMode)
+        public static bool VisibleIfMenuMode(string currentMode)
         {
-            return currentMode == DisplayModes.LaunchClassicMode.ToString() ? Visibility.Visible : Visibility.Collapsed;
+            return currentMode == DisplayModes.LaunchClassicMode.ToString() ? true : false;
         }
 
         public static SolidColorBrush FromColorToBrush(Color input)

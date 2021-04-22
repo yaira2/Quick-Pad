@@ -392,8 +392,8 @@
           <target state="translated">Ja</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Document</note>
         </trans-unit>
-        <trans-unit id="LaunchNinjaMode" translate="yes" xml:space="preserve">
-          <source>Ninja Mode</source>
+        <trans-unit id="LaunchProMode" translate="yes" xml:space="preserve">
+          <source>Pro Mode</source>
           <target state="translated">Ninja Modus</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Pgae</note>
         </trans-unit>

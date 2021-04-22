@@ -380,9 +380,9 @@
     <value>Tak</value>
     <comment>Used on Save Document</comment>
   </data>
-  <data name="LaunchNinjaMode" xml:space="preserve">
+  <data name="LaunchProMode" xml:space="preserve">
     <value>Tryb Ninja</value>
-    <comment>Used on Settings Pgae</comment>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="AlignCenter.Text" xml:space="preserve">
     <value>Wyrównaj do środka (Ctrl+E)</value>

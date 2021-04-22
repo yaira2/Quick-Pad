@@ -6,6 +6,6 @@
         LaunchDefaultMode,
         LaunchCompactOverlay,
         LaunchFocusMode,
-        LaunchNinjaMode,
+        LaunchProMode,
     }
 }

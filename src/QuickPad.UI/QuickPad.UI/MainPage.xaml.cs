@@ -549,7 +549,7 @@ namespace QuickPad.UI
                 (true, true, false, false, false, VirtualKey.Number3) => DisplayModes.LaunchFocusMode.ToString(),
                 (false, false, true, false, false, VirtualKey.Up) => DisplayModes.LaunchCompactOverlay.ToString(),
                 (false, false, true, false, false, VirtualKey.Down) => Settings.CurrentMode == DisplayModes.LaunchCompactOverlay.ToString() ? Settings.DefaultMode : Settings.CurrentMode,
-                (true, false, false, false, false, VirtualKey.F12) => DisplayModes.LaunchNinjaMode.ToString(),
+                (true, false, false, false, false, VirtualKey.F12) => DisplayModes.LaunchProMode.ToString(),
                 _ => Settings.CurrentMode
             };
 

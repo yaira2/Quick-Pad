@@ -85,7 +85,7 @@ namespace QuickPad.Mvvm.ViewModels
 
         [JsonIgnore]
         [NotifyOnReset]
-        public bool ShowNinjaMode => CurrentMode.Equals(DisplayModes.LaunchNinjaMode.ToString(),
+        public bool ShowNinjaMode => CurrentMode.Equals(DisplayModes.LaunchProMode.ToString(),
             StringComparison.InvariantCultureIgnoreCase);
 
         [JsonIgnore]

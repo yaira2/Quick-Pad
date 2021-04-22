@@ -320,9 +320,9 @@
     <value>Да</value>
     <comment>Used on Save Document</comment>
   </data>
-  <data name="LaunchNinjaMode" xml:space="preserve">
+  <data name="LaunchProMode" xml:space="preserve">
     <value>Режим Ниндзя</value>
-    <comment>Used on Settings Pgae</comment>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="AlignCenter.Text" xml:space="preserve">
     <value>Выровнять по центру (Ctrl+E)</value>
