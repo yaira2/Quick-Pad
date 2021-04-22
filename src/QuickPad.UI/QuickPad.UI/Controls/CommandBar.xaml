@@ -93,12 +93,15 @@
                 Width="Auto"
                 AccessKey="F"
                 LabelPosition="Collapsed">
-                <StackPanel Padding="8,0" Orientation="Horizontal">
+                <StackPanel
+                    Padding="12,0"
+                    Orientation="Horizontal"
+                    Spacing="8">
                     <TextBlock
                         Margin="0,0,12,0"
                         FontFamily="Segoe UI"
                         Text="{x:Bind ViewModelDocument.CurrentFontName, Mode=OneWay}" />
-                    <FontIcon Glyph="&#xE011;" />
+                    <FontIcon FontSize="14" Glyph="&#xE011;" />
                 </StackPanel>
                 <AppBarButton.Flyout>
                     <Flyout
@@ -129,12 +132,15 @@
                 MinWidth="50"
                 AccessKey="A"
                 LabelPosition="Collapsed">
-                <StackPanel Padding="8,0" Orientation="Horizontal">
+                <StackPanel
+                    Padding="12,0"
+                    Orientation="Horizontal"
+                    Spacing="8">
                     <TextBlock
                         Margin="0,0,12,0"
                         FontFamily="Segoe UI"
                         Text="{x:Bind ViewModelDocument.CurrentFontSize, Mode=OneWay}" />
-                    <FontIcon Glyph="&#xE011;" />
+                    <FontIcon FontSize="14" Glyph="&#xE011;" />
                 </StackPanel>
                 <AppBarButton.Flyout>
                     <Flyout
