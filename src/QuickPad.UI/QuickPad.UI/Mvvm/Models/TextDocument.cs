@@ -68,13 +68,33 @@ namespace QuickPad.UI.Helpers
         public override string CurrentFontName
         {
             get => _currentFontName ??= Settings.DefaultFont;
-            set => App.TryEnqueue(() => Document.FontFamily = new FontFamily(_currentFontName = value));
+            set
+            {
+                if (Set(ref _currentFontName, value, notify: false))
+                {
+                    App.TryEnqueue(() =>
+                    {
+                        Document.FontFamily = new FontFamily(_currentFontName = value);
+                        OnPropertyChanged();
+                    });
+                }
+            }
         }
 
         public override float CurrentFontSize
         {
             get => _currentFontSize ??= Settings.DefaultFontSize;
-            set => App.TryEnqueue(() => Document.FontSize = (double)(_currentFontSize = value));
+            set
+            {
+                if (Set(ref _currentFontSize, value, notify: false))
+                {
+                    App.TryEnqueue(() =>
+                    {
+                        Document.FontSize = (double)(_currentFontSize = value);
+                        OnPropertyChanged();
+                    });
+                }
+            }
         }
 
         public override string ForegroundColor
