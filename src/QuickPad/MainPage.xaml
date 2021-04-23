@@ -22,6 +22,10 @@
             Grid.Row="0"
             NewFileInvoked="{x:Bind mainViewModel.NewFileCommand}" />
 
-        <RichEditBox x:Name="RichEditControl" Grid.Row="1" />
+        <RichEditBox
+            x:Name="RichEditControl"
+            Grid.Row="1"
+            FontFamily="{x:Bind settingsViewModel.DefaultFont, Mode=OneWay}"
+            FontSize="{x:Bind settingsViewModel.DefaultFontSize}" />
     </Grid>
 </Page>
