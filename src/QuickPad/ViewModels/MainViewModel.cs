@@ -6,10 +6,6 @@ namespace QuickPad.ViewModels
 {
     public class MainViewModel : ObservableObject
     {
-        private MainViewModel()
-        {
-        }
-
         public void NewFileCommand()
         {
             Font = App.SettingsViewModel.DefaultFont;
