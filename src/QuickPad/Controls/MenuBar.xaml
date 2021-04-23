@@ -1,0 +1,234 @@
+﻿<UserControl
+    x:Class="QuickPad.Controls.MenuBar"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="using:QuickPad.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    d:DesignHeight="40"
+    d:DesignWidth="400"
+    mc:Ignorable="d">
+
+    <Grid>
+        <MenuBar HorizontalAlignment="Left">
+            <MenuBarItem
+                x:Uid="File"
+                Title="File"
+                AccessKey="F">
+                <MenuFlyoutItem AccessKey="N" Text="New">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE160;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="N" Modifiers="Control" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="O" Text="Open">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xF12B;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="O" Modifiers="Control" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="S" Text="Save">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE105;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="S" Modifiers="Control" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="A" Text="Save As...">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE792;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="S" Modifiers="Control, Shift" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem AccessKey="H" Text="Share">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE72D;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem AccessKey="X" Text="Exit">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE10A;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </MenuBarItem>
+            <MenuBarItem Title="Edit" AccessKey="E">
+                <MenuFlyoutItem AccessKey="U" Text="Undo">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE10E;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="E" Text="Redo">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE10D;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem AccessKey="T" Text="Cut">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE16B;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="C" Text="Copy">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE16F;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="P" Text="Paste">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE16D;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="L" Text="Delete">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE107;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem AccessKey="S" Text="Search with Bing...">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xF6FA;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="E" Modifiers="Control" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="F" Text="Find">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F" Modifiers="Control" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE1A3;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="N" Text="Find Next">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE0AB;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F3" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="V" Text="Find Previous">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE0A6;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F3" Modifiers="Control" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="R" Text="Replace">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE13E;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="H" Modifiers="Control" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="G" Text="Go To">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="G" Modifiers="Control" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xEA55;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem AccessKey="A" Text="Select All">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE14E;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="D" Text="Time/Date">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xEC92;" />
+                    </MenuFlyoutItem.Icon>
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="F5" />
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+            </MenuBarItem>
+            <MenuBarItem Title="Format" AccessKey="O">
+                <ToggleMenuFlyoutItem x:Uid="WordWrap" Text="Word Wrap">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE751;" />
+                    </ToggleMenuFlyoutItem.Icon>
+                    <ToggleMenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="Z" Modifiers="Menu" />
+                    </ToggleMenuFlyoutItem.KeyboardAccelerators>
+                </ToggleMenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutItem AccessKey="F" Text="Fonts...">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE185;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+            </MenuBarItem>
+            <MenuBarItem Title="View" AccessKey="V">
+                <MenuFlyoutItem AccessKey="D" Text="Back to Default Mode">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE112;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="F" Text="Focus Mode">
+                    <MenuFlyoutItem.Icon>
+                        <SymbolIcon Symbol="Caption" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="O" Text="Overlay Mode">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE2B4;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem AccessKey="M" Text="Markdown Preview">
+                    <MenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE8A1;" />
+                    </MenuFlyoutItem.Icon>
+                </MenuFlyoutItem>
+                <MenuFlyoutSeparator />
+                <MenuFlyoutSubItem AccessKey="Z" Text="Zoom">
+                    <MenuFlyoutSubItem.Icon>
+                        <FontIcon Glyph="&#xE740;" />
+                    </MenuFlyoutSubItem.Icon>
+                    <MenuFlyoutItem AccessKey="I" Text="Zoom In">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE12E;" />
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="Add" Modifiers="Control" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem AccessKey="O" Text="Zoom Out">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE1A4;" />
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="Subtract" Modifiers="Control" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                    <MenuFlyoutItem AccessKey="R" Text="Restore Default Zoom">
+                        <MenuFlyoutItem.Icon>
+                            <FontIcon Glyph="&#xE1A3;" />
+                        </MenuFlyoutItem.Icon>
+                        <MenuFlyoutItem.KeyboardAccelerators>
+                            <KeyboardAccelerator Key="Number0" Modifiers="Control" />
+                        </MenuFlyoutItem.KeyboardAccelerators>
+                    </MenuFlyoutItem>
+                </MenuFlyoutSubItem>
+                <ToggleMenuFlyoutItem AccessKey="S" Text="Status Bar">
+                    <ToggleMenuFlyoutItem.Icon>
+                        <FontIcon Glyph="&#xE18F;" />
+                    </ToggleMenuFlyoutItem.Icon>
+                </ToggleMenuFlyoutItem>
+            </MenuBarItem>
+        </MenuBar>
+    </Grid>
+</UserControl>
