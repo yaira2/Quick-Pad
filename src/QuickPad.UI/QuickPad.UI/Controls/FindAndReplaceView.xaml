@@ -83,8 +83,7 @@
                 Padding="4"
                 Command="{x:Bind Commands.FindNextCommand}"
                 CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
-                CornerRadius="2"
-                Style="{ThemeResource SplitButtonRevealStyle}">
+                CornerRadius="2">
                 <StackPanel>
                     <FontIcon FontSize="16" Glyph="&#xE1A3;" />
                     <ToolTipService.ToolTip>
@@ -128,8 +127,7 @@
                 Margin="4"
                 Padding="4"
                 Command="{x:Bind Commands.HideFindCommand}"
-                CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
-                Style="{ThemeResource ButtonRevealStyle}">
+                CommandParameter="{x:Bind ViewModel, Mode=OneWay}">
                 <FontIcon FontSize="16" Glyph="&#xE10A;" />
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="FindClose" Text="Close" />
@@ -170,8 +168,7 @@
                 Margin="4"
                 Padding="4"
                 Command="{x:Bind Commands.ReplaceNextCommand}"
-                CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
-                Style="{ThemeResource ButtonRevealStyle}">
+                CommandParameter="{x:Bind ViewModel, Mode=OneWay}">
                 <FontIcon FontSize="16" Glyph="&#xE8AC;" />
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="FindReplace" Text="Replace" />
@@ -182,11 +179,10 @@
             <Button
                 Width="34"
                 Height="32"
-                Margin="4"
                 Padding="4"
+                Margin="2,4,4,4"
                 Command="{x:Bind Commands.ReplaceAllCommand}"
-                CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
-                Style="{ThemeResource ButtonRevealStyle}">
+                CommandParameter="{x:Bind ViewModel, Mode=OneWay}">
                 <FontIcon FontSize="16" Glyph="&#xE14E;" />
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="FindReplaceAll" Text="Replace all" />
@@ -210,8 +206,7 @@
                 FontFamily="Segoe MDL2 Assets"
                 FontSize="16"
                 IsChecked="{x:Bind FindReplaceViewModel.MatchCase, Mode=TwoWay}"
-                IsEnabled="{Binding UseRegex, Converter={StaticResource Converter}, ConverterParameter=Invert, Mode=OneWay}"
-                Style="{ThemeResource ToggleButtonRevealStyle}">
+                IsEnabled="{Binding UseRegex, Converter={StaticResource Converter}, ConverterParameter=Invert, Mode=OneWay}">
                 <ToolTipService.ToolTip>
                     <TextBlock x:Uid="FindMatchCase" Text="Match Case" />
                 </ToolTipService.ToolTip>
@@ -223,10 +218,9 @@
                 Grid.Column="1"
                 Width="32"
                 Height="32"
-                Margin="4"
+                Margin="2,4,4,4"
                 Padding="4"
-                IsChecked="{x:Bind FindReplaceViewModel.UseRegex, Mode=TwoWay}"
-                Style="{ThemeResource ToggleButtonRevealStyle}">
+                IsChecked="{x:Bind FindReplaceViewModel.UseRegex, Mode=TwoWay}">
                 <FontIcon
                     FontFamily="{StaticResource RegExIcon}"
                     FontSize="16"
