@@ -57,9 +57,11 @@
                 x:Name="commandBar"
                 Height="46"
                 HorizontalAlignment="Stretch"
+                x:Load="{x:Bind Settings.ShowCommandBar, Mode=OneWay}"
                 Canvas.ZIndex="100"
-                ViewModel="{x:Bind ViewModel, Mode=OneWay}"
-                Visibility="{x:Bind Settings.ShowCommandBar, Converter={StaticResource Converter}}" />
+                SetFontName="CommandBarOnSetFontName"
+                SetFontSize="CommandBarOnSetFontSize"
+                ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
         </StackPanel>
 
         <SplitView

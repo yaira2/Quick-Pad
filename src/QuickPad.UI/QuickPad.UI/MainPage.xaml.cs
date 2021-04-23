@@ -109,9 +109,6 @@ namespace QuickPad.UI
             var currentView = SystemNavigationManager.GetForCurrentView();
             currentView.BackRequested += CurrentView_BackRequested;
 
-            commandBar.SetFontName += CommandBarOnSetFontName;
-            commandBar.SetFontSize += CommandBarOnSetFontSize;
-
             if (SystemInformation.Instance.TotalLaunchCount == 3)
             {
                 var (success, dialog) = provider.GetService<DialogManager>().RequestDialog<AskForReviewDialog>();
