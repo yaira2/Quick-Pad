@@ -24,6 +24,7 @@ namespace QuickPad
     sealed partial class App : Application
     {
         private static MainViewModel mainViewModel;
+        private static SettingsViewModel settingsViewModel;
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
@@ -35,6 +36,7 @@ namespace QuickPad
             this.Suspending += OnSuspending;
 
             mainViewModel = new MainViewModel();
+            settingsViewModel = new SettingsViewModel();
         }
 
         public static MainViewModel AppMainViewModel
@@ -50,6 +52,22 @@ namespace QuickPad
             set
             {
                 mainViewModel = value;
+            }
+        }
+
+        public static SettingsViewModel SettingsViewModel
+        {
+            get
+            {
+                if (settingsViewModel == null)
+                {
+                    settingsViewModel = new SettingsViewModel();
+                }
+                return settingsViewModel;
+            }
+            set
+            {
+                settingsViewModel = value;
             }
         }
 

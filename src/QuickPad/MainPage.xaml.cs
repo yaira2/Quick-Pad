@@ -24,12 +24,15 @@ namespace QuickPad
     public sealed partial class MainPage : Page
     {
         private MainViewModel mainViewModel { get; set; }
+        private SettingsViewModel settingsViewModel { get; set; }
 
         public MainPage()
         {
             this.InitializeComponent();
 
             mainViewModel = App.AppMainViewModel;
+
+            settingsViewModel = App.SettingsViewModel;
 
             DataContext = mainViewModel;
         }
