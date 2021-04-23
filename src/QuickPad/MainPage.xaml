@@ -11,11 +11,14 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
             <!--  MenuBar  -->
+            <RowDefinition Height="Auto" />
+            <!--  TextBox  -->
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Controls:MenuBar Grid.Row="0" />
+        <Controls:MenuBar x:Name="MenuBarControl" Grid.Row="0" />
+
+        <RichEditBox x:Name="RichEditControl" Grid.Row="1" />
     </Grid>
 </Page>
