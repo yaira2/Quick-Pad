@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuickPad.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +23,15 @@ namespace QuickPad
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private MainViewModel mainViewModel { get; set; }
+
         public MainPage()
         {
             this.InitializeComponent();
+
+            mainViewModel = App.AppMainViewModel;
+
+            DataContext = mainViewModel;
         }
     }
 }

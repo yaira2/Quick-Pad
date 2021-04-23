@@ -19,9 +19,16 @@ namespace QuickPad.Controls
 {
     public sealed partial class MenuBar : UserControl
     {
+        public event EventHandler NewFileInvoked;
+
         public MenuBar()
         {
             this.InitializeComponent();
+        }
+
+        private void NewFile_Click(object sender, RoutedEventArgs e)
+        {
+            NewFileInvoked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

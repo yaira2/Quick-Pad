@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuickPad.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +23,8 @@ namespace QuickPad
     /// </summary>
     sealed partial class App : Application
     {
+        private static MainViewModel mainViewModel;
+
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
@@ -30,6 +33,24 @@ namespace QuickPad
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            mainViewModel = new MainViewModel();
+        }
+
+        public static MainViewModel AppMainViewModel
+        {
+            get
+            {
+                if (mainViewModel == null)
+                {
+                    mainViewModel = new MainViewModel();
+                }
+                return mainViewModel;
+            }
+            set
+            {
+                mainViewModel = value;
+            }
         }
 
         /// <summary>

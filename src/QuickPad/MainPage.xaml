@@ -17,7 +17,10 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Controls:MenuBar x:Name="MenuBarControl" Grid.Row="0" />
+        <Controls:MenuBar
+            x:Name="MenuBarControl"
+            Grid.Row="0"
+            NewFileInvoked="{x:Bind mainViewModel.NewFileCommand}" />
 
         <RichEditBox x:Name="RichEditControl" Grid.Row="1" />
     </Grid>

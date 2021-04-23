@@ -15,7 +15,10 @@
                 x:Uid="File"
                 Title="File"
                 AccessKey="F">
-                <MenuFlyoutItem AccessKey="N" Text="New">
+                <MenuFlyoutItem
+                    AccessKey="N"
+                    Click="NewFile_Click"
+                    Text="New">
                     <MenuFlyoutItem.Icon>
                         <FontIcon Glyph="&#xE160;" />
                     </MenuFlyoutItem.Icon>
