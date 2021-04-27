@@ -3,6 +3,7 @@ using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using Windows.Storage;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media;
 
 namespace QuickPad.ViewModels
@@ -11,15 +12,39 @@ namespace QuickPad.ViewModels
     {
         private readonly ApplicationDataContainer localSettings = ApplicationData.Current.LocalSettings;
 
+        /// <summary>
+        /// Gets or sets a value indicating the default font.
+        /// </summary>
         public string DefaultFont
         {
             get => Get("Consolas");
             set => Set(value);
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating the default font size.
+        /// </summary>
         public Int32 DefaultFontSize
         {
             get => Get(12);
+            set => Set(value);
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether spell check is on.
+        /// </summary>
+        public bool IsSpellCheckOn
+        {
+            get => Get(false);
+            set => Set(value);
+        }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether auto save is on.
+        /// </summary>
+        public bool IsAutoSaveOn
+        {
+            get => Get(true);
             set => Set(value);
         }
 

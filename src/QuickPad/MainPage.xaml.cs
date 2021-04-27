@@ -35,6 +35,10 @@ namespace QuickPad
             settingsViewModel = App.SettingsViewModel;
 
             DataContext = mainViewModel;
+
+            // Setup new document
+            // TODO pass in file name if file is being opened
+            mainViewModel.PrepareNewDocument(null);
         }
     }
 }

@@ -20,12 +20,14 @@
         <Controls:MenuBar
             x:Name="MenuBarControl"
             Grid.Row="0"
-            NewFileInvoked="{x:Bind mainViewModel.NewFileCommand}" />
+            NewFileInvoked="{x:Bind mainViewModel.NewFileCommand}"
+            ToggleWordWrapInvoked="{x:Bind mainViewModel.ToggleWordWrapCommand}" />
 
         <RichEditBox
             x:Name="RichEditControl"
             Grid.Row="1"
-            FontFamily="{x:Bind settingsViewModel.DefaultFont, Mode=OneWay}"
-            FontSize="{x:Bind settingsViewModel.DefaultFontSize}" />
+            FontFamily="{x:Bind mainViewModel.Font, Mode=OneWay}"
+            FontSize="{x:Bind mainViewModel.FontSize, Mode=OneWay}"
+            TextWrapping="{x:Bind settingsViewModel.TextWrap, Mode=OneWay}" />
     </Grid>
 </Page>
