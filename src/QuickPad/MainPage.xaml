@@ -12,7 +12,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <!--  MenuBar  -->
-            <RowDefinition Height="Auto" />
+            <RowDefinition Height="40" />
             <!--  TextBox  -->
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
@@ -20,14 +20,12 @@
         <Controls:MenuBar
             x:Name="MenuBarControl"
             Grid.Row="0"
-            NewFileInvoked="{x:Bind mainViewModel.NewFileCommand}"
-            ToggleWordWrapInvoked="{x:Bind mainViewModel.ToggleWordWrapCommand}" />
+            NewFileInvoked="{x:Bind mainViewModel.NewFileCommand}" />
 
         <RichEditBox
             x:Name="RichEditControl"
             Grid.Row="1"
             FontFamily="{x:Bind mainViewModel.Font, Mode=OneWay}"
-            FontSize="{x:Bind mainViewModel.FontSize, Mode=OneWay}"
-            TextWrapping="{x:Bind settingsViewModel.TextWrap, Mode=OneWay}" />
+            FontSize="{x:Bind mainViewModel.FontSize, Mode=OneWay}" />
     </Grid>
 </Page>

@@ -5,11 +5,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="using:QuickPad.Controls"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Height="40"
     d:DesignHeight="40"
     d:DesignWidth="400"
     mc:Ignorable="d">
 
-    <Grid>
+    <Grid Height="40">
         <MenuBar HorizontalAlignment="Left">
             <MenuBarItem
                 x:Uid="File"
