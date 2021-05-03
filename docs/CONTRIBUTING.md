@@ -1,14 +1,14 @@
 # Quick guide for the process we use on GitHub
 
 ## Branches
-### Master
-`Master` is the latest code. Make sure to target all pull requests to the `master` branch.
+### Main
+`Main` is the latest code. Make sure to target all pull requests to the `Main` branch.
 
 ### Legacy
 `Legacy` is the old code base of Quick Pad and is kept online for reference.
 
 ### Other branches
-There are other branches as well on Quick Pad, these are usually for new features or changes that are still a work in progress and not yet ready to be merged in to `master`. These branches are temporary and will be removed once the changes are merged into `master`.
+There are other branches as well on Quick Pad, these are usually for new features or changes that are still a work in progress and not yet ready to be merged in to `Main`. These branches are temporary and will be removed once the changes are merged into `master`.
 
 ## Contributing to Quick Pad
 
