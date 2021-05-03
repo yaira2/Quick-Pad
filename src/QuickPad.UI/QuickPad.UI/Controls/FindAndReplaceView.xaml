@@ -82,8 +82,7 @@
                 Margin="4"
                 Padding="4"
                 Command="{x:Bind Commands.FindNextCommand}"
-                CommandParameter="{x:Bind ViewModel, Mode=OneWay}"
-                CornerRadius="2">
+                CommandParameter="{x:Bind ViewModel, Mode=OneWay}">
                 <StackPanel>
                     <FontIcon FontSize="16" Glyph="&#xE1A3;" />
                     <ToolTipService.ToolTip>
