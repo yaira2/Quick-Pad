@@ -25,6 +25,7 @@
 * Auto Save
 * Dark Mode
 * RichText suppprt
+* Markdown Preview
 
 ## Shortcuts:
 * Save - Ctrl + S
@@ -39,17 +40,12 @@
 * Classic Mode - Ctrl + Shift + 1
 * Default Mode - Ctrl + Shift + 2
 * Focus Mode - Ctrl + Shift + 3
-* Ninja Mode - Ctrl + F12
+* Pro Mode - Ctrl + F12
 * Compact Overlay - Alt + Up
 
 ## Downloads:
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
 * Download the latest release from [GitHub Releases](https://github.com/yaichenbaum/Quick-Pad/releases).
-
-## Dependencies, Applications and References:
-* [Windows Community Toolkit](https://github.com/windows-toolkit/WindowsCommunityToolkit)
-* [Dependabot](https://dependabot.com/)
-* [Notepads](https://github.com/JasonStein/Notepads)
 
 ## Contributing:
 Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/docs/CONTRIBUTING.md) To Get Started.
