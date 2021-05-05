@@ -670,6 +670,7 @@
   </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
     <value>Directiva de privacidad</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="AppLanguage.Header" xml:space="preserve">
     <value>Idioma de la aplicación</value>
@@ -713,6 +714,22 @@
   </data>
   <data name="ThemeCamelName" xml:space="preserve">
     <value>Camello</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ReplaceLabel.Label" xml:space="preserve">
+    <value>Reemplazar</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ThemeBronzeName" xml:space="preserve">
+    <value>Bronce</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMintCreamName" xml:space="preserve">
+    <value>Menta</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRustName" xml:space="preserve">
+    <value>Óxido</value>
     <comment>Used on Theme Page</comment>
   </data>
 </root>

@@ -678,6 +678,7 @@
   </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
     <value>தனியுரிமைக் கொள்கை</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="AppLanguage.Header" xml:space="preserve">
     <value>பயன்பாட்டு மொழி</value>
@@ -701,6 +702,22 @@
   </data>
   <data name="ThemeCamelName" xml:space="preserve">
     <value>ஒட்டகம்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ReplaceLabel.Label" xml:space="preserve">
+    <value>மாற்றிடு</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ThemeBronzeName" xml:space="preserve">
+    <value>வெண்கலம்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMintCreamName" xml:space="preserve">
+    <value>மின்ட் கிரீம்</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRustName" xml:space="preserve">
+    <value>துரு</value>
     <comment>Used on Theme Page</comment>
   </data>
 </root>

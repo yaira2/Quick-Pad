@@ -111,7 +111,7 @@
                         <Flyout.FlyoutPresenterStyle>
                             <Style TargetType="FlyoutPresenter">
                                 <Setter Property="Padding" Value="0" />
-                                <Setter Property="CornerRadius" Value="2" />
+                                <Setter Property="CornerRadius" Value="4" />
                             </Style>
                         </Flyout.FlyoutPresenterStyle>
                         <ListView
@@ -150,7 +150,7 @@
                         <Flyout.FlyoutPresenterStyle>
                             <Style TargetType="FlyoutPresenter">
                                 <Setter Property="Padding" Value="0" />
-                                <Setter Property="CornerRadius" Value="2" />
+                                <Setter Property="CornerRadius" Value="4" />
                             </Style>
                         </Flyout.FlyoutPresenterStyle>
                         <ListView
@@ -425,6 +425,19 @@
                     </AppBarButton.KeyboardAccelerators>
                     <AppBarButton.Icon>
                         <FontIcon Glyph="&#xE1A3;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton
+                    x:Uid="ReplaceLabel"
+                    Width="Auto"
+                    Command="{x:Bind Commands.ShowReplaceCommand}"
+                    CommandParameter="{x:Bind ViewModel}"
+                    Label="Replace">
+                    <AppBarButton.KeyboardAccelerators>
+                        <KeyboardAccelerator Key="H" Modifiers="Control" />
+                    </AppBarButton.KeyboardAccelerators>
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE13E;" />
                     </AppBarButton.Icon>
                 </AppBarButton>
                 <AppBarButton

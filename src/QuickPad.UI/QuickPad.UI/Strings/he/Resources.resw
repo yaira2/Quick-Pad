@@ -530,6 +530,7 @@
   </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
     <value>מדיניות פרטיות</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="Export.AutomationProperties.Name" xml:space="preserve">
     <value>יצא הגדרות</value>
@@ -557,6 +558,22 @@
   </data>
   <data name="ThemeCamelName" xml:space="preserve">
     <value>גמל</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ReplaceLabel.Label" xml:space="preserve">
+    <value>החלף</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ThemeBronzeName" xml:space="preserve">
+    <value>ארד</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMintCreamName" xml:space="preserve">
+    <value>קרם מנטה</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRustName" xml:space="preserve">
+    <value>חלודה</value>
     <comment>Used on Theme Page</comment>
   </data>
 </root>

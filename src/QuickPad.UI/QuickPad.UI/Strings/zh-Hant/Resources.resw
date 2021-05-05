@@ -538,6 +538,7 @@
   </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
     <value>隱私權原則</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="AppLanguage.Header" xml:space="preserve">
     <value>應用程式語言</value>
@@ -581,6 +582,22 @@
   </data>
   <data name="ThemeCamelName" xml:space="preserve">
     <value>駱駝</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ReplaceLabel.Label" xml:space="preserve">
+    <value>取代</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ThemeBronzeName" xml:space="preserve">
+    <value>青銅色</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMintCreamName" xml:space="preserve">
+    <value>薄荷奶油色</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRustName" xml:space="preserve">
+    <value>紅鏽色</value>
     <comment>Used on Theme Page</comment>
   </data>
 </root>

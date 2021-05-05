@@ -869,10 +869,12 @@
         <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
           <target state="translated">Hozzájárulás a programhoz</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Adatvédelmi szabályzat</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AppLanguage.Header" translate="yes" xml:space="preserve">
           <source>App Language</source>
@@ -1008,6 +1010,31 @@
           <source>Markdown Preview</source>
           <target state="translated">Markdown nézet</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ReplaceLabel.Label" translate="yes" xml:space="preserve">
+          <source>Replace</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Csere</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
+        </trans-unit>
+        <trans-unit id="ThemeBronzeName" translate="yes" xml:space="preserve">
+          <source>Bronze</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">bronz</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeMintCreamName" translate="yes" xml:space="preserve">
+          <source>Mint Cream</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Jégkék</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeRaisinBlackName" translate="yes" xml:space="preserve">
+          <source>Raisin Black</source>
+          <target state="new">Raisin Black</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeRustName" translate="yes" xml:space="preserve">
+          <source>Rust</source>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Rozsdabarna</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
       </group>
     </body>

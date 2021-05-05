@@ -730,9 +730,11 @@
   </data>
   <data name="ContributeToDeveloper.AutomationProperties.Name" xml:space="preserve">
     <value>Wesprzyj dewelopera</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
     <value>Polityka prywatności</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="SettingsNavAbout.AutomationProperties.Name" xml:space="preserve">
     <value>O Quick Pad</value>
@@ -813,5 +815,21 @@
   <data name="MarkdownPreviewLabel.Label" xml:space="preserve">
     <value>Podgląd Markdown</value>
     <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ReplaceLabel.Label" xml:space="preserve">
+    <value>Zamień</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ThemeBronzeName" xml:space="preserve">
+    <value>Brązowy</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMintCreamName" xml:space="preserve">
+    <value>Miętowy</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRustName" xml:space="preserve">
+    <value>Rdzawy</value>
+    <comment>Used on Theme Page</comment>
   </data>
 </root>
