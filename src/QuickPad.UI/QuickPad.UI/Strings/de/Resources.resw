@@ -13,11 +13,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>Transparenzeffekte</value>
+    <value>Opções de Acrílico</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Advanced.Text" xml:space="preserve">
-    <value>Erweitert</value>
+    <value>Avançado</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AppName.Text" xml:space="preserve">
@@ -37,7 +37,7 @@
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkName" xml:space="preserve">
-    <value>Dunkel</value>
+    <value>Escuro</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLeafName" xml:space="preserve">
@@ -49,219 +49,219 @@
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLightName" xml:space="preserve">
-    <value>Hell</value>
+    <value>Claro</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRandomName" xml:space="preserve">
-    <value>Zufällig</value>
+    <value>Aleatório</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRoseGoldName" xml:space="preserve">
-    <value>Rose Gold</value>
+    <value>Rosa Dourado</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSystemName" xml:space="preserve">
-    <value>Systemstandard</value>
+    <value>Sistema Padrão</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeGeneralDarkDescription" xml:space="preserve">
-    <value>Dunkler Modus</value>
+    <value>Tema escuro</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeGeneralLightDescription" xml:space="preserve">
-    <value>Heller Modus</value>
+    <value>Tema claro</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRandomDescription" xml:space="preserve">
-    <value>Zufäliger Modus beim Start</value>
+    <value>Tema aleatório na inicialização</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSystemDescription" xml:space="preserve">
-    <value>Standardmäßiger Modus</value>
+    <value>Tema definido pelo sistema</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
-    <value>Alles automatisch speichern</value>
+    <value>Guardar Automático a cada</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AutoSaveSeconds.Text" xml:space="preserve">
-    <value>Sekunden</value>
+    <value>segundos</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="BackToDefault.Text" xml:space="preserve">
-    <value>Zurück zum Standard Modus</value>
+    <value>Voltar ao Modo Padrão</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CloseCompactOverlay.Text" xml:space="preserve">
-    <value>Fenster-im-Fenster-Modus beenden</value>
+    <value>Fechar Sobreposição</value>
     <comment>Used on TitleBar</comment>
   </data>
   <data name="Copy.Text" xml:space="preserve">
-    <value>Kopieren</value>
+    <value>Copiar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Entwickelt von Yair Aichenbaum &amp; Sharp Ninja</value>
+    <value>Desenvolvido por Yair Aichenbaum &amp; Sharp Ninja</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
-    <value>Ausschneiden</value>
+    <value>Cortar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Delete.Text" xml:space="preserve">
-    <value>Löschen</value>
+    <value>Apagar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Edit.Title" xml:space="preserve">
-    <value>Bearbeiten</value>
+    <value>Editar</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="Exit.Text" xml:space="preserve">
-    <value>Schließen</value>
+    <value>Sair</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Export.Content" xml:space="preserve">
-    <value>Exportieren</value>
+    <value>Exportar</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="File.Title" xml:space="preserve">
-    <value>Datei</value>
+    <value>Ficheiro</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="Find.Text" xml:space="preserve">
-    <value>Finden</value>
+    <value>Procurar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FindNext.Text" xml:space="preserve">
-    <value>Nächsten finden</value>
+    <value>Encontrar Seguinte</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FindPrevious.Text" xml:space="preserve">
-    <value>Vorherigen finden</value>
+    <value>Encontrar Anterior</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="FocusMode.Text" xml:space="preserve">
-    <value>Fokusierter Modus</value>
+    <value>Modo de Foco</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Font.Text" xml:space="preserve">
-    <value>Schriftart</value>
+    <value>Fonte</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Fonts.Text" xml:space="preserve">
-    <value>Schriftarten...</value>
+    <value>Fontes...</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Format.Title" xml:space="preserve">
-    <value>Format</value>
+    <value>Formato</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="General.Text" xml:space="preserve">
-    <value>Allgemein</value>
+    <value>Geral</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="GoTo.Text" xml:space="preserve">
-    <value>Gehe zu</value>
+    <value>Ir Para</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Import.Content" xml:space="preserve">
-    <value>Importieren</value>
+    <value>Importar</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchClassicMode" xml:space="preserve">
-    <value>Klassischer Modus</value>
+    <value>Modo Clássico</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchDefaultMode" xml:space="preserve">
-    <value>Standard</value>
+    <value>Padrão</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
-    <value>Fokusierter Modus</value>
+    <value>Modo de Foco</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
-    <value>Klassischer Modus</value>
+    <value>Modo Clássico</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchCompactOverlay" xml:space="preserve">
-    <value>Fenster-im-Fenster</value>
+    <value>Sobreposição Compacta</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ManageSettings.Text" xml:space="preserve">
-    <value>Einstellungen verwalten</value>
+    <value>Gerir Definições</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="New.Text" xml:space="preserve">
-    <value>Neu</value>
+    <value>Novo</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Open.Text" xml:space="preserve">
-    <value>Öffnen</value>
+    <value>Abrir</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="OverlayMode.Text" xml:space="preserve">
-    <value>Fenster-im-Fenster-Modus</value>
+    <value>Modo de Sobreposição</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Paste.Text" xml:space="preserve">
-    <value>Einfügen</value>
+    <value>Colar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="PasteOptions.Text" xml:space="preserve">
-    <value>Einfügeoptionen</value>
+    <value>Opções de Colagem</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RateAndReviewLink.Content" xml:space="preserve">
-    <value>App bewerten</value>
+    <value>Avaliar e Rever</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Redo.Text" xml:space="preserve">
-    <value>Wiederholen</value>
+    <value>Refazer</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Replace.Text" xml:space="preserve">
-    <value>Ersetzen</value>
+    <value>Substituir</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Reset.Content" xml:space="preserve">
-    <value>Zurücksetzen</value>
+    <value>Restaurar</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestatRequired.Text" xml:space="preserve">
-    <value>Quick Pad muss neu gestarter werden, damit die Änderungen wirksam werden.</value>
+    <value>Você precisará reiniciar o Quick Pad para aplicar as alterações.</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RestoreDefaultZoom.Text" xml:space="preserve">
-    <value>Standard Zoom wiederherstellen</value>
+    <value>Restaurar Zoom Padrão</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Save.Text" xml:space="preserve">
-    <value>Speichern</value>
+    <value>Guardar</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SaveAs.Text" xml:space="preserve">
-    <value>Speichern als...</value>
+    <value>Guardar Como...</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SearchBing.Text" xml:space="preserve">
-    <value>Mit Bing suchen...</value>
+    <value>Procurar no Bing...</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SelectAll.Text" xml:space="preserve">
-    <value>Alles auswählen</value>
+    <value>Selecionar Tudo</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Settings.Text" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>Definições</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Share.Text" xml:space="preserve">
-    <value>Teilen</value>
+    <value>Partilha</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="StatusBar.Text" xml:space="preserve">
-    <value>Statusbar</value>
+    <value>Barra de Estado</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
@@ -273,19 +273,19 @@
     <comment>Used on StatusTextBar</comment>
   </data>
   <data name="Theme.Text" xml:space="preserve">
-    <value>Modus</value>
+    <value>Tema</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Undo.Text" xml:space="preserve">
-    <value>Rückgängig</value>
+    <value>Desfazer</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
-    <value>Ansicht</value>
+    <value>Vista</value>
     <comment>Used on Menu Header</comment>
   </data>
   <data name="WordWrap.Text" xml:space="preserve">
-    <value>Zeilenumbruch</value>
+    <value>Quebra de linha</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Zoom.Text" xml:space="preserve">
@@ -293,95 +293,95 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="ZoomIn.Text" xml:space="preserve">
-    <value>Vergrößern</value>
+    <value>Aumentar Zoom</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="ZoomOut.Text" xml:space="preserve">
-    <value>Verkleinern</value>
+    <value>Reduzir Zoom</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>Cancelar</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="NoButton" xml:space="preserve">
-    <value>Nein</value>
+    <value>Não</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesBody" xml:space="preserve">
-    <value>Es gibt nicht gespeicherte Änderungen. Wollen Sie sie jetzt speichern?</value>
+    <value>Alterações não guardadas. Pretende guardar-las?</value>
     <comment>Used on Save Document</comment>
   </data>
   <data name="PendingChangesTitle" xml:space="preserve">
-    <value>Ausstehende Änderungen</value>
+    <value>Alterações Pendentes</value>
     <comment>Used on Save Document Dialog</comment>
   </data>
   <data name="YesButton" xml:space="preserve">
-    <value>Ja</value>
+    <value>Sim</value>
     <comment>Used on Save Document</comment>
   </data>
-  <data name="LaunchNinjaMode" xml:space="preserve">
-    <value>Ninja Modus</value>
+  <data name="LaunchProMode" xml:space="preserve">
+    <value>Modo Ninja</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AlignCenter.Text" xml:space="preserve">
-    <value>Zentrieren (Strg+E)</value>
+    <value>Alinhar Centro (Ctrl+E)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignCenterLabel.Label" xml:space="preserve">
-    <value>Zentrieren</value>
+    <value>Alinhar Centro</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignLeft.Text" xml:space="preserve">
-    <value>Linksbündig (Strg+L)</value>
+    <value>Alinhar Esquerda(Ctrl+L)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignLeftLabel.Label" xml:space="preserve">
-    <value>Linksbündig</value>
+    <value>Alinhar Esquerda</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignRight.Text" xml:space="preserve">
-    <value>Rechtsbündig (Strg+R)</value>
+    <value>Alinhar Direita (Ctrl+R)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="AlignRightLabel.Label" xml:space="preserve">
-    <value>Rechtsbündig</value>
+    <value>Alinhar Direita</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Bold.Text" xml:space="preserve">
-    <value>Fett (Strg+B)</value>
+    <value>Negrito (Ctrl+B)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="BoldLabel.Label" xml:space="preserve">
-    <value>Fett</value>
+    <value>Negrito</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Bullets.Text" xml:space="preserve">
-    <value>Aufzählungszeichen ändern</value>
+    <value>Alternar Marcadores</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="BulletsLabel.Label" xml:space="preserve">
-    <value>Aufzählungszeichen</value>
+    <value>Marcadores</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ClassicModeLabel.Label" xml:space="preserve">
-    <value>Klassischer Modus</value>
+    <value>Modo Clássico</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Color.Text" xml:space="preserve">
-    <value>Schriftfarbe</value>
+    <value>Cor da Fonte</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ColorLabel.Label" xml:space="preserve">
-    <value>Schriftfarbe</value>
+    <value>Cor da Fonte</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="CompactOverlayTooltip.Text" xml:space="preserve">
-    <value>Fenster-in-Fenster (Alt + Pfeil nach oben)</value>
+    <value>Sobreposição Compacta (Alt + Up)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Emoji.Text" xml:space="preserve">
-    <value>Emojis einfügen (Win + .)</value>
+    <value>Inserir Emojis (Win + .)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="EmojiLabel.Label" xml:space="preserve">
@@ -389,111 +389,111 @@
     <comment>Used on CommandBar</comment>
   </data>
   <data name="FindLabel.Label" xml:space="preserve">
-    <value>Finden</value>
+    <value>Procurar</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="FocusModeLabel.Label" xml:space="preserve">
-    <value>Fokussierter Modus</value>
+    <value>Modo de Foco</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Italic.Text" xml:space="preserve">
-    <value>Kursiv (Strg+I)</value>
+    <value>Itálico (Ctrl+I)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ItalicLabel.Label" xml:space="preserve">
-    <value>Kursiv</value>
+    <value>Itálico</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="JustifyText.Text" xml:space="preserve">
-    <value>Blocksatz (Strg+J)</value>
+    <value>Texto Justificado (Ctrl+J)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="JustifyTextLabel.Label" xml:space="preserve">
-    <value>Blocksatz</value>
+    <value>Justificar</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="NewLabel.Label" xml:space="preserve">
-    <value>Neu</value>
+    <value>Novo</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="NewTip.Text" xml:space="preserve">
-    <value>Neu (Strg+N)</value>
+    <value>Novo (Ctrl+N)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="OpenLabel.Label" xml:space="preserve">
-    <value>Öffnen</value>
+    <value>Abrir</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="OpenTip.Text" xml:space="preserve">
-    <value>Öffnen (Strg+O)</value>
+    <value>Abrir (Ctrl+O)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="CmdLetsGo.Content" xml:space="preserve">
-    <value>Los geht's!</value>
+    <value>Vamos lá!</value>
     <comment>Used on Welcome Dialog</comment>
   </data>
   <data name="RedoTooltip.Text" xml:space="preserve">
-    <value>Wiederholen (Strg+Y)</value>
+    <value>Refazer (Ctrl+Y)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SaveLabel.Label" xml:space="preserve">
-    <value>Speichern</value>
+    <value>Guardar</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SaveTip.Text" xml:space="preserve">
-    <value>Speichern (Strg+S)</value>
+    <value>Guardar (Ctrl+S)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="SettingsLabel.Label" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>Definições</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ShareLabel.Label" xml:space="preserve">
-    <value>Teilen</value>
+    <value>Partilha</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="StatusBarLabel.Label" xml:space="preserve">
-    <value>Statusbar</value>
+    <value>Barra de Estado</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Strikethrough.Text" xml:space="preserve">
-    <value>Durchstreichen</value>
+    <value>Tachado</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="StrikethroughLabel.Label" xml:space="preserve">
-    <value>Durchstreichen</value>
+    <value>Tachado</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="Underline.Text" xml:space="preserve">
-    <value>Unterstreichen (Strg+U)</value>
+    <value>Sublinhado (Ctrl+U)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="UnderlineLabel.Label" xml:space="preserve">
-    <value>Beschriftung</value>
+    <value>Etiqueta</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="UndoTooltip.Text" xml:space="preserve">
-    <value>Rückkängig (Strg+Z)</value>
+    <value>Desfazer (Ctrl+Z)</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="RichTextDescription" xml:space="preserve">
-    <value>Rich Text Dokument</value>
+    <value>Documento Rich Text</value>
     <comment>Used on Status Bar</comment>
   </data>
   <data name="TextDescription" xml:space="preserve">
-    <value>Text Dokument</value>
+    <value>Documento de texto</value>
     <comment>Used on Status Bar</comment>
   </data>
   <data name="SaveDialog.CloseButtonText" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>Cancelar</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="SaveDialog.PrimaryButtonText" xml:space="preserve">
-    <value>Speichern</value>
+    <value>Guardar</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="SaveDialog.SecondaryButtonText" xml:space="preserve">
-    <value>Nicht speichern</value>
+    <value>Não Guardar</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="SaveDialog.Title" xml:space="preserve">
@@ -505,123 +505,123 @@
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="AppVersion.Text" xml:space="preserve">
-    <value>Version:</value>
+    <value>Versão:</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="PlainTextFontSettings.Text" xml:space="preserve">
-    <value>Schrifteinstellungen für einfachen Text</value>
+    <value>Configurações de Fonte de Texto Simples</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
-    <value>Schrifteinstellungen für Rich Text</value>
+    <value>Configurações de Fonte Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Content" xml:space="preserve">
-    <value>Fehler hier melden</value>
+    <value>Reportar problemas aqui</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SourceCode.Content" xml:space="preserve">
-    <value>Quellcode</value>
+    <value>Código Fonte</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SpecialThanks.Text" xml:space="preserve">
-    <value>Besonderer Dank an:</value>
+    <value>Agradecimento especial para:</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ContributeToDeveloper.Content" xml:space="preserve">
-    <value>Spende an den Entwickler</value>
+    <value>Contribua para desenvolver</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Untitled" xml:space="preserve">
-    <value>ohne Titel</value>
+    <value>Sem título</value>
     <comment>Used on Title Bar</comment>
   </data>
   <data name="FindClose.Text" xml:space="preserve">
-    <value>Schließen</value>
+    <value>Fechar</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindFilter.PlaceholderText" xml:space="preserve">
-    <value>Danach suchen?</value>
+    <value>Procurando por?</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindMatchCase.Text" xml:space="preserve">
-    <value>Groß-/Kleinschreibung</value>
+    <value>Corresponder Maiúsculas/Minúsculas</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindMore.Text" xml:space="preserve">
-    <value>Mehr...</value>
+    <value>Mais...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindRegEx.Text" xml:space="preserve">
-    <value>Regulärer Ausdruck</value>
+    <value>Expressão Regular</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplace.Text" xml:space="preserve">
-    <value>Ersetzen</value>
+    <value>Substituir</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplaceAll.Text" xml:space="preserve">
-    <value>Alles ersetzen</value>
+    <value>Substituir todos</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindReplaceWith.PlaceholderText" xml:space="preserve">
-    <value>Ersetzen mit...</value>
+    <value>Substituir por...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="TimeDate.Text" xml:space="preserve">
-    <value>Zeit/Datum</value>
+    <value>Tempo/Data</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CmdCancel.Content" xml:space="preserve">
-    <value>Abbrechen</value>
+    <value>Cancelar</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>Gehe zu</value>
+    <value>Ir Para</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="GoToDialog.Title" xml:space="preserve">
-    <value>Gehe zu</value>
+    <value>Ir Para</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="GoToLineNumber.Header" xml:space="preserve">
-    <value>Zeilen Nummer:</value>
+    <value>inha número:</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
-    <value>Mit Fenster-im-Fenster können Sie Quick Pad immer im Vordergrund halten.</value>
+    <value>Com a sobreposição compacta, você pode fazer o Quick Pad ficar por cima das outras janelas.</value>
     <comment>Used on TeachingTip</comment>
   </data>
   <data name="CompactOverlayTip.Title" xml:space="preserve">
-    <value>Fenster immer im Vordergrund halten</value>
+    <value>Manter sob outras janelas</value>
     <comment>Used on TeachingTip</comment>
   </data>
   <data name="ThemeAccentName" xml:space="preserve">
-    <value>System Akzentfarbe</value>
+    <value>Cor de Destaque do Sistema</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
-    <value>Andere</value>
+    <value>Outro</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">
-    <value>Quick Pad bewerten</value>
+    <value>Rever Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>Nein</value>
+    <value>Não</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
-    <value>Wollen Sie Quick Pad im Microsoft Store bewerten?</value>
+    <value>Gostaria de rever o Quick Pad na Microsoft Store?</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>Bewerten</value>
+    <value>Rever</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
-    <value>Datenschutzerklärung</value>
+    <value>Política de Privacidade</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ThemeApricotName" xml:space="preserve">
@@ -629,87 +629,87 @@
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMediumPurpleName" xml:space="preserve">
-    <value>Mittleres Lila</value>
+    <value>Roxo Médio</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Einstellungen</value>
+    <value>Definições</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
-    <value>Allgemeine Einstellungen</value>
+    <value>Definições Gerais</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
-    <value>Erweiterte Einstellungen</value>
+    <value>Definições Avançadas</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavFont.AutomationProperties.Name" xml:space="preserve">
-    <value>Schriftarteinstellungen...</value>
+    <value>Definições de Fonte</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
-    <value>Designeinstellungen</value>
+    <value>Definições de Tema</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Erweiterte Einstellungen</value>
+    <value>Definições Avançadas</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Schriftarteinstellungen...</value>
+    <value>Definições de Fonte</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavGeneral.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Allgemeine Einstellungen</value>
+    <value>Definições Gerais</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Designeinstellungen</value>
+    <value>Definições de Tema</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
-    <value>Datenschutzrichtlinie</value>
+    <value>Política de Privacidade</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AppLanguage.Header" xml:space="preserve">
-    <value>App-Sprache</value>
+    <value>Idiona da Aplicação</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AutoSave.Header" xml:space="preserve">
-    <value>Automatisch speichern</value>
+    <value>Guardar Automático</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.Header" xml:space="preserve">
-    <value>Startmodus:</value>
+    <value>Modo Execução</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Export.AutomationProperties.Name" xml:space="preserve">
-    <value>Einstellungen exportieren</value>
+    <value>Exportar Definições</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Import.AutomationProperties.Name" xml:space="preserve">
-    <value>Importeinstellungen</value>
+    <value>Importar Definições</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Reset.AutomationProperties.Name" xml:space="preserve">
-    <value>_Einstellungen zurücksetzen</value>
+    <value>Redefinir Configurações</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Header" xml:space="preserve">
-    <value>Standardschriftart</value>
+    <value>Padrão de Fonte</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFontSize.Header" xml:space="preserve">
-    <value>Standardmäßige Schriftgröße</value>
+    <value>Tamanho Fonte Padrão</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SpellCheck.Header" xml:space="preserve">
-    <value>Rechtschreibprüfung</value>
+    <value>Verificação Ortográfica</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="WordWrapSetting.Header" xml:space="preserve">
-    <value>Zeilenumbruch</value>
+    <value>Quebra de linha</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ThemeCamelName" xml:space="preserve">
