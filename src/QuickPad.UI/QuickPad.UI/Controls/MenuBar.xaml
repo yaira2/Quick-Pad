@@ -412,6 +412,11 @@
             Background="{x:Null}"
             DefaultLabelPosition="Collapsed"
             IsOpen="False">
+            <CommandBar.Resources>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="CommandBarBackgroundOpen" Color="Transparent" />
+                </ResourceDictionary>
+            </CommandBar.Resources>
             <AppBarButton
                 x:Name="CompactOverlayButton"
                 Width="Auto"
