@@ -33,6 +33,11 @@
             Background="{x:Null}"
             DefaultLabelPosition="Right"
             IsOpen="False">
+            <CommandBar.Resources>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="CommandBarBackgroundOpen" Color="Transparent" />
+                </ResourceDictionary>
+            </CommandBar.Resources>
             <AppBarButton
                 x:Uid="NewLabel"
                 Width="Auto"
@@ -368,6 +373,11 @@
             Background="{x:Null}"
             DefaultLabelPosition="Collapsed"
             IsOpen="False">
+            <CommandBar.Resources>
+                <ResourceDictionary>
+                    <SolidColorBrush x:Key="CommandBarBackgroundOpen" Color="Transparent" />
+                </ResourceDictionary>
+            </CommandBar.Resources>
             <CommandBar.SecondaryCommands>
                 <AppBarButton
                     x:Uid="FocusModeLabel"
