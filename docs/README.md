@@ -45,7 +45,6 @@
 
 ## Downloads:
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
-* Download the latest release from [GitHub Releases](https://github.com/yaichenbaum/Quick-Pad/releases).
 
 ## Contributing:
 Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/docs/CONTRIBUTING.md) To Get Started.
