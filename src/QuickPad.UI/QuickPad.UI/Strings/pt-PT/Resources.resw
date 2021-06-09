@@ -1,110 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
-  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
-    <xsd:element name="root" msdata:IsDataSet="true">
-      <xsd:complexType>
-        <xsd:choice maxOccurs="unbounded">
-          <xsd:element name="metadata">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" />
-              </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string" />
-              <xsd:attribute name="type" type="xsd:string" />
-              <xsd:attribute name="mimetype" type="xsd:string" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="assembly">
-            <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string" />
-              <xsd:attribute name="name" type="xsd:string" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="data">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
-              <xsd:attribute ref="xml:space" />
-            </xsd:complexType>
-          </xsd:element>
-          <xsd:element name="resheader">
-            <xsd:complexType>
-              <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
-              </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" />
-            </xsd:complexType>
-          </xsd:element>
-        </xsd:choice>
-      </xsd:complexType>
-    </xsd:element>
-  </xsd:schema>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
@@ -121,16 +16,8 @@
     <value>Opções de Acrílico</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="AcrylicTintOpacity.Header" xml:space="preserve">
-    <value>Opacidade de tinta acrílica</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Avançado</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AppLanguage.Header" xml:space="preserve">
-    <value>Idiona da Aplicação</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AppName.Text" xml:space="preserve">
@@ -193,10 +80,6 @@
     <value>Tema definido pelo sistema</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="AutoSave.Header" xml:space="preserve">
-    <value>Guardar Automático</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="AutoSaveEvery.Text" xml:space="preserve">
     <value>Guardar Automático a cada</value>
     <comment>Used on Settings Page</comment>
@@ -218,28 +101,12 @@
     <comment>Used on Menu Item</comment>
   </data>
   <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Desenvolvido por Yair Aichenbaum</value>
+    <value>Desenvolvido por Yair Aichenbaum &amp; Sharp Ninja</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Cut.Text" xml:space="preserve">
     <value>Cortar</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFileEncoding.Header" xml:space="preserve">
-    <value>Codificação Padrão do Ficheiro</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFileType.Header" xml:space="preserve">
-    <value>Tipo de Ficheiro Padrão</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFont.Header" xml:space="preserve">
-    <value>Padrão de Fonte</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSize.Header" xml:space="preserve">
-    <value>Tamanho Fonte Padrão</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="Delete.Text" xml:space="preserve">
     <value>Apagar</value>
@@ -282,7 +149,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Fonts.Text" xml:space="preserve">
-    <value>Fontes…</value>
+    <value>Fontes...</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="Format.Title" xml:space="preserve">
@@ -301,10 +168,6 @@
     <value>Importar</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.Header" xml:space="preserve">
-    <value>Manter apenas texto</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="LaunchClassicMode" xml:space="preserve">
     <value>Modo Clássico</value>
     <comment>Used on Settings Page</comment>
@@ -315,10 +178,6 @@
   </data>
   <data name="LaunchFocusMode" xml:space="preserve">
     <value>Modo de Foco</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="LaunchModeComboBox.Header" xml:space="preserve">
-    <value>Modo Execução</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="LaunchModeComboBox.PlaceholderText" xml:space="preserve">
@@ -401,20 +260,16 @@
     <value>Partilha</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="SpellCheck.Header" xml:space="preserve">
-    <value>Verificação Ortográfica</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="StatusBar.Text" xml:space="preserve">
     <value>Barra de Estado</value>
     <comment>Used on Menu Item</comment>
   </data>
   <data name="StatusColCount.Text" xml:space="preserve">
-    <value>Col: </value>
+    <value>Spalte: </value>
     <comment>Used on StatusTextBar</comment>
   </data>
   <data name="StatusLnCount.Text" xml:space="preserve">
-    <value>Ln: </value>
+    <value>Zeile: </value>
     <comment>Used on StatusTextBar</comment>
   </data>
   <data name="Theme.Text" xml:space="preserve">
@@ -425,10 +280,6 @@
     <value>Desfazer</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="UseAcrylicOnTextBox.Header" xml:space="preserve">
-    <value>Use fundo acrílico para a área de texto</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="View.Title" xml:space="preserve">
     <value>Vista</value>
     <comment>Used on Menu Header</comment>
@@ -436,10 +287,6 @@
   <data name="WordWrap.Text" xml:space="preserve">
     <value>Quebra de linha</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="WordWrapSetting.Header" xml:space="preserve">
-    <value>Quebra de linha</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="Zoom.Text" xml:space="preserve">
     <value>Zoom</value>
@@ -452,18 +299,6 @@
   <data name="ZoomOut.Text" xml:space="preserve">
     <value>Reduzir Zoom</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="DefaultFontRtf.Header" xml:space="preserve">
-    <value>Rich Text Fonte Padrão</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="DefaultFontSizeRtf.Header" xml:space="preserve">
-    <value>Tamanho Rich Text Fonte Padrão</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="WordWrapSettingRtf.Header" xml:space="preserve">
-    <value>Quebra de linha em Rich Text</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="CancelButton" xml:space="preserve">
     <value>Cancelar</value>
@@ -646,7 +481,7 @@
     <comment>Used on Status Bar</comment>
   </data>
   <data name="TextDescription" xml:space="preserve">
-    <value>Documento de Texto</value>
+    <value>Documento de texto</value>
     <comment>Used on Status Bar</comment>
   </data>
   <data name="SaveDialog.CloseButtonText" xml:space="preserve">
@@ -666,7 +501,7 @@
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="WouldYouLikeToSave.Text" xml:space="preserve">
-    <value>Pretende guardar as alterações?</value>
+    <value>Wollen Sie Ihre Änderungen speichern?</value>
     <comment>Used on Save Dialog</comment>
   </data>
   <data name="AppVersion.Text" xml:space="preserve">
@@ -679,10 +514,6 @@
   </data>
   <data name="RichTextFontSettings.Text" xml:space="preserve">
     <value>Configurações de Fonte Rich Text</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="SpellCheckRtf.Header" xml:space="preserve">
-    <value>Verificação Ortográfica em Rich Text</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ReportIssues.Content" xml:space="preserve">
@@ -718,7 +549,7 @@
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindMore.Text" xml:space="preserve">
-    <value>Mais…</value>
+    <value>Mais...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
   <data name="FindRegEx.Text" xml:space="preserve">
@@ -754,7 +585,7 @@
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="GoToLineNumber.Header" xml:space="preserve">
-    <value>Linha número:</value>
+    <value>inha número:</value>
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="CompactOverlayTip.Subtitle" xml:space="preserve">
@@ -768,10 +599,6 @@
   <data name="ThemeAccentName" xml:space="preserve">
     <value>Cor de Destaque do Sistema</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="SearchWithGoogle.Header" xml:space="preserve">
-    <value>Permitir Pesquisa Google</value>
-    <comment>Used on General Settings Page</comment>
   </data>
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>Outro</value>
@@ -798,60 +625,22 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ThemeApricotName" xml:space="preserve">
-    <value>Apricot</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeBlackCoralName" xml:space="preserve">
-    <value>Coral Negro</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeDarkSiennaName" xml:space="preserve">
-    <value>Sienna Negro</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeDarkSpringGreenName" xml:space="preserve">
-    <value>Dark Spring Green</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeMaximumPurpleName" xml:space="preserve">
-    <value>Roxo Máximo</value>
+    <value>Aprikose</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMediumPurpleName" xml:space="preserve">
     <value>Roxo Médio</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="ThemePersimmonName" xml:space="preserve">
-    <value>Caqui</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeSizzlingRedName" xml:space="preserve">
-    <value>Sizzling Red</value>
-    <comment>Used on Theme Page</comment>
-  </data>
   <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
     <value>Definições</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="ContributeToDeveloper.AutomationProperties.Name" xml:space="preserve">
-    <value>Contribua para desenvolver</value>
-  </data>
-  <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
-    <value>Política de Privacidade</value>
-  </data>
-  <data name="SettingsNavAbout.AutomationProperties.Name" xml:space="preserve">
-    <value>Acerca Quick Pad</value>
-    <comment>Used in SettingsNav</comment>
-  </data>
-  <data name="SettingsNavAbout.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Acerca Quick Pad</value>
+  <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
+    <value>Definições Gerais</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
-    <value>Definições Avançadas</value>
-    <comment>Used in SettingsNav</comment>
-  </data>
-  <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
     <value>Definições Avançadas</value>
     <comment>Used in SettingsNav</comment>
   </data>
@@ -859,25 +648,41 @@
     <value>Definições de Fonte</value>
     <comment>Used in SettingsNav</comment>
   </data>
-  <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
-    <value>Definições de Fonte</value>
+  <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
+    <value>Definições de Tema</value>
     <comment>Used in SettingsNav</comment>
   </data>
-  <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
-    <value>Definições Gerais</value>
+  <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Definições Avançadas</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavFont.ToolTipService.ToolTip" xml:space="preserve">
+    <value>Definições de Fonte</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavGeneral.ToolTipService.ToolTip" xml:space="preserve">
     <value>Definições Gerais</value>
     <comment>Used in SettingsNav</comment>
   </data>
-  <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
-    <value>Definições de Tema</value>
-    <comment>Used in SettingsNav</comment>
-  </data>
   <data name="SettingsNavTheme.ToolTipService.ToolTip" xml:space="preserve">
     <value>Definições de Tema</value>
     <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
+    <value>Política de Privacidade</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AppLanguage.Header" xml:space="preserve">
+    <value>Idiona da Aplicação</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="AutoSave.Header" xml:space="preserve">
+    <value>Guardar Automático</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.Header" xml:space="preserve">
+    <value>Modo Execução</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="Export.AutomationProperties.Name" xml:space="preserve">
     <value>Exportar Definições</value>
@@ -887,36 +692,44 @@
     <value>Importar Definições</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="KeepTextOnly.AutomationProperties.Name" xml:space="preserve">
-    <value>Manter apenas texto quando colar texto</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Reset.AutomationProperties.Name" xml:space="preserve">
     <value>Redefinir Configurações</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ThemeBlueMunsellName" xml:space="preserve">
-    <value>Blue Munsell</value>
-    <comment>Used on Theme Page</comment>
+  <data name="DefaultFont.Header" xml:space="preserve">
+    <value>Padrão de Fonte</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSize.Header" xml:space="preserve">
+    <value>Tamanho Fonte Padrão</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheck.Header" xml:space="preserve">
+    <value>Verificação Ortográfica</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSetting.Header" xml:space="preserve">
+    <value>Quebra de linha</value>
+    <comment>Used on Settings Page</comment>
   </data>
   <data name="ThemeCamelName" xml:space="preserve">
-    <value>Camel</value>
+    <value>Kamel</value>
     <comment>Used on Theme Page</comment>
   </data>
-  <data name="ThemeCedarChestName" xml:space="preserve">
-    <value>Cedar Chest</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ThemeMiddleBlueName" xml:space="preserve">
-    <value>Azul Médio</value>
-    <comment>Used on Theme Page</comment>
-  </data>
-  <data name="MarkdownPreview.Text" xml:space="preserve">
-    <value>Pre-visualizar formatação</value>
-    <comment>Used on Menu Item</comment>
-  </data>
-  <data name="MarkdownPreviewLabel.Label" xml:space="preserve">
-    <value>Pre-visualizar formatação</value>
+  <data name="ReplaceLabel.Label" xml:space="preserve">
+    <value>Ersetzen</value>
     <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ThemeBronzeName" xml:space="preserve">
+    <value>Bronze</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMintCreamName" xml:space="preserve">
+    <value>Pfefferminzcreme</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRustName" xml:space="preserve">
+    <value>Rost</value>
+    <comment>Used on Theme Page</comment>
   </data>
 </root>
