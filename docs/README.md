@@ -47,4 +47,4 @@
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
 
 ## Contributing:
-Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/docs/CONTRIBUTING.md) To Get Started.
+Quick Pad Benifits From Your Contributions,tRead The [Contributing Document](/docs/CONTRIBUTING.md) To Get Started.
