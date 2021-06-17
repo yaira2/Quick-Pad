@@ -48,26 +48,3 @@
 
 ## Contributing:
 Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/docs/CONTRIBUTING.md) To Get Started.
-
-## Special Thanks:
-
-* Code Contributors: [Toon Werawat](https://github.com/ray199),
-[Leisvan](https://github.com/Leisvan),
-[AVK](https://github.com/avknaidu),
-[Ikarago](https://github.com/ikarago),
-[Luke Blevins](https://github.com/duke7553),
-[dmarciano](https://github.com/dmarciano),
-[The Sharp Ninja](https://github.com/sharpninja),
-[Filippo Fedeli](https://github.com/MarcAnt01)
-* Localization Contributors:
-    * [th-TH][Thai]: [Toon Werawat](https://github.com/ray1997)
-    * [fr-CA][French]: [PhilLB1239](https://github.com/PhilLB1239)
-    * [es][Spanish]: [Leisvan](https://github.com/Leisvan)
-    * [ar-EG][Arabic]: [Ahmed Walid](https://github.com/ahmed605)
-    * [ar-SA][Arabic]: [Hanzalah Adalan](https://github.com/Hanzalah-Adalan)
-    * [fr-FR][French]: [François-Joseph du Fou](https://github.com/FJduFou), [themoiFR](https://github.com/themoiFR)
-    * [it][Italian]: [Massimo Savazzi](https://github.com/msavazzi)
-    * [pl][Polish]: [Rafał Baran](https://github.com/rafal06)
-    * [ru-RU][Russian]: [Danil Podobin](https://github.com/Danil-Podobin)
-    * [hu-HU][Hungarian]: [Kristóf Kékesi](https://github.com/KristofKekesi)
-    * [pt-PT][Portuguese]: [O.Leitão](https://github.com/oleitao)
