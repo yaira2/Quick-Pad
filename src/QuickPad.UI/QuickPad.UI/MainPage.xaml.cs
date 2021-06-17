@@ -217,9 +217,6 @@ namespace QuickPad.UI
             TextBox.ContextFlyout.Opening += Menu_Opening;
             RichEditBox.SelectionFlyout.Opening += RMenu_Opening;
             RichEditBox.ContextFlyout.Opening += RMenu_Opening;
-
-            // Add shadow to the title bar
-            TopBarShadow.Receivers.Add(TextScrollViewer);
         }
 
         public event Func<DocumentViewModel<StorageFile, IRandomAccessStream>, StorageFile, Task> LoadFromFile;

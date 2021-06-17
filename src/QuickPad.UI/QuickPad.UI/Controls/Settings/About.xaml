@@ -48,22 +48,30 @@
 
             <TextBlock
                 x:Uid="CreatedBy"
-                Padding="0,12,0,0"
+                Padding="12,12,0,0"
                 HorizontalAlignment="Left"
                 FontSize="16"
                 Text="Developed by Yair Aichenbaum" />
 
             <HyperlinkButton
                 x:Uid="ContributeToDeveloper"
-                Padding="0,12,0,0"
+                Margin="0,12,0,0"
                 HorizontalAlignment="Left"
                 AutomationProperties.Name="Contribute to the developer"
                 Content="Contribute to the developer"
                 NavigateUri="http://paypal.me/yaichenbaum" />
 
             <HyperlinkButton
+                x:Uid="ReleaseNotes"
+                Margin="0,12,0,0"
+                HorizontalAlignment="Left"
+                AutomationProperties.Name="Release Notes"
+                Content="Release Notes"
+                NavigateUri="https://github.com/yaichenbaum/Quick-Pad/releases" />
+
+            <HyperlinkButton
                 x:Uid="PrivacyPolicy"
-                Padding="0,12,0,0"
+                Margin="0,12,0,0"
                 AutomationProperties.Name="Privacy Policy"
                 Content="Privacy Policy"
                 NavigateUri="https://github.com/files-community/files-uwp/blob/master/Privacy.md" />

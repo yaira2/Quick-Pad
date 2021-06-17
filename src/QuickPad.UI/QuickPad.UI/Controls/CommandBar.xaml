@@ -36,6 +36,7 @@
             <CommandBar.Resources>
                 <ResourceDictionary>
                     <SolidColorBrush x:Key="CommandBarBackgroundOpen" Color="Transparent" />
+                    <SolidColorBrush x:Key="CommandBarBorderBrushOpen" Color="Transparent" />
                 </ResourceDictionary>
             </CommandBar.Resources>
             <AppBarButton
@@ -376,6 +377,7 @@
             <CommandBar.Resources>
                 <ResourceDictionary>
                     <SolidColorBrush x:Key="CommandBarBackgroundOpen" Color="Transparent" />
+                    <SolidColorBrush x:Key="CommandBarBorderBrushOpen" Color="Transparent" />
                 </ResourceDictionary>
             </CommandBar.Resources>
             <CommandBar.SecondaryCommands>

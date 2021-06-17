@@ -12,11 +12,11 @@
     mc:Ignorable="d">
 
     <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
-        <MenuBar
+        <controls:MenuBar
             Width="Auto"
             Height="40"
             HorizontalAlignment="Left">
-            <MenuBarItem
+            <controls:MenuBarItem
                 x:Uid="File"
                 Title="File"
                 AccessKey="F">
@@ -94,8 +94,8 @@
                         <FontIcon Glyph="&#xE10A;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-            </MenuBarItem>
-            <MenuBarItem
+            </controls:MenuBarItem>
+            <controls:MenuBarItem
                 x:Uid="Edit"
                 Title="Edit"
                 AccessKey="E">
@@ -263,8 +263,8 @@
                         <KeyboardAccelerator Key="F5" />
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-            </MenuBarItem>
-            <MenuBarItem
+            </controls:MenuBarItem>
+            <controls:MenuBarItem
                 x:Uid="Format"
                 Title="Format"
                 AccessKey="O">
@@ -292,8 +292,8 @@
                         <FontIcon Glyph="&#xE185;" />
                     </MenuFlyoutItem.Icon>
                 </MenuFlyoutItem>
-            </MenuBarItem>
-            <MenuBarItem
+            </controls:MenuBarItem>
+            <controls:MenuBarItem
                 x:Uid="View"
                 Title="View"
                 AccessKey="V">
@@ -394,8 +394,8 @@
                         <FontIcon Glyph="&#xE18F;" />
                     </ToggleMenuFlyoutItem.Icon>
                 </ToggleMenuFlyoutItem>
-            </MenuBarItem>
-        </MenuBar>
+            </controls:MenuBarItem>
+        </controls:MenuBar>
 
         <controls:TeachingTip
             x:Uid="CompactOverlayCommandTip"
@@ -415,6 +415,7 @@
             <CommandBar.Resources>
                 <ResourceDictionary>
                     <SolidColorBrush x:Key="CommandBarBackgroundOpen" Color="Transparent" />
+                    <SolidColorBrush x:Key="CommandBarBorderBrushOpen" Color="Transparent" />
                 </ResourceDictionary>
             </CommandBar.Resources>
             <AppBarButton

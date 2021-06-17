@@ -24,45 +24,46 @@
         <converters:Converter x:Key="Converter" />
     </Page.Resources>
     <Grid>
-        <Grid.Resources>
-            <Windows10version1903:ThemeShadow x:Name="TopBarShadow" />
-        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel
-            x:Name="TopBar"
-            HorizontalAlignment="Stretch"
-            Windows10version1903:Shadow="{StaticResource TopBarShadow}"
-            Translation="0,0,8">
-            <controls3:TitleBar
-                x:Name="titleBar"
-                Grid.Row="0"
-                Height="32"
+        <controls1:DropShadowPanel
+            HorizontalContentAlignment="Stretch"
+            Canvas.ZIndex="75"
+            ShadowOpacity="0.3">
+            <StackPanel
+                x:Name="TopBar"
                 HorizontalAlignment="Stretch"
-                Canvas.ZIndex="100"
-                ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
+                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                <controls3:TitleBar
+                    x:Name="titleBar"
+                    Grid.Row="0"
+                    Height="32"
+                    HorizontalAlignment="Stretch"
+                    Canvas.ZIndex="100"
+                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
 
-            <controls3:MenuBar
-                x:Name="menuBar"
-                Height="46"
-                HorizontalAlignment="Stretch"
-                x:Load="{x:Bind Settings.ShowMenu, Mode=OneWay}"
-                Canvas.ZIndex="100"
-                ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
+                <controls3:MenuBar
+                    x:Name="menuBar"
+                    Height="46"
+                    HorizontalAlignment="Stretch"
+                    x:Load="{x:Bind Settings.ShowMenu, Mode=OneWay}"
+                    Canvas.ZIndex="100"
+                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
 
-            <controls3:CommandBar
-                x:Name="commandBar"
-                Height="46"
-                HorizontalAlignment="Stretch"
-                x:Load="{x:Bind Settings.ShowCommandBar, Mode=OneWay}"
-                Canvas.ZIndex="100"
-                SetFontName="CommandBarOnSetFontName"
-                SetFontSize="CommandBarOnSetFontSize"
-                ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
-        </StackPanel>
+                <controls3:CommandBar
+                    x:Name="commandBar"
+                    Height="46"
+                    HorizontalAlignment="Stretch"
+                    x:Load="{x:Bind Settings.ShowCommandBar, Mode=OneWay}"
+                    Canvas.ZIndex="100"
+                    SetFontName="CommandBarOnSetFontName"
+                    SetFontSize="CommandBarOnSetFontSize"
+                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
+            </StackPanel>
+        </controls1:DropShadowPanel>
 
         <SplitView
             x:Name="splitView"
