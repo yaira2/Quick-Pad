@@ -732,4 +732,12 @@
     <value>Óxido</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="ReleaseNotes.AutomationProperties.Name" xml:space="preserve">
+    <value>Notas de la versión</value>
+    <comment>Used on About Page</comment>
+  </data>
+  <data name="ReleaseNotes.Content" xml:space="preserve">
+    <value>Notas de la versión</value>
+    <comment>Used on About Page</comment>
+  </data>
 </root>

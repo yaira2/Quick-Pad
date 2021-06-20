@@ -1039,12 +1039,12 @@
         </trans-unit>
         <trans-unit id="ReleaseNotes.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Release Notes</source>
-          <target state="new">Release Notes</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Notas de versão</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
         <trans-unit id="ReleaseNotes.Content" translate="yes" xml:space="preserve">
           <source>Release Notes</source>
-          <target state="new">Release Notes</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Notas de versão</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
       </group>

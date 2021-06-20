@@ -1014,17 +1014,17 @@
         </trans-unit>
         <trans-unit id="ReplaceLabel.Label" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="new">Replace</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Ersetzen</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ThemeBronzeName" translate="yes" xml:space="preserve">
           <source>Bronze</source>
-          <target state="new">Bronze</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Bronze</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMintCreamName" translate="yes" xml:space="preserve">
           <source>Mint Cream</source>
-          <target state="new">Mint Cream</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Pfefferminzcreme</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRaisinBlackName" translate="yes" xml:space="preserve">
@@ -1034,17 +1034,17 @@
         </trans-unit>
         <trans-unit id="ThemeRustName" translate="yes" xml:space="preserve">
           <source>Rust</source>
-          <target state="new">Rust</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Rost</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ReleaseNotes.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Release Notes</source>
-          <target state="new">Release Notes</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Anmerkungen zu dieser Version</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
         <trans-unit id="ReleaseNotes.Content" translate="yes" xml:space="preserve">
           <source>Release Notes</source>
-          <target state="new">Release Notes</target>
+          <target state="needs-review-translation" state-qualifier="tm-suggestion">Anmerkungen zu dieser Version</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
       </group>

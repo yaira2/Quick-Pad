@@ -716,4 +716,28 @@
     <value>Kamel</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="ReplaceLabel.Label" xml:space="preserve">
+    <value>Ersetzen</value>
+    <comment>Used on CommandBar</comment>
+  </data>
+  <data name="ThemeBronzeName" xml:space="preserve">
+    <value>Bronze</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMintCreamName" xml:space="preserve">
+    <value>Pfefferminzcreme</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRustName" xml:space="preserve">
+    <value>Rost</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ReleaseNotes.AutomationProperties.Name" xml:space="preserve">
+    <value>Anmerkungen zu dieser Version</value>
+    <comment>Used on About Page</comment>
+  </data>
+  <data name="ReleaseNotes.Content" xml:space="preserve">
+    <value>Anmerkungen zu dieser Version</value>
+    <comment>Used on About Page</comment>
+  </data>
 </root>

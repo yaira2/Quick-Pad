@@ -600,4 +600,12 @@
     <value>紅鏽色</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="ReleaseNotes.AutomationProperties.Name" xml:space="preserve">
+    <value>版本資訊</value>
+    <comment>Used on About Page</comment>
+  </data>
+  <data name="ReleaseNotes.Content" xml:space="preserve">
+    <value>版本資訊</value>
+    <comment>Used on About Page</comment>
+  </data>
 </root>
