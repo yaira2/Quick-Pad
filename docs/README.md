@@ -45,7 +45,7 @@
 
 ## Downloads:
 * Get the latest version of Quick Pad in the [Microsoft Store](https://www.microsoft.com/store/productId/9PDLWQHTLSV3).
-* Download it from the GitHub Releases (or download it here:[QuickPad_6.2.3.0_neutral.msixbundle](https://github.com/pronoymukherjeewritescode/Quick-Pad/releases/download/v6.2.3/49306atecsolution.QuickPad_6.2.3.0_neutral___et10x9a9vyk8t.Msixbundle))
+* Download it from the GitHub Releases (or download it from here: [QuickPad_6.2.3.0_neutral.msixbundle](https://github.com/pronoymukherjeewritescode/Quick-Pad/releases/download/v6.2.3/49306atecsolution.QuickPad_6.2.3.0_neutral___et10x9a9vyk8t.Msixbundle))
 
 ## Contributing:
 Quick Pad Benifits From Your Contributions, Read The [Contributing Document](/docs/CONTRIBUTING.md) To Get Started.
