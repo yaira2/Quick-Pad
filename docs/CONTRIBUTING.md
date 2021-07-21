@@ -12,7 +12,7 @@ There are other branches as well on Quick Pad, these are usually for new feature
 
 ## Contributing to Quick Pad
 
-To get started, create a fork of the repository on GitHub. You will need to do that to make any changes. If you decide to make a change you should always base it off the `Main` branch. Once your change is completed, you can open a pull request in which we will review and merge if approved.
+To get started, create a fork of the repository on GitHub. You will need to do that to make any changes. If you decide to make a change you should always base it off the `Main` branch. Once your change is completed, you can open a pull request which we will review and merge if approved.
 
 ### Related Documents
 * [Refactoring](../docs/REFACTOR.md)
