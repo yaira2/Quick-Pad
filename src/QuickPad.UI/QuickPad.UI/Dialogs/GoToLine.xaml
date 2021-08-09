@@ -12,6 +12,7 @@
     Windows10version1809:CornerRadius="4"
     Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
     Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
+    Style="{StaticResource DefaultContentDialogStyle}"
     mc:Ignorable="d">
     <ContentDialog.Resources>
         <converters:Converter x:Key="Converter" />

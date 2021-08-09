@@ -751,19 +751,9 @@
           <target state="translated">Vélemény Quick Pad-ről</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
-        <trans-unit id="AskForReviewDialogNo.Content" translate="yes" xml:space="preserve">
-          <source>No</source>
-          <target state="translated">Nem</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
-        </trans-unit>
         <trans-unit id="AskForReviewDialogPar1.Text" translate="yes" xml:space="preserve">
           <source>Would you like to review Quick Pad in the Microsoft Store?</source>
           <target state="translated">Szeretne véleméynt írni Quick Pad-ről a Microsoft Store-ba?</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
-        </trans-unit>
-        <trans-unit id="AskForReviewDialogReview.Content" translate="yes" xml:space="preserve">
-          <source>Review</source>
-          <target state="translated">Vélemény írása</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.Content" translate="yes" xml:space="preserve">
@@ -1045,6 +1035,16 @@
           <source>Release Notes</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Kibocsátási megjegyzések</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialog&amp;gt;SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>No</source>
+          <target state="new">No</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="AskForReviewDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Review</source>
+          <target state="new">Review</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
       </group>
     </body>

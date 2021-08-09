@@ -781,7 +781,7 @@
     <value>Review Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
-  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
+  <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
     <value>No</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
@@ -789,7 +789,7 @@
     <value>Would you like to review Quick Pad in the Microsoft Store?</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
-  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
+  <data name="AskForReviewDialog.PrimaryButtonText" xml:space="preserve">
     <value>Review</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>

@@ -9,6 +9,14 @@
     Title="Review Quick Pad"
     Windows10version1809:CornerRadius="4"
     Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
+    PrimaryButtonClick="CmdClose_Click"
+    PrimaryButtonCommand="{x:Bind Commands.RateAndReviewCommand}"
+    PrimaryButtonCommandParameter="{x:Bind ViewModel}"
+    PrimaryButtonStyle="{StaticResource AccentButtonStyle}"
+    PrimaryButtonText="Review"
+    SecondaryButtonClick="CmdClose_Click"
+    SecondaryButtonText="No"
+    Style="{StaticResource DefaultContentDialogStyle}"
     mc:Ignorable="d">
 
     <Grid Width="376">
@@ -22,31 +30,6 @@
                 FontSize="16"
                 Text="Would you like to review Quick Pad in the Microsoft Store?"
                 TextWrapping="Wrap" />
-
-            <StackPanel
-                HorizontalAlignment="Right"
-                Orientation="Horizontal"
-                Spacing="8">
-                <Button
-                    x:Uid="AskForReviewDialogNo"
-                    Width="60"
-                    Height="32"
-                    Margin="0,12,0,0"
-                    Click="CmdClose_Click"
-                    Content="No" />
-
-                <Button
-                    x:Name="CmdClose"
-                    x:Uid="AskForReviewDialogReview"
-                    Width="80"
-                    Height="32"
-                    Margin="0,12,0,0"
-                    Click="CmdClose_Click"
-                    Command="{x:Bind Commands.RateAndReviewCommand}"
-                    CommandParameter="{x:Bind ViewModel}"
-                    Content="Review"
-                    Style="{StaticResource AccentButtonStyle}" />
-            </StackPanel>
         </StackPanel>
     </Grid>
 </ContentDialog>
