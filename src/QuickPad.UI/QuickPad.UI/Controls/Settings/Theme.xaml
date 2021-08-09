@@ -33,7 +33,8 @@
                                 Width="36"
                                 Height="36"
                                 Margin="0,8,8,8"
-                                BorderThickness=".5">
+                                BorderThickness=".5"
+                                CornerRadius="2">
                                 <Grid.BorderBrush>
                                     <SolidColorBrush Opacity=".5" Color="{StaticResource SystemAccentColor}" />
                                 </Grid.BorderBrush>
