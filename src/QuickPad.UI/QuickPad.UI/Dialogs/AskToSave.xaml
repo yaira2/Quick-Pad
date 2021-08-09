@@ -19,6 +19,7 @@
     SecondaryButtonClick="AskToSave_OnSecondaryButtonClick"
     SecondaryButtonStyle="{ThemeResource DefaultButtonStyle}"
     SecondaryButtonText="Don't Save"
+    Style="{StaticResource DefaultContentDialogStyle}"
     mc:Ignorable="d">
     <ContentDialog.Resources>
         <converters:Converter x:Key="Converter" />
