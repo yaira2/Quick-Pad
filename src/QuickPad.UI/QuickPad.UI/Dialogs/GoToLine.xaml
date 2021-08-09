@@ -12,6 +12,12 @@
     Windows10version1809:CornerRadius="4"
     Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
     Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
+    PrimaryButtonClick="CmdClose_Click"
+    PrimaryButtonCommand="{x:Bind Commands.GoToLineCommand}"
+    PrimaryButtonCommandParameter="{x:Bind ViewModel}"
+    PrimaryButtonText="Go To"
+    SecondaryButtonClick="CmdClose_Click"
+    SecondaryButtonText="Cancel"
     Style="{StaticResource DefaultContentDialogStyle}"
     mc:Ignorable="d">
     <ContentDialog.Resources>
@@ -40,27 +46,6 @@
             Grid.Row="1"
             Padding="0,16,0,0"
             Orientation="Horizontal">
-            <Button
-                x:Uid="CmdGoTo"
-                Width="132"
-                Margin="0,0,2,0"
-                Click="CmdClose_Click"
-                Command="{x:Bind Commands.GoToLineCommand}"
-                CommandParameter="{x:Bind ViewModel}"
-                Content="Go To"
-                Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
-                TabIndex="1">
-                <Button.KeyboardAccelerators>
-                    <KeyboardAccelerator Key="Enter" />
-                </Button.KeyboardAccelerators>
-            </Button>
-            <Button
-                x:Uid="CmdCancel"
-                Width="132"
-                Margin="4,0,0,0"
-                Click="CmdClose_Click"
-                Content="Cancel"
-                Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}" />
         </StackPanel>
     </Grid>
 </ContentDialog>

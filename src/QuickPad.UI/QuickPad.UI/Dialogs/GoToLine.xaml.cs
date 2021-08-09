@@ -43,7 +43,7 @@ namespace QuickPad.UI.Dialogs
             base.Closed += (sender, args) => this.Closed?.Invoke();
         }
 
-        private void CmdClose_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void CmdClose_Click(Windows.UI.Xaml.Controls.ContentDialog sender, Windows.UI.Xaml.Controls.ContentDialogButtonClickEventArgs args)
         {
             Hide();
         }

@@ -691,16 +691,6 @@
           <target state="translated">Ora/Giorno</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="CmdCancel.Content" translate="yes" xml:space="preserve">
-          <source>Cancel</source>
-          <target state="translated">Annulla</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
-        </trans-unit>
-        <trans-unit id="CmdGoTo.Content" translate="yes" xml:space="preserve">
-          <source>Go To</source>
-          <target state="translated">Vai a</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
-        </trans-unit>
         <trans-unit id="GoToDialog.Title" translate="yes" xml:space="preserve">
           <source>Go To</source>
           <target state="translated">Vai a</target>
@@ -1050,6 +1040,16 @@
           <source>Review</source>
           <target state="new">Review</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
+        </trans-unit>
+        <trans-unit id="GoToDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
+          <source>Cancel</source>
+          <target state="new">Cancel</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
+        </trans-unit>
+        <trans-unit id="GoToDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
+          <source>Go To</source>
+          <target state="new">Go To</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
       </group>
     </body>
