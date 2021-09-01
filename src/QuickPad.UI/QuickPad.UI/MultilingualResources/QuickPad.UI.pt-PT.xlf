@@ -983,12 +983,12 @@
         </trans-unit>
         <trans-unit id="MarkdownPreview.Text" translate="yes" xml:space="preserve">
           <source>Markdown Preview</source>
-          <target state="translated">Pré-visualizar Formatação</target>
+          <target state="translated">Pré-visualizar Markdown</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="MarkdownPreviewLabel.Label" translate="yes" xml:space="preserve">
           <source>Markdown Preview</source>
-          <target state="translated">Pré-visualizar Formatação</target>
+          <target state="translated">Pré-visualizar Markdown</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ReplaceLabel.Label" translate="yes" xml:space="preserve">
