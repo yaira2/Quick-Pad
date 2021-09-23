@@ -13,8 +13,10 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:local="using:QuickPad.UI"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
     xmlns:viewModels="using:QuickPad.Mvvm.ViewModels"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    muxc:BackdropMaterial.ApplyToRootOrPageBackground="True"
+    Background="Transparent"
     FlowDirection="{x:Bind Settings.FlowDirection, Mode=OneWay}"
     Foreground="{x:Bind Settings.DefaultTextForegroundBrush, Mode=OneWay}"
     KeyUp="MainPage_OnKeyUp"
@@ -23,47 +25,45 @@
     <Page.Resources>
         <converters:Converter x:Key="Converter" />
     </Page.Resources>
-    <Grid>
+    <Grid Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush2, Mode=OneWay}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <controls1:DropShadowPanel
-            HorizontalContentAlignment="Stretch"
-            Canvas.ZIndex="75"
-            ShadowOpacity="0.3">
-            <StackPanel
-                x:Name="TopBar"
+        <StackPanel
+            x:Name="TopBar"
+            HorizontalAlignment="Stretch"
+            BorderBrush="{ThemeResource ControlStrokeColorDefault}"
+            BorderThickness="0,0,0,1">
+            <controls3:TitleBar
+                x:Name="titleBar"
+                Grid.Row="0"
+                Height="32"
                 HorizontalAlignment="Stretch"
-                Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-                <controls3:TitleBar
-                    x:Name="titleBar"
-                    Grid.Row="0"
-                    Height="32"
-                    HorizontalAlignment="Stretch"
-                    Canvas.ZIndex="100"
-                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
+                Canvas.ZIndex="100"
+                ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
 
-                <controls3:MenuBar
-                    x:Name="menuBar"
-                    Height="46"
-                    HorizontalAlignment="Stretch"
-                    x:Load="{x:Bind Settings.ShowMenu, Mode=OneWay}"
-                    Canvas.ZIndex="100"
-                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
+            <controls3:MenuBar
+                x:Name="menuBar"
+                Height="46"
+                HorizontalAlignment="Stretch"
+                x:Load="{x:Bind Settings.ShowMenu, Mode=OneWay}"
+                BorderBrush="{ThemeResource ControlStrokeColorDefault}"
+                BorderThickness="0,0,1,0"
+                Canvas.ZIndex="100"
+                ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
 
-                <controls3:CommandBar
-                    x:Name="commandBar"
-                    Height="46"
-                    HorizontalAlignment="Stretch"
-                    x:Load="{x:Bind Settings.ShowCommandBar, Mode=OneWay}"
-                    Canvas.ZIndex="100"
-                    SetFontName="CommandBarOnSetFontName"
-                    SetFontSize="CommandBarOnSetFontSize"
-                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
-            </StackPanel>
-        </controls1:DropShadowPanel>
+            <controls3:CommandBar
+                x:Name="commandBar"
+                Height="46"
+                HorizontalAlignment="Stretch"
+                x:Load="{x:Bind Settings.ShowCommandBar, Mode=OneWay}"
+                Canvas.ZIndex="100"
+                SetFontName="CommandBarOnSetFontName"
+                SetFontSize="CommandBarOnSetFontSize"
+                ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
+        </StackPanel>
 
         <SplitView
             x:Name="splitView"
@@ -89,32 +89,30 @@
                 </Grid>
             </SplitView.Pane>
 
-            <Grid Background="{x:Bind converters:Converter.SelectionBetweenBrush(Settings.UseAcrylic, VtSelector.CurrentItem.BackgroundAcrylicBrush, VtSelector.CurrentItem.SolidBackgroundBrush), Mode=OneWay}">
+            <Grid Background="Transparent">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
 
-                <controls1:DropShadowPanel
-                    x:Name="FindReplaceControl"
+                <controls3:FindAndReplaceView
+                    x:Name="FindAndReplaceView"
                     Grid.Row="0"
                     Margin="16"
                     HorizontalAlignment="Right"
                     VerticalAlignment="Top"
                     x:Load="{x:Bind ViewModel.ShowFind, Mode=OneWay}"
-                    Canvas.ZIndex="75"
-                    ShadowOpacity="0.3">
-                    <controls3:FindAndReplaceView
-                        x:Name="FindAndReplaceView"
-                        Canvas.ZIndex="100"
-                        ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
-                </controls1:DropShadowPanel>
+                    Canvas.ZIndex="100"
+                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
 
                 <ScrollViewer
                     x:Name="TextScrollViewer"
                     Grid.Row="0"
                     HorizontalAlignment="Stretch"
                     VerticalAlignment="Stretch"
+                    Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush1, Mode=OneWay}"
+                    BorderBrush="{ThemeResource ControlStrokeColorDefault}"
+                    BorderThickness="0,0,0,1"
                     MinZoomFactor="1"
                     ViewChanged="TextScrollViewer_ViewChanged"
                     ZoomMode="Enabled">
@@ -193,21 +191,13 @@
                     </Grid>
                 </ScrollViewer>
 
-                <controls1:DropShadowPanel
-                    x:Name="StatusBarShadow"
+                <controls3:StatusBar
+                    x:Name="statusBar"
                     Grid.Row="1"
                     HorizontalAlignment="Stretch"
                     HorizontalContentAlignment="Stretch"
                     x:Load="{x:Bind Settings.ShowStatusBar, Mode=OneWay}"
-                    Canvas.ZIndex="75"
-                    OffsetX="0"
-                    OffsetY="1"
-                    ShadowOpacity="0.3">
-                    <controls3:StatusBar
-                        x:Name="statusBar"
-                        HorizontalAlignment="Stretch"
-                        ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
-                </controls1:DropShadowPanel>
+                    ViewModel="{x:Bind ViewModel, Mode=OneWay}" />
             </Grid>
         </SplitView>
     </Grid>

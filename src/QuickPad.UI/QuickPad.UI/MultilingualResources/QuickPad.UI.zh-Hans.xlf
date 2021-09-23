@@ -6,11 +6,6 @@
     </header>
     <body>
       <group id="QUICKPAD.UI/STRINGS/EN-US/RESOURCES.RESW" datatype="resx">
-        <trans-unit id="AcrylicOptions.Text" translate="yes" xml:space="preserve">
-          <source>Acrylic Options</source>
-          <target state="new">Acrylic Options</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Advanced.Text" translate="yes" xml:space="preserve">
           <source>Advanced</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">高级</target>
@@ -881,19 +876,9 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">启动模式:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="AcrylicTintOpacity.Header" translate="yes" xml:space="preserve">
-          <source>Acrylic tint opacity</source>
-          <target state="new">Acrylic tint opacity</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="KeepTextOnly.Header" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
           <target state="new">Keep text only</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
-        <trans-unit id="UseAcrylicOnTextBox.Header" translate="yes" xml:space="preserve">
-          <source>Use acrylic background for the text area</source>
-          <target state="new">Use acrylic background for the text area</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SearchWithGoogle.Header" translate="yes" xml:space="preserve">

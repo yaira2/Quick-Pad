@@ -265,36 +265,16 @@ namespace QuickPad.UI.Theme
 
         private VisualTheme BuildTheme(string themeId, string nameResKey, bool lightTheme, Color accentColor)
         {
-            var backgroundAcrylic = new AcrylicBrush
+            var backgroundMicaBrush1 = new SolidColorBrush
             {
-                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                FallbackColor = accentColor,
-                TintColor = accentColor,
-                TintOpacity = _settingsViewModel.BackgroundTintOpacity,
+                Color = accentColor,
+                Opacity = 0.2
             };
-
-            var backgroundAcrylic2 = new AcrylicBrush
+            
+            var backgroundMicaBrush2 = new SolidColorBrush
             {
-                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                FallbackColor = accentColor,
-                TintColor = accentColor,
-                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + .15) > 1 ? 1 : _settingsViewModel.BackgroundTintOpacity + .15
-            };
-
-            var backgroundAcrylicAccent = new AcrylicBrush
-            {
-                BackgroundSource = AcrylicBackgroundSource.Backdrop,
-                FallbackColor = accentColor,
-                TintColor = accentColor,
-                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + -.25) < 0 ? 0 : _settingsViewModel.BackgroundTintOpacity - .25
-            };
-
-            var inAppAcrylic = new AcrylicBrush
-            {
-                BackgroundSource = AcrylicBackgroundSource.Backdrop,
-                FallbackColor = accentColor,
-                TintColor = accentColor,
-                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + .05) > 1 ? 1 : _settingsViewModel.BackgroundTintOpacity + .05
+                Color = accentColor,
+                Opacity = 0.3
             };
 
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
@@ -309,18 +289,14 @@ namespace QuickPad.UI.Theme
                 FriendlyName = _loader.GetString(nameResKey),
                 Description = _loader.GetString(descriptionResKey),
                 Theme = etheme,
-                BackgroundAcrylicBrush = backgroundAcrylic,
-                BackgroundAcrylicBrush2 = backgroundAcrylic2,
-                BackgroundAcrylicAccent = backgroundAcrylicAccent,
-                InAppAcrylicBrush = inAppAcrylic,
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
+                BackgroundMicaBrush1 = backgroundMicaBrush1,
+                BackgroundMicaBrush2 = backgroundMicaBrush2,
                 PreviewBrush = new SolidColorBrush(accentColor),
                 BaseThemeBackgroundBrush = etheme == ElementTheme.Dark
-                    ? new SolidColorBrush(Color.FromArgb(255, 28, 28, 28))
-                    : new SolidColorBrush(Colors.White),
+                    ? new SolidColorBrush(Color.FromArgb(255, 39, 39, 39))
+                    : new SolidColorBrush(Color.FromArgb(255, 249, 249, 249))
             };
-
-            _settingsViewModel.AfterTintOpacityChanged += theme.UpdateTintOpacity;
 
             return theme;
         }

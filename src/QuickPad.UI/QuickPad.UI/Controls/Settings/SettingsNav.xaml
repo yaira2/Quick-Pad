@@ -10,10 +10,13 @@
     DataContext="{Binding RelativeSource={RelativeSource Self}}"
     mc:Ignorable="d">
 
-    <Grid Width="360" HorizontalAlignment="Stretch">
+    <Grid
+        Width="360"
+        HorizontalAlignment="Stretch"
+        Background="{x:Bind VtSelector.CurrentItem.SolidBackgroundBrush, Mode=OneWay}">
         <winui:NavigationView
             x:Name="settingNavView"
-            Margin="0,0,0,0" 
+            Margin="0,0,0,0"
             HorizontalAlignment="Stretch"
             BackRequested="settingNavView_BackRequested"
             IsBackButtonVisible="Visible"
@@ -74,7 +77,7 @@
             </winui:NavigationView.MenuItems>
         </winui:NavigationView>
 
-        <ScrollViewer Margin="0,48,0,0" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicAccent, Mode=OneWay}">
+        <ScrollViewer Margin="0,48,0,0">
             <Frame
                 x:Name="SettingsFrame"
                 Height="Auto"

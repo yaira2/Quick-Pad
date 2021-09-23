@@ -167,19 +167,6 @@ namespace QuickPad.UI.Helpers
             set => Model.DefaultTextForegroundBrushString = value.Color.ToHex();
         }
 
-        // Not Ignored
-
-        [NotifyOnReset]
-        public double BackgroundTintOpacity
-        {
-            get => Model.BackgroundTintOpacity;
-            set
-            {
-                Model.BackgroundTintOpacity = value;
-                AfterTintOpacityChanged?.Invoke(value);
-            }
-        }
-
         // Helper Methods
         private Color FromHex(string hex)
         {

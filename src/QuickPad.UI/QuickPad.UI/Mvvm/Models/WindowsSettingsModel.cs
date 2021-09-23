@@ -58,12 +58,6 @@ namespace QuickPad.UI.Helpers
             set => Set(value);
         }
 
-        public double BackgroundTintOpacity
-        {
-            get => Get(0.75);
-            set => Set(value);
-        }
-
         public string FlowDirection
         {
             get => Get(nameof(Windows.UI.Xaml.FlowDirection.LeftToRight));
