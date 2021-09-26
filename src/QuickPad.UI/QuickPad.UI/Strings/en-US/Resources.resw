@@ -937,4 +937,20 @@
     <value>Release Notes</value>
     <comment>Used on About Page</comment>
   </data>
+  <data name="ThemeHibiscusName" xml:space="preserve">
+    <value>Hibiscus</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeIronName" xml:space="preserve">
+    <value>Iron</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeOrangeName" xml:space="preserve">
+    <value>Orange</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeYellowName" xml:space="preserve">
+    <value>Yellow</value>
+    <comment>Used on Theme Page</comment>
+  </data>
 </root>

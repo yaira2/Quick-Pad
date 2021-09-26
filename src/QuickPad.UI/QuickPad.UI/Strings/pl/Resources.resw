@@ -12,14 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>Opcje przezroczystości</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AcrylicTintOpacity.Header" xml:space="preserve">
-    <value>Poziom przezroczystości</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Zaawansowane</value>
     <comment>Used on Settings Page</comment>
@@ -319,10 +311,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>Cofnij</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Header" xml:space="preserve">
-    <value>Użyj tła "acrylic" dla pola tekstowego</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>Widok</value>
@@ -636,14 +624,6 @@
     <value>Czas/Data</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CmdCancel.Content" xml:space="preserve">
-    <value>Anuluj</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>Przejdź do</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
   <data name="GoToDialog.Title" xml:space="preserve">
     <value>Przejdź do</value>
     <comment>Used on GoTo Dialog</comment>
@@ -676,16 +656,8 @@
     <value>Oceń Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
-  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>Nie</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
   <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
     <value>Czy chcesz ocenić Quick Pad w Microsoft Store?</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
-  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>Opinia</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
@@ -839,5 +811,21 @@
   <data name="ReleaseNotes.Content" xml:space="preserve">
     <value>Informacje o wersji</value>
     <comment>Used on About Page</comment>
+  </data>
+  <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
+    <value>Nie</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Recenzja</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="GoToDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Anuluj</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Przejdź do</value>
+    <comment>Used on GoTo Dialog</comment>
   </data>
 </root>

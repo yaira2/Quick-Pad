@@ -460,14 +460,6 @@
     <value>以 '{}' 取代</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
-  <data name="CmdCancel.Content" xml:space="preserve">
-    <value>取消</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>到</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
   <data name="GoToDialog.Title" xml:space="preserve">
     <value>到</value>
     <comment>Used on GoTo Dialog</comment>
@@ -479,14 +471,6 @@
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>其他</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>否</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
-  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>檢閱</value>
-    <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>隱私權原則</value>
@@ -607,5 +591,21 @@
   <data name="ReleaseNotes.Content" xml:space="preserve">
     <value>版本資訊</value>
     <comment>Used on About Page</comment>
+  </data>
+  <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
+    <value>否</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialog.PrimaryButtonText" xml:space="preserve">
+    <value>檢閱</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="GoToDialog.SecondaryButtonText" xml:space="preserve">
+    <value>取消</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.PrimaryButtonText" xml:space="preserve">
+    <value>到</value>
+    <comment>Used on GoTo Dialog</comment>
   </data>
 </root>

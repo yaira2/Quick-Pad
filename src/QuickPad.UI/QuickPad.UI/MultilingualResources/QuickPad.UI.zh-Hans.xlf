@@ -1031,6 +1031,26 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">转到：</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
+        <trans-unit id="ThemeHibiscusName" translate="yes" xml:space="preserve">
+          <source>Hibiscus</source>
+          <target state="new">Hibiscus</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeIronName" translate="yes" xml:space="preserve">
+          <source>Iron</source>
+          <target state="new">Iron</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeOrangeName" translate="yes" xml:space="preserve">
+          <source>Orange</source>
+          <target state="new">Orange</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
+        <trans-unit id="ThemeYellowName" translate="yes" xml:space="preserve">
+          <source>Yellow</source>
+          <target state="new">Yellow</target>
+          <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
+        </trans-unit>
       </group>
     </body>
   </file>
