@@ -8,7 +8,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     Title="Quick Pad"
     Windows10version1809:CornerRadius="4"
-    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush1, Mode=OneWay}"
     CloseButtonStyle="{ThemeResource DefaultButtonStyle}"
     CloseButtonText="Cancel"
     Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"

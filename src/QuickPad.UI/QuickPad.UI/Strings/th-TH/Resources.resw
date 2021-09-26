@@ -12,10 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>ตั้งค่าพื้นหลัง</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>ขั้นสูง</value>
     <comment>Used on Settings Page</comment>
@@ -564,14 +560,6 @@
     <value>เวลา/วันที่</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CmdCancel.Content" xml:space="preserve">
-    <value>ยกเลิก</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>ไปที่บรรทัด</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
   <data name="GoToDialog.Title" xml:space="preserve">
     <value>ไปที่</value>
     <comment>Used on GoTo Dialog</comment>
@@ -600,16 +588,8 @@
     <value>โปรดช่วยวิจารณ์ Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
-  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>ไม่</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
   <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
     <value>ช่วยให้คะแนนและให้ข้อเสนอแนะแอปเราบน Microsoft Store ได้ไหม?</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
-  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>รีวิว</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
@@ -719,5 +699,21 @@
   <data name="ReleaseNotes.Content" xml:space="preserve">
     <value>บันทึกย่อประจำรุ่น</value>
     <comment>Used on About Page</comment>
+  </data>
+  <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
+    <value>ไม่ใช่</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialog.PrimaryButtonText" xml:space="preserve">
+    <value>ตรวจสอบ</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="GoToDialog.SecondaryButtonText" xml:space="preserve">
+    <value>ยกเลิก</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.PrimaryButtonText" xml:space="preserve">
+    <value>ไปที่:</value>
+    <comment>Used on GoTo Dialog</comment>
   </data>
 </root>

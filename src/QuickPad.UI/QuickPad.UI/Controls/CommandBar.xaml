@@ -25,7 +25,7 @@
                 Text="{Binding}" />
         </DataTemplate>
     </UserControl.Resources>
-    <Grid HorizontalAlignment="Stretch" Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
+    <Grid HorizontalAlignment="Stretch">
         <CommandBar
             Margin="0,0,208,0"
             HorizontalAlignment="Left"
@@ -124,7 +124,7 @@
                             x:Name="FontListSelection"
                             Width="250"
                             Height="350"
-                            Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+                            Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush2, Mode=OneWay}"
                             CharacterReceived="TryToFindFont"
                             ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
                             ItemsSource="{x:Bind Settings.AllFonts, Mode=OneWay}"
@@ -163,7 +163,7 @@
                             x:Name="FontSizeListSelection"
                             Width="Auto"
                             Height="350"
-                            Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}"
+                            Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush2, Mode=OneWay}"
                             ItemsSource="{x:Bind Settings.AllFontSizes, Mode=OneWay}"
                             SelectedItem="{x:Bind ViewModelDocument.CurrentFontSize, Mode=TwoWay}" />
                     </Flyout>

@@ -12,10 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>Opções de Acrílico</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Avançado</value>
     <comment>Used on Settings Page</comment>
@@ -572,14 +568,6 @@
     <value>Tempo/Data</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CmdCancel.Content" xml:space="preserve">
-    <value>Cancelar</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>Ir Para</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
   <data name="GoToDialog.Title" xml:space="preserve">
     <value>Ir Para</value>
     <comment>Used on GoTo Dialog</comment>
@@ -608,16 +596,8 @@
     <value>Rever Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
-  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>Não</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
   <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
     <value>Gostaria de rever o Quick Pad na Microsoft Store?</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
-  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>Rever</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
@@ -739,5 +719,21 @@
   <data name="ReleaseNotes.Content" xml:space="preserve">
     <value>Notas de versão</value>
     <comment>Used on About Page</comment>
+  </data>
+  <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
+    <value>Não</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Rever</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="GoToDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Cancelar</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Ir para:</value>
+    <comment>Used on GoTo Dialog</comment>
   </data>
 </root>

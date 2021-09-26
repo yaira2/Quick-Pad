@@ -16,8 +16,7 @@
     <Grid
         Height="22"
         Padding="8,0,0,2"
-        HorizontalAlignment="Stretch"
-        Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush2, Mode=OneWay}">
+        HorizontalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />

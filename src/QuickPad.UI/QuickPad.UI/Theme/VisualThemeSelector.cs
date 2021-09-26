@@ -238,6 +238,8 @@ namespace QuickPad.UI.Theme
 
             //Custom light themes:
             _themes.Add(BuildTheme("chick", "ThemeChickName", true, Color.FromArgb(255, 254, 255, 177)));
+            _themes.Add(BuildTheme("yellow", "ThemeYellowName", true, Color.FromArgb(255, 250, 242, 0)));
+            _themes.Add(BuildTheme("orange", "ThemeOrangeNAme", true, Color.FromArgb(255, 236, 102, 0)));
             _themes.Add(BuildTheme("lettuce", "ThemeLettuceName", true, Color.FromArgb(255, 177, 234, 175)));
             _themes.Add(BuildTheme("rosegold", "ThemeRoseGoldName", true, Color.FromArgb(255, 253, 220, 215)));
             _themes.Add(BuildTheme("apricot", "ThemeApricotName", true, Color.FromArgb(255, 255, 202, 175)));
@@ -250,11 +252,13 @@ namespace QuickPad.UI.Theme
             _themes.Add(BuildTheme("mintcream", "ThemeMintCreamName", true, Color.FromArgb(255, 247, 255, 247)));
 
             //Custom dark themes:
-            _themes.Add(BuildTheme("cobalt", "ThemeCobaltName", false, Color.FromArgb(255, 0, 71, 171)));
+            _themes.Add(BuildTheme("cobalt", "ThemeCobaltName", false, Color.FromArgb(255, 38, 44, 255)));
             _themes.Add(BuildTheme("leaf", "ThemeLeafName", false, Color.FromArgb(255, 56, 111, 54)));
             _themes.Add(BuildTheme("crimson", "ThemeCrimsonName", false, Color.FromArgb(255, 149, 0, 39)));
             _themes.Add(BuildTheme("darksienna", "ThemeDarkSiennaName", false, Color.FromArgb(255, 46, 15, 21)));
+            _themes.Add(BuildTheme("iron", "ThemeIronName", false, Color.FromArgb(255, 72, 73, 75)));
             _themes.Add(BuildTheme("blackcoral", "ThemeBlackCoralName", false, Color.FromArgb(255, 62, 92, 118)));
+            _themes.Add(BuildTheme("hibiscus", "ThemeHibiscusName", false, Color.FromArgb(255, 169, 56, 86)));
             _themes.Add(BuildTheme("maximumpurple", "ThemeMaximumPurpleName", false, Color.FromArgb(255, 125, 56, 125)));
             _themes.Add(BuildTheme("darkspringgreen", "ThemeDarkSpringGreenName", false, Color.FromArgb(255, 4, 114, 77)));
             _themes.Add(BuildTheme("bluemunsell", "ThemeBlueMunsellName", false, Color.FromArgb(255, 44, 140, 153)));
@@ -265,36 +269,16 @@ namespace QuickPad.UI.Theme
 
         private VisualTheme BuildTheme(string themeId, string nameResKey, bool lightTheme, Color accentColor)
         {
-            var backgroundAcrylic = new AcrylicBrush
+            var backgroundMicaBrush1 = new SolidColorBrush
             {
-                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                FallbackColor = accentColor,
-                TintColor = accentColor,
-                TintOpacity = _settingsViewModel.BackgroundTintOpacity,
+                Color = accentColor,
+                Opacity = 0.35
             };
-
-            var backgroundAcrylic2 = new AcrylicBrush
+            
+            var backgroundMicaBrush2 = new SolidColorBrush
             {
-                BackgroundSource = AcrylicBackgroundSource.HostBackdrop,
-                FallbackColor = accentColor,
-                TintColor = accentColor,
-                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + .15) > 1 ? 1 : _settingsViewModel.BackgroundTintOpacity + .15
-            };
-
-            var backgroundAcrylicAccent = new AcrylicBrush
-            {
-                BackgroundSource = AcrylicBackgroundSource.Backdrop,
-                FallbackColor = accentColor,
-                TintColor = accentColor,
-                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + -.25) < 0 ? 0 : _settingsViewModel.BackgroundTintOpacity - .25
-            };
-
-            var inAppAcrylic = new AcrylicBrush
-            {
-                BackgroundSource = AcrylicBackgroundSource.Backdrop,
-                FallbackColor = accentColor,
-                TintColor = accentColor,
-                TintOpacity = (_settingsViewModel.BackgroundTintOpacity + .05) > 1 ? 1 : _settingsViewModel.BackgroundTintOpacity + .05
+                Color = accentColor,
+                Opacity = 0.4
             };
 
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
@@ -309,18 +293,14 @@ namespace QuickPad.UI.Theme
                 FriendlyName = _loader.GetString(nameResKey),
                 Description = _loader.GetString(descriptionResKey),
                 Theme = etheme,
-                BackgroundAcrylicBrush = backgroundAcrylic,
-                BackgroundAcrylicBrush2 = backgroundAcrylic2,
-                BackgroundAcrylicAccent = backgroundAcrylicAccent,
-                InAppAcrylicBrush = inAppAcrylic,
                 SolidBackgroundBrush = new SolidColorBrush(accentColor),
+                BackgroundMicaBrush1 = backgroundMicaBrush1,
+                BackgroundMicaBrush2 = backgroundMicaBrush2,
                 PreviewBrush = new SolidColorBrush(accentColor),
                 BaseThemeBackgroundBrush = etheme == ElementTheme.Dark
-                    ? new SolidColorBrush(Color.FromArgb(255, 28, 28, 28))
-                    : new SolidColorBrush(Colors.White),
+                    ? new SolidColorBrush(Color.FromArgb(255, 39, 39, 39))
+                    : new SolidColorBrush(Color.FromArgb(255, 249, 249, 249))
             };
-
-            _settingsViewModel.AfterTintOpacityChanged += theme.UpdateTintOpacity;
 
             return theme;
         }

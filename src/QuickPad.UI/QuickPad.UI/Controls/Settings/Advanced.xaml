@@ -16,26 +16,6 @@
                 Text="Advanced" />
 
             <TextBlock
-                x:Uid="AcrylicOptions"
-                FontSize="16"
-                Text="Acrylic Options" />
-
-            <ToggleSwitch
-                x:Uid="UseAcrylicOnTextBox"
-                Header="Use acrylic background for the text area"
-                IsOn="{x:Bind Settings.UseAcrylic, Mode=TwoWay}" />
-
-            <Slider
-                x:Uid="AcrylicTintOpacity"
-                Width="240"
-                HorizontalAlignment="Left"
-                Header="Acrylic tint opacity"
-                Maximum="1"
-                Minimum="0"
-                StepFrequency="0.01"
-                Value="{x:Bind Settings.BackgroundTintOpacity, Mode=TwoWay}" />
-
-            <TextBlock
                 x:Uid="PasteOptions"
                 FontSize="16"
                 Text="Paste Options" />

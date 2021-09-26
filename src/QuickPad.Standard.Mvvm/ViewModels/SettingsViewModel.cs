@@ -220,12 +220,6 @@ namespace QuickPad.Mvvm.ViewModels
             set => Model.RtfWordWrap = value;
         }
 
-        [NotifyOnReset]
-        public bool UseAcrylic
-        {
-            get => Model.UseAcrylic;
-            set => Model.UseAcrylic = value;
-        }
 
         [NotifyOnReset]
         public float DefaultFontRtfSize

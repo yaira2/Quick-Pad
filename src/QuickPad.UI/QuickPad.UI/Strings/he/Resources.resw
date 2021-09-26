@@ -452,14 +452,6 @@
     <value>החלפה ב...</value>
     <comment>Used on Find and Replace Dialog</comment>
   </data>
-  <data name="CmdCancel.Content" xml:space="preserve">
-    <value>ביטול</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>עבור אל</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
   <data name="GoToDialog.Title" xml:space="preserve">
     <value>עבור אל</value>
     <comment>Used on GoTo Dialog</comment>
@@ -471,14 +463,6 @@
   <data name="OtherOptions.Text" xml:space="preserve">
     <value>אחר</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>לא</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
-  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>סקירה</value>
-    <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>מדיניות פרטיות</value>
@@ -583,5 +567,21 @@
   <data name="ReleaseNotes.Content" xml:space="preserve">
     <value>הערות מוצר</value>
     <comment>Used on About Page</comment>
+  </data>
+  <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
+    <value>לא</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialog.PrimaryButtonText" xml:space="preserve">
+    <value>סקירה</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="GoToDialog.SecondaryButtonText" xml:space="preserve">
+    <value>ביטול</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.PrimaryButtonText" xml:space="preserve">
+    <value>עבור אל</value>
+    <comment>Used on GoTo Dialog</comment>
   </data>
 </root>

@@ -23,7 +23,6 @@
             <ComboBox
                 x:Uid="DefaultFont"
                 MinWidth="180"
-                Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
                 Header="Default Font"
                 ItemsSource="{x:Bind Settings.AllFonts}"
                 PlaceholderText="{x:Bind Settings.DefaultFont}"
@@ -32,7 +31,6 @@
             <ComboBox
                 x:Uid="DefaultFontSize"
                 MinWidth="68"
-                Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
                 Header="Default Font Size"
                 ItemsSource="{x:Bind Settings.AllFontSizes}"
                 PlaceholderText="{x:Bind Settings.DefaultFontSize}"
@@ -58,7 +56,6 @@
             <ComboBox
                 x:Uid="DefaultFontRtf"
                 MinWidth="180"
-                Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
                 Header="Default Rich Text Font"
                 ItemsSource="{x:Bind Settings.AllFonts}"
                 PlaceholderText="{x:Bind Settings.DefaultRtfFont}"
@@ -67,7 +64,6 @@
             <ComboBox
                 x:Uid="DefaultFontSizeRtf"
                 MinWidth="68"
-                Background="{x:Bind VtSelector.CurrentItem.InAppAcrylicBrush, Mode=OneWay}"
                 Header="Default Rich Text Font Size"
                 ItemsSource="{x:Bind Settings.AllFontSizes}"
                 PlaceholderText="{x:Bind Settings.DefaultFontRtfSize}"

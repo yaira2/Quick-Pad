@@ -12,10 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>خيارات الاكريليك</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>متقدم</value>
     <comment>Used on Settings Page</comment>
@@ -548,14 +544,6 @@
     <value>الوقت/التاريخ</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CmdCancel.Content" xml:space="preserve">
-    <value>إلغاء</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>ذهاب إلى</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
   <data name="GoToDialog.Title" xml:space="preserve">
     <value>ذهاب إلى</value>
     <comment>Used on GoTo Dialog</comment>
@@ -600,16 +588,8 @@
     <value>راجع Quick Pad</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
-  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>لا</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
   <data name="AskForReviewDialogPar1.Text" xml:space="preserve">
     <value>هل تحب ان تقوم بمراجعة Quick Pad علي متجر مايكروسوفت؟</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
-  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>مراجعة</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">

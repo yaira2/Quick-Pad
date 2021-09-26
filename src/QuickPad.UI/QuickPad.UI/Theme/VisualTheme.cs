@@ -8,10 +8,10 @@ namespace QuickPad.UI.Theme
 {
     public class VisualTheme : INotifyPropertyChanged
     {
-        public static readonly Color DarkColor =
-            Color.FromArgb(255, 28, 28, 28);
+        public static readonly Color DarkColor = Color.FromArgb(255, 39, 39, 39);
 
-        public static readonly Color LightColor = Colors.White;
+        public static readonly Color LightColor = Color.FromArgb(255, 249, 249, 249);
+
         private Color? _foreground;
 
         public Color DefaultTextForegroundColor
@@ -63,13 +63,7 @@ namespace QuickPad.UI.Theme
             set;
         } = VisualThemeKind.Custom;
 
-        public Brush BackgroundAcrylicBrush
-        {
-            get;
-            set;
-        }
-
-        public Brush BackgroundAcrylicBrush2
+        public Brush BackgroundMicaBrush2
         {
             get;
             set;
@@ -81,13 +75,13 @@ namespace QuickPad.UI.Theme
             set;
         }
 
-        public Brush InAppAcrylicBrush
+        public Brush SolidBackgroundBrush
         {
             get;
             set;
         }
-
-        public Brush SolidBackgroundBrush
+        
+        public Brush BackgroundMicaBrush1
         {
             get;
             set;
@@ -110,20 +104,13 @@ namespace QuickPad.UI.Theme
             return FriendlyName;
         }
 
-        public void UpdateTintOpacity(double to)
-        {
-            ((AcrylicBrush)BackgroundAcrylicBrush).TintOpacity = to;
-            ((AcrylicBrush)BackgroundAcrylicBrush2).TintOpacity = to + .15;
-            ((AcrylicBrush)BackgroundAcrylicAccent).TintOpacity = to - .25;
-            ((AcrylicBrush)InAppAcrylicBrush).TintOpacity = to;
-        }
 
         public void UpdateBaseBackground(object sender, ThemeChangedEventArgs e)
         {
             BaseThemeBackgroundBrush =
                 Application.Current.RequestedTheme == ApplicationTheme.Dark
-                    ? new SolidColorBrush(Colors.Black)
-                    : new SolidColorBrush(Colors.White);
+                    ? new SolidColorBrush(Color.FromArgb(255, 39, 39, 39))
+                    : new SolidColorBrush(Color.FromArgb(255, 249, 249, 249));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

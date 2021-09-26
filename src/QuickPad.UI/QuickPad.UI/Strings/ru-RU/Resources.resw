@@ -12,10 +12,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>Параметры Акрила</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Продвинутые</value>
     <comment>Used on Settings Page</comment>
@@ -560,14 +556,6 @@
     <value>Время/Дата</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CmdCancel.Content" xml:space="preserve">
-    <value>Отменить</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
-  <data name="CmdGoTo.Content" xml:space="preserve">
-    <value>Перейти к</value>
-    <comment>Used on GoTo Dialog</comment>
-  </data>
   <data name="GoToDialog.Title" xml:space="preserve">
     <value>Перейти к</value>
     <comment>Used on GoTo Dialog</comment>
@@ -595,14 +583,6 @@
   <data name="SourceCode.Content" xml:space="preserve">
     <value>Код источника</value>
     <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AskForReviewDialogNo.Content" xml:space="preserve">
-    <value>Нет</value>
-    <comment>Used on AskForReviewDialog</comment>
-  </data>
-  <data name="AskForReviewDialogReview.Content" xml:space="preserve">
-    <value>Проверка</value>
-    <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="PrivacyPolicy.Content" xml:space="preserve">
     <value>Политика конфиденциальности</value>
@@ -723,5 +703,21 @@
   <data name="ReleaseNotes.Content" xml:space="preserve">
     <value>Заметки о выпуске</value>
     <comment>Used on About Page</comment>
+  </data>
+  <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
+    <value>Нет</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="AskForReviewDialog.PrimaryButtonText" xml:space="preserve">
+    <value>Проверка</value>
+    <comment>Used on AskForReviewDialog</comment>
+  </data>
+  <data name="GoToDialog.SecondaryButtonText" xml:space="preserve">
+    <value>Отмена</value>
+    <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="GoToDialog.PrimaryButtonText" xml:space="preserve">
+    <value>&amp;Перейти</value>
+    <comment>Used on GoTo Dialog</comment>
   </data>
 </root>

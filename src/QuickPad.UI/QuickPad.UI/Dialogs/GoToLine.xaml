@@ -10,7 +10,7 @@
     x:Uid="GoToDialog"
     Title="Go To Line"
     Windows10version1809:CornerRadius="4"
-    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush1, Mode=OneWay}"
     Foreground="{x:Bind converters:Converter.FromColorToBrush(VtSelector.CurrentItem.DefaultTextForegroundColor)}"
     PrimaryButtonClick="CmdClose_Click"
     PrimaryButtonCommand="{x:Bind Commands.GoToLineCommand}"
@@ -45,7 +45,6 @@
         <StackPanel
             Grid.Row="1"
             Padding="0,16,0,0"
-            Orientation="Horizontal">
-        </StackPanel>
+            Orientation="Horizontal" />
     </Grid>
 </ContentDialog>

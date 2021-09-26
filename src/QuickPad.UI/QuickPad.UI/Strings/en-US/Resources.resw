@@ -117,14 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AcrylicOptions.Text" xml:space="preserve">
-    <value>Acrylic Options</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="AcrylicTintOpacity.Header" xml:space="preserve">
-    <value>Acrylic tint opacity</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Advanced.Text" xml:space="preserve">
     <value>Advanced</value>
     <comment>Used on Settings Page</comment>
@@ -424,10 +416,6 @@
   <data name="Undo.Text" xml:space="preserve">
     <value>Undo</value>
     <comment>Used on Menu Item</comment>
-  </data>
-  <data name="UseAcrylicOnTextBox.Header" xml:space="preserve">
-    <value>Use acrylic background for the text area</value>
-    <comment>Used on Settings Page</comment>
   </data>
   <data name="View.Title" xml:space="preserve">
     <value>View</value>
@@ -948,5 +936,21 @@
   <data name="ReleaseNotes.Content" xml:space="preserve">
     <value>Release Notes</value>
     <comment>Used on About Page</comment>
+  </data>
+  <data name="ThemeHibiscusName" xml:space="preserve">
+    <value>Hibiscus</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeIronName" xml:space="preserve">
+    <value>Iron</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeOrangeName" xml:space="preserve">
+    <value>Orange</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeYellowName" xml:space="preserve">
+    <value>Yellow</value>
+    <comment>Used on Theme Page</comment>
   </data>
 </root>

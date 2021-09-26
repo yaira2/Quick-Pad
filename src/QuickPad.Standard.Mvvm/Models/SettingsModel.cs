@@ -56,12 +56,6 @@ namespace QuickPad.Mvvm.Models
             set => Set(value, MethodBase.GetCurrentMethod().Name);
         }
 
-        public bool UseAcrylic
-        {
-            get => Get(false, MethodBase.GetCurrentMethod().Name);
-            set => Set(value, MethodBase.GetCurrentMethod().Name);
-        }
-
         public float DefaultFontRtfSize
         {
             get => Get(12.0f, MethodBase.GetCurrentMethod().Name);

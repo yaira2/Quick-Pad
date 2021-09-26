@@ -8,7 +8,7 @@
     x:Uid="AskForReviewDialog"
     Title="Review Quick Pad"
     Windows10version1809:CornerRadius="4"
-    Background="{x:Bind VtSelector.CurrentItem.BackgroundAcrylicBrush, Mode=OneWay}"
+    Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush1, Mode=OneWay}"
     PrimaryButtonClick="CmdClose_Click"
     PrimaryButtonCommand="{x:Bind Commands.RateAndReviewCommand}"
     PrimaryButtonCommandParameter="{x:Bind ViewModel}"
