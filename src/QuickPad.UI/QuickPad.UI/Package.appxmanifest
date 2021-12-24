@@ -155,6 +155,7 @@
               <uap:FileType>.cs</uap:FileType>
               <uap:FileType>.ini</uap:FileType>
               <uap:FileType>.cfg</uap:FileType>
+              <uap:FileType>.srt</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:Logo>Assets\File Icons\General Small.png</uap:Logo>
           </uap:FileTypeAssociation>
