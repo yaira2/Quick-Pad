@@ -158,7 +158,7 @@
         </trans-unit>
         <trans-unit id="FindPrevious.Text" translate="yes" xml:space="preserve">
           <source>Find Previous</source>
-          <target state="translated">ต้นหาก่อนหน้า</target>
+          <target state="translated">ค้นหาก่อนหน้า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="FocusMode.Text" translate="yes" xml:space="preserve">
