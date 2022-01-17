@@ -13,7 +13,7 @@
         </trans-unit>
         <trans-unit id="AppName.Text" translate="yes" xml:space="preserve">
           <source>Quick Pad</source>
-          <target state="new">Quick Pad</target>
+          <target state="translated">Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ThemeChickName" translate="yes" xml:space="preserve">
@@ -23,7 +23,7 @@
         </trans-unit>
         <trans-unit id="ThemeCobaltName" translate="yes" xml:space="preserve">
           <source>Cobalt</source>
-          <target state="translated">ฟ้าครึ้ม</target>
+          <target state="translated">น้ำเงิน</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCrimsonName" translate="yes" xml:space="preserve">
@@ -33,12 +33,12 @@
         </trans-unit>
         <trans-unit id="ThemeDarkName" translate="yes" xml:space="preserve">
           <source>Dark</source>
-          <target state="translated">เข้ม</target>
+          <target state="translated">มืด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLeafName" translate="yes" xml:space="preserve">
           <source>Leaf</source>
-          <target state="translated">เขียวขจี</target>
+          <target state="translated">เขียว</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeLettuceName" translate="yes" xml:space="preserve">
@@ -58,7 +58,7 @@
         </trans-unit>
         <trans-unit id="ThemeRoseGoldName" translate="yes" xml:space="preserve">
           <source>Rose Gold</source>
-          <target state="translated">ชมพู</target>
+          <target state="translated">ขาวอมชมพู</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSystemName" translate="yes" xml:space="preserve">
@@ -113,8 +113,7 @@
         </trans-unit>
         <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
           <source>Developed by Yair Aichenbaum</source>
-          <target state="needs-review-translation">พัฒนาโดย Yair Aichenbaum และ Sharp Ninja</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
+          <target state="translated">พัฒนาโดย Yair Aichenbaum และ Sharp Ninja</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
@@ -609,7 +608,7 @@
         </trans-unit>
         <trans-unit id="SaveDialog.Title" translate="yes" xml:space="preserve">
           <source>Quick Pad</source>
-          <target state="new">Quick Pad</target>
+          <target state="translated">Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Save Dialog</note>
         </trans-unit>
         <trans-unit id="WouldYouLikeToSave.Text" translate="yes" xml:space="preserve">
@@ -639,7 +638,7 @@
         </trans-unit>
         <trans-unit id="SourceCode.Content" translate="yes" xml:space="preserve">
           <source>Source Code</source>
-          <target state="translated">Source Code</target>
+          <target state="translated">ร่วมพัฒนาโปรแกรม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpecialThanks.Text" translate="yes" xml:space="preserve">
@@ -749,307 +748,307 @@
         </trans-unit>
         <trans-unit id="ThemeApricotName" translate="yes" xml:space="preserve">
           <source>Apricot</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">แอปริคอต</target>
+          <target state="translated">ไข่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeBlackCoralName" translate="yes" xml:space="preserve">
           <source>Black Coral</source>
-          <target state="new">Black Coral</target>
+          <target state="translated">ครามเข้ม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkSiennaName" translate="yes" xml:space="preserve">
           <source>Dark Sienna</source>
-          <target state="new">Dark Sienna</target>
+          <target state="translated">แดงเลือดหมู</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeDarkSpringGreenName" translate="yes" xml:space="preserve">
           <source>Dark Spring Green</source>
-          <target state="new">Dark Spring Green</target>
+          <target state="translated">เขียวมรกต</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMaximumPurpleName" translate="yes" xml:space="preserve">
           <source>Maximum Purple</source>
-          <target state="new">Maximum Purple</target>
+          <target state="translated">ม่วงเข้ม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMediumPurpleName" translate="yes" xml:space="preserve">
           <source>Medium Purple</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ม่วงปานกลาง</target>
+          <target state="translated">ม่วง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemePersimmonName" translate="yes" xml:space="preserve">
           <source>Persimmon</source>
-          <target state="new">Persimmon</target>
+          <target state="translated">ส้ม</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeSizzlingRedName" translate="yes" xml:space="preserve">
           <source>Sizzling Red</source>
-          <target state="new">Sizzling Red</target>
+          <target state="translated">ชมพู</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="SettingsToolTip.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่า</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="SettingsNavGeneral.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>General Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าทั่วไป</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าทั่วไป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAbout.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>About Quick Pad</source>
-          <target state="new">About Quick Pad</target>
+          <target state="translated">ข้อมูลเกี่ยวกับแอป Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Advanced Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าขั้นสูง</target>
+          <target state="translated">การตั้งค่าขั้นสูง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavFont.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าฟอนต์</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าฟอนต์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavTheme.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าชุดรูปแบบ</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าชุดรูปแบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAbout.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>About Quick Pad</source>
-          <target state="new">About Quick Pad</target>
+          <target state="translated">ข้อมูลเกี่ยวกับแอป Quick Pad</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavAdvanced.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Advanced Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าขั้นสูง</target>
+          <target state="translated">การตั้งค่าขั้นสูง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavFont.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Font Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าฟอนต์</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าฟอนต์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavGeneral.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>General Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าทั่วไป</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าทั่วไป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="SettingsNavTheme.ToolTipService.ToolTip" translate="yes" xml:space="preserve">
           <source>Theme Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าชุดรูปแบบ</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าชุดรูปแบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
         <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
+          <target state="translated">บริจาคช่วยนักพัฒนา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">นโยบายความเป็นส่วนตัว</target>
+          <target state="translated" state-qualifier="tm-suggestion">นโยบายความเป็นส่วนตัว</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AppLanguage.Header" translate="yes" xml:space="preserve">
           <source>App Language</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ภาษาของแอป</target>
+          <target state="translated" state-qualifier="tm-suggestion">ภาษาของแอป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="AutoSave.Header" translate="yes" xml:space="preserve">
           <source>Auto Save</source>
-          <target state="new">Auto Save</target>
+          <target state="translated">บันทึกอัตโนมัติ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFileEncoding.Header" translate="yes" xml:space="preserve">
           <source>Default File Encoding</source>
-          <target state="new">Default File Encoding</target>
+          <target state="translated">ค่าเริ่มต้นระบบอ่านไฟล์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFileType.Header" translate="yes" xml:space="preserve">
           <source>Default File Type</source>
-          <target state="new">Default File Type</target>
+          <target state="translated">ค่าเริ่มต้นชนิดไฟล์</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="LaunchModeComboBox.Header" translate="yes" xml:space="preserve">
           <source>Launch Mode</source>
-          <target state="new">Launch Mode</target>
+          <target state="translated">เมนูเมื่อเปิดแอป</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="KeepTextOnly.Header" translate="yes" xml:space="preserve">
           <source>Keep text only</source>
-          <target state="new">Keep text only</target>
+          <target state="translated">วางเฉพาะข้อความเท่านั้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SearchWithGoogle.Header" translate="yes" xml:space="preserve">
           <source>Enable Google Search</source>
-          <target state="new">Enable Google Search</target>
+          <target state="translated">เปิดใช้งานค้นหาด้วย Google</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on General Settings Page</note>
         </trans-unit>
         <trans-unit id="Export.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Export Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าการส่งออก</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าการส่งออก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Import.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Import Settings</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">การตั้งค่าการนำเข้า</target>
+          <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าการนำเข้า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="Reset.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Reset Settings</source>
-          <target state="new">Reset Settings</target>
+          <target state="translated">รีเซทตั้งค่า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="KeepTextOnly.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Keep text only when pasting text</source>
-          <target state="new">Keep text only when pasting text</target>
+          <target state="translated">วางเฉพาะข้อความเมื่อวางด้วยปุ่มลัด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFont.Header" translate="yes" xml:space="preserve">
           <source>Default Font</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ฟอนต์เริ่มต้น</target>
+          <target state="translated" state-qualifier="tm-suggestion">ฟอนต์เริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSize.Header" translate="yes" xml:space="preserve">
           <source>Default Font Size</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ขนาดฟอนต์เริ่มต้น</target>
+          <target state="translated" state-qualifier="tm-suggestion">ขนาดฟอนต์เริ่มต้น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpellCheck.Header" translate="yes" xml:space="preserve">
           <source>Spell Check</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ตรวจตัวสะกด</target>
+          <target state="translated" state-qualifier="tm-suggestion">ตรวจตัวสะกด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSetting.Header" translate="yes" xml:space="preserve">
           <source>Word Wrap</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ตัดคำ</target>
+          <target state="translated" state-qualifier="tm-suggestion">ตัดคำ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontRtf.Header" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font</source>
-          <target state="new">Default Rich Text Font</target>
+          <target state="translated">ฟอนต์เริ่มต้นเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="DefaultFontSizeRtf.Header" translate="yes" xml:space="preserve">
           <source>Default Rich Text Font Size</source>
-          <target state="new">Default Rich Text Font Size</target>
+          <target state="translated">ขนาดฟอนต์เริ่มต้นเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="WordWrapSettingRtf.Header" translate="yes" xml:space="preserve">
           <source>Word Wrap in Rich Text</source>
-          <target state="new">Word Wrap in Rich Text</target>
+          <target state="translated">ตัดคำในเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="SpellCheckRtf.Header" translate="yes" xml:space="preserve">
           <source>Spell Check in Rich Text</source>
-          <target state="new">Spell Check in Rich Text</target>
+          <target state="translated">ตรวจตัวสะกดในเอกสาร Rich Text</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="ThemeBlueMunsellName" translate="yes" xml:space="preserve">
           <source>Blue Munsell</source>
-          <target state="new">Blue Munsell</target>
+          <target state="translated">ครามทะเล</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCamelName" translate="yes" xml:space="preserve">
           <source>Camel</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">อูฐ</target>
+          <target state="translated">ทราย</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeCedarChestName" translate="yes" xml:space="preserve">
           <source>Cedar Chest</source>
-          <target state="new">Cedar Chest</target>
+          <target state="translated">น้ำตาลแดง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMiddleBlueName" translate="yes" xml:space="preserve">
           <source>Middle Blue</source>
-          <target state="new">Middle Blue</target>
+          <target state="translated">ฟ้า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="MarkdownPreview.Text" translate="yes" xml:space="preserve">
           <source>Markdown Preview</source>
-          <target state="new">Markdown Preview</target>
+          <target state="translated">แสดงตัวอย่าง Markdown </target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
         <trans-unit id="MarkdownPreviewLabel.Label" translate="yes" xml:space="preserve">
           <source>Markdown Preview</source>
-          <target state="new">Markdown Preview</target>
+          <target state="translated">แสดงตัวอย่าง Markdown</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ReplaceLabel.Label" translate="yes" xml:space="preserve">
           <source>Replace</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">แทนที่</target>
+          <target state="translated" state-qualifier="tm-suggestion">แทนที่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on CommandBar</note>
         </trans-unit>
         <trans-unit id="ThemeBronzeName" translate="yes" xml:space="preserve">
           <source>Bronze</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">บรอนซ์</target>
+          <target state="translated">กาแฟ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeMintCreamName" translate="yes" xml:space="preserve">
           <source>Mint Cream</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ครีมมินต์</target>
+          <target state="translated">ขาวซีด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRaisinBlackName" translate="yes" xml:space="preserve">
           <source>Raisin Black</source>
-          <target state="new">Raisin Black</target>
+          <target state="translated">กรมท่า</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeRustName" translate="yes" xml:space="preserve">
           <source>Rust</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">สนิม</target>
+          <target state="translated" state-qualifier="tm-suggestion">น้ำตาล</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ReleaseNotes.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Release Notes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">บันทึกย่อประจำรุ่น</target>
+          <target state="translated">บันทึกการอัพเดต</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
         <trans-unit id="ReleaseNotes.Content" translate="yes" xml:space="preserve">
           <source>Release Notes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">บันทึกย่อประจำรุ่น</target>
+          <target state="translated">บันทึกการอัพเดต</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog&amp;gt;SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>No</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ไม่ใช่</target>
+          <target state="translated">ไม่ได้</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>Review</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ตรวจสอบ</target>
+          <target state="translated">ได้</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on AskForReviewDialog</note>
         </trans-unit>
         <trans-unit id="GoToDialog.SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>Cancel</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ยกเลิก</target>
+          <target state="translated" state-qualifier="tm-suggestion">ยกเลิก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="GoToDialog.PrimaryButtonText" translate="yes" xml:space="preserve">
           <source>Go To</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">ไปที่:</target>
+          <target state="translated">ไปที่</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on GoTo Dialog</note>
         </trans-unit>
         <trans-unit id="ThemeHibiscusName" translate="yes" xml:space="preserve">
           <source>Hibiscus</source>
-          <target state="new">Hibiscus</target>
+          <target state="translated">บานเย็น</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeIronName" translate="yes" xml:space="preserve">
           <source>Iron</source>
-          <target state="new">Iron</target>
+          <target state="translated">เทา</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeOrangeName" translate="yes" xml:space="preserve">
           <source>Orange</source>
-          <target state="new">Orange</target>
+          <target state="translated">แสด</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
         <trans-unit id="ThemeYellowName" translate="yes" xml:space="preserve">
           <source>Yellow</source>
-          <target state="new">Yellow</target>
+          <target state="translated">เหลือง</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
         </trans-unit>
       </group>

@@ -16,12 +16,16 @@
     <value>ขั้นสูง</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="AppName.Text" xml:space="preserve">
+    <value>Quick Pad</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="ThemeChickName" xml:space="preserve">
     <value>เหลืองขมิ้น</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeCobaltName" xml:space="preserve">
-    <value>ฟ้าครึ้ม</value>
+    <value>น้ำเงิน</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeCrimsonName" xml:space="preserve">
@@ -29,11 +33,11 @@
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeDarkName" xml:space="preserve">
-    <value>เข้ม</value>
+    <value>มืด</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLeafName" xml:space="preserve">
-    <value>เขียวขจี</value>
+    <value>เขียว</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeLettuceName" xml:space="preserve">
@@ -49,7 +53,7 @@
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRoseGoldName" xml:space="preserve">
-    <value>ชมพู</value>
+    <value>ขาวอมชมพู</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeSystemName" xml:space="preserve">
@@ -488,6 +492,10 @@
     <value>ไม่ต้องบันทึก</value>
     <comment>Used on Save Dialog</comment>
   </data>
+  <data name="SaveDialog.Title" xml:space="preserve">
+    <value>Quick Pad</value>
+    <comment>Used on Save Dialog</comment>
+  </data>
   <data name="WouldYouLikeToSave.Text" xml:space="preserve">
     <value>คุณต้องการบันทึกการเปลี่ยนแปลงของคุณหรือไม่?</value>
     <comment>Used on Save Dialog</comment>
@@ -509,7 +517,7 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SourceCode.Content" xml:space="preserve">
-    <value>Source Code</value>
+    <value>ร่วมพัฒนาโปรแกรม</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="SpecialThanks.Text" xml:space="preserve">
@@ -597,11 +605,35 @@
     <comment>Used on Settings Page</comment>
   </data>
   <data name="ThemeApricotName" xml:space="preserve">
-    <value>แอปริคอต</value>
+    <value>ไข่</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeBlackCoralName" xml:space="preserve">
+    <value>ครามเข้ม</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkSiennaName" xml:space="preserve">
+    <value>แดงเลือดหมู</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeDarkSpringGreenName" xml:space="preserve">
+    <value>เขียวมรกต</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMaximumPurpleName" xml:space="preserve">
+    <value>ม่วงเข้ม</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMediumPurpleName" xml:space="preserve">
-    <value>ม่วงปานกลาง</value>
+    <value>ม่วง</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemePersimmonName" xml:space="preserve">
+    <value>ส้ม</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeSizzlingRedName" xml:space="preserve">
+    <value>ชมพู</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="SettingsToolTip.ToolTipService.ToolTip" xml:space="preserve">
@@ -610,6 +642,10 @@
   </data>
   <data name="SettingsNavGeneral.AutomationProperties.Name" xml:space="preserve">
     <value>การตั้งค่าทั่วไป</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAbout.AutomationProperties.Name" xml:space="preserve">
+    <value>ข้อมูลเกี่ยวกับแอป Quick Pad</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavAdvanced.AutomationProperties.Name" xml:space="preserve">
@@ -622,6 +658,10 @@
   </data>
   <data name="SettingsNavTheme.AutomationProperties.Name" xml:space="preserve">
     <value>การตั้งค่าชุดรูปแบบ</value>
+    <comment>Used in SettingsNav</comment>
+  </data>
+  <data name="SettingsNavAbout.ToolTipService.ToolTip" xml:space="preserve">
+    <value>ข้อมูลเกี่ยวกับแอป Quick Pad</value>
     <comment>Used in SettingsNav</comment>
   </data>
   <data name="SettingsNavAdvanced.ToolTipService.ToolTip" xml:space="preserve">
@@ -640,6 +680,10 @@
     <value>การตั้งค่าชุดรูปแบบ</value>
     <comment>Used in SettingsNav</comment>
   </data>
+  <data name="ContributeToDeveloper.AutomationProperties.Name" xml:space="preserve">
+    <value>บริจาคช่วยนักพัฒนา</value>
+    <comment>Used on Settings Page</comment>
+  </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
     <value>นโยบายความเป็นส่วนตัว</value>
     <comment>Used on Settings Page</comment>
@@ -648,12 +692,44 @@
     <value>ภาษาของแอป</value>
     <comment>Used on Settings Page</comment>
   </data>
+  <data name="AutoSave.Header" xml:space="preserve">
+    <value>บันทึกอัตโนมัติ</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFileEncoding.Header" xml:space="preserve">
+    <value>ค่าเริ่มต้นระบบอ่านไฟล์</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFileType.Header" xml:space="preserve">
+    <value>ค่าเริ่มต้นชนิดไฟล์</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="LaunchModeComboBox.Header" xml:space="preserve">
+    <value>เมนูเมื่อเปิดแอป</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.Header" xml:space="preserve">
+    <value>วางเฉพาะข้อความเท่านั้น</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SearchWithGoogle.Header" xml:space="preserve">
+    <value>เปิดใช้งานค้นหาด้วย Google</value>
+    <comment>Used on General Settings Page</comment>
+  </data>
   <data name="Export.AutomationProperties.Name" xml:space="preserve">
     <value>การตั้งค่าการส่งออก</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="Import.AutomationProperties.Name" xml:space="preserve">
     <value>การตั้งค่าการนำเข้า</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="Reset.AutomationProperties.Name" xml:space="preserve">
+    <value>รีเซทตั้งค่า</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="KeepTextOnly.AutomationProperties.Name" xml:space="preserve">
+    <value>วางเฉพาะข้อความเมื่อวางด้วยปุ่มลัด</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="DefaultFont.Header" xml:space="preserve">
@@ -672,40 +748,80 @@
     <value>ตัดคำ</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ThemeCamelName" xml:space="preserve">
-    <value>อูฐ</value>
+  <data name="DefaultFontRtf.Header" xml:space="preserve">
+    <value>ฟอนต์เริ่มต้นเอกสาร Rich Text</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="DefaultFontSizeRtf.Header" xml:space="preserve">
+    <value>ขนาดฟอนต์เริ่มต้นเอกสาร Rich Text</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="WordWrapSettingRtf.Header" xml:space="preserve">
+    <value>ตัดคำในเอกสาร Rich Text</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="SpellCheckRtf.Header" xml:space="preserve">
+    <value>ตรวจตัวสะกดในเอกสาร Rich Text</value>
+    <comment>Used on Settings Page</comment>
+  </data>
+  <data name="ThemeBlueMunsellName" xml:space="preserve">
+    <value>ครามทะเล</value>
     <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCamelName" xml:space="preserve">
+    <value>ทราย</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeCedarChestName" xml:space="preserve">
+    <value>น้ำตาลแดง</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeMiddleBlueName" xml:space="preserve">
+    <value>ฟ้า</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="MarkdownPreview.Text" xml:space="preserve">
+    <value>แสดงตัวอย่าง Markdown </value>
+    <comment>Used on Menu Item</comment>
+  </data>
+  <data name="MarkdownPreviewLabel.Label" xml:space="preserve">
+    <value>แสดงตัวอย่าง Markdown</value>
+    <comment>Used on CommandBar</comment>
   </data>
   <data name="ReplaceLabel.Label" xml:space="preserve">
     <value>แทนที่</value>
     <comment>Used on CommandBar</comment>
   </data>
   <data name="ThemeBronzeName" xml:space="preserve">
-    <value>บรอนซ์</value>
+    <value>กาแฟ</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeMintCreamName" xml:space="preserve">
-    <value>ครีมมินต์</value>
+    <value>ขาวซีด</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeRaisinBlackName" xml:space="preserve">
+    <value>กรมท่า</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ThemeRustName" xml:space="preserve">
-    <value>สนิม</value>
+    <value>น้ำตาล</value>
     <comment>Used on Theme Page</comment>
   </data>
   <data name="ReleaseNotes.AutomationProperties.Name" xml:space="preserve">
-    <value>บันทึกย่อประจำรุ่น</value>
+    <value>บันทึกการอัพเดต</value>
     <comment>Used on About Page</comment>
   </data>
   <data name="ReleaseNotes.Content" xml:space="preserve">
-    <value>บันทึกย่อประจำรุ่น</value>
+    <value>บันทึกการอัพเดต</value>
     <comment>Used on About Page</comment>
   </data>
   <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
-    <value>ไม่ใช่</value>
+    <value>ไม่ได้</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="AskForReviewDialog.PrimaryButtonText" xml:space="preserve">
-    <value>ตรวจสอบ</value>
+    <value>ได้</value>
     <comment>Used on AskForReviewDialog</comment>
   </data>
   <data name="GoToDialog.SecondaryButtonText" xml:space="preserve">
@@ -713,7 +829,23 @@
     <comment>Used on GoTo Dialog</comment>
   </data>
   <data name="GoToDialog.PrimaryButtonText" xml:space="preserve">
-    <value>ไปที่:</value>
+    <value>ไปที่</value>
     <comment>Used on GoTo Dialog</comment>
+  </data>
+  <data name="ThemeHibiscusName" xml:space="preserve">
+    <value>บานเย็น</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeIronName" xml:space="preserve">
+    <value>เทา</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeOrangeName" xml:space="preserve">
+    <value>แสด</value>
+    <comment>Used on Theme Page</comment>
+  </data>
+  <data name="ThemeYellowName" xml:space="preserve">
+    <value>เหลือง</value>
+    <comment>Used on Theme Page</comment>
   </data>
 </root>
