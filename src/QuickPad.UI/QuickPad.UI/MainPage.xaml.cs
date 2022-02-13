@@ -657,12 +657,21 @@ namespace QuickPad.UI
 
         private void Text_OnKeyDown(object sender, KeyRoutedEventArgs e)
         {
-            //add tab space
-            if (e.Key != VirtualKey.Tab || Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift)
-                    .HasFlag(CoreVirtualKeyStates.Down)) return;
-
-            ViewModel.AddTab();
-
+            switch (e.Key)
+            {
+                //handle tab spacing
+                case VirtualKey.Tab:
+                    if (Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift)
+                        .HasFlag(CoreVirtualKeyStates.Down))
+                    {
+                        ViewModel.RemoveTab();
+                    }
+                    else 
+                    {
+                        ViewModel.AddTab();
+                    }
+                    break;
+            }
             e.Handled = true;
         }
 

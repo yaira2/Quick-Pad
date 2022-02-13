@@ -7,6 +7,7 @@ using QuickPad.Standard.Data;
 using System;
 using System.ComponentModel;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 
 namespace QuickPad.Mvvm.ViewModels
@@ -186,16 +187,45 @@ namespace QuickPad.Mvvm.ViewModels
             // Add tab
             if (SelectedText.Length > 0)
             {
-                var currentPosition = CurrentPosition;
-                var text = '\t' + SelectedText;
-                text = text.Replace("\r", "\r\t").TrimEnd('\t');
-                SelectedText = text;
-                SelectText(currentPosition.start + 1, currentPosition.length);
+                if (SelectedText.StartsWith("\r"))
+                {
+                    var currentPosition = CurrentPosition;
+                    SelectText(currentPosition.start + 1, currentPosition.length - 1);
+                }
+                
+                if (SelectedText.Length > 0)
+                {
+                    var Text = SelectedText;
+                    Text = Regex.Replace(Text, "^\r", "");
+                    var TextArray = Text.Split('\r');
+                    for (var i = 0; i < TextArray.Length; i++)
+                    {
+                        if (TextArray[i].Length > 0)
+                        {
+                            TextArray[i] = "\t" + TextArray[i];
+                        }
+                    }
+                    SelectedText = string.Join("\r", TextArray);
+                }
             }
             else
             {
                 SelectedText = "\t";
                 SelectText(CurrentPosition.start + 1, 0);
+            }
+        }
+
+        public void RemoveTab()
+        {
+            // Remove tab
+            if (SelectedText.Length > 0)
+            {
+                var TextArray = SelectedText.Split('\r');
+                for (var i = 0; i < TextArray.Length; i++)
+                {
+                    TextArray[i] = Regex.Replace(TextArray[i], "^\t", "");
+                }
+                SelectedText = string.Join("\r", TextArray);
             }
         }
 
