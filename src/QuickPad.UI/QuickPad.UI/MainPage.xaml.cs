@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Numerics;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Windows.ApplicationModel.Core;
 using Windows.ApplicationModel.DataTransfer;
@@ -26,6 +27,7 @@ using Windows.System;
 using Windows.UI;
 using Windows.UI.Core;
 using Windows.UI.Core.Preview;
+using Windows.UI.Text;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -661,14 +663,45 @@ namespace QuickPad.UI
             {
                 //handle tab spacing
                 case VirtualKey.Tab:
+                    if (ViewModel.IsRtf) //for RTF files, move selection to ignore starting and ending newlines
+                    {
+                        while (Regex.IsMatch(RichEditBox.Document.Selection.Text, "^(\r|\v)"))
+                        {
+                            RichEditBox.Document.Selection.StartPosition++;
+                        }
+                        while (Regex.IsMatch(RichEditBox.Document.Selection.Text, "(\r|\v)$"))
+                        {
+                            RichEditBox.Document.Selection.EndPosition--;
+                        }
+                    }
                     if (Window.Current.CoreWindow.GetKeyState(VirtualKey.Shift)
                         .HasFlag(CoreVirtualKeyStates.Down))
                     {
-                        ViewModel.RemoveTab();
+                        if (ViewModel.IsRtf)
+                        {
+                            string text;
+                            RichEditBox.Document.Selection.GetText(TextGetOptions.FormatRtf, out text);
+                            text = ViewModel.RemoveTab(text);
+                            RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, text);
+                        }
+                        else
+                        {
+                            ViewModel.RemoveTab();
+                        }
                     }
                     else 
                     {
-                        ViewModel.AddTab();
+                        if (ViewModel.IsRtf)
+                        {
+                            string text;
+                            RichEditBox.Document.Selection.GetText(TextGetOptions.FormatRtf, out text);
+                            text = ViewModel.AddTab(text);
+                            RichEditBox.Document.Selection.SetText(TextSetOptions.FormatRtf, text);
+                        }
+                        else
+                        {
+                            ViewModel.AddTab();
+                        }
                     }
                     break;
             }

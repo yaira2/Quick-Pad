@@ -195,17 +195,17 @@ namespace QuickPad.Mvvm.ViewModels
                 
                 if (SelectedText.Length > 0)
                 {
-                    var Text = SelectedText;
-                    Text = Regex.Replace(Text, "^\r", "");
-                    var TextArray = Text.Split('\r');
-                    for (var i = 0; i < TextArray.Length; i++)
+                    var text = SelectedText;
+                    text = Regex.Replace(text, "^\r", "");
+                    var textArray = text.Split('\r');
+                    for (var i = 0; i < textArray.Length; i++)
                     {
-                        if (TextArray[i].Length > 0)
+                        if (textArray[i].Length > 0)
                         {
-                            TextArray[i] = "\t" + TextArray[i];
+                            textArray[i] = "\t" + textArray[i];
                         }
                     }
-                    SelectedText = string.Join("\r", TextArray);
+                    SelectedText = string.Join("\r", textArray);
                 }
             }
             else
@@ -215,18 +215,51 @@ namespace QuickPad.Mvvm.ViewModels
             }
         }
 
+        public string AddTab(string RTFText)
+        {
+            var textArray = RTFText.Split('\n');
+            if (textArray.Length > 3) //RTF output has 2 metadata lines preceding actual text
+            {
+                for (var i = 2; i < textArray.Length; i++)
+                {
+                    if (!Regex.IsMatch(textArray[i], "^\0$"))
+                    {
+                        textArray[i] = @"\tab " + textArray[i];
+                        textArray[i] = Regex.Replace(textArray[i], @"\\line([\S]*) ", "\\line$1\\tab ");
+                    }
+                }
+            }
+            return string.Join("\n", textArray);
+        }
         public void RemoveTab()
         {
             // Remove tab
             if (SelectedText.Length > 0)
             {
-                var TextArray = SelectedText.Split('\r');
-                for (var i = 0; i < TextArray.Length; i++)
+                var text = SelectedText;
+                var textArray = text.Split('\r');
+                for (var i = 0; i < textArray.Length; i++)
                 {
-                    TextArray[i] = Regex.Replace(TextArray[i], "^\t", "");
+                    textArray[i] = Regex.Replace(textArray[i], "^\t", "");
                 }
-                SelectedText = string.Join("\r", TextArray);
+                SelectedText = string.Join("\r", textArray);
             }
+        }
+
+        public string RemoveTab(string RTFText)
+        {
+            var textArray = RTFText.Split('\n');
+            if (textArray.Length > 3) //RTF output has 2 metadata lines preceding actual text
+            {
+                for (var i = 2; i < textArray.Length; i++)
+                {
+                    if (!Regex.IsMatch(textArray[i], "^\0$"))
+                    {
+                        textArray[i] = Regex.Replace(textArray[i], @"(^|\\par|\\line)([\S]*)\\tab", "$1$2");
+                    }
+                }
+            }
+            return string.Join("\n", textArray);
         }
 
         public string IsDirtyMarker => $"{((Document?.IsDirty ?? false) ? "*" : "")}".Trim();
