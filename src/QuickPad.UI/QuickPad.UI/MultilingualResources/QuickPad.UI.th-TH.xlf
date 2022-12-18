@@ -111,11 +111,6 @@
           <target state="translated">คัดลอก</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
-          <source>Developed by Yair Aichenbaum</source>
-          <target state="translated">พัฒนาโดย Yair Aichenbaum และ Sharp Ninja</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
           <target state="translated">ตัด</target>
@@ -646,11 +641,6 @@
           <target state="translated">ขอขอบคุณ:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="translated">บริจาคช่วยนักพัฒนา</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Untitled" translate="yes" xml:space="preserve">
           <source>Untitled</source>
           <target state="translated">ไม่มีชื่อ</target>
@@ -841,11 +831,6 @@
           <target state="translated" state-qualifier="tm-suggestion">การตั้งค่าชุดรูปแบบ</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
-        <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="translated">บริจาคช่วยนักพัฒนา</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
           <target state="translated" state-qualifier="tm-suggestion">นโยบายความเป็นส่วนตัว</target>
@@ -1000,16 +985,6 @@
           <source>Rust</source>
           <target state="translated" state-qualifier="tm-suggestion">น้ำตาล</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
-        </trans-unit>
-        <trans-unit id="ReleaseNotes.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Release Notes</source>
-          <target state="translated">บันทึกการอัพเดต</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
-        </trans-unit>
-        <trans-unit id="ReleaseNotes.Content" translate="yes" xml:space="preserve">
-          <source>Release Notes</source>
-          <target state="translated">บันทึกการอัพเดต</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog&amp;gt;SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>No</source>

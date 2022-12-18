@@ -111,11 +111,6 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">複製</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
-          <source>Developed by Yair Aichenbaum</source>
-          <target state="new">Developed by Yair Aichenbaum</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">剪下</target>
@@ -646,11 +641,6 @@
           <target state="new">Special thanks to:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Untitled" translate="yes" xml:space="preserve">
           <source>Untitled</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">未命名</target>
@@ -841,11 +831,6 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">佈景主題設定</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
         </trans-unit>
-        <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">隱私權原則</target>
@@ -1000,16 +985,6 @@
           <source>Rust</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">紅鏽色</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
-        </trans-unit>
-        <trans-unit id="ReleaseNotes.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Release Notes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">版本資訊</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
-        </trans-unit>
-        <trans-unit id="ReleaseNotes.Content" translate="yes" xml:space="preserve">
-          <source>Release Notes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">版本資訊</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog&amp;gt;SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>No</source>

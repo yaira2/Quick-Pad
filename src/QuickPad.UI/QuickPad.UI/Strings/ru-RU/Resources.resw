@@ -96,10 +96,6 @@
     <value>Копировать</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Разработано Yair Aichenbaum</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Cut.Text" xml:space="preserve">
     <value>Вырезать</value>
     <comment>Used on Menu Item</comment>
@@ -695,14 +691,6 @@
   <data name="ThemeRustName" xml:space="preserve">
     <value>Цвет ржавчины</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ReleaseNotes.AutomationProperties.Name" xml:space="preserve">
-    <value>Заметки о выпуске</value>
-    <comment>Used on About Page</comment>
-  </data>
-  <data name="ReleaseNotes.Content" xml:space="preserve">
-    <value>Заметки о выпуске</value>
-    <comment>Used on About Page</comment>
   </data>
   <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
     <value>Нет</value>

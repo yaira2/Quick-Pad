@@ -121,11 +121,6 @@
           <target state="translated">Kopiuj</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
-          <source>Developed by Yair Aichenbaum</source>
-          <target state="translated">Stworzone przez Yair Aichenbaum</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
           <target state="translated">Wytnij</target>
@@ -716,11 +711,6 @@
           <target state="translated">Specjalne podziękowania dla:</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="translated">Wesprzyj dewelopera</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Untitled" translate="yes" xml:space="preserve">
           <source>Untitled</source>
           <target state="translated">Bez tytułu</target>
@@ -866,11 +856,6 @@
           <target state="translated" state-qualifier="tm-suggestion">Ustawienia</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="translated">Wesprzyj dewelopera</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
           <target state="translated">Polityka prywatności</target>
@@ -1000,16 +985,6 @@
           <source>Rust</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Rdzawy</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
-        </trans-unit>
-        <trans-unit id="ReleaseNotes.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Release Notes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Informacje o wersji</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
-        </trans-unit>
-        <trans-unit id="ReleaseNotes.Content" translate="yes" xml:space="preserve">
-          <source>Release Notes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Informacje o wersji</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog&amp;gt;SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>No</source>

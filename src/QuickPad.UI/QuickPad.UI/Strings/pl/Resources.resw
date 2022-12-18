@@ -104,10 +104,6 @@
     <value>Kopiuj</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Stworzone przez Yair Aichenbaum</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Cut.Text" xml:space="preserve">
     <value>Wytnij</value>
     <comment>Used on Menu Item</comment>
@@ -580,10 +576,6 @@
     <value>Specjalne podziękowania dla:</value>
     <comment>Used on Settings Page</comment>
   </data>
-  <data name="ContributeToDeveloper.Content" xml:space="preserve">
-    <value>Wesprzyj dewelopera</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Untitled" xml:space="preserve">
     <value>Bez tytułu</value>
     <comment>Used on Title Bar</comment>
@@ -700,10 +692,6 @@
     <value>Ustawienia</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="ContributeToDeveloper.AutomationProperties.Name" xml:space="preserve">
-    <value>Wesprzyj dewelopera</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="PrivacyPolicy.AutomationProperties.Name" xml:space="preserve">
     <value>Polityka prywatności</value>
     <comment>Used on Settings Page</comment>
@@ -803,14 +791,6 @@
   <data name="ThemeRustName" xml:space="preserve">
     <value>Rdzawy</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ReleaseNotes.AutomationProperties.Name" xml:space="preserve">
-    <value>Informacje o wersji</value>
-    <comment>Used on About Page</comment>
-  </data>
-  <data name="ReleaseNotes.Content" xml:space="preserve">
-    <value>Informacje o wersji</value>
-    <comment>Used on About Page</comment>
   </data>
   <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
     <value>Nie</value>

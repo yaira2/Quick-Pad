@@ -112,12 +112,6 @@
           <target state="translated" state-qualifier="tm-suggestion">Copia</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Menu Item</note>
         </trans-unit>
-        <trans-unit id="CreatedBy.Text" translate="yes" xml:space="preserve">
-          <source>Developed by Yair Aichenbaum</source>
-          <target state="needs-review-translation">Sviluppato da Yair Aichenbaum</target>
-          <note from="MultilingualUpdate" annotates="source" priority="2">Please verify the translation’s accuracy as the source string was updated after it was translated.</note>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="Cut.Text" translate="yes" xml:space="preserve">
           <source>Cut</source>
           <target state="translated">Taglia</target>
@@ -731,11 +725,6 @@
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Codice sorgente</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
-        <trans-unit id="ContributeToDeveloper.Content" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
-        </trans-unit>
         <trans-unit id="AskForReviewDialog.Title" translate="yes" xml:space="preserve">
           <source>Review Quick Pad</source>
           <target state="new">Review Quick Pad</target>
@@ -845,11 +834,6 @@
           <source>Theme Settings</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Impostazioni del tema</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used in SettingsNav</note>
-        </trans-unit>
-        <trans-unit id="ContributeToDeveloper.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Contribute to the developer</source>
-          <target state="new">Contribute to the developer</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on Settings Page</note>
         </trans-unit>
         <trans-unit id="PrivacyPolicy.AutomationProperties.Name" translate="yes" xml:space="preserve">
           <source>Privacy Policy</source>
@@ -1005,16 +989,6 @@
           <source>Rust</source>
           <target state="needs-review-translation" state-qualifier="tm-suggestion">Ruggine</target>
           <note from="MultilingualBuild" annotates="source" priority="2">Used on Theme Page</note>
-        </trans-unit>
-        <trans-unit id="ReleaseNotes.AutomationProperties.Name" translate="yes" xml:space="preserve">
-          <source>Release Notes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Note sulla versione</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
-        </trans-unit>
-        <trans-unit id="ReleaseNotes.Content" translate="yes" xml:space="preserve">
-          <source>Release Notes</source>
-          <target state="needs-review-translation" state-qualifier="tm-suggestion">Note sulla versione</target>
-          <note from="MultilingualBuild" annotates="source" priority="2">Used on About Page</note>
         </trans-unit>
         <trans-unit id="AskForReviewDialog&amp;gt;SecondaryButtonText" translate="yes" xml:space="preserve">
           <source>No</source>

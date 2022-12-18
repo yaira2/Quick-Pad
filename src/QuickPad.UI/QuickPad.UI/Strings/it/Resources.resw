@@ -93,10 +93,6 @@
     <value>Copia</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CreatedBy.Text" xml:space="preserve">
-    <value>Sviluppato da Yair Aichenbaum</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Cut.Text" xml:space="preserve">
     <value>Taglia</value>
     <comment>Used on Menu Item</comment>
@@ -689,14 +685,6 @@
   <data name="ThemeRustName" xml:space="preserve">
     <value>Ruggine</value>
     <comment>Used on Theme Page</comment>
-  </data>
-  <data name="ReleaseNotes.AutomationProperties.Name" xml:space="preserve">
-    <value>Note sulla versione</value>
-    <comment>Used on About Page</comment>
-  </data>
-  <data name="ReleaseNotes.Content" xml:space="preserve">
-    <value>Note sulla versione</value>
-    <comment>Used on About Page</comment>
   </data>
   <data name="AskForReviewDialog&gt;SecondaryButtonText" xml:space="preserve">
     <value>Nr</value>

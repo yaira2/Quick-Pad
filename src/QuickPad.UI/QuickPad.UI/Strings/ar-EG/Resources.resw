@@ -92,10 +92,6 @@
     <value>نسخ</value>
     <comment>Used on Menu Item</comment>
   </data>
-  <data name="CreatedBy.Text" xml:space="preserve">
-    <value>تم تطويره بواسطة يائير أيكينباوم</value>
-    <comment>Used on Settings Page</comment>
-  </data>
   <data name="Cut.Text" xml:space="preserve">
     <value>قص</value>
     <comment>Used on Menu Item</comment>
@@ -578,10 +574,6 @@
   </data>
   <data name="SourceCode.Content" xml:space="preserve">
     <value>كود المصدر</value>
-    <comment>Used on Settings Page</comment>
-  </data>
-  <data name="ContributeToDeveloper.Content" xml:space="preserve">
-    <value>تبرع للمطور</value>
     <comment>Used on Settings Page</comment>
   </data>
   <data name="AskForReviewDialog.Title" xml:space="preserve">

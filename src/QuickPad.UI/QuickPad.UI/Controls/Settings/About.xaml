@@ -1,80 +1,57 @@
 ﻿<Page
-    x:Class="QuickPad.UI.Controls.Settings.About"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:QuickPad.UI.Controls.Settings"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    d:DesignWidth="400"
-    mc:Ignorable="d">
+	x:Class="QuickPad.UI.Controls.Settings.About"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:QuickPad.UI.Controls.Settings"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+	d:DesignWidth="400"
+	mc:Ignorable="d">
 
-    <Grid Margin="12">
-        <Grid.Resources>
-            <Style TargetType="TextBlock">
-                <Setter Property="Margin" Value="0,8,0,4" />
-                <Setter Property="TextWrapping" Value="Wrap" />
-                <Setter Property="FontFamily" Value="Segoe UI" />
-            </Style>
-        </Grid.Resources>
+	<Grid Margin="12">
+		<Grid.Resources>
+			<Style TargetType="TextBlock">
+				<Setter Property="Margin" Value="0,8,0,4" />
+				<Setter Property="TextWrapping" Value="Wrap" />
+				<Setter Property="FontFamily" Value="Segoe UI" />
+			</Style>
+		</Grid.Resources>
 
-        <StackPanel>
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="80" />
-                    <ColumnDefinition />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40" />
-                    <RowDefinition Height="40" />
-                </Grid.RowDefinitions>
+		<StackPanel>
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="80" />
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="40" />
+					<RowDefinition Height="40" />
+				</Grid.RowDefinitions>
 
-                <Image
-                    Grid.RowSpan="2"
-                    Source="/Assets/QuickPadIcon.png"
-                    Stretch="Uniform" />
-                <TextBlock
-                    x:Uid="AppName"
-                    Grid.Column="1"
-                    Padding="12,0,0,0"
-                    FontSize="22"
-                    Text="Quick Pad" />
-                <TextBlock
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    Padding="12,0,0,0"
-                    Text="{x:Bind Settings.VersionNumberText}" />
-            </Grid>
+				<Image
+					Grid.RowSpan="2"
+					Source="/Assets/QuickPadIcon.png"
+					Stretch="Uniform" />
+				<TextBlock
+					x:Uid="AppName"
+					Grid.Column="1"
+					Padding="12,0,0,0"
+					FontSize="22"
+					Text="Quick Pad" />
+				<TextBlock
+					Grid.Row="1"
+					Grid.Column="1"
+					Padding="12,0,0,0"
+					Text="{x:Bind Settings.VersionNumberText}" />
+			</Grid>
 
-            <TextBlock
-                x:Uid="CreatedBy"
-                Padding="12,12,0,0"
-                HorizontalAlignment="Left"
-                FontSize="16"
-                Text="Developed by Yair Aichenbaum" />
-
-            <HyperlinkButton
-                x:Uid="ContributeToDeveloper"
-                Margin="0,12,0,0"
-                HorizontalAlignment="Left"
-                AutomationProperties.Name="Contribute to the developer"
-                Content="Contribute to the developer"
-                NavigateUri="http://paypal.me/yaichenbaum" />
-
-            <HyperlinkButton
-                x:Uid="ReleaseNotes"
-                Margin="0,12,0,0"
-                HorizontalAlignment="Left"
-                AutomationProperties.Name="Release Notes"
-                Content="Release Notes"
-                NavigateUri="https://github.com/yaichenbaum/Quick-Pad/releases" />
-
-            <HyperlinkButton
-                x:Uid="PrivacyPolicy"
-                Margin="0,12,0,0"
-                AutomationProperties.Name="Privacy Policy"
-                Content="Privacy Policy"
-                NavigateUri="https://github.com/files-community/files-uwp/blob/master/Privacy.md" />
-        </StackPanel>
-    </Grid>
+			<HyperlinkButton
+				x:Uid="PrivacyPolicy"
+				Margin="0,12,0,0"
+				AutomationProperties.Name="Privacy Policy"
+				Content="Privacy Policy"
+				NavigateUri="https://github.com/files-community/Files/blob/main/Privacy.md" />
+		</StackPanel>
+	</Grid>
 </Page>
