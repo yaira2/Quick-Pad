@@ -272,13 +272,13 @@ namespace QuickPad.UI.Theme
             var backgroundMicaBrush1 = new SolidColorBrush
             {
                 Color = accentColor,
-                Opacity = 0.35
+                Opacity = 0.10
             };
             
             var backgroundMicaBrush2 = new SolidColorBrush
             {
                 Color = accentColor,
-                Opacity = 0.4
+                Opacity = 0.25
             };
 
             var etheme = (lightTheme) ? ElementTheme.Light : ElementTheme.Dark;
