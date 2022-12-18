@@ -1,126 +1,126 @@
 ﻿<Page
-    x:Class="QuickPad.UI.Controls.Settings.General"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:local="using:QuickPad.UI.Controls.Settings"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:q="using:QuickPad.Mvvm.Models"
-    xmlns:winui="using:Microsoft.UI.Xaml.Controls"
-    d:DesignWidth="400"
-    mc:Ignorable="d">
+	x:Class="QuickPad.UI.Controls.Settings.General"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:local="using:QuickPad.UI.Controls.Settings"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:q="using:QuickPad.Mvvm.Models"
+	xmlns:winui="using:Microsoft.UI.Xaml.Controls"
+	d:DesignWidth="400"
+	mc:Ignorable="d">
 
-    <Grid Margin="20,8,20,20">
+	<Grid Margin="20,8,20,20">
 
-        <StackPanel Spacing="12">
-            <TextBlock
-                x:Uid="General"
-                FontSize="20"
-                Text="General" />
+		<StackPanel Spacing="12">
+			<TextBlock
+				x:Uid="General"
+				FontSize="20"
+				Text="General" />
 
-            <ComboBox
-                x:Uid="LaunchModeComboBox"
-                Width="180"
-                HorizontalAlignment="Left"
-                DisplayMemberPath="Text"
-                Header="Launch Mode"
-                ItemsSource="{x:Bind Settings.AllDisplayModes}"
-                PlaceholderText="{x:Bind Settings.DefaultModeText}"
-                SelectedValue="{x:Bind Settings.DefaultMode, Mode=TwoWay}"
-                SelectedValuePath="Uid" />
+			<ComboBox
+				x:Uid="LaunchModeComboBox"
+				Width="180"
+				HorizontalAlignment="Left"
+				DisplayMemberPath="Text"
+				Header="Launch Mode"
+				ItemsSource="{x:Bind Settings.AllDisplayModes}"
+				PlaceholderText="{x:Bind Settings.DefaultModeText}"
+				SelectedValue="{x:Bind Settings.DefaultMode, Mode=TwoWay}"
+				SelectedValuePath="Uid" />
 
-            <StackPanel>
-                <ComboBox
-                    x:Name="ComboAppLanguage"
-                    x:Uid="AppLanguage"
-                    Width="180"
-                    HorizontalAlignment="Left"
-                    Header="App Language"
-                    ItemsSource="{x:Bind Settings.DefaultLanguages}"
-                    PlaceholderText="{x:Bind Settings.DefaultLanguage}"
-                    SelectedItem="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}">
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate x:DataType="q:DefaultLanguageModel">
-                            <TextBlock Text="{x:Bind Name}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-                <TextBlock
-                    x:Uid="RestatRequired"
-                    Padding="0,8,0,0"
-                    Style="{ThemeResource CaptionTextBlockStyle}"
-                    Text="You will need to restart Quick Pad to apply changes." />
-            </StackPanel>
+			<StackPanel>
+				<ComboBox
+					x:Name="ComboAppLanguage"
+					x:Uid="AppLanguage"
+					Width="180"
+					HorizontalAlignment="Left"
+					Header="App Language"
+					ItemsSource="{x:Bind Settings.DefaultLanguages}"
+					PlaceholderText="{x:Bind Settings.DefaultLanguage}"
+					SelectedItem="{x:Bind Settings.DefaultLanguage, Mode=TwoWay}">
+					<ComboBox.ItemTemplate>
+						<DataTemplate x:DataType="q:DefaultLanguageModel">
+							<TextBlock Text="{x:Bind Name}" />
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+				<TextBlock
+					x:Uid="RestatRequired"
+					Padding="0,8,0,0"
+					Style="{ThemeResource CaptionTextBlockStyle}"
+					Text="You will need to restart Quick Pad to apply changes." />
+			</StackPanel>
 
-            <ComboBox
-                x:Uid="DefaultFileType"
-                Width="140"
-                HorizontalAlignment="Left"
-                Header="Default File Type"
-                PlaceholderText=".txt"
-                SelectedItem="{x:Bind Settings.DefaultFileType, Mode=TwoWay}">
-                <x:String>.txt</x:String>
-                <x:String>.rtf</x:String>
-            </ComboBox>
+			<ComboBox
+				x:Uid="DefaultFileType"
+				Width="140"
+				HorizontalAlignment="Left"
+				Header="Default File Type"
+				PlaceholderText=".txt"
+				SelectedItem="{x:Bind Settings.DefaultFileType, Mode=TwoWay}">
+				<x:String>.txt</x:String>
+				<x:String>.rtf</x:String>
+			</ComboBox>
 
-            <ComboBox
-                x:Uid="DefaultFileEncoding"
-                Width="140"
-                HorizontalAlignment="Left"
-                Header="Default File Encoding"
-                PlaceholderText="UTF-8"
-                SelectedValue="{x:Bind Settings.DefaultEncoding, Mode=TwoWay}"
-                SelectedValuePath="Content">
-                <ComboBoxItem
-                    x:Name="DefaultEncodingUTF8"
-                    x:Uid="DefaultCurrentEncodingUTF8"
-                    Content="UTF-8"
-                    Tag="UTF-8" />
-                <ComboBoxItem
-                    x:Name="DefaultEncodingUTF16_LE"
-                    x:Uid="DefaultCurrentEncodingUTF16_LE"
-                    Content="UTF-16 LE"
-                    Tag="UTF-16 LE" />
-                <ComboBoxItem
-                    x:Name="DefaultEncodingUTF8_BE"
-                    x:Uid="DefaultCurrentEncodingUTF16_BE"
-                    Content="UTF-16 BE"
-                    Tag="UTF-16 BE" />
-                <ComboBoxItem
-                    x:Name="DefaultEncodingUTF32"
-                    x:Uid="DefaultCurrentEncodingUTF32"
-                    Content="UTF-32"
-                    Tag="UTF-32" />
-                <ComboBoxItem
-                    x:Name="DefaultEncodingASCII"
-                    x:Uid="DefaultCurrentEncodingASCII"
-                    Content="ASCII"
-                    Tag="ASCII" />
-            </ComboBox>
+			<ComboBox
+				x:Uid="DefaultFileEncoding"
+				Width="140"
+				HorizontalAlignment="Left"
+				Header="Default File Encoding"
+				PlaceholderText="UTF-8"
+				SelectedValue="{x:Bind Settings.DefaultEncoding, Mode=TwoWay}"
+				SelectedValuePath="Content">
+				<ComboBoxItem
+					x:Name="DefaultEncodingUTF8"
+					x:Uid="DefaultCurrentEncodingUTF8"
+					Content="UTF-8"
+					Tag="UTF-8" />
+				<ComboBoxItem
+					x:Name="DefaultEncodingUTF16_LE"
+					x:Uid="DefaultCurrentEncodingUTF16_LE"
+					Content="UTF-16 LE"
+					Tag="UTF-16 LE" />
+				<ComboBoxItem
+					x:Name="DefaultEncodingUTF8_BE"
+					x:Uid="DefaultCurrentEncodingUTF16_BE"
+					Content="UTF-16 BE"
+					Tag="UTF-16 BE" />
+				<ComboBoxItem
+					x:Name="DefaultEncodingUTF32"
+					x:Uid="DefaultCurrentEncodingUTF32"
+					Content="UTF-32"
+					Tag="UTF-32" />
+				<ComboBoxItem
+					x:Name="DefaultEncodingASCII"
+					x:Uid="DefaultCurrentEncodingASCII"
+					Content="ASCII"
+					Tag="ASCII" />
+			</ComboBox>
 
-            <ToggleSwitch
-                x:Name="AutoSave"
-                x:Uid="AutoSave"
-                HorizontalAlignment="Left"
-                Header="Auto Save"
-                IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" />
+			<ToggleSwitch
+				x:Name="AutoSave"
+				x:Uid="AutoSave"
+				HorizontalAlignment="Left"
+				Header="Auto Save"
+				IsOn="{x:Bind Settings.AutoSave, Mode=TwoWay}" />
 
-            <StackPanel>
-                <TextBlock Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}">
-                    <Run x:Uid="AutoSaveEvery" Text="Auto save every" />
-                    <Run Text="{x:Bind Settings.AutoSaveFrequency, Mode=OneWay}" />
-                    <Run x:Uid="AutoSaveSeconds" Text="second(s)" />
-                </TextBlock>
-                <Slider
-                    Width="240"
-                    HorizontalAlignment="Left"
-                    Maximum="45"
-                    Minimum="5"
-                    StepFrequency="1"
-                    TickPlacement="Inline"
-                    Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}"
-                    Value="{x:Bind Settings.AutoSaveFrequency, Mode=TwoWay}" />
-            </StackPanel>
-        </StackPanel>
-    </Grid>
+			<StackPanel>
+				<TextBlock Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}">
+					<Run x:Uid="AutoSaveEvery" Text="Auto save every" />
+					<Run Text="{x:Bind Settings.AutoSaveFrequency, Mode=OneWay}" />
+					<Run x:Uid="AutoSaveSeconds" Text="second(s)" />
+				</TextBlock>
+				<Slider
+					Width="240"
+					HorizontalAlignment="Left"
+					Maximum="45"
+					Minimum="5"
+					StepFrequency="1"
+					TickPlacement="Inline"
+					Visibility="{x:Bind AutoSave.IsOn, Mode=OneWay}"
+					Value="{x:Bind Settings.AutoSaveFrequency, Mode=TwoWay}" />
+			</StackPanel>
+		</StackPanel>
+	</Grid>
 </Page>
