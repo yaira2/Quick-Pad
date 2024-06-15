@@ -287,6 +287,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
+    <PRIResource Include="Strings\tr\Resources.resw" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.de.xlf" />
     <PRIResource Include="Strings\pt-PT\Resources.resw" />
     <PRIResource Include="Strings\pl\Resources.resw" />
@@ -471,6 +472,7 @@
     <XliffResource Include="MultilingualResources\QuickPad.UI.ru-RU.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.ta.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.th-TH.xlf" />
+    <XliffResource Include="MultilingualResources\QuickPad.UI.tr.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.zh-Hans.xlf" />
     <XliffResource Include="MultilingualResources\QuickPad.UI.zh-Hant.xlf" />
   </ItemGroup>
