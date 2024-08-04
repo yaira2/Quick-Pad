@@ -51,7 +51,7 @@
 				Margin="0,12,0,0"
 				AutomationProperties.Name="Privacy Policy"
 				Content="Privacy Policy"
-				NavigateUri="https://github.com/files-community/Files/blob/main/Privacy.md" />
+				NavigateUri="https://github.com/files-community/Files/blob/main/.github/PRIVACY.md" />
 		</StackPanel>
 	</Grid>
 </Page>
