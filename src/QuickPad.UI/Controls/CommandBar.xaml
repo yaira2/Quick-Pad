@@ -1,0 +1,521 @@
+﻿<UserControl
+	x:Class="QuickPad.UI.Controls.CommandBar"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:controls="using:Microsoft.UI.Xaml.Controls"
+	xmlns:controls1="using:QuickPad.UI.Controls"
+	xmlns:converters="using:QuickPad.UI.Converters"
+	xmlns:core="using:Microsoft.Xaml.Interactions.Core"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+	xmlns:local="using:QuickPad.UI"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:w10v1809="http://schemas.microsoft.com/winfx/2006/xaml/presentation?IsApiContractPresent(Windows.Foundation.UniversalApiContract, 7)"
+	xmlns:winui="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	d:DesignHeight="40"
+	DataContext="{Binding RelativeSource={RelativeSource Self}}"
+	mc:Ignorable="d">
+	<UserControl.Resources>
+		<converters:Converter x:Key="Converter" />
+		<DataTemplate x:Key="FontFamilyComboBoxItem">
+			<TextBlock
+				Margin="2,2,2,2"
+				FontFamily="{Binding}"
+				FontSize="12"
+				Text="{Binding}" />
+		</DataTemplate>
+	</UserControl.Resources>
+	<Grid HorizontalAlignment="Stretch">
+		<CommandBar
+			Margin="0,0,208,0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Background="{x:Null}"
+			DefaultLabelPosition="Right"
+			IsOpen="False">
+			<CommandBar.Resources>
+				<ResourceDictionary>
+					<SolidColorBrush x:Key="CommandBarBackgroundOpen" Color="Transparent" />
+					<SolidColorBrush x:Key="CommandBarBorderBrushOpen" Color="Transparent" />
+				</ResourceDictionary>
+			</CommandBar.Resources>
+			<AppBarButton
+				x:Uid="NewLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="N"
+				Command="{x:Bind Commands.NewDocumentCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				LabelPosition="Collapsed">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="NewTip" Text="New (Ctrl+N)" />
+				</ToolTipService.ToolTip>
+				<AppBarButton.Icon>
+					<FontIcon Glyph="&#xE160;" />
+				</AppBarButton.Icon>
+				<AppBarButton.KeyboardAccelerators>
+					<KeyboardAccelerator Key="N" Modifiers="Control" />
+				</AppBarButton.KeyboardAccelerators>
+			</AppBarButton>
+			<AppBarButton
+				x:Uid="OpenLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="O"
+				Command="{x:Bind Commands.LoadCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				LabelPosition="Collapsed">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="OpenTip" Text="Open (Ctrl+O)" />
+				</ToolTipService.ToolTip>
+				<AppBarButton.Icon>
+					<FontIcon Glyph="&#xF12B;" />
+				</AppBarButton.Icon>
+				<AppBarButton.KeyboardAccelerators>
+					<KeyboardAccelerator Key="O" Modifiers="Control" />
+				</AppBarButton.KeyboardAccelerators>
+			</AppBarButton>
+			<AppBarButton
+				x:Uid="SaveLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="S"
+				Command="{x:Bind Commands.SaveCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				LabelPosition="Collapsed">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="SaveTip" Text="Save (Ctrl+S)" />
+				</ToolTipService.ToolTip>
+				<AppBarButton.KeyboardAccelerators>
+					<KeyboardAccelerator Key="S" Modifiers="Control" />
+				</AppBarButton.KeyboardAccelerators>
+				<AppBarButton.Icon>
+					<FontIcon Glyph="&#xE105;" />
+				</AppBarButton.Icon>
+			</AppBarButton>
+			<AppBarSeparator />
+			<AppBarButton
+				x:Name="FontDropdown"
+				Width="Auto"
+				AccessKey="F"
+				LabelPosition="Collapsed">
+				<StackPanel
+					Padding="12,0"
+					Orientation="Horizontal"
+					Spacing="8">
+					<TextBlock
+						Margin="0,0,12,0"
+						FontFamily="Segoe UI"
+						Text="{x:Bind ViewModelDocument.CurrentFontName, Mode=OneWay}" />
+					<FontIcon FontSize="14" Glyph="&#xE011;" />
+				</StackPanel>
+				<AppBarButton.Flyout>
+					<Flyout
+						x:Name="FontNameFlyout"
+						w10v1809:Placement="BottomEdgeAlignedLeft"
+						Opened="OpenFontFlyout">
+						<Flyout.FlyoutPresenterStyle>
+							<Style TargetType="FlyoutPresenter">
+								<Setter Property="Padding" Value="0" />
+								<Setter Property="CornerRadius" Value="4" />
+							</Style>
+						</Flyout.FlyoutPresenterStyle>
+						<ListView
+							x:Name="FontListSelection"
+							Width="250"
+							Height="350"
+							Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush2, Mode=OneWay}"
+							CharacterReceived="TryToFindFont"
+							ItemTemplate="{StaticResource FontFamilyComboBoxItem}"
+							ItemsSource="{x:Bind Settings.AllFonts, Mode=OneWay}"
+							SelectedItem="{x:Bind ViewModelDocument.CurrentFontName, Mode=TwoWay}" />
+					</Flyout>
+				</AppBarButton.Flyout>
+			</AppBarButton>
+			<AppBarButton
+				x:Name="FontSizeDropdown"
+				Width="Auto"
+				MinWidth="50"
+				AccessKey="A"
+				LabelPosition="Collapsed">
+				<StackPanel
+					Padding="12,0"
+					Orientation="Horizontal"
+					Spacing="8">
+					<TextBlock
+						Margin="0,0,12,0"
+						FontFamily="Segoe UI"
+						Text="{x:Bind ViewModelDocument.CurrentFontSize, Mode=OneWay}" />
+					<FontIcon FontSize="14" Glyph="&#xE011;" />
+				</StackPanel>
+				<AppBarButton.Flyout>
+					<Flyout
+						x:Name="FontSizeFlyout"
+						w10v1809:Placement="BottomEdgeAlignedLeft"
+						Opened="OpenFontSizeFlyout">
+						<Flyout.FlyoutPresenterStyle>
+							<Style TargetType="FlyoutPresenter">
+								<Setter Property="Padding" Value="0" />
+								<Setter Property="CornerRadius" Value="4" />
+							</Style>
+						</Flyout.FlyoutPresenterStyle>
+						<ListView
+							x:Name="FontSizeListSelection"
+							Width="Auto"
+							Height="350"
+							Background="{x:Bind VtSelector.CurrentItem.BackgroundMicaBrush2, Mode=OneWay}"
+							ItemsSource="{x:Bind Settings.AllFontSizes, Mode=OneWay}"
+							SelectedItem="{x:Bind ViewModelDocument.CurrentFontSize, Mode=TwoWay}" />
+					</Flyout>
+				</AppBarButton.Flyout>
+			</AppBarButton>
+			<AppBarButton
+				x:Uid="ColorLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="L"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="Color" Text="Font Color" />
+				</ToolTipService.ToolTip>
+				<AppBarButton.Icon>
+					<FontIcon Glyph="&#xE790;" />
+				</AppBarButton.Icon>
+				<AppBarButton.Flyout>
+					<Flyout>
+						<ColorPicker
+							IsColorChannelTextInputVisible="False"
+							IsHexInputVisible="False"
+							Color="{x:Bind ViewModelDocument.ForegroundColor, Mode=TwoWay}">
+							<interactivity:Interaction.Behaviors>
+								<core:EventTriggerBehavior EventName="ColorChanged">
+									<core:InvokeCommandAction Command="{x:Bind Commands.ColorCommand}" CommandParameter="{x:Bind ViewModel}" />
+								</core:EventTriggerBehavior>
+							</interactivity:Interaction.Behaviors>
+						</ColorPicker>
+					</Flyout>
+				</AppBarButton.Flyout>
+			</AppBarButton>
+			<AppBarButton
+				x:Uid="EmojiLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="E"
+				Command="{x:Bind Commands.EmojiCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				LabelPosition="Collapsed">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="Emoji" Text="Insert Emojis (Win + .)" />
+				</ToolTipService.ToolTip>
+				<AppBarButton.Icon>
+					<FontIcon Glyph="&#xE170;" />
+				</AppBarButton.Icon>
+			</AppBarButton>
+			<AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}" />
+			<AppBarToggleButton
+				x:Uid="BoldLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="B"
+				Command="{x:Bind Commands.BoldCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelBold, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="Bold" Text="Bold (Ctrl+B)" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xE19B;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+			<AppBarToggleButton
+				x:Uid="ItalicLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="I"
+				Command="{x:Bind Commands.ItalicsCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelItalic, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="Italic" Text="Italic (Ctrl+I)" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xE199;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+			<AppBarToggleButton
+				x:Uid="UnderlineLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="U"
+				Command="{x:Bind Commands.UnderlineCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelUnderline, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="Underline" Text="Underline (Ctrl+U)" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xE19A;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+			<AppBarToggleButton
+				x:Uid="StrikethroughLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="T"
+				Command="{x:Bind Commands.StrikeThroughCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelStrikethrough, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="Strikethrough" Text="Strikethrough" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xEDE0;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+			<AppBarToggleButton
+				x:Uid="BulletsLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="H"
+				Command="{x:Bind Commands.BulletsCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelBullets, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="Bullets" Text="Toggle Bullets" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xE8FD;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+			<AppBarSeparator Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}" />
+			<AppBarToggleButton
+				x:Uid="AlignLeftLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="G"
+				Command="{x:Bind Commands.LeftAlignCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelLeft, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="AlignLeft" Text="Align Left (Ctrl+L)" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xE1A2;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+			<AppBarToggleButton
+				x:Uid="AlignCenterLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="R"
+				Command="{x:Bind Commands.CenterAlignCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelCenter, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="AlignCenter" Text="Align Center (Ctrl+E)" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xE1A1;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+			<AppBarToggleButton
+				x:Uid="AlignRightLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="K"
+				Command="{x:Bind Commands.RightAlignCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelRight, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="AlignRight" Text="Align Right (Ctrl+R)" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xE1A0;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+			<AppBarToggleButton
+				x:Uid="JustifyTextLabel"
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="J"
+				Command="{x:Bind Commands.JustifyCommand}"
+				CommandParameter="{x:Bind ViewModel}"
+				IsChecked="{x:Bind ViewModelDocument.SelJustify, Mode=OneWay}"
+				LabelPosition="Collapsed"
+				Visibility="{x:Bind ViewModel.IsRtf, Converter={StaticResource Converter}, Mode=OneWay}">
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="JustifyText" Text="Justify Text (Ctrl+J)" />
+				</ToolTipService.ToolTip>
+				<AppBarToggleButton.Icon>
+					<FontIcon Glyph="&#xE700;" />
+				</AppBarToggleButton.Icon>
+			</AppBarToggleButton>
+		</CommandBar>
+
+		<CommandBar
+			HorizontalAlignment="Right"
+			Background="{x:Null}"
+			DefaultLabelPosition="Collapsed"
+			IsOpen="False">
+			<CommandBar.Resources>
+				<ResourceDictionary>
+					<SolidColorBrush x:Key="CommandBarBackgroundOpen" Color="Transparent" />
+					<SolidColorBrush x:Key="CommandBarBorderBrushOpen" Color="Transparent" />
+				</ResourceDictionary>
+			</CommandBar.Resources>
+			<CommandBar.SecondaryCommands>
+				<AppBarButton
+					x:Uid="FocusModeLabel"
+					Width="Auto"
+					Command="{x:Bind Commands.FocusCommand}"
+					CommandParameter="{x:Bind Settings}"
+					Icon="Caption"
+					Label="Focus Mode" />
+				<AppBarButton
+					x:Uid="ClassicModeLabel"
+					Width="Auto"
+					Command="{x:Bind Commands.ShowMenusCommand}"
+					CommandParameter="{x:Bind Settings}"
+					Label="Classic Mode">
+					<AppBarButton.Icon>
+						<FontIcon Glyph="&#xE8C5;" />
+					</AppBarButton.Icon>
+				</AppBarButton>
+				<AppBarButton
+					x:Uid="MarkdownPreviewLabel"
+					Command="{x:Bind Commands.ShowMarkdownViewerCommand}"
+					CommandParameter="{x:Bind ViewModel}"
+					Label="Markdown Preview">
+					<AppBarButton.Icon>
+						<FontIcon Glyph="&#xE8A1;" />
+					</AppBarButton.Icon>
+				</AppBarButton>
+				<AppBarToggleButton
+					x:Uid="StatusBarLabel"
+					Width="Auto"
+					IsChecked="{x:Bind Settings.DisplayStatusBar, Mode=TwoWay}"
+					Label="Status Bar">
+					<AppBarToggleButton.Icon>
+						<FontIcon Glyph="&#xE18F;" />
+					</AppBarToggleButton.Icon>
+				</AppBarToggleButton>
+				<AppBarButton
+					x:Uid="ShareLabel"
+					Width="Auto"
+					Command="{x:Bind Commands.ShareCommand}"
+					CommandParameter="{x:Bind ViewModel}"
+					Label="Share">
+					<AppBarButton.Icon>
+						<FontIcon Glyph="&#xE72D;" />
+					</AppBarButton.Icon>
+				</AppBarButton>
+				<AppBarButton
+					x:Uid="FindLabel"
+					Width="Auto"
+					Command="{x:Bind Commands.ShowFindCommand}"
+					CommandParameter="{x:Bind ViewModel}"
+					Label="Find">
+					<AppBarButton.KeyboardAccelerators>
+						<KeyboardAccelerator Key="F" Modifiers="Control" />
+					</AppBarButton.KeyboardAccelerators>
+					<AppBarButton.Icon>
+						<FontIcon Glyph="&#xE1A3;" />
+					</AppBarButton.Icon>
+				</AppBarButton>
+				<AppBarButton
+					x:Uid="ReplaceLabel"
+					Width="Auto"
+					Command="{x:Bind Commands.ShowReplaceCommand}"
+					CommandParameter="{x:Bind ViewModel}"
+					Label="Replace">
+					<AppBarButton.KeyboardAccelerators>
+						<KeyboardAccelerator Key="H" Modifiers="Control" />
+					</AppBarButton.KeyboardAccelerators>
+					<AppBarButton.Icon>
+						<FontIcon Glyph="&#xE13E;" />
+					</AppBarButton.Icon>
+				</AppBarButton>
+				<AppBarButton
+					x:Uid="SettingsLabel"
+					Width="Auto"
+					Command="{x:Bind Commands.SettingsCommand}"
+					CommandParameter="{x:Bind Settings}"
+					Label="Settings">
+					<AppBarButton.Icon>
+						<FontIcon Glyph="&#xE713;" />
+					</AppBarButton.Icon>
+				</AppBarButton>
+				<AppBarButton
+					x:Uid="ExitLabel"
+					Width="Auto"
+					Command="{x:Bind Commands.ExitCommand}"
+					CommandParameter="{x:Bind ViewModel}"
+					Label="Exit">
+					<AppBarButton.Icon>
+						<FontIcon Glyph="&#xE10A;" />
+					</AppBarButton.Icon>
+				</AppBarButton>
+			</CommandBar.SecondaryCommands>
+			<AppBarButton
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="D"
+				Command="{x:Bind Commands.UndoCommand}"
+				CommandParameter="{x:Bind ViewModel}">
+				<AppBarButton.Icon>
+					<FontIcon Glyph="&#xE10E;" />
+				</AppBarButton.Icon>
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="UndoTooltip" Text="Undo (Ctrl+Z)" />
+				</ToolTipService.ToolTip>
+			</AppBarButton>
+			<AppBarButton
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="R"
+				Command="{x:Bind Commands.RedoCommand}"
+				CommandParameter="{x:Bind ViewModel}">
+				<AppBarButton.Icon>
+					<FontIcon Glyph="&#xE10D;" />
+				</AppBarButton.Icon>
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="RedoTooltip" Text="Redo (Ctrl+Y)" />
+				</ToolTipService.ToolTip>
+			</AppBarButton>
+			<AppBarSeparator />
+			<AppBarButton
+				Width="Auto"
+				MinWidth="40"
+				AccessKey="C"
+				Command="{x:Bind Commands.CompactOverlayCommand}"
+				CommandParameter="{x:Bind Settings}">
+				<AppBarButton.Icon>
+					<PathIcon
+						HorizontalAlignment="Center"
+						VerticalAlignment="Center"
+						Data="F1 M 16.298828 1.25 C 16.624348 1.25 16.935221 1.316732 17.231445 1.450195 C 17.527668 1.58366 17.788086 1.762695 18.012695 1.987305 C 18.237305 2.211914 18.41634 2.472332 18.549805 2.768555 C 18.683268 3.064779 18.75 3.375652 18.75 3.701172 L 18.75 16.298828 C 18.75 16.62435 18.683268 16.935221 18.549805 17.231445 C 18.41634 17.52767 18.237305 17.788086 18.012695 18.012695 C 17.788086 18.237305 17.527668 18.416342 17.231445 18.549805 C 16.935221 18.683268 16.624348 18.75 16.298828 18.75 L 11.875 18.75 C 11.705729 18.75 11.559244 18.68815 11.435547 18.564453 C 11.311849 18.440756 11.25 18.294271 11.25 18.125 C 11.25 17.955729 11.311849 17.809244 11.435547 17.685547 C 11.559244 17.56185 11.705729 17.5 11.875 17.5 L 16.25 17.5 C 16.425781 17.5 16.588541 17.467447 16.738281 17.402344 C 16.88802 17.33724 17.019855 17.247721 17.133789 17.133789 C 17.247721 17.019857 17.337238 16.888021 17.402344 16.738281 C 17.467447 16.588543 17.5 16.425781 17.5 16.25 L 17.5 10 L 12.451172 10 C 12.11263 10 11.795247 9.931641 11.499023 9.794922 C 11.202799 9.658203 10.94401 9.475912 10.722656 9.248047 C 10.501302 9.020183 10.325521 8.754883 10.195312 8.452148 C 10.065104 8.149414 10 7.832031 10 7.5 L 10 2.5 L 3.75 2.5 C 3.574219 2.5 3.411458 2.532553 3.261719 2.597656 C 3.111979 2.662762 2.980143 2.752279 2.866211 2.866211 C 2.752279 2.980145 2.66276 3.11198 2.597656 3.261719 C 2.532552 3.411459 2.5 3.574219 2.5 3.75 L 2.5 8.125 C 2.5 8.294271 2.438151 8.440756 2.314453 8.564453 C 2.190755 8.688151 2.044271 8.75 1.875 8.75 C 1.705729 8.75 1.559245 8.688151 1.435547 8.564453 C 1.311849 8.440756 1.25 8.294271 1.25 8.125 L 1.25 3.701172 C 1.25 3.375652 1.316732 3.064779 1.450195 2.768555 C 1.583659 2.472332 1.762695 2.211914 1.987305 1.987305 C 2.211914 1.762695 2.472331 1.58366 2.768555 1.450195 C 3.064779 1.316732 3.375651 1.25 3.701172 1.25 Z M 17.5 8.75 L 17.5 3.75 C 17.5 3.58073 17.467447 3.419598 17.402344 3.266602 C 17.337238 3.113607 17.247721 2.980145 17.133789 2.866211 C 17.019855 2.752279 16.886393 2.662762 16.733398 2.597656 C 16.580402 2.532553 16.41927 2.5 16.25 2.5 L 11.25 2.5 L 11.25 7.5 C 11.25 7.675781 11.282552 7.84017 11.347656 7.993164 C 11.41276 8.146159 11.50065 8.277995 11.611328 8.388672 C 11.722005 8.49935 11.853841 8.58724 12.006836 8.652344 C 12.15983 8.717448 12.324219 8.75 12.5 8.75 Z M 8.125 11.25 C 8.294271 11.25 8.440755 11.31185 8.564453 11.435547 C 8.68815 11.559245 8.75 11.705729 8.75 11.875 L 8.75 18.125 C 8.75 18.294271 8.68815 18.440756 8.564453 18.564453 C 8.440755 18.68815 8.294271 18.75 8.125 18.75 C 7.955729 18.75 7.809245 18.68815 7.685547 18.564453 C 7.561849 18.440756 7.5 18.294271 7.5 18.125 L 7.5 13.378906 L 2.314453 18.564453 C 2.190755 18.68815 2.044271 18.75 1.875 18.75 C 1.705729 18.75 1.559245 18.68815 1.435547 18.564453 C 1.311849 18.440756 1.25 18.294271 1.25 18.125 C 1.25 17.955729 1.311849 17.809244 1.435547 17.685547 L 6.621094 12.5 L 1.875 12.5 C 1.705729 12.5 1.559245 12.438151 1.435547 12.314453 C 1.311849 12.190756 1.25 12.044271 1.25 11.875 C 1.25 11.705729 1.311849 11.559245 1.435547 11.435547 C 1.559245 11.31185 1.705729 11.25 1.875 11.25 Z " />
+				</AppBarButton.Icon>
+				<ToolTipService.ToolTip>
+					<TextBlock x:Uid="CompactOverlayCommandTooltip" Text="Compact Overlay (Alt + Up)" />
+				</ToolTipService.ToolTip>
+			</AppBarButton>
+		</CommandBar>
+	</Grid>
+</UserControl>

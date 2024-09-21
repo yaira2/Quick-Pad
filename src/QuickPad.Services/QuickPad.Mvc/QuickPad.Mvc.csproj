@@ -169,7 +169,7 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\QuickPad.Data\QuickPad.Data\QuickPad.Data.csproj">
+    <ProjectReference Include="..\..\QuickPad.Data\QuickPad.Data.csproj">
       <Project>{4092441f-4f90-4df6-b68c-6ec27ac22ca2}</Project>
       <Name>QuickPad.Data</Name>
     </ProjectReference>
@@ -177,7 +177,7 @@
       <Project>{ef407a85-3916-4b4d-ac88-59709e3e9542}</Project>
       <Name>QuickPad.Standard.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\\QuickPad.UI\QuickPad.UI.Common\QuickPad.UI.Common.csproj">
+    <ProjectReference Include="..\..\QuickPad.UI.Common\QuickPad.UI.Common.csproj">
       <Project>{cbc34766-2d70-47eb-8ddb-bf9a57ec4b4d}</Project>
       <Name>QuickPad.UI.Common</Name>
     </ProjectReference>
