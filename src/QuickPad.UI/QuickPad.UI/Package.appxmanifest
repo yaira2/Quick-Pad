@@ -84,7 +84,7 @@
             <uap:DisplayName>Rich Text Document</uap:DisplayName>
             <uap:InfoTip>Quick-Pad File</uap:InfoTip>
             <uap:EditFlags OpenIsSafe="true"/>
-            <uap:Logo>Assets\File Icons\RTF Small.png</uap:Logo>
+            <uap:Logo>Assets\FileAssociations\RichTextDocument.png</uap:Logo>
           </uap:FileTypeAssociation>
         </uap:Extension>
         <uap:Extension Category="windows.fileTypeAssociation">
@@ -93,7 +93,7 @@
               <uap:FileType ContentType="text/plain">.txt</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:DisplayName>Text Document</uap:DisplayName>
-            <uap:Logo>Assets\File Icons\TXT C Small.png</uap:Logo>
+            <uap:Logo>Assets\FileAssociations\TextDocument.png</uap:Logo>
             <uap:InfoTip>Quick-Pad Document</uap:InfoTip>
             <uap:EditFlags OpenIsSafe="true"/>
           </uap:FileTypeAssociation>
@@ -111,7 +111,7 @@
               <uap:FileType ContentType="text/plain">.workbook</uap:FileType>
             </uap:SupportedFileTypes>
             <uap:DisplayName>Markdown File</uap:DisplayName>
-            <uap:Logo>Assets\File Icons\MD Small.png</uap:Logo>
+            <uap:Logo>Assets\FileAssociations\MarkdownDocument.png</uap:Logo>
           </uap:FileTypeAssociation>
         </uap:Extension>
         <uap:Extension Category="windows.fileTypeAssociation">
@@ -157,7 +157,7 @@
               <uap:FileType>.cfg</uap:FileType>
               <uap:FileType>.srt</uap:FileType>
             </uap:SupportedFileTypes>
-            <uap:Logo>Assets\File Icons\General Small.png</uap:Logo>
+            <uap:Logo>Assets\FileAssociations\GeneralDocument.png</uap:Logo>
           </uap:FileTypeAssociation>
         </uap:Extension>
       </Extensions>

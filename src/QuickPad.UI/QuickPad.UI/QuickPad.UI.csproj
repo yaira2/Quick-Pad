@@ -227,10 +227,10 @@
     <None Include=".editorconfig" />
     <Content Include="Assets\QuickPadIcon.png" />
     <Content Include="Assets\BingIcon.png" />
-    <Content Include="Assets\File Icons\General Small.png" />
-    <Content Include="Assets\File Icons\MD Small.png" />
-    <Content Include="Assets\File Icons\RTF Small.png" />
-    <Content Include="Assets\File Icons\TXT C Small.png" />
+    <Content Include="Assets\FileAssociations\GeneralDocument.png" />
+    <Content Include="Assets\FileAssociations\MarkdownDocument.png" />
+    <Content Include="Assets\FileAssociations\RichTextDocument.png" />
+    <Content Include="Assets\FileAssociations\TextDocument.png" />
     <Content Include="Assets\Fonts\codicon.ttf" />
     <EmbeddedResource Include="Templates\empty.rtf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
