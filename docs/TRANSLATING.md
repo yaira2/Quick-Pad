@@ -1,6 +1,6 @@
 # How to translate Quick Pad
 
-> [!INFO]
+> [!NOTE]
 > You will need to [create a fork](https://github.com/yaira2/Quick-Pad/fork) before you can propose changes.
 
 ### Software requirements
