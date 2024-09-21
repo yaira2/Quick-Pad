@@ -177,9 +177,9 @@
       <Project>{ef407a85-3916-4b4d-ac88-59709e3e9542}</Project>
       <Name>QuickPad.Standard.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\QuickPad.UI.Common\QuickPad.UI.Common.csproj">
+    <ProjectReference Include="..\..\QuickPad.App.Common\QuickPad.App.Common.csproj">
       <Project>{cbc34766-2d70-47eb-8ddb-bf9a57ec4b4d}</Project>
-      <Name>QuickPad.UI.Common</Name>
+      <Name>QuickPad.App.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\QuickPad.MVVM\QuickPad.Mvvm.csproj">
       <Project>{dd33c42d-9de7-4e74-a44d-2085764cf0c8}</Project>

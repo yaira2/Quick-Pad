@@ -15,7 +15,7 @@
 
 - Open Visual Studio with the Quick Pad project
 - Find a "Solution Explorer" window
-- Right-click on the project [QuickPad.UI (Universal Windows)]
+- Right-click on the project [QuickPad.App (Universal Windows)]
 - Click on "Multilingual App Toolkit" > "Add translation languages..."
 - There may be a dialog that says, "Translation provider manager issue", you can just click "OK" to ignore it.
 - Select the language you want to translate by ticking the ✅ in front of that language.
@@ -25,7 +25,7 @@
 #### Open from File Explorer
 
 - Navigate to the project folder
-- The XLF File should be located at `\Quick Pad\MultilingualResources\`
+- The XLF File should be located at `\QuickPad.App\MultilingualResources\`
 - Open the file with the "Multilingual App Toolkit Editor"
 
 ## Working with translations

@@ -1,5 +1,5 @@
 <p align="center">
-  <img alt="Quick Pad Logo" src="../src/QuickPad.UI/QuickPad.UI/Assets/QuickPadIcon.png" width="128px" />
+  <img alt="Quick Pad Logo" src="../src/QuickPad.App/QuickPad.App/Assets/QuickPadIcon.png" width="128px" />
 </p>
 <h1 align="center">
   Quick-Pad
