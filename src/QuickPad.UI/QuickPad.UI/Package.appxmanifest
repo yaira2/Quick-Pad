@@ -62,20 +62,6 @@
                 <uap5:ExecutionAlias Alias="QuickPad.exe" />
               </uap5:AppExecutionAlias>
         </uap5:Extension>
-        <uap:Extension Category="windows.fileSavePicker">
-          <uap:FileSavePicker>
-            <uap:SupportedFileTypes>
-              <uap:SupportsAnyFileType/>
-            </uap:SupportedFileTypes>
-          </uap:FileSavePicker>
-        </uap:Extension>
-        <uap:Extension Category="windows.fileOpenPicker">
-          <uap:FileOpenPicker>
-            <uap:SupportedFileTypes>
-              <uap:SupportsAnyFileType/>
-            </uap:SupportedFileTypes>
-          </uap:FileOpenPicker>
-        </uap:Extension>
         <uap:Extension Category="windows.fileTypeAssociation" >
           <uap:FileTypeAssociation Name="quick-pad-file" >
             <uap:SupportedFileTypes>
