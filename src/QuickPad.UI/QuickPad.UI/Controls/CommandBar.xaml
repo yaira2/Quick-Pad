@@ -5,7 +5,6 @@
 	xmlns:controls="using:Microsoft.UI.Xaml.Controls"
 	xmlns:controls1="using:QuickPad.UI.Controls"
 	xmlns:converters="using:QuickPad.UI.Converters"
-	xmlns:core="using:Microsoft.Xaml.Interactions.Core"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
 	xmlns:local="using:QuickPad.UI"
@@ -189,9 +188,9 @@
 							IsHexInputVisible="False"
 							Color="{x:Bind ViewModelDocument.ForegroundColor, Mode=TwoWay}">
 							<interactivity:Interaction.Behaviors>
-								<core:EventTriggerBehavior EventName="ColorChanged">
-									<core:InvokeCommandAction Command="{x:Bind Commands.ColorCommand}" CommandParameter="{x:Bind ViewModel}" />
-								</core:EventTriggerBehavior>
+								<interactivity:EventTriggerBehavior EventName="ColorChanged">
+									<interactivity:InvokeCommandAction Command="{x:Bind Commands.ColorCommand}" CommandParameter="{x:Bind ViewModel}" />
+								</interactivity:EventTriggerBehavior>
 							</interactivity:Interaction.Behaviors>
 						</ColorPicker>
 					</Flyout>
