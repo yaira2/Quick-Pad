@@ -288,7 +288,6 @@
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
     <Content Include="Properties\Default.rd.xml" />
     <PRIResource Include="Strings\tr\Resources.resw" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.de.xlf" />
     <PRIResource Include="Strings\pt-PT\Resources.resw" />
     <PRIResource Include="Strings\pl\Resources.resw" />
     <PRIResource Include="Strings\he\Resources.resw" />
@@ -460,23 +459,7 @@
     <PRIResource Include="Strings\it\Resources.resw">
       <Link>Strings\it\Resources.resw</Link>
     </PRIResource>
-    <XliffResource Include="MultilingualResources\QuickPad.UI.ar-EG.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.pt-PT.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.es.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.fr-CA.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.fr-FR.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.he.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.hu-HU.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.it.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.pl.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.ru-RU.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.ta.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.th-TH.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.tr.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.zh-Hans.xlf" />
-    <XliffResource Include="MultilingualResources\QuickPad.UI.zh-Hant.xlf" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="..\..\QuickPad.Shared.Commands\QuickPad.Shared.Commands.projitems" Label="Shared" />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
