@@ -47,8 +47,14 @@
 			</Grid>
 
 			<HyperlinkButton
-				x:Uid="PrivacyPolicy"
+				x:Uid="Sponsor"
 				Margin="0,12,0,0"
+				AutomationProperties.Name="Sponsor"
+				Content="Sponsor"
+				NavigateUri="https://github.com/sponsors/yaira2" />
+
+			<HyperlinkButton
+				x:Uid="PrivacyPolicy"
 				AutomationProperties.Name="Privacy Policy"
 				Content="Privacy Policy"
 				NavigateUri="https://github.com/files-community/Files/blob/main/.github/PRIVACY.md" />

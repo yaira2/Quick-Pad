@@ -933,4 +933,8 @@
     <value>Yellow</value>
     <comment>Used on Theme Page</comment>
   </data>
+  <data name="Sponsor.Content" xml:space="preserve">
+    <value>Sponsor</value>
+    <comment>Used on About Page</comment>
+  </data>
 </root>
