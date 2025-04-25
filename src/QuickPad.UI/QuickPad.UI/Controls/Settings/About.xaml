@@ -31,7 +31,7 @@
 
 				<Image
 					Grid.RowSpan="2"
-					Source="/Assets/QuickPadIcon.png"
+					Source="/Assets/StoreLogo.png"
 					Stretch="Uniform" />
 				<TextBlock
 					x:Uid="AppName"
